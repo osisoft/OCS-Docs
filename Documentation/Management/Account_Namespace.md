@@ -5,7 +5,7 @@ uid: accountNamespace
 Namespace
 =======================================================
 
-A Namespace is a collection of Data Streams.
+A Namespace is a collection of Data Streams. Test.
 
 	For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: 
 
