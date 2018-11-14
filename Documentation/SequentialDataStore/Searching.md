@@ -178,13 +178,14 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 	GetStreamsAsync(query:”\\”pump pressure\\””);
 
 Other operators examples
-----------------------
+---------------------
 
 **Query string**     | **Matches field value** | **Does not match field value**
 ------------------ | --------------------------------- | -----------------------------
 ``“mud AND log”`` | log mud<br>mud log | mud<br>log
 ``“mud OR log”`` | log mud<br>mud<br>log | 
 ``“mud AND (NOT log)”`` | mud | mud log
+``“mud AND (log OR pump*)”`` | mud log<br>mud pumps | mud bath
 ``“name:stream\* AND (tags:pressure OR tags:pump)”`` | The name starts with “stream” and has tag values of either “pressure” or “pump” | 
 
 Searching on Metadata
