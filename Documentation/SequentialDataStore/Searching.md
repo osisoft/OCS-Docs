@@ -179,27 +179,6 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 	</thead>
 </table>
 
-<table>
-	<thead>
-		<tr>
-			<th>Supported</th>
-			<th>Not Supported</th>
-		</tr>
-		<tr>
-			<td><ul><li>*</li>
-				<li>*log</li>
-				<li>l*g</li>
-				<li>log*</li>
-				<li>*log*</li></ul>
-			</td>
-			<td><ul><li>*l*g*</li>
-				<li>*l*g</li>
-				<li>l*g*</li></ul>
-			</td>
-		</tr>
-	</thead>
-</table>
-
 **Supported**     | **Not Supported**
 ------------------ | ----------------------------------------
 ``“*”``<br>``“*log”``<br>``“l*g”``<br>``“log*”``<br>``“*log*”``	| ``“*l*g*”``<br>``“*l*g”``<br>``“l*g*”``
@@ -241,6 +220,10 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 		</tr>
 	</thead>
 </table>
+
+**Query string**     | **Matches field value** | **Does not match field value**
+------------------ | --------------------------------- | -----------------------------
+``“pump pressure”`` | pump pressure<br>pump pressure gauge<br>the pump pressure gauge | the pump<br>pressure<br>pressure pump
 
 **REST API example**
 
