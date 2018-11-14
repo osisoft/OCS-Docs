@@ -137,48 +137,6 @@ You can also qualify which fields are searched by using the following syntax:
 
 You can use the ``‘*’`` character as a wildcard to specify an incomplete string.
 
-<table>
-	<thead>
-		<tr>
-			<th>Query string</th>
-			<th>Matches field value</th>
-			<th>Does not match field value</th>
-		</tr>
-		<tr>
-			<td>log*</td>
-			<td><ul><li>log</li>
-				<li>logger</li></ul>
-			</td>
-			<td><ul><li>analog</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>*log</td>
-			<td><ul><li>analog</li>
-				<li>alog</li></ul>
-			</td>
-			<td><ul><li>logg</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>*log*</td>
-			<td><ul><li>analog</li>
-				<li>alogger</li></ul>
-			</td>
-			<td><ul><li>lop</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>l*g</td>
-			<td><ul><li>log</li>
-				<li>logg</li></ul>
-			</td>
-			<td><ul><li>lop</li></ul>
-			</td>
-		</tr>
-	</thead>
-</table>
-
 **Query string**     | **Matches field value** | **Does not match field value**
 ------------------ | --------------------------------- | -----------------------------
 ``“log*”`` | log<br>logger | analog
@@ -222,55 +180,12 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 Other operators examples
 ----------------------
 
-<table>
-	<thead>
-		<tr>
-			<th>Query string</th>
-			<th>Matches field value</th>
-			<th>Does not match field value</th>
-		</tr>
-		<tr>
-			<td>mud AND log</td>
-			<td><ul><li>log mud</li>
-				<li>mud log</li></ul>
-			</td>
-			<td><ul><li>mud</li>
-				<li>log</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>mud OR log</td>
-			<td><ul><li>mud</li>
-				<li>log</li>
-				<li>mud log</li></ul>
-			</td>
-			<td>
-			</td>
-		</tr>
-		<tr>
-			<td>mud AND (NOT log)</td>
-			<td><ul><li>mud</li></ul>
-			</td>
-			<td><ul><li>mud log</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>mud AND (log OR pump*)</td>
-			<td><ul><li>mud log</li>
-			<li>mud pumps</li></ul>
-			</td>
-			<td><ul><li>mud bath</li></ul>
-			</td>
-		</tr>
-		<tr>
-			<td>name:stream\* AND (tags:pressure OR tags:pump)</td>
-			<td>The name starts with “stream” and has tag values of either “pressure” or “pump”
-			</td>
-			<td>
-			</td>
-		</tr>
-	</thead>
-</table>
+**Query string**     | **Matches field value** | **Does not match field value**
+------------------ | --------------------------------- | -----------------------------
+``“mud AND log”`` | log mud<br>mud log | mud<br>log
+``“mud OR log”`` | log mud<br>mud<br>log | 
+``“mud AND (NOT log)”`` | mud | mud log
+``“name:stream\* AND (tags:pressure OR tags:pump)”`` | The name starts with “stream” and has tag values of either “pressure” or “pump” | 
 
 Searching on Metadata
 ---------------------
