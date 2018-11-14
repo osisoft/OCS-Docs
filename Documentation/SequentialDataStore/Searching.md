@@ -145,7 +145,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			<th>Does not match field value</th>
 		</tr>
 		<tr>
-			<td>"log*"</td>
+			<td>“log*”</td>
 			<td><ul><li>log</li>
 				<li>logger</li></ul>
 			</td>
@@ -153,7 +153,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>"*log"</td>
+			<td>“*log”</td>
 			<td><ul><li>analog</li>
 				<li>alog</li></ul>
 			</td>
@@ -161,7 +161,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>"*log*"</td>
+			<td>“*log*”</td>
 			<td><ul><li>analog</li>
 				<li>alogger</li></ul>
 			</td>
@@ -169,7 +169,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>"l*g"</td>
+			<td>“l*g”</td>
 			<td><ul><li>log</li>
 				<li>logg</li></ul>
 			</td>
@@ -186,15 +186,15 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			<th>Not Supported</th>
 		</tr>
 		<tr>
-			<td><ul><li>"*"</li>
-				<li>"*log"</li>
-				<li>"l*g"</li>
-				<li>"log*"</li>
-				<li>"*log*"</li></ul>
+			<td><ul><li>“*”</li>
+				<li>“*log”</li>
+				<li>“l*g”</li>
+				<li>“log*”</li>
+				<li>“*log*”</li></ul>
 			</td>
-			<td><ul><li>"*l*g*"</li>
-				<li>"*l*g"</li>
-				<li>"l*g*"</li></ul>
+			<td><ul><li>“*l*g*”</li>
+				<li>“*l*g”</li>
+				<li>“l*g*”</li></ul>
 			</td>
 		</tr>
 	</thead>
@@ -226,7 +226,7 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 			<th>Does not match field value</th>
 		</tr>
 		<tr>
-			<td>”pump pressure”</td>
+			<td>“pump pressure”</td>
 			<td><ul><li>pump pressure</li>
 				<li>pump pressure gauge</li>
 				<li>the pump pressure gauge</li></ul>
@@ -258,7 +258,7 @@ Other operators examples
 			<th>Does not match field value</th>
 		</tr>
 		<tr>
-			<td>mud AND log</td>
+			<td>“mud AND log”</td>
 			<td><ul><li>log mud</li>
 				<li>mud log</li></ul>
 			</td>
@@ -267,7 +267,7 @@ Other operators examples
 			</td>
 		</tr>
 		<tr>
-			<td>mud OR log</td>
+			<td>“mud OR log”</td>
 			<td><ul><li>mud</li>
 				<li>log</li>
 				<li>mud log</li></ul>
@@ -276,14 +276,14 @@ Other operators examples
 			</td>
 		</tr>
 		<tr>
-			<td>mud AND (NOT log)</td>
+			<td>“mud AND (NOT log)”</td>
 			<td><ul><li>mud</li></ul>
 			</td>
 			<td><ul><li>mud log</li></ul>
 			</td>
 		</tr>
 		<tr>
-			<td>mud AND (log OR pump*)</td>
+			<td>“mud AND (log OR pump*)”</td>
 			<td><ul><li>mud log</li>
 			<li>mud pumps</li></ul>
 			</td>
@@ -291,7 +291,7 @@ Other operators examples
 			</td>
 		</tr>
 		<tr>
-			<td>name:stream\* AND (tags:pressure OR tags:pump)</td>
+			<td>“name:stream\* AND (tags:pressure OR tags:pump)”</td>
 			<td>The name starts with “stream” and has tag values of either “pressure” or “pump”
 			</td>
 			<td>
