@@ -179,6 +179,13 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 	</thead>
 </table>
 
+**Query string**     | **Matches field value** | **Does not match field value**
+------------------ | --------------------------------- | -----------------------------
+``“log*”`` | log<br>logger | analog
+``“*log”`` | analog<br>alog | logg
+``“*log*”`` | analog<br>alogger | lop
+``“l*g”`` | log<br>logg | lop
+
 **Supported**     | **Not Supported**
 ------------------ | ----------------------------------------
 ``“*”``<br>``“*log”``<br>``“l*g”``<br>``“log*”``<br>``“*log*”``	| ``“*l*g*”``<br>``“*l*g”``<br>``“l*g*”``
@@ -199,27 +206,6 @@ The search engine automatically searches on strings delimited by
 whitespace and dashes (with the exception of identifier fields like Id
 or TypeId fields). To search for values that include delimiters, enclose the value in double quotes.
 ``"*"`` can not be used in conjunction with this operator.
-
-<table>
-	<thead>
-		<tr>
-			<th>Query string</th>
-			<th>Matches field value</th>
-			<th>Does not match field value</th>
-		</tr>
-		<tr>
-			<td>pump pressure</td>
-			<td><ul><li>pump pressure</li>
-				<li>pump pressure gauge</li>
-				<li>the pump pressure gauge</li></ul>
-			</td>
-			<td><ul><li>the pump</li>
-				<li>pressure</li>
-				<li>pressure pump</li></ul>
-			</td>
-		</tr>
-	</thead>
-</table>
 
 **Query string**     | **Matches field value** | **Does not match field value**
 ------------------ | --------------------------------- | -----------------------------
