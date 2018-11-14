@@ -36,7 +36,7 @@ The only difference is the resource you're searching on, and you can filter on d
 
 The syntax of the client libraries method is as follows:
 
-      _metadataService.GetStreamsAsync(query:"QueryString", skip:0, count:100);
+      _metadataService.GetTypesAsync(query:"QueryString", skip:0, count:100);
 
 
 As previously mentioned, searching for types is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
@@ -145,7 +145,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			<th>Does not match field value</th>
 		</tr>
 		<tr>
-			<td>log*</td>
+			<td>log\*</td>
 			<td><ul><li>log</li>
 				<li>logger</li></ul>
 			</td>
@@ -153,7 +153,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>*log</td>
+			<td>\*log</td>
 			<td><ul><li>analog</li>
 				<li>alog</li></ul>
 			</td>
@@ -161,7 +161,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>*log*</td>
+			<td>\*log\*</td>
 			<td><ul><li>analog</li>
 				<li>alogger</li></ul>
 			</td>
@@ -169,7 +169,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			</td>
 		</tr>
 		<tr>
-			<td>l*g</td>
+			<td>l\*g</td>
 			<td><ul><li>log</li>
 				<li>logg</li></ul>
 			</td>
@@ -186,15 +186,15 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 			<th>Not Supported</th>
 		</tr>
 		<tr>
-			<td><ul><li>*</li>
-				<li>*log</li>
-				<li>l*g</li>
-				<li>log*</li>
-				<li>*log*</li></ul>
+			<td><ul><li>\*</li>
+				<li>\*log</li>
+				<li>l\*g</li>
+				<li>log\*</li>
+				<li>\*log\*</li></ul>
 			</td>
-			<td><ul><li>*l*g*</li>
-				<li>*l*g</li>
-				<li>l*g*</li></ul>
+			<td><ul><li>\*l\*g\*</li>
+				<li>\*l\*g</li>
+				<li>l\*g\*</li></ul>
 			</td>
 		</tr>
 	</thead>
@@ -226,7 +226,7 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 			<th>Does not match field value</th>
 		</tr>
 		<tr>
-			<td>pump pressure</td>
+			<td>"pump pressure"</td>
 			<td><ul><li>pump pressure</li>
 				<li>pump pressure gauge</li>
 				<li>the pump pressure gauge</li></ul>
