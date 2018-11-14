@@ -2,7 +2,7 @@
 uid: sdsStreams
 ---
 
-#### Qi_Stream_topic
+#### SDS_Stream_topic
 
 Streams
 =======

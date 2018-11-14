@@ -5,7 +5,7 @@ uid: sdsTypes
 Types
 =====
 
-#### Qi_Type_topic
+#### SDS_Type_topic
 
 The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
 events. Events are stored in streams, called SdsStreams. An SdsType defines the shape or structure of the 

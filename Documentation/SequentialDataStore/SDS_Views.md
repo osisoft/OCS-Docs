@@ -2,19 +2,19 @@
 uid: sdsViews
 ---
 
-Sds Views
+SDS Views
 =========
 
-#### Sds_Views_topic
+#### SDS_Views_topic
 
 An SdsView provides a way to map Stream data requests from one data type to another. You can apply 
 a View to any read or GET operation. SdsView is used to specify the mapping between source and target types.
 
 Sds attempts to determine how to map Properties from the source to the destination. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
-or when the properties have the same name, Sds will map the properties automatically.
+or when the properties have the same name, SDS will map the properties automatically.
 
-When Sds is unable to determine how to map a source property, the property is removed. If Sds encounters 
+When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
 a target property that it cannot map to, the property is added and configured with a default value.
 
 To map a property that is beyond the ability of Sds to map on its own, you should define an SdsViewProperty 

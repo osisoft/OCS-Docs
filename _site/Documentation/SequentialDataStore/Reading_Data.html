@@ -70,7 +70,7 @@
 <h4 id="qireadingdatatopic">Qi_Reading_data_topic</h4>
 <h1 id="reading-data">Reading data</h1>
 <p>The REST APIs provide programmatic access to read and write data. This section identifies and describes 
-the APIs used to read <a class="xref" href="Qi_Streams.html#qistreamtopic">Qi_Stream_topic</a> data. Results are influenced by <a class="xref" href="Qi_Types.html#qitypetopic">Qi_Types_topic</a>,<br><a class="xref" href="Qi_Views.html">Sds_View_topic</a>, <a class="xref" href="Filter_Expressions.html">Qi_Filter_expressions_topic</a>, and <a class="xref" href="table_format.html">Qi_Table_format_topic</a>.</p>
+the APIs used to read <a class="xref" href="SDS_Streams.html#qistreamtopic">Qi_Stream_topic</a> data. Results are influenced by <a class="xref" href="SDS_Types.html#qitypetopic">Qi_Types_topic</a>,<br><a class="xref" href="SDS_Views.html">Sds_View_topic</a>, <a class="xref" href="Filter_Expressions.html">Qi_Filter_expressions_topic</a>, and <a class="xref" href="table_format.html">Qi_Table_format_topic</a>.</p>
 <p>If you are working in a .NET environment, convenient SDS Client libraries are available. 
 The <code>ISdsDataServiceinterface</code>, which is accessed using the <code>SdsService.GetDataService()</code> helper, 
 defines the functions that are available.</p>
@@ -117,7 +117,7 @@ type as a generic argument. Additional details about working with indexes can be
 whether the result is an error, null event, interpolated event, or extrapolated event. The combination of 
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
 determine the read characteristics. For more information on read characteristics, 
-see <a class="xref" href="Qi_Types.html#qitypetopic">QiType_topic</a> and <a class="xref" href="Qi_Streams.html#qistreamtopic">Qi_Stream_topic</a>.</p>
+see <a class="xref" href="SDS_Types.html#qitypetopic">QiType_topic</a> and <a class="xref" href="SDS_Streams.html#qistreamtopic">Qi_Stream_topic</a>.</p>
 <p><strong>Methods affected by Read Characteristics</strong></p>
 <p><code>GetValueAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getvalueasync&gt;</code>__
   Read characteristics are applied when the index is between, before, or after all data.</p>
@@ -130,7 +130,7 @@ see <a class="xref" href="Qi_Types.html#qitypetopic">QiType_topic</a> and <a cla
 <h2 id="sdsview-and-reading-data">SdsView and reading data</h2>
 <p>All reads support specifying a SdsView identifier in the query string to shape the results of the read:</p>
 <p><code>viewId={viewId}</code></p>
-<p>Working with views is covered in detail in the <a class="xref" href="Qi_Views.html">Sds_View_topic</a> section.</p>
+<p>Working with views is covered in detail in the <a class="xref" href="SDS_Views.html">Sds_View_topic</a> section.</p>
 <p>When data is requested with a SdsView the read characteristics defined by the <em>target type</em> of the SdsView 
 determine what is returned. The read characteristics are discussed in the <em>Get Value</em>, 
 <em>GetValues</em> and <em>GetWindowValues</em> code samples.</p>

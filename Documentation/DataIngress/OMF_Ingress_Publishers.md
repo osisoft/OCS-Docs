@@ -15,7 +15,7 @@ While OMF messages may be sent to OCS immediately after provisioning a publisher
 cannot be made available for consumption until a Topic is created. However, some 
 messages are stored for later consumption in OCS databases. See OMF documentation for more information. 
 
-The API calls in this section are all used to manage publishers. See [Introduction to Parse](https://qi-docs-rst.readthedocs.org/en/latest/parse_intro.html) for more information.
+The API calls in this section are all used to manage publishers.
 
 Tokens
 ------
@@ -144,6 +144,40 @@ Get a specific publisher.
 
 ***************************
 
+``GET api/tenants/{tenantId}/accesscontrol/publishers``
+--------------------------------------------
+
+Get the Access Control List that is used by default for new publishers.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+
+**Returns**
+
+An AccessControlList object.
+
+***************************
+
+``GET api/tenants/{tenantId}/publishers/{publisherId}/accesscontrol``
+--------------------------------------------
+
+Get the Access Control List for a specific publisher.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``publisherId``
+  Unique Id for the publisher.  
+
+**Returns**
+
+An AccessControlList object.
+
+***************************
+
 ``GET api/tenants/{tenantId}/publishers/{publisherId}/tokens``
 --------------------------------------------
 
@@ -242,6 +276,38 @@ A Token object.
 
 A Token object. 
 
+***************************
+
+``PUT api/tenants/{tenantId}/accesscontrol/publishers``
+---------------------------------------
+
+Update the default Access Control List for new publishers.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+
+**Body**
+  An AccessControlList object.
+  
+***************************
+
+``PUT tenants/{tenantId}/publishers/{publisherId}/accesscontrol``
+---------------------------------------
+
+Update the Access Control List for a particular publisher.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``publisherId``
+  Unique Id for the publisher. 
+
+**Body**
+  An AccessControlList object.
+  
 ***************************
 
 ``DELETE api/tenants/{tenantId}/publishers/{publisherId}``

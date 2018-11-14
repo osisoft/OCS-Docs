@@ -118,6 +118,11 @@ Standard Subscriptions are not yet supported.</p>
 <td>Identifies the owner of the Topic.</td>
 </tr>
 <tr>
+<td>TopicNamespaceId</td>
+<td>string</td>
+<td>Identifies the namespace for the Topic</td>
+</tr>
+<tr>
 <td>TenantId</td>
 <td>string</td>
 <td>Identifies the owner of the</td>
@@ -126,6 +131,16 @@ Standard Subscriptions are not yet supported.</p>
 <td></td>
 <td></td>
 <td>Subscription.</td>
+</tr>
+<tr>
+<td>NamespaceId</td>
+<td>string</td>
+<td>Identifies the namespace for the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Subscription</td>
 </tr>
 <tr>
 <td>IsRevoked</td>
@@ -140,12 +155,12 @@ Standard Subscriptions are not yet supported.</p>
 <tr>
 <td>Type</td>
 <td>integer</td>
-<td>An enumeration where Standard=0,</td>
+<td>An enumeration where OCSDataStore=1,</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>OCSDataStore=1</td>
+<td>Standard=2</td>
 </tr>
 <tr>
 <td>CreatedDate</td>
@@ -180,67 +195,109 @@ Standard Subscriptions are not yet supported.</p>
 </tbody>
 </table>
 <hr>
-<h2 id="get-apitenantstenantidsubscriptionscount"><code>GET api/tenants/{tenantId}/subscriptions/count</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionscount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/count</code></h2>
 <p>Get the number of subscriptions for a tenant.  </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace.   </p>
 <p><strong>Returns</strong></p>
 <p>An integer count of subscriptions. </p>
 <hr>
-<h2 id="get-apitenantstenantidsubscriptions"><code>GET api/tenants/{tenantId}/subscriptions</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptions"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions</code></h2>
 <p>Get all subscriptions for a tenant. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Returns</strong></p>
 <p>An array of Subscription objects. </p>
 <hr>
-<h2 id="get-apitenantstenantidsubscriptionssubscriptionid"><code>GET api/tenants/{tenantId}/subscriptions/{subscriptionId}</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionid"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}</code></h2>
 <p>Get a specific subscription. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
 <code>subscriptionId</code>
   Unique Id for the subscription. </p>
 <p><strong>Returns</strong></p>
 <p>A Subscription object that was found. </p>
 <hr>
-<h2 id="get-apitenantstenantidsubscriptionssubscriptionidsecondsuntilexpiration"><code>GET api/tenants/{tenantId}/subscriptions/{subscriptionId}/{secondsUntilExpiration}</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidsecondsuntilexpiration"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/{secondsUntilExpiration}</code></h2>
 <p>Get a security token for a subscription. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
 <code>subscriptionId</code>
   Unique Id for the subscription. 
 <code>secondsUntilExpiration</code>
   Integer number of seconds until the token expires. </p>
 <p><strong>Returns</strong></p>
-<p>A Subscription object that was found. </p>
+<p>A token string for the subscription.</p>
 <hr>
-<h2 id="post-apitenantstenantidsubscription"><code>POST api/tenants/{tenantId}/subscription</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidaccesscontrolsubscriptions"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions</code></h2>
+<p>Gets the default Access Control List for new subscriptions</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p><strong>Returns</strong></p>
+<p>An AccessControlList object </p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidaccesscontrol"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol</code></h2>
+<p>Gets the Access Control List for a particular subscriptions</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>subscriptionId</code>
+  Unique Id for the subscription. </p>
+<p><strong>Returns</strong></p>
+<p>An AccessControlList object </p>
+<hr>
+<h2 id="post-apitenantstenantidnamespacesnamespaceidsubscription"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/subscription</code></h2>
 <p>Create or update a subscription. Only the name and description may be updated. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
 <p>A Subscription object. </p>
 <p><strong>Returns</strong></p>
 <p>A Subscription object that was created or updated. </p>
 <hr>
-<h2 id="post-apitenantstenantidsubscriptionocsdatastorerelaynamespace"><code>POST api/tenants/{tenantId}/subscription/{ocsDataStoreRelayNamespace}</code></h2>
-<p>Create or update a subscription with an OCSDataStore destination. Only the name and description may be updated. </p>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidaccesscontrolsubscriptions"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions</code></h2>
+<p>Updates the default Access Control List for new subscriptions</p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
-<code>ocsDataStoreRelayNamespace</code>
-  The namespace to be used for the OCSDataStore subscription. </p>
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
-<p>A Subscription object. </p>
-<p><strong>Returns</strong></p>
-<p>A Subscription object that was created or updated.  </p>
+<p>An AccessControlList object </p>
 <hr>
-<h2 id="delete-apitenantstenantidsubscriptionssubscriptionid"><code>DELETE api/tenants/{tenantId}/subscriptions/{subscriptionId}</code></h2>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidaccesscontrol"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol</code></h2>
+<p>Updates the Access Control List for a particular subscriptions</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>subscriptionId</code>
+  Unique Id for the subscription. </p>
+<p><strong>Body</strong></p>
+<p>An AccessControlList object </p>
+<hr>
+<h2 id="delete-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionid"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}</code></h2>
 <p>Delete a Subscription. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>

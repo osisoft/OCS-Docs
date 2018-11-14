@@ -59,8 +59,8 @@ references:
   name: Samples
   href: Documentation/samples.html
 - uid: sds
-  name: Sequential data store
-  href: Documentation/SequentialDataStore/Data_Store_and_Qi.html
+  name: Sequential Data Store
+  href: Documentation/SequentialDataStore/Data_Store_and_SDS.html
 - uid: sdsCompression
   name: Compression
   href: Documentation/SequentialDataStore/Compression.html
@@ -72,7 +72,7 @@ references:
   href: Documentation/SequentialDataStore/indexes.html
 - uid: sdsIntroduction
   name: Introducing the Sequential Data Store
-  href: Documentation/SequentialDataStore/Introducing_Qi.html
+  href: Documentation/SequentialDataStore/Introducing_SDS.html
 - uid: sdsQuickStart
   name: Quick start
   href: Documentation/SequentialDataStore/Quick_Start.html
@@ -87,22 +87,19 @@ references:
   href: Documentation/SequentialDataStore/Searching.html
 - uid: sdsStreamExtra
   name: Stream Metadata and Tags
-  href: Documentation/SequentialDataStore/QiStreamExtra.html
+  href: Documentation/SequentialDataStore/SdsStreamExtra.html
 - uid: sdsStreams
   name: Streams
-  href: Documentation/SequentialDataStore/Qi_Streams.html
-- uid: sdsStreamsApi
-  name: QiStream API
-  href: Documentation/SequentialDataStore/Qi_Streams_API.html
+  href: Documentation/SequentialDataStore/SDS_Streams.html
 - uid: sdsTableFormat
   name: Table format
   href: Documentation/SequentialDataStore/table_format.html
 - uid: sdsTypes
   name: Types
-  href: Documentation/SequentialDataStore/Qi_Types.html
+  href: Documentation/SequentialDataStore/SDS_Types.html
 - uid: sdsViews
-  name: Sds Views
-  href: Documentation/SequentialDataStore/Qi_Views.html
+  name: SDS Views
+  href: Documentation/SequentialDataStore/SDS_Views.html
 - uid: sdsWritingData
   name: Writing data
   href: Documentation/SequentialDataStore/Writing_Data.html

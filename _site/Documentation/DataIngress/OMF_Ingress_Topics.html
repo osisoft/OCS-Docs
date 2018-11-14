@@ -103,6 +103,11 @@ subscriptions which are temporarily unable to receive data. </p>
 <td>creation</td>
 </tr>
 <tr>
+<td>NamespaceId</td>
+<td>string</td>
+<td>Identifies the namespace for the Topic</td>
+</tr>
+<tr>
 <td>Name</td>
 <td>string</td>
 <td>A friendly name for the Topic</td>
@@ -154,6 +159,11 @@ called <code>MappedTopic</code> which extends <code>Topic</code>: </p>
 <td></td>
 <td></td>
 <td>creation</td>
+</tr>
+<tr>
+<td>NamespaceId</td>
+<td>string</td>
+<td>Identifies the namespace for the Topic</td>
 </tr>
 <tr>
 <td>Name</td>
@@ -215,107 +225,173 @@ called <code>MappedTopic</code> which extends <code>Topic</code>: </p>
 </tbody>
 </table>
 <hr>
-<h2 id="get-apitenantstenantidtopicscount"><code>GET api/tenants/{tenantId}/topics/count</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicscount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/count</code></h2>
 <p>Get the number of topics for a tenant. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace.</p>
 <p><strong>Returns</strong></p>
 <p>An integer. </p>
 <hr>
-<h2 id="get-apitenantstenantidtopicstopicid"><code>GET api/tenants/{tenantId}/topics/{topicId}</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicid"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}</code></h2>
 <p>Get a specific topic. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
 <code>topicId</code>
-  Unique Id for the publisher. </p>
+  Unique Id for the topic. 
+<code>namespaceId</code>
+  Unique Id for the namespace.</p>
 <p><strong>Returns</strong></p>
 <p>A Topic object. </p>
 <hr>
-<h2 id="get-apitenantstenantidtopics"><code>GET api/tenants/{tenantId}/topics</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopics"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics</code></h2>
 <p>Get all topics for a tenant. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace.</p>
 <p><strong>Returns</strong></p>
 <p>An array of Topic objects. </p>
 <hr>
-<h2 id="get-apitenantstenantidpublishertopicmappingspublisherpublisherid"><code>GET api/tenants/{tenantId}/publishertopicmappings/publisher/{publisherId}</code></h2>
-<p>Gets a list of topics that a publisher is currently mapped to. </p>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidsubscriptions"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions</code></h2>
+<p>Get all subscriptions across all namespaces mapped to a topic.</p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
-<code>publisherId</code>
-  Unique Id for the publisher. </p>
+<code>namespaceId</code>
+  Unique Id for the namespace of the topic.
+<code>topicId</code>
+  Unique Id for the topic.</p>
 <p><strong>Returns</strong></p>
-<p>An array of strings, each the Id of a topic the publisher is mapped to </p>
+<p>An array of Subscription objects. </p>
 <hr>
-<h2 id="get-apitenantstenantidpublishertopicmappingstopictopicid"><code>GET api/tenants/{tenantId}/publishertopicmappings/topic/{topicId}</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidpublishertopicmappingstopictopicid"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmappings/topic/{topicId}</code></h2>
 <p>Gets a list of publishers that are currently mapped to a topic </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace of the topic.
 <code>topicId</code>
-  Unique Id for the publisher. </p>
+  Unique Id for the topic. </p>
 <p><strong>Returns</strong></p>
 <p>An array of strings, each the Id of a publisher that is mapped to the provided topic</p>
 <hr>
-<h2 id="post-apitenantstenantidtopic"><code>POST api/tenants/{tenantId}/topic</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidaccesscontroltopics"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
+<p>Gets the default Access Control List for new topics.</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p><strong>Returns</strong></p>
+<p>An AccessControlList object.</p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidaccesscontrol"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol</code></h2>
+<p>Gets the Access Control List for a particular topic.</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p><strong>Returns</strong></p>
+<p>An AccessControlList object.</p>
+<hr>
+<h2 id="post-apitenantstenantidnamespacesnamespaceidtopic"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/topic</code></h2>
 <p>Creates or updates a topic. Only the topic name and description can be updated. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
 <p>A MappedTopic object. </p>
 <p><strong>Returns</strong></p>
 <p>A MappedTopic object. </p>
 <hr>
-<h2 id="post-apitenantstenantidtopics"><code>POST api/tenants/{tenantId}/topics</code></h2>
+<h2 id="post-apitenantstenantidnamespacesnamespaceidtopics"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/topics</code></h2>
 <p>Creates or updates multiple topic. Only the topic name and description can be updated. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
 <p>An array of MappedTopic objects. </p>
 <p><strong>Returns</strong></p>
 <p>An array of MappedTopic objects. </p>
 <hr>
-<h2 id="post-apitenantstenantidpublishertopicmapping"><code>POST api/tenants/{tenantId}/publishertopicmapping</code></h2>
+<h2 id="post-apitenantstenantidnamespacesnamespaceidpublishertopicmapping"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmapping</code></h2>
 <p>Creates a mapping between a publisher and topic. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
 <p>A MappedPublisher object. </p>
 <p><strong>Returns</strong></p>
 <p>A MappedPublisher object. </p>
 <hr>
-<h2 id="post-apitenantstenantidpublishertopicmappings"><code>POST api/tenants/{tenantId}/publishertopicmappings</code></h2>
+<h2 id="post-apitenantstenantidnamespacesnamespaceidpublishertopicmappings"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmappings</code></h2>
 <p>Creates multiple mappings between publishers and topics </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
-  Unique Id for the tenant. </p>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
 <p>An array of MappedPublisher objects. </p>
 <p><strong>Returns</strong> </p>
 <p>An array of MappedPublisher objects. </p>
 <hr>
-<h2 id="delete-apitenantstenantidpublishertopicmappingstopicid"><code>DELETE api/tenants/{tenantId}/publishertopicmappings/{topicId}</code></h2>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidaccesscontroltopics"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
+<p>Update the default Access Control List for new topics</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p><strong>Body</strong></p>
+<p>An AccessControlList object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopicstopicidaccesscontrol"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol</code></h2>
+<p>Update the Access Control List for a particular topic</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p><strong>Body</strong></p>
+<p>An AccessControlList object.</p>
+<hr>
+<h2 id="delete-apitenantstenantidnamespacesnamespaceidpublishertopicmappingstopicid"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmappings/{topicId}</code></h2>
 <p>Delete mappings between a topic and multiple publishers. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
 <code>topicId</code>
   Unique Id for the topic. </p>
 <p><strong>Body</strong></p>
 <p>A string array of Publisher Ids to remove from the Topic. </p>
 <hr>
-<h2 id="delete-apitenantstenantidtopicstopicid"><code>DELETE api/tenants/{tenantId}/topics/{topicId}</code></h2>
+<h2 id="delete-apitenantstenantidnamespacesnamespaceidtopicstopicid"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}</code></h2>
 <p>Delete a topic. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
 <code>topicId</code>
   Unique Id for the topic. </p>
 <hr>

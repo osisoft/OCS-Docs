@@ -6,7 +6,7 @@ uid: sdsIntroduction
 Introducing the Sequential Data Store
 =====================================
 
-#### Introducing_Qi_topic
+#### Introducing_SDS_topic
 
 
 The Sequential Data Store (SDS) is a highly flexible cloud-based sequential data store that you use to store, 
@@ -36,7 +36,7 @@ Samples
 
 The best way to get started with SDS is to run one or more of the code samples. Code samples are 
 provided in a number of different programming languages to illustrate how to easily and effectively 
-interact with SDS. The code samples can be found in the Qi-Samples repository on GitHub. Obtain Qi 
+interact with SDS. The code samples can be found in the SDS-Samples repository on GitHub. Obtain SDS 
 REST API access keys from https://cloud.osisoft.com before running the sample code.
 
 Each sample includes a readme file which describes the steps required to run the sample and a brief description 

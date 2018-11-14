@@ -69,9 +69,9 @@
 
 <h4 id="qisearchingtopic">Qi_Searching_topic</h4>
 <h1 id="searching-for-streams">Searching for streams</h1>
-<p><code>GetStreamsAsync</code> is an overloaded method that is also used to search for and return streams (also see <a class="xref" href="Qi_Streams.html">Streams</a> for information about using <code>GetStreamAsync</code> to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.</p>
+<p><code>GetStreamsAsync</code> is an overloaded method that is also used to search for and return streams (also see <a class="xref" href="SDS_Streams.html">Streams</a> for information about using <code>GetStreamsAsync</code> to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.</p>
 <p>The syntax of the client libraries method is as follows:</p>
-<pre><code>  _metadataService.GetStreamsAsync(string searchText, int skip, int count);
+<pre><code>  _metadataService.GetStreamsAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>Searching for streams is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
 <pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;skip={skip}&amp;count={count}
 </code></pre><p>The <code>GetStreamsAsync</code> overload returns streams that match specific search criteria within a given namespace. 
@@ -91,38 +91,20 @@ stream that matches the search string in the <code>name</code>, <code>descriptio
 <tr>
 <td>stream1</td>
 <td>tempA</td>
-<td>The temperature</td>
+<td>The temperature from DeviceA</td>
 <td>“temperature”, “DeviceA”</td>
-</tr>
-<tr>
-<td></td>
-<td>from DeviceA</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>stream2</td>
 <td>pressureA</td>
-<td>The pressure</td>
+<td>The pressure from DeviceA</td>
 <td>“pressure”, “DeviceA”</td>
-</tr>
-<tr>
-<td></td>
-<td>from DeviceA</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>stream3</td>
 <td>calcA</td>
-<td>calculation from</td>
-<td>“temperature”,</td>
-</tr>
-<tr>
-<td></td>
-<td>DeviceA values</td>
-<td>“pressure”, “DeviceA”</td>
-<td></td>
+<td>calculation from DeviceA values</td>
+<td>“temperature”, “pressure”, “DeviceA”</td>
 </tr>
 </tbody>
 </table>
@@ -171,6 +153,14 @@ The following call returns the first 100 matches:</p>
 </code></pre><p>After the previous call, you can use the following call to return the remaining 75 matches, skipping over the first 
 100 matches because of the skip parameter set at 100):</p>
 <pre><code>   _metadataService.GetStreamsAsync(“temperature*”, 100, 100) 
+</code></pre><h1 id="searching-for-types">Searching for types</h1>
+<p>Searching for types is very similar to searching for streams.  The query syntax is the same and the request parameters are the same.
+The only difference is the resource you&#39;re searching on, and the type properties that can be filtered on are different than
+on streams. See <a class="xref" href="SDS_Types.html">Types</a> for more information.</p>
+<p>The syntax of the client libraries method is as follows:</p>
+<pre><code>  _metadataService.GetTypesAsync(query:&quot;QueryString&quot;, skip:0, count:100);
+</code></pre><p>Searching for types is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
 </code></pre><h2 id="search-operators">Search operators</h2>
 <p>You can specify search operators in the <code>searchText</code> string to return more specific search results. </p>
 <h4 id="operators">operators</h4>
