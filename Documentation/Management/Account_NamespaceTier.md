@@ -2,76 +2,77 @@
 uid: AccountNamespaceTier
 ---
 
-NamespaceTier
-=======================================================
+# NamespaceTier
 
 An attribute that specifies namespace performance.
 
-	For HTTP requests and responses, the NamespaceTier object has the following properties and JSON-serialized body: 
+## Properties
 
-#### NamespaceTierObj 
+For HTTP requests and responses, the NamespaceTier object has the following properties and JSON-serialized body: 
 
-``string Id``
-	GUID for this Namespace Tier.
-``string Description``
-	Description of this Tier.
-``int32 ThroughputUnits``
-	The number of throughput units associated with this Tier.
-``int32 StorageUnits``
-	The number of Storage units associated with this Tier.
+| Property | Type | Description | 
+ | --- | --- | ---  | 
+| Id | string | GUID for this Namespace Tier. | 
+| Description | string | Description of this Tier. | 
+| ThroughputUnits | int32 | The number of throughput units associated with this Tier. | 
+| StorageUnits | int32 | The number of Storage units associated with this Tier. | 
 
-.. highlight:: C#
 
-    	HTTP/1.1 200
-    	Content-Type: application/json
+```json
+{
+	"Id": "id",
+	"Description": "description",
+	"ThroughputUnits": 0,
+	"StorageUnits": 0
+}
+```
+***
 
-     {
-    	"Id": "id",
-    	"Description": "description",
-    	"ThroughputUnits": 0,
-    	"StorageUnits": 0
-     }
-
-**********************
-
-``GetNamespaceTier()``
---------------------------------------------------------------------
+## `GetNamespaceTier()`
 
 Retrieves a Namespace tier associated with a specified id
 
-**Http**
+### Http
 
-    	GET api/NamespaceTiers/{namespaceTierId}
+`GET api/NamespaceTiers/{namespaceTierId}`
 
-**Parameters**
+### Parameters
 
-``string namespaceTierId``
-	The tier identifier for this request
+```csharp
+[Required]
+string namespaceTierId
+```
 
-**Security**  
-Allowed by Account Member [Role](xref:accountRole#roleobj)
+The tier identifier for this request
 
-**Returns**  
-A [NamespaceTier](#namespacetierobj) object with the specified namespaceTierId
 
-**********************
+### Security
 
-``GetAllNamespaceTiers()``
---------------------------------------------------------------------
+Allowed by Account Member [Role](xref:AccountRole)
+
+### Returns
+
+A `NamespaceTier` object with the specified namespaceTierId
+
+***
+## `GetAllNamespaceTiers()`
 
 Retrieves a list of all available namespace tiers.
 
-**Http**
+### Http
 
-    	GET api/NamespaceTiers
+`GET api/NamespaceTiers`
 
-**Parameters**
+### Parameters
 
+This API call does not have any parameters.
 
-**Security**  
-Allowed by Account Member [Role](xref:accountRole#roleobj)
+### Security
 
-**Returns**  
-An array of [NamespaceTier](#namespacetierobj) objects
+Allowed by Account Member [Role](xref:AccountRole)
 
-**********************
+### Returns
+
+An array of `NamespaceTier` objects
+
+***

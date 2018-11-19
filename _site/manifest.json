@@ -96,7 +96,19 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_Applications.html",
-          "hash": "sR0p5TMiAs0iG3ZSgv6SHA=="
+          "hash": "oU3fV92C7lqTKXpLw/NHAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/Management/Account_ClientRole.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/Management/Account_ClientRole.html",
+          "hash": "o7XCm9KndDZ7/wv7HUUowQ=="
         }
       },
       "is_incremental": false,
@@ -108,7 +120,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_Namespace.html",
-          "hash": "aRQXK67KV0TSP4v22kuO8A=="
+          "hash": "HUxYqAyrzfNDnYd3gVqhrQ=="
         }
       },
       "is_incremental": false,
@@ -120,7 +132,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_NamespaceTier.html",
-          "hash": "dr3uwdKnMr+487R0hxjNEg=="
+          "hash": "EC2BxIAucQduz2A29BRhpA=="
         }
       },
       "is_incremental": false,
@@ -132,7 +144,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_Role.html",
-          "hash": "EAh1x9IBdhxE3iV0YJJhkA=="
+          "hash": "bbxbR1EomqWe0BkLkEWAmQ=="
         }
       },
       "is_incremental": false,
@@ -144,7 +156,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_RootAccessControl.html",
-          "hash": "JzkqIXKQPVyDuTDVm8VPXw=="
+          "hash": "IK1zROkE8R8/mhPCVuHfcQ=="
         }
       },
       "is_incremental": false,
@@ -156,7 +168,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_ServiceBlog.html",
-          "hash": "VMZtGCTuC8OVDCCYYZmRFA=="
+          "hash": "p8Hbc2/i0KkssroVvbQl+Q=="
         }
       },
       "is_incremental": false,
@@ -168,7 +180,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_Tenant.html",
-          "hash": "dVsv+UQJ9YMIsqbOhefVSg=="
+          "hash": "a2nISPPfkS9YgtqM1OGZjg=="
         }
       },
       "is_incremental": false,
@@ -180,7 +192,19 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Account_User.html",
-          "hash": "tIVS7jLsE8PaaIpoRjxguw=="
+          "hash": "z9CsXAw1NY1RWfObYT+dpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/Management/Account_UserRole.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/Management/Account_UserRole.html",
+          "hash": "+CIaBS+ykCcTA14+ualvNg=="
         }
       },
       "is_incremental": false,
@@ -192,7 +216,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/Management/Management_Overview.html",
-          "hash": "CTy4lZnskxUOhivZFeK8wQ=="
+          "hash": "F1RKoH7sIgaAYCWxlVdesg=="
         }
       },
       "is_incremental": false,
@@ -348,7 +372,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/SequentialDataStore/Searching.html",
-          "hash": "kkWT+X1YFLn5WLHdMbqQeQ=="
+          "hash": "FVeBhTT/YCP5+vC4+vkXyw=="
         }
       },
       "is_incremental": false,
@@ -567,7 +591,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/toc.html",
-          "hash": "IAMTxik6APlOicY+H4qYrg=="
+          "hash": "lthljppECOUn3L78UhleHQ=="
         }
       },
       "is_incremental": false,
@@ -579,7 +603,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "VoMnel3mtHGK6Yn0nTwm4A=="
+          "hash": "F47Y5fU0+e7HQQKX2RWW4g=="
         }
       },
       "is_incremental": false,

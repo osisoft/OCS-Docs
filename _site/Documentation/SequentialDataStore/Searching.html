@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Searching for streams </title>
+    <title>Searching </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Searching for streams ">
+    <meta name="title" content="Searching ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -68,15 +68,26 @@
             <article class="content wrap" id="_content" data-uid="sdsSearching">
 
 <h4 id="qisearchingtopic">Qi_Searching_topic</h4>
+<h1 id="searching">Searching</h1>
+<p>SdsSearch provides a way to search text, phrases, fields, etc. cross the Sequential Data Store. This document covers the 
+searching for SdsStreams and SdsTypes.</p>
 <h1 id="searching-for-streams">Searching for streams</h1>
-<p><code>GetStreamsAsync</code> is an overloaded method that is also used to search for and return streams (also see <a class="xref" href="SDS_Streams.html">Streams</a> for information about using <code>GetStreamsAsync</code> to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.</p>
+<p>The search functionality for streams is exposed through the REST API and the client libraries method <code>GetStreamsAsync</code>.</p>
+<p><code>GetStreamsAsync</code> is an overloaded method that is used to search for and return streams (also see <a class="xref" href="SDS_Streams.html">Streams</a> for information about using <code>GetStreamAsync</code> to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.</p>
 <p>The syntax of the client libraries method is as follows:</p>
 <pre><code>  _metadataService.GetStreamsAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>Searching for streams is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
 <pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;skip={skip}&amp;count={count}
-</code></pre><p>The <code>GetStreamsAsync</code> overload returns streams that match specific search criteria within a given namespace. 
-You use the <code>searchText</code> parameter to specify a search string. The <code>GetStreamsAsync</code> method then returns any 
-stream that matches the search string in the <code>name</code>, <code>description</code>, or <code>tag</code> list. </p>
+</code></pre><h1 id="searching-for-types">Searching for types</h1>
+<p>Similarly, the search functionality for types is also exposed through REST API and the client libraries method <code>GetTypesAsync</code>. The query syntax and the request parameters are the same. 
+The only difference is the resource you&#39;re searching on, and you can filter on different properties for types than for streams. See <a class="xref" href="SDS_Types.html">Types</a> for more information.</p>
+<p><code>GetTypesAsync</code> is an overloaded method that is used to search for and return types. </p>
+<p>The syntax of the client libraries method is as follows:</p>
+<pre><code>  _metadataService.GetTypesAsync(query:&quot;QueryString&quot;, skip:0, count:100);
+</code></pre><p>As previously mentioned, searching for types is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
+</code></pre><p>The <code>GetStreamsAsync</code> or <code>GetTypesAsync</code> overload return items that match specific search criteria within a given namespace. 
+The query parameter will be applied across all properties of items we’re searching on by default, such as <code>Name</code>, <code>Description</code>, or <code>Tags</code>.</p>
 <p>For example, assume that a namespace contains the following Streams:</p>
 <table>
 <thead>
@@ -108,11 +119,11 @@ stream that matches the search string in the <code>name</code>, <code>descriptio
 </tr>
 </tbody>
 </table>
-<p>Using the stream data above, the following table shows the results of a <code>GetStreamsAsync</code> call with different <code>SearchText</code> values:</p>
+<p>Using the stream data above, the following table shows the results of a <code>GetStreamsAsync</code> call with different <code>Query</code> values:</p>
 <table>
 <thead>
 <tr>
-<th><strong>SearchText</strong></th>
+<th><strong>QueryString</strong></th>
 <th><strong>Streams returned</strong></th>
 </tr>
 </thead>
@@ -135,35 +146,31 @@ stream that matches the search string in the <code>name</code>, <code>descriptio
 </tr>
 </tbody>
 </table>
-<p>When searching for a stream, be aware that a string of contiguous, non-whitespace characters is indexed as a solid block 
-of text. For example, suppose that a stream has the name &quot;Tank:ABC&quot;. Searching for “Tan<em>” would find the stream, but 
-searching for “AB</em>” would not find it. By inserting spaces you break up the contiguous block and allow for in-string 
-searching. For example, if the stream Name is &quot;Tank ABC&quot; instead of &quot;Tank:ABC&quot; then searches for “Tan<em>” or for “AB</em>” 
-would both be successful.</p>
-<p>The <code>skip</code> and <code>count</code> parameters determine which streams are returned when a large number of streams match 
-the <code>searchText</code> criteria. </p>
-<p>The asterisk (*) character is a suffix-only wildcard which matches zero or more characters (see Search operators_).  </p>
-<p><code>count</code> indicates the maximum number of streams returned by the <code>GetStreamsAsync()</code> call. The maximum value of 
+<p>The <code>skip</code> and <code>count</code> parameters determine which items are returned when a large number of them match 
+the <code>query</code> criteria.   </p>
+<p><code>count</code> indicates the maximum number of items returned by the <code>GetStreamsAsync()</code> or <code>GetTypesAsync()</code> call. The maximum value of 
 the <code>count</code> parameter is 1000. </p>
-<p><code>skip</code> indicates the number of matched stream names to skip over before returning matching streams. You use the 
-skip parameter when more streams match the search criteria than can be returned in a single call. </p>
-<p>For example, assume there are 175 streams that match the search criteria: “temperature*”. 
-The following call returns the first 100 matches:</p>
-<pre><code>   _metadataService.GetStreamsAsync(“temperature*”, 0, 100)
+<p><code>skip</code> indicates the number of matched items to skip over before returning matching items. You use the 
+skip parameter when more items match the search criteria than can be returned in a single call. </p>
+<p>For example, assume there are 175 streams that match the search criteria: “temperature”.</p>
+<p>The following call returns the first 100 matches:</p>
+<pre><code>   _metadataService.GetStreamsAsync(“temperature”, 0, 100)
 </code></pre><p>After the previous call, you can use the following call to return the remaining 75 matches, skipping over the first 
 100 matches because of the skip parameter set at 100):</p>
-<pre><code>   _metadataService.GetStreamsAsync(“temperature*”, 100, 100) 
-</code></pre><h1 id="searching-for-types">Searching for types</h1>
-<p>Searching for types is very similar to searching for streams.  The query syntax is the same and the request parameters are the same.
-The only difference is the resource you&#39;re searching on, and the type properties that can be filtered on are different than
-on streams. See <a class="xref" href="SDS_Types.html">Types</a> for more information.</p>
-<p>The syntax of the client libraries method is as follows:</p>
-<pre><code>  _metadataService.GetTypesAsync(query:&quot;QueryString&quot;, skip:0, count:100);
-</code></pre><p>Searching for types is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
-<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
-</code></pre><h2 id="search-operators">Search operators</h2>
-<p>You can specify search operators in the <code>searchText</code> string to return more specific search results. </p>
-<h4 id="operators">operators</h4>
+<pre><code>   _metadataService.GetStreamsAsync(“temperature”, 100, 100)
+</code></pre><p>The <code>orderby</code> parameter is supported for searching both the streams and types. The basic functionality of it is to search the items and then return the result in sorted order.
+The default value for <code>orderby</code> parameter is ascending order. It can be changed to descending order by specifying <code>desc</code> alongside the orderby field value. It can be used in conjunction with 
+<code>query</code>, <code>skip</code>, and <code>count</code> parameters.</p>
+<p><strong>REST API examples</strong></p>
+<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name
+
+GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=id asc
+
+GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc
+
+GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc&amp;skip=10&amp;count=20
+</code></pre><h1 id="search-operators">Search operators</h1>
+<p>You can specify search operators in the <code>query</code> string to return more specific search results. </p>
 <table>
 <thead>
 <tr>
@@ -186,7 +193,7 @@ on streams. See <a class="xref" href="SDS_Types.html">Types</a> for more informa
 </tr>
 <tr>
 <td><code>*</code></td>
-<td>Suffix operator. For example, <code>&quot;cat*&quot;</code> searches for streams that have a term that starts with &quot;cat&quot;, ignoring case.</td>
+<td>Wildcard operator. For example, <code>&quot;cat*&quot;</code> searches for streams that have a term that starts with &quot;cat&quot;, ignoring case.</td>
 </tr>
 <tr>
 <td><code>:</code></td>
@@ -202,10 +209,128 @@ on streams. See <a class="xref" href="SDS_Types.html">Types</a> for more informa
 </tr>
 </tbody>
 </table>
-<p>Note that the suffix operator <code>*</code> is not the same as a generic wildcard operator that you might be more familiar with. 
-It can only be used at the end of a search term, not the beginning. Also, it can&#39;t be combined when searching for a 
-phrase using the <code>&quot; &quot;</code> operators which combine multiple ordered search terms. It only works when specifying a single 
-search term. For example, you can search for <code>Tank*</code>, but not <code>*Tank</code> or <code>&quot;Tank1 Meter*&quot;</code>.</p>
+<p><strong>Note:</strong> The wildcard <code>*</code> can&#39;t be combined when searching for a phrase using the <code>&quot; &quot;</code> operators which combine multiple ordered search terms. 
+It only works when specifying a single search term. For example, you can search for <code>Tank*</code>, <code>*Tank</code>, <code>Ta*nk</code> but not <code>&quot;Tank Meter*&quot;</code>.</p>
+<h2 id="-operator"><strong>: Operator</strong></h2>
+<p>You can also qualify which fields are searched by using the following syntax: </p>
+<pre><code>fieldname:fieldvalue
+</code></pre><p><strong>REST API example</strong></p>
+<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
+</code></pre><p><strong>C# example</strong></p>
+<pre><code>GetStreamsAsync(query:”name:pump name:pressure”);
+</code></pre><h2 id="-operator-1"><strong>* Operator</strong></h2>
+<p>You can use the <code>‘*’</code> character as a wildcard to specify an incomplete string.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Query string</strong></th>
+<th><strong>Matches field value</strong></th>
+<th><strong>Does not match field value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>“log*”</code></td>
+<td>log<br>logger</td>
+<td>analog</td>
+</tr>
+<tr>
+<td><code>“*log”</code></td>
+<td>analog<br>alog</td>
+<td>logg</td>
+</tr>
+<tr>
+<td><code>“*log*”</code></td>
+<td>analog<br>alogger</td>
+<td>lop</td>
+</tr>
+<tr>
+<td><code>“l*g”</code></td>
+<td>log<br>logg</td>
+<td>lop</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Supported</strong></th>
+<th><strong>Not Supported</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>“*”</code><br><code>“*log”</code><br><code>“l*g”</code><br><code>“log*”</code><br><code>“*log*”</code></td>
+<td><code>“*l*g*”</code><br><code>“*l*g”</code><br><code>“l*g*”</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>REST API example</strong></p>
+<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
+</code></pre><p><strong>C# example</strong></p>
+<pre><code>GetStreamsAsync(query:”log*”);
+</code></pre><h2 id="-operator-2">&quot;&quot; Operator</h2>
+<p>The search engine automatically searches on strings delimited by
+whitespace and dashes (with the exception of identifier fields like Id
+or TypeId fields). To search for values that include delimiters, enclose the value in double quotes.
+<code>&quot;*&quot;</code> can not be used in conjunction with this operator.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Query string</strong></th>
+<th><strong>Matches field value</strong></th>
+<th><strong>Does not match field value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>“pump pressure”</code></td>
+<td>pump pressure<br>pump pressure gauge<br>the pump pressure gauge</td>
+<td>the pump<br>pressure<br>pressure pump</td>
+</tr>
+</tbody>
+</table>
+<p><strong>REST API example</strong></p>
+<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
+</code></pre><p><strong>C# example</strong></p>
+<pre><code>GetStreamsAsync(query:”\\”pump pressure\\””);
+</code></pre><h2 id="other-operators-examples">Other operators examples</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Query string</strong></th>
+<th><strong>Matches field value</strong></th>
+<th><strong>Does not match field value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>“mud AND log”</code></td>
+<td>log mud<br>mud log</td>
+<td>mud<br>log</td>
+</tr>
+<tr>
+<td><code>“mud OR log”</code></td>
+<td>log mud<br>mud<br>log</td>
+<td></td>
+</tr>
+<tr>
+<td><code>“mud AND (NOT log)”</code></td>
+<td>mud</td>
+<td>mud log</td>
+</tr>
+<tr>
+<td><code>“mud AND (log OR pump*)”</code></td>
+<td>mud log<br>mud pumps</td>
+<td>mud bath</td>
+</tr>
+<tr>
+<td><code>“name:stream\* AND (tags:pressure OR tags:pump)”</code></td>
+<td>The name starts with “stream” and has tag values of either “pressure” or “pump”</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="searching-on-metadata">Searching on Metadata</h2>
 <p>Streams can have metadata collections associated with them. Metadata allows you to specify arbitrary key-value 
 pairs to help organize and add context your streams. To search for streams by metadata, use the following syntax:

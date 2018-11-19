@@ -7,34 +7,40 @@ references:
 - uid: accountApplications
   name: Applications
   href: Documentation/Management/Account_Applications.html
-- uid: accountNamespace
+- uid: AccountClientRole
+  name: ClientRole
+  href: Documentation/Management/Account_ClientRole.html
+- uid: AccountNamespace
   name: Namespace
   href: Documentation/Management/Account_Namespace.html
 - uid: AccountNamespaceTier
   name: NamespaceTier
   href: Documentation/Management/Account_NamespaceTier.html
-- uid: accountRole
+- uid: AccountRole
   name: Role
   href: Documentation/Management/Account_Role.html
-- uid: accountRootAccessControl
+- uid: AccountRootAccessControl
   name: RootAccessControl
   href: Documentation/Management/Account_RootAccessControl.html
-- uid: accountServiceBlog
+- uid: AccountServiceBlog
   name: ServiceBlog
   href: Documentation/Management/Account_ServiceBlog.html
-- uid: accountTenant
+- uid: AccountTenant
   name: Tenant
   href: Documentation/Management/Account_Tenant.html
 - uid: accountUser
   name: User
   href: Documentation/Management/Account_User.html
+- uid: AccountUserRole
+  name: UserRole
+  href: Documentation/Management/Account_UserRole.html
 - uid: dataIngress
   name: Data Ingress and OSIsoft Message Format
   href: Documentation/DataIngress/Data_Ingress.html
 - uid: index
   name: Welcome
   href: index.html
-- uid: managementOverview
+- uid: ManagementOverview
   name: Management
   href: Documentation/Management/Management_Overview.html
 - uid: omfIngressPublishers
@@ -83,7 +89,7 @@ references:
   name: API calls for reading data
   href: Documentation/SequentialDataStore/Reading_Data_API.html
 - uid: sdsSearching
-  name: Searching for streams
+  name: Searching
   href: Documentation/SequentialDataStore/Searching.html
 - uid: sdsStreamExtra
   name: Stream Metadata and Tags

@@ -65,32 +65,40 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="accountRootAccessControl">
+            <article class="content wrap" id="_content" data-uid="AccountRootAccessControl">
 <h1 id="rootaccesscontrol">RootAccessControl</h1>
 
-<p>Apis to control default access to entities governed by an <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a>.</p>
+<p>Apis to control default access to entities governed by an <a class="xref" href="../Access_Control.html">AccessControl</a>.</p>
 <hr>
 <h2 id="getrootnamespaceacl"><code>GetRootNamespaceAcl()</code></h2>
-<p>Get the <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a> that is used to authorize access to a <a class="xref" href="Account_Namespace.html#namespaceobj">Namespace</a> if none is specified during creation.</p>
-<p><strong>Http</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/AccessControl/Namespaces
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The idenfifier for the account being accessed.</p>
-<p><strong>Security</strong><br><a class="xref" href="../Access_Control.html#commonaccessrightsenum">CommonAccessRights.Read</a></p>
-<p><strong>Returns</strong><br>The root <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a> for <a class="xref" href="Account_Namespace.html#namespaceobj">Namespaces</a>.</p>
+<p>Get the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<h3 id="http">Http</h3>
+<p><code>GET api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
+<h3 id="parameters">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier for the account being accessed.</p>
+<h3 id="security">Security</h3>
+<p><code>CommonAccessRights.Read</code></p>
+<h3 id="returns">Returns</h3>
+<p>The root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
 <hr>
 <h2 id="setrootnamespaceacl"><code>SetRootNamespaceAcl()</code></h2>
-<p>Set the <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a> that is used to authorize access to a <a class="xref" href="Account_Namespace.html#namespaceobj">Namespace</a> if none is specified during creation.</p>
-<p><strong>Http</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/AccessControl/Namespaces
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The idenfifier for the account being modified.
-<code>AccessControlList newAccessControlList</code>
-    The new root <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a> for <a class="xref" href="Account_Namespace.html#namespaceobj">Namespaces</a>.</p>
-<p><strong>Security</strong><br><a class="xref" href="../Access_Control.html#commonaccessrightsenum">CommonAccessRights.ManageAccessControl</a></p>
-<p><strong>Returns</strong><br>The new root <a class="xref" href="../Access_Control.html#accesscontrollistobj">AccessControlList</a> for <a class="xref" href="Account_Namespace.html#namespaceobj">Namespaces</a>.</p>
+<p>Set the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<h3 id="http-1">Http</h3>
+<p><code>PUT api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
+<h3 id="parameters-1">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier for the account being modified.</p>
+<pre><code class="lang-csharp">[Required]
+[FromBody]
+AccessControlList newAccessControlList
+</code></pre><p>The new root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
+<h3 id="security-1">Security</h3>
+<p><code>CommonAccessRights.ManageAccessControl</code></p>
+<h3 id="returns-1">Returns</h3>
+<p>The new root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
 <hr>
 </article>
           </div>

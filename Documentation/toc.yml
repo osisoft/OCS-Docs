@@ -1,6 +1,6 @@
 - name: OSIsoft Cloud Services 
   topicHref: OSIsoft_Cloud_Services.md
-- name: Management 
+- name: Management
   href: Management/toc.yml
   topicHref: Management/Management_Overview.md
 - name: Sequential Data Store

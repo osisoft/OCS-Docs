@@ -65,112 +65,261 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="accountNamespace">
+            <article class="content wrap" id="_content" data-uid="AccountNamespace">
 <h1 id="namespace">Namespace</h1>
 
 <p>A Namespace is a collection of Data Streams.</p>
-<pre><code>For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: 
-</code></pre><h4 id="namespaceobj">NamespaceObj</h4>
-<p><code>string Id</code>
-    Name of this Namespace. Unique within a Tenant&#39;s Namespaces.
-<code>string TenantId</code>
-    GUID of the Tenant that this Namespace corresponds to
-<code>string Description</code>
-    Description of this Namespace.
-<code>string TierId</code>
-    Id of the Tier that this Namespace is associated with.
-<code>int32 ThroughputUnits</code>
-    Number of Throughput units for this Namespace.
-<code>int32 StorageUnits</code>
-    Number of Storage units for this Namespace.
-<code>NamespaceProvisioningState State</code>
-    Current state of this Namespace.
-<code>OwnerTrustee Owner</code>
-    Owner <a class="xref" href="../Access_Control.html#trusteeobj">Trustee</a> of this Namespace.
-<code>AccessControlList AccessControlList</code>
-    Access Control List.</p>
-<p>.. highlight:: C#</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
-
- {
+<h2 id="properties">Properties</h2>
+<p>For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Name of this Namespace. Unique within a Tenant&#39;s Namespaces.</td>
+</tr>
+<tr>
+<td>TenantId</td>
+<td>string</td>
+<td>GUID of the Tenant that this Namespace corresponds to</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>string</td>
+<td>The region that the namespace is provisioned in</td>
+</tr>
+<tr>
+<td>Self</td>
+<td>string</td>
+<td>The namespace&#39;s URI</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>Description of this Namespace.</td>
+</tr>
+<tr>
+<td>TierId</td>
+<td>string</td>
+<td>Id of the Tier that this Namespace is associated with.</td>
+</tr>
+<tr>
+<td>ThroughputUnits</td>
+<td>int32</td>
+<td>Number of Throughput units for this Namespace.</td>
+</tr>
+<tr>
+<td>StorageUnits</td>
+<td>int32</td>
+<td>Number of Storage units for this Namespace.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>NamespaceProvisioningState</td>
+<td>Current state of this Namespace.</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Trustee</td>
+<td>Owner <a class="xref" href="../Access_Control.html">Trustee</a> of this Namespace.</td>
+</tr>
+<tr>
+<td>AccessControl</td>
+<td>AccessControlList</td>
+<td>The <a class="xref" href="../Access_Control.html">AccessControl</a> that defines Access Control for this <code>Namespace</code></td>
+</tr>
+<tr>
+<td>AccessControlList</td>
+<td>AccessControlList</td>
+<td>Access Control List.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-json">{
     &quot;Id&quot;: &quot;id&quot;,
     &quot;TenantId&quot;: &quot;tenantid&quot;,
+    &quot;Region&quot;: &quot;region&quot;,
+    &quot;Self&quot;: &quot;self&quot;,
     &quot;Description&quot;: &quot;description&quot;,
     &quot;TierId&quot;: &quot;tierid&quot;,
     &quot;ThroughputUnits&quot;: 0,
     &quot;StorageUnits&quot;: 0,
     &quot;State&quot;: 0,
-    &quot;Owner&quot;:  {
-        &quot;Type&quot;: 2,
-        &quot;TenantId&quot;: &quot;string&quot;,
-        &quot;ApplicationId&quot;: &quot;string&quot;
-     },
-    &quot;AccessControlList&quot;:  {
+    &quot;Owner&quot;: {
+        &quot;Type&quot;: 0
+    },
+    &quot;AccessControl&quot;: {
         &quot;RoleTrusteeAccessControlEntries&quot;: []
-     }
- }
+    },
+    &quot;AccessControlList&quot;: {
+        &quot;RoleTrusteeAccessControlEntries&quot;: []
+    }
+}
 </code></pre><hr>
 <h2 id="getall"><code>GetAll()</code></h2>
-<p>Returns all <a href="#namespaceobj">Namespaces</a> owned by the specified tenant that the caller has access to.</p>
-<p><strong>Http</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The <a class="xref" href="Account_Tenant.html#tenantobj">Tenant</a> identifier for the request.</p>
-<p><strong>Security</strong><br>A <a href="#namespaceobj">Namespace</a> can only be retrieved if the current principle has Read access.</p>
-<p><strong>Returns</strong><br>An array of all <a href="#namespaceobj">Namespace</a> objects for the specified tenantId that the caller has access.</p>
+<p>Returns all <code>Namespaces</code> owned by the specified tenant that the caller has access to.</p>
+<h3 id="http">Http</h3>
+<p><code>GET api/Tenants/{tenantId}/Namespaces</code></p>
+<h3 id="parameters">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The <code>Tenant</code> identifier for the request.</p>
+<pre><code class="lang-csharp">[Optional]
+[Default = &quot;&quot;]
+string include
+</code></pre><p>An optional parameter specifying which attached properties to include</p>
+<h3 id="security">Security</h3>
+<p>A <code>Namespace</code> can only be retrieved if the current principal has Read access.</p>
+<h3 id="returns">Returns</h3>
+<p>An array of all <code>Namespace</code> objects for the specified tenantId that the caller has access.</p>
 <hr>
 <h2 id="getnamespacebyid"><code>GetNamespaceById()</code></h2>
 <p>Returns the Namespace with the specified Id.</p>
-<p><strong>Http</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The account identifier for the request
-<code>string namespaceId</code>
-    The Namespace identifier for this request</p>
-<p><strong>Security</strong><br>A <a href="#namespaceobj">Namespace</a> can only be retrieved if the current principle has Read access.</p>
-<p><strong>Returns</strong><br>A <a href="#namespaceobj">Namespace</a> object with the specified namespaceId</p>
+<h3 id="http-1">Http</h3>
+<p><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-1">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The account identifier for the request</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The Namespace identifier for this request</p>
+<h3 id="security-1">Security</h3>
+<p>A <code>Namespace</code> can only be retrieved if the current principal has Read access.</p>
+<h3 id="returns-1">Returns</h3>
+<p>A <code>Namespace</code> object with the specified namespaceId</p>
 <hr>
 <h2 id="create"><code>Create()</code></h2>
 <p>Creates a namespace.</p>
-<p><strong>Http</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The idenfifier for the account the namespace is to be created for.
-<code>Namespace namespaceObj</code>
-    The <a href="#namespaceobj">Namespace</a> to be created.</p>
-<p><strong>Security</strong><br>A <a href="#namespaceobj">Namespace</a> can only be create if the current principle has Write access.</p>
-<p><strong>Returns</strong><br>The created <a href="#namespaceobj">Namespace</a> object</p>
+<h3 id="http-2">Http</h3>
+<p><code>POST api/Tenants/{tenantId}/Namespaces</code></p>
+<h3 id="parameters-2">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier for the account the namespace is to be created for.</p>
+<pre><code class="lang-csharp">[Required]
+[FromBody]
+Namespace namespaceObj
+</code></pre><p>The <code>Namespace</code> to be created.</p>
+<h3 id="security-2">Security</h3>
+<p>A <code>Namespace</code> can only be create if the current principal has Write access.</p>
+<h3 id="returns-2">Returns</h3>
+<p>The created <code>Namespace</code> object</p>
 <hr>
 <h2 id="update"><code>Update()</code></h2>
 <p>Updates Namespace information - Description, TierId, AccessControl, and Owner.</p>
-<p><strong>Http</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The identifier of Namespace&#39;s Account.
-<code>string namespaceId</code>
-    The identifier for the Namespace to update.
-<code>Namespace newProperties</code>
-    The new details to store for the Namespace.</p>
-<p><strong>Security</strong><br>A <a href="#namespaceobj">Namespace</a> can only be updated if the current principle has Write access.
-            The AccessControlList and Owner can only be updated if the current principle has ManageAccessControl access.</p>
-<p><strong>Returns</strong><br>The updated <a href="#namespaceobj">Namespace</a>.</p>
+<h3 id="http-3">Http</h3>
+<p><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-3">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of Namespace&#39;s Account.</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier for the Namespace to update.</p>
+<pre><code class="lang-csharp">[Required]
+[FromBody]
+Namespace newProperties
+</code></pre><p>The new details to store for the Namespace.</p>
+<h3 id="security-3">Security</h3>
+<p>A <code>Namespace</code> can only be updated if the current principal has Write access. The <a class="xref" href="../Access_Control.html">AccessControl</a> and owner <a class="xref" href="../Access_Control.html">Trustee</a> can only be updated if the current principal has ManageAccessControl access.</p>
+<h3 id="returns-3">Returns</h3>
+<p>The updated <code>Namespace</code>.</p>
 <hr>
 <h2 id="delete"><code>Delete()</code></h2>
 <p>Deletes a namespace.</p>
-<p><strong>Http</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-    The identifier of namespace&#39;s account
-<code>string namespaceId</code>
-    The identifier of the namespace to be deleted</p>
-<p><strong>Security</strong><br>A <a href="#namespaceobj">Namespace</a> can only be deleted if the current principle has Delete access.</p>
-<p><strong>Returns</strong><br>Nothing is returned</p>
+<h3 id="http-4">Http</h3>
+<p><code>DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-4">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of namespace&#39;s account</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier of the namespace to be deleted</p>
+<h3 id="security-4">Security</h3>
+<p>A <code>Namespace</code> can only be deleted if the current principal has Delete access.</p>
+<h3 id="returns-4">Returns</h3>
+<p>Nothing is returned.</p>
+<hr>
+<h2 id="getaccesscontrol"><code>GetAccessControl()</code></h2>
+<p>Gets the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code>.</p>
+<h3 id="http-5">Http</h3>
+<p><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol</code></p>
+<h3 id="parameters-5">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of the account being accessed.</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier of the <code>Namespace</code> being accessed.</p>
+<h3 id="security-5">Security</h3>
+<p>The current principal has Read access.</p>
+<h3 id="returns-5">Returns</h3>
+<p>The <a class="xref" href="../Access_Control.html">AccessControl</a> for the <code>Namespace</code>.</p>
+<hr>
+<h2 id="setaccesscontrol"><code>SetAccessControl()</code></h2>
+<p>Edits the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code>.</p>
+<h3 id="http-6">Http</h3>
+<p><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol</code></p>
+<h3 id="parameters-6">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of the account being modified.</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier of the <code>Namespace</code> being modified.</p>
+<pre><code class="lang-csharp">[Required]
+[FromBody]
+AccessControlList newAccessControlList
+</code></pre><p>The new <a class="xref" href="../Access_Control.html">AccessControl</a> for the <code>Namespace</code>.</p>
+<h3 id="security-6">Security</h3>
+<p>The current principal has ManageAccessControl access.</p>
+<h3 id="returns-6">Returns</h3>
+<p>The updated <a class="xref" href="../Access_Control.html">AccessControl</a> for the <code>Namespace</code>.</p>
+<hr>
+<h2 id="getowner"><code>GetOwner()</code></h2>
+<p>Gets the owner for a given <code>Namespace</code>.</p>
+<h3 id="http-7">Http</h3>
+<p><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner</code></p>
+<h3 id="parameters-7">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of the account being accessed.</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier of the <code>Namespace</code> being accessed.</p>
+<h3 id="security-7">Security</h3>
+<p>The current principal has Read access.</p>
+<h3 id="returns-7">Returns</h3>
+<p>The owner <a class="xref" href="../Access_Control.html">Trustee</a> of the <code>Namespace</code>.</p>
+<hr>
+<h2 id="setowner"><code>SetOwner()</code></h2>
+<p>Changes the owner for a given <code>Namespace</code>.</p>
+<h3 id="http-8">Http</h3>
+<p><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner</code></p>
+<h3 id="parameters-8">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p>The identifier of the account being edited.</p>
+<pre><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p>The identifier of the <code>Namespace</code> being edited.</p>
+<pre><code class="lang-csharp">[Required]
+[FromBody]
+Trustee newOwner
+</code></pre><p>The new owner <a class="xref" href="../Access_Control.html">Trustee</a> for the <code>Namespace</code>.</p>
+<h3 id="security-8">Security</h3>
+<p>The current principal has ManageAccessControl access.</p>
+<h3 id="returns-8">Returns</h3>
+<p>The new owner <a class="xref" href="../Access_Control.html">Trustee</a> of the <code>Namespace</code>.</p>
 <hr>
 </article>
           </div>

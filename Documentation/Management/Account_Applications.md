@@ -5,207 +5,205 @@ uid: accountApplications
 Applications
 =======================================================
 
-**********************
+***
 
-``CreateClientApiKeyForApplication()``
---------------------------------------------------------------------
+## `CreateClientApiKeyForApplication()`
 
-Create a [ClientApiKeySet](#clientapikeysetobj) for the specified application.
-
-**Http**
-
-    	POST api/Tenants/{tenantId}/ClientApiKeySets/Keys
-
-**Parameters**
-
-``string tenantId``
-	ID of the tenant the application belongs to.
-``string applicationId``
-	ID of the application for this request
-``string description``
-	Description of the [ClientApiKeySet](#clientapikeysetobj)
-
-**Security**  
-Allowed by Account Administrator [Role](xref:accountRole#roleobj)
-
-**Returns**  
-The created [ClientApiKeySet](#clientapikeysetobj)
-
-**Notes**  
-For HTTP requests and responses, the ClientApiKeySet object has the following properties and JSON-serialized body: 
-
-#### ClientApiKeySetObj 
-
-``string AppUri``
-	App ID URI.
-``bool CreateFirstKey``
-	Create the first key in the Client API Key Set.
-``string DisplayName``
-	Display name.
-``[string,[string]] RequiredResource``
-	List of required resources.
-``string TenantId``
-	Tenant Id.
-
-.. highlight:: C#
-
-    	HTTP/1.1 200
-    	Content-Type: application/json
-
-     {
-    	"AppUri": "appuri",
-    	"CreateFirstKey": false,
-    	"DisplayName": "displayname",
-    	"RequiredResource":  { },
-    	"TenantId": "tenantid"
-     }
-
-**********************
-
-``GetClientApiKeyCollectionFromApplication()``
---------------------------------------------------------------------
-
-Get the [ClientApiKeyCollection](#clientapikeycollectionobj) for the specified applicaiton.
+Create a `ClientApiKeySet` for the specified application.
 
 **Http**
 
-    	GET api/Tenants/{tenantId}/ClientApiKeySets/Keys
+`POST api/Tenants/{tenantId}/ClientApiKeySets/Keys`
 
 **Parameters**
 
-``string tenantId``
-	ID of the tenant the application belongs to.
-``string applicationId``
-	ID of the application for this request
+```csharp
+string tenantId
+```
+ID of the tenant the application belongs to.
+```csharp
+string applicationId
+```
+ID of the application for this request
+```csharp
+string description
+```
+Description of the `ClientApiKeySet`
 
-**Security**  
-Allowed by Account Administrator [Role](xref:accountRole#roleobj)
 
-**Returns**  
-[ClientApiKeyCollection](#clientapikeycollectionobj) for the specified applicaiton.
+**Security**
 
-**Notes**  
-For HTTP requests and responses, the ClientApiKeyCollection object has the following properties and JSON-serialized body: 
+Allowed by Account Administrator [`Role`](xref:AccountRole)
 
-#### ClientApiKeyCollectionObj 
+**Returns**
 
-``string Id``
-	Gets the identifier for this collection of API access keys, a GUID.
-``[ClientApiKey] Keys``
-	Gets a list of the application's access keys.
+The created `ClientApiKeySet`
 
-.. highlight:: C#
+***
 
-    	HTTP/1.1 200
-    	Content-Type: application/json
+## `GetClientApiKeyCollectionFromApplication()`
 
-     {
-    	"Id": "id",
-    	"Keys": []
-     }
-
-**********************
-
-``DeleteClientApiKeyFromApplication()``
---------------------------------------------------------------------
-
-Delete a specified [ClientApiKeySet](#clientapikeysetobj).
+Get the `ClientApiKeyCollection` for the specified applicaiton.
 
 **Http**
 
-    	DELETE api/Tenants/{tenantId}/ClientApiKeySets/Keys
+`GET api/Tenants/{tenantId}/ClientApiKeySets/Keys`
 
 **Parameters**
 
-``string tenantId``
-	ID of the tenant the application belongs to.
-``string applicationId``
-	ID of the application for this request
-``string keyId``
-	ID of the [ClientApiKeySet](#clientapikeysetobj) to be deleted.
+```csharp
+string tenantId
+```
+ID of the tenant the application belongs to.
+```csharp
+string applicationId
+```
+ID of the application for this request
 
-**Security**  
-Allowed by Account Administrator [Role](xref:accountRole#roleobj)
 
-**Returns**  
-HTTP status code - 200 OK if the [ClientApiKeySet](#clientapikeysetobj) was deleted.
+**Security**
 
-**********************
+Allowed by Account Administrator [`Role`](xref:AccountRole)
 
-``GetExternalApplicationsAsync()``
---------------------------------------------------------------------
+**Returns**
+
+`ClientApiKeyCollection` for the specified applicaiton.
+
+***
+
+## `DeleteClientApiKeyFromApplication()`
+
+Delete a specified `ClientApiKeySet`.
+
+**Http**
+
+`DELETE api/Tenants/{tenantId}/ClientApiKeySets/Keys`
+
+**Parameters**
+
+```csharp
+string tenantId
+```
+ID of the tenant the application belongs to.
+```csharp
+string applicationId
+```
+ID of the application for this request
+```csharp
+string keyId
+```
+ID of the `ClientApiKeySet` to be deleted.
+
+
+**Security**
+
+Allowed by Account Administrator [`Role`](xref:AccountRole)
+
+**Returns**
+
+HTTP status code - 200 OK if the `ClientApiKeySet` was deleted.
+
+***
+
+## `GetExternalApplicationsAsync()`
 
 Lists all applications from a customer's directory
 
 **Http**
 
-    	GET api/Tenants/{tenantId}/externalapplications
+`GET api/Tenants/{tenantId}/externalapplications`
 
 **Parameters**
 
-``string tenantId``
-	ID of the tenant the application belongs to
-``string skip``
-	Number of applications to skip for paging purposes.
-``string count``
-	>Maximum number of applications to return in this page.
-``string query``
-	Prefix match to filter applications by applicationId or display name
+```csharp
+string tenantId
+```
+ID of the tenant the application belongs to
+```csharp
+string skip
+```
+Number of applications to skip for paging purposes.
+```csharp
+string count
+```
+Maximum number of applications to return in this page.
+```csharp
+string query
+```
+Prefix match to filter applications by applicationId or display name
 
-**Security**  
-Allowed by Account Administrator [Role](xref:accountRole#roleobj)
 
-**Returns**  
-An array of [Application](#applicationobj) objects that could be added to this account.
+**Security**
 
-**Notes**  
-For HTTP requests and responses, the Application object has the following properties and JSON-serialized body: 
+Allowed by Account Administrator [`Role`](xref:AccountRole)
 
-#### ApplicationObj 
+**Returns**
 
-``string Id``
-	Application Identifier
-``string TenantId``
-	Tenant Id
-``string Name``
-	Application Display Name
-``[Role] Roles``
-	List of roles for the application
+An array of `Application` objects that could be added to this account.
 
-.. highlight:: C#
+***
 
-    	HTTP/1.1 200
-    	Content-Type: application/json
-
-     {
-    	"Id": "id",
-    	"TenantId": "tenantid",
-    	"Name": "name",
-    	"Roles": []
-     }
-
-**********************
-
-``RegisterClientApplicationAsync()``
---------------------------------------------------------------------
+## `RegisterClientApplicationAsync()`
 
 Registers the application with cloud services
 
 **Http**
 
-    	POST api/Tenants/{tenantId}/Applications
+`POST api/Tenants/{tenantId}/Applications`
 
 **Parameters**
 
-``string tenantId``
-	ID of the tenant the application belongs to
-``Application application``
-	[Application](#applicationobj) object with required properties.
+```csharp
+string tenantId
+```
+ID of the tenant the application belongs to
+```csharp
+Application application
+```
+`Application` object with required properties.
 
-**Security**  
+
+**Security**
+
 Account admin or Cluster operator
 
-**Returns**  
-The [Application](#applicationobj) for a tenant
+**Returns**
 
-**********************
+The `Application` for a tenant
+
+## Properties
+
+**Notes**
+
+For HTTP requests and responses, the Application object has the following properties and JSON-serialized body: 
+
+```csharp
+string Id
+```
+Application Identifier
+
+```csharp
+string TenantId
+```
+Tenant Id
+
+```csharp
+string Name
+```
+Application Display Name
+
+```csharp
+[Role] Roles
+```
+List of roles for the application
+
+```json
+{
+	"Id": "id",
+	"TenantId": "tenantid",
+	"Name": "name",
+	"Roles": []
+}
+```
+
+***

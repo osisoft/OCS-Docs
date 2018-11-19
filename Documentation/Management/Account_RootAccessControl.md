@@ -1,56 +1,71 @@
 ---
-uid: accountRootAccessControl
+uid: AccountRootAccessControl
 ---
 
-RootAccessControl
-=======================================================
+# RootAccessControl
 
-Apis to control default access to entities governed by an [AccessControlList](xref:accessControl#accesscontrollistobj).
+Apis to control default access to entities governed by an [AccessControl](xref:accessControl).
 
-**********************
+***
 
-``GetRootNamespaceAcl()``
---------------------------------------------------------------------
+## `GetRootNamespaceAcl()`
 
-Get the [AccessControlList](xref:accessControl#accesscontrollistobj) that is used to authorize access to a [Namespace](xref:accountNamespace#namespaceobj) if none is specified during creation.
+Get the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
-**Http**
+### Http
 
-    	GET api/Tenants/{tenantId}/AccessControl/Namespaces
+`GET api/Tenants/{tenantId}/AccessControl/Namespaces`
 
-**Parameters**
+### Parameters
 
-``string tenantId``
-	The idenfifier for the account being accessed.
+```csharp
+[Required]
+string tenantId
+```
 
-**Security**  
-[CommonAccessRights.Read](xref:accessControl#commonaccessrightsenum)
+The identifier for the account being accessed.
 
-**Returns**  
-The root [AccessControlList](xref:accessControl#accesscontrollistobj) for [Namespaces](xref:accountNamespace#namespaceobj).
 
-**********************
+### Security
 
-``SetRootNamespaceAcl()``
---------------------------------------------------------------------
+`CommonAccessRights.Read`
 
-Set the [AccessControlList](xref:accessControl#accesscontrollistobj) that is used to authorize access to a [Namespace](xref:accountNamespace#namespaceobj) if none is specified during creation.
+### Returns
 
-**Http**
+The root [AccessControl](xref:accessControl) for `Namespaces`.
 
-    	PUT api/Tenants/{tenantId}/AccessControl/Namespaces
+***
+## `SetRootNamespaceAcl()`
 
-**Parameters**
+Set the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
-``string tenantId``
-	The idenfifier for the account being modified.
-``AccessControlList newAccessControlList``
-	The new root [AccessControlList](xref:accessControl#accesscontrollistobj) for [Namespaces](xref:accountNamespace#namespaceobj).
+### Http
 
-**Security**  
-[CommonAccessRights.ManageAccessControl](xref:accessControl#commonaccessrightsenum)
+`PUT api/Tenants/{tenantId}/AccessControl/Namespaces`
 
-**Returns**  
-The new root [AccessControlList](xref:accessControl#accesscontrollistobj) for [Namespaces](xref:accountNamespace#namespaceobj).
+### Parameters
 
-**********************
+```csharp
+[Required]
+string tenantId
+```
+
+The identifier for the account being modified.
+```csharp
+[Required]
+[FromBody]
+AccessControlList newAccessControlList
+```
+
+The new root [AccessControl](xref:accessControl) for `Namespaces`.
+
+
+### Security
+
+`CommonAccessRights.ManageAccessControl`
+
+### Returns
+
+The new root [AccessControl](xref:accessControl) for `Namespaces`.
+
+***

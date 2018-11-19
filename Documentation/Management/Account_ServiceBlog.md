@@ -1,34 +1,43 @@
 ---
-uid: accountServiceBlog
+uid: AccountServiceBlog
 ---
 
-ServiceBlog
-=======================================================
+# ServiceBlog
 
-API's for CRUD operations on ServiceBlog
+API's for CRUD operations on the Service Blog.
 
-**********************
+***
 
-``GetByPage()``
---------------------------------------------------------------------
+## `GetByPage()`
 
 Returns blog entries ordered by time posted.
 
-**Http**
+### Http
 
-    	GET api/ServiceBlog/Entries
+`GET api/ServiceBlog/Entries`
 
-**Parameters**
+### Parameters
 
-``string skip``
-	Number of blogs to skip for paging purposes
-``string count``
-	Blogs to count after skip for paging purposes
+```csharp
+[Required]
+string skip
+```
 
-**Security**  
-Any identity, including anonymous
+Number of blogs to skip for paging purposes
+```csharp
+[Required]
+string count
+```
 
-**Returns**  
-Returns an object including an IEnumerable of blogEntries and an int with the total number of entries.
+Blogs to count after skip for paging purposes
 
-**********************
+
+### Security
+
+Any identity, including anonymous can retrieve blog entries.
+
+### Returns
+
+Returns an response object including an array of blog entries and an int with the total number of entries.
+
+***

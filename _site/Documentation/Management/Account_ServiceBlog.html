@@ -65,22 +65,26 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="accountServiceBlog">
+            <article class="content wrap" id="_content" data-uid="AccountServiceBlog">
 <h1 id="serviceblog">ServiceBlog</h1>
 
-<p>API&#39;s for CRUD operations on ServiceBlog</p>
+<p>API&#39;s for CRUD operations on the Service Blog.</p>
 <hr>
 <h2 id="getbypage"><code>GetByPage()</code></h2>
 <p>Returns blog entries ordered by time posted.</p>
-<p><strong>Http</strong></p>
-<pre><code>    GET api/ServiceBlog/Entries
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string skip</code>
-    Number of blogs to skip for paging purposes
-<code>string count</code>
-    Blogs to count after skip for paging purposes</p>
-<p><strong>Security</strong><br>Any identity, including anonymous</p>
-<p><strong>Returns</strong><br>Returns an object including an IEnumerable of blogEntries and an int with the total number of entries.</p>
+<h3 id="http">Http</h3>
+<p><code>GET api/ServiceBlog/Entries</code></p>
+<h3 id="parameters">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string skip
+</code></pre><p>Number of blogs to skip for paging purposes</p>
+<pre><code class="lang-csharp">[Required]
+string count
+</code></pre><p>Blogs to count after skip for paging purposes</p>
+<h3 id="security">Security</h3>
+<p>Any identity, including anonymous can retrieve blog entries.</p>
+<h3 id="returns">Returns</h3>
+<p>Returns an response object including an array of blog entries and an int with the total number of entries.</p>
 <hr>
 </article>
           </div>

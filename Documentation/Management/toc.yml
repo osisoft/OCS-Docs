@@ -1,5 +1,7 @@
 - name: Applications
   href: Account_Applications.md
+  name: Client
+  href: Account_ClientRole.md
 - name: Namespace
   href: Account_Namespace.md
 - name: NamespaceTier
@@ -11,7 +13,7 @@
 - name: Tenant
   href: Account_Tenant.md
 - name: User
-  href: Account_User.md
+  href: Account_UserRole.md
 - name: ServiceBlog
   href: Account_ServiceBlog.md
 
