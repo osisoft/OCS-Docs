@@ -405,7 +405,7 @@ Get Values supports three ways of specifying which events to return.
   The index defining the beginning of the range
 ``string endIndex``
   The index defining the end of the range  
-``string count``
+``integer count``
   The number of events to return. Read characteristics of the stream determine how the form of the event.
 ``string viewId``
   Optional view identifier
@@ -638,7 +638,7 @@ how to filter the data.
   The stream identifier
 ``string startIndex``
   Index identifying the beginning of the series of events to return
-``string count``
+``integer count``
   The number of events to return
 ``integer skip``
   Optional value specifying the number of events to skip at the beginning of the result
@@ -886,7 +886,7 @@ For the first request, specify a null or empty string for the ContinuationToken.
   Index bounding the beginning of the series of events to return
 ``string endIndex``
   Index bounding the end of the series of events to return
-``string count``
+``integer count``
   Optional maximum number of events to return
 ``QiBoundaryType boundaryType``
   Optional QiBoundaryType specifies handling of events at or near the start and end indexes
@@ -1223,7 +1223,7 @@ Summary values supported by QiSummaryType enum:
   The start index for the intervals
 ``string endIndex``
   The end index for the intervals
-``string count``
+``integer count``
   The number of intervals requested
 ``string filter``
   Optional filter expression
