@@ -39,7 +39,7 @@ for internal SDS use.
 1. Is not case sensitive.
 2. Can contain spaces.
 3. Cannot start with two underscores ("\_\_").
-4. Can contain a maximum of 260 characters.
+4. Can contain a maximum of 100 characters.
 5. Cannot use the following characters: ( / : ? # [ ] @ ! $ & ' ( ) \\\* +
    , ; = %)
 6. Cannot start or end with a period.
