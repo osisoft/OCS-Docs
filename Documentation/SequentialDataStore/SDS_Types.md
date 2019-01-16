@@ -64,7 +64,7 @@ The following table shows the required and optional SdsType fields. Fields that 
 2. Can contain spaces
 3. Cannot begin with two underscores ("\_\_")
 4. Cannot contain forward slash or backslash characters ("/" or "\\")
-5. Can contain a maximum of 260 characters
+5. Can contain a maximum of 100 characters
 6. Cannot start or end with a period.
 7. Cannot contain consecutive periods.
 8. Cannot consist of only periods.
