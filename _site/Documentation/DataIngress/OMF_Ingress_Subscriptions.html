@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -68,7 +78,7 @@
             <article class="content wrap" id="_content" data-uid="omfIngressSubsctriptions">
 <h1 id="subscriptions-">Subscriptions </h1>
 
-<p>A Subscription is used to consume data from a topic. Multiple subscriptions can retrieve data from a single topic.  </p>
+<p>A Subscription is used to consume data from a topic. Multiple subscriptions can retrieve data from a single topic.</p>
 <p>There are two types of Subscriptions with different behaviors. </p>
 <p>The API calls in this section are used to create and manipulate subscriptions.  </p>
 <h2 id="standard-subscription-">Standard Subscription </h2>
@@ -105,12 +115,7 @@ Standard Subscriptions are not yet supported.</p>
 <tr>
 <td>TopicId</td>
 <td>string</td>
-<td>Unique Id for the Topic we are</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>subscribing to.</td>
+<td>Unique Id for the Topic we are subscribing to.</td>
 </tr>
 <tr>
 <td>TopicTenantId</td>
@@ -125,22 +130,12 @@ Standard Subscriptions are not yet supported.</p>
 <tr>
 <td>TenantId</td>
 <td>string</td>
-<td>Identifies the owner of the</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Subscription.</td>
+<td>Identifies the owner of the Subscription.</td>
 </tr>
 <tr>
 <td>NamespaceId</td>
 <td>string</td>
-<td>Identifies the namespace for the</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Subscription</td>
+<td>Identifies the namespace for the Subscription</td>
 </tr>
 <tr>
 <td>IsRevoked</td>
@@ -155,42 +150,17 @@ Standard Subscriptions are not yet supported.</p>
 <tr>
 <td>Type</td>
 <td>integer</td>
-<td>An enumeration where OCSDataStore=1,</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Standard=2</td>
+<td>An enumeration where OCSDataStore=1, Standard=2</td>
 </tr>
 <tr>
 <td>CreatedDate</td>
 <td>string</td>
-<td>The time that the Subscription was</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>created. The string is formatted using</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>ISO 8601 format.</td>
+<td>The time that the Subscription was created. The string is formatted using ISO 8601 format.</td>
 </tr>
 <tr>
 <td>Enabled</td>
 <td>boolean</td>
 <td>Whether the topic exists or not</td>
-</tr>
-<tr>
-<td>OCSNamespace</td>
-<td>string</td>
-<td>If an OCS Data Store Subscription,</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>the namespace being written to</td>
 </tr>
 </tbody>
 </table>
@@ -205,13 +175,17 @@ Standard Subscriptions are not yet supported.</p>
 <p><strong>Returns</strong></p>
 <p>An integer count of subscriptions. </p>
 <hr>
-<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptions"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionsskipskipcountcount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions?skip={skip}&amp;count={count}</code></h2>
 <p>Get all subscriptions for a tenant. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
   Unique Id for the tenant. 
 <code>namespaceId</code>
-  Unique Id for the namespace. </p>
+  Unique Id for the namespace. 
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first subscription to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of subscriptions to retrieve. If not specified, a default value of 100 is used.</p>
 <p><strong>Returns</strong></p>
 <p>An array of Subscription objects. </p>
 <hr>
@@ -249,7 +223,7 @@ Standard Subscriptions are not yet supported.</p>
 <code>namespaceId</code>
   Unique Id for the namespace. </p>
 <p><strong>Returns</strong></p>
-<p>An AccessControlList object </p>
+<p>An AccessControlList object.</p>
 <hr>
 <h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidaccesscontrol"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol</code></h2>
 <p>Gets the Access Control List for a particular subscriptions</p>
@@ -261,9 +235,21 @@ Standard Subscriptions are not yet supported.</p>
 <code>subscriptionId</code>
   Unique Id for the subscription. </p>
 <p><strong>Returns</strong></p>
-<p>An AccessControlList object </p>
+<p>An AccessControlList object.</p>
 <hr>
-<h2 id="post-apitenantstenantidnamespacesnamespaceidsubscription"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/subscription</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidowner"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner</code></h2>
+<p>Gets the Owner Trustee for a particular subscriptions</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>subscriptionId</code>
+  Unique Id for the subscription. </p>
+<p><strong>Returns</strong></p>
+<p>A Trustee object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidsubscriptions"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions</code></h2>
 <p>Create or update a subscription. Only the name and description may be updated. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
@@ -283,7 +269,7 @@ Standard Subscriptions are not yet supported.</p>
 <code>namespaceId</code>
   Unique Id for the namespace. </p>
 <p><strong>Body</strong></p>
-<p>An AccessControlList object </p>
+<p>An AccessControlList object.</p>
 <hr>
 <h2 id="put-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidaccesscontrol"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol</code></h2>
 <p>Updates the Access Control List for a particular subscriptions</p>
@@ -295,7 +281,19 @@ Standard Subscriptions are not yet supported.</p>
 <code>subscriptionId</code>
   Unique Id for the subscription. </p>
 <p><strong>Body</strong></p>
-<p>An AccessControlList object </p>
+<p>An AccessControlList object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionidowner"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner</code></h2>
+<p>Updates the Owner Trustee for a particular subscriptions</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>subscriptionId</code>
+  Unique Id for the subscription. </p>
+<p><strong>Body</strong></p>
+<p>A Trustee object.</p>
 <hr>
 <h2 id="delete-apitenantstenantidnamespacesnamespaceidsubscriptionssubscriptionid"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}</code></h2>
 <p>Delete a Subscription. </p>
@@ -327,7 +325,7 @@ Standard Subscriptions are not yet supported.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

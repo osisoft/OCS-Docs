@@ -32,7 +32,7 @@ OMF message types fall into three categories: Type, Container, and Data, which a
   Type definition are interpreted as follows:
 
   + ``id``: Corresponds to the SdsType Id field. It must conform to the rules defined for a 
-    typeId specified here: [QiTypes_topic](xref:sdsTypes#qitypetopic)
+    typeId specified here: [Types](xref:sdsTypes)
 
   + ``classification``: Only the ``dynamic`` classification is currently supported.
   + ``version``: Versioning of SdsTypes is not supported.
@@ -59,7 +59,7 @@ OMF message types fall into three categories: Type, Container, and Data, which a
 
   OMF supports setting the ``format`` keyword to specify how a particular JSON type should 
   be interpreted. The following is a mapping for the OCS Data Store supported 
-  types (see [QiTypes_topic](xref:sdsTypes#qitypetopic))
+  types (see [Types](xref:sdsTypes))
 
 
 Type     | Format   | QiTypeCode
@@ -87,7 +87,7 @@ A Container message is interpreted as a SdsStream in the OCS Data Store. The key
 in the Container definition are interpreted as follows:
 
 * ``id``: Corresponds to the SdsStream Id field. It must conform to the rules defined for
-    an SdsStream.Id specified here : [Qi_Stream_API_topic](xref:sdsStreamsApi).
+    an SdsStream.Id specified here : [Streams](xref:sdsStreams#streams).
 * ``typeid``: Corresponds to the SdsStream TypeId field.
 * ``typeversion``: Versioning of SdsTypes is not supported.
 * ``name``: Corresponds to the SdsStream Name field. This is a friendly name for the stream.

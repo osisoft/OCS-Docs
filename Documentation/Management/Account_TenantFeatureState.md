@@ -1,0 +1,98 @@
+---
+uid: AccountTenantFeatureState
+---
+
+# Tenant Feature States
+
+APIs for managing the feature states of an OCS `Tenant`.
+
+## Properties
+
+For HTTP requests and responses, the TenantFeatureState object has the following properties and JSON-serialized body: 
+
+| Property | Type | Description | 
+ | --- | --- | ---  | 
+| TenantId | string | The identifier of the Tenant that the TenantFeatureState corresponds to. | 
+| FeatureId | string | The identifier of the Service that the TenantFeatureState corresponds to. | 
+| State | int32 | Current state of this TenantFeatureState. | 
+
+
+```json
+{
+	"TenantId": "tenantid",
+	"FeatureId": "featureid",
+	"State": 0
+}
+```
+***
+
+## `GetAll()`
+
+Retrieves all `FeatureStates` for the specified `Tenant`.
+
+### Http
+
+`GET api/Tenants/{tenantId}/Features`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+The identifier of the account to access.
+
+
+### Security
+
+Authorized for Account Members of the specified account.
+
+### Returns
+
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | [FeatureState] | Returns a list of `FeatureStates` for the specified account. | 
+| 400 | Nothing is returned | Unable to retrieve `FeatureStates` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve `FeatureStates` for the specified account. | 
+
+
+***
+## `Get()`
+
+Retrieves a `FeatureState` with the specified ID from a `Tenant`.
+
+### Http
+
+`GET api/Tenants/{tenantId}/Features/{id}`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+The identifier of the account to access.
+```csharp
+[Required]
+string id
+```
+
+The identifier of the `FeatureState` to retrieve.
+
+
+### Security
+
+Authorized for Account Members of the specified account.
+
+### Returns
+
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | FeatureState | Returns the `FeatureState` of the specified account. | 
+| 400 | Nothing is returned | Unable to retrieve the `FeatureState` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve the `FeatureState` of the specified account. | 
+
+
+***

@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -87,7 +97,7 @@ Because SdsTypes are immutable, update operations are not supported. The keyword
 Type definition are interpreted as follows:</p>
 <ul>
 <li><p><code>id</code>: Corresponds to the SdsType Id field. It must conform to the rules defined for a 
-typeId specified here: <a class="xref" href="../SequentialDataStore/SDS_Types.html#qitypetopic">QiTypes_topic</a></p>
+typeId specified here: <a class="xref" href="../SequentialDataStore/SDS_Types.html">Types</a></p>
 </li>
 <li><p><code>classification</code>: Only the <code>dynamic</code> classification is currently supported.</p>
 </li>
@@ -112,7 +122,7 @@ an SdsTypeProperty. The <code>isname</code> keyword is not supported.</p>
 <li><p><strong>Property Types and Formats</strong></p>
 <p>OMF supports setting the <code>format</code> keyword to specify how a particular JSON type should 
 be interpreted. The following is a mapping for the OCS Data Store supported 
-types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html#qitypetopic">QiTypes_topic</a>)</p>
+types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html">Types</a>)</p>
 </li>
 </ul>
 <table>
@@ -201,7 +211,7 @@ types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html#qitypetop
 in the Container definition are interpreted as follows:</p>
 <ul>
 <li><code>id</code>: Corresponds to the SdsStream Id field. It must conform to the rules defined for
-  an SdsStream.Id specified here : <a href="xref:sdsStreamsApi">Qi_Stream_API_topic</a>.</li>
+  an SdsStream.Id specified here : <a class="xref" href="../SequentialDataStore/SDS_Streams.html#streams">Streams</a>.</li>
 <li><code>typeid</code>: Corresponds to the SdsStream TypeId field.</li>
 <li><code>typeversion</code>: Versioning of SdsTypes is not supported.</li>
 <li><code>name</code>: Corresponds to the SdsStream Name field. This is a friendly name for the stream.</li>
@@ -241,7 +251,7 @@ Data definitions are interpreted as follows:</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

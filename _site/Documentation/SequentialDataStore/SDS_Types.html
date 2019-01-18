@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -68,7 +78,6 @@
             <article class="content wrap" id="_content" data-uid="sdsTypes">
 <h1 id="types">Types</h1>
 
-<h4 id="sdstypetopic">SDS_Type_topic</h4>
 <p>The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
 events. Events are stored in streams, called SdsStreams. An SdsType defines the shape or structure of the 
 event and how to associate events within the SdsStream.</p>
@@ -127,37 +136,19 @@ to be added to the Data Store independently.</p>
 <td>SdsTypeCode</td>
 <td>SdsTypeCode</td>
 <td>Required</td>
-<td>Numeric code identifying the base</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>SdsType</td>
+<td>Numeric code identifying the base SdsType</td>
 </tr>
 <tr>
 <td>InterpolationMode</td>
 <td>SdsInterpolationMode</td>
 <td>Optional</td>
-<td>Interpolation setting of the type.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Default is Continuous.</td>
+<td>Interpolation setting of the type. Default is Continuous.</td>
 </tr>
 <tr>
 <td>ExtrapolationMode</td>
 <td>SdsExtrapolationMode</td>
 <td>Optional</td>
-<td>Extrapolation setting of the type.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Default is All.</td>
+<td>Extrapolation setting of the type. Default is All.</td>
 </tr>
 <tr>
 <td>Properties</td>
@@ -173,7 +164,7 @@ to be added to the Data Store independently.</p>
 <li>Can contain spaces</li>
 <li>Cannot begin with two underscores (&quot;__&quot;)</li>
 <li>Cannot contain forward slash or backslash characters (&quot;/&quot; or &quot;\&quot;)</li>
-<li>Can contain a maximum of 260 characters</li>
+<li>Can contain a maximum of 100 characters</li>
 <li>Cannot start or end with a period.</li>
 <li>Cannot contain consecutive periods.</li>
 <li>Cannot consist of only periods.</li>
@@ -582,12 +573,7 @@ below lists InterpolationModes:</p>
 <tr>
 <td>Continuous</td>
 <td>0</td>
-<td>Interpolates the data using previous and next</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>index values</td>
+<td>Interpolates the data using previous and next index values</td>
 </tr>
 <tr>
 <td>StepwiseContinuousLeading</td>
@@ -610,13 +596,12 @@ below lists InterpolationModes:</p>
 <p>The table below describes how the <strong>Continuous InterpolationMode</strong> affects
 indexes that occur between data in a stream:</p>
 <p><strong>InterpolationMode = Continuous or Default</strong></p>
-<p>| Type                      | Result for an index between    | Comment                                          |</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>data in a stream</th>
-<th></th>
+<th>Type</th>
+<th>Result for an index between data in a stream</th>
+<th>Comment</th>
 </tr>
 </thead>
 <tbody>
@@ -633,12 +618,7 @@ indexes that occur between data in a stream:</p>
 <tr>
 <td>Nullable Types</td>
 <td>Returns ‘null’</td>
-<td>Cannot reliably interpolate due to possibility of</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>a null value</td>
+<td>Cannot reliably interpolate due to possibility of a null value</td>
 </tr>
 <tr>
 <td>Array and List Types</td>
@@ -876,25 +856,13 @@ are not included are reserved for internal SDS use.</p>
 <td>SdsType</td>
 <td>SdsType</td>
 <td>Required</td>
-<td>Field defining the property&#39;s</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Type</td>
+<td>Field defining the property&#39;s Type</td>
 </tr>
 <tr>
 <td>IsKey</td>
 <td>Boolean</td>
 <td>Required</td>
-<td>Identifies the property as the Key</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>(Primary Index)</td>
+<td>Identifies the property as the Key (Primary Index)</td>
 </tr>
 <tr>
 <td>Value</td>
@@ -906,37 +874,19 @@ are not included are reserved for internal SDS use.</p>
 <td>Order</td>
 <td>Int</td>
 <td>Optional</td>
-<td>Order of comparison within a</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>compound index. Also used</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>internally</td>
+<td>Order of comparison within a compound index</td>
 </tr>
 <tr>
 <td>InterpolationMode</td>
 <td>SdsInterpolationMode</td>
 <td>Optional</td>
-<td>Interpolation setting of the property.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Default is null.</td>
+<td>Interpolation setting of the property. Default is null.</td>
 </tr>
 <tr>
 <td>Uom</td>
 <td>String</td>
 <td>Optional</td>
-<td>Unit of Measure of the property.</td>
+<td>Unit of Measure of the property</td>
 </tr>
 </tbody>
 </table>
@@ -959,765 +909,7 @@ For more information on interpolation of events see Interpolation_.</p>
 abbreviation. The names and abbreviations of Uoms are case sensitive. </p>
 <p>The InterpolationMode and Uom of a Property can be overriden on the stream. For more information, see <a class="xref" href="SDS_Streams.html#propertyoverrides">Sds Streams</a>. </p>
 <h2 id="supported-units-of-measure">Supported Units of Measure</h2>
-<p>The following unit of measures are supported for an SdsTypeProperty:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Abbreviation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>acre</td>
-<td>acre</td>
-</tr>
-<tr>
-<td>acre foot</td>
-<td>acre ft</td>
-</tr>
-<tr>
-<td>ampere</td>
-<td>A</td>
-</tr>
-<tr>
-<td>Ampere hour</td>
-<td>Ah</td>
-</tr>
-<tr>
-<td>atmosphere</td>
-<td>atm</td>
-</tr>
-<tr>
-<td>bar</td>
-<td>bar</td>
-</tr>
-<tr>
-<td>barrel</td>
-<td>bbl</td>
-</tr>
-<tr>
-<td>barrel per day</td>
-<td>bbl/d</td>
-</tr>
-<tr>
-<td>British thermal unit</td>
-<td>Btu</td>
-</tr>
-<tr>
-<td>British thermal unit per degree Fahrenheit</td>
-<td>Btu/°F</td>
-</tr>
-<tr>
-<td>British thermal unit per degree Rankine</td>
-<td>Btu/°R</td>
-</tr>
-<tr>
-<td>British thermal unit per hour</td>
-<td>Btu/h</td>
-</tr>
-<tr>
-<td>British thermal unit per pound</td>
-<td>Btu/lb</td>
-</tr>
-<tr>
-<td>British thermal unit per pound degree Fahrenheit</td>
-<td>Btu/(lb °F)</td>
-</tr>
-<tr>
-<td>British thermal unit per pound degree Rankine</td>
-<td>Btu/(lb °R)</td>
-</tr>
-<tr>
-<td>calorie</td>
-<td>cal</td>
-</tr>
-<tr>
-<td>calorie per second</td>
-<td>cal/s</td>
-</tr>
-<tr>
-<td>candela</td>
-<td>cd</td>
-</tr>
-<tr>
-<td>centimeter</td>
-<td>cm</td>
-</tr>
-<tr>
-<td>centimeter per second</td>
-<td>cm/s</td>
-</tr>
-<tr>
-<td>coulomb</td>
-<td>C</td>
-</tr>
-<tr>
-<td>count</td>
-<td>count</td>
-</tr>
-<tr>
-<td>cubic centimeter</td>
-<td>cm3</td>
-</tr>
-<tr>
-<td>cubic centimeter per gram</td>
-<td>cm3/g</td>
-</tr>
-<tr>
-<td>cubic centimeter per second</td>
-<td>cm3/s</td>
-</tr>
-<tr>
-<td>cubic foot</td>
-<td>ft3</td>
-</tr>
-<tr>
-<td>cubic foot per pound</td>
-<td>ft3/lb</td>
-</tr>
-<tr>
-<td>cubic foot per second</td>
-<td>ft3/s</td>
-</tr>
-<tr>
-<td>cubic meter</td>
-<td>m3</td>
-</tr>
-<tr>
-<td>cubic meter per hour</td>
-<td>m3/h</td>
-</tr>
-<tr>
-<td>cubic meter per kilogram</td>
-<td>m3/kg</td>
-</tr>
-<tr>
-<td>cubic meter per second</td>
-<td>m3/s</td>
-</tr>
-<tr>
-<td>day</td>
-<td>d</td>
-</tr>
-<tr>
-<td>degree</td>
-<td>°</td>
-</tr>
-<tr>
-<td>degree Celsius</td>
-<td>°C</td>
-</tr>
-<tr>
-<td>degree Fahrenheit</td>
-<td>°F</td>
-</tr>
-<tr>
-<td>degree Rankine</td>
-<td>°R</td>
-</tr>
-<tr>
-<td>delta degree Celsius</td>
-<td>delta °C</td>
-</tr>
-<tr>
-<td>delta degree Fahrenheit</td>
-<td>delta °F</td>
-</tr>
-<tr>
-<td>delta degree Rankine</td>
-<td>delta °R</td>
-</tr>
-<tr>
-<td>delta kelvin</td>
-<td>delta K</td>
-</tr>
-<tr>
-<td>dyne</td>
-<td>dyne</td>
-</tr>
-<tr>
-<td>foot</td>
-<td>ft</td>
-</tr>
-<tr>
-<td>foot per second</td>
-<td>ft/s</td>
-</tr>
-<tr>
-<td>gigajoule</td>
-<td>GJ</td>
-</tr>
-<tr>
-<td>gigawatt</td>
-<td>GW</td>
-</tr>
-<tr>
-<td>gigawatt hour</td>
-<td>GWh</td>
-</tr>
-<tr>
-<td>gram</td>
-<td>g</td>
-</tr>
-<tr>
-<td>gram mole</td>
-<td>gmol</td>
-</tr>
-<tr>
-<td>gram mole per second</td>
-<td>gmol/s</td>
-</tr>
-<tr>
-<td>gram per gram mole</td>
-<td>g/gmol</td>
-</tr>
-<tr>
-<td>gram per liter</td>
-<td>g/L</td>
-</tr>
-<tr>
-<td>gram per second</td>
-<td>g/s</td>
-</tr>
-<tr>
-<td>hectare</td>
-<td>ha</td>
-</tr>
-<tr>
-<td>hertz</td>
-<td>Hz</td>
-</tr>
-<tr>
-<td>horsepower</td>
-<td>hp</td>
-</tr>
-<tr>
-<td>hour</td>
-<td>h</td>
-</tr>
-<tr>
-<td>Imperial gallon</td>
-<td>Imp gal</td>
-</tr>
-<tr>
-<td>Imperial gallon per minute</td>
-<td>Imp gal/min</td>
-</tr>
-<tr>
-<td>inch</td>
-<td>in</td>
-</tr>
-<tr>
-<td>inches of mercury</td>
-<td>inHg</td>
-</tr>
-<tr>
-<td>International nautical mile</td>
-<td>nmi</td>
-</tr>
-<tr>
-<td>International nautical mile per hour</td>
-<td>nmi/h</td>
-</tr>
-<tr>
-<td>joule</td>
-<td>J</td>
-</tr>
-<tr>
-<td>joule per gram</td>
-<td>J/g</td>
-</tr>
-<tr>
-<td>joule per gram kelvin</td>
-<td>J/(g K)</td>
-</tr>
-<tr>
-<td>joule per kelvin</td>
-<td>J/K</td>
-</tr>
-<tr>
-<td>joule per kilogram</td>
-<td>J/kg</td>
-</tr>
-<tr>
-<td>joule per kilogram kelvin</td>
-<td>J/(kg K)</td>
-</tr>
-<tr>
-<td>joule per second</td>
-<td>J/s</td>
-</tr>
-<tr>
-<td>kelvin</td>
-<td>K</td>
-</tr>
-<tr>
-<td>kilocalorie</td>
-<td>kcal</td>
-</tr>
-<tr>
-<td>kilocalorie per kilogram</td>
-<td>kcal/kg</td>
-</tr>
-<tr>
-<td>kilogram</td>
-<td>kg</td>
-</tr>
-<tr>
-<td>kilogram mole</td>
-<td>kmol</td>
-</tr>
-<tr>
-<td>kilogram mole per second</td>
-<td>kmol/s</td>
-</tr>
-<tr>
-<td>kilogram per cubic meter</td>
-<td>kg/m3</td>
-</tr>
-<tr>
-<td>kilogram per kilogram mole</td>
-<td>kg/kmol</td>
-</tr>
-<tr>
-<td>kilogram per liter</td>
-<td>kg/L</td>
-</tr>
-<tr>
-<td>kilogram per mole</td>
-<td>kg/mol</td>
-</tr>
-<tr>
-<td>kilogram per second</td>
-<td>kg/s</td>
-</tr>
-<tr>
-<td>kilogram-force</td>
-<td>kgf</td>
-</tr>
-<tr>
-<td>kilogram-force per square centimeter</td>
-<td>kgf/cm2</td>
-</tr>
-<tr>
-<td>kilogram-force per square meter</td>
-<td>kgf/m2</td>
-</tr>
-<tr>
-<td>kilojoule</td>
-<td>kJ</td>
-</tr>
-<tr>
-<td>kilojoule per kelvin</td>
-<td>kJ/K</td>
-</tr>
-<tr>
-<td>kilojoule per kilogram</td>
-<td>kJ/kg</td>
-</tr>
-<tr>
-<td>kilojoule per kilogram kelvin</td>
-<td>kJ/(kg K)</td>
-</tr>
-<tr>
-<td>kilojoule per pound</td>
-<td>kJ/lb</td>
-</tr>
-<tr>
-<td>kiloliter</td>
-<td>kL</td>
-</tr>
-<tr>
-<td>kilometer</td>
-<td>km</td>
-</tr>
-<tr>
-<td>kilometer per hour</td>
-<td>km/h</td>
-</tr>
-<tr>
-<td>kilopascal</td>
-<td>kPa</td>
-</tr>
-<tr>
-<td>kilovolt</td>
-<td>kV</td>
-</tr>
-<tr>
-<td>kilowatt</td>
-<td>kW</td>
-</tr>
-<tr>
-<td>kilowatt hour</td>
-<td>kWh</td>
-</tr>
-<tr>
-<td>liter</td>
-<td>L</td>
-</tr>
-<tr>
-<td>liter per second</td>
-<td>L/s</td>
-</tr>
-<tr>
-<td>long ton</td>
-<td>lton</td>
-</tr>
-<tr>
-<td>long ton per day</td>
-<td>lton/d</td>
-</tr>
-<tr>
-<td>megajoule</td>
-<td>MJ</td>
-</tr>
-<tr>
-<td>megajoule per hour</td>
-<td>MJ/h</td>
-</tr>
-<tr>
-<td>megaliter</td>
-<td>M L</td>
-</tr>
-<tr>
-<td>megavolt</td>
-<td>MV</td>
-</tr>
-<tr>
-<td>megawatt</td>
-<td>MW</td>
-</tr>
-<tr>
-<td>megawatt hour</td>
-<td>MWh</td>
-</tr>
-<tr>
-<td>meter</td>
-<td>m</td>
-</tr>
-<tr>
-<td>meter per second</td>
-<td>m/s</td>
-</tr>
-<tr>
-<td>mile</td>
-<td>mi</td>
-</tr>
-<tr>
-<td>mile per hour</td>
-<td>mi/h</td>
-</tr>
-<tr>
-<td>milliampere</td>
-<td>mA</td>
-</tr>
-<tr>
-<td>milligram</td>
-<td>mg</td>
-</tr>
-<tr>
-<td>milliliter</td>
-<td>mL</td>
-</tr>
-<tr>
-<td>millimeter</td>
-<td>mm</td>
-</tr>
-<tr>
-<td>millimeter of mercury</td>
-<td>mmHg</td>
-</tr>
-<tr>
-<td>million barrel</td>
-<td>MMbbl</td>
-</tr>
-<tr>
-<td>million British thermal unit</td>
-<td>MM Btu</td>
-</tr>
-<tr>
-<td>million British thermal unit per day</td>
-<td>MM Btu/d</td>
-</tr>
-<tr>
-<td>million British thermal unit per hour</td>
-<td>MM Btu/h</td>
-</tr>
-<tr>
-<td>million calorie</td>
-<td>MMcal</td>
-</tr>
-<tr>
-<td>million calorie per hour</td>
-<td>MMcal/h</td>
-</tr>
-<tr>
-<td>million imperial gallon</td>
-<td>Imp Mgal</td>
-</tr>
-<tr>
-<td>million pound</td>
-<td>MM lb</td>
-</tr>
-<tr>
-<td>million pound per day</td>
-<td>MMlb/d</td>
-</tr>
-<tr>
-<td>million US gallon</td>
-<td>US Mgal</td>
-</tr>
-<tr>
-<td>millivolt</td>
-<td>mV</td>
-</tr>
-<tr>
-<td>minute</td>
-<td>min</td>
-</tr>
-<tr>
-<td>mole</td>
-<td>mol</td>
-</tr>
-<tr>
-<td>mole per second</td>
-<td>mol/s</td>
-</tr>
-<tr>
-<td>month</td>
-<td>month</td>
-</tr>
-<tr>
-<td>newton</td>
-<td>N</td>
-</tr>
-<tr>
-<td>newton per square meter</td>
-<td>N/m2</td>
-</tr>
-<tr>
-<td>ohm</td>
-<td>Ω</td>
-</tr>
-<tr>
-<td>ounce</td>
-<td>oz</td>
-</tr>
-<tr>
-<td>parts per billion</td>
-<td>ppb</td>
-</tr>
-<tr>
-<td>parts per million</td>
-<td>ppm</td>
-</tr>
-<tr>
-<td>pascal</td>
-<td>Pa</td>
-</tr>
-<tr>
-<td>pascal second</td>
-<td>Pa*s</td>
-</tr>
-<tr>
-<td>percent</td>
-<td>%</td>
-</tr>
-<tr>
-<td>poise</td>
-<td>P</td>
-</tr>
-<tr>
-<td>pound</td>
-<td>lb</td>
-</tr>
-<tr>
-<td>pound mole</td>
-<td>lbmol</td>
-</tr>
-<tr>
-<td>pound mole per second</td>
-<td>lbmol/s</td>
-</tr>
-<tr>
-<td>pound per barrel</td>
-<td>lb/bbl</td>
-</tr>
-<tr>
-<td>pound per cubic foot</td>
-<td>lb/ft3</td>
-</tr>
-<tr>
-<td>pound per pound mole</td>
-<td>lb/lbmol</td>
-</tr>
-<tr>
-<td>pound per second</td>
-<td>lb/s</td>
-</tr>
-<tr>
-<td>ound per US gallon</td>
-<td>lb/US gal</td>
-</tr>
-<tr>
-<td>pound-force</td>
-<td>lbf</td>
-</tr>
-<tr>
-<td>pound-force per square inch</td>
-<td>psi</td>
-</tr>
-<tr>
-<td>pound-force per square inch (customary)</td>
-<td>psia</td>
-</tr>
-<tr>
-<td>radian</td>
-<td>rad</td>
-</tr>
-<tr>
-<td>radian per second</td>
-<td>rad/s</td>
-</tr>
-<tr>
-<td>revolution</td>
-<td>r</td>
-</tr>
-<tr>
-<td>revolution per minute</td>
-<td>rpm</td>
-</tr>
-<tr>
-<td>second</td>
-<td>s</td>
-</tr>
-<tr>
-<td>short ton</td>
-<td>ston</td>
-</tr>
-<tr>
-<td>short ton per day</td>
-<td>ston/d</td>
-</tr>
-<tr>
-<td>sixteenth of an inch</td>
-<td>sxi</td>
-</tr>
-<tr>
-<td>square centimeter</td>
-<td>cm2</td>
-</tr>
-<tr>
-<td>square foot</td>
-<td>ft2</td>
-</tr>
-<tr>
-<td>square inch</td>
-<td>in2</td>
-</tr>
-<tr>
-<td>square kilometer</td>
-<td>km2</td>
-</tr>
-<tr>
-<td>square meter</td>
-<td>m2</td>
-</tr>
-<tr>
-<td>square mile</td>
-<td>mi2</td>
-</tr>
-<tr>
-<td>square millimeter</td>
-<td>mm2</td>
-</tr>
-<tr>
-<td>square yard</td>
-<td>yd2</td>
-</tr>
-<tr>
-<td>thousand barrel</td>
-<td>kbbl</td>
-</tr>
-<tr>
-<td>thousand cubic meter</td>
-<td>k m3</td>
-</tr>
-<tr>
-<td>thousand imperial gallon</td>
-<td>Imp kgal</td>
-</tr>
-<tr>
-<td>thousand pound</td>
-<td>klb</td>
-</tr>
-<tr>
-<td>thousand pound per day</td>
-<td>klb/d</td>
-</tr>
-<tr>
-<td>thousand US gallon</td>
-<td>US kgal</td>
-</tr>
-<tr>
-<td>ton</td>
-<td>ton</td>
-</tr>
-<tr>
-<td>tonne</td>
-<td>t</td>
-</tr>
-<tr>
-<td>tonne per cubic mete</td>
-<td>t/m3</td>
-</tr>
-<tr>
-<td>tonne per day</td>
-<td>t/d</td>
-</tr>
-<tr>
-<td>torr</td>
-<td>torr</td>
-</tr>
-<tr>
-<td>US gallon</td>
-<td>US gal</td>
-</tr>
-<tr>
-<td>US gallon per minute</td>
-<td>US gal/min</td>
-</tr>
-<tr>
-<td>volt</td>
-<td>V</td>
-</tr>
-<tr>
-<td>watt</td>
-<td>W</td>
-</tr>
-<tr>
-<td>watt hour</td>
-<td>Wh</td>
-</tr>
-<tr>
-<td>watt second</td>
-<td>Ws</td>
-</tr>
-<tr>
-<td>week</td>
-<td>week</td>
-</tr>
-<tr>
-<td>yard</td>
-<td>yd</td>
-</tr>
-<tr>
-<td>year</td>
-<td>yr</td>
-</tr>
-</tbody>
-</table>
+<p>For a list of units of measures that are supported for an SdsTypeProperty, see <a class="xref" href="Units_of_Measure.html#supported-units-of-measure">Units of Measure</a>.</p>
 <h2 id="working-with-sdstypes-using-net">Working with SdsTypes using .NET</h2>
 <p>When working in .NET, use the SdsTypeBuilder to create SdsTypes. The SdsTypeBuilder eliminates 
 potential errors that can occur when working with SdsTypes manually.</p>
@@ -2391,12 +1583,9 @@ defines the available functions. See Types_ for general SdsType information.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string typeId</code>
-  The type identifier</p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string typeId</code><br>The type identifier</p>
 <p><strong>Response</strong></p>
 <p>The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -2468,20 +1657,28 @@ defines the available functions. See Types_ for general SdsType information.</p>
 <hr>
 <h2 id="get-types"><code>Get Types</code></h2>
 <p>Returns a list of types within a given namespace.</p>
+<p>If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all types 
+in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
+and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string query</code>
-  An optional query string to filter which SdsTypes will be returned.  See the <a class="xref" href="Searching.html#qisearchingtopic">Search</a> topic for information about specifying the query parameter.
-<code>int skip</code>
-  An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
-  a default value of 0 is used.
-<code>int count</code>
-  An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.</p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string query</code><br>An optional query string to match which SdsTypes will be returned.  See the <a class="xref" href="Searching.html">Searching</a> topic for information about specifying the query parameter.</p>
+<p><code>string filter</code><br>An optional filter string to match which SdsTypes will be returned.  See the <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+topic for information about specifying the filter parameter.</p>
+<p><code>int skip</code><br>  An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
+a default value of 0 is used.</p>
+<p><code>int count</code><br>An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.</p>
+<p><code>string orderby</code><br>An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given
+  field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). 
+  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
+  using values <code>asc</code> or <code>desc</code>, respectively.
+  For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending.
+  If no value is specified, there is no sorting of results.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -2562,12 +1759,9 @@ redirect with the authorization header, you should disable automatic redirect an
 <p><strong>Request</strong></p>
 <pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string typeId</code>
-  The type identifier. The identifier must match the SdsType.Id field. </p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string typeId</code><br>The type identifier. The identifier must match the SdsType.Id field. </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -2756,12 +1950,9 @@ they are defined.</p>
 <p><strong>Request</strong></p>
 <pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string typeId</code>
-  The type identifier</p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string typeId</code><br>The type identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -2776,12 +1967,9 @@ they are defined.</p>
 <p><strong>Request</strong></p>
 <pre><code>    DELETE  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string typeId</code>
-  The type identifier</p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string typeId</code><br>The type identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
@@ -2811,7 +1999,7 @@ they are defined.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

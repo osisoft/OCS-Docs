@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,11 +76,10 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsReadingData">
-
-<h4 id="qireadingdatatopic">Qi_Reading_data_topic</h4>
 <h1 id="reading-data">Reading data</h1>
-<p>The REST APIs provide programmatic access to read and write data. This section identifies and describes 
-the APIs used to read <a class="xref" href="SDS_Streams.html#qistreamtopic">Qi_Stream_topic</a> data. Results are influenced by <a class="xref" href="SDS_Types.html#qitypetopic">Qi_Types_topic</a>,<br><a class="xref" href="SDS_Views.html">Sds_View_topic</a>, <a class="xref" href="Filter_Expressions.html">Qi_Filter_expressions_topic</a>, and <a class="xref" href="table_format.html">Qi_Table_format_topic</a>.</p>
+
+<p>The .NET and REST APIs provide programmatic access to read and write data. This section identifies and describes 
+the APIs used to read <a class="xref" href="SDS_Streams.html">Stream</a> data. Results are influenced by <a class="xref" href="SDS_Types.html">Types</a>,<br><a class="xref" href="SDS_Views.html">Sds Views</a>, <a class="xref" href="Filter_Expressions.html">Filter expressions</a>, and <a class="xref" href="table_format.html">Table format</a>.</p>
 <p>If you are working in a .NET environment, convenient SDS Client libraries are available. 
 The <code>ISdsDataServiceinterface</code>, which is accessed using the <code>SdsService.GetDataService()</code> helper, 
 defines the functions that are available.</p>
@@ -95,12 +104,9 @@ and specified start and end indexes.</li>
 <p>All reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI is as follows:</p>
 <p><code>api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data</code></p>
 <p><strong>where:</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
 <h2 id="response-format">Response Format</h2>
 <p>Supported response formats include json, verbose json, and Sds. </p>
 <p>The default response format for is json, which is used in all examples in this document.  Default json 
@@ -111,26 +117,22 @@ verbose json return, add the header <code>Accept-Verbosity</code> with a value o
 <h2 id="indexes-and-reading-data">Indexes and reading data</h2>
 <p>Most read operations take at least one index as a parameter. Indexes may be specified as strings, or, 
 when using the Sds Client libraries, the index may be passed as-is to read methods that take the index 
-type as a generic argument. Additional details about working with indexes can be found on the <a class="xref" href="indexes.html">Indexes_topic</a> page.</p>
+type as a generic argument. Additional details about working with indexes can be found on the <a class="xref" href="indexes.html">Indexes</a> page.</p>
 <h2 id="read-characteristics">Read Characteristics</h2>
 <p>When data is requested at an index for which no stored event exists, the read characterisitics determine 
 whether the result is an error, null event, interpolated event, or extrapolated event. The combination of 
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
 determine the read characteristics. For more information on read characteristics, 
-see <a class="xref" href="SDS_Types.html#qitypetopic">QiType_topic</a> and <a class="xref" href="SDS_Streams.html#qistreamtopic">Qi_Stream_topic</a>.</p>
+see <a class="xref" href="SDS_Types.html">Types</a> and <a class="xref" href="SDS_Streams.html">Streams</a>.</p>
 <p><strong>Methods affected by Read Characteristics</strong></p>
-<p><code>GetValueAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getvalueasync&gt;</code>__
-  Read characteristics are applied when the index is between, before, or after all data.</p>
-<p><code>GetValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getvaluesasync&gt;</code>__
-  Read characteristics applied when an index determined by the call is between, before, or after all data.</p>
-<p><code>GetWindowValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getwindowvaluesasync&gt;</code>__
-  Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
-<p><code>GetRangeValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getrangevaluesasync&gt;</code>__
-  Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
+<p><a class="xref" href="Reading_Data_API.html#get-value"><code>GetValueAsync</code></a><br>Read characteristics are applied when the index is between, before, or after all data.</p>
+<p><a class="xref" href="Reading_Data_API.html#get-values"><code>GetValuesAsync</code></a><br>Read characteristics applied when an index determined by the call is between, before, or after all data.</p>
+<p><a class="xref" href="Reading_Data_API.html#get-window-values"><code>GetWindowValuesAsync</code></a><br>Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
+<p><a class="xref" href="Reading_Data_API.html#get-range-values"><code>GetRangeValuesAsync</code></a><br>Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
 <h2 id="sdsview-and-reading-data">SdsView and reading data</h2>
 <p>All reads support specifying a SdsView identifier in the query string to shape the results of the read:</p>
 <p><code>viewId={viewId}</code></p>
-<p>Working with views is covered in detail in the <a class="xref" href="SDS_Views.html">Sds_View_topic</a> section.</p>
+<p>Working with views is covered in detail in the <a class="xref" href="SDS_Views.html">Sds Views</a> section.</p>
 <p>When data is requested with a SdsView the read characteristics defined by the <em>target type</em> of the SdsView 
 determine what is returned. The read characteristics are discussed in the <em>Get Value</em>, 
 <em>GetValues</em> and <em>GetWindowValues</em> code samples.</p>
@@ -138,7 +140,7 @@ determine what is returned. The read characteristics are discussed in the <em>Ge
 <p>Filter expressions can be applied to any read that returns multiple values, including Get Values, Get Range Values, 
 Get Window Values, and Get Intervals. The filter expression is applied to the collection events conditionally 
 filtering events that do not meet the filter conditions.</p>
-<p>Filter expressions are covered in detail in the <a class="xref" href="Filter_Expressions.html">Qi_Filter_expressions_topic</a> section.</p>
+<p>Filter expressions are covered in detail in the <a class="xref" href="Filter_Expressions.html">Filter expressions</a> section.</p>
 <h2 id="table-format">Table Format</h2>
 <p>Results of a query can be organized into tables by directing the form parameter to return a table. 
 Two forms of table are available: table and header table.</p>
@@ -147,7 +149,7 @@ Results include a collection named <code>Columns</code> that lists column name a
 <code>Rows</code> containing a collection of rows matching the order of the columns.</p>
 <p>Specifying a form of type <code>table-headers</code>, <code>?form=tableh</code>, results in a collection where the Rows collection 
 contains a column header list.</p>
-<p>Table formats are covered in detail in the <a class="xref" href="table_format.html">Qi_Table_format_topic</a> section.</p>
+<p>Table formats are covered in detail in the <a class="xref" href="table_format.html">Table format</a> section.</p>
 <h2 id="sdsboundarytype">SdsBoundaryType</h2>
 <p>SdsBoundaryType defines how data on the boundary of queries is handled: around the start index for range value queries, 
 and around the start and end index for window values. The following are valid values for SdsBoundaryType:</p>
@@ -163,12 +165,7 @@ and around the start and end index for window values. The following are valid va
 <tr>
 <td>Exact</td>
 <td>0</td>
-<td>Results include the event at the specified index boundary</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>if a stored event exists at that index.</td>
+<td>Results include the event at the specified index boundary if a stored event exists at that index.</td>
 </tr>
 <tr>
 <td>Inside</td>
@@ -178,32 +175,12 @@ and around the start and end index for window values. The following are valid va
 <tr>
 <td>Outside</td>
 <td>2</td>
-<td>Results include up to one event that falls immediately</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>outside of the specified index boundary.</td>
+<td>Results include up to one event that falls immediately outside of the specified index boundary.</td>
 </tr>
 <tr>
 <td>ExactOrCalculated</td>
 <td>3</td>
-<td>Results include the event at the specified index boundary. If</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>no stored event exists at that index, one is calculated based</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>on the index type and interpolation and extrapolation</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>settings.</td>
+<td>Results include the event at the specified index boundary. If no stored event exists at that index, one is calculated based on the index type and interpolation and extrapolation settings.</td>
 </tr>
 </tbody>
 </table>
@@ -222,27 +199,12 @@ available SdsSearchModes:</p>
 <tr>
 <td>Exact</td>
 <td>0</td>
-<td>If a stored event exists at the specified index, that event</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>is returned. Otherwise no event is returned.</td>
+<td>If a stored event exists at the specified index, that event is returned. Otherwise no event is returned.</td>
 </tr>
 <tr>
 <td>ExactOrNext</td>
 <td>1</td>
-<td>If a stored event exists at the specified index, that event</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>is returned. Otherwise the next event in the stream is</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>returned.</td>
+<td>If a stored event exists at the specified index, that event is returned. Otherwise the next event in the stream is returned.</td>
 </tr>
 <tr>
 <td>Next</td>
@@ -252,17 +214,7 @@ available SdsSearchModes:</p>
 <tr>
 <td>ExactOrPrevious</td>
 <td>3</td>
-<td>If a stored event exists at the specified index, that event</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>is returned. Otherwise the previous event in the stream is</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>returned.</td>
+<td>If a stored event exists at the specified index, that event is returned. Otherwise the previous event in the stream is returned.</td>
 </tr>
 <tr>
 <td>Previous</td>
@@ -271,134 +223,39 @@ available SdsSearchModes:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="reading-data-api-and-examples">Reading data API and examples</h2>
-<p>Many of the API methods described below contain sample JSON and sample code. </p>
-<p>When specifying a parameter of type enum, the API accepts both the name of the field and the numeric value of the field. 
-Samples vary to highlight enum flexibility.</p>
-<p>Samples use the following types:</p>
-<p>Type with a simple index, named <em>Simple</em>:</p>
-<p><strong>.NET</strong></p>
-<pre><code>  public enum State
-  {
-    Ok,
-    Warning,
-    Alarm
-  }
-
-  public class Simple
-  {
-    [SdsMember(IsKey = true, Order = 0) ]
-    public DateTime Time { get; set; }
-    public State State { get; set; }
-    public Double Measurement { get; set; }
-  }
-</code></pre><p><strong>Python</strong></p>
-<pre><code>  class State(Enum):
-    Ok = 0
-    Warning = 1
-    Alarm = 2
-
-  class Simple(object):
-    Time = property(getTime, setTime)
-    def getTime(self):
-      return self.__time
-    def setTime(self, time):
-      self.__time = time
-
-    State = property(getState, setState)
-    def getState(self):
-      return self.__state
-    def setState(self, state):
-      self.__state = state
-
-    Measurement = property(getValue, setValue)
-    def getValue(self):
-      return self.__measurement
-    def setValue(self, measurement):
-      self.__measurement = measurement
-</code></pre><p><strong>JavaScript</strong></p>
-<pre><code>  var State =
-  {
-    Ok: 0,
-    Warning: 1,
-    Alarm: 2,
-  }
-
-  var Simple = function () {
-    this.Time = null;
-    this.State = null;
-    this.Value = null;
-  }
-</code></pre><p>Has values as follows:</p>
-<pre><code>  11/23/2017 12:00:00 PM: Ok  0
-  11/23/2017  1:00:00 PM: Ok 10
-  11/23/2017  2:00:00 PM: Ok 20
-  11/23/2017  3:00:00 PM: Ok 30
-  11/23/2017  4:00:00 PM: Ok 40
-</code></pre><p>Type with Compound Index, named <code>DerivedCompoundIndex</code></p>
-<p><strong>.NET</strong></p>
-<pre><code>  public class Simple
-  {
-    [SdsMember(IsKey = true, Order = 0)]
-    public DateTime Time { get; set; }
-    public State State { get; set; }
-    public Double Measurement { get; set; }
-  }
-
-  public class DerivedCompoundIndex : Simple
-  {
-    [SdsMember(IsKey = true, Order = 1)]
-    public DateTime Recorded { get; set; }
-  }
-</code></pre><p><strong>Python</strong></p>
-<pre><code>  class Simple(object):
-  # First-order Key property
-  Time = property(getTime, setTime)
-  def getTime(self):
-    return self.__time
-  def setTime(self, time):
-    self.__time = time
-
-  State = property(getState, setState)
-  def getState(self):
-    return self.__state
-  def setState(self, state):
-    self.__state = state
-
-  Measurement = property(getValue, setValue)
-  def getValue(self):
-    return self.__measurement
-  def setValue(self, measurement):
-    self.__measurement = measurement
-
-  class DerivedCompoundIndex(Simple):
-  # Second-order Key property
-  @property
-  def Recorded(self):
-    return self.__recorded
-  @Recorded.setter
-  def Recorded(self, recorded):
-    self.__recorded = recorded
-</code></pre><p><strong>JavaScript</strong></p>
-<pre><code>  var Simple = function () {
-    this.Time = null;
-    this.State = null;
-    this.Value = null;
-  }
-
-  var DerivedCompoundIndex = function() {
-    Simple.call(this);
-    this.Recorded = null;
-  }
-</code></pre><p>Has values as follows:</p>
-<pre><code>  1/20/2017 1:00:00 AM : 1/20/2017 12:00:00 AM  0
-  1/20/2017 1:00:00 AM : 1/20/2017  1:00:00 AM  2
-  1/20/2017 1:00:00 AM : 1/20/2017  2:00:00 PM  5
-  1/20/2017 2:00:00 AM : 1/20/2017 12:00:00 AM  1
-  1/20/2017 2:00:00 AM : 1/20/2017  1:00:00 AM  3
-  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 AM  4
-  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 PM  6
-</code></pre><p>All times are represented at offset 0, GMT.</p>
+<h2 id="unit-conversion-of-data">Unit conversion of data</h2>
+<p>SDS supports assigning <a class="xref" href="Units_of_Measure.html">Units of Measure</a> (Uom) to stream data. If stream data has Uom information associated, SDS supports reading data with unit conversions applied. On each read data request, unit conversions are specified by a user defined collection of <code>SdsStreamPropertyOverride</code> objects in read requests. The <code>SdsStreamPropertyOverride</code> object has the following structure:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SdsTypePropertyId</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier for a SdsTypeProperty with a Uom assigned</td>
+</tr>
+<tr>
+<td>Uom</td>
+<td>String</td>
+<td>Required</td>
+<td>Target unit of measure</td>
+</tr>
+<tr>
+<td>InterpolationMode</td>
+<td>SdsInterpolationMode</td>
+<td>N/A</td>
+<td>Currently not supported in context of data reads</td>
+</tr>
+</tbody>
+</table>
+<p>This is supported in the .NET API via overloads that accept a collection of <code>SdsStreamPropertyOverride</code> objects, and in the REST API via HTTP POST calls with a request body containing a collection of <code>SdsStreamPropertyOverride</code> objects. See <a class="xref" href="Reading_Data_API.html">API calls for reading data</a> for more information.</p>
 </article>
           </div>
           
@@ -422,7 +279,7 @@ Samples vary to highlight enum flexibility.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

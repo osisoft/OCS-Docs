@@ -4,7 +4,7 @@ uid: AccountTenant
 
 # Tenant
 
-An OCS Customer Tenant Account
+APIs to manage an OCS Customer Tenant Account.
 
 ## Properties
 
@@ -40,7 +40,7 @@ For HTTP requests and responses, the Tenant object has the following properties 
 
 ## `GetTenant()`
 
-Get a specific tenant by ID
+Retrieves a specific `Tenant` by ID.
 
 ### Http
 
@@ -53,21 +53,26 @@ Get a specific tenant by ID
 string tenantId
 ```
 
-The `Tenant` identifier for this request
+The identifier of the `Tenant` to retrieve.
 
 
 ### Security
 
-Allowed by Account Member [Role](xref:AccountRole)
+Authorized for Account Members of the specified `Tenant`.
 
 ### Returns
 
-`Tenant` with the specified tenant ID
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Tenant | Returns the `Tenant` with the specified tenant ID. | 
+| 400 | Nothing is returned | Could not retrieve the specified `Tenant` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve this `Tenant`. | 
+
 
 ***
 ## `TenantExists()`
 
-Check if a tenant with a specific id exists
+Checks if a `Tenant` with a specific ID exists.
 
 ### Http
 
@@ -80,21 +85,26 @@ Check if a tenant with a specific id exists
 string tenantId
 ```
 
-The `Tenant` identifier for this request
+The identifier of the `Tenant` for this request.
 
 
 ### Security
 
-Allowed by Account Member [Role](xref:AccountRole)
+Authorized for Account Members of the specified `Tenant`.
 
 ### Returns
 
-HttpStatusCode OK or HttpStatusCode NotFound
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 204 | Nothing is returned | A `Tenant` with the specified ID exists. | 
+| 400 | Nothing is returned | Could not check if the specified `Tenant` exists due to missing or invalid input. | 
+| 404 | Nothing is returned | A `Tenant` with the specified ID was not found. | 
+
 
 ***
 ## `UpdateTenant()`
 
-update tenant object
+Updates a specified `Tenant` object.
 
 ### Http
 
@@ -107,22 +117,27 @@ update tenant object
 string tenantId
 ```
 
-The `Tenant` identifier for this request
+The identifier of the `Tenant` to update.
 ```csharp
 [Required]
 [FromBody]
 Tenant tenant
 ```
 
-The `Tenant` identifier for this request
+The updated details of the `Tenant`.
 
 
 ### Security
 
-Allowed by Account Administrator [Role](xref:AccountRole)
+Authorized for Account Administrators of the specified `Tenant`.
 
 ### Returns
 
-HttpStatusCode OK or HttpStatusCode NotFound
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Tenant | Returns the updated `Tenant`. | 
+| 400 | Nothing is returned | Could not update the `Tenant` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to update the specified `Tenant`. | 
+
 
 ***

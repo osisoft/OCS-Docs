@@ -5,8 +5,6 @@ uid: sdsTypes
 Types
 =====
 
-#### SDS_Type_topic
-
 The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
 events. Events are stored in streams, called SdsStreams. An SdsType defines the shape or structure of the 
 event and how to associate events within the SdsStream.
@@ -46,18 +44,15 @@ to be added to the Data Store independently.
 The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.
 
 
-| Property          | Type                    | Optionality | Details                             |
-|-------------------|-------------------------|-------------|-------------------------------------|
-| Id                | String                  | Required    | Identifier for referencing the type |
-| Name              | String                  | Optional    | Friendly name                       |
-| Description       | String                  | Optional    | Description text                    |
-| SdsTypeCode       | SdsTypeCode             | Required    | Numeric code identifying the base   |
-|                   |                         |             | SdsType                             |
-| InterpolationMode | SdsInterpolationMode    | Optional    | Interpolation setting of the type.  |
-|                   |                         |             | Default is Continuous.              |
-| ExtrapolationMode | SdsExtrapolationMode    | Optional    | Extrapolation setting of the type.  |
-|                   |                         |             | Default is All.                     |
-| Properties        | IList<SdsTypeProperty>  | Required    | List of SdsTypeProperty items       |
+| Property          | Type                   | Optionality | Details |
+|-------------------|------------------------|-------------|---------|
+| Id                | String                 | Required    | Identifier for referencing the type |
+| Name              | String                 | Optional    | Friendly name |
+| Description       | String                 | Optional    | Description text |
+| SdsTypeCode       | SdsTypeCode            | Required    | Numeric code identifying the base SdsType |
+| InterpolationMode | SdsInterpolationMode   | Optional    | Interpolation setting of the type. Default is Continuous. |
+| ExtrapolationMode | SdsExtrapolationMode   | Optional    | Extrapolation setting of the type. Default is All. |
+| Properties        | IList<SdsTypeProperty> | Required    | List of SdsTypeProperty items |
 
 
 
@@ -69,7 +64,7 @@ The following table shows the required and optional SdsType fields. Fields that 
 2. Can contain spaces
 3. Cannot begin with two underscores ("\_\_")
 4. Cannot contain forward slash or backslash characters ("/" or "\\")
-5. Can contain a maximum of 260 characters
+5. Can contain a maximum of 100 characters
 6. Cannot start or end with a period.
 7. Cannot contain consecutive periods.
 8. Cannot consist of only periods.
@@ -201,14 +196,13 @@ Interpolation determines how a stream behaves when asked to return an event at a
 two existing events. InterpolationMode determines how the returned event is constructed. The table 
 below lists InterpolationModes:
 
-|Mode                       |Enumeration value               |Operation                                         |
-|---------------------------|--------------------------------|--------------------------------------------------|
-|Default                    |0                               |The default InterpolationMode is Continuous       |
-|Continuous                 |0                               |Interpolates the data using previous and next     |
-|                           |                                |index values                                      |
-|StepwiseContinuousLeading  |1                               |Returns the data from the previous index          |
-|StepwiseContinuousTrailing |2                               |Returns the data from the next index              |
-|Discrete                   |3                               |Returns ‘null’                                    |
+|Mode                       |Enumeration value |Operation |
+|---------------------------|------------------|----------|
+|Default                    |0                 |The default InterpolationMode is Continuous |
+|Continuous                 |0                 |Interpolates the data using previous and next index values | 
+|StepwiseContinuousLeading  |1                 |Returns the data from the previous index  |
+|StepwiseContinuousTrailing |2                 |Returns the data from the next index |
+|Discrete                   |3                 |Returns ‘null’ |
 
 Note that ``Continuous`` cannot return events for values that cannot be interpolated, such as when the type is not numeric.
 
@@ -217,20 +211,18 @@ indexes that occur between data in a stream:
 
 **InterpolationMode = Continuous or Default**
 
-| Type                      | Result for an index between    | Comment                                          |
-|                           | data in a stream               |                                                  |
-|---------------------------|--------------------------------|--------------------------------------------------|
-|Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types      |
-|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan                |
-|Nullable Types             |Returns ‘null’                  |Cannot reliably interpolate due to possibility of |
-|                           |                                |a null value                                      |
-|Array and List Types       |Returns ‘null’                  |                                                  |
-|String Type                |Returns ‘null’                  |                                                  |
-|Boolean Type               |Returns value of nearest index  |                                                  |
-|Enumeration Types          |Returns Enum value at 0         |This may have a value for the enumeration         |
-|GUID                       |                                |                                                  |
-|Version                    |Returns ‘null’                  |                                                  |
-|IDictionary or IEnumerable |Returns ‘null’                  |Dictionary, Array, List, and so on.               |
+| Type                      | Result for an index between data in a stream  | Comment |
+|---------------------------|-----------------------------------------------|---------|
+|Numeric Types              |Interpolated*                                  |Rounding is done as needed for integer types |
+|Time related Types         |Interpolated                                   |DateTime, DateTimeOffset, TimeSpan |
+|Nullable Types             |Returns ‘null’                                 |Cannot reliably interpolate due to possibility of a null value |
+|Array and List Types       |Returns ‘null’                                 |         |
+|String Type                |Returns ‘null’                                 |         |
+|Boolean Type               |Returns value of nearest index                 |         |
+|Enumeration Types          |Returns Enum value at 0                        |This may have a value for the enumeration |
+|GUID                       |                                               |         |
+|Version                    |Returns ‘null’                                 |         |
+|IDictionary or IEnumerable |Returns ‘null’                                 |Dictionary, Array, List, and so on. |
 
 \*When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
@@ -302,22 +294,17 @@ The Properties collection define the fields in an SdsType.
 The following table shows the required and optional SdsTypeProperty fields. Fields that 
 are not included are reserved for internal SDS use.
 
-|          Property         | Type                    | Optionality | Details                                |
-|---------------------------|-------------------------|-------------|----------------------------------------|
-| Id                        | String                  | Required    | Identifier for referencing the type    |
-| Name                      | String                  | Optional    | Friendly name                          |
-| Description               | String                  | Optional    | Description text                       |
-| SdsType                   | SdsType                 | Required    | Field defining the property's          |
-|                           |                         |             | Type                                   |
-| IsKey                     | Boolean                 | Required    | Identifies the property as the Key     |
-|                           |                         |             | (Primary Index)                        |
-| Value                     | Object                  | Optional    | Value of the property                  |
-| Order                     | Int                     | Optional    | Order of comparison within a           |
-|                           |                         |             | compound index. Also used              |
-|                           |                         |             | internally                             |
-| InterpolationMode         | SdsInterpolationMode    | Optional    | Interpolation setting of the property. |
-|                           |                         |             | Default is null.                       |
-| Uom                       | String                  | Optional    | Unit of Measure of the property.       |
+|          Property         | Type                    | Optionality | Details |
+|---------------------------|-------------------------|-------------|---------|
+| Id                        | String                  | Required    | Identifier for referencing the type |
+| Name                      | String                  | Optional    | Friendly name |
+| Description               | String                  | Optional    | Description text |
+| SdsType                   | SdsType                 | Required    | Field defining the property's Type |
+| IsKey                     | Boolean                 | Required    | Identifies the property as the Key (Primary Index) |
+| Value                     | Object                  | Optional    | Value of the property |
+| Order                     | Int                     | Optional    | Order of comparison within a compound index |
+| InterpolationMode         | SdsInterpolationMode    | Optional    | Interpolation setting of the property. Default is null. |
+| Uom                       | String                  | Optional    | Unit of Measure of the property |
 
 
 The SdsTypeProperty’s identifier follows the same rules as the SdsType’s identifier.
@@ -351,198 +338,7 @@ The InterpolationMode and Uom of a Property can be overriden on the stream. For 
 Supported Units of Measure
 --------------------------
 
-The following unit of measures are supported for an SdsTypeProperty:
-
-| Name                                             | Abbreviation |
-|--------------------------------------------------|--------------|
-| acre                                             | acre         |
-| acre foot                                        | acre ft      |
-| ampere                                           | A            |
-| Ampere hour                                      | Ah           |
-| atmosphere                                       | atm          |
-| bar                                              | bar          |
-| barrel                                           | bbl          |
-| barrel per day                                   | bbl/d        |
-| British thermal unit                             | Btu          |
-| British thermal unit per degree Fahrenheit       | Btu/°F       |
-| British thermal unit per degree Rankine          | Btu/°R       |
-| British thermal unit per hour                    | Btu/h        |
-| British thermal unit per pound                   | Btu/lb       |
-| British thermal unit per pound degree Fahrenheit | Btu/(lb °F)  |
-| British thermal unit per pound degree Rankine    | Btu/(lb °R)  |
-| calorie                                          | cal          |
-| calorie per second                               | cal/s        |
-| candela                                          | cd           |
-| centimeter                                       | cm           |
-| centimeter per second                            | cm/s         |
-| coulomb                                          | C            |
-| count                                            | count        |
-| cubic centimeter                                 | cm3          |
-| cubic centimeter per gram                        | cm3/g        |
-| cubic centimeter per second                      | cm3/s        |
-| cubic foot                                       | ft3          |
-| cubic foot per pound                             | ft3/lb       |
-| cubic foot per second                            | ft3/s        |
-| cubic meter                                      | m3           |
-| cubic meter per hour                             | m3/h         |
-| cubic meter per kilogram                         | m3/kg        |
-| cubic meter per second                           | m3/s         |
-| day                                              | d            |
-| degree                                           | °            |
-| degree Celsius                                   | °C           |
-| degree Fahrenheit                                | °F           |
-| degree Rankine                                   | °R           |
-| delta degree Celsius                             | delta °C     |
-| delta degree Fahrenheit                          | delta °F     |
-| delta degree Rankine                             | delta °R     |
-| delta kelvin                                     | delta K      |
-| dyne                                             | dyne         |
-| foot                                             | ft           |
-| foot per second                                  | ft/s         |
-| gigajoule                                        | GJ           |
-| gigawatt                                         | GW           |
-| gigawatt hour                                    | GWh          |
-| gram                                             | g            |
-| gram mole                                        | gmol         |
-| gram mole per second                             | gmol/s       |
-| gram per gram mole                               | g/gmol       |
-| gram per liter                                   | g/L          |
-| gram per second                                  | g/s          |
-| hectare                                          | ha           |
-| hertz                                            | Hz           |
-| horsepower                                       | hp           |
-| hour                                             | h            |
-| Imperial gallon                                  | Imp gal      |
-| Imperial gallon per minute                       | Imp gal/min  |
-| inch                                             | in           |
-| inches of mercury                                | inHg         |
-| International nautical mile                      | nmi          |
-| International nautical mile per hour             | nmi/h        |
-| joule                                            | J            |
-| joule per gram                                   | J/g          |
-| joule per gram kelvin                            | J/(g K)      |
-| joule per kelvin                                 | J/K          |
-| joule per kilogram                               | J/kg         |
-| joule per kilogram kelvin                        | J/(kg K)     |
-| joule per second                                 | J/s          |
-| kelvin                                           | K            |
-| kilocalorie                                      | kcal         |
-| kilocalorie per kilogram                         | kcal/kg      |
-| kilogram                                         | kg           |
-| kilogram mole                                    | kmol         |
-| kilogram mole per second                         | kmol/s       |
-| kilogram per cubic meter                         | kg/m3        |
-| kilogram per kilogram mole                       | kg/kmol      |
-| kilogram per liter                               | kg/L         |
-| kilogram per mole                                | kg/mol       |
-| kilogram per second                              | kg/s         |
-| kilogram-force                                   | kgf          |
-| kilogram-force per square centimeter             | kgf/cm2      |
-| kilogram-force per square meter                  | kgf/m2       |
-| kilojoule                                        | kJ           |
-| kilojoule per kelvin                             | kJ/K         |
-| kilojoule per kilogram                           | kJ/kg        |
-| kilojoule per kilogram kelvin                    | kJ/(kg K)    |
-| kilojoule per pound                              | kJ/lb        |
-| kiloliter                                        | kL           |
-| kilometer                                        | km           |
-| kilometer per hour                               | km/h         |
-| kilopascal                                       | kPa          |
-| kilovolt                                         | kV           |
-| kilowatt                                         | kW           |
-| kilowatt hour                                    | kWh          |
-| liter                                            | L            |
-| liter per second                                 | L/s          |
-| long ton                                         | lton         |
-| long ton per day                                 | lton/d       |
-| megajoule                                        | MJ           |
-| megajoule per hour                               | MJ/h         |
-| megaliter                                        | M L          |
-| megavolt                                         | MV           |
-| megawatt                                         | MW           |
-| megawatt hour                                    | MWh          |
-| meter                                            | m            |
-| meter per second                                 | m/s          |
-| mile                                             | mi           |
-| mile per hour                                    | mi/h         |
-| milliampere                                      | mA           |
-| milligram                                        | mg           |
-| milliliter                                       | mL           |
-| millimeter                                       | mm           |
-| millimeter of mercury                            | mmHg         |
-| million barrel                                   | MMbbl        |
-| million British thermal unit                     | MM Btu       |
-| million British thermal unit per day             | MM Btu/d     |
-| million British thermal unit per hour            | MM Btu/h     |
-| million calorie                                  | MMcal        |
-| million calorie per hour                         | MMcal/h      |
-| million imperial gallon                          | Imp Mgal     |
-| million pound                                    | MM lb        |
-| million pound per day                            | MMlb/d       |
-| million US gallon                                | US Mgal      |
-| millivolt                                        | mV           |
-| minute                                           | min          |
-| mole                                             | mol          |
-| mole per second                                  | mol/s        |
-| month                                            | month        |
-| newton                                           | N            |
-| newton per square meter                          | N/m2         |
-| ohm                                              | Ω            |
-| ounce                                            | oz           |
-| parts per billion                                | ppb          |
-| parts per million                                | ppm          |
-| pascal                                           | Pa           |
-| pascal second                                    | Pa*s         |
-| percent                                          | %            |
-| poise                                            | P            |
-| pound                                            | lb           |
-| pound mole                                       | lbmol        |
-| pound mole per second                            | lbmol/s      |
-| pound per barrel                                 | lb/bbl       |
-| pound per cubic foot                             | lb/ft3       |
-| pound per pound mole                             | lb/lbmol     |
-| pound per second                                 | lb/s         |
-| ound per US gallon                               | lb/US gal    |
-| pound-force                                      | lbf          |
-| pound-force per square inch                      | psi          |
-| pound-force per square inch (customary)          | psia         |
-| radian                                           | rad          |
-| radian per second                                | rad/s        |
-| revolution                                       | r            |
-| revolution per minute                            | rpm          |
-| second                                           | s            |
-| short ton                                        | ston         |
-| short ton per day                                | ston/d       |
-| sixteenth of an inch                             | sxi          |
-| square centimeter                                | cm2          |
-| square foot                                      | ft2          |
-| square inch                                      | in2          |
-| square kilometer                                 | km2          |
-| square meter                                     | m2           |
-| square mile                                      | mi2          |
-| square millimeter                                | mm2          |
-| square yard                                      | yd2          |
-| thousand barrel                                  | kbbl         |
-| thousand cubic meter                             | k m3         |
-| thousand imperial gallon                         | Imp kgal     |
-| thousand pound                                   | klb          |
-| thousand pound per day                           | klb/d        |
-| thousand US gallon                               | US kgal      |
-| ton                                              | ton          |
-| tonne                                            | t            |
-| tonne per cubic mete                             | t/m3         |
-| tonne per day                                    | t/d          |
-| torr                                             | torr         |
-| US gallon                                        | US gal       |
-| US gallon per minute                             | US gal/min   |
-| volt                                             | V            |
-| watt                                             | W            |
-| watt hour                                        | Wh           |
-| watt second                                      | Ws           |
-| week                                             | week         |
-| yard                                             | yd           |
-| year                                             | yr           |
-
+For a list of units of measures that are supported for an SdsTypeProperty, see [Units of Measure](xref:unitsOfMeasure#supported-units-of-measure).
 
 Working with SdsTypes using .NET
 --------------------------------
@@ -1009,12 +805,14 @@ Returns the type corresponding to the specified typeId within a given namespace.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier
+``string tenantId``  
+The tenant identifier
+
+``string namespaceId``  
+The namespace identifier
+
+``string typeId``  
+The type identifier
 
 
 **Response**
@@ -1106,24 +904,46 @@ The response includes a status code and a response body.
 
 Returns a list of types within a given namespace.
 
+If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all types 
+in the Namespace. See [Searching](xref:sdsSearching) 
+and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+for information about specifying those respective parameters.
+
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string query``
-  An optional query string to filter which SdsTypes will be returned.  See the [Search](xref:sdsSearching#qisearchingtopic) topic for information about specifying the query parameter.
-``int skip``
+``string tenantId``  
+The tenant identifier
+
+``string namespaceId``  
+The namespace identifier
+
+``string query``  
+An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
+
+``string filter``  
+An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+topic for information about specifying the filter parameter.
+
+``int skip``  
   An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
-  a default value of 0 is used.
-``int count``
-  An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
+a default value of 0 is used.
+
+``int count``  
+An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
+
+``string orderby``  
+An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given
+  field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
+  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
+  using values ``asc`` or ``desc``, respectively.
+  For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
+  If no value is specified, there is no sorting of results.
 
 **Response**
 
@@ -1229,12 +1049,14 @@ redirect with the authorization header, you should disable automatic redirect an
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier. The identifier must match the SdsType.Id field. 
+``string tenantId``  
+The tenant identifier
+
+``string namespaceId``  
+The namespace identifier
+
+``string typeId``  
+The type identifier. The identifier must match the SdsType.Id field. 
 
 
 **Response**
@@ -1458,12 +1280,14 @@ they are defined.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier
+``string tenantId``  
+The tenant identifier
+
+``string namespaceId``  
+The namespace identifier
+
+``string typeId``  
+The type identifier
 
 
 **Response**
@@ -1501,12 +1325,14 @@ Deletes a type from the specified tenant and namespace. Note that a type cannot 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier
+``string tenantId``  
+The tenant identifier
+
+``string namespaceId``  
+The namespace identifier
+
+``string typeId``  
+The type identifier
 
 
 **Response**

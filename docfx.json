@@ -15,6 +15,9 @@
     }
   ],
   "build": {
+	"globalMetadata": {
+		"_enableSearch": true
+	},
     "content": [
       {
         "files": [

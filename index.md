@@ -2,7 +2,7 @@
 uid: index
 ---
 
-Welcome
+OCS API
 =======
 
 OSIsoft Cloud Services (OCS) is a highly flexible cloud-based platform that provides scalable, elastic,  
@@ -20,27 +20,33 @@ easily obtain needed information.
 
    - [OSIsoft Cloud Services](xref:osisoftCloudServices)
    - [Management](xref:ManagementOverview)
-     - [Client](xref:AccountClientRole)
+     - [Client Roles](xref:AccountClientRole)
      - [Namespace](xref:AccountNamespace)
      - [NamespaceTier](xref:AccountNamespaceTier)
-     - [Role](xref:AccountRole)
+     - [Roles](xref:AccountRole)
      - [RootAccessControl](xref:AccountRootAccessControl)
      - [Tenant](xref:AccountTenant)
-     - [User](xref:AccountUserRole)
+     - [Tenant Feature States](xref:AccountTenantFeatureState)
+     - [User Roles](xref:AccountUserRole)
      - [ServiceBlog](xref:AccountServiceBlog)
+	 - [Consent to OSIsoft Applications](xref:Consent)
    - [Sequential Data Store](xref:sds)
      - [Introducing the Sequential Data Store](xref:sdsIntroduction)
      - [Quick Start](xref:sdsQuickStart)
      - [Types](xref:sdsTypes)
      - [Streams](xref:sdsStreams)
      - [Stream Metadata and Tags](xref:sdsStreamExtra)
-     - [Sds Views](xref:sdsViews)
+     - [Stream Views](xref:sdsViews)
      - [Indexes](xref:sdsIndexes)
+     - [Units of Measure](xref:unitsOfMeasure)
      - [Reading Data](xref:sdsReadingData)
+     - [Reading Data API](xref:sdsReadingDataApi)
      - [Writing Data](xref:sdsWritingData)
+     - [Writing Data API](xref:sdsWritingDataApi)
      - [Compression](xref:sdsCompression)
-     - [Searching for Streams](xref:sdsSearching)
-     - [Filter Expressions](xref:sdsFilterExpressions)
+     - [Searching](xref:sdsSearching)
+     - [Filter Expressions - Data](xref:sdsFilterExpressions)
+     - [Filter Expressions - Metadata Objects](xref:sdsFilterExpressionsMetadata)
      - [Table Format](xref:sdsTableFormat)
    - [Data Ingress and OSIsoft Message Format](xref:dataIngress)
      - [Data Ingress to Cloud Services Using OMF](xref:omfIngressToOCS)

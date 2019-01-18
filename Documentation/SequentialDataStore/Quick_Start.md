@@ -8,8 +8,6 @@ Quick start
 .. contents:: Topics in this section:
     :depth: 3
 
-#### Quick_start_topic
-
 SDS quick start
 ---------------
 
@@ -73,7 +71,7 @@ DateTime is a common index for time-series stores.
 
 SDS supports a wide variety of property types, including simple types like integers, strings and floats 
 and complex types like lists, arrays and enumerations. Properties can be of any complex SdsType. 
-For additional information, including a detailed list of supported data types, refer to [Qi_Types_topic](xref:sdsTypes#qitypetopic).
+For additional information, including a detailed list of supported data types, refer to [Types](xref:sdsTypes).
 
 To create an SdsType in .NET, use the .NET SDS libraries SdsTypeBuilder.
 
@@ -285,7 +283,7 @@ To POST a JSON serialized event to the OSIsoft Cloud Services:
          "Measurement":123.45
       }
 
-Additional information about writing data can be found in [Qi_Writing_Data_topic](xref:sdsWritingData#qiwritingdatatopic).
+Additional information about writing data can be found in [Writing data](xref:sdsWritingData#writing-data).
 
 
 Step 7: Read data
@@ -318,7 +316,7 @@ To read using REST:
       Content-Type: 
       Host: dat-a.osisoft.com
 
-Additional information about reading data can be found in [Qi_Reading_data_topic](xref:sdsReadingData#qireadingdatatopic).
+Additional information about reading data can be found in [Reading data](xref:sdsReadingData).
 
 
 Handling transient service interruptions

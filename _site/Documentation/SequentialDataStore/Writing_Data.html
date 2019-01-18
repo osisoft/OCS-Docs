@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,9 +76,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsWritingData">
-
-<h4 id="qiwritingdatatopic">Qi_Writing_Data_topic</h4>
 <h1 id="writing-data">Writing data</h1>
+
 <p>The Sds REST APIs provide programmatic access to read and write Sds data. This section describes 
 the APIs used to write SdsStream data.</p>
 <p>When working in .NET, convenient Sds Client libraries are available. The <code>ISdsDataServiceinterface</code>, accessed using the
@@ -115,7 +124,7 @@ To specify verbose JSON return, add the header <code>Accept-Verbosity</code> wit
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the Sds Client libraries, the index may be 
 passed as-is to delete methods that take the index type as a generic argument. More details about working 
-with indexes can be found on the <a class="xref" href="indexes.html">Qi_Indexes_topic</a> page. </p>
+with indexes can be found on the <a class="xref" href="indexes.html">Indexes</a> page. </p>
 <p>To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
 separated by the pipe character, ‘|’.</p>
 <h2 id="examples">Examples</h2>
@@ -604,7 +613,7 @@ at the start or end index are also deleted. </p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

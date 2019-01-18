@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>UserRole </title>
+    <title>User Roles </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="UserRole ">
+    <meta name="title" content="User Roles ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,9 +76,14 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="AccountUserRole">
-<h1 id="userrole">UserRole</h1>
+<h1 id="user-roles">User Roles</h1>
 
-<p>APIs to manage user roles.</p>
+<p>User <code>Roles</code> authorize API requests made by users to various OCS features. Users can be assigned more than one <code>Role</code>, but all users have the Account Member role.</p>
+<p>The following are currently available User <code>Roles</code>:</p>
+<ul>
+<li>Account Administrator: Can add, edit, and remove users. Can also edit the permissions of existing users.</li>
+<li>Account Member: Can log in and access the OCS portal.</li>
+</ul>
 <h2 id="properties">Properties</h2>
 <p>For HTTP requests and responses, the UserRole object has the following properties and JSON-serialized body: </p>
 <table>
@@ -98,88 +113,204 @@
 }
 </code></pre><hr>
 <h2 id="getrolesforuser"><code>GetRolesForUser()</code></h2>
-<p>Retrieves all roles for the specified user.</p>
+<p>Retrieves all <code>Roles</code> for the specified user.</p>
 <h3 id="http">Http</h3>
 <p><code>GET api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account in which the user belongs</p>
+</code></pre><p>The identifier of the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
 string userId
-</code></pre><p>The identifier of the <see cref="!:User"></see> whose roles will be retrieved</p>
+</code></pre><p>The identifier of the user whose roles will be retrieved.</p>
 <pre><code class="lang-csharp">[Required]
 string skip
-</code></pre><p>Number of <code>Roles</code> to ignore</p>
+</code></pre><p>Number of <code>Roles</code> to ignore.</p>
 <pre><code class="lang-csharp">[Required]
 string count
-</code></pre><p>Number of <code>Roles</code> to be returned</p>
-<pre><code class="lang-csharp">[Optional]
-[Default = &quot;&quot;]
-string query
-</code></pre><p>Unsupported parameter</p>
+</code></pre><p>Number of <code>Roles</code> to return.</p>
 <h3 id="security">Security</h3>
-<p>Allowed by Account Member and Account Administrator <a class="xref" href="Account_Role.html">Roles</a></p>
+<p>Authorized for Account Administrators of the specified account and an Account Member&#39;s own <code>Roles</code> within the specified account.</p>
 <h3 id="returns">Returns</h3>
-<p>An array of <code>Role</code> objects belonging to the user with the specified userId.</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>[Role]</td>
+<td>Returns a list of <code>Role</code> objects belonging to the user with the specified userId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve <code>Roles</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to get <code>Roles</code> for the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>User not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="addaccountroletouser"><code>AddAccountRoleToUser()</code></h2>
-<p>Adds an account role to the specified user.</p>
+<p>Adds a <code>Role</code> to the specified user.</p>
 <h3 id="http-1">Http</h3>
 <p><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account in which the user belongs</p>
+</code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
 string userId
-</code></pre><p>The identifier of the <see cref="!:User"></see> who will be given the role</p>
+</code></pre><p>The identifier of the user who will be given the <code>Role</code>.</p>
 <pre><code class="lang-csharp">[Required]
 string roleId
-</code></pre><p>The identifier of the role to add to the <see cref="!:User"></see></p>
+</code></pre><p>The identifier of the <code>Role</code> to be assigned.</p>
 <h3 id="security-1">Security</h3>
-<p>Allowed by Account Administrator <a class="xref" href="Account_Role.html">Role</a></p>
+<p>Authorized for Account Administrators of the specified account.</p>
 <h3 id="returns-1">Returns</h3>
-<p>The <code>Role</code> with the specified roleId</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Role</td>
+<td>Returns the added <code>Role</code> with the specified roleId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not add the <code>Role</code> to the specified user due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to add the <code>Role</code> to the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="removerolefromuser"><code>RemoveRoleFromUser()</code></h2>
-<p>Removes a role from a user.</p>
+<p>Removes a <code>Role</code> from a user.</p>
 <h3 id="http-2">Http</h3>
 <p><code>DELETE api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account in which the user belongs</p>
+</code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
 string userId
-</code></pre><p>The identifier of the <see cref="!:User"></see> whose role will be removed</p>
+</code></pre><p>The identifier of the user whose <code>Role</code> will be removed.</p>
 <pre><code class="lang-csharp">[Required]
 string roleId
-</code></pre><p>The identifier of the role to remove from the <see cref="!:User"></see></p>
+</code></pre><p>The identifier of the <code>Role</code> to be removed.</p>
 <h3 id="security-2">Security</h3>
-<p>Allowed by Account Administrator <a class="xref" href="Account_Role.html">Role</a></p>
+<p>Authorized for Account Administrators of the specified account.</p>
 <h3 id="returns-2">Returns</h3>
-<p>Nothing is returned</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204</td>
+<td>Nothing is returned</td>
+<td>The <code>Role</code> was removed from the specified user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not remove the <code>Role</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to remove the <code>Role</code> from the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="replaceuserroles"><code>ReplaceUserRoles()</code></h2>
-<p>Replace the roles of a user with a new list of roles.</p>
+<p>Replaces the <code>Roles</code> of a user with a new list of roles.</p>
 <h3 id="http-3">Http</h3>
 <p><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account in which the user belongs</p>
+</code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
 string userId
-</code></pre><p>The identifier of the <see cref="!:User"></see> whose roles will be replaced</p>
+</code></pre><p>The identifier of the user whose roles will be replaced.</p>
 <pre><code class="lang-csharp">[Required]
 [FromBody]
-[Role] newRoles
-</code></pre><p>From the body. An array of <code>Role</code> objects to set as the Roles for the specified user</p>
+[Role] roleList
+</code></pre><p>A list of <code>Role</code> objects to set as the Roles for the specified user.</p>
 <h3 id="security-3">Security</h3>
-<p>Allowed by Account Administrator and Community Lead <a class="xref" href="Account_Role.html">Roles</a></p>
+<p>Authorized for Account Administrators of the specified account.</p>
 <h3 id="returns-3">Returns</h3>
-<p>An array of all <code>Role</code> objects assigned to the user specified by userId after the replacement operation is complete</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Nothing is returned</td>
+<td>Returns the new list of all <code>Role</code> objects assigned to the specified user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not replace the <code>Roles</code> of the specified user due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to replace the <code>Roles</code> of the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </article>
           </div>
@@ -204,7 +335,7 @@ string userId
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

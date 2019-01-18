@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -68,7 +78,7 @@
             <article class="content wrap" id="_content" data-uid="AccountTenant">
 <h1 id="tenant">Tenant</h1>
 
-<p>An OCS Customer Tenant Account</p>
+<p>APIs to manage an OCS Customer Tenant Account.</p>
 <h2 id="properties">Properties</h2>
 <p>For HTTP requests and responses, the Tenant object has the following properties and JSON-serialized body: </p>
 <table>
@@ -140,47 +150,122 @@
 }
 </code></pre><hr>
 <h2 id="gettenant"><code>GetTenant()</code></h2>
-<p>Get a specific tenant by ID</p>
+<p>Retrieves a specific <code>Tenant</code> by ID.</p>
 <h3 id="http">Http</h3>
 <p><code>GET api/Tenants/{tenantId}</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The <code>Tenant</code> identifier for this request</p>
+</code></pre><p>The identifier of the <code>Tenant</code> to retrieve.</p>
 <h3 id="security">Security</h3>
-<p>Allowed by Account Member <a class="xref" href="Account_Role.html">Role</a></p>
+<p>Authorized for Account Members of the specified <code>Tenant</code>.</p>
 <h3 id="returns">Returns</h3>
-<p><code>Tenant</code> with the specified tenant ID</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Tenant</td>
+<td>Returns the <code>Tenant</code> with the specified tenant ID.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve the specified <code>Tenant</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to retrieve this <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="tenantexists"><code>TenantExists()</code></h2>
-<p>Check if a tenant with a specific id exists</p>
+<p>Checks if a <code>Tenant</code> with a specific ID exists.</p>
 <h3 id="http-1">Http</h3>
 <p><code>HEAD api/Tenants/{tenantId}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The <code>Tenant</code> identifier for this request</p>
+</code></pre><p>The identifier of the <code>Tenant</code> for this request.</p>
 <h3 id="security-1">Security</h3>
-<p>Allowed by Account Member <a class="xref" href="Account_Role.html">Role</a></p>
+<p>Authorized for Account Members of the specified <code>Tenant</code>.</p>
 <h3 id="returns-1">Returns</h3>
-<p>HttpStatusCode OK or HttpStatusCode NotFound</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204</td>
+<td>Nothing is returned</td>
+<td>A <code>Tenant</code> with the specified ID exists.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not check if the specified <code>Tenant</code> exists due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A <code>Tenant</code> with the specified ID was not found.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="updatetenant"><code>UpdateTenant()</code></h2>
-<p>update tenant object</p>
+<p>Updates a specified <code>Tenant</code> object.</p>
 <h3 id="http-2">Http</h3>
 <p><code>PUT api/Tenants/{tenantId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The <code>Tenant</code> identifier for this request</p>
+</code></pre><p>The identifier of the <code>Tenant</code> to update.</p>
 <pre><code class="lang-csharp">[Required]
 [FromBody]
 Tenant tenant
-</code></pre><p>The <code>Tenant</code> identifier for this request</p>
+</code></pre><p>The updated details of the <code>Tenant</code>.</p>
 <h3 id="security-2">Security</h3>
-<p>Allowed by Account Administrator <a class="xref" href="Account_Role.html">Role</a></p>
+<p>Authorized for Account Administrators of the specified <code>Tenant</code>.</p>
 <h3 id="returns-2">Returns</h3>
-<p>HttpStatusCode OK or HttpStatusCode NotFound</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Tenant</td>
+<td>Returns the updated <code>Tenant</code>.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not update the <code>Tenant</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to update the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </article>
           </div>
@@ -205,7 +290,7 @@ Tenant tenant
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

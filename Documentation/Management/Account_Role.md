@@ -2,9 +2,16 @@
 uid: AccountRole
 ---
 
-# Role
+# Roles
 
-A Role is an entity that is used to authorize API requests.
+A `Role` is an entity that is used to manage access within an OSIsoft Cloud Services (OCS) account. By default, users have the Account Member role.
+
+There are five predefined `Roles` for OCS accounts. Check the user or client `Role` APIs for more information.
+- Account Administrator
+- Account Contributor
+- Account Data Steward
+- Account Viewer
+- Account Member
 
 ## Properties
 
@@ -36,7 +43,7 @@ For HTTP requests and responses, the Role object has the following properties an
 
 ## `GetAccountRole()`
 
-Retrieves an Account Role based on the specified Account Id and Role Id.
+Retrieves an account `Role` based on the specified account Id and role Id.
 
 ### Http
 
@@ -49,27 +56,32 @@ Retrieves an Account Role based on the specified Account Id and Role Id.
 string tenantId
 ```
 
-The Account identifier for this request
+The identifier of the account to access.
 ```csharp
 [Required]
 string roleId
 ```
 
-The Role identifier for this request
+The identifier of the `Role` to return.
 
 
 ### Security
 
-Authorized for Account Administrator role
+Authorized for Account Administrators of the specified account.
 
 ### Returns
 
-The `Role` with Id roleId
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Role | Returns the `Role` with with specified Id roleId. | 
+| 400 | Nothing is returned | Could not retrieve the specified `Role` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve account `Roles` from this account. | 
+
 
 ***
 ## `GetAccountRoles()`
 
-Retrieves all Account Roles for the specified Account Id.
+Retrieves all account `Roles` for the specified Account Id.
 
 ### Http
 
@@ -82,40 +94,36 @@ Retrieves all Account Roles for the specified Account Id.
 string tenantId
 ```
 
-The Account identifier for this request
+The identifier of the account to access.
 ```csharp
 [Required]
 string skip
 ```
 
-Number of `Roles` to ignore
+Number of `Roles` to ignore.
 ```csharp
 [Required]
 string count
 ```
 
-Number of `Roles` to be returned
-```csharp
-[Optional]
-[Default = ""]
-string query
-```
-
-Unsupported parameter
-
+Number of `Roles` to be returned.
 
 ### Security
 
-Authorized for Account Member role
+Authorized for Account Members of the specified account.
 
 ### Returns
 
-An array of `Role` objects 
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | [Role] | Returns a list of `Roles`. | 
+| 400 | Nothing is returned | Could not retrieve account `Roles` due to missing or invalid input. | 
+
 
 ***
 ## `CreateAccountRole()`
 
-Create an Account Role
+Creates a new account `Role`.
 
 ### Http
 
@@ -128,28 +136,33 @@ Create an Account Role
 string tenantId
 ```
 
-The Account identifier for this request
+The identifier of the account to access.
 ```csharp
 [Required]
 [FromBody]
 Role role
 ```
 
-The `Role` for this request
+The new `Role` to be created.
 
 
 ### Security
 
-Authorized for Account Administrator role
+Authorized for Account Administrators of the specified account.
 
 ### Returns
 
-The `Role`
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 201 | Role | Returns the new `Role`. | 
+| 400 | Nothing is returned | Could not create a new `Role` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to create the new `Role` in the specified account. | 
+
 
 ***
 ## `UpdateAccountRole()`
 
-Update a Role by its Role Id
+Updates a `Role` by its Role Id.
 
 ### Http
 
@@ -162,34 +175,39 @@ Update a Role by its Role Id
 string tenantId
 ```
 
-The Account identifier for this request.
+The identifier of the account to access.
 ```csharp
 [Required]
 string roleId
 ```
 
-The Role identifier for this request.
+The identifier of the `Role` to update.
 ```csharp
 [Required]
 [FromBody]
 Role role
 ```
 
-The `Role` for this request.
+The updated `Role` for this request.
 
 
 ### Security
 
-Authorized for Account Administrator role
+Authorized for Account Administrators of the specified account.
 
 ### Returns
 
-The `Role` with Id roleId
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Role | Returns the updated `Role` with Id roleId. | 
+| 400 | Nothing is returned | Could not update specified `Role` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to update the `Role` in the specified account. | 
+
 
 ***
 ## `DeleteAccountRole()`
 
-Delete any Account scoped, non built-in Role by its Role Id
+Deletes any Account scoped, non built-in `Role` by its Role Id.
 
 ### Http
 
@@ -202,21 +220,26 @@ Delete any Account scoped, non built-in Role by its Role Id
 string tenantId
 ```
 
-The Account identifier for this request
+The identifier of the account to access.
 ```csharp
 [Required]
 string roleId
 ```
 
-The Role identifier for this request
+The identifier of the `Role` to delete.
 
 
 ### Security
 
-Authorized for Account Administrator role
+Authorized for Account Administrators of the specified account.
 
 ### Returns
 
-HTTP status code - 200 on success, other HTTP status codes on failure
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 204 | Nothing is returned | The `Role` was deleted. | 
+| 400 | Nothing is returned | Could not delete specified `Role` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to delete the specified `Role`. | 
+
 
 ***

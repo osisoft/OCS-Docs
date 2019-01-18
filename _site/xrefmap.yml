@@ -4,44 +4,44 @@ references:
 - uid: accessControl
   name: 'Role-based access control '
   href: Documentation/Access_Control.html
-- uid: accountApplications
-  name: Applications
-  href: Documentation/Management/Account_Applications.html
 - uid: AccountClientRole
-  name: ClientRole
+  name: Client Roles
   href: Documentation/Management/Account_ClientRole.html
 - uid: AccountNamespace
   name: Namespace
   href: Documentation/Management/Account_Namespace.html
 - uid: AccountNamespaceTier
-  name: NamespaceTier
+  name: Namespace Tier
   href: Documentation/Management/Account_NamespaceTier.html
 - uid: AccountRole
-  name: Role
+  name: Roles
   href: Documentation/Management/Account_Role.html
 - uid: AccountRootAccessControl
-  name: RootAccessControl
+  name: Root Access Control
   href: Documentation/Management/Account_RootAccessControl.html
 - uid: AccountServiceBlog
-  name: ServiceBlog
+  name: Service Blog
   href: Documentation/Management/Account_ServiceBlog.html
 - uid: AccountTenant
   name: Tenant
   href: Documentation/Management/Account_Tenant.html
-- uid: accountUser
-  name: User
-  href: Documentation/Management/Account_User.html
+- uid: AccountTenantFeatureState
+  name: Tenant Feature States
+  href: Documentation/Management/Account_TenantFeatureState.html
 - uid: AccountUserRole
-  name: UserRole
+  name: User Roles
   href: Documentation/Management/Account_UserRole.html
+- uid: Consent
+  name: Consent to OSIsoft Applications
+  href: Documentation/Management/Consent.html
 - uid: dataIngress
   name: Data Ingress and OSIsoft Message Format
   href: Documentation/DataIngress/Data_Ingress.html
 - uid: index
-  name: Welcome
+  name: OCS API
   href: index.html
 - uid: ManagementOverview
-  name: Management
+  name: Account Management
   href: Documentation/Management/Management_Overview.html
 - uid: omfIngressPublishers
   name: Publishers
@@ -71,8 +71,11 @@ references:
   name: Compression
   href: Documentation/SequentialDataStore/Compression.html
 - uid: sdsFilterExpressions
-  name: Filter Expressions
+  name: 'Filter Expressions: Values'
   href: Documentation/SequentialDataStore/Filter_Expressions.html
+- uid: sdsFilterExpressionsMetadata
+  name: 'Filter Expressions: Metadata Objects'
+  href: Documentation/SequentialDataStore/Filter_Expressions_Metadata.html
 - uid: sdsIndexes
   name: Indexes
   href: Documentation/SequentialDataStore/indexes.html
@@ -104,7 +107,7 @@ references:
   name: Types
   href: Documentation/SequentialDataStore/SDS_Types.html
 - uid: sdsViews
-  name: SDS Views
+  name: Stream Views
   href: Documentation/SequentialDataStore/SDS_Views.html
 - uid: sdsWritingData
   name: Writing data
@@ -115,3 +118,6 @@ references:
 - uid: support
   name: Getting support
   href: Documentation/support.html
+- uid: unitsOfMeasure
+  name: Units of Measure
+  href: Documentation/SequentialDataStore/Units_of_Measure.html

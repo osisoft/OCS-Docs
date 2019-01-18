@@ -2,15 +2,15 @@
 uid: AccountRootAccessControl
 ---
 
-# RootAccessControl
+# Root Access Control
 
-Apis to control default access to entities governed by an [AccessControl](xref:accessControl).
+APIs to manage default access to entities governed by an [AccessControl](xref:accessControl).
 
 ***
 
 ## `GetRootNamespaceAcl()`
 
-Get the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
+Retrieves the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
 ### Http
 
@@ -23,21 +23,26 @@ Get the [AccessControl](xref:accessControl) that is used to authorize access to 
 string tenantId
 ```
 
-The identifier for the account being accessed.
+The identifier of the account to access.
 
 
 ### Security
 
-`CommonAccessRights.Read`
+A root [AccessControl](xref:accessControl) can only be retrieved if the current principal has Read access.
 
 ### Returns
 
-The root [AccessControl](xref:accessControl) for `Namespaces`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | AccessControlList | Returns the root [AccessControl](xref:accessControl) for `Namespaces`. | 
+| 400 | Nothing is returned | Could not retrieve the root [AccessControl](xref:accessControl) for `Namespaces` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve the root [AccessControl](xref:accessControl) for `Namespaces`. | 
+
 
 ***
 ## `SetRootNamespaceAcl()`
 
-Set the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
+Modifies the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
 ### Http
 
@@ -50,7 +55,7 @@ Set the [AccessControl](xref:accessControl) that is used to authorize access to 
 string tenantId
 ```
 
-The identifier for the account being modified.
+The identifier of the account to modify.
 ```csharp
 [Required]
 [FromBody]
@@ -62,10 +67,15 @@ The new root [AccessControl](xref:accessControl) for `Namespaces`.
 
 ### Security
 
-`CommonAccessRights.ManageAccessControl`
+A root [AccessControl](xref:accessControl) can only be modified if the current principal has ManageAccessControl access.
 
 ### Returns
 
-The new root [AccessControl](xref:accessControl) for `Namespaces`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | AccessControlList | Returns the modified root [AccessControl](xref:accessControl) for `Namespaces`. | 
+| 400 | Nothing is returned | Could not modify the root [AccessControl](xref:accessControl) for `Namespaces` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to change the root [AccessControl](xref:accessControl) for `Namespaces`. | 
+
 
 ***

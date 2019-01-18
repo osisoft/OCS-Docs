@@ -2,8 +2,6 @@
 uid: sdsTableFormat
 ---
 
-#### Qi_Table_format_topic
-
 Table format
 ============
 

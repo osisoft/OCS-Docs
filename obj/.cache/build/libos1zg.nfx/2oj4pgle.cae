@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Streams </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Streams ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsStreams">
+<h1 id="streams" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="5" sourceendlinenumber="6">Streams</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="8" sourceendlinenumber="10">SDS stores collections of events and provides convenient ways to find and associating events. Events 
+of consistent structure are stored in streams, called SdsStreams.  An SdsType defines the structure 
+of events in an SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="12" sourceendlinenumber="13">SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique 
+within a Namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="15" sourceendlinenumber="16">An SdsStream must include a TypeId that references the identifier of an existing SdsType. 
+When an SdsStream contains data, you must use a view to update the stream type.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="18" sourceendlinenumber="19">SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. 
+Create the ISdsMetadataService, using one of the <code>SdsService.GetMetadataService()</code> factory methods.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="21" sourceendlinenumber="22">The following table shows the required and optional SdsStream fields. Fields not listed are reserved
+for internal SDS use. </p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="25" sourceendlinenumber="38">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>String</td>
+<td>Required</td>
+<td>An identifier for referencing the stream.</td>
+</tr>
+<tr>
+<td>TypeId</td>
+<td>String</td>
+<td>Required</td>
+<td>The SdsType identifier of the type to be</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>used for this stream.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Optional</td>
+<td>Friendly name</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>String</td>
+<td>Optional</td>
+<td>Description text</td>
+</tr>
+<tr>
+<td>Indexes</td>
+<td>IList<sdsstreamindex></sdsstreamindex></td>
+<td>Optional</td>
+<td>Used to define secondary indexes for stream</td>
+</tr>
+<tr>
+<td>InterpolationMode</td>
+<td>SdsInterpolationMode</td>
+<td>Optional</td>
+<td>Interpolation setting of the stream.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Default is null.</td>
+</tr>
+<tr>
+<td>ExtrapolationMode</td>
+<td>SdsExtrapolationMode</td>
+<td>Optional</td>
+<td>Extrapolation setting of the stream.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Default is null.</td>
+</tr>
+<tr>
+<td>PropertyOverrides</td>
+<td>IList<sdsstreampropertyoverride></sdsstreampropertyoverride></td>
+<td>Optional</td>
+<td>Used to define unit of measure and</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>interpolation mode overrides for a stream</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="41" sourceendlinenumber="41"><strong>Rules for Identifier (SdsStream.Id)</strong></p>
+<ol sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="43" sourceendlinenumber="51">
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="43" sourceendlinenumber="43">Is not case sensitive.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="44" sourceendlinenumber="44">Can contain spaces.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="45" sourceendlinenumber="45">Cannot start with two underscores (&quot;__&quot;).</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="46" sourceendlinenumber="46">Can contain a maximum of 260 characters.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="47" sourceendlinenumber="48">Cannot use the following characters: ( / : ? # [ ] @ ! $ &amp; &#39; ( ) \* +
+, ; = %)</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="49" sourceendlinenumber="49">Cannot start or end with a period.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="50" sourceendlinenumber="50">Cannot contain consecutive periods.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="51" sourceendlinenumber="51">Cannot consist of only periods. </li>
+</ol>
+<h2 id="indexes" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="55" sourceendlinenumber="56">Indexes</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="58" sourceendlinenumber="59">The Key or Primary Index is defined at the SdsType. Secondary
+Indexes are defined at the SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="61" sourceendlinenumber="63">Secondary Indexes are applied to a single property; there are no
+compound secondary indexes. Only SdsTypeCodes
+that can be ordered are supported for use in a secondary index.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="66" sourceendlinenumber="66">Indexes are discussed in greater detail here: <a class="xref" href="indexes.html" data-raw-source="[Indexes](xref:sdsIndexes)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="66" sourceendlinenumber="66">Indexes</a></p>
+<h2 id="interpolation-and-extrapolation" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="69" sourceendlinenumber="70">Interpolation and Extrapolation</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="72" sourceendlinenumber="72">The InterpolationMode, ExtrapolationMode, and PropertyOverrides_ can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see <a class="xref" href="SDS_Types.html" data-raw-source="[Types](xref:sdsTypes)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="72" sourceendlinenumber="72">Types</a>.</p>
+<h2 id="propertyoverrides" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="75" sourceendlinenumber="76">PropertyOverrides</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="78" sourceendlinenumber="79">PropertyOverrides provide a way to override interpolation behavior and unit of measure for individual 
+SdsType Properties for a specific stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="81" sourceendlinenumber="81">The <code>SdsStreamPropertyOverride</code> object has the following structure:</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="84" sourceendlinenumber="88">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SdsTypePropertyId</td>
+<td>String</td>
+<td>Required</td>
+<td>SdsTypeProperty identifier</td>
+</tr>
+<tr>
+<td>InterpolationMode</td>
+<td>SdsInterpolationMode</td>
+<td>Optional</td>
+<td>Interpolation setting. Default is null</td>
+</tr>
+<tr>
+<td>Uom</td>
+<td>String</td>
+<td>Optional</td>
+<td>Unit of measure</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="91" sourceendlinenumber="92">The unit of measure can be overridden for any type property defined by the stream type, including primary keys 
+and secondary indexes. For more information about type property units of measure see <a class="xref" href="SDS_Types.html" data-raw-source="[Types](xref:sdsTypes)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="92" sourceendlinenumber="92">Types</a>. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="94" sourceendlinenumber="96">Read characteristics of the stream are determined by the type and the PropertyOverrides of the stream. The 
+interpolation mode for non-index properties can be defined and overridden at the stream level. For more 
+information about type read characteristics see <a class="xref" href="SDS_Types.html" data-raw-source="[Types](xref:sdsTypes)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="96" sourceendlinenumber="96">Types</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="98" sourceendlinenumber="100">When specifying property interpolation overrides, if the SdsType InterpolationMode is <code>Discrete</code>, it cannot be overridden 
+at any level. When InterpolationMode is set to <code>Discrete</code> and an event it not defined for that index, a null 
+value is returned for the entire event.</p>
+<h2 id="sdsstream-api" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="103" sourceendlinenumber="104">SdsStream API</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="107" sourceendlinenumber="111">The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
+section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
+available. The <code>ISdsMetadataService</code> interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, 
+defines the available functions. See <a href="#streams" data-raw-source="[Streams](#streams)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="110" sourceendlinenumber="110">Streams</a> for general 
+SdsStream information. </p>
+<hr>
+<h2 id="get-stream" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="116" sourceendlinenumber="117"><code>Get Stream</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="119" sourceendlinenumber="119">Returns the specified stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="122" sourceendlinenumber="122"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="124" sourceendlinenumber="124"><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="127" sourceendlinenumber="127"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="129" sourceendlinenumber="134"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string typeId</code>
+  The type identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="137" sourceendlinenumber="137"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="139" sourceendlinenumber="139">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="142" sourceendlinenumber="142"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="144" sourceendlinenumber="144">  The requested SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="146" sourceendlinenumber="146">  Sample response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="148" sourceendlinenumber="155"><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Id&quot;:&quot;Simple&quot;
+     &quot;Name&quot;:&quot;Simple&quot;
+     &quot;TypeId&quot;:&quot;Simple&quot;,
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="158" sourceendlinenumber="158"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="160" sourceendlinenumber="160"><code>  Task&lt;SdsStream&gt; GetStreamAsync(string streamId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="163" sourceendlinenumber="163"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="165" sourceendlinenumber="165">  Allowed by administrator accounts</p>
+<hr>
+<h2 id="get-streams" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="170" sourceendlinenumber="171"><code>Get Streams</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="173" sourceendlinenumber="173">Returns a list of streams.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="175" sourceendlinenumber="179">If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
+the search/filter criteria. If the neither parameter is specified, the list includes all streams 
+in the Namespace. See <a class="xref" href="Searching.html#searching" data-raw-source="[Searching](xref:sdsSearching#searching)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="177" sourceendlinenumber="177">Searching</a> 
+and <a class="xref" href="Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="178" sourceendlinenumber="178">Filter Expressions: Metadata Objects</a><br>for information about specifying those respective parameters.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="182" sourceendlinenumber="182"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="184" sourceendlinenumber="184"><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="186" sourceendlinenumber="186"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="188" sourceendlinenumber="205"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string query</code>
+  An optional parameter representing a string search. 
+  See <a class="xref" href="Searching.html#searching" data-raw-source="[Searching](xref:sdsSearching#searching)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="194" sourceendlinenumber="194">Searching</a>
+  for information about specifying the search parameter.
+<code>string filter</code> 
+  An optional filter string to match which SdsStreams will be returned.  See the 
+  <a class="xref" href="Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="198" sourceendlinenumber="198">Filter Expressions: Metadata Objects</a> 
+  topic for information about specifying the filter parameter.
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
+  If not specified, a default value of 0 is used.
+<code>int count</code>
+  An optional parameter representing the maximum number of SdsStreams to retrieve. 
+  If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="208" sourceendlinenumber="208"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="210" sourceendlinenumber="210">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="213" sourceendlinenumber="213"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="215" sourceendlinenumber="215">  A collection of zero or more SdsStreams.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="217" sourceendlinenumber="217">  Sample response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="219" sourceendlinenumber="241"><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+   [  
+     {  
+        &quot;Id&quot;:&quot;Simple&quot;,
+        &quot;TypeId&quot;:&quot;Simple&quot;
+     },
+     {  
+        &quot;Id&quot;:&quot;Simple with Secondary&quot;,
+        &quot;TypeId&quot;:&quot;Simple&quot;,
+        &quot;Indexes&quot;:[  
+           {  
+              &quot;SdsTypePropertyId&quot;:&quot;Measurement&quot;
+           }
+        ]
+     },
+     {  
+        &quot;Id&quot;:&quot;Compound&quot;,
+        &quot;TypeId&quot;:&quot;Compound&quot;
+     },
+     ...
+  ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="244" sourceendlinenumber="244"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="246" sourceendlinenumber="247"><code>  Task&lt;IEnumerable&lt;SdsStream&gt;&gt; GetStreamsAsync(string query = &quot;&quot;, int skip = 0, 
+      int count = 100);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="251" sourceendlinenumber="251"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="253" sourceendlinenumber="253">  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-stream-type" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="257" sourceendlinenumber="258"><code>Get Stream Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="260" sourceendlinenumber="260">Returns the type definition that is associated with a given stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="263" sourceendlinenumber="263"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="265" sourceendlinenumber="265"><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="267" sourceendlinenumber="267"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="269" sourceendlinenumber="274"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="277" sourceendlinenumber="277"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="279" sourceendlinenumber="279">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="282" sourceendlinenumber="282"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="284" sourceendlinenumber="284">  The requested SdsType.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="287" sourceendlinenumber="287"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="289" sourceendlinenumber="289"><code>  Task&lt;SdsType&gt; GetStreamTypeAsync(string streamId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="292" sourceendlinenumber="292"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="294" sourceendlinenumber="294">  Allowed by administrator and user accounts</p>
+<hr>
+<h2 id="create-stream" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="299" sourceendlinenumber="300"><code>Create Stream</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="302" sourceendlinenumber="305">Creates the specified stream. If a stream with a matching identifier already exists, SDS compares the 
+existing stream with the stream that was sent. If the streams are identical, a <code>Found</code> (302) error 
+is returned with the Location header set to the URI where the stream may be retrieved using a Get function. 
+If the streams do not match, a <code>Conflict</code> (409) error is returned.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="307" sourceendlinenumber="309">For a matching stream (Found), clients that are capable of performing a redirect that includes the 
+authorization header can automatically redirect to retrieve the stream. However, most clients, 
+including the .NET HttpClient, consider redirecting with the authorization token to be a security vulnerability.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="311" sourceendlinenumber="313">When a client performs a redirect and strips the authorization header, SDS cannot authorize the request and 
+returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
+redirect with the authorization header, you should disable automatic redirect.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="316" sourceendlinenumber="316"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="318" sourceendlinenumber="318"><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="321" sourceendlinenumber="321"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="323" sourceendlinenumber="329"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier. The stream identifier must match the identifier in content. 
+  The request content is the serialized SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="331" sourceendlinenumber="331"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="333" sourceendlinenumber="333">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="336" sourceendlinenumber="336"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="338" sourceendlinenumber="338">  The newly created SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="341" sourceendlinenumber="341"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="343" sourceendlinenumber="343"><code>  Task&lt;SdsStream&gt; GetOrCreateStreamAsync(SdsStream SdsStream);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="346" sourceendlinenumber="348">If a stream with a matching identifier already exists and it matches the stream in the request body, 
+the client redirects a GET to the Location header. If the existing stream does not match the stream 
+in the request body, a Conflict error response is returned and the client library method throws an exception. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="351" sourceendlinenumber="351"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="353" sourceendlinenumber="353">  Allowed for administrator accounts</p>
+<hr>
+<h2 id="create-or-update-stream" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="358" sourceendlinenumber="359"><code>Create or Update Stream</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="361" sourceendlinenumber="362">Creates the specified stream. If a stream with the same Id already exists, the definition of the stream is updated. 
+The following changes are permitted:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="364" sourceendlinenumber="366">•   Name
+•   Description
+•  PropertyOverrides</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="368" sourceendlinenumber="368">Unpermitted changes result in an error.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="372" sourceendlinenumber="372"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="374" sourceendlinenumber="374"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="376" sourceendlinenumber="376"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="378" sourceendlinenumber="383"><code>string tenantId</code>
+  The tenant identifier of the tenant where you want to update the stream
+<code>string namespaceId</code>
+  The namespace identifier of the namespace where you want to update the stream
+<code>string streamId</code>
+  The stream identifier to be updated</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="385" sourceendlinenumber="385">The request content is the serialized SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="388" sourceendlinenumber="388"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="390" sourceendlinenumber="390">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="393" sourceendlinenumber="393"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="395" sourceendlinenumber="395"><code>  Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="398" sourceendlinenumber="398"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="400" sourceendlinenumber="400">  Allowed for administrator accounts</p>
+<hr>
+<h2 id="update-stream-type" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="405" sourceendlinenumber="406"><code>Update Stream Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="408" sourceendlinenumber="409">Updates a stream’s type. The type is modified to match the specified view. 
+Defined Indexes and PropertyOverrides are removed when updating a stream type.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="412" sourceendlinenumber="412"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="414" sourceendlinenumber="414"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="417" sourceendlinenumber="417"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="419" sourceendlinenumber="426"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string viewId</code>
+  The view identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="428" sourceendlinenumber="428">The request contains no content.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="431" sourceendlinenumber="431"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="433" sourceendlinenumber="433">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="436" sourceendlinenumber="436"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="438" sourceendlinenumber="438">  On failure, the content contains a message describing the issue.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="441" sourceendlinenumber="441"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="443" sourceendlinenumber="443"><code>  Task UpdateStreamTypeAsync(string streamId, string viewId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="446" sourceendlinenumber="446"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="448" sourceendlinenumber="448">  Allowed for administrator accounts</p>
+<hr>
+<h2 id="delete-stream" sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="453" sourceendlinenumber="454"><code>Delete Stream</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="456" sourceendlinenumber="456">Deletes a stream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="459" sourceendlinenumber="459"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="461" sourceendlinenumber="461"><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="464" sourceendlinenumber="464"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="466" sourceendlinenumber="471"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="474" sourceendlinenumber="474"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="476" sourceendlinenumber="476">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="479" sourceendlinenumber="479"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="481" sourceendlinenumber="481"><code>  Task DeleteStreamAsync(string streamId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="484" sourceendlinenumber="484"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Streams.md" sourcestartlinenumber="486" sourceendlinenumber="486">  Allowed for administrator accounts</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Streams.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -2,8 +2,6 @@
 uid: sdsWritingData
 ---
 
-#### Qi_Writing_Data_topic
-
 Writing data
 ============
 
@@ -72,7 +70,7 @@ Sds writes rely on the primary index for positioning within streams and locating
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the Sds Client libraries, the index may be 
 passed as-is to delete methods that take the index type as a generic argument. More details about working 
-with indexes can be found on the [Qi_Indexes_topic](xref:sdsIndexes) page. 
+with indexes can be found on the [Indexes](xref:sdsIndexes) page. 
 
 To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
 separated by the pipe character, ‘|’.

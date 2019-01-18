@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome </title>
+    <title>OCS API </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Welcome ">
+    <meta name="title" content="OCS API ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    
+    <meta property="docfx:rel" content="">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="index.html">
-                <img id="logo" src="images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="index.html" width="46">
+                <img id="logo" src="Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,11 +55,21 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="index">
-<h1 id="welcome">Welcome</h1>
+<h1 id="ocs-api">OCS API</h1>
 
 <p>OSIsoft Cloud Services (OCS) is a highly flexible cloud-based platform that provides scalable, elastic,<br>centralized environment to aggregate data for reporting, advanced analytics, and third-party applications.</p>
 <h2 id="sequential-data-store-sds">Sequential data store (SDS)</h2>
@@ -71,14 +81,16 @@ easily obtain needed information.</p>
 <ul>
 <li><a class="xref" href="Documentation/OSIsoft_Cloud_Services.html">OSIsoft Cloud Services</a></li>
 <li><a class="xref" href="Documentation/Management/Management_Overview.html">Management</a><ul>
-<li><a class="xref" href="Documentation/Management/Account_ClientRole.html">Client</a></li>
+<li><a class="xref" href="Documentation/Management/Account_ClientRole.html">Client Roles</a></li>
 <li><a class="xref" href="Documentation/Management/Account_Namespace.html">Namespace</a></li>
 <li><a class="xref" href="Documentation/Management/Account_NamespaceTier.html">NamespaceTier</a></li>
-<li><a class="xref" href="Documentation/Management/Account_Role.html">Role</a></li>
+<li><a class="xref" href="Documentation/Management/Account_Role.html">Roles</a></li>
 <li><a class="xref" href="Documentation/Management/Account_RootAccessControl.html">RootAccessControl</a></li>
 <li><a class="xref" href="Documentation/Management/Account_Tenant.html">Tenant</a></li>
-<li><a class="xref" href="Documentation/Management/Account_UserRole.html">User</a></li>
+<li><a class="xref" href="Documentation/Management/Account_TenantFeatureState.html">Tenant Feature States</a></li>
+<li><a class="xref" href="Documentation/Management/Account_UserRole.html">User Roles</a></li>
 <li><a class="xref" href="Documentation/Management/Account_ServiceBlog.html">ServiceBlog</a></li>
+<li><a class="xref" href="Documentation/Management/Consent.html">Consent to OSIsoft Applications</a></li>
 </ul>
 </li>
 <li><a class="xref" href="Documentation/SequentialDataStore/Data_Store_and_SDS.html">Sequential Data Store</a><ul>
@@ -87,13 +99,17 @@ easily obtain needed information.</p>
 <li><a class="xref" href="Documentation/SequentialDataStore/SDS_Types.html">Types</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/SDS_Streams.html">Streams</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/SdsStreamExtra.html">Stream Metadata and Tags</a></li>
-<li><a class="xref" href="Documentation/SequentialDataStore/SDS_Views.html">Sds Views</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/SDS_Views.html">Stream Views</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/indexes.html">Indexes</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Units_of_Measure.html">Units of Measure</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/Reading_Data.html">Reading Data</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Reading_Data_API.html">Reading Data API</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/Writing_Data.html">Writing Data</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Writing_Data_API.html">Writing Data API</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/Compression.html">Compression</a></li>
-<li><a class="xref" href="Documentation/SequentialDataStore/Searching.html">Searching for Streams</a></li>
-<li><a class="xref" href="Documentation/SequentialDataStore/Filter_Expressions.html">Filter Expressions</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Searching.html">Searching</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Filter_Expressions.html">Filter Expressions - Data</a></li>
+<li><a class="xref" href="Documentation/SequentialDataStore/Filter_Expressions_Metadata.html">Filter Expressions - Metadata Objects</a></li>
 <li><a class="xref" href="Documentation/SequentialDataStore/table_format.html">Table Format</a></li>
 </ul>
 </li>
@@ -133,7 +149,7 @@ easily obtain needed information.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

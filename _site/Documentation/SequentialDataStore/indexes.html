@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,9 +76,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsIndexes">
-
-<h4 id="indexestopic">Indexes_topic</h4>
 <h1 id="indexes">Indexes</h1>
+
 <p>Indexes speed up and order the results of searches. A key uniquely identifies a record within 
 a collection of records. Keys are unique within the collection.</p>
 <p>In Sds, the key of an SdsType is also an index. The key is often referred to as the <em>primary index,</em> 
@@ -207,7 +216,7 @@ and query as follows.</p>
 <pre><code>  IEnumerable&lt;Simple&gt; values = await
   client.GetWindowValuesAsync&lt;Simple&gt;(simpleStream.Id,
   &quot;2010-01-01T08:00:00.000Z&quot;,&quot;2010-02-01T08:00:00.000Z&quot;);
-</code></pre><p>More information about querying data can be found in <a class="xref" href="Reading_Data.html#qireadingdatatopic">Qi_Reading_data_topic</a>.</p>
+</code></pre><p>More information about querying data can be found in <a class="xref" href="Reading_Data.html">Reading data</a>.</p>
 <p><strong>Secondary Indexes</strong></p>
 <p>Secondary indexes are defined at the SdsStream. To add indexes to an SdsStream, you add them to the SdsStream’s Indexes field.</p>
 <p>For example, to add a second index on Measurement, use the following code:</p>
@@ -653,7 +662,7 @@ samples. Samples in other languages can be found <code>here &lt;https://github.c
 ISO 8601 representation of dates and times. To query for a window of values between January 1, 
 2010 and February 1, 2010, you would define indexes as “2010-01-01T08:00:00.000Z” and 
 “2010-02-01T08:00:00.000Z”, respectively.</p>
-<p>Additional information can be found in <a class="xref" href="Reading_Data.html#qireadingdatatopic">Qi_Reading_data_topic</a>.</p>
+<p>Additional information can be found in <a class="xref" href="Reading_Data.html">Reading data</a>.</p>
 <p><strong>Secondary Indexes</strong></p>
 <p>Secondary Indexes are defined at the SdsStream. To create an SdsStream 
 using the Simple class and add a Secondary index on the Measurement, 
@@ -890,7 +899,7 @@ follows:</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compression </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Compression ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsCompression">
+<h1 id="compression" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="5" sourceendlinenumber="6">Compression</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="7" sourceendlinenumber="8">To more efficiently utilize network bandwidth the OCS Sequential Data Store supports compression for <a class="xref" href="Reading_Data_API.html" data-raw-source="[reading data](xref:sdsReadingDataApi)" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="7" sourceendlinenumber="7">reading data</a> and
+<a class="xref" href="Writing_Data_API.html" data-raw-source="[writing data](xref:sdsWritingDataApi)" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="8" sourceendlinenumber="8">writing data</a> through the REST API</p>
+<h2 id="supported-compression-schemes" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="10" sourceendlinenumber="11">Supported compression schemes</h2>
+<ul sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="12" sourceendlinenumber="13">
+<li sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="12" sourceendlinenumber="12"><code>gzip</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="13" sourceendlinenumber="13"><code>deflate</code></li>
+</ul>
+<h2 id="request-compression-writing-data" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="15" sourceendlinenumber="16">Request compression (writing data)</h2>
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="17" sourceendlinenumber="17">The body content of an HTTP request can be compressed using the <code>Supported compression schemes</code>_ allowing you to send stream values to the REST API more efficiently.</p>
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="19" sourceendlinenumber="19">The <code>Content-Encoding</code> HTTP header must be used to specify the compression scheme of compressed-content requests. This header provides context to the API to properly decode the request content.</p>
+<h2 id="response-compression-reading-data" sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="21" sourceendlinenumber="22">Response compression (reading data)</h2>
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="23" sourceendlinenumber="23">Compressed responses can be requested from the REST API by specifying one of the <code>Supported compression schemes</code>_ using the <code>Accept-Encoding</code> HTTP header.</p>
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="25" sourceendlinenumber="25">Compressed responses from the REST API will include a <code>Content-Encoding</code> HTTP header indicating the compression scheme used to compress the response content.</p>
+<p sourcefile="Documentation/SequentialDataStore/Compression.md" sourcestartlinenumber="27" sourceendlinenumber="27"><em>Note that specifying a compression scheme through the use of the</em> <code>Accept-Encoding</code> <em>HTTP header does not guarantee a compressed response. Always refer to presence and value of the</em> <code>Content-Encoding</code> <em>HTTP header of the response to properly decode the response content.</em> </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/Compression.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

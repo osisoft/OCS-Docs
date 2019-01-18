@@ -2,8 +2,6 @@
 uid: sdsIndexes
 ---
 
-#### Indexes_topic
-
 Indexes
 =======
 
@@ -113,7 +111,7 @@ and query as follows.
       "2010-01-01T08:00:00.000Z","2010-02-01T08:00:00.000Z");
 
 
-More information about querying data can be found in [Qi_Reading_data_topic](xref:sdsReadingData#qireadingdatatopic).
+More information about querying data can be found in [Reading data](xref:sdsReadingData).
 
 
 **Secondary Indexes**
@@ -547,7 +545,7 @@ ISO 8601 representation of dates and times. To query for a window of values betw
 2010 and February 1, 2010, you would define indexes as “2010-01-01T08:00:00.000Z” and 
 “2010-02-01T08:00:00.000Z”, respectively.
 
-Additional information can be found in [Qi_Reading_data_topic](xref:sdsReadingData#qireadingdatatopic).
+Additional information can be found in [Reading data](xref:sdsReadingData).
 
 **Secondary Indexes**
 

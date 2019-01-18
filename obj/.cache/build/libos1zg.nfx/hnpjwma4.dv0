@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Applications </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Applications ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="accountApplications">
+<h1 id="applications" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="5" sourceendlinenumber="6">Applications</h1>
+
+<hr>
+<h2 id="createclientapikeyforapplication" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="10" sourceendlinenumber="10"><code>CreateClientApiKeyForApplication()</code></h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="12" sourceendlinenumber="12">Create a <code>ClientApiKeySet</code> for the specified application.</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="14" sourceendlinenumber="14"><strong>Http</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="16" sourceendlinenumber="16"><code>POST api/Tenants/{tenantId}/ClientApiKeySets/Keys</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="18" sourceendlinenumber="18"><strong>Parameters</strong></p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="20" sourceendlinenumber="22"><code class="lang-csharp">string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="23" sourceendlinenumber="23">ID of the tenant the application belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="24" sourceendlinenumber="26"><code class="lang-csharp">string applicationId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="27" sourceendlinenumber="27">ID of the application for this request</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="28" sourceendlinenumber="30"><code class="lang-csharp">string description
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="31" sourceendlinenumber="31">Description of the <code>ClientApiKeySet</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="34" sourceendlinenumber="34"><strong>Security</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="36" sourceendlinenumber="36">Allowed by Account Administrator <a class="xref" href="Account_Role.html" data-raw-source="[`Role`](xref:AccountRole)" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="36" sourceendlinenumber="36"><code>Role</code></a></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="38" sourceendlinenumber="38"><strong>Returns</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="40" sourceendlinenumber="40">The created <code>ClientApiKeySet</code></p>
+<hr>
+<h2 id="getclientapikeycollectionfromapplication" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="44" sourceendlinenumber="44"><code>GetClientApiKeyCollectionFromApplication()</code></h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="46" sourceendlinenumber="46">Get the <code>ClientApiKeyCollection</code> for the specified applicaiton.</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="48" sourceendlinenumber="48"><strong>Http</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="50" sourceendlinenumber="50"><code>GET api/Tenants/{tenantId}/ClientApiKeySets/Keys</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="52" sourceendlinenumber="52"><strong>Parameters</strong></p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="54" sourceendlinenumber="56"><code class="lang-csharp">string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="57" sourceendlinenumber="57">ID of the tenant the application belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="58" sourceendlinenumber="60"><code class="lang-csharp">string applicationId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="61" sourceendlinenumber="61">ID of the application for this request</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="64" sourceendlinenumber="64"><strong>Security</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="66" sourceendlinenumber="66">Allowed by Account Administrator <a class="xref" href="Account_Role.html" data-raw-source="[`Role`](xref:AccountRole)" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="66" sourceendlinenumber="66"><code>Role</code></a></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="68" sourceendlinenumber="68"><strong>Returns</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="70" sourceendlinenumber="70"><code>ClientApiKeyCollection</code> for the specified applicaiton.</p>
+<hr>
+<h2 id="deleteclientapikeyfromapplication" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="74" sourceendlinenumber="74"><code>DeleteClientApiKeyFromApplication()</code></h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="76" sourceendlinenumber="76">Delete a specified <code>ClientApiKeySet</code>.</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="78" sourceendlinenumber="78"><strong>Http</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="80" sourceendlinenumber="80"><code>DELETE api/Tenants/{tenantId}/ClientApiKeySets/Keys</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="82" sourceendlinenumber="82"><strong>Parameters</strong></p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="84" sourceendlinenumber="86"><code class="lang-csharp">string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="87" sourceendlinenumber="87">ID of the tenant the application belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="88" sourceendlinenumber="90"><code class="lang-csharp">string applicationId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="91" sourceendlinenumber="91">ID of the application for this request</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="92" sourceendlinenumber="94"><code class="lang-csharp">string keyId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="95" sourceendlinenumber="95">ID of the <code>ClientApiKeySet</code> to be deleted.</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="98" sourceendlinenumber="98"><strong>Security</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="100" sourceendlinenumber="100">Allowed by Account Administrator <a class="xref" href="Account_Role.html" data-raw-source="[`Role`](xref:AccountRole)" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="100" sourceendlinenumber="100"><code>Role</code></a></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="102" sourceendlinenumber="102"><strong>Returns</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="104" sourceendlinenumber="104">HTTP status code - 200 OK if the <code>ClientApiKeySet</code> was deleted.</p>
+<hr>
+<h2 id="getexternalapplicationsasync" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="108" sourceendlinenumber="108"><code>GetExternalApplicationsAsync()</code></h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="110" sourceendlinenumber="110">Lists all applications from a customer&#39;s directory</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="112" sourceendlinenumber="112"><strong>Http</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="114" sourceendlinenumber="114"><code>GET api/Tenants/{tenantId}/externalapplications</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="116" sourceendlinenumber="116"><strong>Parameters</strong></p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="118" sourceendlinenumber="120"><code class="lang-csharp">string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="121" sourceendlinenumber="121">ID of the tenant the application belongs to</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="122" sourceendlinenumber="124"><code class="lang-csharp">string skip
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="125" sourceendlinenumber="125">Number of applications to skip for paging purposes.</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="126" sourceendlinenumber="128"><code class="lang-csharp">string count
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="129" sourceendlinenumber="129">Maximum number of applications to return in this page.</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="130" sourceendlinenumber="132"><code class="lang-csharp">string query
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="133" sourceendlinenumber="133">Prefix match to filter applications by applicationId or display name</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="136" sourceendlinenumber="136"><strong>Security</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="138" sourceendlinenumber="138">Allowed by Account Administrator <a class="xref" href="Account_Role.html" data-raw-source="[`Role`](xref:AccountRole)" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="138" sourceendlinenumber="138"><code>Role</code></a></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="140" sourceendlinenumber="140"><strong>Returns</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="142" sourceendlinenumber="142">An array of <code>Application</code> objects that could be added to this account.</p>
+<hr>
+<h2 id="registerclientapplicationasync" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="146" sourceendlinenumber="146"><code>RegisterClientApplicationAsync()</code></h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="148" sourceendlinenumber="148">Registers the application with cloud services</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="150" sourceendlinenumber="150"><strong>Http</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="152" sourceendlinenumber="152"><code>POST api/Tenants/{tenantId}/Applications</code></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="154" sourceendlinenumber="154"><strong>Parameters</strong></p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="156" sourceendlinenumber="158"><code class="lang-csharp">string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="159" sourceendlinenumber="159">ID of the tenant the application belongs to</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="160" sourceendlinenumber="162"><code class="lang-csharp">Application application
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="163" sourceendlinenumber="163"><code>Application</code> object with required properties.</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="166" sourceendlinenumber="166"><strong>Security</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="168" sourceendlinenumber="168">Account admin or Cluster operator</p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="170" sourceendlinenumber="170"><strong>Returns</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="172" sourceendlinenumber="172">The <code>Application</code> for a tenant</p>
+<h2 id="properties" sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="174" sourceendlinenumber="174">Properties</h2>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="176" sourceendlinenumber="176"><strong>Notes</strong></p>
+<p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="178" sourceendlinenumber="178">For HTTP requests and responses, the Application object has the following properties and JSON-serialized body: </p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="180" sourceendlinenumber="182"><code class="lang-csharp">string Id
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="183" sourceendlinenumber="183">Application Identifier</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="185" sourceendlinenumber="187"><code class="lang-csharp">string TenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="188" sourceendlinenumber="188">Tenant Id</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="190" sourceendlinenumber="192"><code class="lang-csharp">string Name
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="193" sourceendlinenumber="193">Application Display Name</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="195" sourceendlinenumber="197"><code class="lang-csharp">[Role] Roles
+</code></pre><p sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="198" sourceendlinenumber="198">List of roles for the application</p>
+<pre sourcefile="Documentation/Management/Account_Applications.md" sourcestartlinenumber="200" sourceendlinenumber="207"><code class="lang-json">{
+    &quot;Id&quot;: &quot;id&quot;,
+    &quot;TenantId&quot;: &quot;tenantid&quot;,
+    &quot;Name&quot;: &quot;name&quot;,
+    &quot;Roles&quot;: []
+}
+</code></pre><hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Management/Account_Applications.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

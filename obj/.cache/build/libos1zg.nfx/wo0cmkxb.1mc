@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>User Roles </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="User Roles ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AccountUserRole">
+<h1 id="user-roles" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="5" sourceendlinenumber="5">User Roles</h1>
+
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="7" sourceendlinenumber="7">User <code>Roles</code> authorize API requests made by users to various OCS features. Users can be assigned more than one <code>Role</code>, but all users have the Account Member role.</p>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="9" sourceendlinenumber="9">The following are currently available User <code>Roles</code>:</p>
+<ul sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="10" sourceendlinenumber="11">
+<li sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="10" sourceendlinenumber="10">Account Administrator: Can add, edit, and remove users. Can also edit the permissions of existing users.</li>
+<li sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="11" sourceendlinenumber="11">Account Member: Can log in and access the OCS portal.</li>
+</ul>
+<h2 id="properties" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="13" sourceendlinenumber="13">Properties</h2>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="15" sourceendlinenumber="15">For HTTP requests and responses, the UserRole object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="17" sourceendlinenumber="20">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UserId</td>
+<td>string</td>
+<td>User Id.</td>
+</tr>
+<tr>
+<td>RoleId</td>
+<td>string</td>
+<td>Role Id.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="23" sourceendlinenumber="28"><code class="lang-json">{
+    &quot;UserId&quot;: &quot;userid&quot;,
+    &quot;RoleId&quot;: &quot;roleid&quot;
+}
+</code></pre><hr>
+<h2 id="getrolesforuser" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="31" sourceendlinenumber="31"><code>GetRolesForUser()</code></h2>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="33" sourceendlinenumber="33">Retrieves all <code>Roles</code> for the specified user.</p>
+<h3 id="http" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="35" sourceendlinenumber="35">Http</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="37" sourceendlinenumber="37"><code>GET api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
+<h3 id="parameters" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="39" sourceendlinenumber="39">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="41" sourceendlinenumber="44"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="46" sourceendlinenumber="46">The identifier of the account in which the user belongs.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="47" sourceendlinenumber="50"><code class="lang-csharp">[Required]
+string userId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="52" sourceendlinenumber="52">The identifier of the user whose roles will be retrieved.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="53" sourceendlinenumber="56"><code class="lang-csharp">[Required]
+string skip
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="58" sourceendlinenumber="58">Number of <code>Roles</code> to ignore.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="59" sourceendlinenumber="62"><code class="lang-csharp">[Required]
+string count
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="64" sourceendlinenumber="64">Number of <code>Roles</code> to return.</p>
+<h3 id="security" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="66" sourceendlinenumber="66">Security</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="68" sourceendlinenumber="68">Authorized for Account Administrators of the specified account and an Account Member&#39;s own <code>Roles</code> within the specified account.</p>
+<h3 id="returns" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="70" sourceendlinenumber="70">Returns</h3>
+<table sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="72" sourceendlinenumber="77">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>[Role]</td>
+<td>Returns a list of <code>Role</code> objects belonging to the user with the specified userId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve <code>Roles</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to get <code>Roles</code> for the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>User not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="addaccountroletouser" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="81" sourceendlinenumber="81"><code>AddAccountRoleToUser()</code></h2>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="83" sourceendlinenumber="83">Adds a <code>Role</code> to the specified user.</p>
+<h3 id="http-1" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="85" sourceendlinenumber="85">Http</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="87" sourceendlinenumber="87"><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="89" sourceendlinenumber="89">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="91" sourceendlinenumber="94"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="96" sourceendlinenumber="96">The identifier for the account in which the user belongs.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="97" sourceendlinenumber="100"><code class="lang-csharp">[Required]
+string userId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="102" sourceendlinenumber="102">The identifier of the user who will be given the <code>Role</code>.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="103" sourceendlinenumber="106"><code class="lang-csharp">[Required]
+string roleId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="108" sourceendlinenumber="108">The identifier of the <code>Role</code> to be assigned.</p>
+<h3 id="security-1" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="111" sourceendlinenumber="111">Security</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="113" sourceendlinenumber="113">Authorized for Account Administrators of the specified account.</p>
+<h3 id="returns-1" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="115" sourceendlinenumber="115">Returns</h3>
+<table sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="117" sourceendlinenumber="122">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Role</td>
+<td>Returns the added <code>Role</code> with the specified roleId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not add the <code>Role</code> to the specified user due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to add the <code>Role</code> to the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="removerolefromuser" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="126" sourceendlinenumber="126"><code>RemoveRoleFromUser()</code></h2>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="128" sourceendlinenumber="128">Removes a <code>Role</code> from a user.</p>
+<h3 id="http-2" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="130" sourceendlinenumber="130">Http</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="132" sourceendlinenumber="132"><code>DELETE api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="134" sourceendlinenumber="134">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="136" sourceendlinenumber="139"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="141" sourceendlinenumber="141">The identifier for the account in which the user belongs.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="142" sourceendlinenumber="145"><code class="lang-csharp">[Required]
+string userId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="147" sourceendlinenumber="147">The identifier of the user whose <code>Role</code> will be removed.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="148" sourceendlinenumber="151"><code class="lang-csharp">[Required]
+string roleId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="153" sourceendlinenumber="153">The identifier of the <code>Role</code> to be removed.</p>
+<h3 id="security-2" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="156" sourceendlinenumber="156">Security</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="158" sourceendlinenumber="158">Authorized for Account Administrators of the specified account.</p>
+<h3 id="returns-2" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="160" sourceendlinenumber="160">Returns</h3>
+<table sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="162" sourceendlinenumber="167">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204</td>
+<td>Nothing is returned</td>
+<td>The <code>Role</code> was removed from the specified user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not remove the <code>Role</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to remove the <code>Role</code> from the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="replaceuserroles" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="171" sourceendlinenumber="171"><code>ReplaceUserRoles()</code></h2>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="173" sourceendlinenumber="173">Replaces the <code>Roles</code> of a user with a new list of roles.</p>
+<h3 id="http-3" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="175" sourceendlinenumber="175">Http</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="177" sourceendlinenumber="177"><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="179" sourceendlinenumber="179">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="181" sourceendlinenumber="184"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="186" sourceendlinenumber="186">The identifier for the account in which the user belongs.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="187" sourceendlinenumber="190"><code class="lang-csharp">[Required]
+string userId
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="192" sourceendlinenumber="192">The identifier of the user whose roles will be replaced.</p>
+<pre sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="193" sourceendlinenumber="197"><code class="lang-csharp">[Required]
+[FromBody]
+[Role] roleList
+</code></pre><p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="199" sourceendlinenumber="199">A list of <code>Role</code> objects to set as the Roles for the specified user.</p>
+<h3 id="security-3" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="202" sourceendlinenumber="202">Security</h3>
+<p sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="204" sourceendlinenumber="204">Authorized for Account Administrators of the specified account.</p>
+<h3 id="returns-3" sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="206" sourceendlinenumber="206">Returns</h3>
+<table sourcefile="Documentation/Management/Account_UserRole.md" sourcestartlinenumber="208" sourceendlinenumber="213">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Nothing is returned</td>
+<td>Returns the new list of all <code>Role</code> objects assigned to the specified user.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not replace the <code>Roles</code> of the specified user due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to replace the <code>Roles</code> of the specified user.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>A user with the specified userId was not found.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Management/Account_UserRole.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

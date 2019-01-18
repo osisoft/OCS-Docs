@@ -2,14 +2,12 @@
 uid: sdsSearching
 ---
 
-#### Qi_Searching_topic
-
 Searching
 =====================
 SdsSearch provides a way to search text, phrases, fields, etc. cross the Sequential Data Store. This document covers the 
 searching for SdsStreams and SdsTypes.
 
-Searching for streams
+Searching for Streams
 =====================
 
 The search functionality for streams is exposed through the REST API and the client libraries method ``GetStreamsAsync``.
@@ -26,7 +24,7 @@ Searching for streams is also possible using the REST API and specifying the opt
       GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
 
 
-Searching for types
+Searching for Types
 =====================
 
 Similarly, the search functionality for types is also exposed through REST API and the client libraries method ``GetTypesAsync``. The query syntax and the request parameters are the same. 
@@ -43,16 +41,19 @@ As previously mentioned, searching for types is also possible using the REST API
 
       GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
 
+How Searching Works
+=====================
+
 The ``GetStreamsAsync`` or ``GetTypesAsync`` overload return items that match specific search criteria within a given namespace. 
-The query parameter will be applied across all properties of items we’re searching on by default, such as ``Name``, ``Description``, or ``Tags``.
+The query parameter will be applied across all properties of items we’re searching on by default, such as ``Name`` or ``Description``.
 
 For example, assume that a namespace contains the following Streams:
 
-**streamId** | **Name**  | **Description**  | **Tags**
------------- | --------- | ---------------- | -------------------------
-stream1      | tempA     | The temperature from DeviceA | “temperature”, “DeviceA”
-stream2      | pressureA | The pressure from DeviceA    | “pressure”, “DeviceA”
-stream3      | calcA     | calculation from DeviceA values | “temperature”, “pressure”, “DeviceA”
+**streamId** | **Name**  | **Description**
+------------ | --------- | ----------------
+stream1      | tempA     | The temperature from DeviceA
+stream2      | pressureA | The pressure from DeviceA
+stream3      | calcA     | calculation from DeviceA values
 
 
 Using the stream data above, the following table shows the results of a ``GetStreamsAsync`` call with different ``Query`` values:
@@ -86,7 +87,7 @@ After the previous call, you can use the following call to return the remaining 
 
 The ``orderby`` parameter is supported for searching both the streams and types. The basic functionality of it is to search the items and then return the result in sorted order.
 The default value for ``orderby`` parameter is ascending order. It can be changed to descending order by specifying ``desc`` alongside the orderby field value. It can be used in conjunction with 
-``query``, ``skip``, and ``count`` parameters.
+``query``, ``filter``, ``skip``, and ``count`` parameters.
 
 **REST API examples**
 
@@ -114,7 +115,10 @@ Operators | Description
 ``" "`` | Phrase search operator. For example, while ``Roach Motel`` (without quotes) would search for streams containing Roach Motel anywhere in any order, ``"Roach Motel"`` (with quotes) will only match documents that contain the whole phrase together and in that order.
 ``( )`` | Precedence operator. For example, ``motel AND (wifi OR luxury)`` searches for streams containing the motel term and either wifi or luxury (or both).
 
-**Note:** The wildcard ``*`` can't be combined when searching for a phrase using the ``" "`` operators which combine multiple ordered search terms. 
+**Notes regarding wildcard:** The wildcard ``*`` can only be used once for each search term, except for the case of a Contains type query clause. In that case two wildcards are allowed: 
+one as prefix and one as suffix e.g. ``*Tank*`` is valid but ``*Ta*nk``, ``Ta*nk*``, and ``*Ta*nk*`` are currently not supported.
+
+ The wildcard ``*`` can't be combined when searching for a phrase using the ``" "`` operators which combine multiple ordered search terms. 
 It only works when specifying a single search term. For example, you can search for ``Tank*``, ``*Tank``, ``Ta*nk`` but not ``"Tank Meter*"``.
 
 **: Operator**
@@ -186,15 +190,4 @@ Other operators examples
 ``“mud OR log”`` | log mud<br>mud<br>log | 
 ``“mud AND (NOT log)”`` | mud | mud log
 ``“mud AND (log OR pump*)”`` | mud log<br>mud pumps | mud bath
-``“name:stream\* AND (tags:pressure OR tags:pump)”`` | The name starts with “stream” and has tag values of either “pressure” or “pump” | 
-
-Searching on Metadata
----------------------
-
-Streams can have metadata collections associated with them. Metadata allows you to specify arbitrary key-value 
-pairs to help organize and add context your streams. To search for streams by metadata, use the following syntax:
-``"key:value"``. Because the colon is a special character used in field-scoped queries, the search term for metadata 
-*must* be enclosed in double quotes. For example, to search for all streams with a key of "Manufacturer" and a value 
-of "OSI", you would use ``"Manufacturer:OSI"``.  If you want to search for a stream with a key of "Manufacturer" and 
-any value, you could drop the quotes and the colon and search for ``Manufacturer*``.  While searching for a key with 
-a wildcard value is supported, searching on a value with a wildcard key is not supported.
+``“name:stream\* AND (description:pressure OR description:pump)”`` | The name starts with “stream” and the description has the either of the terms “pressure” or “pump” | 

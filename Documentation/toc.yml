@@ -5,7 +5,7 @@
   topicHref: Management/Management_Overview.md
 - name: Sequential Data Store
   href: SequentialDataStore/toc.yml
-  topicHref: SequentialDataStore/Data_Store_and_Qi.md
+  topicHref: SequentialDataStore/Data_Store_and_SDS.md
 - name: Data Ingress and OSIsoft Message Format
   href: DataIngress/toc.yml
   topicHref: DataIngress/Data_Ingress.md

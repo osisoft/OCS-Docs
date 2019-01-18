@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -68,7 +78,6 @@
             <article class="content wrap" id="_content" data-uid="sdsIntroduction">
 <h1 id="introducing-the-sequential-data-store">Introducing the Sequential Data Store</h1>
 
-<h4 id="introducingsdstopic">Introducing_SDS_topic</h4>
 <p>The Sequential Data Store (SDS) is a highly flexible cloud-based sequential data store that you use to store, 
 retrieve, and analyze data. You 
 create and write data to <em>streams</em> using a simple REST (<em>REpresentational State Transfer</em>) API (<em>Application 
@@ -92,7 +101,7 @@ REST API access keys from <a href="https://cloud.osisoft.com">https://cloud.osis
 that highlights some of the sample’s functionality. Be sure to read the readme file to understand 
 how the sample works.</p>
 <p>After you have finished this introduction and worked with one of the samples, refer to 
-the <a class="xref" href="Quick_Start.html#quickstarttopic">Quick_start_topic</a> section, which describes the interaction of 
+the <a class="xref" href="Quick_Start.html#sds-quick-start">Quick start</a> section, which describes the interaction of 
 various SDS objects and helps you get started with your own application.</p>
 <h2 id="architecture">Architecture</h2>
 <p>A Tenant represents a client or organization that owns and manages a collection of OSIsoft Cloud Services, including 
@@ -131,7 +140,7 @@ quickly as possible during business hours (Pacific Time).</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

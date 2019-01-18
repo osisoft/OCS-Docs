@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Filter Expressions </title>
+    <title>Filter Expressions: Values </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Filter Expressions ">
+    <meta name="title" content="Filter Expressions: Values ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,9 +76,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsFilterExpressions">
+<h1 id="filter-expressions-values">Filter Expressions: Values</h1>
 
-<h4 id="qifilterexpressionstopic">Qi_Filter_expressions_topic</h4>
-<h1 id="filter-expressions">Filter Expressions</h1>
+<p>Filter expressions can be applied to certain read operations that return Sequential Data Store values or objects. This section covers data values. For filtering on metadata objects refer to <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a>.</p>
 <p>Filter expressions can be applied to any read that returns multiple values, including 
 <code>Get Values</code>, <code>Get Range Values</code>, <code>Get Window Values</code>, and <code>Get Intervals</code>.”</p>
 <h2 id="qitypecodes">QiTypeCodes</h2>
@@ -144,11 +154,7 @@ expression:</p>
 </tr>
 <tr>
 <td><code>( )</code></td>
-<td>Parenthesis can be used to affect the order of the</td>
-</tr>
-<tr>
-<td></td>
-<td>operation</td>
+<td>Parenthesis can be used to affect the order of the operation</td>
 </tr>
 <tr>
 <td><code>or</code></td>
@@ -215,63 +221,15 @@ expression:</p>
 </tr>
 <tr>
 <td><code>round</code></td>
-<td>Rounds to the nearest</td>
-</tr>
-<tr>
-<td></td>
-<td>numeric component</td>
-</tr>
-<tr>
-<td></td>
-<td>without a decimal, with</td>
-</tr>
-<tr>
-<td></td>
-<td>the midpoint rounded</td>
-</tr>
-<tr>
-<td></td>
-<td>away from 0. For</td>
-</tr>
-<tr>
-<td></td>
-<td>example, 0.5</td>
-</tr>
-<tr>
-<td></td>
-<td>rounds to 1; -0.5 rounds</td>
-</tr>
-<tr>
-<td></td>
-<td>to -1)</td>
+<td>Rounds to the nearest numeric component without a decimal, with the midpoint rounded away from 0. For example, 0.5 rounds to 1; -0.5 rounds to -1)</td>
 </tr>
 <tr>
 <td><code>floor</code></td>
-<td>Rounds down to the</td>
-</tr>
-<tr>
-<td></td>
-<td>nearest numeric</td>
-</tr>
-<tr>
-<td></td>
-<td>component without a</td>
-</tr>
-<tr>
-<td></td>
-<td>decimal</td>
+<td>Rounds down to the nearest numeric component without a decimal</td>
 </tr>
 <tr>
 <td><code>ceiling</code></td>
-<td>Rounds up to the nearest</td>
-</tr>
-<tr>
-<td></td>
-<td>numeric component</td>
-</tr>
-<tr>
-<td></td>
-<td>without a decimal</td>
+<td>Rounds up to the nearest numeric component without a decimal</td>
 </tr>
 </tbody>
 </table>
@@ -391,11 +349,7 @@ filter expression:</p>
 </tr>
 <tr>
 <td><code>trim(sValue) eq &#39;vall22&#39;</code></td>
-<td>Trim whitespace from front and end of <code>sValue</code> and compare to</td>
-</tr>
-<tr>
-<td></td>
-<td>‘val22’</td>
+<td>Trim whitespace from front and end of <code>sValue</code> and compare to ‘val22’</td>
 </tr>
 <tr>
 <td><code>concat(sValue,&#39;xyz&#39;) eq &#39;dataValue_7xyz&#39;</code></td>
@@ -523,7 +477,7 @@ expression:</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

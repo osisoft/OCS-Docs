@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Tier </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Tier ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AccountNamespaceTier">
+<h1 id="namespace-tier">Namespace Tier</h1>
+
+<p>An attribute that specifies <code>Namespace</code> performance.</p>
+<h2 id="properties">Properties</h2>
+<p>For HTTP requests and responses, the NamespaceTier object has the following properties and JSON-serialized body: </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>GUID for this Namespace Tier.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>Description of this Tier.</td>
+</tr>
+<tr>
+<td>ThroughputUnits</td>
+<td>int32</td>
+<td>The number of throughput units associated with this Tier.</td>
+</tr>
+<tr>
+<td>StorageUnits</td>
+<td>int32</td>
+<td>The number of Storage units associated with this Tier.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-json">{
+    &quot;Id&quot;: &quot;id&quot;,
+    &quot;Description&quot;: &quot;description&quot;,
+    &quot;ThroughputUnits&quot;: 0,
+    &quot;StorageUnits&quot;: 0
+}
+</code></pre><hr>
+<h2 id="getnamespacetier"><code>GetNamespaceTier()</code></h2>
+<p>Retrieves a Namespace tier associated with a specified id.</p>
+<h3 id="http">Http</h3>
+<p><code>GET api/NamespaceTiers/{namespaceTierId}</code></p>
+<h3 id="parameters">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+string namespaceTierId
+</code></pre><p>The tier identifier for this request.</p>
+<h3 id="security">Security</h3>
+<p>A <code>NamespaceTier</code> can be retrieved by an Account Member.</p>
+<h3 id="returns">Returns</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>NamespaceTier</td>
+<td>A <code>NamespaceTier</code> object with the specified namespaceTierId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve the specified <code>NamespaceTier</code> due to missing or invalid input.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="getallnamespacetiers"><code>GetAllNamespaceTiers()</code></h2>
+<p>Retrieves a list of all available namespace tiers.</p>
+<h3 id="http-1">Http</h3>
+<p><code>GET api/NamespaceTiers</code></p>
+<h3 id="parameters-1">Parameters</h3>
+<p>This API call does not have any parameters.</p>
+<h3 id="security-1">Security</h3>
+<p><code>NamespaceTiers</code> can be retrieved by an Account Member.</p>
+<h3 id="returns-1">Returns</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>[NamespaceTier]</td>
+<td>Returns a list of <code>NamespaceTier</code> objects.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Management/Account_NamespaceTier.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

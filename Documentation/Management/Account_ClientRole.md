@@ -2,9 +2,15 @@
 uid: AccountClientRole
 ---
 
-# ClientRole
+# Client Roles
 
-APIs to manage client roles.
+Client `Roles` authorize API requests made by clients to various OCS features. Clients can be assigned more than one `Role`, but all clients have the Account Member role.
+
+The following are currently available Client `Roles`:
+- Account Administrator: Can add, edit, and remove data using APIs except for displays.
+- Account Contributor: Can add, edit, and remove data using APIs for displays.
+- Account Member: Can read data using most APIs, except displays.
+- Account Viewer: Can read data using APIs for displays.
 
 ## Properties
 
@@ -26,7 +32,7 @@ For HTTP requests and responses, the ClientRole object has the following propert
 
 ## `AddRoleToClient()`
 
-Assign a `Role` to a specified client.
+Assigns a `Role` to a specified client.
 
 ### Http
 
@@ -39,33 +45,39 @@ Assign a `Role` to a specified client.
 string tenantId
 ```
 
-ID of the tenant for this request.
+The identifier of the account in which the client belongs to.
 ```csharp
 [Required]
 string clientId
 ```
 
-ID of the client for this request.
+The identifier of the client who will be given the role.
 ```csharp
 [Required]
 string roleId
 ```
 
-ID of the `Role` to be assigned.
+The identifier of the `Role` to be assigned.
 
 
 ### Security
 
-Allowed by Account Administrator [Role](xref:AccountRole)
+A `Role` can only be assigned to a client by an Account Administrator.
 
 ### Returns
 
-The assigned `Role`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Role | Returns the `Role` with the specified roleId. | 
+| 400 | Nothing is returned | Could not assign `Role` to client due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to add a `Role` to this client. | 
+| 404 | Nothing is returned | The client was not found in the specified `Tenant`. | 
+
 
 ***
 ## `ReplaceClientRoles()`
 
-Assign a set of roles to a specified client.
+Replaces the `Roles` of a client with a new list of roles.
 
 ### Http
 
@@ -78,34 +90,40 @@ Assign a set of roles to a specified client.
 string tenantId
 ```
 
-ID of the tenant the client belongs to.
+The identifier of the account the client belongs to.
 ```csharp
 [Required]
 string clientId
 ```
 
-ID of the client for this request
+The identifier of the client whose roles will be replaced.
 ```csharp
 [Required]
 [FromBody]
 [Role] roleList
 ```
 
-List of `Roles` to be assigned.
+List of `Role` objects to set as the Roles for the specified client.
 
 
 ### Security
 
-Allowed by Account Administrator [Role](xref:AccountRole)
+`Roles` of a client can only be replaced by an Account Administrator.
 
 ### Returns
 
-A list of the `Roles` the client now has.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | [Role] | Returns a list of all `Role` objects assigned to the user specified by clientId after the replacement operation is complete. | 
+| 400 | Nothing is returned | Could not replace `Roles` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to replace `Roles` of this client. | 
+| 404 | Nothing is returned | The client was not found in the specified `Tenant`. | 
+
 
 ***
 ## `RemoveRoleFromClient()`
 
-Remove a `Role` specified by its Id.
+Removes a `Role` from a client.
 
 ### Http
 
@@ -118,33 +136,39 @@ Remove a `Role` specified by its Id.
 string tenantId
 ```
 
-ID of the tenant for this request.
+The identifier of the account in which the client belongs to.
 ```csharp
 [Required]
 string clientId
 ```
 
-ID of the client for this request.
+The identifier of the client whose role will be removed.
 ```csharp
 [Required]
 string roleId
 ```
 
-ID of the `Role` to be removed.
+The identifier of the `Role` to be removed.
 
 
 ### Security
 
-Allowed by Account Administrator [Role](xref:AccountRole)
+A `Role` can only be removed from a client by an Account Administrator.
 
 ### Returns
 
-HTTP status code - 200 OK if the `Role` was successfully remove.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 204 | Nothing is returned | The `Role` was removed from the client. | 
+| 400 | Nothing is returned | Could not remove the `Role` from the client due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to remove a `Role` from this client. | 
+| 404 | Nothing is returned | The client was not found in the specified `Tenant`. | 
+
 
 ***
 ## `Find()`
 
-Get a list of an client's `Roles`.
+Retrieves all `Roles` from a client.
 
 ### Http
 
@@ -157,13 +181,13 @@ Get a list of an client's `Roles`.
 string tenantId
 ```
 
-ID of the tenant for this request.
+The identifier for the account in which the client belongs to.
 ```csharp
 [Required]
 string clientId
 ```
 
-ID of the client for this request
+The identifier of the client whose `Roles` will be retrieved.
 ```csharp
 [Required]
 string skip
@@ -176,21 +200,19 @@ string count
 ```
 
 Number of `Roles` to return.
-```csharp
-[Optional]
-[Default = ""]
-string query
-```
-
-Unsupported parameter.
-
 
 ### Security
 
-Allowed by Account Administrator [Role](xref:AccountRole)
+`Roles` can be retrieved by an Account Administrator.
 
 ### Returns
 
-List of the specified client's `Roles`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | [Role] | Returns a list of `Role` objects belonging to the client with the specified clientId. | 
+| 400 | Nothing is returned | Could not retrieve `Roles` from the client due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to retrieve `Roles` from this client. | 
+| 404 | Nothing is returned | The client was not found in the specified `Tenant`. | 
+
 
 ***

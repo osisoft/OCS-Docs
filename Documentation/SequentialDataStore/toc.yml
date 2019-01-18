@@ -1,26 +1,34 @@
 - name: Introducing the Sequential Data Store
-  href: Introducing_Qi.md
+  href: Introducing_SDS.md
 - name: Quick start
   href: Quick_Start.md
 - name: Types
-  href: Qi_Types.md
+  href: SDS_Types.md
 - name: Streams
-  href: Qi_Streams.md
+  href: SDS_Streams.md
 - name: Stream Metadata and Tags
-  href: QiStreamExtra.md
-- name: Sds Views
-  href: Qi_Views.md
+  href: SdsStreamExtra.md
+- name: Stream Views
+  href: SDS_Views.md
 - name: Indexes
   href: indexes.md
+- name: Units of Measure
+  href: Units_of_Measure.md
 - name: Reading Data
   href: Reading_Data.md
+- name: Reading Data API
+  href: Reading_Data_API.md
 - name: Writing Data
   href: Writing_Data.md
+- name: Writing Data API
+  href: Writing_Data_API.md
 - name: Compression
   href: Compression.md
-- name: Searching for Streams
+- name: Searching
   href: Searching.md
-- name: Filter Expressions
+- name: Filter Expressions - Data
   href: Filter_Expressions.md
+- name: Filter Expressions - Metadata Objects
+  href: Filter_Expressions_Metadata.md
 - name: Table Format
   href: table_format.md

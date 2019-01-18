@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>SDS Views </title>
+    <title>Stream Views </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="SDS Views ">
+    <meta name="title" content="Stream Views ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,11 +76,10 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsViews">
-<h1 id="sds-views">SDS Views</h1>
+<h1 id="stream-views">Stream Views</h1>
 
-<h4 id="sdsviewstopic">SDS_Views_topic</h4>
 <p>An SdsView provides a way to map Stream data requests from one data type to another. You can apply 
-a View to any read or GET operation. SdsView is used to specify the mapping between source and target types.</p>
+a Stream View to any read or GET operation. SdsView is used to specify the mapping between source and target types.</p>
 <p>Sds attempts to determine how to map Properties from the source to the destination. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
 or when the properties have the same name, SDS will map the properties automatically.</p>
@@ -93,7 +102,7 @@ and add it to the SdsView’s Properties collection.</p>
 <td>Id</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier for referencing the view</td>
+<td>Identifier for referencing the stream view</td>
 </tr>
 <tr>
 <td>Name</td>
@@ -111,25 +120,13 @@ and add it to the SdsView’s Properties collection.</p>
 <td>SourceTypeId</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier of the SdsType of the</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>SdsStream. The source type</td>
+<td>Identifier of the SdsType of the SdsStream</td>
 </tr>
 <tr>
 <td>TargetTypeId</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier of the SdsType to convert</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>events to</td>
+<td>Identifier of the SdsType to convert events to</td>
 </tr>
 <tr>
 <td>Properties</td>
@@ -145,7 +142,7 @@ and add it to the SdsView’s Properties collection.</p>
 <li>Can contain spaces</li>
 <li>Cannot begin with two underscores (&quot;__&quot;)</li>
 <li>Cannot contain forward slash or backslash characters (&quot;/&quot; or &quot;\&quot;)</li>
-<li>Can contain a maximum of 260 characters</li>
+<li>Can contain a maximum of 100 characters</li>
 <li>Cannot start or end with a period.</li>
 <li>Cannot contain consecutive periods.</li>
 <li>Cannot consist of only periods.</li>
@@ -171,49 +168,19 @@ property for it.</p>
 <td>SourceId</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier of the SdsTypeProperty</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>from the source SdsType Properties</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>list.</td>
+<td>Identifier of the SdsTypeProperty from the source SdsType Properties list</td>
 </tr>
 <tr>
 <td>TargetId</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier of the SdsTypeProperty</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>from the target SdsType Properties</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>list</td>
+<td>Identifier of the SdsTypeProperty from the target SdsType Properties list</td>
 </tr>
 <tr>
 <td>SdsView</td>
 <td>SdsView</td>
 <td>Optional</td>
-<td>Additional mapping instructions</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>for derived types</td>
+<td>Additional mapping instructions for derived types</td>
 </tr>
 </tbody>
 </table>
@@ -237,13 +204,7 @@ so required and optional have no meaning.</p>
 <td>SourceTypeId</td>
 <td>String</td>
 <td>Required</td>
-<td>Identifier of the SdsType of the SdsStream. The</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>source type</td>
+<td>Identifier of the SdsType of the SdsStream</td>
 </tr>
 <tr>
 <td>TargetTypeId</td>
@@ -276,12 +237,7 @@ retrieved from Sds, so required and optional have no meaning.</p>
 <tr>
 <td>SourceTypeId</td>
 <td>String</td>
-<td>Identifier of the SdsType of the SdsStream. The</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>source type</td>
+<td>Identifier of the SdsType of the SdsStream</td>
 </tr>
 <tr>
 <td>TargetTypeId</td>
@@ -291,12 +247,7 @@ retrieved from Sds, so required and optional have no meaning.</p>
 <tr>
 <td>Mode</td>
 <td>SdsViewMode</td>
-<td>Aggregate of actions applied to the properties.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>SdsViewModes are combined via binary arithmetic</td>
+<td>Aggregate of actions applied to the properties. SdsViewModes are combined via binary arithmetic</td>
 </tr>
 <tr>
 <td>SdsViewMap</td>
@@ -323,42 +274,22 @@ retrieved from Sds, so required and optional have no meaning.</p>
 <tr>
 <td>FieldAdd</td>
 <td>0x0001</td>
-<td>Add a property matching the specified</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>SdsTypeProperty</td>
+<td>Add a property matching the specified SdsTypeProperty</td>
 </tr>
 <tr>
 <td>FieldRemove</td>
 <td>0x0002</td>
-<td>Remove the property matching the specified</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>SdsTypeProperty</td>
+<td>Remove the property matching the specified SdsTypeProperty</td>
 </tr>
 <tr>
 <td>FieldRename</td>
 <td>0x0004</td>
-<td>Rename the property matching the source</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>SdsTypeProperty to the target SdsTypeProperty</td>
+<td>Rename the property matching the source SdsTypeProperty to the target SdsTypeProperty</td>
 </tr>
 <tr>
 <td>FieldMove</td>
 <td>0x0008</td>
-<td>Move the property from the location in the</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>source to the location in the target</td>
+<td>Move the property from the location in the source to the location in the target</td>
 </tr>
 <tr>
 <td>FieldConversion</td>
@@ -373,12 +304,12 @@ retrieved from Sds, so required and optional have no meaning.</p>
 </tbody>
 </table>
 <h2 id="changing-stream-type">Changing Stream Type</h2>
-<p>Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
+<p>Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
 But you can map a stream from its current type to a new type.</p>
-<p>To update a Stream Type, define an SdsView and PUT the view to the following:</p>
+<p>To update a Stream Type, define an SdsView and PUT the stream view to the following:</p>
 <pre><code>   api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
-</code></pre><p>For details, see <a href="#sdsviewstopic">SdsView API</a>. </p>
-<h2 id="working-with-sdsviews-when-using-net">Working with SdsViews when using .NET</h2>
+</code></pre><p>For details, see <a href="#sds-views">SdsView API</a>. </p>
+<h2 id="working-with-stream-views-when-using-net">Working with Stream Views when using .NET</h2>
 <p><strong>Using .Net</strong></p>
 <p>When working in .NET, use the Sds Client libraries’ ISdsMetadataService.</p>
 <p>Given the following:</p>
@@ -651,7 +582,7 @@ foreach (Simple3 value in simple3Values)
 //    4 / 1 / 2017 7:08:00 AM: Warning, 8
 //    4 / 1 / 2017 7:09:00 AM: Warning, 9
 </code></pre><h2 id="working-with-sdsviews-when-not-using-net">Working with SdsViews when not using .NET</h2>
-<p>When working with Views and not using .NET, either invoke HTTP directly or use some of 
+<p>When working with Stream Views and not using .NET, either invoke HTTP directly or use some of 
 the sample code. Both Python and JavaScript samples have SdsView definitions.</p>
 <p>The JSON for a simple mapping between a source type with identifier Sample and a target 
 type with identifier Sample1 would appear as follows.</p>
@@ -685,19 +616,19 @@ type with identifier Sample1 would appear as follows.</p>
 <p>The REST APIs provide programmatic access to read and write Sds data. The APIs in this section interact 
 with SdsViews. When working in .NET convenient Sds Client libraries are available. The ISdsMetadataService 
 interface, accessed using the <code>SdsService.GetMetadataService()</code> helper, defines the available functions. 
-See <code>Sds View information &lt;https://qi-docs.readthedocs.io/en/latest/QiView_information.html&gt;</code>__ for general SdsView information.</p>
+See <a href="https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Views.html">Sds View information</a> for general SdsView information.</p>
 <hr>
-<h2 id="get-view"><code>Get View</code></h2>
-<p>Returns the view corresponding to the specified viewId within a given namespace.</p>
+<h2 id="get-stream-view"><code>Get Stream View</code></h2>
+<p>Returns the stream view corresponding to the specified viewId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
 <code>string namespaceId</code>
   The namespace identifier
 <code>string viewId</code>
-  The view identifier</p>
+  The stream view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -731,17 +662,17 @@ See <code>Sds View information &lt;https://qi-docs.readthedocs.io/en/latest/QiVi
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator and user accounts</p>
 <hr>
-<h2 id="get-view-map"><code>Get View Map</code></h2>
-<p>Returns the view map corresponding to the specified viewId within a given namespace.</p>
+<h2 id="get-stream-view-map"><code>Get Stream View Map</code></h2>
+<p>Returns the stream view map corresponding to the specified viewId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}/Map
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
 <code>string namespaceId</code>
   The namespace identifier
 <code>string viewId</code>
-  The view identifier</p>
+  The stream view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -778,10 +709,10 @@ See <code>Sds View information &lt;https://qi-docs.readthedocs.io/en/latest/QiVi
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator and user accounts</p>
 <hr>
-<h2 id="get-views"><code>Get Views</code></h2>
-<p>Returns a list of views within a given namespace.</p>
+<h2 id="get-stream-views"><code>Get Stream Views</code></h2>
+<p>Returns a list of stream views within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views?skip={skip}&amp;count={count}
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&amp;count={count}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -801,19 +732,19 @@ See <code>Sds View information &lt;https://qi-docs.readthedocs.io/en/latest/QiVi
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator and user accounts</p>
 <hr>
-<h2 id="get-or-create-view"><code>Get or Create View</code></h2>
-<p>If a view with a matching identifier already exists, the view passed in is compared with the existing view.
-If the views are identical, the view is returned. If the views are different, the Found (302) error is returned.</p>
-<p>If no matching identifier is found, the specified view is created.  </p>
+<h2 id="get-or-create-stream-view"><code>Get or Create Stream View</code></h2>
+<p>If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
+If the stream views are identical, the stream view is returned. If the stream views are different, the Found (302) error is returned.</p>
+<p>If no matching identifier is found, the specified stream view is created.  </p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
 <code>string namespaceId</code>
   The namespace identifier
 <code>string viewId</code>
-  The view identifier. The identifier must match the <code>SdsView.Id</code> field. </p>
+  The stream view identifier. The identifier must match the <code>SdsView.Id</code> field. </p>
 <p>The request content is the serialized SdsView. If you are not using the Sds client libraries, using JSON is recommended.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
@@ -824,17 +755,17 @@ If the views are identical, the view is returned. If the views are different, th
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator accounts</p>
 <hr>
-<h2 id="create-or-update-view"><code>Create or Update View</code></h2>
-<p>Creates or updates the definition of a view. </p>
+<h2 id="create-or-update-stream-view"><code>Create or Update Stream View</code></h2>
+<p>Creates or updates the definition of a stream view. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
 <code>string namespaceId</code>
   The namespace identifier
 <code>string viewId</code>
-  The view identifier</p>
+  The stream view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -844,17 +775,17 @@ If the views are identical, the view is returned. If the views are different, th
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator accounts</p>
 <hr>
-<h2 id="delete-view"><code>Delete View</code></h2>
-<p>Deletes a view from the specified tenant and namespace.</p>
+<h2 id="delete-stream-view"><code>Delete Stream View</code></h2>
+<p>Deletes a stream view from the specified tenant and namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
 <code>string namespaceId</code>
   The namespace identifier
 <code>string viewId</code>
-  The view identifier</p>
+  The stream view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
@@ -884,7 +815,7 @@ If the views are identical, the view is returned. If the views are different, th
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

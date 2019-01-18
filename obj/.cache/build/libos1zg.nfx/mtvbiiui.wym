@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Using OMF with Cloud Services </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Using OMF with Cloud Services ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="omfIngressSpecification">
+<h1 id="using-omf-with-cloud-services">Using OMF with Cloud Services</h1>
+
+<p>The OMF specification (located <a href="http://omf-docs.osisoft.com">here</a>) is generic in that it does
+not specify a particular back-end system. This topic is a companion to the OMF specification which describes how
+OMF is interpreted by OSIsoft Cloud Services back-end system. </p>
+<h2 id="headers">Headers</h2>
+<p>A description of each of the headers can be found in the <a href="http://omf-docs.osisoft.com">OMF spec</a>. When 
+sending messages to OSIsoft Cloud Services, the value of the <code>producertoken</code> header must be 
+set to a security token obtained from the OCS Portal. The security token is used to authenticate 
+the sender and to authorize the sender for use with a particular Tenant and Publisher.</p>
+<p>The <code>omfversion</code> header must match the version of the OMF spec used to construct the message.
+Version 1.0 of the spec is currently supported. </p>
+<h2 id="message-types">Message Types</h2>
+<p>OMF message types fall into three categories: Type, Container, and Data, which are described below. </p>
+<ul>
+<li><p><strong>Type messages</strong></p>
+<p>A Type message is interpreted by OSIsoft Cloud Services as an SdsType in the OCS Data Store. 
+Because SdsTypes are immutable, update operations are not supported. The keywords in the 
+Type definition are interpreted as follows:</p>
+<ul>
+<li><p><code>id</code>: Corresponds to the SdsType Id field. It must conform to the rules defined for a 
+typeId specified here: <a class="xref" href="../SequentialDataStore/SDS_Types.html#sdstypetopic">QiTypes_topic</a></p>
+</li>
+<li><p><code>classification</code>: Only the <code>dynamic</code> classification is currently supported.</p>
+</li>
+<li><code>version</code>: Versioning of SdsTypes is not supported.</li>
+<li><code>name</code>: Corresponds to the SdsType Name field. This is the friendly name for the type.</li>
+<li><code>description</code>: Corresponds to the SdsType Description field. </li>
+<li><code>tags</code>: Currently unsupported.</li>
+<li><code>metadata</code>: Currently unsupported.</li>
+</ul>
+<p>The <code>isindex</code> keyword corresponds to the <code>iskey</code> attribute of a SdsTypeProperty. 
+SdsTypes support clustered indexes which can be specified with multiple properties marked 
+with the <code>isindex</code> keyword with a value of <code>true</code>. For compound indexes, the 
+index property order within the message corresponds to the <code>Order</code> field of 
+an SdsTypeProperty. The <code>isname</code> keyword is not supported.</p>
+</li>
+<li><p><strong>Link Type</strong></p>
+<p>Link Types are not supported in OCS Data Store.</p>
+</li>
+<li><p><strong>Span Type</strong></p>
+<p>Span Types are not supported in OCS Data Store.</p>
+</li>
+<li><p><strong>Property Types and Formats</strong></p>
+<p>OMF supports setting the <code>format</code> keyword to specify how a particular JSON type should 
+be interpreted. The following is a mapping for the OCS Data Store supported 
+types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html#sdstypetopic">QiTypes_topic</a>)</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Format</th>
+<th>QiTypeCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>array</td>
+<td></td>
+<td>IEnumerable</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td></td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>int64</td>
+<td>Int64</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>int32</td>
+<td>Int32</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>int16</td>
+<td>Int16</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>uint64</td>
+<td>Uint64</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>uint32</td>
+<td>Uint32</td>
+</tr>
+<tr>
+<td>number</td>
+<td>uint16</td>
+<td>Uint16</td>
+</tr>
+<tr>
+<td>number</td>
+<td>float64</td>
+<td>Double</td>
+</tr>
+<tr>
+<td>number</td>
+<td>float32</td>
+<td>Single</td>
+</tr>
+<tr>
+<td>number</td>
+<td>float16</td>
+<td>Single</td>
+</tr>
+<tr>
+<td>object</td>
+<td>dictionary</td>
+<td>Idictionary</td>
+</tr>
+<tr>
+<td>string</td>
+<td></td>
+<td>String</td>
+</tr>
+<tr>
+<td>string</td>
+<td>date-time</td>
+<td>DateTime</td>
+</tr>
+</tbody>
+</table>
+<h2 id="container-messages">Container messages</h2>
+<p>A Container message is interpreted as a SdsStream in the OCS Data Store. The keywords 
+in the Container definition are interpreted as follows:</p>
+<ul>
+<li><code>id</code>: Corresponds to the SdsStream Id field. It must conform to the rules defined for
+  an SdsStream.Id specified here : <a href="xref:sdsStreamsApi">Qi_Stream_API_topic</a>.</li>
+<li><code>typeid</code>: Corresponds to the SdsStream TypeId field.</li>
+<li><code>typeversion</code>: Versioning of SdsTypes is not supported.</li>
+<li><code>name</code>: Corresponds to the SdsStream Name field. This is a friendly name for the stream.</li>
+<li><code>description</code>: Corresponds to the SdsStream Description field.</li>
+<li><code>tags</code>: Corresponds to the SdsStream Tag field. </li>
+<li><code>metadata</code>: Corresponds to the SdsStream Metadata field        </li>
+</ul>
+<h2 id="data-messages">Data messages</h2>
+<p>A Data message is mapped to generic Sds values in the OCS Data Store. The keywords in the 
+Data definitions are interpreted as follows:</p>
+<ul>
+<li><code>typeid</code>: Data that is not grouped by containerId is not supported.</li>
+<li><code>containerid</code>: Stream Id for the associated Sds Stream.</li>
+<li><code>typeversion</code>: Not supported.</li>
+<li><code>values</code>: An array of the generic Sds values.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/DataIngress/OMF_Ingress_Specification.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -2,9 +2,9 @@
 uid: AccountServiceBlog
 ---
 
-# ServiceBlog
+# Service Blog
 
-API's for CRUD operations on the Service Blog.
+APIs for CRUD operations on the Service Blog.
 
 ***
 
@@ -23,21 +23,23 @@ Returns blog entries ordered by time posted.
 string skip
 ```
 
-Number of blogs to skip for paging purposes
+Number of blogs to skip for paging purposes.
 ```csharp
 [Required]
 string count
 ```
 
-Blogs to count after skip for paging purposes
-
+Number of blogs to count after skip for paging purposes.
 
 ### Security
 
-Any identity, including anonymous can retrieve blog entries.
+Any identity, including anonymous, can retrieve service blog entries.
 
 ### Returns
 
-Returns an response object including an array of blog entries and an int with the total number of entries.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | ([QiServiceBlogEntry], int32) | Returns an response object including a list of blog entries and an int with the total number of entries. | 
+
 
 ***

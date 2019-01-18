@@ -2,13 +2,11 @@
 uid: sdsViews
 ---
 
-SDS Views
+Stream Views
 =========
 
-#### SDS_Views_topic
-
 An SdsView provides a way to map Stream data requests from one data type to another. You can apply 
-a View to any read or GET operation. SdsView is used to specify the mapping between source and target types.
+a Stream View to any read or GET operation. SdsView is used to specify the mapping between source and target types.
 
 Sds attempts to determine how to map Properties from the source to the destination. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
@@ -22,16 +20,14 @@ and add it to the SdsView’s Properties collection.
 
 The following table shows the required and optional SdsView fields. Fields that are not included are reserved for internal Sds use.
 
-| Property         | Type                    | Optionality | Details                             |
-|------------------|-------------------------|-------------|-------------------------------------|
-| Id               | String                  | Required    | Identifier for referencing the view |
-| Name             | String                  | Optional    | Friendly name                       |
-| Description      | String                  | Optional    | Description text                    |
-| SourceTypeId     | String                  | Required    | Identifier of the SdsType of the    |
-|                  |                         |             | SdsStream. The source type          |
-| TargetTypeId     | String                  | Required    | Identifier of the SdsType to convert|
-|                  |                         |             | events to                           |
-| Properties       | IList<SdsViewProperty>  | Optional    | Property level mapping              |
+| Property     | Type                   | Optionality | Details |
+|--------------|------------------------|-------------|---------|
+| Id           | String                 | Required    | Identifier for referencing the stream view |
+| Name         | String                 | Optional    | Friendly name |
+| Description  | String                 | Optional    | Description text |
+| SourceTypeId | String                 | Required    | Identifier of the SdsType of the SdsStream |
+| TargetTypeId | String                 | Required    | Identifier of the SdsType to convert events to |
+| Properties   | IList<SdsViewProperty> | Optional    | Property level mapping |
 
 
 **Rules for type identifier**
@@ -40,7 +36,7 @@ The following table shows the required and optional SdsView fields. Fields that 
 2. Can contain spaces
 3. Cannot begin with two underscores ("\_\_")
 4. Cannot contain forward slash or backslash characters ("/" or "\\")
-5. Can contain a maximum of 260 characters
+5. Can contain a maximum of 100 characters
 6. Cannot start or end with a period.
 7. Cannot contain consecutive periods.
 8. Cannot consist of only periods.
@@ -57,16 +53,11 @@ property for it.
 
 The following table shows the required and optional SdsViewProperty fields.
 
-| Property         | Type                    | Optionality | Details                             |
-|------------------|-------------------------|-------------|-------------------------------------|
-| SourceId         | String                  | Required    | Identifier of the SdsTypeProperty   |
-|                  |                         |             | from the source SdsType Properties  |
-|                  |                         |             | list.                               |
-| TargetId         | String                  | Required    | Identifier of the SdsTypeProperty   |
-|                  |                         |             | from the target SdsType Properties  |
-|                  |                         |             | list                                |
-| SdsView          | SdsView                 | Optional    | Additional mapping instructions     |
-|                  |                         |             | for derived types                   |
+| Property | Type    | Optionality | Details |
+|----------|---------|-------------|---------|
+| SourceId | String  | Required    | Identifier of the SdsTypeProperty from the source SdsType Properties list |
+| TargetId | String  | Required    | Identifier of the SdsTypeProperty from the target SdsType Properties list |
+| SdsView  | SdsView | Optional    | Additional mapping instructions for derived types |
 
 The SdsView field supports nested Properties.
 
@@ -79,12 +70,11 @@ The SdsViewMap provides a detailed Property-by-Property definition of the mappin
 The following table shows the SdsViewMap fields. The SdsViewMap cannot be written to Sds, 
 so required and optional have no meaning.
 
-| Property                  | Type                     | Optionality  | Details                                          |
-|---------------------------|--------------------------|--------------|--------------------------------------------------|
-| SourceTypeId              | String                   | Required     | Identifier of the SdsType of the SdsStream. The  |
-|                           |                          |              | source type                                      |
-| TargetTypeId              | String                   | Required     | Identifier of the SdsType to convert events to   |
-| Properties                | IList<SdsViewMapProperty>| Optional     | Property level mapping                           |
+| Property     | Type                     | Optionality  | Details |
+|--------------|--------------------------|--------------|---------|
+| SourceTypeId | String                   | Required     | Identifier of the SdsType of the SdsStream |
+| TargetTypeId | String                   | Required     | Identifier of the SdsType to convert events to |
+| Properties   | IList<SdsViewMapProperty>| Optional     | Property level mapping |
 
 Properties / SdsViewMapProperty
 ------------------------------
@@ -95,45 +85,39 @@ the Property.
 The following table shows the SdsViewMapProperty fields. The SdsViewMap cannot be written; it can only be 
 retrieved from Sds, so required and optional have no meaning.
 
-| Property                  | Type                           | Details                                          |
-|---------------------------|--------------------------------|--------------------------------------------------|
-| SourceTypeId              | String                         | Identifier of the SdsType of the SdsStream. The  |
-|                           |                                | source type                                      |
-| TargetTypeId              | String                         | Identifier of the SdsType to convert events to   |
-| Mode                      | SdsViewMode                    | Aggregate of actions applied to the properties.  |
-|                           |                                | SdsViewModes are combined via binary arithmetic  |
-| SdsViewMap                 | SdsViewMap                    | Mapping for derived types                        |
+| Property     | Type        | Details |
+|--------------|-------------|---------|
+| SourceTypeId | String      | Identifier of the SdsType of the SdsStream |
+| TargetTypeId | String      | Identifier of the SdsType to convert events to |
+| Mode         | SdsViewMode | Aggregate of actions applied to the properties. SdsViewModes are combined via binary arithmetic |
+| SdsViewMap   | SdsViewMap  | Mapping for derived types |
 
 The available SdsViewModes are shown in the table below.
 
-| Name                      | Value                          | Description                                      |
-|---------------------------|--------------------------------|--------------------------------------------------|
-| None                      | 0x0000                         | No action                                        |
-| FieldAdd                  | 0x0001                         | Add a property matching the specified            |
-|                           |                                | SdsTypeProperty                                  |
-| FieldRemove               | 0x0002                         | Remove the property matching the specified       |
-|                           |                                | SdsTypeProperty                                  |
-| FieldRename               | 0x0004                         | Rename the property matching the source          |
-|                           |                                | SdsTypeProperty to the target SdsTypeProperty    |
-| FieldMove                 | 0x0008                         | Move the property from the location in the       |
-|                           |                                | source to the location in the target             |
-| FieldConversion           | 0x0016                         | Converts the source property to the target type  |
-| InvalidFieldConversion    | 0x0032                         | Cannot perform the specified mapping             |
+| Name                   | Value  | Description |
+|------------------------|--------|-------------|
+| None                   | 0x0000 | No action   |
+| FieldAdd               | 0x0001 | Add a property matching the specified SdsTypeProperty |
+| FieldRemove            | 0x0002 | Remove the property matching the specified SdsTypeProperty |
+| FieldRename            | 0x0004 | Rename the property matching the source SdsTypeProperty to the target SdsTypeProperty |
+| FieldMove              | 0x0008 | Move the property from the location in the source to the location in the target|
+| FieldConversion        | 0x0016 | Converts the source property to the target type |
+| InvalidFieldConversion | 0x0032 | Cannot perform the specified mapping |
 
 Changing Stream Type
 --------------------
 
-Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
+Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
 But you can map a stream from its current type to a new type.
 
-To update a Stream Type, define an SdsView and PUT the view to the following:
+To update a Stream Type, define an SdsView and PUT the stream view to the following:
 
        api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
 
 
-For details, see [SdsView API](#sdsviewstopic). 
+For details, see [SdsView API](#sds-views). 
 
-Working with SdsViews when using .NET
+Working with Stream Views when using .NET
 ------------------------------------
 
 **Using .Net**
@@ -427,7 +411,7 @@ To map when Sds cannot determine mapping, use SdsView Properties.
 Working with SdsViews when not using .NET
 ----------------------------------------
 
-When working with Views and not using .NET, either invoke HTTP directly or use some of 
+When working with Stream Views and not using .NET, either invoke HTTP directly or use some of 
 the sample code. Both Python and JavaScript samples have SdsView definitions.
 
 The JSON for a simple mapping between a source type with identifier Sample and a target 
@@ -471,19 +455,19 @@ SdsView API
 The REST APIs provide programmatic access to read and write Sds data. The APIs in this section interact 
 with SdsViews. When working in .NET convenient Sds Client libraries are available. The ISdsMetadataService 
 interface, accessed using the ``SdsService.GetMetadataService()`` helper, defines the available functions. 
-See `Sds View information <https://qi-docs.readthedocs.io/en/latest/QiView_information.html>`__ for general SdsView information.
+See [Sds View information](https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Views.html) for general SdsView information.
 
 ***********************
 
-``Get View``
+``Get Stream View``
 --------------
 
-Returns the view corresponding to the specified viewId within a given namespace.
+Returns the stream view corresponding to the specified viewId within a given namespace.
 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -493,7 +477,7 @@ Returns the view corresponding to the specified viewId within a given namespace.
 ``string namespaceId``
   The namespace identifier
 ``string viewId``
-  The view identifier
+  The stream view identifier
 
 
 **Response**
@@ -545,15 +529,15 @@ Returns the view corresponding to the specified viewId within a given namespace.
 
 ***********************
 
-``Get View Map``
+``Get Stream View Map``
 --------------
 
-Returns the view map corresponding to the specified viewId within a given namespace.
+Returns the stream view map corresponding to the specified viewId within a given namespace.
 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}/Map
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
 
 
 **Parameters**
@@ -563,7 +547,7 @@ Returns the view map corresponding to the specified viewId within a given namesp
 ``string namespaceId``
   The namespace identifier
 ``string viewId``
-  The view identifier
+  The stream view identifier
 
 
 **Response**
@@ -618,15 +602,15 @@ Returns the view map corresponding to the specified viewId within a given namesp
 
 ***********************
 
-``Get Views``
+``Get Stream Views``
 --------------
 
-Returns a list of views within a given namespace.
+Returns a list of stream views within a given namespace.
 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views?skip={skip}&count={count}
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
 
 
 **Parameters**
@@ -664,17 +648,17 @@ Returns a list of views within a given namespace.
 
 ***********************
 
-``Get or Create View``
+``Get or Create Stream View``
 --------------
 
-If a view with a matching identifier already exists, the view passed in is compared with the existing view.
-If the views are identical, the view is returned. If the views are different, the Found (302) error is returned.
+If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
+If the stream views are identical, the stream view is returned. If the stream views are different, the Found (302) error is returned.
 
-If no matching identifier is found, the specified view is created.  
+If no matching identifier is found, the specified stream view is created.  
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -684,7 +668,7 @@ If no matching identifier is found, the specified view is created.
 ``string namespaceId``
   The namespace identifier
 ``string viewId``
-  The view identifier. The identifier must match the ``SdsView.Id`` field. 
+  The stream view identifier. The identifier must match the ``SdsView.Id`` field. 
 
 The request content is the serialized SdsView. If you are not using the Sds client libraries, using JSON is recommended.
 
@@ -710,14 +694,14 @@ The request content is the serialized SdsView. If you are not using the Sds clie
 
 ***********************
 
-``Create or Update View``
+``Create or Update Stream View``
 --------------
 
-Creates or updates the definition of a view. 
+Creates or updates the definition of a stream view. 
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -727,7 +711,7 @@ Creates or updates the definition of a view.
 ``string namespaceId``
   The namespace identifier
 ``string viewId``
-  The view identifier
+  The stream view identifier
 
 
 **Response**
@@ -753,15 +737,15 @@ Creates or updates the definition of a view.
 
 ***********************
 
-``Delete View``
+``Delete Stream View``
 --------------
 
-Deletes a view from the specified tenant and namespace.
+Deletes a stream view from the specified tenant and namespace.
 
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Views/{viewId}
+        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -771,7 +755,7 @@ Deletes a view from the specified tenant and namespace.
 ``string namespaceId``
   The namespace identifier
 ``string viewId``
-  The view identifier
+  The stream view identifier
 
 
 **Response**

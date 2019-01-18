@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>RootAccessControl </title>
+    <title>Root Access Control </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="RootAccessControl ">
+    <meta name="title" content="Root Access Control ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,39 +76,89 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="AccountRootAccessControl">
-<h1 id="rootaccesscontrol">RootAccessControl</h1>
+<h1 id="root-access-control">Root Access Control</h1>
 
-<p>Apis to control default access to entities governed by an <a class="xref" href="../Access_Control.html">AccessControl</a>.</p>
+<p>APIs to manage default access to entities governed by an <a class="xref" href="../Access_Control.html">AccessControl</a>.</p>
 <hr>
 <h2 id="getrootnamespaceacl"><code>GetRootNamespaceAcl()</code></h2>
-<p>Get the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<p>Retrieves the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
 <h3 id="http">Http</h3>
 <p><code>GET api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account being accessed.</p>
+</code></pre><p>The identifier of the account to access.</p>
 <h3 id="security">Security</h3>
-<p><code>CommonAccessRights.Read</code></p>
+<p>A root <a class="xref" href="../Access_Control.html">AccessControl</a> can only be retrieved if the current principal has Read access.</p>
 <h3 id="returns">Returns</h3>
-<p>The root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>AccessControlList</td>
+<td>Returns the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to retrieve the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="setrootnamespaceacl"><code>SetRootNamespaceAcl()</code></h2>
-<p>Set the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<p>Modifies the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
 <h3 id="http-1">Http</h3>
 <p><code>PUT api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
-</code></pre><p>The identifier for the account being modified.</p>
+</code></pre><p>The identifier of the account to modify.</p>
 <pre><code class="lang-csharp">[Required]
 [FromBody]
 AccessControlList newAccessControlList
 </code></pre><p>The new root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
 <h3 id="security-1">Security</h3>
-<p><code>CommonAccessRights.ManageAccessControl</code></p>
+<p>A root <a class="xref" href="../Access_Control.html">AccessControl</a> can only be modified if the current principal has ManageAccessControl access.</p>
 <h3 id="returns-1">Returns</h3>
-<p>The new root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>AccessControlList</td>
+<td>Returns the modified root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not modify the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to change the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 </article>
           </div>
@@ -123,7 +183,7 @@ AccessControlList newAccessControlList
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

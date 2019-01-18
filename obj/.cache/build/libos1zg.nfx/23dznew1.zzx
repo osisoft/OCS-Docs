@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Client Roles </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Client Roles ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AccountClientRole">
+<h1 id="client-roles" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="5" sourceendlinenumber="5">Client Roles</h1>
+
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="7" sourceendlinenumber="7">Client <code>Roles</code> authorize API requests made by clients to various OCS features. Clients can be assigned more than one <code>Role</code>, but all clients have the Account Member role.</p>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="9" sourceendlinenumber="9">The following are currently available Client <code>Roles</code>:</p>
+<ul sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="10" sourceendlinenumber="13">
+<li sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="10" sourceendlinenumber="10">Account Administrator: Can add, edit, and remove data using APIs except for displays.</li>
+<li sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="11" sourceendlinenumber="11">Account Contributor: Can add, edit, and remove data using APIs for displays.</li>
+<li sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="12" sourceendlinenumber="12">Account Member: Can read data using most APIs, except displays.</li>
+<li sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="13" sourceendlinenumber="13">Account Viewer: Can read data using APIs for displays.</li>
+</ul>
+<h2 id="properties" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="15" sourceendlinenumber="15">Properties</h2>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="17" sourceendlinenumber="17">For HTTP requests and responses, the ClientRole object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="19" sourceendlinenumber="22">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ClientId</td>
+<td>string</td>
+<td>Client Id.</td>
+</tr>
+<tr>
+<td>RoleId</td>
+<td>string</td>
+<td>Role Id.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="25" sourceendlinenumber="30"><code class="lang-json">{
+    &quot;ClientId&quot;: &quot;clientid&quot;,
+    &quot;RoleId&quot;: &quot;roleid&quot;
+}
+</code></pre><hr>
+<h2 id="addroletoclient" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="33" sourceendlinenumber="33"><code>AddRoleToClient()</code></h2>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="35" sourceendlinenumber="35">Assigns a <code>Role</code> to a specified client.</p>
+<h3 id="http" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="37" sourceendlinenumber="37">Http</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="39" sourceendlinenumber="39"><code>PUT api/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}</code></p>
+<h3 id="parameters" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="41" sourceendlinenumber="41">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="43" sourceendlinenumber="46"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="48" sourceendlinenumber="48">The identifier of the account in which the client belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="49" sourceendlinenumber="52"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="54" sourceendlinenumber="54">The identifier of the client who will be given the role.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="55" sourceendlinenumber="58"><code class="lang-csharp">[Required]
+string roleId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="60" sourceendlinenumber="60">The identifier of the <code>Role</code> to be assigned.</p>
+<h3 id="security" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="63" sourceendlinenumber="63">Security</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="65" sourceendlinenumber="65">A <code>Role</code> can only be assigned to a client by an Account Administrator.</p>
+<h3 id="returns" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="67" sourceendlinenumber="67">Returns</h3>
+<table sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="69" sourceendlinenumber="74">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Role</td>
+<td>Returns the <code>Role</code> with the specified roleId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not assign <code>Role</code> to client due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to add a <code>Role</code> to this client.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>The client was not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="replaceclientroles" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="78" sourceendlinenumber="78"><code>ReplaceClientRoles()</code></h2>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="80" sourceendlinenumber="80">Replaces the <code>Roles</code> of a client with a new list of roles.</p>
+<h3 id="http-1" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="82" sourceendlinenumber="82">Http</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="84" sourceendlinenumber="84"><code>PUT api/Tenants/{tenantId}/Clients/{clientId}/Roles</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="86" sourceendlinenumber="86">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="88" sourceendlinenumber="91"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="93" sourceendlinenumber="93">The identifier of the account the client belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="94" sourceendlinenumber="97"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="99" sourceendlinenumber="99">The identifier of the client whose roles will be replaced.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="100" sourceendlinenumber="104"><code class="lang-csharp">[Required]
+[FromBody]
+[Role] roleList
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="106" sourceendlinenumber="106">List of <code>Role</code> objects to set as the Roles for the specified client.</p>
+<h3 id="security-1" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="109" sourceendlinenumber="109">Security</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="111" sourceendlinenumber="111"><code>Roles</code> of a client can only be replaced by an Account Administrator.</p>
+<h3 id="returns-1" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="113" sourceendlinenumber="113">Returns</h3>
+<table sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="115" sourceendlinenumber="120">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>[Role]</td>
+<td>Returns a list of all <code>Role</code> objects assigned to the user specified by clientId after the replacement operation is complete.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not replace <code>Roles</code> due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to replace <code>Roles</code> of this client.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>The client was not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="removerolefromclient" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="124" sourceendlinenumber="124"><code>RemoveRoleFromClient()</code></h2>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="126" sourceendlinenumber="126">Removes a <code>Role</code> from a client.</p>
+<h3 id="http-2" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="128" sourceendlinenumber="128">Http</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="130" sourceendlinenumber="130"><code>DELETE api/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="132" sourceendlinenumber="132">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="134" sourceendlinenumber="137"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="139" sourceendlinenumber="139">The identifier of the account in which the client belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="140" sourceendlinenumber="143"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="145" sourceendlinenumber="145">The identifier of the client whose role will be removed.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="146" sourceendlinenumber="149"><code class="lang-csharp">[Required]
+string roleId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="151" sourceendlinenumber="151">The identifier of the <code>Role</code> to be removed.</p>
+<h3 id="security-2" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="154" sourceendlinenumber="154">Security</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="156" sourceendlinenumber="156">A <code>Role</code> can only be removed from a client by an Account Administrator.</p>
+<h3 id="returns-2" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="158" sourceendlinenumber="158">Returns</h3>
+<table sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="160" sourceendlinenumber="165">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>204</td>
+<td>Nothing is returned</td>
+<td>The <code>Role</code> was removed from the client.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not remove the <code>Role</code> from the client due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to remove a <code>Role</code> from this client.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>The client was not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="find" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="169" sourceendlinenumber="169"><code>Find()</code></h2>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="171" sourceendlinenumber="171">Retrieves all <code>Roles</code> from a client.</p>
+<h3 id="http-3" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="173" sourceendlinenumber="173">Http</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="175" sourceendlinenumber="175"><code>GET api/Tenants/{tenantId}/Clients/{clientId}/Roles</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="177" sourceendlinenumber="177">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="179" sourceendlinenumber="182"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="184" sourceendlinenumber="184">The identifier for the account in which the client belongs to.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="185" sourceendlinenumber="188"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="190" sourceendlinenumber="190">The identifier of the client whose <code>Roles</code> will be retrieved.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="191" sourceendlinenumber="194"><code class="lang-csharp">[Required]
+string skip
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="196" sourceendlinenumber="196">Number of <code>Roles</code> to ignore.</p>
+<pre sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="197" sourceendlinenumber="200"><code class="lang-csharp">[Required]
+string count
+</code></pre><p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="202" sourceendlinenumber="202">Number of <code>Roles</code> to return.</p>
+<h3 id="security-3" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="204" sourceendlinenumber="204">Security</h3>
+<p sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="206" sourceendlinenumber="206"><code>Roles</code> can be retrieved by an Account Administrator.</p>
+<h3 id="returns-3" sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="208" sourceendlinenumber="208">Returns</h3>
+<table sourcefile="Documentation/Management/Account_ClientRole.md" sourcestartlinenumber="210" sourceendlinenumber="215">
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>[Role]</td>
+<td>Returns a list of <code>Role</code> objects belonging to the client with the specified clientId.</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Nothing is returned</td>
+<td>Could not retrieve <code>Roles</code> from the client due to missing or invalid input.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Nothing is returned</td>
+<td>Unauthorized to retrieve <code>Roles</code> from this client.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Nothing is returned</td>
+<td>The client was not found in the specified <code>Tenant</code>.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Management/Account_ClientRole.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

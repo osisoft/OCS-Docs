@@ -1,4 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+const MINIMUM_QUERY_LENGTH = 2;
+
 $(function () {
   var active = 'active';
   var expanded = 'in';
@@ -223,7 +226,7 @@ $(function () {
         $("body").bind("queryReady", function () {
           worker.postMessage({ q: query });
         });
-        if (query && (query.length >= 3)) {
+        if (query && (query.length >= MINIMUM_QUERY_LENGTH)) {
           worker.postMessage({ q: query });
         }
       });
@@ -251,7 +254,7 @@ $(function () {
 
         $('#search-query').keyup(function () {
           query = $(this).val();
-          if (query.length < 3) {
+          if (query.length < MINIMUM_QUERY_LENGTH) {
             flipContents("show");
           } else {
             flipContents("hide");

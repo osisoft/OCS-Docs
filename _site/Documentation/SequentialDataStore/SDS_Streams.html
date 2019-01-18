@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,14 +76,11 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsStreams">
-
-<h4 id="sdsstreamtopic">SDS_Stream_topic</h4>
 <h1 id="streams">Streams</h1>
+
 <p>SDS stores collections of events and provides convenient ways to find and associating events. Events 
 of consistent structure are stored in streams, called SdsStreams.  An SdsType defines the structure 
 of events in an SdsStream.</p>
-<p>.. contents:: Topics in this section:
-    :depth: 2</p>
 <p>SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique 
 within a Namespace.</p>
 <p>An SdsStream must include a TypeId that references the identifier of an existing SdsType. 
@@ -96,19 +103,13 @@ for internal SDS use. </p>
 <td>Id</td>
 <td>String</td>
 <td>Required</td>
-<td>An identifier for referencing the stream.</td>
+<td>An identifier for referencing the stream</td>
 </tr>
 <tr>
 <td>TypeId</td>
 <td>String</td>
 <td>Required</td>
-<td>The SdsType identifier of the type to be</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>used for this stream.</td>
+<td>The SdsType identifier of the type to be used for this stream</td>
 </tr>
 <tr>
 <td>Name</td>
@@ -132,37 +133,19 @@ for internal SDS use. </p>
 <td>InterpolationMode</td>
 <td>SdsInterpolationMode</td>
 <td>Optional</td>
-<td>Interpolation setting of the stream.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Default is null.</td>
+<td>Interpolation setting of the stream. Default is null.</td>
 </tr>
 <tr>
 <td>ExtrapolationMode</td>
 <td>SdsExtrapolationMode</td>
 <td>Optional</td>
-<td>Extrapolation setting of the stream.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>Default is null.</td>
+<td>Extrapolation setting of the stream. Default is null.</td>
 </tr>
 <tr>
 <td>PropertyOverrides</td>
 <td>IList<sdsstreampropertyoverride></sdsstreampropertyoverride></td>
 <td>Optional</td>
-<td>Used to define unit of measure and</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td>interpolation mode overrides for a stream</td>
+<td>Used to define unit of measure and interpolation mode overrides for a stream</td>
 </tr>
 </tbody>
 </table>
@@ -171,7 +154,7 @@ for internal SDS use. </p>
 <li>Is not case sensitive.</li>
 <li>Can contain spaces.</li>
 <li>Cannot start with two underscores (&quot;__&quot;).</li>
-<li>Can contain a maximum of 260 characters.</li>
+<li>Can contain a maximum of 100 characters.</li>
 <li>Cannot use the following characters: ( / : ? # [ ] @ ! $ &amp; &#39; ( ) \* +
 , ; = %)</li>
 <li>Cannot start or end with a period.</li>
@@ -184,7 +167,7 @@ Indexes are defined at the SdsStream.</p>
 <p>Secondary Indexes are applied to a single property; there are no
 compound secondary indexes. Only SdsTypeCodes
 that can be ordered are supported for use in a secondary index.</p>
-<p>Indexes are discussed in greater detail here: :doc:<code>Qi_Indexes_topic</code></p>
+<p>Indexes are discussed in greater detail here: <a class="xref" href="indexes.html">Indexes</a></p>
 <h2 id="interpolation-and-extrapolation">Interpolation and Extrapolation</h2>
 <p>The InterpolationMode, ExtrapolationMode, and PropertyOverrides_ can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see <a class="xref" href="SDS_Types.html">Types</a>.</p>
 <h2 id="propertyoverrides">PropertyOverrides</h2>
@@ -222,10 +205,10 @@ SdsType Properties for a specific stream.</p>
 </tbody>
 </table>
 <p>The unit of measure can be overridden for any type property defined by the stream type, including primary keys 
-and secondary indexes. For more information about type property units of measure see <a class="xref" href="SDS_Types.html#qitypetopic">QiType_topic</a>. </p>
+and secondary indexes. For more information about type property units of measure see <a class="xref" href="SDS_Types.html">Types</a>. </p>
 <p>Read characteristics of the stream are determined by the type and the PropertyOverrides of the stream. The 
 interpolation mode for non-index properties can be defined and overridden at the stream level. For more 
-information about type read characteristics see <a class="xref" href="SDS_Types.html#qitypetopic">QiType_topic</a>.</p>
+information about type read characteristics see <a class="xref" href="SDS_Types.html">Types</a>.</p>
 <p>When specifying property interpolation overrides, if the SdsType InterpolationMode is <code>Discrete</code>, it cannot be overridden 
 at any level. When InterpolationMode is set to <code>Discrete</code> and an event it not defined for that index, a null 
 value is returned for the entire event.</p>
@@ -233,7 +216,7 @@ value is returned for the entire event.</p>
 <p>The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
 section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
 available. The <code>ISdsMetadataService</code> interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, 
-defines the available functions. See <a href="#qistreamtopic">Qi_Stream_topic</a> for general 
+defines the available functions. See <a href="#streams">Streams</a> for general 
 SdsStream information. </p>
 <hr>
 <h2 id="get-stream"><code>Get Stream</code></h2>
@@ -267,28 +250,32 @@ SdsStream information. </p>
 <hr>
 <h2 id="get-streams"><code>Get Streams</code></h2>
 <p>Returns a list of streams.</p>
-<p>If the optional search parameter is specified, the list of streams returned are filtered to match 
-the search criteria. If the optional search parameter is not specified, the list includes all streams 
-in the Namespace. See <a class="xref" href="Searching.html#qisearchingtopic">Qi_Searching_topic</a> 
-for information about specifying the search parameter.</p>
+<p>If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all streams 
+in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
+and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a><br>for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}
-        &amp;skip={skip}&amp;count={count}
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string query</code>
-  An optional parameter representing a string search. 
-  See <a class="xref" href="Searching.html#qisearchingtopic">Qi_Searching_topic</a>
-  for information about specifying the search parameter.
-<code>int skip</code>
-  An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
-  If not specified, a default value of 0 is used.
-<code>int count</code>
-  An optional parameter representing the maximum number of SdsStreams to retrieve. 
+<p><code>string tenantId</code><br>  The tenant identifier</p>
+<p><code>string namespaceId</code><br>  The namespace identifier</p>
+<p><code>string query</code><br>  An optional parameter representing a string search. 
+  See <a class="xref" href="Searching.html">Searching</a>
+  for information about specifying the search parameter.</p>
+<p><code>string filter</code><br>  An optional filter string to match which SdsStreams will be returned.  See the 
+  <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+  topic for information about specifying the filter parameter.</p>
+<p><code>int skip</code><br>  An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
+  If not specified, a default value of 0 is used.</p>
+<p><code>int count</code><br>  An optional parameter representing the maximum number of SdsStreams to retrieve. 
   If not specified, a default value of 100 is used.</p>
+<p><code>string orderby</code>
+  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given
+  field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). 
+  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
+  using values <code>asc</code> or <code>desc</code>, respectively.
+  For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending.
+  If no value is specified, there is no sorting of results.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -464,7 +451,7 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.</
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

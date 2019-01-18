@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -68,24 +78,154 @@
             <article class="content wrap" id="_content" data-uid="sdsReadingDataApi">
 <h1 id="api-calls-for-reading-data">API calls for reading data</h1>
 
-<p>Reading and writing data with the Qi Client Libraries is performed through the <code>IQiDataService</code> interface, which can be accessed with the <code>QiService.GetDataService( )</code> helper.</p>
+<p>Reading and writing data with the Sds Client Libraries is performed through the <code>ISdsDataService</code> interface, which can be accessed with the <code>SdsService.GetDataService( )</code> helper.</p>
+<hr>
+<h2 id="sample-types">Sample Types</h2>
+<p>Many of the API methods described below contain sample JSON and sample code. </p>
+<p>When specifying a parameter of type enum, the API accepts both the name of the field and the numeric value of the field. 
+Samples vary to highlight enum flexibility.</p>
+<p>Samples use the following types:</p>
+<h3 id="type-with-a-simple-index-named-simple">Type with a simple index, named <em>Simple</em>:</h3>
+<h4 id="net">.NET</h4>
+<pre><code class="lang-csharp">      public enum State
+      {
+        Ok,
+        Warning,
+        Alarm
+      }
+
+      public class Simple
+      {
+        [SdsMember(IsKey = true, Order = 0) ]
+        public DateTime Time { get; set; }
+        public State State { get; set; }
+        [SdsMember(Uom = &quot;meter&quot;)]
+        public Double Measurement { get; set; }
+      }
+</code></pre><h4 id="python">Python</h4>
+<pre><code class="lang-python">      class State(Enum):
+        Ok = 0
+        Warning = 1
+        Alarm = 2
+
+      class Simple(object):
+        Time = property(getTime, setTime)
+        def getTime(self):
+          return self.__time
+        def setTime(self, time):
+          self.__time = time
+
+        State = property(getState, setState)
+        def getState(self):
+          return self.__state
+        def setState(self, state):
+          self.__state = state
+
+        Measurement = property(getValue, setValue)
+        def getValue(self):
+          return self.__measurement
+        def setValue(self, measurement):
+          self.__measurement = measurement
+</code></pre><h4 id="javascript">JavaScript</h4>
+<pre><code class="lang-javascript">      var State =
+      {
+        Ok: 0,
+        Warning: 1,
+        Alarm: 2,
+      }
+
+      var Simple = function () {
+        this.Time = null;
+        this.State = null;
+        this.Value = null;
+      }
+</code></pre><p>Has values as follows:</p>
+<pre><code>  11/23/2017 12:00:00 PM: Ok  0
+  11/23/2017  1:00:00 PM: Ok 10
+  11/23/2017  2:00:00 PM: Ok 20
+  11/23/2017  3:00:00 PM: Ok 30
+  11/23/2017  4:00:00 PM: Ok 40
+</code></pre><h3 id="type-with-compound-index-named-derivedcompoundindex">Type with Compound Index, named <code>DerivedCompoundIndex</code></h3>
+<h4 id="net-1">.NET</h4>
+<pre><code class="lang-csharp">      public class Simple
+      {
+        [SdsMember(IsKey = true, Order = 0)]
+        public DateTime Time { get; set; }
+        public State State { get; set; }
+        public Double Measurement { get; set; }
+      }
+
+      public class DerivedCompoundIndex : Simple
+      {
+        [SdsMember(IsKey = true, Order = 1)]
+        public DateTime Recorded { get; set; }
+      }
+</code></pre><h4 id="python-1">Python</h4>
+<pre><code class="lang-python">      class Simple(object):
+      # First-order Key property
+      Time = property(getTime, setTime)
+      def getTime(self):
+        return self.__time
+      def setTime(self, time):
+        self.__time = time
+
+      State = property(getState, setState)
+      def getState(self):
+        return self.__state
+      def setState(self, state):
+        self.__state = state
+
+      Measurement = property(getValue, setValue)
+      def getValue(self):
+        return self.__measurement
+      def setValue(self, measurement):
+        self.__measurement = measurement
+
+      class DerivedCompoundIndex(Simple):
+      # Second-order Key property
+      @property
+      def Recorded(self):
+        return self.__recorded
+      @Recorded.setter
+      def Recorded(self, recorded):
+        self.__recorded = recorded
+</code></pre><h4 id="javascript-1">JavaScript</h4>
+<pre><code class="lang-javascript">      var Simple = function () {
+        this.Time = null;
+        this.State = null;
+        this.Value = null;
+      }
+
+      var DerivedCompoundIndex = function() {
+        Simple.call(this);
+        this.Recorded = null;
+      }
+</code></pre><p>Has values as follows:</p>
+<pre><code>  1/20/2017 1:00:00 AM : 1/20/2017 12:00:00 AM  0
+  1/20/2017 1:00:00 AM : 1/20/2017  1:00:00 AM  2
+  1/20/2017 1:00:00 AM : 1/20/2017  2:00:00 PM  5
+  1/20/2017 2:00:00 AM : 1/20/2017 12:00:00 AM  1
+  1/20/2017 2:00:00 AM : 1/20/2017  1:00:00 AM  3
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 AM  4
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 PM  6
+</code></pre><p>All times are represented at offset 0, GMT.</p>
+<hr>
 <h2 id="get-value"><code>Get Value</code></h2>
-<p>Returns the value at the specified index. If no stored event exists at the specified index, the stream’s 
-read characteristics determines how the returned event is calculated.</p>
-<p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
-        ?index={index}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string index</code>
-  The index
-<code>string viewId</code>
-  Optional view identifier</p>
+<p>Get Value supports two ways to retrieve an event:</p>
+<ul>
+<li><a href="#getvaluestandard">Standard</a>: Returns the value at the specified index. If no stored event exists at the specified index, the stream’s read characteristics determines how the returned event is calculated.</li>
+<li><a href="#getvalueuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information </li>
+</ul>
+<p><a name="getvaluestandard"></a></p>
+<h3 id="request-standard">Request (Standard)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+     ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>The index</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized event.
   Consider a stream of type Simple with the default InterpolationMode of Continuous and 
@@ -122,74 +262,143 @@ this request receives a response with an event interpolated at the specified ind
   string viewId = null);
   Task&lt;T&gt; GetValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
   string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+</code></pre><p><a name="getvalueuomconversion"></a></p>
+<h3 id="request-uom-conversion">Request (Uom Conversion)</h3>
+<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+        ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>The index</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized event similar to the standard request above (without Uom conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+     &quot;Measurement&quot;:1000.0 
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetValueAsync&lt;T&gt;(string streamId, string index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+  Task&lt;T&gt; GetValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+  Task&lt;T&gt; GetValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><hr>
 <h2 id="get-first-value"><code>Get First Value</code></h2>
-<p>Returns the first value in the stream. If no values exist in the stream, null is returned.</p>
-<p><strong>Request</strong></p>
+<p>Get First Value supports two ways to retrieve an event:</p>
+<ul>
+<li><a href="#getfirstvaluestandard">Standard</a>: Returns the first value in the stream. If no values exist in the stream, null is returned.</li>
+<li><a href="#getfirstvalueuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+</ul>
+<p><a name="getfirstvaluestandard"></a></p>
+<h3 id="request-standard-1">Request (Standard)</h3>
 <pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
         ?viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string viewId</code>
-  Optional view identifier</p>
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized event.</p>
 <p><strong>.NET Library</strong></p>
 <pre><code>  Task&lt;T&gt; GetFirstValueAsync&lt;T&gt;(string streamId, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+</code></pre><p><a name="getfirstvalueuomconversion"></a></p>
+<h3 id="request-uom-conversion-1">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+     ?viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event with unit conversions applied.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetFirstValueAsync&lt;T&gt;(string streamId, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><hr>
 <h2 id="get-last-value"><code>Get Last Value</code></h2>
-<p>Returns the last value in the stream. If no values exist in the stream, null is returned.</p>
-<p><strong>Request</strong></p>
+<p>Get Last Value supports two ways to retrieve an event:</p>
+<ul>
+<li><a href="#getlastvaluestandard">Standard</a>: Returns the last value in the stream. If no values exist in the stream, null is returned.</li>
+<li><a href="#getlastvalueuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+</ul>
+<p><a name="getlastvaluestandard"></a></p>
+<h3 id="request-standard-2">Request (Standard)</h3>
 <pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
         ?viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string viewId</code>
-  Optional view identifier</p>
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier </p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized event.</p>
 <p><strong>.NET Library</strong></p>
 <pre><code>  Task&lt;T&gt; GetLastValueAsync&lt;T&gt;(string streamId, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+</code></pre><p><a name="getlastvalueuomconversion"></a></p>
+<h3 id="request-uom-conversion-2">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+        ?viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier </p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and a response body containing a serialized event with unit conversions applied.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;T&gt; GetLastValueAsync&lt;T&gt;(string streamId, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><hr>
 <h2 id="get-distinct-value"><code>Get Distinct Value</code></h2>
-<p>Returns the value at the specified index. If no value exists at the specified index, 
+<p>Get Distinct Value supports two ways to retrieve an event:</p>
+<ul>
+<li><a href="#getdistinctvaluestandard">Standard</a>: Returns the value at the specified index. If no value exists at the specified index, 
 Get Distinct Value returns HTTP Status Code Not Found, 404.  The stream’s read characteristics 
-do not affect Get Distinct Value.</p>
-<p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
-        ?index={index}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string index</code>
-  The index
-<code>string viewId</code>
-  Optional view identifier</p>
+do not affect Get Distinct Value.</li>
+<li><a href="#getdistinctvalueuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+</ul>
+<p><a name="getdistinctvaluestandard"></a></p>
+<h3 id="request-standard-3">Request (Standard)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+     ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>  The tenant identifier</p>
+<p><code>string namespaceId</code><br>  The namespace identifier</p>
+<p><code>string streamId</code><br>  The stream identifier</p>
+<p><code>string index</code><br>  The index</p>
+<p><code>string viewId</code><br>  Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized event.</p>
 <p>  For a stream of type Simple, when making a Get Distinct Value request at an existing stored index: </p>
-<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
-    GetDistinctValue?index=2017-11-23T13:00:00Z 
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetDistinctValue?index=2017-11-23T13:00:00Z 
 </code></pre><p>The event at that index is returned in the response:</p>
 <p><strong>Response body</strong></p>
 <pre><code>  HTTP/1.1 200
@@ -212,39 +421,71 @@ do not affect Get Distinct Value.</p>
      &quot;Message&quot;:&quot;Resource not found&quot; 
   }
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;T&gt; GetDistinctValueAsync&lt;T&gt;(string streamId, string index, 
-    string viewId = null);
-  Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
-    string viewId = null);
-  Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
-    string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;T&gt; GetDistinctValueAsync&lt;T&gt;(string streamId, string index, 
+      string viewId = null);
+   Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
+      string viewId = null);
+   Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
+      string viewId = null);
+</code></pre><p><a name="getdistinctvalueuomconversion"></a></p>
+<h3 id="request-uom-conversion-3">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+     ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>  The tenant identifier</p>
+<p><code>string namespaceId</code><br>  The namespace identifier</p>
+<p><code>string streamId</code><br>  The stream identifier</p>
+<p><code>string index</code><br>  The index</p>
+<p><code>string viewId</code><br>  Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized event similar to the standard request above (without Uom conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the Measurement property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+     &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;T&gt; GetDistinctValueAsync&lt;T&gt;(string streamId, string index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+      string viewId = null);
+   Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+      string viewId = null);
+   Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+      string viewId = null);
+</code></pre><hr>
 <h2 id="find-distinct-value"><code>Find Distinct Value</code></h2>
-<p>Returns a stored event found based on the specified QiSearchMode and index. </p>
-<p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
-        ?index={index}&amp;mode={mode}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string index</code>
-  The index
-<code>string mode</code>
-  The QiSearchMode
-<code>string viewId</code>
-  Optional view identifier</p>
+<p>Get Last Value supports two ways to retrieve an event:</p>
+<ul>
+<li><a href="#finddistinctvaluestandard">Standard</a>: Returns a stored event found based on the specified SdsSearchMode and index. </li>
+<li><a href="#finddistinctvalueuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+</ul>
+<p><a name="finddistinctvaluestandard"></a></p>
+<h3 id="request-standard-4">Request (Standard)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+     ?index={index}&amp;mode={mode}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>The index</p>
+<p><code>string mode</code><br>The SdsSearchMode</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized event.</p>
 <p>For a stream of type Simple the following request, </p>
 <pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
       FindDistinctValue?index=2017-11-23T13:00:00Z&amp;mode=Next
-</code></pre><p>The request has an index that matches the index of an existing event, but because<br>a QiSearchMode of <code>next</code> was specified, the response contains the next event in the stream after the 
+</code></pre><p>The request has an index that matches the index of an existing event, but because<br>a SdsSearchMode of <code>next</code> was specified, the response contains the next event in the stream after the 
 specified index:</p>
 <p><strong>Response body</strong></p>
 <pre><code>  HTTP/1.1 200
@@ -271,44 +512,77 @@ The next event in the stream is retrieved.</p>
      &quot;Measurement&quot;:20.0
   }
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;T&gt; FindDistinctValueAsync&lt;T&gt;(string streamId, string index, 
-          QiSearchMode mode, string viewId = null);
-  Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
-          QiSearchMode mode, string viewId = null);
-  Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
-          QiSearchMode mode, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;T&gt; FindDistinctValueAsync&lt;T&gt;(string streamId, string index, 
+            SdsSearchMode mode, string viewId = null);
+   Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
+            SdsSearchMode mode, string viewId = null);
+   Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
+            SdsSearchMode mode, string viewId = null);
+</code></pre><p><a name="finddistinctvalueuomconversion"></a></p>
+<h3 id="request-uom-conversion-4">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+     ?index={index}&amp;mode={mode}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>The index</p>
+<p><code>string mode</code><br>The SdsSearchMode</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized event similar to the standard request above (without Uom conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  Formatted JSON Data
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+     &quot;Measurement&quot;:2000.0
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;T&gt; FindDistinctValueAsync&lt;T&gt;(string streamId, string index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+            SdsSearchMode mode, string viewId = null);
+   Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+            SdsSearchMode mode, string viewId = null);
+   Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+            SdsSearchMode mode, string viewId = null);
+</code></pre><hr>
 <h2 id="get-values"><code>Get Values</code></h2>
 <p>Returns a collection of values at indexes based on request parameters. </p>
 <p>As with the single event call to Get Value, the stream’s read characteristics determine how events 
 are calculated for indexes at which no stored event exists.</p>
-<p>Get Values supports three ways of specifying which events to return. </p>
+<p>Get Values supports six ways of specifying which events to return. </p>
 <ul>
-<li>A range can be specified with a start index, end index, and count. This will return the specified 
+<li><a href="#getvaluesrangedstandard">Ranged</a>: A range can be specified with a start index, end index, and count. This will return the specified 
 count of events evenly spaced from start index to end index.</li>
-<li>Multiple indexes can be passed to the request in order to retrieve events at exactly those indexes.</li>
-<li>A filtered request accepts a <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a> that limits results by applying an expression against 
-event fields. Filter expressions are explained in detail in the <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a> section.</li>
+<li><a href="#getvaluesindexcollectionstandard">Index Collection</a>: Multiple indexes can be passed to the request in order to retrieve events at exactly those indexes.</li>
+<li><a href="#getvaluesfilteredstandard">Filtered</a>: A filtered request accepts a <a class="xref" href="Filter_Expressions.html">filter expression</a> that limits results by applying an expression against 
+event fields. Filter expressions are explained in detail in the <a class="xref" href="Filter_Expressions.html">Filter expressions</a> section.</li>
+<li><a href="#getvaluesrangeduomconversion">Ranged with Uom Conversion</a>: Same as Ranged, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+<li><a href="#getvaluesindexcollectionuomconversion">Index Collection with Uom Conversion</a>: Same as Index Collection, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+<li><a href="#getvaluesfiltereduomconversion">Filtered with Uom Conversion</a>: Same as Filtered, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. Note that the filter is applied <em>before</em> any unit conversions. See <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
 </ul>
-<p><strong>Request (Ranged)</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
-      GetValues?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string startIndex</code>
-  The index defining the beginning of the range
-<code>string endIndex</code>
-  The index defining the end of the range<br><code>string count</code>
-  The number of events to return. Read characteristics of the stream determine how the form of the event.
-<code>string viewId</code>
-  Optional view identifier</p>
+<p><a name="getvaluesrangedstandard"></a></p>
+<h3 id="request-ranged">Request (Ranged)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+  ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>The index defining the beginning of the range</p>
+<p><code>string endIndex</code><br>The index defining the end of the range  </p>
+<p><code>int count</code><br>The number of events to return. Read characteristics of the stream determine how the form of the event.</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized collection of events.</p>
 <p>  For a stream of type Simple, the following request, </p>
@@ -336,28 +610,22 @@ from start to end match the count of three (3).</p>
   ] 
 </code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-       string endIndex, int count, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-       T1 endIndex, int count, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;string streamId, Tuple&lt;T1, T2&gt; startIndex, 
-       Tuple&lt;T1, T2&gt; endIndex, int count, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<p><strong>Request (Index collection)</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
-       GetValues?index={index}[&amp;index={index} …]&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string index</code>
-  One or more indexes of values to retrieve
-<code>string viewId</code>
-  Optional view identifier</p>
+<pre><code class="lang-csharp">      Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+           string endIndex, int count, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+           T1 endIndex, int count, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;string streamId, Tuple&lt;T1, T2&gt; startIndex, 
+           Tuple&lt;T1, T2&gt; endIndex, int count, string viewId = null);
+</code></pre><p><a name="getvaluesindexcollectionstandard"></a></p>
+<h3 id="request-index-collection">Request (Index collection)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+  ?index={index}[&amp;index={index} …]&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>One or more indexes of values to retrieve</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized collection of events.</p>
 <p>  For a stream of type Simple, the following request, </p>
@@ -384,29 +652,24 @@ from start to end match the count of three (3).</p>
   ] 
 </code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, IEnumerable&lt;string&gt; index, 
-       string viewId = null);
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, IEnumerable&lt;string&gt; index, 
+         string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, IEnumerable&lt;T1&gt; index,
-       string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, IEnumerable&lt;T1&gt; index,
+         string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-       IEnumerable&lt;Tuple&lt; T1, T2&gt;&gt; index, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<p><strong>Request (Filtered)</strong></p>
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         IEnumerable&lt;Tuple&lt; T1, T2&gt;&gt; index, string viewId = null);
+</code></pre><p><a name="getvaluesfilteredstandard"></a></p>
+<h3 id="request-filtered">Request (Filtered)</h3>
 <pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
        GetValues?filter={filter}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string filter</code>
-  The filter expression (see <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a>) <code>string viewId</code>
-  Optional view identifier</p>
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string filter</code><br>The filter expression (see <a class="xref" href="Filter_Expressions.html">Filter expressions</a>)</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized collection of events.</p>
 <p>  For a stream of type Simple, the following request, </p>
@@ -433,43 +696,168 @@ from start to end match the count of three (3).</p>
   ] 
 </code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetFilteredValuesAsync&lt;T&gt;(string streamId, string filter, 
-      string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetFilteredValuesAsync&lt;T&gt;(string streamId, string filter, 
+         string viewId = null);
+</code></pre><p><a name="getvaluesrangeduomconversion"></a></p>
+<h3 id="request-ranged-with-uom-conversion">Request (Ranged with Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+  ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>The index defining the beginning of the range</p>
+<p><code>string endIndex</code><br>The index defining the end of the range  </p>
+<p><code>int count</code><br>The number of events to return. Read characteristics of the stream determine how the form of the event.</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:1000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:2000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:3000.0
+     }
+  ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         string endIndex, int count, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         T1 endIndex, int count, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;string streamId, Tuple&lt;T1, T2&gt; startIndex, 
+         Tuple&lt;T1, T2&gt; endIndex, int count, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><p><a name="getvaluesindexcollectionuomconversion"></a></p>
+<h3 id="request-index-collection-with-uom-conversion">Request (Index collection with Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+  ?index={index}[&amp;index={index} …]&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string index</code><br>One or more indexes of values to retrieve</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T12:30:00Z&quot;,
+        &quot;Measurement&quot;:500.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:1000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:2000.0
+     }
+  ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, IEnumerable&lt;string&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+         string viewId = null);
+
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, IEnumerable&lt;T1&gt; index, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+         string viewId = null);
+
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         IEnumerable&lt;Tuple&lt; T1, T2&gt;&gt; index, string viewId = null);
+</code></pre><p><a name="getvaluesfiltereduomconversion"></a></p>
+<h3 id="request-filtered-with-uom-conversion">Request (Filtered with Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+  ?filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string filter</code><br>The filter expression (see <a class="xref" href="Filter_Expressions.html">Filter expressions</a>)</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event. Note that the filter expression is applied to values <em>before</em> unit conversion.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:2000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:3000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:4000.0
+     }
+  ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">      Task&lt;IEnumerable&lt;T&gt;&gt; GetFilteredValuesAsync&lt;T&gt;(string streamId, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+          string viewId = null);
+</code></pre><hr>
 <h2 id="get-range-values"><code>Get Range Values</code></h2>
-<p>Returns a collection of values as determined by a start index and count. </p>
-<p>Additional optional parameters specify the direction of the range, how to handle events near or 
-at the start index, whether to skip a certain number of events at the start of the range, and 
-how to filter the data.</p>
-<p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
-        ?startIndex={startIndex}&amp;count={count}&amp;skip={skip}&amp;reversed={reversed} 
-        &amp;boundaryType={boundaryType}&amp;filter={filter}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string startIndex</code>
-  Index identifying the beginning of the series of events to return
-<code>string count</code>
-  The number of events to return
-<code>integer skip</code>
-  Optional value specifying the number of events to skip at the beginning of the result
-<code>bool reversed</code>
-  Optional specification of the direction of the request. By default, range requests move forward 
-  from startIndex, collecting events after startIndex from the stream. A reversed request will 
-  collect events before startIndex from the stream.
-<code>QiBoundaryType boundaryType</code>
-  Optional QiBoundaryType specifies the handling of events at or near startIndex
-<code>string filter</code>
-  Optional filter expression
-<code>string viewId</code>
-  Optional view identifier</p>
+<p>Get Range Values supports two ways to retrieve events:</p>
+<ul>
+<li><a href="#getrangevaluesstandard">Standard</a>: Returns a collection of values as determined by a start index and count. Additional optional parameters specify the direction of the range, how to handle events near or at the start index, whether to skip a certain number of events at the start of the range, and how to filter the data.</li>
+<li><a href="#getrangevaluesuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information </li>
+</ul>
+<p><a name="getrangevaluesstandard"></a></p>
+<h3 id="request-standard-5">Request (Standard)</h3>
+<pre><code>  GET   api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues
+     ?startIndex={startIndex}&amp;count={count}&amp;skip={skip}&amp;reversed={reversed} 
+     &amp;boundaryType={boundaryType}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>Index identifying the beginning of the series of events to return</p>
+<p><code>int count</code><br>The number of events to return</p>
+<p><code>int skip</code><br>Optional value specifying the number of events to skip at the beginning of the result</p>
+<p><code>bool reversed</code><br>Optional specification of the direction of the request. By default, range requests move forward 
+from startIndex, collecting events after startIndex from the stream. A reversed request will 
+collect events before startIndex from the stream.</p>
+<p><code>SdsBoundaryType boundaryType</code><br>Optional SdsBoundaryType specifies the handling of events at or near startIndex</p>
+<p><code>string filter</code><br>Optional filter expression</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized collection of events.</p>
 <p>  For a stream of type Simple, the following request will return a response with up to 100 events starting 
@@ -566,54 +954,145 @@ Measurement is not included in the last event as its value is default.</p>
      },
   ] 
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      int count, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      int count, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
-      startIndex, int count, string viewId = null);
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         int count, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         int count, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+         startIndex, int count, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      int count, bool reversed, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      int count, bool reversed, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, int count, bool reversed, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         int count, bool reversed, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         int count, bool reversed, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, int count, bool reversed, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      int count, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      int count, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, int count, QiBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         int count, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         int count, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, int count, SdsBoundaryType boundaryType, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      int skip, int count, bool reversed, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      int skip, int count, bool reversed, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
-      startIndex, int skip, int count, bool reversed, QiBoundaryType 
-      boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+         startIndex, int skip, int count, bool reversed, SdsBoundaryType 
+         boundaryType, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      int skip, int count, bool reversed, QiBoundaryType boundaryType, string filter, 
-      string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      int skip, int count, bool reversed, QiBoundaryType boundaryType, string filter, 
-      string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, int skip, int count, bool reversed, QiBoundaryType boundaryType, 
-      string filter, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, 
+         string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, 
+         string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, int skip, int count, bool reversed, SdsBoundaryType boundaryType, 
+         string filter, string viewId = null);
+</code></pre><p><a name="getrangevaluesuomconversion"></a></p>
+<h3 id="request-unit-conversion">Request (Unit Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
+     ?startIndex={startIndex}&amp;count={count}&amp;skip={skip}&amp;reversed={reversed} 
+     &amp;boundaryType={boundaryType}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>Index identifying the beginning of the series of events to return</p>
+<p><code>int count</code><br>The number of events to return</p>
+<p><code>int skip</code><br>Optional value specifying the number of events to skip at the beginning of the result</p>
+<p><code>bool reversed</code><br>Optional specification of the direction of the request. By default, range requests move forward 
+from startIndex, collecting events after startIndex from the stream. A reversed request will 
+collect events before startIndex from the stream.</p>
+<p><code>SdsBoundaryType boundaryType</code><br>Optional SdsBoundaryType specifies the handling of events at or near startIndex</p>
+<p><code>string filter</code><br>Optional filter expression</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:1000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:2000.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:3000.0
+     },
+     {  
+       &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:4000.0
+     }
+  ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex,
+          int count, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+          int count, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+          startIndex, int count, string viewId = null);
+
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+          int count, bool reversed, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+          int count, bool reversed, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+          Tuple&lt;T1, T2&gt; startIndex, int count, bool reversed, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+          int count, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+          int count, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+          Tuple&lt;T1, T2&gt; startIndex, int count, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+          startIndex, int skip, int count, bool reversed, SdsBoundaryType 
+          boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+          string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+          string viewId = null);
+      Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+          Tuple&lt;T1, T2&gt; startIndex, int skip, int count, bool reversed, SdsBoundaryType boundaryType, 
+          string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><hr>
 <h2 id="get-window-values"><code>Get Window Values</code></h2>
-<p>Get Window Values returns a collection of stored events based on specified start and end indexes. 
-For handling events at and near the boundaries of the window, a single QiBoundaryType that applies 
+<p>Get Window Values supports two ways of retrieving events:</p>
+<ul>
+<li><a href="#getwindowvaluesstandard">Standard</a>: Get Window Values returns a collection of stored events based on specified start and end indexes. 
+For handling events at and near the boundaries of the window, a single SdsBoundaryType that applies 
 to both the start and end indexes can be passed with the request, or separate boundary types may 
-be passed for the start and end individually. </p>
+be passed for the start and end individually. </li>
+<li><a href="#getwindowvaluesuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information</li>
+</ul>
 <p>Get Window Values also supports paging for large result sets. Results for paged requests are returned 
-as a QiResultPage.</p>
+as a SdsResultPage.</p>
 <table>
 <thead>
 <tr>
@@ -637,7 +1116,8 @@ as a QiResultPage.</p>
 </table>
 <p>To retrieve the next page of values, include the ContinuationToken from the results of the previous request. 
 For the first request, specify a null or empty string for the ContinuationToken.</p>
-<p><strong>Request</strong></p>
+<p><a name="getwindowvaluesstandard"></a></p>
+<h3 id="request-standard-6">Request (Standard)</h3>
 <pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
       ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;boundaryType={boundaryType} 
       &amp;filter={filter}&amp;count={count}&amp;viewId={viewId}
@@ -655,29 +1135,18 @@ For the first request, specify a null or empty string for the ContinuationToken.
       ?startIndex={startIndex}&amp;startBoundaryType={startBoundaryType} 
       &amp;endIndex={endIndex}&amp;endBoundaryType={endBoundaryType}&amp;filter={filter}&amp;count={count} 
       &amp;continuationToken={continuationToken}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string startIndex</code>
-  Index bounding the beginning of the series of events to return
-<code>string endIndex</code>
-  Index bounding the end of the series of events to return
-<code>string count</code>
-  Optional maximum number of events to return
-<code>QiBoundaryType boundaryType</code>
-  Optional QiBoundaryType specifies handling of events at or near the start and end indexes
-<code>QiBoundaryType startBoundaryType</code>
-  Optional QiBoundaryType specifies the first value in the result in relation to the start index
-<code>QiBoundaryType endBoundaryType</code>
-  Optional QiBoundaryType specifies the last value in the result in relation to the end index
-<code>string filter</code>
-  Optional filter expression
-<code>string viewId</code>
-  Optional view identifier</p>
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>Index bounding the beginning of the series of events to return</p>
+<p><code>string endIndex</code><br>Index bounding the end of the series of events to return</p>
+<p><code>int count</code><br>Optional maximum number of events to return</p>
+<p><code>SdsBoundaryType boundaryType</code><br>Optional SdsBoundaryType specifies handling of events at or near the start and end indexes</p>
+<p><code>SdsBoundaryType startBoundaryType</code><br>Optional SdsBoundaryType specifies the first value in the result in relation to the start index</p>
+<p><code>SdsBoundaryType endBoundaryType</code><br>  Optional SdsBoundaryType specifies the last value in the result in relation to the end index</p>
+<p><code>string filter</code><br>  Optional filter expression</p>
+<p><code>string viewId</code><br>  Optional view identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body containing a serialized collection of events.</p>
 <p>  For a stream of type Simple, the following requests all stored events between 13:30 and 15:30: </p>
@@ -685,22 +1154,22 @@ For the first request, specify a null or empty string for the ContinuationToken.
       GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;endIndex=2017-11-23T15:30:00Z
 </code></pre><p>The response will contain the event stored at the specified index:</p>
 <p><strong>Response body</strong></p>
-<pre><code>  Content-Type: application/json
+<pre><code class="lang-json">      Content-Type: application/json
 
-  [  
-     {  
-        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
-        &quot;Measurement&quot;:10.0
-     },
-     {  
-        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
-        &quot;Measurement&quot;:20.0
-     },
-     {  
-        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
-        &quot;Measurement&quot;:30.0
-     }
-  ] 
+      [  
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+            &quot;Measurement&quot;:10.0
+         },
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+            &quot;Measurement&quot;:20.0
+         },
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+            &quot;Measurement&quot;:30.0
+         }
+      ] 
 </code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
 <p>When the request is modified to specify a boundary type of Outside, the value 
 before 13:30 and the value after 15:30 are included:</p>
@@ -809,99 +1278,243 @@ page to request the next page of stored events:</p>
 (not shown because it null is the default value for a JSON string). </p>
 <p>Note that State is not included in the JSON as its value is the default value.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      string endIndex, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex,
-      T1 endIndex, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, T
-      uple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, string viewId = null);
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         string endIndex, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex,
+         T1 endIndex, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, T
+         uple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
-      string endIndex, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      T1 endIndex, QiBoundaryType boundaryType, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
-  QiBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         string endIndex, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         T1 endIndex, SdsBoundaryType boundaryType, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+   SdsBoundaryType boundaryType, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
-      string startIndex, string endIndex, QiBoundaryType boundaryType, 
-      string filter, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
-      T1 startIndex, T1 endIndex, QiBoundaryType boundaryType, string filter, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
-      QiBoundaryType boundaryType, string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, string endIndex, SdsBoundaryType boundaryType, 
+         string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, string filter, string viewId = null);
 
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
-      string startIndex, QiBoundaryType startBoundaryType, string endIndex, 
-      QiBoundaryType endBoundaryType, string filter, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId,
-      T1 startIndex, QiBoundaryType startBoundaryType, 
-      T1 endIndex, QiBoundaryType endBoundaryType, 
-      string filter, string viewId = null);
-  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
-      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
-      string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
+         SdsBoundaryType endBoundaryType, string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId,
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, string viewId = null);
 
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex,
-      string endIndex, QiBoundaryType boundaryType, int count, 
-      string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
-      T1 endIndex, QiBoundaryType boundaryType, int count, 
-      string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
-      QiBoundaryType boundaryType, int count, string continuationToken, 
-      string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex,
+         string endIndex, SdsBoundaryType boundaryType, int count, 
+         string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         T1 endIndex, SdsBoundaryType boundaryType, int count, 
+         string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, int count, string continuationToken, 
+         string viewId = null);
 
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
-      string startIndex, string endIndex, QiBoundaryType boundaryType, 
-      string filter, int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
-      T1 startIndex, T1 endIndex, QiBoundaryType boundaryType, string filter, 
-      int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
-      QiBoundaryType boundaryType, string filter, int count, 
-      string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, string endIndex, SdsBoundaryType boundaryType, 
+         string filter, int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, 
+         int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, string filter, int count, 
+         string continuationToken, string viewId = null);
 
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, 
-      string startIndex, QiBoundaryType startBoundaryType, 
-      string endIndex, QiBoundaryType endBoundaryType, 
-      int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, 
-      T1 startIndex, QiBoundaryType startBoundaryType, 
-      T1 endIndex, QiBoundaryType endBoundaryType, 
-      int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
-      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
-      int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, 
+         string endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, string viewId = null);
 
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
-      string startIndex, QiBoundaryType startBoundaryType, 
-      string endIndex, QiBoundaryType endBoundaryType, 
-      string filter, int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
-      T1 startIndex, QiBoundaryType startBoundaryType, 
-      T1 endIndex, QiBoundaryType endBoundaryType, 
-      string filter, int count, string continuationToken, string viewId = null);
-  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
-      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
-      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
-      string filter, int count, string continuationToken, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, 
+         string endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, string viewId = null);
+</code></pre><p><a name="getwindowvaluesuomconversion"></a></p>
+<h3 id="request-uom-conversion-5">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;boundaryType={boundaryType} 
+      &amp;filter={filter}&amp;count={count}&amp;viewId={viewId}
+
+  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;startBoundaryType={startBoundaryType} 
+      &amp;endIndex={endIndex}&amp;endBoundaryType={endBoundaryType}&amp;filter={filter}&amp;count={count} 
+      &amp;viewId={viewId}
+
+  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;boundaryType={boundaryType} 
+      &amp;filter={filter}&amp;count={count}&amp;continuationToken={continuationToken}&amp;viewId={viewId}
+
+  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;startBoundaryType={startBoundaryType} 
+      &amp;endIndex={endIndex}&amp;endBoundaryType={endBoundaryType}&amp;filter={filter}&amp;count={count} 
+      &amp;continuationToken={continuationToken}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>Index bounding the beginning of the series of events to return</p>
+<p><code>string endIndex</code><br>Index bounding the end of the series of events to return</p>
+<p><code>int count</code><br>Optional maximum number of events to return</p>
+<p><code>SdsBoundaryType boundaryType</code><br>Optional SdsBoundaryType specifies handling of events at or near the start and end indexes</p>
+<p><code>SdsBoundaryType startBoundaryType</code><br>Optional SdsBoundaryType specifies the first value in the result in relation to the start index</p>
+<p><code>SdsBoundaryType endBoundaryType</code><br>  Optional SdsBoundaryType specifies the last value in the result in relation to the end index</p>
+<p><code>string filter</code><br>  Optional filter expression</p>
+<p><code>string viewId</code><br>  Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code class="lang-json">      Content-Type: application/json
+
+      [  
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+            &quot;Measurement&quot;:1000.0
+         },
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+            &quot;Measurement&quot;:2000.0
+         },
+         {  
+            &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+            &quot;Measurement&quot;:3000.0
+         }
+      ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         string endIndex, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex,
+         T1 endIndex, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, T
+         uple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+         string endIndex, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         T1 endIndex, SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+   SdsBoundaryType boundaryType, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, string endIndex, SdsBoundaryType boundaryType, 
+         string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
+         SdsBoundaryType endBoundaryType, string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId,
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex,
+         string endIndex, SdsBoundaryType boundaryType, int count, 
+         string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+         T1 endIndex, SdsBoundaryType boundaryType, int count, 
+         string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, int count, string continuationToken,  IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides,
+         string viewId = null);
+
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, string endIndex, SdsBoundaryType boundaryType, 
+         string filter, int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, 
+         int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+         SdsBoundaryType boundaryType, string filter, int count, 
+         string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, 
+         string endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+         string startIndex, SdsBoundaryType startBoundaryType, 
+         string endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, SdsBoundaryType startBoundaryType, 
+         T1 endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+   Task&lt;SdsResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, SdsBoundaryType startBoundaryType, 
+         Tuple&lt;T1, T2&gt; endIndex, SdsBoundaryType endBoundaryType, 
+         string filter, int count, string continuationToken, IList&lt;SdsStreamPropertyOverride&gt; propertyOverrides, string viewId = null);
+</code></pre><hr>
 <h2 id="get-intervals"><code>Get Intervals</code></h2>
-<p>Returns summary intervals between a specified start and end index. </p>
+<p>Get Intervals supports two ways to retrieve events:</p>
+<ul>
+<li><a href="#getintervalsstandard">Standard</a>: Returns summary intervals between a specified start and end index. </li>
+<li><a href="#getintervalsuomconversion">Uom Conversion</a>: Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See <a class="xref" href="Units_of_Measure.html">Units of Measure</a> for additional information </li>
+</ul>
 <p>Index types that cannot be interpolated do not 
 support GetIntervals requests. Strings are an example of indexes that cannot be interpolated. The 
 Get Intervals method does not support compound indexes. Interpolating between two indexes 
 that consist of multiple properties is not defined and results in non-determinant behavior.</p>
-<p>Results are returned as a collection of QiIntervals. Each QiInterval has a start, end, and collection of 
+<p>Results are returned as a collection of SdsIntervals. Each SdsInterval has a start, end, and collection of 
 summary values.</p>
 <table>
 <thead>
@@ -924,7 +1537,7 @@ summary values.</p>
 </tr>
 <tr>
 <td>Summaries</td>
-<td>IDictionary&lt;QiSummaryType,</td>
+<td>IDictionary&lt;SdsSummaryType,</td>
 <td>The summary values for the interval, keyed by</td>
 </tr>
 <tr>
@@ -944,7 +1557,7 @@ summary values.</p>
 </tr>
 </tbody>
 </table>
-<p>Summary values supported by QiSummaryType enum:</p>
+<p>Summary values supported by SdsSummaryType enum:</p>
 <table>
 <thead>
 <tr>
@@ -1003,28 +1616,21 @@ summary values.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Request</strong></p>
-<pre><code>   GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
-       ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;filter={filter}&amp;viewId={viewId}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string startIndex</code>
-  The start index for the intervals
-<code>string endIndex</code>
-  The end index for the intervals
-<code>string count</code>
-  The number of intervals requested
-<code>string filter</code>
-  Optional filter expression
-<code>string viewId</code>
-  Optional view identifier</p>
+<p><a name="getintervalsstandard"></a></p>
+<h3 id="request-standard-7">Request (Standard)</h3>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+     ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>The start index for the intervals</p>
+<p><code>string endIndex</code><br>The end index for the intervals</p>
+<p><code>int count</code><br>The number of intervals requested</p>
+<p><code>string filter</code><br>Optional filter expression</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
 <p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body containing a serialized collection of QiIntervals.</p>
+<p>  The response includes a status code and a response body containing a serialized collection of SdsIntervals.</p>
 <p>For a stream of type Simple, the following requests calculates two summary intervals between the first 
 and last events: </p>
 <pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
@@ -1132,30 +1738,175 @@ and last events: </p>
       }
   }]
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T&gt;(string streamId, string 
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T&gt;(string streamId, string 
+         startIndex, string endIndex, int count, string viewId = null);
+
+   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1&gt;(string streamId, T1 
+         startIndex, T1 endIndex, int count, string viewId = null);
+
+   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1, T2&gt;(string streamId, 
+         Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
+         string viewId = null);
+
+   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T&gt;(string streamId, 
+         string startIndex, string endIndex, int count, string filter, 
+         string viewId = null);
+
+   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1&gt;(string streamId, 
+         T1 startIndex, T1 endIndex, int count, string filter, 
+         string viewId = null);
+
+   Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1, T2&gt;(string 
+         streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
+         string filter, string viewId = null);
+</code></pre><p><a name="getintervalsuomconversion"></a></p>
+<h3 id="request-uom-conversion-6">Request (Uom Conversion)</h3>
+<pre><code>  POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+     ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Request Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string streamId</code><br>The stream identifier</p>
+<p><code>string startIndex</code><br>The start index for the intervals</p>
+<p><code>string endIndex</code><br>The end index for the intervals</p>
+<p><code>int count</code><br>The number of intervals requested</p>
+<p><code>string filter</code><br>Optional filter expression</p>
+<p><code>string viewId</code><br>Optional view identifier</p>
+<p><strong>Request Body</strong></p>
+<p>The Request Body contains a collection of <code>SdsStreamPropertyOverride</code> objects. The example request body below requests Sds convert the <code>Measurement</code> property of the returned data from meter to centimeter.</p>
+<pre><code class="lang-json">    [
+      {
+        &quot;SdsTypePropertyId&quot; : &quot;Measurement&quot;,
+        &quot;Uom&quot; : &quot;centimeter&quot; 
+      }
+    ]
+</code></pre><p><strong>Response</strong></p>
+<p>The response includes a status code and response body containing a serialized collection of events similar to the standard request above (without unit conversion). In this response, the system will have applied the conversion factor for the base unit (in this case Meters) to the <code>Measurement</code> property of the event.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  [{
+      &quot;Start&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T20:00:00Z&quot;
+      },
+      &quot;End&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T22:00:00Z&quot;,
+         &quot;Measurement&quot;:2000.0
+      },
+      &quot;Summaries&quot;:{  
+         &quot;Count&quot;:{  
+            &quot;Measurement&quot;:2
+         },
+         &quot;Minimum&quot;:{  
+            &quot;Measurement&quot;:0.0
+         },
+         &quot;Maximum&quot;:{  
+            &quot;Measurement&quot;:2000.0
+         },
+         &quot;Range&quot;:{  
+            &quot;Measurement&quot;:2000.0
+         },
+         &quot;Total&quot;:{  
+            &quot;Measurement&quot;:2000.0
+         },
+         &quot;Mean&quot;:{  
+            &quot;Measurement&quot;:1000.0
+         },
+         &quot;StandardDeviation&quot;:{  
+            &quot;Measurement&quot;:707.10678118654755
+         },
+         &quot;PopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:500.0
+         },
+         &quot;WeightedMean&quot;:{  
+            &quot;Measurement&quot;:1000.0
+         },
+         &quot;WeightedStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:707.10678118654755
+         },
+         &quot;WeightedPopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:500.0
+         },
+         &quot;Skewness&quot;:{  
+            &quot;Measurement&quot;:000.0
+         },
+         &quot;Kurtosis&quot;:{  
+            &quot;Measurement&quot;:-200.0
+         }
+      }
+   },
+   {  
+      &quot;Start&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T22:00:00Z&quot;,
+         &quot;Measurement&quot;:2000.0
+      },
+      &quot;End&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-25T00:00:00Z&quot;,
+         &quot;Measurement&quot;:4000.0
+      },
+      &quot;Summaries&quot;:{  
+         &quot;Count&quot;:{  
+            &quot;Measurement&quot;:2
+         },
+         &quot;Minimum&quot;:{  
+            &quot;Measurement&quot;:2000.0
+         },
+         &quot;Maximum&quot;:{  
+            &quot;Measurement&quot;:4000.0
+         },
+         &quot;Range&quot;:{  
+            &quot;Measurement&quot;:2000.0
+         },
+         &quot;Total&quot;:{  
+            &quot;Measurement&quot;:6000.0
+         },
+         &quot;Mean&quot;:{  
+            &quot;Measurement&quot;:3000.0
+         },
+         &quot;StandardDeviation&quot;:{  
+            &quot;Measurement&quot;:707.10678118654755
+         },
+         &quot;PopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:500.0
+         },
+         &quot;WeightedMean&quot;:{  
+            &quot;Measurement&quot;:3000.0
+         },
+         &quot;WeightedStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:707.10678118654755
+         },
+         &quot;WeightedPopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:500.0
+         },
+         &quot;Skewness&quot;:{  
+            &quot;Measurement&quot;:0.0
+         },
+         &quot;Kurtosis&quot;:{  
+            &quot;Measurement&quot;:-200.0
+         }
+      }
+  }]
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T&gt;(string streamId, string 
       startIndex, string endIndex, int count, string viewId = null);
 
-  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1&gt;(string streamId, T1 
+  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1&gt;(string streamId, T1 
       startIndex, T1 endIndex, int count, string viewId = null);
 
-  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1, T2&gt;(string streamId, 
+  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1, T2&gt;(string streamId, 
       Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
       string viewId = null);
 
-  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T&gt;(string streamId, 
+  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T&gt;(string streamId, 
       string startIndex, string endIndex, int count, string filter, 
       string viewId = null);
 
-  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1&gt;(string streamId, 
+  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1&gt;(string streamId, 
       T1 startIndex, T1 endIndex, int count, string filter, 
       string viewId = null);
 
-  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1, T2&gt;(string 
+  Task&lt;IEnumerable&lt;SdsInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1, T2&gt;(string 
       streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
       string filter, string viewId = null);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+</code></pre><hr>
 </article>
           </div>
           
@@ -1179,7 +1930,7 @@ and last events: </p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

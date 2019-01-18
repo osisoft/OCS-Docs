@@ -1,19 +1,21 @@
-- name: Applications
-  href: Account_Applications.md
-  name: Client
+- name: Client Roles
   href: Account_ClientRole.md
 - name: Namespace
   href: Account_Namespace.md
 - name: NamespaceTier
   href: Account_NamespaceTier.md
-- name: Role
+- name: Roles
   href: Account_Role.md
 - name: RootAccessControl
   href: Account_RootAccessControl.md
 - name: Tenant
   href: Account_Tenant.md
-- name: User
+- name: Tenant Feature States
+  href: Account_TenantFeatureState.md
+- name: User Roles
   href: Account_UserRole.md
 - name: ServiceBlog
   href: Account_ServiceBlog.md
-
+- name: Consent
+  href: Consent.md
+  

@@ -4,7 +4,14 @@ uid: AccountNamespace
 
 # Namespace
 
-A Namespace is a collection of Data Streams.
+A `Namespace` is a collection of SDS types, streams, and stream views.
+
+Namespace identifiers are unique within an account. Requirements for `Namespace` Ids are the following:
+- Must contain 260 characters or fewer
+- Must only contain alphanumeric characters, underscores, dashes, spaces, and periods
+- Must not contain two consecutive periods
+- Must not start or end with a period
+- Must not start with two consecutive underscores
 
 ## Properties
 
@@ -23,7 +30,6 @@ For HTTP requests and responses, the Namespace object has the following properti
 | State | NamespaceProvisioningState | Current state of this Namespace. | 
 | Owner | Trustee | Owner [Trustee](xref:accessControl) of this Namespace. | 
 | AccessControl | AccessControlList | The [AccessControl](xref:accessControl) that defines Access Control for this `Namespace` | 
-| AccessControlList | AccessControlList | Access Control List. | 
 
 
 ```json
@@ -42,9 +48,6 @@ For HTTP requests and responses, the Namespace object has the following properti
 	},
 	"AccessControl": {
 		"RoleTrusteeAccessControlEntries": []
-	},
-	"AccessControlList": {
-		"RoleTrusteeAccessControlEntries": []
 	}
 }
 ```
@@ -52,7 +55,7 @@ For HTTP requests and responses, the Namespace object has the following properti
 
 ## `GetAll()`
 
-Returns all `Namespaces` owned by the specified tenant that the caller has access to.
+Returns all `Namespaces` owned by the specified `Tenant` that the caller has access to.
 
 ### Http
 
@@ -65,14 +68,7 @@ Returns all `Namespaces` owned by the specified tenant that the caller has acces
 string tenantId
 ```
 
-The `Tenant` identifier for the request.
-```csharp
-[Optional]
-[Default = ""]
-string include
-```
-
-An optional parameter specifying which attached properties to include
+The identifier of the account to access.
 
 
 ### Security
@@ -81,12 +77,17 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 ### Returns
 
-An array of all `Namespace` objects for the specified tenantId that the caller has access.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | [Namespace] | Returns a list of all `Namespace` objects for the specified tenantId that the caller has access to. | 
+| 400 | Nothing is returned | Could not retrieve `Namespaces` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to access the tenant's `Namespaces`. | 
+
 
 ***
 ## `GetNamespaceById()`
 
-Returns the Namespace with the specified Id.
+Returns a `Namespace` with the specified Id.
 
 ### Http
 
@@ -99,13 +100,13 @@ Returns the Namespace with the specified Id.
 string tenantId
 ```
 
-The account identifier for the request
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The Namespace identifier for this request
+The identifier of the `Namespace` to return.
 
 
 ### Security
@@ -114,12 +115,18 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 ### Returns
 
-A `Namespace` object with the specified namespaceId
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Namespace | Returns a `Namespace` object with the specified namespaceId. | 
+| 400 | Nothing is returned | Could not retrieve the `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to access this `Namespace`. | 
+| 404 | Nothing is returned | `Namespace` not found in the specified account. | 
+
 
 ***
 ## `Create()`
 
-Creates a namespace.
+Creates a new `Namespace` in the specified `Tenant`.
 
 ### Http
 
@@ -132,28 +139,33 @@ Creates a namespace.
 string tenantId
 ```
 
-The identifier for the account the namespace is to be created for.
+The account identifier where the `Namespace` will be created.
 ```csharp
 [Required]
 [FromBody]
 Namespace namespaceObj
 ```
 
-The `Namespace` to be created.
+The new `Namespace` to be created.
 
 
 ### Security
 
-A `Namespace` can only be create if the current principal has Write access.
+A `Namespace` can only be created if the current principal has Write access.
 
 ### Returns
 
-The created `Namespace` object
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 201 | Namespace | Returns the created `Namespace` object. | 
+| 400 | Nothing is returned | Could not create the `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to create a `Namespace` in this account. | 
+
 
 ***
 ## `Update()`
 
-Updates Namespace information - Description, TierId, AccessControl, and Owner.
+Updates `Namespace` information: Description and TierId. The [AccessControl](xref:accessControl) and Owner's [Trustee](xref:accessControl) can only be updated through their own routes.
 
 ### Http
 
@@ -166,34 +178,39 @@ Updates Namespace information - Description, TierId, AccessControl, and Owner.
 string tenantId
 ```
 
-The identifier of Namespace's Account.
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier for the Namespace to update.
+The identifier of the `Namespace` to update.
 ```csharp
 [Required]
 [FromBody]
 Namespace newProperties
 ```
 
-The new details to store for the Namespace.
+The new details to store for the `Namespace`.
 
 
 ### Security
 
-A `Namespace` can only be updated if the current principal has Write access. The [AccessControl](xref:accessControl) and owner [Trustee](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
+A `Namespace` can only be updated if the current principal has Write access.
 
 ### Returns
 
-The updated `Namespace`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Namespace | Returns the updated `Namespace`. | 
+| 400 | Nothing is returned | Could not update the `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to update the `Namespace`. | 
+
 
 ***
 ## `Delete()`
 
-Deletes a namespace.
+Deletes a `Namespace` in the specified `Tenant`.
 
 ### Http
 
@@ -206,13 +223,13 @@ Deletes a namespace.
 string tenantId
 ```
 
-The identifier of namespace's account
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier of the namespace to be deleted
+The identifier of the `Namespace` to delete.
 
 
 ### Security
@@ -221,12 +238,17 @@ A `Namespace` can only be deleted if the current principal has Delete access.
 
 ### Returns
 
-Nothing is returned.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 204 | Nothing is returned | The `Namespace` was deleted. | 
+| 400 | Nothing is returned | Could not delete the `Namespace` due to an invalid state. | 
+| 403 | Nothing is returned | Unauthorized to delete the `Namespace`. | 
+
 
 ***
 ## `GetAccessControl()`
 
-Gets the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
+Returns the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
 
 ### Http
 
@@ -239,27 +261,32 @@ Gets the [AccessControl](xref:accessControl) that is used to authorize access to
 string tenantId
 ```
 
-The identifier of the account being accessed.
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier of the `Namespace` being accessed.
+The identifier of the `Namespace` to access.
 
 
 ### Security
 
-The current principal has Read access.
+An [AccessControl](xref:accessControl) can only be retrieved if the current principal has Read access.
 
 ### Returns
 
-The [AccessControl](xref:accessControl) for the `Namespace`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | AccessControl | Returns the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
+| 400 | Nothing is returned | Could not retrieve the [AccessControl](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to get the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
+
 
 ***
 ## `SetAccessControl()`
 
-Edits the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
+Updates the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
 
 ### Http
 
@@ -272,34 +299,39 @@ Edits the [AccessControl](xref:accessControl) that is used to authorize access t
 string tenantId
 ```
 
-The identifier of the account being modified.
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier of the `Namespace` being modified.
+The identifier of the `Namespace` to access.
 ```csharp
 [Required]
 [FromBody]
 AccessControlList newAccessControlList
 ```
 
-The new [AccessControl](xref:accessControl) for the `Namespace`.
+The updated [AccessControl](xref:accessControl) for the `Namespace`.
 
 
 ### Security
 
-The current principal has ManageAccessControl access.
+An [AccessControl](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
 
 ### Returns
 
-The updated [AccessControl](xref:accessControl) for the `Namespace`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | AccessControl | Returns the updated [AccessControl](xref:accessControl). | 
+| 400 | Nothing is returned | Could not update the [AccessControl](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to update the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
+
 
 ***
 ## `GetOwner()`
 
-Gets the owner for a given `Namespace`.
+Returns the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 ### Http
 
@@ -312,27 +344,32 @@ Gets the owner for a given `Namespace`.
 string tenantId
 ```
 
-The identifier of the account being accessed.
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier of the `Namespace` being accessed.
+The identifier of the `Namespace` to access.
 
 
 ### Security
 
-The current principal has Read access.
+An Owner's [Trustee](xref:accessControl) can only be retrieved if the current principal has Read access.
 
 ### Returns
 
-The owner [Trustee](xref:accessControl) of the `Namespace`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Trustee | Returns the Owner's [Trustee](xref:accessControl) of the specified `Namespace`. | 
+| 400 | Nothing is returned | Could not retrieve the Owner's [Trustee](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to get the Owner's [Trustee](xref:accessControl) of the specified `Namespace`. | 
+
 
 ***
 ## `SetOwner()`
 
-Changes the owner for a given `Namespace`.
+Changes the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 ### Http
 
@@ -345,28 +382,33 @@ Changes the owner for a given `Namespace`.
 string tenantId
 ```
 
-The identifier of the account being edited.
+The identifier of the account to access.
 ```csharp
 [Required]
 string namespaceId
 ```
 
-The identifier of the `Namespace` being edited.
+The identifier of the `Namespace` to access.
 ```csharp
 [Required]
 [FromBody]
 Trustee newOwner
 ```
 
-The new owner [Trustee](xref:accessControl) for the `Namespace`.
+The new Owner's [Trustee](xref:accessControl) of the `Namespace`.
 
 
 ### Security
 
-The current principal has ManageAccessControl access.
+An Owner's [Trustee](xref:accessControl) can only be changed if the current principal has ManageAccessControl access.
 
 ### Returns
 
-The new owner [Trustee](xref:accessControl) of the `Namespace`.
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | Trustee | Returns the new Owner's [Trustee](xref:accessControl) of the specified `Namespace`. | 
+| 400 | Nothing is returned | Could not change the Owner's [Trustee](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to change the Owner's [Trustee](xref:accessControl) of the specified `Namespace`. | 
+
 
 ***

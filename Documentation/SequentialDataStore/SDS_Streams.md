@@ -2,19 +2,12 @@
 uid: sdsStreams
 ---
 
-#### SDS_Stream_topic
-
 Streams
 =======
 
 SDS stores collections of events and provides convenient ways to find and associating events. Events 
 of consistent structure are stored in streams, called SdsStreams.  An SdsType defines the structure 
 of events in an SdsStream.
-
-.. contents:: Topics in this section:
-    :depth: 2
-
-
 
 SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique 
 within a Namespace.
@@ -29,20 +22,16 @@ The following table shows the required and optional SdsStream fields. Fields not
 for internal SDS use. 
 
 
-| Property          | Type                             | Optionality |Details                                       |
-|-------------------|----------------------------------|-------------|----------------------------------------------|
-| Id                | String                           | Required    | An identifier for referencing the stream.    |
-| TypeId            | String                           | Required    | The SdsType identifier of the type to be     |
-|                   |                                  |             | used for this stream.                        |
-| Name              | String                           | Optional    | Friendly name                                |
-| Description       | String                           | Optional    | Description text                             |
-| Indexes           | IList<SdsStreamIndex>            | Optional    | Used to define secondary indexes for stream  |
-| InterpolationMode | SdsInterpolationMode             | Optional    | Interpolation setting of the stream.         |
-|                   |                                  |             | Default is null.                             |
-| ExtrapolationMode | SdsExtrapolationMode             | Optional    | Extrapolation setting of the stream.         |
-|                   |                                  |             | Default is null.                             |
-| PropertyOverrides | IList<SdsStreamPropertyOverride> | Optional    | Used to define unit of measure and           |
-|                   |                                  |             | interpolation mode overrides for a stream    |
+| Property          | Type                             | Optionality | Details |
+|-------------------|----------------------------------|-------------|---------|
+| Id                | String                           | Required    | An identifier for referencing the stream |
+| TypeId            | String                           | Required    | The SdsType identifier of the type to be used for this stream |
+| Name              | String                           | Optional    | Friendly name |
+| Description       | String                           | Optional    | Description text |
+| Indexes           | IList<SdsStreamIndex>            | Optional    | Used to define secondary indexes for stream |
+| InterpolationMode | SdsInterpolationMode             | Optional    | Interpolation setting of the stream. Default is null. |
+| ExtrapolationMode | SdsExtrapolationMode             | Optional    | Extrapolation setting of the stream. Default is null. |
+| PropertyOverrides | IList<SdsStreamPropertyOverride> | Optional    | Used to define unit of measure and interpolation mode overrides for a stream |
 
 
 **Rules for Identifier (SdsStream.Id)**
@@ -50,7 +39,7 @@ for internal SDS use.
 1. Is not case sensitive.
 2. Can contain spaces.
 3. Cannot start with two underscores ("\_\_").
-4. Can contain a maximum of 260 characters.
+4. Can contain a maximum of 100 characters.
 5. Cannot use the following characters: ( / : ? # [ ] @ ! $ & ' ( ) \\\* +
    , ; = %)
 6. Cannot start or end with a period.
@@ -70,7 +59,7 @@ compound secondary indexes. Only SdsTypeCodes
 that can be ordered are supported for use in a secondary index.
 
 
-Indexes are discussed in greater detail here: :doc:`Qi_Indexes_topic`
+Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
 
 
 Interpolation and Extrapolation
@@ -88,19 +77,19 @@ SdsType Properties for a specific stream.
 The ``SdsStreamPropertyOverride`` object has the following structure:
 
 
-| Property          | Type                           | Optionality | Details                                           |
-|-------------------|--------------------------------|-------------|---------------------------------------------------|
-| SdsTypePropertyId | String                         | Required    | SdsTypeProperty identifier                        |
-| InterpolationMode | SdsInterpolationMode           | Optional    | Interpolation setting. Default is null            |
-| Uom               | String                         | Optional    | Unit of measure                                   |
+| Property          | Type                           | Optionality | Details |
+|-------------------|--------------------------------|-------------|---------|
+| SdsTypePropertyId | String                         | Required    | SdsTypeProperty identifier |
+| InterpolationMode | SdsInterpolationMode           | Optional    | Interpolation setting. Default is null |
+| Uom               | String                         | Optional    | Unit of measure |
 
 
 The unit of measure can be overridden for any type property defined by the stream type, including primary keys 
-and secondary indexes. For more information about type property units of measure see [QiType_topic](xref:sdsTypes#qitypetopic). 
+and secondary indexes. For more information about type property units of measure see [Types](xref:sdsTypes). 
 
 Read characteristics of the stream are determined by the type and the PropertyOverrides of the stream. The 
 interpolation mode for non-index properties can be defined and overridden at the stream level. For more 
-information about type read characteristics see [QiType_topic](xref:sdsTypes#qitypetopic).
+information about type read characteristics see [Types](xref:sdsTypes).
 
 When specifying property interpolation overrides, if the SdsType InterpolationMode is ``Discrete``, it cannot be overridden 
 at any level. When InterpolationMode is set to ``Discrete`` and an event it not defined for that index, a null 
@@ -114,7 +103,7 @@ SdsStream API
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
 section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
-defines the available functions. See [Qi_Stream_topic](#qistreamtopic) for general 
+defines the available functions. See [Streams](#streams) for general 
 SdsStream information. 
 
 
@@ -179,36 +168,50 @@ Returns the specified stream.
 
 Returns a list of streams.
 
-If the optional search parameter is specified, the list of streams returned are filtered to match 
-the search criteria. If the optional search parameter is not specified, the list includes all streams 
-in the Namespace. See [Qi_Searching_topic](xref:sdsSearching#qisearchingtopic) 
-for information about specifying the search parameter.
+If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all streams 
+in the Namespace. See [Searching](xref:sdsSearching) 
+and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)  
+for information about specifying those respective parameters.
+
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}
-            &skip={skip}&count={count}
-
-
-
+        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
-``string tenantId``
+``string tenantId``  
   The tenant identifier
-``string namespaceId``
+
+``string namespaceId``  
   The namespace identifier
-``string query``
+
+``string query``  
   An optional parameter representing a string search. 
-  See [Qi_Searching_topic](xref:sdsSearching#qisearchingtopic)
+  See [Searching](xref:sdsSearching)
   for information about specifying the search parameter.
-``int skip``
+
+``string filter``   
+  An optional filter string to match which SdsStreams will be returned.  See the 
+  [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+  topic for information about specifying the filter parameter.
+
+``int skip``  
   An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
   If not specified, a default value of 0 is used.
-``int count``
+
+``int count``  
   An optional parameter representing the maximum number of SdsStreams to retrieve. 
   If not specified, a default value of 100 is used.
 
+``string orderby``
+  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given
+  field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
+  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
+  using values ``asc`` or ``desc``, respectively.
+  For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
+  If no value is specified, there is no sorting of results.
 
 **Response**
 

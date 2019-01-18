@@ -17,7 +17,7 @@
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
-    
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -55,6 +55,16 @@
           </div>
         </div>
       </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
       <div role="main" class="container body-content hide-when-search">
         
         <div class="sidenav hide-when-search">
@@ -66,19 +76,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="sdsSearching">
-
-<h4 id="qisearchingtopic">Qi_Searching_topic</h4>
 <h1 id="searching">Searching</h1>
+
 <p>SdsSearch provides a way to search text, phrases, fields, etc. cross the Sequential Data Store. This document covers the 
 searching for SdsStreams and SdsTypes.</p>
-<h1 id="searching-for-streams">Searching for streams</h1>
+<h1 id="searching-for-streams">Searching for Streams</h1>
 <p>The search functionality for streams is exposed through the REST API and the client libraries method <code>GetStreamsAsync</code>.</p>
 <p><code>GetStreamsAsync</code> is an overloaded method that is used to search for and return streams (also see <a class="xref" href="SDS_Streams.html">Streams</a> for information about using <code>GetStreamAsync</code> to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.</p>
 <p>The syntax of the client libraries method is as follows:</p>
 <pre><code>  _metadataService.GetStreamsAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>Searching for streams is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
 <pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;skip={skip}&amp;count={count}
-</code></pre><h1 id="searching-for-types">Searching for types</h1>
+</code></pre><h1 id="searching-for-types">Searching for Types</h1>
 <p>Similarly, the search functionality for types is also exposed through REST API and the client libraries method <code>GetTypesAsync</code>. The query syntax and the request parameters are the same. 
 The only difference is the resource you&#39;re searching on, and you can filter on different properties for types than for streams. See <a class="xref" href="SDS_Types.html">Types</a> for more information.</p>
 <p><code>GetTypesAsync</code> is an overloaded method that is used to search for and return types. </p>
@@ -86,8 +95,9 @@ The only difference is the resource you&#39;re searching on, and you can filter 
 <pre><code>  _metadataService.GetTypesAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>As previously mentioned, searching for types is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
 <pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
-</code></pre><p>The <code>GetStreamsAsync</code> or <code>GetTypesAsync</code> overload return items that match specific search criteria within a given namespace. 
-The query parameter will be applied across all properties of items we’re searching on by default, such as <code>Name</code>, <code>Description</code>, or <code>Tags</code>.</p>
+</code></pre><h1 id="how-searching-works">How Searching Works</h1>
+<p>The <code>GetStreamsAsync</code> or <code>GetTypesAsync</code> overload return items that match specific search criteria within a given namespace. 
+The query parameter will be applied across all properties of items we’re searching on by default, such as <code>Name</code> or <code>Description</code>.</p>
 <p>For example, assume that a namespace contains the following Streams:</p>
 <table>
 <thead>
@@ -95,7 +105,6 @@ The query parameter will be applied across all properties of items we’re searc
 <th><strong>streamId</strong></th>
 <th><strong>Name</strong></th>
 <th><strong>Description</strong></th>
-<th><strong>Tags</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -103,19 +112,16 @@ The query parameter will be applied across all properties of items we’re searc
 <td>stream1</td>
 <td>tempA</td>
 <td>The temperature from DeviceA</td>
-<td>“temperature”, “DeviceA”</td>
 </tr>
 <tr>
 <td>stream2</td>
 <td>pressureA</td>
 <td>The pressure from DeviceA</td>
-<td>“pressure”, “DeviceA”</td>
 </tr>
 <tr>
 <td>stream3</td>
 <td>calcA</td>
 <td>calculation from DeviceA values</td>
-<td>“temperature”, “pressure”, “DeviceA”</td>
 </tr>
 </tbody>
 </table>
@@ -160,7 +166,7 @@ skip parameter when more items match the search criteria than can be returned in
 <pre><code>   _metadataService.GetStreamsAsync(“temperature”, 100, 100)
 </code></pre><p>The <code>orderby</code> parameter is supported for searching both the streams and types. The basic functionality of it is to search the items and then return the result in sorted order.
 The default value for <code>orderby</code> parameter is ascending order. It can be changed to descending order by specifying <code>desc</code> alongside the orderby field value. It can be used in conjunction with 
-<code>query</code>, <code>skip</code>, and <code>count</code> parameters.</p>
+<code>query</code>, <code>filter</code>, <code>skip</code>, and <code>count</code> parameters.</p>
 <p><strong>REST API examples</strong></p>
 <pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name
 
@@ -209,7 +215,9 @@ GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name
 </tr>
 </tbody>
 </table>
-<p><strong>Note:</strong> The wildcard <code>*</code> can&#39;t be combined when searching for a phrase using the <code>&quot; &quot;</code> operators which combine multiple ordered search terms. 
+<p><strong>Notes regarding wildcard:</strong> The wildcard <code>*</code> can only be used once for each search term, except for the case of a Contains type query clause. In that case two wildcards are allowed: 
+one as prefix and one as suffix e.g. <code>*Tank*</code> is valid but <code>*Ta*nk</code>, <code>Ta*nk*</code>, and <code>*Ta*nk*</code> are currently not supported.</p>
+<p> The wildcard <code>*</code> can&#39;t be combined when searching for a phrase using the <code>&quot; &quot;</code> operators which combine multiple ordered search terms. 
 It only works when specifying a single search term. For example, you can search for <code>Tank*</code>, <code>*Tank</code>, <code>Ta*nk</code> but not <code>&quot;Tank Meter*&quot;</code>.</p>
 <h2 id="-operator"><strong>: Operator</strong></h2>
 <p>You can also qualify which fields are searched by using the following syntax: </p>
@@ -325,20 +333,12 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 <td>mud bath</td>
 </tr>
 <tr>
-<td><code>“name:stream\* AND (tags:pressure OR tags:pump)”</code></td>
-<td>The name starts with “stream” and has tag values of either “pressure” or “pump”</td>
+<td><code>“name:stream\* AND (description:pressure OR description:pump)”</code></td>
+<td>The name starts with “stream” and the description has the either of the terms “pressure” or “pump”</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="searching-on-metadata">Searching on Metadata</h2>
-<p>Streams can have metadata collections associated with them. Metadata allows you to specify arbitrary key-value 
-pairs to help organize and add context your streams. To search for streams by metadata, use the following syntax:
-<code>&quot;key:value&quot;</code>. Because the colon is a special character used in field-scoped queries, the search term for metadata 
-<em>must</em> be enclosed in double quotes. For example, to search for all streams with a key of &quot;Manufacturer&quot; and a value 
-of &quot;OSI&quot;, you would use <code>&quot;Manufacturer:OSI&quot;</code>.  If you want to search for a stream with a key of &quot;Manufacturer&quot; and 
-any value, you could drop the quotes and the colon and search for <code>Manufacturer*</code>.  While searching for a key with 
-a wildcard value is supported, searching on a value with a wildcard key is not supported.</p>
 </article>
           </div>
           
@@ -362,7 +362,7 @@ a wildcard value is supported, searching on a value with a wildcard key is not s
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

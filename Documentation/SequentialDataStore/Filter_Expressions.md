@@ -2,10 +2,10 @@
 uid: sdsFilterExpressions
 ---
 
-#### Qi_Filter_expressions_topic
-
-Filter Expressions
+Filter Expressions: Values
 ==================
+
+Filter expressions can be applied to certain read operations that return Sequential Data Store values or objects. This section covers data values. For filtering on metadata objects refer to [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata).
 
 Filter expressions can be applied to any read that returns multiple values, including 
 ``Get Values``, ``Get Range Values``, ``Get Window Values``, and ``Get Intervals``.”
@@ -68,8 +68,7 @@ expression:
 | ``le``     | Less than or equal to                               |
 | ``lt``     | Less than                                           |
 | ``gt``     | Greater than                                        |
-| ``( )``    | Parenthesis can be used to affect the order of the  |
-|            | operation                                           |
+| ``( )``    | Parenthesis can be used to affect the order of the operation |
 | ``or``     | Or logical operator                                 |
 | ``and``    | And logical operator                                |
 | ``not``    | Not logical operator                                |
@@ -104,21 +103,9 @@ expression:
 | ``mul``   | Multiplication          |
 | ``div``   | Division                |
 | ``mod``   | Modulo                  |
-| ``round`` | Rounds to the nearest   |
-|           | numeric component       |
-|           | without a decimal, with |
-|           | the midpoint rounded    |
-|           | away from 0. For        |
-|           | example, 0.5            |
-|           | rounds to 1; -0.5 rounds| 
-|           | to -1)                  |
-| ``floor`` | Rounds down to the      |
-|           | nearest numeric         |
-|           | component without a     | 
-|           | decimal                 |
-|``ceiling``| Rounds up to the nearest|
-|           | numeric component       |
-|           | without a decimal       |
+| ``round`` | Rounds to the nearest numeric component without a decimal, with the midpoint rounded away from 0. For example, 0.5 rounds to 1; -0.5 rounds to -1) |
+| ``floor`` | Rounds down to the nearest numeric component without a decimal |
+|``ceiling``| Rounds up to the nearest numeric component without a decimal |
 
 **Math Function Examples**
 
@@ -175,8 +162,7 @@ The following examples assume that the Qi Type event includes a field named
 |``substringof('ab',sValue)``                 |True if characters ‘ab’ are found anywhere in ``sValue``         |
 |``tolower(sValue) eq 'val5'``                |Change ``sValue`` to lowercase and compare to ‘val5’             |
 |``toupper(sValue) eq 'ABC'``                 |Change ``sValue`` to uppercase and compare to ‘ABC’              |
-|``trim(sValue) eq 'vall22'``                 |Trim whitespace from front and end of ``sValue`` and compare to  |
-|                                             |‘val22’                                                          |
+|``trim(sValue) eq 'vall22'``                 |Trim whitespace from front and end of ``sValue`` and compare to ‘val22’|
 |``concat(sValue,'xyz') eq 'dataValue_7xyz'`` |Add characters to ``sValue`` and compare to ‘dataValue_7xyz’     |
 |``replace(sValue,'L','D') eq 'Dog1'``        |Replace any ‘L’ in ``sValue`` with ‘D’ and compare to ‘Dog1’     |
 

@@ -6,9 +6,6 @@ uid: sdsIntroduction
 Introducing the Sequential Data Store
 =====================================
 
-#### Introducing_SDS_topic
-
-
 The Sequential Data Store (SDS) is a highly flexible cloud-based sequential data store that you use to store, 
 retrieve, and analyze data. You 
 create and write data to *streams* using a simple REST (*REpresentational State Transfer*) API (*Application 
@@ -44,7 +41,7 @@ that highlights some of the sample’s functionality. Be sure to read the readme
 how the sample works.
 
 After you have finished this introduction and worked with one of the samples, refer to 
-the [Quick_start_topic](xref:sdsQuickStart#quickstarttopic) section, which describes the interaction of 
+the [Quick start](xref:sdsQuickStart#sds-quick-start) section, which describes the interaction of 
 various SDS objects and helps you get started with your own application.
 
 

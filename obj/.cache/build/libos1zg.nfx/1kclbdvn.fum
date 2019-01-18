@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Writing data </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Writing data ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" src="../../images/atlas_icon.png" alt="">
+              </a>    </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsWritingData">
+
+<h4 id="qiwritingdatatopic">Qi_Writing_Data_topic</h4>
+<h1 id="writing-data">Writing data</h1>
+<p>The Sds REST APIs provide programmatic access to read and write Sds data. This section describes 
+the APIs used to write SdsStream data.</p>
+<p>When working in .NET, convenient Sds Client libraries are available. The <code>ISdsDataServiceinterface</code>, accessed using the
+<code>SdsService.GetDataService( )</code> helper, defines the available functions.</p>
+<p>All writes rely on a stream’s key or primary index. Preexisting values and positioning within the stream 
+is determined exclusively by the primary index. Secondary indexes are updated, but they do not contribute 
+to the request. All references to indexes are to the primary index.</p>
+<p>The following single value write methods are available:</p>
+<ul>
+<li><strong>Insert Value</strong> inserts a value at the specified primary index. </li>
+<li><strong>Patch Value</strong> updates specific fields in an existing value identified by the primary index.</li>
+<li><strong>Replace Value</strong> replaces the value at the specified primary index.</li>
+<li><strong>Update Value</strong> replaces the value with matching primary index. If no value exists the value is added.</li>
+<li><strong>Remove Value</strong> deletes the value at the specified primary index.</li>
+</ul>
+<p>The following support writing multiple values:</p>
+<ul>
+<li><strong>Insert Values</strong> inserts a collection of values.</li>
+<li><strong>Patch Values</strong> updates specific fields for a collection of values.</li>
+<li><strong>Replace Values</strong> replaces a collection of values.</li>
+<li><strong>Update Values</strong> replaces or adds a collection of values.</li>
+<li><strong>Remove Values</strong> deletes the values at the specified primary indexes.</li>
+<li><strong>Remove Window Values</strong> removes values that fall within the window defined by the start and end primary indexes.</li>
+</ul>
+<p>The base URI for writing Sds data is:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<h2 id="response-format">Response Format</h2>
+<p>Supported response formats include JSON, verbose JSON, and Sds. </p>
+<p>The default response format for reading data is JSON, which is used in all examples in this document. 
+Default JSON responses do not include any values that are equal to the default value for their type.</p>
+<p>Verbose JSON responses include all values in the returned JSON payload, including defaults.
+To specify verbose JSON return, add the header <code>Accept-Verbosity</code> with a value of <code>verbose</code> to the request. </p>
+<p>Verbose has no impact on writes; writes return only error messages.</p>
+<p>To specify Sds format, set the <code>Accept</code> header in the request to <code>application/Sds</code>.</p>
+<h2 id="indexes">Indexes</h2>
+<p>Sds writes rely on the primary index for positioning within streams and locating existing events. 
+Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
+indexes are specified as strings in the URI, or, when using the Sds Client libraries, the index may be 
+passed as-is to delete methods that take the index type as a generic argument. More details about working 
+with indexes can be found on the <a class="xref" href="indexes.html">Qi_Indexes_topic</a> page. </p>
+<p>To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
+separated by the pipe character, ‘|’.</p>
+<h2 id="examples">Examples</h2>
+<p>Many of the API methods described below contain sample JSON. </p>
+<p>When specifying a parameter of type <code>enum</code>, the API accepts both the name of the field and the numeric 
+value of the field. Samples vary to highlight enum flexibility.</p>
+<p>Samples use the following types:</p>
+<ul>
+<li>Type with a simple index, named <em>Simple</em>:</li>
+</ul>
+<p><strong>.NET</strong></p>
+<pre><code>  public enum State 
+  {
+    Ok,
+    Warning,
+    Alarm
+  }
+
+  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0) ] 
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+</code></pre><p><strong>Python</strong></p>
+<pre><code>  class State(Enum):
+    Ok = 0
+    Warning = 1
+    Alarm = 2
+
+  class Simple(object):
+    Time = property(getTime, setTime)
+    def getTime(self):
+      return self.__time
+    def setTime(self, time):
+      self.__time = time
+
+    State = property(getState, setState)
+    def getState(self):
+      return self.__state
+    def setState(self, state):
+      self.__state = state
+
+    Measurement = property(getValue, setValue)
+    def getValue(self):
+      return self.__measurement
+    def setValue(self, measurement):
+      self.__measurement = measurement
+</code></pre><p><strong>JavaScript</strong></p>
+<pre><code>  var State =
+  {
+    Ok: 0,
+    Warning: 1,
+    Aalrm: 2,
+  }
+
+  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+</code></pre><p>The values produced by the above code is as follows:</p>
+<pre><code>  11/23/2017 12:00:00 PM: Ok  0
+  11/23/2017  1:00:00 PM: Ok 10
+  11/23/2017  2:00:00 PM: Ok 20
+  11/23/2017  3:00:00 PM: Ok 30
+  11/23/2017  4:00:00 PM: Ok 40
+</code></pre><ul>
+<li>Type with Compound Index, named DerivedCompoundIndex</li>
+</ul>
+<p>.NET</p>
+<pre><code>  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+
+  public class DerivedCompoundIndex : Simple
+  {
+    [SdsMember(IsKey = true, Order = 1)]
+    public DateTime Recorded { get; set; }
+  }
+</code></pre><p>Python</p>
+<pre><code>  class Simple(object):
+  # First-order Key property
+  Time = property(getTime, setTime)
+  def getTime(self):
+    return self.__time
+  def setTime(self, time):
+    self.__time = time
+
+  State = property(getState, setState)
+  def getState(self):
+    return self.__state
+  def setState(self, state):
+    self.__state = state
+
+  Measurement = property(getValue, setValue)
+  def getValue(self):
+    return self.__measurement
+  def setValue(self, measurement):
+    self.__measurement = measurement
+
+  class DerivedCompoundIndex(Simple):
+  # Second-order Key property
+  @property
+  def Recorded(self):
+    return self.__recorded
+   @Recorded.setter
+  def Recorded(self, recorded):
+    self.__recorded = recorded
+</code></pre><p>JavaScript</p>
+<pre><code>  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+
+  var DerivedCompoundIndex = function() {
+    Simple.call(this);
+    this.Recorded = null;
+  }
+</code></pre><p>Has values as follows:</p>
+<pre><code>  1/20/2017 1:00:00 AM : 1/20/2017 12:00:00 AM  0
+  1/20/2017 1:00:00 AM : 1/20/2017  1:00:00 AM  2
+  1/20/2017 1:00:00 AM : 1/20/2017  2:00:00 PM  5
+  1/20/2017 2:00:00 AM : 1/20/2017 12:00:00 AM  1
+  1/20/2017 2:00:00 AM : 1/20/2017  1:00:00 AM  3
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 AM  4
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 PM  6
+</code></pre><p>All times are represented at offset 0, GMT.</p>
+<hr>
+<h2 id="insert-value"><code>Insert value</code></h2>
+<p>Inserts an event into the specified stream. If an event already exists at the specified primary index, 
+the insert operation fails, and returns HTTP status code Conflict, 409.</p>
+<p><strong>Request</strong></p>
+<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  {  
+     &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+     &quot;State&quot;:0,
+     &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task InsertValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="patch-value"><code>Patch value</code></h2>
+<p>Updates fields in an event. Use the select parameter to specify the fields to update. If there is 
+not an event with a matching primary index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PATCH api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+          PatchValue?select={select}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string select</code>
+  Comma-separated list of fields to update</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  {  
+    &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+    &quot;State&quot;:”Warning”,
+    &quot;Measurement&quot;:500.0
+  }
+</code></pre><p>To update the state field to Warning, set the index to <code>state</code>. To update the state to Warning 
+and the measurement to 500, set the index to <code>state,measurement</code>.</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task PatchValueAsync&lt;T&gt;(string streamId, string select, T item);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="replace-value"><code>Replace value</code></h2>
+<p>Replaces an existing event with an event with matching primary index. If there is not an event with a 
+matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  {  
+    &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+    &quot;State&quot;:0,
+    &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task ReplaceValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="update-value"><code>Update value</code></h2>
+<p>Replaces an existing event with an event that has a matching primary index. If there is not an event with 
+a matching index, the event is inserted.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  {  
+     &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+     &quot;State&quot;:0,
+     &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task UpdateValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-value"><code>Remove value</code></h2>
+<p>Removes an event that matches a primary index. If there is not an event with a matching index, 
+the remove operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+         RemoveValue?index={index}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The primary index identifying the event</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task RemoveValueAsync(string streamId, string index);
+  Task RemoveValueAsync&lt;T1&gt;(string streamId, T1 index);
+  Task RemoveValueAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T1&gt; index);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="insert-values"><code>Insert values</code></h2>
+<p>Inserts a collection of events into the specified stream. If an event exists at the same primary 
+index as any of the values, the insert operation fails and returns HTTP status code Conflict, 409.</p>
+<p><strong>Request</strong></p>
+<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  [  
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:0.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:10.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:20.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:30.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:40.0
+    }
+  ]
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task InsertValuesAsyncs&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="patch-values"><code>Patch values</code></h2>
+<p>Updates fields for a collection of events in the specified stream. If there is not an event with 
+a matching index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
+         ?select={select}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string select</code>
+  Comma separated list of fields to update</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p>To patch the State of the sample stream shown previously, a URI resembles the following:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
+      Data/PatchValues?select=state
+</code></pre><p>A sample of serialized Simple type content is shown here:</p>
+<pre><code>  [  
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+       &quot;State&quot;:1
+    }
+  ]
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task PatchValuesAsync&lt;T&gt;(string streamId, string select, IList&lt;T&gt; items);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="replace-values"><code>Replace values</code></h2>
+<p>Replaces a collection of events with events that match primary indexes. If there is not an event with a 
+matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>   PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task ReplaceValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="update-values"><code>Update values</code></h2>
+<p>Replaces a collection of events with events that contain matching primary indexes. If there is not a collectin of events with a 
+matching index, the events are inserted.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p>The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task UpdateValuesAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-values"><code>Remove values</code></h2>
+<p>Removes events at matching primary indexes. If there is not an event with a matching index, 
+the remove operation fails and returns HTTP status code Not Found, 404.</p>
+<p><strong>Request</strong></p>
+<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+           RemoveValues?index={index}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The collection of indexes identifying the events</p>
+<p>Each index is treated like a separate parameter. For example, to delete three events, the URI 
+should resebble the following:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+       RemoveValues?index=2017-01-20T01:00:00Z|2017-01-20T00:00:00Z
+       &amp;index=2017-01-20T01:00:00Z|2017-01-20T01:00:00Z
+       &amp;index=2017-01-20T01:00:00Z|2017-01-20T14:00:00Z
+</code></pre><p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task RemoveValuesAsync(string streamId, IEnumerable&lt;string&gt;&gt; index);
+   Task RemoveValuesAsync&lt;T1&gt;(string streamId, IEnumerable&lt;T1&gt; index);
+   Task RemoveValuesAsync&lt;T1, T2&gt;(string streamId, IEnumerable&lt;Tuple&lt;T1, T1&gt;&gt; index);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-window-values"><code>Remove window values</code></h2>
+<p>Removes events that fall within a window defined by start and end primary indexes. Events that fall 
+at the start or end index are also deleted. </p>
+<p><strong>Request</strong></p>
+<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+           RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  Index defining the beginning of the window
+<code>string endIndex</code>
+  The Index defining the end of the window</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>   Task RemoveWindowValuesAsync (string streamId, string startIndex, string endIndex);
+   Task RemoveWindowValuesAsync &lt;T1&gt;(string streamId, T1 startIndex, T1 endIndex);
+   Task RemoveWindowValuesAsync &lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T1&gt; startIndex, Tuple&lt;T1, T1&gt;endIndex);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator accounts.</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/Writing_Data.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
