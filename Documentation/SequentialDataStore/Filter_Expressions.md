@@ -140,7 +140,7 @@ filter expression:
 | ``length``    | Examines the string length                                      |
 | ``indexof``   | Examines the character starting at a given index                |
 | ``substring`` | Examine characters within another string at a specific location |
-|``substringof``| Search for characters anywhere in another string                |
+|``contains``| Search for characters anywhere in another string                |
 |``tolower``    | Convert characters to lowercase                                 |
 | ``toupper``   | Convert characters to uppercase                                 |
 | ``trim``      | Remove whitespace from front and end of a string                |
@@ -159,7 +159,7 @@ The following examples assume that the Qi Type event includes a field named
 |``length(sValue) eq 11``                     |True if ``sValue`` is 11 characters                              |
 |``indexof(sValue, 'ab') eq 4``               |True if the 5th and 6th characters are ‘ab’                      |
 |``substring(sValue, 10) eq 'a b'``           |True if ‘a b’ is found in ``sValue`` at index 10                 |
-|``substringof('ab',sValue)``                 |True if characters ‘ab’ are found anywhere in ``sValue``         |
+|``contains(sValue, 'ab')``                 |True if characters ‘ab’ are found anywhere in ``sValue``         |
 |``tolower(sValue) eq 'val5'``                |Change ``sValue`` to lowercase and compare to ‘val5’             |
 |``toupper(sValue) eq 'ABC'``                 |Change ``sValue`` to uppercase and compare to ‘ABC’              |
 |``trim(sValue) eq 'vall22'``                 |Trim whitespace from front and end of ``sValue`` and compare to ‘val22’|

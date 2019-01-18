@@ -32,7 +32,7 @@ filter expression:
 |---------------|-----------------------------------------------------------------|
 | ``endswith``  | Compare the character at the end of the input string            |
 | ``startwith`` | Compare the character at the start of the input string          |
-|``substringof``| Search for characters anywhere in another string                |
+|``contains``| Search for characters anywhere in another string                |
 
 **String function examples**
 
@@ -40,7 +40,7 @@ filter expression:
 |---------------------------------------------|-----------------------------------------------------------------|
 |``endswith(Name, 'xyz')``                    |True if ``Name`` ends with the string ‘xyz’                |
 |``startswith(Id, 'abc')``                    |True if ``Id`` starts with the string ‘abc’              |
-|``substringof('bc', Name)``                  |True if string ‘bc’ is found anywhere in ``Name``         |
+|``contains(Name, 'bc')``                  |True if string ‘bc’ is found anywhere in ``Name``         |
 
 
 ## <a name="Sds_Filter_expressions_metadata_logical_operators_topic">Logical operators</a>
