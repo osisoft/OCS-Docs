@@ -7,7 +7,7 @@ Reading data
 
 The .NET and REST APIs provide programmatic access to read and write data. This section identifies and describes 
 the APIs used to read [Stream](xref:sdsStreams) data. Results are influenced by [Types](xref:sdsTypes),  
-[Sds Views](xref:sdsViews), [Filter expressions](xref:sdsFilterExpressions), and [Table format](xref:sdsTableFormat).
+[Stream Views](xref:sdsViews), [Filter expressions](xref:sdsFilterExpressions), and [Table format](xref:sdsTableFormat).
 
 If you are working in a .NET environment, convenient SDS Client libraries are available. 
 The ``ISdsDataServiceinterface``, which is accessed using the ``SdsService.GetDataService()`` helper, 
@@ -91,16 +91,16 @@ Read characteristics applied to indexes between, before, or after data when the 
 [`GetRangeValuesAsync`](xref:sdsReadingDataApi#get-range-values)  
 Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.
 
-SdsView and reading data
+SdsStreamView and reading data
 ------------------------
 
-All reads support specifying a SdsView identifier in the query string to shape the results of the read:
+All reads support specifying a SdsStreamView identifier in the query string to shape the results of the read:
 
-``viewId={viewId}``
+``streamViewId={streamViewId}``
 
-Working with views is covered in detail in the [Sds Views](xref:sdsViews) section.
+Working with stream views is covered in detail in the [Stream Views](xref:sdsViews) section.
 
-When data is requested with a SdsView the read characteristics defined by the *target type* of the SdsView 
+When data is requested with a SdsView the read characteristics defined by the *target type* of the SdsStreamView 
 determine what is returned. The read characteristics are discussed in the *Get Value*, 
 *GetValues* and *GetWindowValues* code samples.
 
