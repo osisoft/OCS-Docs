@@ -5,8 +5,8 @@ uid: sdsViews
 Stream Views
 =========
 
-An SdsView provides a way to map Stream data requests from one data type to another. You can apply 
-a Stream View to any read or GET operation. SdsView is used to specify the mapping between source and target types.
+An SdsStreamView provides a way to map Stream data requests from one data type to another. You can apply 
+a Stream View to any read or GET operation. SdsStreamView is used to specify the mapping between source and target types.
 
 Sds attempts to determine how to map Properties from the source to the destination. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
@@ -15,10 +15,10 @@ or when the properties have the same name, SDS will map the properties automatic
 When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
 a target property that it cannot map to, the property is added and configured with a default value.
 
-To map a property that is beyond the ability of Sds to map on its own, you should define an SdsViewProperty 
-and add it to the SdsView’s Properties collection.
+To map a property that is beyond the ability of Sds to map on its own, you should define an SdsStreamViewProperty 
+and add it to the SdsStreamView’s Properties collection.
 
-The following table shows the required and optional SdsView fields. Fields that are not included are reserved for internal Sds use.
+The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal Sds use.
 
 | Property     | Type                   | Optionality | Details |
 |--------------|------------------------|-------------|---------|
@@ -27,7 +27,7 @@ The following table shows the required and optional SdsView fields. Fields that 
 | Description  | String                 | Optional    | Description text |
 | SourceTypeId | String                 | Required    | Identifier of the SdsType of the SdsStream |
 | TargetTypeId | String                 | Required    | Identifier of the SdsType to convert events to |
-| Properties   | IList<SdsViewProperty> | Optional    | Property level mapping |
+| Properties   | IList<SdsStreamViewProperty> | Optional    | Property level mapping |
 
 
 **Rules for type identifier**
@@ -42,57 +42,57 @@ The following table shows the required and optional SdsView fields. Fields that 
 8. Cannot consist of only periods.
 
 
-Properties / SdsViewProperty
+Properties / SdsStreamViewProperty
 ---------------------------
 
-The SdsView Properties collection provides detailed instructions for specifying the mapping of 
-event properties. Each SdsViewProperty in the Properties collection defines the mapping of an 
-event’s property. SdsView Properties are required only when property mapping is not straightforward. 
-Additionally, if you do not want a type property mapped, it is not necessary to create a SdsView 
+The SdsStreamView Properties collection provides detailed instructions for specifying the mapping of 
+event properties. Each SdsStreamViewProperty in the Properties collection defines the mapping of an 
+event’s property. SdsStreamView Properties are required only when property mapping is not straightforward. 
+Additionally, if you do not want a type property mapped, it is not necessary to create a SdsStreamView 
 property for it.
 
-The following table shows the required and optional SdsViewProperty fields.
+The following table shows the required and optional SdsStreamViewProperty fields.
 
 | Property | Type    | Optionality | Details |
 |----------|---------|-------------|---------|
 | SourceId | String  | Required    | Identifier of the SdsTypeProperty from the source SdsType Properties list |
 | TargetId | String  | Required    | Identifier of the SdsTypeProperty from the target SdsType Properties list |
-| SdsView  | SdsView | Optional    | Additional mapping instructions for derived types |
+| SdsStreamView  | SdsStreamView | Optional    | Additional mapping instructions for derived types |
 
-The SdsView field supports nested Properties.
+The SdsStreamView field supports nested Properties.
 
-SdsViewMap
+SdsStreamViewMap
 ----------
 
-When a SdsView is added, Sds defines a plan mapping. Plan details are retrieved as a SdsViewMap. 
-The SdsViewMap provides a detailed Property-by-Property definition of the mapping. 
+When a SdsStreamView is added, Sds defines a plan mapping. Plan details are retrieved as a SdsStreamViewMap. 
+The SdsStreamViewMap provides a detailed Property-by-Property definition of the mapping. 
 
-The following table shows the SdsViewMap fields. The SdsViewMap cannot be written to Sds, 
+The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to Sds, 
 so required and optional have no meaning.
 
 | Property     | Type                     | Optionality  | Details |
 |--------------|--------------------------|--------------|---------|
 | SourceTypeId | String                   | Required     | Identifier of the SdsType of the SdsStream |
 | TargetTypeId | String                   | Required     | Identifier of the SdsType to convert events to |
-| Properties   | IList<SdsViewMapProperty>| Optional     | Property level mapping |
+| Properties   | IList<SdsStreamViewMapProperty>| Optional     | Property level mapping |
 
-Properties / SdsViewMapProperty
+Properties / SdsStreamViewMapProperty
 ------------------------------
 
-The SdsViewMapProperty is similar a SdsViewProperty but adds a Mode detailing one or more actions taken on 
+The SdsStreamViewMapProperty is similar a SdsStreamViewProperty but adds a Mode detailing one or more actions taken on 
 the Property.
 
-The following table shows the SdsViewMapProperty fields. The SdsViewMap cannot be written; it can only be 
+The following table shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
 retrieved from Sds, so required and optional have no meaning.
 
 | Property     | Type        | Details |
 |--------------|-------------|---------|
 | SourceTypeId | String      | Identifier of the SdsType of the SdsStream |
 | TargetTypeId | String      | Identifier of the SdsType to convert events to |
-| Mode         | SdsViewMode | Aggregate of actions applied to the properties. SdsViewModes are combined via binary arithmetic |
-| SdsViewMap   | SdsViewMap  | Mapping for derived types |
+| Mode         | SdsStreamViewMode | Aggregate of actions applied to the properties. SdsStreamViewModes are combined via binary arithmetic |
+| SdsStreamViewMap   | SdsStreamViewMap  | Mapping for derived types |
 
-The available SdsViewModes are shown in the table below.
+The available SdsStreamViewModes are shown in the table below.
 
 | Name                   | Value  | Description |
 |------------------------|--------|-------------|
@@ -110,12 +110,12 @@ Changing Stream Type
 Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
 But you can map a stream from its current type to a new type.
 
-To update a Stream Type, define an SdsView and PUT the stream view to the following:
+To update a Stream Type, define an SdsStreamView and PUT the stream view to the following:
 
-       api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+       api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
 
 
-For details, see [SdsView API](#sds-views). 
+For details, see [SdsStreamView API](#sds-views). 
 
 Working with Stream Views when using .NET
 ------------------------------------
@@ -200,16 +200,16 @@ automatically determine mapping.
     simple1Type.Name = "Simple1";
     simple1Type = await config.GetOrCreateTypeAsync(simple1Type);
 
-    SdsView view = new SdsView()
+    SdsStreamView view = new SdsStreamView()
     {
-        Id = "View",
-        Name = "View",
+        Id = "StreamView",
+        Name = "StreamView",
         SourceTypeId = simpleType.Id,
         TargetTypeId = simple1Type.Id,
     };
-    view = await config.GetOrCreateViewAsync(view);
+    view = await config.GetOrCreateStreamViewAsync(view);
 
-    SdsViewMap map = await config.GetViewMapAsync(view.Id);
+    SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
     Console.WriteLine($"{map.SourceTypeId} to {map.TargetTypeId}");
     for (int i = 0; i < map.Properties.Count; i++)
         Console.WriteLine($"\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}");
@@ -237,7 +237,7 @@ automatically determine mapping.
     //  4 / 1 / 2017 7:08:00 AM: Warning, 8
     //  4 / 1 / 2017 7:09:00 AM: Warning, 9
 
-A quick look at the SdsViewMap shows that Sds was able to determine that mapping from Measurement 
+A quick look at the SdsStreamViewMap shows that Sds was able to determine that mapping from Measurement 
 to Value involved a rename.
 
 Sds can also determine mapping of properties of the same name but different type. Note that the 
@@ -256,16 +256,16 @@ location of the Measurement property is also different yet it is still mapped.
     simple2Type.Name = "Simple2";
     simple2Type = await config.GetOrCreateTypeAsync(simple2Type);
 
-    view = new SdsView() 
+    view = new SdsStreamView() 
     {
-        Id = "View1",
-        Name = "View1",
+        Id = "StreamView1",
+        Name = "StreamView1",
         SourceTypeId = simpleType.Id,
         TargetTypeId = simple2Type.Id,
     };
-    view = await config.GetOrCreateViewAsync(view);
+    view = await config.GetOrCreateStreamViewAsync(view);
 
-    map = await config.GetViewMapAsync(view.Id);
+    map = await config.GetStreamViewMapAsync(view.Id);
     Console.WriteLine($"{map.SourceTypeId} to {map.TargetTypeId}");
     for (int i = 0; i < map.Properties.Count; i++)
         Console.WriteLine($"\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}");
@@ -293,7 +293,7 @@ location of the Measurement property is also different yet it is still mapped.
     //    4 / 1 / 2017 7:08:00 AM: Warning, 8
     //    4 / 1 / 2017 7:09:00 AM: Warning, 9
 
-The SdsViewMap shows that the source, floating point Measurement is converted to the target, integer Measurement.
+The SdsStreamViewMap shows that the source, floating point Measurement is converted to the target, integer Measurement.
 
 When neither the field name nor field type and location match, Sds does not determine mapping. 
 The source is eliminated and target is added and assigned the default value.
@@ -311,16 +311,16 @@ The source is eliminated and target is added and assigned the default value.
     simple3Type.Name = "Simple3";
     simple3Type = await config.GetOrCreateTypeAsync(simple3Type);
 
-    view = new SdsView()
+    view = new SdsStreamView()
     {
-        Id = "View2",
-        Name = "View2",
+        Id = "StreamView2",
+        Name = "StreamView2",
         SourceTypeId = simpleType.Id,
         TargetTypeId = simple3Type.Id,
     };
-    view = await config.GetOrCreateViewAsync(view);
+    view = await config.GetOrCreateStreamViewAsync(view);
 
-    map = await config.GetViewMapAsync(view.Id);
+    map = await config.GetStreamViewMapAsync(view.Id);
     Console.WriteLine($"{map.SourceTypeId} to {map.TargetTypeId}");
     for (int i = 0; i < map.Properties.Count; i++)
         Console.WriteLine($"\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}");
@@ -350,36 +350,36 @@ The source is eliminated and target is added and assigned the default value.
     // 4 / 1 / 2017 7:09:00 AM: Warning, 0
 
 
-To map when Sds cannot determine mapping, use SdsView Properties.
+To map when Sds cannot determine mapping, use SdsStreamView Properties.
 
-    view = new SdsView()
+    view = new SdsStreamView()
     {
-        Id = "View3",
-        Name = "View3",
+        Id = "SteamView3",
+        Name = "StreamView3",
         SourceTypeId = simpleType.Id,
         TargetTypeId = simple3Type.Id,
-        Properties = new List<SdsViewProperty>()
+        Properties = new List<SdsStreamViewProperty>()
         {
-            new SdsViewProperty()
+            new SdsStreamViewProperty()
             {
                 SourceId = "Time",
                 TargetId = "Time"
             },
-            new SdsViewProperty()
+            new SdsStreamViewProperty()
             {
                 SourceId = "Status",
                 TargetId = "Status"
             },
-            new SdsViewProperty()
+            new SdsStreamViewProperty()
             {
                 SourceId = "Measurement",
                 TargetId = "Value"
             }
         }
     };
-    view = await config.GetOrCreateViewAsync(view);
+    view = await config.GetOrCreateStreamViewAsync(view);
 
-    map = await config.GetViewMapAsync(view.Id);
+    map = await config.GetStreamViewMapAsync(view.Id);
     Console.WriteLine($"{map.SourceTypeId} to {map.TargetTypeId}");
     for (int i = 0; i < map.Properties.Count; i++)
         Console.WriteLine($"\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}");
@@ -408,23 +408,23 @@ To map when Sds cannot determine mapping, use SdsView Properties.
     //    4 / 1 / 2017 7:09:00 AM: Warning, 9
 
 
-Working with SdsViews when not using .NET
+Working with SdsStreamViews when not using .NET
 ----------------------------------------
 
 When working with Stream Views and not using .NET, either invoke HTTP directly or use some of 
-the sample code. Both Python and JavaScript samples have SdsView definitions.
+the sample code. Both Python and JavaScript samples have SdsStreamView definitions.
 
 The JSON for a simple mapping between a source type with identifier Sample and a target 
 type with identifier Sample1 would appear as follows.
 
     {  
-      "Id":"View",
-      "Name":"View",
+      "Id":"StreamView",
+      "Name":"StreamView",
       "SourceTypeId":"Simple",
       "TargetTypeId":"Simple1"
     }
 
-The SdsViewMap would appear as follows.
+The SdsStreamViewMap would appear as follows.
 
 
     {  
@@ -448,26 +448,26 @@ The SdsViewMap would appear as follows.
     }
 
 
-SdsView API
+SdsStreamView API
 -----------
 
 
 The REST APIs provide programmatic access to read and write Sds data. The APIs in this section interact 
-with SdsViews. When working in .NET convenient Sds Client libraries are available. The ISdsMetadataService 
+with SdsStreamViews. When working in .NET convenient Sds Client libraries are available. The ISdsMetadataService 
 interface, accessed using the ``SdsService.GetMetadataService()`` helper, defines the available functions. 
-See [Sds View information](https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Views.html) for general SdsView information.
+See [SdsStreamView information](https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Views.html) for general SdsStreamView information.
 
 ***********************
 
 ``Get Stream View``
 --------------
 
-Returns the stream view corresponding to the specified viewId within a given namespace.
+Returns the stream view corresponding to the specified streamViewId within a given namespace.
 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 
 **Parameters**
@@ -476,7 +476,7 @@ Returns the stream view corresponding to the specified viewId within a given nam
   The tenant identifier
 ``string namespaceId``
   The namespace identifier
-``string viewId``
+``string streamViewId``
   The stream view identifier
 
 
@@ -487,7 +487,7 @@ Returns the stream view corresponding to the specified viewId within a given nam
 
 **Response body**
 
-  The requested SdsView.
+  The requested SdsStreamView.
 
   Sample response body:
 
@@ -495,8 +495,8 @@ Returns the stream view corresponding to the specified viewId within a given nam
       Content-Type: application/json
 
       {  
-         "Id":"View",
-         "Name":"View",
+         "Id":"StreamView",
+         "Name":"StreamView",
          "SourceTypeId":"Simple",
          "TargetTypeId":"Simple3",
          "Properties":[  
@@ -519,7 +519,7 @@ Returns the stream view corresponding to the specified viewId within a given nam
 
 **.NET Library**
 
-      Task<SdsView> GetViewAsync(string viewId);
+      Task<SdsStreamView> GetStreamViewAsync(string streamViewId);
 
 
 **Security**
@@ -532,12 +532,12 @@ Returns the stream view corresponding to the specified viewId within a given nam
 ``Get Stream View Map``
 --------------
 
-Returns the stream view map corresponding to the specified viewId within a given namespace.
+Returns the stream view map corresponding to the specified streamViewId within a given namespace.
 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
+        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
 
 
 **Parameters**
@@ -546,7 +546,7 @@ Returns the stream view map corresponding to the specified viewId within a given
   The tenant identifier
 ``string namespaceId``
   The namespace identifier
-``string viewId``
+``string streamViewId``
   The stream view identifier
 
 
@@ -557,7 +557,7 @@ Returns the stream view map corresponding to the specified viewId within a given
 
 **Response body**
 
-  The requested SdsView.
+  The requested SdsStreamView.
 
   Sample response body:
 
@@ -592,7 +592,7 @@ Returns the stream view map corresponding to the specified viewId within a given
 
 **.NET Library**
 
-      Task<SdsViewMap> GetViewMapAsync(string viewId);
+      Task<SdsStreamViewMap> GetStreamViewMapAsync(string streamViewId);
 
 
 **Security**
@@ -620,10 +620,10 @@ Returns a list of stream views within a given namespace.
 ``string namespaceId``
   The namespace identifier
 ``int skip``
-  An optional value representing the zero-based offset of the first SdsView to retrieve. 
+  An optional value representing the zero-based offset of the first SdsStreamView to retrieve. 
   If not specified, a default value of 0 is used.
 ``int count``  
-  An optional value representing the maximum number of SdsViews to retrieve. If not specified, 
+  An optional value representing the maximum number of SdsStreamViews to retrieve. If not specified, 
   a default value of 100 is used.
 
 **Response**
@@ -633,12 +633,12 @@ Returns a list of stream views within a given namespace.
 
 **Response body**
 
-  A collection of zero or more SdsViews.
+  A collection of zero or more SdsStreamViews.
 
 
 **.NET Library**
 
-      Task<IEnumerable<SdsView>> GetViewsAsync(int skip = 0, int count = 100);
+      Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
 
 
 **Security**
@@ -658,7 +658,7 @@ If no matching identifier is found, the specified stream view is created.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 
 **Parameters**
@@ -667,10 +667,10 @@ If no matching identifier is found, the specified stream view is created.
   The tenant identifier
 ``string namespaceId``
   The namespace identifier
-``string viewId``
-  The stream view identifier. The identifier must match the ``SdsView.Id`` field. 
+``string streamViewId``
+  The stream view identifier. The identifier must match the ``SdsStreamView.Id`` field. 
 
-The request content is the serialized SdsView. If you are not using the Sds client libraries, using JSON is recommended.
+The request content is the serialized SdsStreamView. If you are not using the Sds client libraries, using JSON is recommended.
 
 **Response**
 
@@ -679,12 +679,12 @@ The request content is the serialized SdsView. If you are not using the Sds clie
 
 **Response body**
 
- The newly created or matching SdsView.
+ The newly created or matching SdsStreamView.
 
 
 **.NET Library**
 
-      Task<SdsView> GetOrCreateViewAsync(SdsView SdsView);
+      Task<SdsStreamView> GetOrCreateStreamViewAsync(SdsStreamView SdsStreamView);
 
 
 **Security**
@@ -701,7 +701,7 @@ Creates or updates the definition of a stream view.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 
 **Parameters**
@@ -710,7 +710,7 @@ Creates or updates the definition of a stream view.
   The tenant identifier
 ``string namespaceId``
   The namespace identifier
-``string viewId``
+``string streamViewId``
   The stream view identifier
 
 
@@ -726,7 +726,7 @@ Creates or updates the definition of a stream view.
 
 **.NET Library**
 
-      Task CreateOrUpdateViewAsync(SdsView SdsView);
+      Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
 
 
 **Security**
@@ -745,7 +745,7 @@ Deletes a stream view from the specified tenant and namespace.
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 
 **Parameters**
@@ -754,7 +754,7 @@ Deletes a stream view from the specified tenant and namespace.
   The tenant identifier
 ``string namespaceId``
   The namespace identifier
-``string viewId``
+``string streamViewId``
   The stream view identifier
 
 
@@ -765,7 +765,7 @@ Deletes a stream view from the specified tenant and namespace.
 
 **.NET Library**
 
-      Task DeleteViewAsync(string viewId);
+      Task DeleteStreamViewAsync(string streamViewId);
 
 **Security**
 
