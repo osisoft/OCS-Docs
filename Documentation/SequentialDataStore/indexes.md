@@ -345,9 +345,9 @@ Simple Indexes
 When the .NET SdsTypeBuilder is unavailable, indexes must be built manually.
 
 
-The following discusses the types defined in the `Python <https://github.com/osisoft/Qi-Samples/tree/master/Basic/Python>`__
-and `Java Script <https://github.com/osisoft/Qi-Samples/tree/master/Basic/JavaScript>`__
-samples. Samples in other languages can be found `here <https://github.com/osisoft/Qi-Samples/tree/master/Basic>`__.
+The following discusses the types defined in the [Python](<https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/Python/SDSPy>)
+and [Java Script](<https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript>)
+samples. Samples in other languages can be found [here](<https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS>).
 
 To build a SdsType representation of the following sample class, see code_example_1_:
 
