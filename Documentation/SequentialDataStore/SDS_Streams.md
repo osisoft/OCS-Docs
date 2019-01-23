@@ -122,12 +122,14 @@ Returns the specified stream.
 
 **Parameters**
 
-``string tenantId``
+``string tenantId``  
   The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier
+
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier
 
 
 **Response**
@@ -205,13 +207,8 @@ for information about specifying those respective parameters.
   An optional parameter representing the maximum number of SdsStreams to retrieve. 
   If not specified, a default value of 100 is used.
 
-``string orderby``
-  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given
-  field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
-  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
-  using values ``asc`` or ``desc``, respectively.
-  For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
-  If no value is specified, there is no sorting of results.
+``string orderby``  
+  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
 **Response**
 
@@ -274,12 +271,14 @@ Returns the type definition that is associated with a given stream.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 
 **Response**
@@ -328,11 +327,13 @@ redirect with the authorization header, you should disable automatic redirect.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
   The stream identifier. The stream identifier must match the identifier in content. 
   The request content is the serialized SdsStream.
 
@@ -376,19 +377,20 @@ The following changes are permitted:
 Unpermitted changes result in an error.
 
 
-
 **Request**
 
         PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier of the tenant where you want to update the stream
-``string namespaceId``
-  The namespace identifier of the namespace where you want to update the stream
-``string streamId``
-  The stream identifier to be updated
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized SdsStream.
 
@@ -424,14 +426,17 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string viewId``
-  The view identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string viewId``  
+  The stream view identifier  
 
 The request contains no content.
 
@@ -471,12 +476,14 @@ Deletes a stream.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 
 **Response**
