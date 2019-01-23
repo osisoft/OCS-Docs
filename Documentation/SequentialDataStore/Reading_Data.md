@@ -33,7 +33,7 @@ In addition, the following methods support reading multiple values:
 
 All reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI is as follows:
 
-``api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data``
+``api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data``
 
 
 **where:**
