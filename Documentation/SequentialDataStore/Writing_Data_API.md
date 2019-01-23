@@ -22,9 +22,9 @@ Inserts data into the specified stream. Throws an exception if data is already p
 
         Task InsertValueAsync<T>(string streamId, T item);
 
-*Http*
+**Http**
 
-        POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValue
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 
 Content is serialized event of type T
 
@@ -58,7 +58,7 @@ Security
 
 
   How the data is serialized depends upon the type of event you are inserting. For example, the following code 
-  shows a single WaveData event serialized as JSON. See the SDS code samples for the complete WaveData example.
+  shows a single WaveData event serialized as JSON. See the OCS code samples for the complete WaveData example.
 
   ::
 
@@ -90,7 +90,7 @@ Inserts items into the specified stream. Throws an exception if data is already 
 
 **Http**
 
-        POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValues
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 
 
 Content is serialized list of events of type T	
@@ -120,6 +120,7 @@ An IEnumerable of all behavior objects
   For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
   comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
   of three WaveData events that are properly formatted for insertion. See the SDS code samples for 
+
   the complete WaveData example.
 
     	[
@@ -178,7 +179,7 @@ Modifies the specified stream event. PatchValue affects only the data item param
 
 **Http**
 
-        PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
+        PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
 
 
 Content is serialized patch property
@@ -230,7 +231,7 @@ Patches values of the selected fields for multiple events in the stream.
 
 **Http**
 
-        PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
+        PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
 
 Content is serialized list of patch property values
 
@@ -285,7 +286,7 @@ Removes the event at the index from the specified stream. Different overloads ar
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
 
 
 **Parameters**
@@ -328,7 +329,7 @@ Removes the event at each index from the specified stream. Different overloads a
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
 
 
 **Parameters**
@@ -375,7 +376,7 @@ Removes a range of values at and between the given indices.
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
 
 
 **Parameters**
@@ -419,7 +420,7 @@ Writes an item over an existing event in the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 
 Content is serialized replacement object
 
@@ -459,7 +460,7 @@ Writes **items** over existing events in the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 
 Content is serialized list of replacement values
 
@@ -502,7 +503,7 @@ Writes **item** to the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 
 Content is serialized updated value
 
@@ -543,7 +544,7 @@ Writes items to the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 
 
 Content is serialized list of updated values	

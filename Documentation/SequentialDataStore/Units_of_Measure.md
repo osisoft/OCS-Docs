@@ -297,7 +297,7 @@ Returns the quantity corresponding to the specified quantityId within a given na
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
 
 **Parameters**
 
@@ -356,7 +356,7 @@ Returns a list of all quantities available within a given namespace.
 
 **Request**
 
-        api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities?skip={skip}&count={count}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities?skip={skip}&count={count}
 
 ``string tenantId``  
 The tenant identifier  
@@ -439,7 +439,7 @@ Returns the unit of measure associated with the specified uomId belonging to the
 
 **Request**
 
-        api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
 
 ``string tenantId``  
 The tenant identifier  
@@ -485,7 +485,7 @@ Returns the list of units of measure that belongs to the quantity with the speci
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units
 
 ``string tenantId``  
 The tenant identifier  
@@ -546,7 +546,7 @@ Returns the unit of measure corresponding to the specified uomId within a given 
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
 
 ``string tenantId``  
 The tenant identifier  
@@ -588,7 +588,7 @@ Returns a list of all available units of measure in the system.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Units?skip={skip}&count={count}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Units?skip={skip}&count={count}
 
 ``string tenantId``  
 The tenant identifier  

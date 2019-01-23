@@ -112,7 +112,7 @@ But you can map a stream from its current type to a new type.
 
 To update a Stream Type, define an SdsView and PUT the stream view to the following:
 
-       api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+       api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
 
 
 For details, see [SdsView API](#sds-views). 
@@ -467,7 +467,7 @@ Returns the stream view corresponding to the specified viewId within a given nam
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -537,7 +537,7 @@ Returns the stream view map corresponding to the specified viewId within a given
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
 
 
 **Parameters**
@@ -610,7 +610,7 @@ Returns a list of stream views within a given namespace.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
 
 
 **Parameters**
@@ -658,7 +658,7 @@ If no matching identifier is found, the specified stream view is created.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -701,7 +701,7 @@ Creates or updates the definition of a stream view.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**
@@ -745,7 +745,7 @@ Deletes a stream view from the specified tenant and namespace.
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 
 
 **Parameters**

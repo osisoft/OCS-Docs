@@ -117,7 +117,7 @@ Returns the specified stream.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**
@@ -177,7 +177,7 @@ for information about specifying those respective parameters.
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
@@ -270,7 +270,7 @@ Returns the type definition that is associated with a given stream.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
 
 **Parameters**
 
@@ -323,7 +323,7 @@ redirect with the authorization header, you should disable automatic redirect.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**
@@ -379,7 +379,7 @@ Unpermitted changes result in an error.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
@@ -419,7 +419,7 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
 
 
 **Parameters**
@@ -466,7 +466,7 @@ Deletes a stream.
 
 **Request**
 
-        DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**

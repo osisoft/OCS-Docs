@@ -168,7 +168,7 @@ Get Value supports two ways to retrieve an event:
 
 ### Request (Standard) 
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
          ?index={index}&viewId={viewId}
 
 **Request Parameters**
@@ -195,7 +195,7 @@ Optional view identifier
   Consider a stream of type Simple with the default InterpolationMode of Continuous and 
   ExtrapolationMode of All. In the following request, the specified index matches an existing stored event:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
          ?index=2017-11-23T13:00:00Z
 
 The response will contain the event stored at the specified index:
@@ -214,7 +214,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 The following request specifies an index for which no stored event exists:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
           ?index=2017-11-23T13:30:00Z
 
 Because the index is a valid type for interpolation and the stream type specifies a mode of interpolate, 
@@ -243,7 +243,7 @@ this request receives a response with an event interpolated at the specified ind
 
 ### Request (Uom Conversion)
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
             ?index={index}&viewId={viewId}
 
 **Request Parameters**
@@ -306,7 +306,7 @@ Get First Value supports two ways to retrieve an event:
 <a name="getfirstvaluestandard"></a>
 ### Request (Standard)
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
             ?viewId={viewId}
 
 **Request Parameters**
@@ -334,7 +334,7 @@ Optional view identifier
 <a name="getfirstvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
          ?viewId={viewId}
 
 **Request Parameters**
@@ -381,7 +381,7 @@ Get Last Value supports two ways to retrieve an event:
 
 <a name="getlastvaluestandard"></a>
 ### Request (Standard)
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
             ?viewId={viewId}
 
 
@@ -411,7 +411,7 @@ Optional view identifier
 
 <a name="getlastvalueuomconversion"></a>
 ### Request (Uom Conversion)
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
             ?viewId={viewId}
 
 **Request Parameters**
@@ -461,7 +461,7 @@ do not affect Get Distinct Value.
 <a name="getdistinctvaluestandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
          ?index={index}&viewId={viewId}
 
 
@@ -489,7 +489,7 @@ do not affect Get Distinct Value.
 
   For a stream of type Simple, when making a Get Distinct Value request at an existing stored index: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetDistinctValue?index=2017-11-23T13:00:00Z 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetDistinctValue?index=2017-11-23T13:00:00Z 
 
 The event at that index is returned in the response:
 
@@ -507,7 +507,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 For a request at an index for which no stored event exists:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         GetDistinctValue?index=2017-11-23T13:30:00Z
 
 No distinct value is found at the specified index, and an error response is returned:
@@ -535,7 +535,7 @@ No distinct value is found at the specified index, and an error response is retu
 <a name="getdistinctvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
          ?index={index}&viewId={viewId}
 
 **Request Parameters**
@@ -600,7 +600,7 @@ Get Last Value supports two ways to retrieve an event:
 <a name="finddistinctvaluestandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
          ?index={index}&mode={mode}&viewId={viewId}
 
 **Request Parameters**
@@ -630,7 +630,7 @@ Optional view identifier
 
 For a stream of type Simple the following request, 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           FindDistinctValue?index=2017-11-23T13:00:00Z&mode=Next
 
 The request has an index that matches the index of an existing event, but because  
@@ -653,7 +653,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 For the following request,
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         FindDistinctValue?index=2017-11-23T13:30:00Z&mode=Next
 
 The request specifies an index that does not match an index of an existing event. 
@@ -682,7 +682,7 @@ The next event in the stream is retrieved.
 <a name="finddistinctvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
          ?index={index}&mode={mode}&viewId={viewId}
 
 **Request Parameters**
@@ -768,7 +768,7 @@ Get Values supports six ways of specifying which events to return.
 <a name="getvaluesrangedstandard"></a>
 ### Request (Ranged)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
       ?startIndex={startIndex}&endIndex={endIndex}&count={count}&viewId={viewId}
 
 **Request Parameters**
@@ -801,7 +801,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?startIndex=2017-11-23T13:00:00Z&endIndex=2017-11-23T15:00:00Z&count=3
 
 For this request, the start and end fall exactly on event indexes and the number of events 
@@ -844,7 +844,7 @@ Note that State is not included in the JSON as its value is the default value.
 <a name="getvaluesindexcollectionstandard"></a>
 ### Request (Index collection)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
       ?index={index}[&index={index} …]&viewId={viewId}
 
 **Request Parameters**
@@ -871,7 +871,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?index=2017-11-23T12:30:00Z&index=2017-11-23T13:00:00Z&index=2017-11-23T14:00:00Z
 
 For this request, the response contains events for each of the three specified indexes.
@@ -915,7 +915,7 @@ Note that State is not included in the JSON as its value is the default value.
 <a name="getvaluesfilteredstandard"></a>
 ### Request (Filtered)
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
            GetValues?filter={filter}&viewId={viewId}
 
 
@@ -943,7 +943,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?filter=Measurement gt 10
 
 The events in the stream whose Measurement is less than or equal to 10 are not returned.
@@ -983,7 +983,7 @@ Note that State is not included in the JSON as its value is the default value.
 <a name="getvaluesrangeduomconversion"></a>
 ### Request (Ranged with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
       ?startIndex={startIndex}&endIndex={endIndex}&count={count}&viewId={viewId}
 
 **Request Parameters**
@@ -1058,7 +1058,7 @@ The response includes a status code and response body containing a serialized co
 <a name="getvaluesindexcollectionuomconversion"></a>
 ### Request (Index collection with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
       ?index={index}[&index={index} …]&viewId={viewId}
 
 **Request Parameters**
@@ -1129,7 +1129,7 @@ The response includes a status code and response body containing a serialized co
 <a name="getvaluesfiltereduomconversion"></a>
 ### Request (Filtered with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
       ?filter={filter}&viewId={viewId}
 
 
@@ -1201,7 +1201,7 @@ Get Range Values supports two ways to retrieve events:
 <a name="getrangevaluesstandard"></a>
 ### Request (Standard)
 
-      GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues
+      GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues
          ?startIndex={startIndex}&count={count}&skip={skip}&reversed={reversed} 
          &boundaryType={boundaryType}&filter={filter}&viewId={viewId}
 
@@ -1246,7 +1246,7 @@ Optional view identifier
   For a stream of type Simple, the following request will return a response with up to 100 events starting 
   at 13:00 and extending forward toward the end of the stream: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100
 
 
@@ -1281,7 +1281,7 @@ Note that State is not included in the JSON as its value is the default value.
 To reverse the direction of the request, set reversed to true. This request will 
 return up to 100 events starting at 13:00 and extending back toward the start of the stream:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true
 
 
@@ -1310,7 +1310,7 @@ event outside the boundary will be included in the response. For a reverse direc
 this means one event forward of the specified start index. In a default direction range request, 
 it would mean one event before the specified start index.
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
           &boundaryType=2
 
@@ -1342,7 +1342,7 @@ Measurement is not included in the last event as its value is default.
 
 Adding a filter to the request means only events that meet the filter criteria are returned:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
           &boundaryType=2&filter=Measurement gt 10
 
@@ -1408,7 +1408,7 @@ Adding a filter to the request means only events that meet the filter criteria a
 <a name="getrangevaluesuomconversion"></a>
 ### Request (Unit Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
          ?startIndex={startIndex}&count={count}&skip={skip}&reversed={reversed} 
          &boundaryType={boundaryType}&filter={filter}&viewId={viewId}
 
@@ -1552,20 +1552,20 @@ For the first request, specify a null or empty string for the ContinuationToken.
 <a name="getwindowvaluesstandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
           &filter={filter}&count={count}&viewId={viewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
           &viewId={viewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
           &filter={filter}&count={count}&continuationToken={continuationToken}&viewId={viewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
           &continuationToken={continuationToken}&viewId={viewId}
@@ -1615,7 +1615,7 @@ Optional SdsBoundaryType specifies the first value in the result in relation to 
 
   For a stream of type Simple, the following requests all stored events between 13:30 and 15:30: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z
 
 The response will contain the event stored at the specified index:
@@ -1645,7 +1645,7 @@ Note that State is not included in the JSON as its value is the default value.
 When the request is modified to specify a boundary type of Outside, the value 
 before 13:30 and the value after 15:30 are included:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &boundaryType=2
 
@@ -1685,7 +1685,7 @@ If instead a start boundary of Inside, only values inside the start boundary (af
 are included in the result. With an end boundary of Outside one value outside the end index 
 (after 15:30) is included:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&&startBoundaryType=1 
           &endIndex=2017-11-23T15:30:00Z&endBoundaryType=2
 
@@ -1720,7 +1720,7 @@ In order to page the results of the request, a continuation token may be specifi
 This requests the first page of the first two stored events between start index and 
 end index by indicating count is 2 and continuationToken is an empty string:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &count=2&continuationToken=
 
@@ -1749,7 +1749,7 @@ Note that State is not included in the JSON as its value is the default value.
 This Get Window Values request uses the continuation token from the previous 
 page to request the next page of stored events:
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &count=2&continuationToken=2017-11-23T14:00:00Z
 
@@ -1866,20 +1866,20 @@ Note that State is not included in the JSON as its value is the default value.
 <a name="getwindowvaluesuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
           &filter={filter}&count={count}&viewId={viewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
           &viewId={viewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
           &filter={filter}&count={count}&continuationToken={continuationToken}&viewId={viewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
           &continuationToken={continuationToken}&viewId={viewId}
@@ -2088,7 +2088,7 @@ Summary values supported by SdsSummaryType enum:
 <a name="getintervalsstandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
          ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&viewId={viewId}
 
 **Request Parameters**
@@ -2124,7 +2124,7 @@ Optional view identifier
 For a stream of type Simple, the following requests calculates two summary intervals between the first 
 and last events: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         GetIntervals?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
 
 
@@ -2262,7 +2262,7 @@ and last events:
 <a name="getintervalsuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
          ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&viewId={viewId}
 
 **Request Parameters**
