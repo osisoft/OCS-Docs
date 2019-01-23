@@ -158,8 +158,8 @@ The following examples assume that the SDS Type event includes a field named
 |``startswith(sValue, 'Val'``                 |True if ``sValue`` starts with the characters ‘Val’              |
 |``length(sValue) eq 11``                     |True if ``sValue`` is 11 characters                              |
 |``indexof(sValue, 'ab') eq 4``               |True if the 5th and 6th characters are ‘ab’                      |
-|``substring(sValue, 10) eq 'a b'``           |True if ‘a b’ is found in ``sValue`` at index 10                 |
 |``contains(sValue, 'ab')``					  |True if characters ‘ab’ are found anywhere in ``sValue``         |
+|``substring(sValue, 10) eq 'a b'``           |True if ‘a b’ is found in ``sValue`` at index 10                 |
 |``tolower(sValue) eq 'val5'``                |Change ``sValue`` to lowercase and compare to ‘val5’             |
 |``toupper(sValue) eq 'ABC'``                 |Change ``sValue`` to uppercase and compare to ‘ABC’              |
 |``trim(sValue) eq 'vall22'``                 |Trim whitespace from front and end of ``sValue`` and compare to ‘val22’|
