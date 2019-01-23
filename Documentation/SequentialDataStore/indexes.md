@@ -58,7 +58,7 @@ properties that are combined to define the index. Set the ``IsKey`` property to 
 zero-based index value. The ``Order`` field defines the precedence of the property when sorting. A property with 
 an order of 0 has highest precedence.
 
-When defining compound indexes outside of .NET, specify the ``IsKey`` and ``Order`` fields on the ``SdsTypePropertyor``
+When defining compound indexes outside of .NET, specify the ``IsKey`` and ``Order`` fields on the ``SdsTypeProperty`` of
 Properties.
 
 Only the primary index (or key) supports compound indexes.
