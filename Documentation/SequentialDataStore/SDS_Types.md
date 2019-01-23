@@ -800,7 +800,7 @@ Returns the type corresponding to the specified typeId within a given namespace.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 
 
 **Parameters**
@@ -912,7 +912,7 @@ for information about specifying those respective parameters.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 
 **Parameters**
@@ -1045,7 +1045,7 @@ redirect with the authorization header, you should disable automatic redirect an
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 
 **Parameters**
 
@@ -1275,7 +1275,7 @@ they are defined.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 
 
 **Parameters**
@@ -1320,7 +1320,7 @@ Deletes a type from the specified tenant and namespace. Note that a type cannot 
 
 **Request**
 
-        DELETE	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+        DELETE	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 
 
 **Parameters**
