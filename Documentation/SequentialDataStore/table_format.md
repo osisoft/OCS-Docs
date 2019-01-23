@@ -23,7 +23,7 @@ Get Window Values, and Get Intervals.
 
       public class Simple
       {
-        [QiMember(IsKey = true, Order = 0) ]
+        [SdsMember(IsKey = true, Order = 0) ]
         public DateTime Time { get; set; }
         public State State { get; set; }
         public Double Measurement { get; set; }

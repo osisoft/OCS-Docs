@@ -5,8 +5,8 @@ uid: sdsWritingDataApi
 API calls for writing data
 ==========================
 
-Reading and writing data with the Qi Client Libraries is performed through 
-the ``IQiDataService`` interface, which is accessed with the ``QiService.GetDataService( )`` 
+Reading and writing data with the SDS Client Libraries is performed through 
+the ``ISdsDataService`` interface, which is accessed with the ``SdsService.GetDataService( )`` 
 helper.
 
 
@@ -58,7 +58,7 @@ Security
 
 
   How the data is serialized depends upon the type of event you are inserting. For example, the following code 
-  shows a single WaveData event serialized as JSON. See the Qi code samples for the complete WaveData example.
+  shows a single WaveData event serialized as JSON. See the SDS code samples for the complete WaveData example.
 
   ::
 
@@ -119,7 +119,7 @@ An IEnumerable of all behavior objects
 
   For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
   comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
-  of three WaveData events that are properly formatted for insertion. See the Qi code samples for 
+  of three WaveData events that are properly formatted for insertion. See the SDS code samples for 
   the complete WaveData example.
 
     	[

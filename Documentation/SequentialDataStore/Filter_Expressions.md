@@ -11,7 +11,7 @@ Filter expressions can be applied to any read that returns multiple values, incl
 ``Get Values``, ``Get Range Values``, ``Get Window Values``, and ``Get Intervals``.”
 
 
-QiTypeCodes
+SdsTypeCodes
 ------------
 
 **Supported**
@@ -47,8 +47,8 @@ expression:
 -  ``IEnumerable``
 -  ``IDictionary``
 -  ``IList``
--  ``QiType``
--  ``QiTypeProperty``
+-  ``SdsType``
+-  ``SdsTypeProperty``
 -  ``Nullable Types``
 
 
@@ -76,7 +76,7 @@ expression:
 
 **Logical Operator Examples**
 
-For the following examples, assume that the Qi Type event includes a field named ``Value`` of type **double**: 
+For the following examples, assume that the SDS Type event includes a field named ``Value`` of type **double**: 
 
 - ``Value eq 1.0``
 - ``Value ne 15.6``
@@ -109,7 +109,7 @@ expression:
 
 **Math Function Examples**
 
-For the following examples, assume that the Qi Type event includes a field named ``Value`` of type **double**: 
+For the following examples, assume that the SDS Type event includes a field named ``Value`` of type **double**: 
 
 - ``Value eq (6.0 add 3.0)``
 - ``Value eq (6.0 sub 3.0)``
@@ -140,8 +140,8 @@ filter expression:
 | ``length``    | Examines the string length                                      |
 | ``indexof``   | Examines the character starting at a given index                |
 | ``substring`` | Examine characters within another string at a specific location |
-|``contains``	| Search for characters anywhere in another string                |
-|``tolower``    | Convert characters to lowercase                                 |
+| ``contains``	| Search for characters anywhere in another string                |
+| ``tolower``   | Convert characters to lowercase                                 |
 | ``toupper``   | Convert characters to uppercase                                 |
 | ``trim``      | Remove whitespace from front and end of a string                |
 | ``concat``    | Concatenate strings together                                    |
@@ -149,7 +149,7 @@ filter expression:
 
 **String function examples**
 
-The following examples assume that the Qi Type event includes a field named
+The following examples assume that the SDS Type event includes a field named
 ``sValue`` of type **string**:
 
 |Example                                      |Result                                                           |
@@ -185,7 +185,7 @@ expression:
 
 **DateTime Function Examples**
 
-The following examples assume that the Qi Type event includes a field named
+The following examples assume that the SDS Type event includes a field named
 ``TimeId`` of type **DateTime**:
 
 -  ``year(TimeId) eq 2015``
@@ -213,7 +213,7 @@ expression:
 
 **TimeSpan Function Examples**
 
-For the following examples, assume that the Qi Type event includes a field named
+For the following examples, assume that the SDS Type event includes a field named
 ``TimeSpanValue`` of type **TimeSpan**:
 
 -  ``years(TimeSpanValue) eq 1``

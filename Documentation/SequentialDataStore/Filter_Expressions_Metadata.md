@@ -32,7 +32,7 @@ filter expression:
 |---------------|-----------------------------------------------------------------|
 | ``endswith``  | Compare the character at the end of the input string            |
 | ``startwith`` | Compare the character at the start of the input string          |
-|``contains``	| Search for characters anywhere in another string                |
+| ``contains``	| Search for characters anywhere in another string                |
 
 **String function examples**
 
