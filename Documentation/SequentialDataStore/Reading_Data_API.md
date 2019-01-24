@@ -2,7 +2,7 @@
 uid: sdsReadingDataApi
 ---
 # API calls for reading data
-Reading and writing data with the Sds Client Libraries is performed through the ``ISdsDataService`` interface, which can be accessed with the ``SdsService.GetDataService( )`` helper.
+Reading and writing data with the SDS Client Libraries is performed through the ``ISdsDataService`` interface, which can be accessed with the ``SdsService.GetDataService( )`` helper.
 ***********************
 
 ## Sample Types
@@ -265,7 +265,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -353,7 +353,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -429,7 +429,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -555,7 +555,7 @@ No distinct value is found at the specified index, and an error response is retu
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -632,7 +632,7 @@ For a stream of type Simple the following request,
           FindDistinctValue?index=2017-11-23T13:00:00Z&mode=Next
 
 The request has an index that matches the index of an existing event, but because  
-a SdsSearchMode of ``next`` was specified, the response contains the next event in the stream after the 
+an SdsSearchMode of ``next`` was specified, the response contains the next event in the stream after the 
 specified index:
 
 **Response body**
@@ -705,7 +705,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1011,7 +1011,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1081,7 +1081,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1153,7 +1153,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1449,7 +1449,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1539,7 +1539,7 @@ be passed for the start and end individually.
 * [Uom Conversion](#getwindowvaluesuomconversion): Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  [Units of Measure](xref:unitsOfMeasure) for additional information
 
 Get Window Values also supports paging for large result sets. Results for paged requests are returned 
-as a SdsResultPage.
+as an SdsResultPage.
 
 
 | Property          | Type   | Details                                          |
@@ -1798,7 +1798,7 @@ Note that State is not included in the JSON as its value is the default value.
          string startIndex, string endIndex, SdsBoundaryType boundaryType, 
          string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
-         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, string viestreamViewIdwId = null);
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
          SdsBoundaryType boundaryType, string filter, string streamViewId = null);
@@ -1923,7 +1923,7 @@ Optional SdsBoundaryType specifies the first value in the result in relation to 
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -2294,7 +2294,7 @@ Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
