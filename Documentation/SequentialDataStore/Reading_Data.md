@@ -94,13 +94,13 @@ Read characteristics applied to indexes between, before, or after data when the 
 SdsStreamView and reading data
 ------------------------
 
-All reads support specifying a SdsStreamView identifier in the query string to shape the results of the read:
+All reads support specifying an SdsStreamView identifier in the query string to shape the results of the read:
 
 ``streamViewId={streamViewId}``
 
 Working with stream views is covered in detail in the [Stream Views](xref:sdsViews) section.
 
-When data is requested with a SdsView the read characteristics defined by the *target type* of the SdsStreamView 
+When data is requested with an SdsStreamView the read characteristics defined by the *target type* of the SdsStreamView 
 determine what is returned. The read characteristics are discussed in the *Get Value*, 
 *GetValues* and *GetWindowValues* code samples.
 
@@ -162,7 +162,7 @@ SDS supports assigning [Units of Measure](xref:unitsOfMeasure) (Uom) to stream d
 
 | Property          | Type                 | Optionality | Details                                              |
 | ----------------- | -------------------- | ----------- | ---------------------------------------------------- |
-| SdsTypePropertyId | String               | Required    | Identifier for a SdsTypeProperty with a Uom assigned |
+| SdsTypePropertyId | String               | Required    | Identifier for an SdsTypeProperty with a Uom assigned |
 | Uom               | String               | Required    | Target unit of measure                               |
 | InterpolationMode | SdsInterpolationMode | N/A         | Currently not supported in context of data reads     |
 
