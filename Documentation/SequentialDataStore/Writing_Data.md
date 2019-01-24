@@ -36,7 +36,7 @@ The following support writing multiple values:
 
 The base URI for writing Sds data is:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 
 **Parameters**
 
@@ -248,7 +248,7 @@ the insert operation fails, and returns HTTP status code Conflict, 409.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 
 
 **Parameters**
@@ -303,7 +303,7 @@ not an event with a matching primary index, the patch operation fails and return
 **Request**
 
 
-        PATCH api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+        PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
               PatchValue?select={select}
 
 **Parameters**
@@ -359,7 +359,7 @@ matching index, the replace operation fails and returns HTTP status code Not Fou
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 
 
 **Parameters**
@@ -413,7 +413,7 @@ a matching index, the event is inserted.
 
 **Request**
 
-        PUT	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+        PUT	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 
 
 **Parameters**
@@ -465,7 +465,7 @@ the remove operation fails and returns HTTP status code Not Found, 404.
 
 **Request**
 
-        DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
              RemoveValue?index={index}
 
 
@@ -510,7 +510,7 @@ index as any of the values, the insert operation fails and returns HTTP status c
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 
 
 **Parameters**
@@ -585,7 +585,7 @@ a matching index, the patch operation fails and returns HTTP status code Not Fou
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
              ?select={select}
 
 
@@ -606,7 +606,7 @@ using the Sds client libraries, using JSON is recommended.
 
 To patch the State of the sample stream shown previously, a URI resembles the following:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
           Data/PatchValues?select=state
 
 
@@ -662,7 +662,7 @@ matching index, the replace operation fails and returns HTTP status code Not Fou
 
 **Request**
 
-       PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+       PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 
 
 
@@ -708,7 +708,7 @@ matching index, the events are inserted.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 
 
 **Parameters**
@@ -752,7 +752,7 @@ the remove operation fails and returns HTTP status code Not Found, 404.
 
 **Request**
 
-        DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
                RemoveValues?index={index}
 
 
@@ -770,7 +770,7 @@ the remove operation fails and returns HTTP status code Not Found, 404.
 Each index is treated like a separate parameter. For example, to delete three events, the URI 
 should resebble the following:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
            RemoveValues?index=2017-01-20T01:00:00Z|2017-01-20T00:00:00Z
            &index=2017-01-20T01:00:00Z|2017-01-20T01:00:00Z
            &index=2017-01-20T01:00:00Z|2017-01-20T14:00:00Z
@@ -808,7 +808,7 @@ at the start or end index are also deleted.
 
 **Request**
 
-        DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
                RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
 
 

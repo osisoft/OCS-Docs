@@ -78,16 +78,16 @@
             <article class="content wrap" id="_content" data-uid="sdsWritingDataApi">
 <h1 id="api-calls-for-writing-data">API calls for writing data</h1>
 
-<p>Reading and writing data with the Qi Client Libraries is performed through 
-the <code>IQiDataService</code> interface, which is accessed with the <code>QiService.GetDataService( )</code> 
+<p>Reading and writing data with the SDS Client Libraries is performed through 
+the <code>ISdsDataService</code> interface, which is accessed with the <code>SdsService.GetDataService( )</code> 
 helper.</p>
 <hr>
 <h2 id="insertvalueasync"><code>InsertValueAsync()</code></h2>
 <p>Inserts data into the specified stream. Throws an exception if data is already present at the index used in ‘item’.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task InsertValueAsync&lt;T&gt;(string streamId, T item);
-</code></pre><p><em>Http</em></p>
-<pre><code>    POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValue
+</code></pre><p><strong>Http</strong></p>
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 </code></pre><p>Content is serialized event of type T</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -107,7 +107,7 @@ helper.</p>
 <p>  .. _Introducing JSON: <a href="http://json.org/index.html">http://json.org/index.html</a></p>
 <p>  You can serialize your data using one of many available JSON serializers available at <code>Introducing JSON</code>_. </p>
 <p>  How the data is serialized depends upon the type of event you are inserting. For example, the following code 
-  shows a single WaveData event serialized as JSON. See the Qi code samples for the complete WaveData example.</p>
+  shows a single WaveData event serialized as JSON. See the OCS code samples for the complete WaveData example.</p>
 <p>  ::</p>
 <pre><code>{
     &quot;Order&quot;:2,  
@@ -126,7 +126,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task InsertValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValues
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 </code></pre><p>Content is serialized list of events of type T  </p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -144,8 +144,8 @@ helper.</p>
   included in the error response.</p>
 <p>  For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
   comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
-  of three WaveData events that are properly formatted for insertion. See the Qi code samples for 
-  the complete WaveData example.</p>
+  of three WaveData events that are properly formatted for insertion. See the SDS code samples for </p>
+<p>  the complete WaveData example.</p>
 <pre><code>    [
         {
             &quot;Order&quot;:2,
@@ -189,7 +189,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task PatchValueAsync(string streamId, string selectExpression, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
+<pre><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
 </code></pre><p>Content is serialized patch property</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -217,7 +217,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task PatchValuesAsync(string streamId, string selectExpression, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
+<pre><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
 </code></pre><p>Content is serialized list of patch property values</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -250,7 +250,7 @@ helper.</p>
     Task RemoveValueAsync&lt;T1&gt;(string streamId, T1 index);
     Task RemoveValueAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier for the request
@@ -273,7 +273,7 @@ helper.</p>
     Task RemoveValuesAsync&lt;T1&gt;(string streamId, IEnumerable&lt;T1&gt; index);
     Task RemoveValuesAsync&lt;T1, T2&gt;(string streamId, IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt; index);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier for the request
@@ -298,7 +298,7 @@ helper.</p>
     Task RemoveWindowValuesAsync&lt;T1&gt;(string streamId, T1 startIndex, T1 endIndex);
     Task RemoveWindowValuesAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier for the request
@@ -321,7 +321,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task ReplaceValueAsync&lt;T&gt;(string streamId, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 </code></pre><p>Content is serialized replacement object</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -341,7 +341,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task ReplaceValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 </code></pre><p>Content is serialized list of replacement values</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -362,7 +362,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task UpdateValueAsync&lt;T&gt;(string streamId, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 </code></pre><p>Content is serialized updated value</p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -383,7 +383,7 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task UpdateValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 </code></pre><p>Content is serialized list of updated values    </p>
 <p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>

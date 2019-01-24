@@ -23,7 +23,7 @@ Get Window Values, and Get Intervals.
 
       public class Simple
       {
-        [QiMember(IsKey = true, Order = 0) ]
+        [SdsMember(IsKey = true, Order = 0) ]
         public DateTime Time { get; set; }
         public State State { get; set; }
         public Double Measurement { get; set; }
@@ -85,7 +85,7 @@ Get Window Values, and Get Intervals.
 
 The following is a standard Get Window Values request:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
         GetWindowValues?startIndex= 2017-04-01T07:00:00Z&endIndex= 2017-04-01T07:10:00Z
 
 
@@ -150,7 +150,7 @@ The following response would be returned from the above code:
 
      ::
 
-       api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
+       api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
        ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
        &form=table
 
@@ -232,7 +232,7 @@ Response
 
 To retrieve the results in table format with column headers, add the form variable and specify ``tableh``.
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
       ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
       &form=tableh
 

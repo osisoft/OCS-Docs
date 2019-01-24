@@ -307,7 +307,7 @@ retrieved from Sds, so required and optional have no meaning.</p>
 <p>Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
 But you can map a stream from its current type to a new type.</p>
 <p>To update a Stream Type, define an SdsView and PUT the stream view to the following:</p>
-<pre><code>   api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+<pre><code>   api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
 </code></pre><p>For details, see <a href="#sds-views">SdsView API</a>. </p>
 <h2 id="working-with-stream-views-when-using-net">Working with Stream Views when using .NET</h2>
 <p><strong>Using .Net</strong></p>
@@ -621,7 +621,7 @@ See <a href="https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_
 <h2 id="get-stream-view"><code>Get Stream View</code></h2>
 <p>Returns the stream view corresponding to the specified viewId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -665,7 +665,7 @@ See <a href="https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_
 <h2 id="get-stream-view-map"><code>Get Stream View Map</code></h2>
 <p>Returns the stream view map corresponding to the specified viewId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}/Map
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -712,7 +712,7 @@ See <a href="https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_
 <h2 id="get-stream-views"><code>Get Stream Views</code></h2>
 <p>Returns a list of stream views within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&amp;count={count}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&amp;count={count}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -737,7 +737,7 @@ See <a href="https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_
 If the stream views are identical, the stream view is returned. If the stream views are different, the Found (302) error is returned.</p>
 <p>If no matching identifier is found, the specified stream view is created.  </p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -758,7 +758,7 @@ If the stream views are identical, the stream view is returned. If the stream vi
 <h2 id="create-or-update-stream-view"><code>Create or Update Stream View</code></h2>
 <p>Creates or updates the definition of a stream view. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -778,7 +778,7 @@ If the stream views are identical, the stream view is returned. If the stream vi
 <h2 id="delete-stream-view"><code>Delete Stream View</code></h2>
 <p>Deletes a stream view from the specified tenant and namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{viewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier

@@ -14,13 +14,13 @@ Supported compression schemes
 
 Request compression (writing data)
 ----------------------------------
-The body content of an HTTP request can be compressed using the `Supported compression schemes`_ allowing you to send stream values to the REST API more efficiently.
+The body content of an HTTP request can be compressed using the [supported compression schemes](#supported-compression-schemes) allowing you to send stream values to the REST API more efficiently.
 
 The ``Content-Encoding`` HTTP header must be used to specify the compression scheme of compressed-content requests. This header provides context to the API to properly decode the request content.
 
 Response compression (reading data)
 -----------------------------------
-Compressed responses can be requested from the REST API by specifying one of the `Supported compression schemes`_ using the ``Accept-Encoding`` HTTP header.
+Compressed responses can be requested from the REST API by specifying one of the [supported compression schemes](#supported-compression-schemes) using the ``Accept-Encoding`` HTTP header.
 
 Compressed responses from the REST API will include a ``Content-Encoding`` HTTP header indicating the compression scheme used to compress the response content.
 

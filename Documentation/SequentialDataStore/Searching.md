@@ -21,7 +21,7 @@ The syntax of the client libraries method is as follows:
 
 Searching for streams is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
 
 
 Searching for Types
@@ -39,7 +39,7 @@ The syntax of the client libraries method is as follows:
 
 As previously mentioned, searching for types is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
 
 How Searching Works
 =====================
@@ -91,13 +91,13 @@ The default value for ``orderby`` parameter is ascending order. It can be change
 
 **REST API examples**
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=id asc
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=id asc
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name desc
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name desc
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name desc&skip=10&count=20
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name desc&skip=10&count=20
 
 
 Search operators
@@ -130,7 +130,7 @@ You can also qualify which fields are searched by using the following syntax:
 
 **REST API example**
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
 
 **C# example**
 
@@ -154,7 +154,7 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 
 **REST API example**
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
 
 **C# example**
 
@@ -175,7 +175,7 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 
 **REST API example**
 
-	GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
 
 **C# example**
 

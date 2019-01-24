@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API calls for writing data </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="API calls for writing data ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsWritingDataApi">
+<h1 id="api-calls-for-writing-data" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="5" sourceendlinenumber="6">API calls for writing data</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="8" sourceendlinenumber="10">Reading and writing data with the SDS Client Libraries is performed through 
+the <code>ISdsDataService</code> interface, which is accessed with the <code>SdsService.GetDataService( )</code> 
+helper.</p>
+<hr>
+<h2 id="insertvalueasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="16" sourceendlinenumber="17"><code>InsertValueAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="19" sourceendlinenumber="19">Inserts data into the specified stream. Throws an exception if data is already present at the index used in ‘item’.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="21" sourceendlinenumber="21"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="23" sourceendlinenumber="23"><code>    Task InsertValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="25" sourceendlinenumber="25"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="27" sourceendlinenumber="27"><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="29" sourceendlinenumber="29">Content is serialized event of type T</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="31" sourceendlinenumber="31"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="33" sourceendlinenumber="40"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>T item</code>
+  The event to insert, where T is the type of the event and the stream</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="43" sourceendlinenumber="44"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="46" sourceendlinenumber="47">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="49" sourceendlinenumber="50"><strong>Notes</strong><br><code>InsertValue</code> throws an exception if an event already exists at the specified index.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="52" sourceendlinenumber="53">  For HTTP requests, the message content (the event) must be serialized in JSON format. JSON objects 
+  consist of a series of name-value property pairs enclosed within brackets. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="55" sourceendlinenumber="55">  .. _Introducing JSON: <a href="http://json.org/index.html" data-raw-source="http://json.org/index.html" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="55" sourceendlinenumber="55">http://json.org/index.html</a></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="57" sourceendlinenumber="57">  You can serialize your data using one of many available JSON serializers available at <code>Introducing JSON</code>_. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="60" sourceendlinenumber="61">  How the data is serialized depends upon the type of event you are inserting. For example, the following code 
+  shows a single WaveData event serialized as JSON. See the OCS code samples for the complete WaveData example.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="63" sourceendlinenumber="63">  ::</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="65" sourceendlinenumber="75"><code>{
+    &quot;Order&quot;:2,  
+    &quot;Tau&quot;:0.25722883666666846,  
+    &quot;Radians&quot;:1.6162164471269089,   
+    &quot;Sin&quot;:1.9979373673043652,   
+    &quot;Cos&quot;:-0.090809010174665111,    
+    &quot;Tan&quot;:-44.003064529862513,  
+    &quot;Sinh&quot;:4.8353589272389, 
+    &quot;Cosh&quot;:5.2326566823391856,  
+    &quot;Tanh&quot;:1.8481468289554672
+}
+</code></pre><hr>
+<h2 id="insertvaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="81" sourceendlinenumber="82"><code>InsertValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="84" sourceendlinenumber="84">Inserts items into the specified stream. Throws an exception if data is already present at an index used in one of the ‘items&#39;.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="87" sourceendlinenumber="87"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="89" sourceendlinenumber="89"><code>    Task InsertValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="91" sourceendlinenumber="91"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="93" sourceendlinenumber="93"><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="96" sourceendlinenumber="96">Content is serialized list of events of type T  </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="99" sourceendlinenumber="99"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="101" sourceendlinenumber="108"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>T items</code>
+  The list of events to insert, where T is the type of the stream and events</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="111" sourceendlinenumber="112"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="114" sourceendlinenumber="118"><strong>Notes</strong><br><code>InsertValuesAsync</code> throws an exception if any index in <strong>items</strong> already has an event. If any individual
+  index encounters a problem, the entire operation is rolled back and no
+  insertions are made. The streamId and index that caused the issue are
+  included in the error response.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="120" sourceendlinenumber="122">  For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
+  comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
+  of three WaveData events that are properly formatted for insertion. See the SDS code samples for </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="124" sourceendlinenumber="124">  the complete WaveData example.</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="126" sourceendlinenumber="160"><code>    [
+        {
+            &quot;Order&quot;:2,
+            &quot;Tau&quot;:0.25722883666666846,
+            &quot;Radians&quot;:1.6162164471269089,
+            &quot;Sin&quot;:1.9979373673043652,
+            &quot;Cos&quot;:-0.090809010174665111,
+            &quot;Tan&quot;:-44.003064529862513,
+            &quot;Sinh&quot;:4.8353589272389,
+            &quot;Cosh&quot;:5.2326566823391856,
+            &quot;Tanh&quot;:1.8481468289554672
+        }, 
+        {
+            &quot;Order&quot;:4,
+            &quot;Tau&quot;:0.25724560000002383,
+            &quot;Radians&quot;:1.6163217742567466,
+            &quot;Sin&quot;:1.9979277915696148,
+            &quot;Cos&quot;:-0.091019446679060964,
+            &quot;Tan&quot;:-43.901119254534827,
+            &quot;Sinh&quot;:4.8359100947709592,
+            &quot;Cosh&quot;:5.233166005842703,
+            &quot;Tanh&quot;:1.8481776000882766
+        }, 
+        {
+            &quot;Order&quot;:6,
+            &quot;Tau&quot;:0.25724560000002383,
+            &quot;Radians&quot;:1.6163217742567466,
+            &quot;Sin&quot;:1.9979277915696148,
+            &quot;Cos&quot;:-0.091019446679060964,
+            &quot;Tan&quot;:-43.901119254534827,
+            &quot;Sinh&quot;:4.8359100947709592,
+            &quot;Cosh&quot;:5.233166005842703,
+            &quot;Tanh&quot;:1.8481776000882766
+        }
+    ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="163" sourceendlinenumber="164">Security
+  Allowed by administrator accounts</p>
+<hr>
+<h2 id="patchvalueasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="170" sourceendlinenumber="171"><code>PatchValueAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="173" sourceendlinenumber="173">Modifies the specified stream event. PatchValue affects only the data item parameters that are included in the call.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="176" sourceendlinenumber="176"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="178" sourceendlinenumber="178"><code>    Task PatchValueAsync(string streamId, string selectExpression, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="180" sourceendlinenumber="180"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="182" sourceendlinenumber="182"><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="185" sourceendlinenumber="185">Content is serialized patch property</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="187" sourceendlinenumber="187"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="189" sourceendlinenumber="198"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>string selectExpression</code>
+  CSV list of strings that indicates the event fields that will be changed in stream events.
+<code>T item</code>
+  Object with index and new values to patch in the stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="201" sourceendlinenumber="202"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="204" sourceendlinenumber="207"><strong>Notes</strong><br><code>PatchValue</code> is used to modify the stream events. Only the values 
+  for fields specified in the SelectExpression are taken from the item 
+  and replaced (patched) in the stream using the item index.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="210" sourceendlinenumber="211">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="213" sourceendlinenumber="213"><strong>Example</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="215" sourceendlinenumber="216"><code>    var obj = new { TimeId = DateTime.UtcNow(), Value = 10 };
+    await _dataService.PatchValueAsync(streamId, “Value”, obj);  
+</code></pre><hr>
+<h2 id="patchvaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="222" sourceendlinenumber="223"><code>PatchValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="225" sourceendlinenumber="225">Patches values of the selected fields for multiple events in the stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="228" sourceendlinenumber="228"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="230" sourceendlinenumber="230"><code>    Task PatchValuesAsync(string streamId, string selectExpression, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="232" sourceendlinenumber="232"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="234" sourceendlinenumber="234"><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="236" sourceendlinenumber="236">Content is serialized list of patch property values</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="239" sourceendlinenumber="239"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="241" sourceendlinenumber="250"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>string selectExpression</code>
+  CSV list strings that indicates the event fields that will be changed in stream events.
+<code>T items</code>
+  List which contain indexes and new values to patch in the stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="253" sourceendlinenumber="254"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="256" sourceendlinenumber="257">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="259" sourceendlinenumber="264"><strong>Notes</strong><br><code>PatchValues</code> is used to patch the values of the selected
+  fields for multiple events in the stream. Only the fields indicated in
+  <strong>selectExpression</strong> are modified. The events to be modified are indicated
+  by the index value of each member of the <strong>items</strong> collection. The
+  individual events in <strong>items</strong> also hold the new values.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="266" sourceendlinenumber="269">  <strong>PatchValues</strong> may be thought of as a series of PatchValue calls. If there
+  is a problem patching any individual event, the entire operation is
+  rolled back and the error will indicate the streamId and index of the
+  problem.  </p>
+<hr>
+<h2 id="removevalueasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="275" sourceendlinenumber="276"><code>RemoveValueAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="278" sourceendlinenumber="278">Removes the event at the index from the specified stream. Different overloads are available to make it easier to indicate the index where you want to remove a data event. This method throws an exception if there is no data at the specified index.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="281" sourceendlinenumber="281"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="283" sourceendlinenumber="285"><code>    Task RemoveValueAsync(string streamId, string index);
+    Task RemoveValueAsync&lt;T1&gt;(string streamId, T1 index);
+    Task RemoveValueAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="287" sourceendlinenumber="287"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="289" sourceendlinenumber="289"><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="292" sourceendlinenumber="292"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="294" sourceendlinenumber="301"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>index</code>
+  String representation of the index in the stream to be deleted.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="304" sourceendlinenumber="305"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="307" sourceendlinenumber="308">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="310" sourceendlinenumber="312"><strong>Notes</strong><br>Precision is taken into account when finding a value. If the index is a DateTime,
+  use the round-trip format specifier: <code>DateTime.ToString(“o”)</code>.  </p>
+<hr>
+<h2 id="removevaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="318" sourceendlinenumber="319"><code>RemoveValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="321" sourceendlinenumber="321">Removes the event at each index from the specified stream. Different overloads are available to make it easier to indicate the index where you want to remove a data event. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="324" sourceendlinenumber="324"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="326" sourceendlinenumber="328"><code>    Task RemoveValuesAsync(string streamId, IEnumerable&lt;string&gt; index);
+    Task RemoveValuesAsync&lt;T1&gt;(string streamId, IEnumerable&lt;T1&gt; index);
+    Task RemoveValuesAsync&lt;T1, T2&gt;(string streamId, IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt; index);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="330" sourceendlinenumber="330"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="332" sourceendlinenumber="332"><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="335" sourceendlinenumber="335"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="337" sourceendlinenumber="344"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>index</code>
+  List of indices at which to remove events in the stream</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="347" sourceendlinenumber="348"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="350" sourceendlinenumber="351">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="353" sourceendlinenumber="356"><strong>Notes</strong><br>If any individual event fails to be removed, the entire RemoveValues
+  operation is rolled back and no events are removed. The streamId and index
+  that caused the issue are included in the error response. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="358" sourceendlinenumber="358">  If you attempt to remove events at indexes that have no events, an exception is thrown. If this occurs, you can use the ‘RemoveWindowValues’ call to remove any events from a specified ‘window’ of indexes, which will not throw exceptions if no data is found.</p>
+<hr>
+<h2 id="removewindowvaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="364" sourceendlinenumber="365"><code>RemoveWindowValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="367" sourceendlinenumber="367">Removes a range of values at and between the given indices.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="370" sourceendlinenumber="370"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="372" sourceendlinenumber="374"><code>    Task RemoveWindowValuesAsync(string streamId, string startIndex, string endIndex);
+    Task RemoveWindowValuesAsync&lt;T1&gt;(string streamId, T1 startIndex, T1 endIndex);
+    Task RemoveWindowValuesAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="377" sourceendlinenumber="377"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="379" sourceendlinenumber="379"><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="382" sourceendlinenumber="382"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="384" sourceendlinenumber="393"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>startIndex</code>
+  String representation of the starting index value.
+<code>endIndex</code>
+  String representation of the ending index value</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="397" sourceendlinenumber="398"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="400" sourceendlinenumber="401">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="403" sourceendlinenumber="405"><strong>Notes</strong><br>If any individual event fails to be removed, the entire operation is
+  rolled back and no removes are done.</p>
+<hr>
+<h2 id="replacevalueasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="411" sourceendlinenumber="412"><code>ReplaceValueAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="414" sourceendlinenumber="414">Writes an item over an existing event in the specified stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="417" sourceendlinenumber="417"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="419" sourceendlinenumber="419"><code>    Task ReplaceValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="421" sourceendlinenumber="421"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="423" sourceendlinenumber="423"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="425" sourceendlinenumber="425">Content is serialized replacement object</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="428" sourceendlinenumber="428"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="430" sourceendlinenumber="435"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="438" sourceendlinenumber="439"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="441" sourceendlinenumber="442">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="444" sourceendlinenumber="446"><strong>Notes</strong><br>Throws an exception if the stream does not have an event to be replaced at the
+  specified index. Overloads are available to help you set the indexes you want removed.</p>
+<hr>
+<h2 id="replacevaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="451" sourceendlinenumber="452"><code>ReplaceValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="454" sourceendlinenumber="454">Writes <strong>items</strong> over existing events in the specified stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="457" sourceendlinenumber="457"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="459" sourceendlinenumber="459"><code>    Task ReplaceValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="461" sourceendlinenumber="461"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="463" sourceendlinenumber="463"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="465" sourceendlinenumber="465">Content is serialized list of replacement values</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="468" sourceendlinenumber="468"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="470" sourceendlinenumber="477"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>T items</code>
+  List of new items to replace existing items in the stream</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="480" sourceendlinenumber="481"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="483" sourceendlinenumber="484">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="487" sourceendlinenumber="488"><strong>Notes</strong><br>Throws an exception if any index does not have a value to be replaced. If any individual event fails to be replaced, the entire operation is rolled back and no replaces are performed. The index (of the <em>items</em> IEnumerable) that caused the issue and the streamId are included in the error response.</p>
+<hr>
+<h2 id="updatevalueasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="494" sourceendlinenumber="495"><code>UpdateValueAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="497" sourceendlinenumber="497">Writes <strong>item</strong> to the specified stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="500" sourceendlinenumber="500"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="502" sourceendlinenumber="502"><code>    Task UpdateValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="504" sourceendlinenumber="504"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="506" sourceendlinenumber="506"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="508" sourceendlinenumber="508">Content is serialized updated value</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="511" sourceendlinenumber="511"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="513" sourceendlinenumber="520"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>T item</code>
+  Event to write to the stream</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="523" sourceendlinenumber="524"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="526" sourceendlinenumber="527">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="529" sourceendlinenumber="530"><strong>Notes</strong><br><code>UpdateValue</code> performs an insert or a replace depending on whether an event already exists at the index in the stream.</p>
+<hr>
+<h2 id="updatevaluesasync" sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="535" sourceendlinenumber="536"><code>UpdateValuesAsync()</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="538" sourceendlinenumber="538">Writes items to the specified stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="541" sourceendlinenumber="541"><strong>Syntax</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="543" sourceendlinenumber="543"><code>    Task UpdateValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="545" sourceendlinenumber="545"><strong>Http</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="547" sourceendlinenumber="547"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="550" sourceendlinenumber="550">Content is serialized list of updated values    </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="552" sourceendlinenumber="552"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="554" sourceendlinenumber="561"><code>string tenantId</code>
+  The tenant identifier for the request
+<code>string namespaceId</code>
+  The namespace identifier for the request.
+<code>string streamId</code>
+  The stream identifier for the request.
+<code>T items</code>
+  Events to write to the stream.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="564" sourceendlinenumber="565"><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="567" sourceendlinenumber="568">Security
+  Allowed by administrator accounts</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data_API.md" sourcestartlinenumber="570" sourceendlinenumber="575"> <strong>Notes</strong>
+  <code>UpdateValues</code> performs an insert
+  or a replace depending on whether an event already exists at the item&#39;s
+  indexes. If any item fails to write, the entire operation is rolled back and
+  no events are written to the stream. The index (of the <em>items</em> IEnumerable) that caused the issue is
+  included in the error response.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/Writing_Data_API.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

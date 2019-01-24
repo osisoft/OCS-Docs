@@ -112,7 +112,7 @@ But you can map a stream from its current type to a new type.
 
 To update a Stream Type, define an SdsStreamView and PUT the stream view to the following:
 
-       api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
+       api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
 
 
 For details, see [SdsStreamView API](#sds-views). 
@@ -467,17 +467,19 @@ Returns the stream view corresponding to the specified streamViewId within a giv
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamViewId``
-  The stream view identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamViewId``  
+  The stream view identifier  
 
 
 **Response**
@@ -537,17 +539,20 @@ Returns the stream view map corresponding to the specified streamViewId within a
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
+
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamViewId``
-  The stream view identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamViewId``  
+  The stream view identifier  
 
 
 **Response**
@@ -610,21 +615,24 @@ Returns a list of stream views within a given namespace.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``int skip``
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``int skip``  
   An optional value representing the zero-based offset of the first SdsStreamView to retrieve. 
-  If not specified, a default value of 0 is used.
+  If not specified, a default value of 0 is used.  
+  
 ``int count``  
   An optional value representing the maximum number of SdsStreamViews to retrieve. If not specified, 
-  a default value of 100 is used.
+  a default value of 100 is used.  
 
 **Response**
 
@@ -658,17 +666,18 @@ If no matching identifier is found, the specified stream view is created.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
-
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamViewId``
-  The stream view identifier. The identifier must match the ``SdsStreamView.Id`` field. 
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamViewId``  
+  The stream view identifier. The identifier must match the ``SdsStreamView.Id`` field.   
 
 The request content is the serialized SdsStreamView. If you are not using the Sds client libraries, using JSON is recommended.
 
@@ -701,17 +710,18 @@ Creates or updates the definition of a stream view.
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
-
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 **Parameters**
 
 ``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamViewId``
-  The stream view identifier
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamViewId``  
+  The stream view identifier  
 
 
 **Response**
@@ -745,17 +755,18 @@ Deletes a stream view from the specified tenant and namespace.
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
-
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamViewId``
-  The stream view identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamViewId``  
+  The stream view identifier  
 
 
 **Response**

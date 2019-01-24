@@ -1581,7 +1581,7 @@ defines the available functions. See Types_ for general SdsType information.</p>
 <h2 id="get-type"><code>Get Type</code></h2>
 <p>Returns the type corresponding to the specified typeId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1663,7 +1663,7 @@ in the Namespace. See <a class="xref" href="Searching.html">Searching</a>
 and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
 for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1757,7 +1757,7 @@ including the .NET HttpClient, consider redirecting with the authorization token
 returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1948,7 +1948,7 @@ redirect with the authorization header, you should disable automatic redirect an
 associated with it. Also, certain parameters, including the type id, cannot be changed after 
 they are defined.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1965,7 +1965,7 @@ they are defined.</p>
 <h2 id="delete-type"><code>Delete Type</code></h2>
 <p>Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or views reference it.</p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    DELETE  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>

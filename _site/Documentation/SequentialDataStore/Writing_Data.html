@@ -103,7 +103,7 @@ to the request. All references to indexes are to the primary index.</p>
 <li><strong>Remove Window Values</strong> removes values that fall within the window defined by the start and end primary indexes.</li>
 </ul>
 <p>The base URI for writing Sds data is:</p>
-<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
+<pre><code>  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -264,7 +264,7 @@ value of the field. Samples vary to highlight enum flexibility.</p>
 <p>Inserts an event into the specified stream. If an event already exists at the specified primary index, 
 the insert operation fails, and returns HTTP status code Conflict, 409.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -291,7 +291,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Updates fields in an event. Use the select parameter to specify the fields to update. If there is 
 not an event with a matching primary index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PATCH api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+<pre><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
           PatchValue?select={select}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -323,7 +323,7 @@ and the measurement to 500, set the index to <code>state,measurement</code>.</p>
 <p>Replaces an existing event with an event with matching primary index. If there is not an event with a 
 matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -350,7 +350,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Replaces an existing event with an event that has a matching primary index. If there is not an event with 
 a matching index, the event is inserted.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -377,7 +377,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Removes an event that matches a primary index. If there is not an event with a matching index, 
 the remove operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
          RemoveValue?index={index}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -401,7 +401,7 @@ the remove operation fails and returns HTTP status code Not Found, 404.</p>
 <p>Inserts a collection of events into the specified stream. If an event exists at the same primary 
 index as any of the values, the insert operation fails and returns HTTP status code Conflict, 409.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -450,7 +450,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Updates fields for a collection of events in the specified stream. If there is not an event with 
 a matching index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
          ?select={select}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -464,7 +464,7 @@ a matching index, the patch operation fails and returns HTTP status code Not Fou
 <p>The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.</p>
 <p>To patch the State of the sample stream shown previously, a URI resembles the following:</p>
-<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
+<pre><code>  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
       Data/PatchValues?select=state
 </code></pre><p>A sample of serialized Simple type content is shown here:</p>
 <pre><code>  [  
@@ -496,7 +496,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Replaces a collection of events with events that match primary indexes. If there is not an event with a 
 matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>   PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+<pre><code>   PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -517,7 +517,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Replaces a collection of events with events that contain matching primary indexes. If there is not a collectin of events with a 
 matching index, the events are inserted.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -538,7 +538,7 @@ using the Sds client libraries, using JSON is recommended.</p>
 <p>Removes events at matching primary indexes. If there is not an event with a matching index, 
 the remove operation fails and returns HTTP status code Not Found, 404.</p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
            RemoveValues?index={index}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
@@ -551,7 +551,7 @@ the remove operation fails and returns HTTP status code Not Found, 404.</p>
   The collection of indexes identifying the events</p>
 <p>Each index is treated like a separate parameter. For example, to delete three events, the URI 
 should resebble the following:</p>
-<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+<pre><code>  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
        RemoveValues?index=2017-01-20T01:00:00Z|2017-01-20T00:00:00Z
        &amp;index=2017-01-20T01:00:00Z|2017-01-20T01:00:00Z
        &amp;index=2017-01-20T01:00:00Z|2017-01-20T14:00:00Z
@@ -568,7 +568,7 @@ should resebble the following:</p>
 <p>Removes events that fall within a window defined by start and end primary indexes. Events that fall 
 at the start or end index are also deleted. </p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
            RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
