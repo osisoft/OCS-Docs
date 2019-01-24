@@ -30,14 +30,17 @@ Content is serialized event of type T
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T item``
-  The event to insert, where T is the type of the event and the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request 
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T item``  
+  The event to insert, where T is the type of the event and the stream  
 
 
 **Returns**  
@@ -52,9 +55,7 @@ Security
   For HTTP requests, the message content (the event) must be serialized in JSON format. JSON objects 
   consist of a series of name-value property pairs enclosed within brackets. 
 
-  .. _Introducing JSON: http://json.org/index.html
-
-  You can serialize your data using one of many available JSON serializers available at `Introducing JSON`_. 
+  You can serialize your data using one of many available JSON serializers available at [Introducing JSON](http://json.org/index.html). 
 
 
   How the data is serialized depends upon the type of event you are inserting. For example, the following code 
@@ -98,13 +99,16 @@ Content is serialized list of events of type T
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request
+  
+``string streamId``  
+  The stream identifier for the request
+  
+``T items``  
   The list of events to insert, where T is the type of the stream and events
 
 
@@ -186,15 +190,19 @@ Content is serialized patch property
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``string selectExpression``
-  CSV list of strings that indicates the event fields that will be changed in stream events.
-``T item``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``string selectExpression``  
+  CSV list of strings that indicates the event fields that will be changed in stream events.  
+  
+``T item``  
   Object with index and new values to patch in the stream.
 
 
@@ -238,15 +246,19 @@ Content is serialized list of patch property values
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``string selectExpression``
-  CSV list strings that indicates the event fields that will be changed in stream events.
-``T items``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``string selectExpression``  
+  CSV list strings that indicates the event fields that will be changed in stream events  
+  
+``T items``  
   List which contain indexes and new values to patch in the stream.
 
 
@@ -291,13 +303,16 @@ Removes the event at the index from the specified stream. Different overloads ar
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``index``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``index``  
   String representation of the index in the stream to be deleted.
 
 
@@ -334,14 +349,17 @@ Removes the event at each index from the specified stream. Different overloads a
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``index``
-  List of indices at which to remove events in the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``index``  
+  List of indices at which to remove events in the stream  
 
 
 **Returns**  
@@ -381,16 +399,20 @@ Removes a range of values at and between the given indices.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``startIndex``
-  String representation of the starting index value.
-``endIndex``
-  String representation of the ending index value
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``startIndex``  
+  String representation of the starting index value  
+  
+``endIndex``  
+  String representation of the ending index value  
 
 
 
@@ -427,13 +449,15 @@ Content is serialized replacement object
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
 
 **Returns**  
 An IEnumerable of all behavior objects
@@ -467,14 +491,17 @@ Content is serialized list of replacement values
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
-  List of new items to replace existing items in the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T items``  
+  List of new items to replace existing items in the stream  
 
 
 **Returns**  
@@ -510,14 +537,17 @@ Content is serialized updated value
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T item``
-  Event to write to the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T item``  
+  Event to write to the stream  
 
 
 **Returns**  
@@ -551,14 +581,17 @@ Content is serialized list of updated values
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
-  Events to write to the stream.
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T items``  
+  Events to write to the stream  
 
 
 **Returns**  
