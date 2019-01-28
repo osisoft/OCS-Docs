@@ -31,7 +31,7 @@ An SdsType is referenced by its identifier or Id field. SdsType identifiers must
 SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
-information about read characteristics see  Interpolation_ and Extrapolation_.
+information about read characteristics see [Interpolation](#interpolation) and [Extrapolation](#extrapolation).
 
 SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a view, its form  cannot be changed. 
 Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
@@ -230,7 +230,7 @@ Decimal.MaxValue) the call might result in a BadRequest exception.
 
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
 mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
-on a specific type property see SdsTypeProperty_. For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
+on a specific type property see [SdsTypeProperty](#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
 
 Extrapolation
@@ -327,7 +327,7 @@ in the manner defined by the SdsType’s IntepolationMode.
 
 
 An SdsType with the InterpolationMode set to ``Discrete`` cannot have a Property with an InteroplationMode. 
-For more information on interpolation of events see Interpolation_.
+For more information on interpolation of events see [Interpolation](#interpolation).
 
 
 Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
@@ -444,9 +444,9 @@ Working with SdsTypes when not using .NET
 
 SdsTypes must be built manually when .NET SdsTypeBuilder is unavailable. The following discussion 
 refers to the following types and are defined in  
-`Python <https://github.com/osisoft/Qi-Samples/tree/master/Basic/Python>`__ and 
-`JavaScript <https://github.com/osisoft/Sds-Samples/tree/master/Basic/JavaScript>`__ samples. 
-Samples in other languages can be found here: `Samples <https://github.com/osisoft/Qi-Samples/tree/master/Basic>`__.
+[Python](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/Python/SDSPy) and 
+[JavaScript](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript) samples. 
+Samples in other languages can be found here: [Samples](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples).
 
 In the sample code, ``SdsType``, ``SdsTypeProperty``, and ``SdsTypeCode`` are defined as in the code snippets shown here:
 
@@ -788,7 +788,7 @@ SdsType API
 The REST APIs provide programmatic access to read and write Sds data. The APIs in this section 
 interact with SdsTypes. When working in .NET convenient Sds Client libraries are available. 
 The ISdsMetadataService interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
-defines the available functions. See Types_ for general SdsType information.
+defines the available functions. See [Types](#types) for general SdsType information.
 
 
 ***********************
@@ -931,19 +931,16 @@ An optional filter string to match which SdsTypes will be returned.  See the [Fi
 topic for information about specifying the filter parameter.
 
 ``int skip``  
-  An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
+An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
 a default value of 0 is used.
 
 ``int count``  
 An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
 
 ``string orderby``  
-An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given
-  field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
-  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
-  using values ``asc`` or ``desc``, respectively.
-  For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
-  If no value is specified, there is no sorting of results.
+An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
+Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
+If no value is specified, there is no sorting of results.
 
 **Response**
 
