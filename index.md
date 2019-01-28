@@ -57,7 +57,7 @@ easily obtain needed information.
      - [Subscriptions](xref:omfIngressSubsctriptions)
    - [Data Views (preview)](xref:uxieOverview)
 	 - [Overview](xref:uxieOverview)
-     - [Endpoints](xref:uxieDataViews)
+     - [API Endpoints](xref:uxieDataViews)
    - [Role-based Access Control](xref:accessControl)
    - [Samples](xref:samples)
    - [Getting Support](xref:support)
