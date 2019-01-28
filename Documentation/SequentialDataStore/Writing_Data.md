@@ -40,12 +40,14 @@ The base URI for writing Sds data is:
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 
 Response Format
@@ -253,12 +255,15 @@ the insert operation fails, and returns HTTP status code Conflict, 409.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -308,15 +313,18 @@ not an event with a matching primary index, the patch operation fails and return
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string select``
-  Comma-separated list of fields to update
-
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string select``  
+  Comma-separated list of fields to update  
+  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -364,12 +372,14 @@ matching index, the replace operation fails and returns HTTP status code Not Fou
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -418,12 +428,14 @@ a matching index, the event is inserted.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -471,14 +483,17 @@ the remove operation fails and returns HTTP status code Not Found, 404.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string index``
-  The primary index identifying the event
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string index``  
+  The primary index identifying the event  
 
 
 **Response**
@@ -515,12 +530,14 @@ index as any of the values, the insert operation fails and returns HTTP status c
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -591,14 +608,17 @@ a matching index, the patch operation fails and returns HTTP status code Not Fou
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string select``
-  Comma separated list of fields to update
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string select``  
+  Comma separated list of fields to update  
 
 
 The request content is the serialized object matching the stream type. If you are not 
@@ -668,12 +688,14 @@ matching index, the replace operation fails and returns HTTP status code Not Fou
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -713,12 +735,14 @@ matching index, the events are inserted.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized object matching the stream type. If you are not 
 using the Sds client libraries, using JSON is recommended.
@@ -758,14 +782,17 @@ the remove operation fails and returns HTTP status code Not Found, 404.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string index``
-  The collection of indexes identifying the events
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string index``  
+  The collection of indexes identifying the events  
 
 Each index is treated like a separate parameter. For example, to delete three events, the URI 
 should resebble the following:
@@ -814,16 +841,20 @@ at the start or end index are also deleted.
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string startIndex``
-  Index defining the beginning of the window
-``string endIndex``
-  The Index defining the end of the window
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string startIndex``  
+  Index defining the beginning of the window  
+  
+``string endIndex``  
+  The Index defining the end of the window  
 
 
 
