@@ -554,6 +554,9 @@ The tenant identifier
 ``string namespaceId``  
 The namespace identifier  
 
+``string uomId``  
+The unit of measure identifier
+
 **Response**
 
 The response includes a status code and a response body.
@@ -595,6 +598,13 @@ The tenant identifier
 
 ``string namespaceId``  
 The namespace identifier  
+
+``int skip``  
+An optional parameter representing the zero-based offset of the first SdsUomQuantity to retrieve. If not specified, a default value of 0 is used.
+
+``int count``  
+An optional parameter representing the maximum number of SdsUomQuantity to retrieve. If not specified, a default value of 100 is used.
+
 
 **Response**
 
