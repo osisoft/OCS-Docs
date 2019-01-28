@@ -455,7 +455,7 @@ SdsView API
 The REST APIs provide programmatic access to read and write Sds data. The APIs in this section interact 
 with SdsViews. When working in .NET convenient Sds Client libraries are available. The ISdsMetadataService 
 interface, accessed using the ``SdsService.GetMetadataService()`` helper, defines the available functions. 
-See [Sds View information](https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Views.html) for general SdsView information.
+See [Stream Views](#stream-views) for general SdsView information.
 
 ***********************
 
