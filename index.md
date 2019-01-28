@@ -55,6 +55,8 @@ easily obtain needed information.
      - [Publishers](xref:omfIngressPublishers)
      - [Topics](xref:omfIngressTopics)
      - [Subscriptions](xref:omfIngressSubsctriptions)
+   - [Data Views](xref:uxieOverview)
+     - [Data View Endpoints](xref:uxieDataViews)
    - [Role-based Access Control](xref:accessControl)
    - [Samples](xref:samples)
    - [Getting Support](xref:support)

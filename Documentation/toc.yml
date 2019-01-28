@@ -11,6 +11,9 @@
   topicHref: DataIngress/Data_Ingress.md
 - name: Role-Based Access Control
   topicHref: Access_Control.md
+- name: Data Views
+  href: DataViews/toc.yml
+  topicHref: DataViews/Uxie_Overview.md
 - name: Samples
   topicHref: samples.md
 - name: Getting Support

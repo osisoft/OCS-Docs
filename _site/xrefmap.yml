@@ -121,3 +121,9 @@ references:
 - uid: unitsOfMeasure
   name: Units of Measure
   href: Documentation/SequentialDataStore/Units_of_Measure.html
+- uid: uxieDataViews
+  name: DataViews
+  href: Documentation/DataViews/Uxie_DataViews.html
+- uid: uxieOverview
+  name: Uxie
+  href: Documentation/DataViews/Uxie_Overview.html
