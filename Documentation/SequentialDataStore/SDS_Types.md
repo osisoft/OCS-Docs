@@ -33,11 +33,11 @@ characteristics when attempting to read non-existent indexes, indexes that fall 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
 information about read characteristics see [Interpolation](#interpolation) and [Extrapolation](#extrapolation).
 
-SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a view, its form  cannot be changed. 
+SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a stream view, its form  cannot be changed. 
 Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
-of the SdsType. In addition, the SdsType may be deleted only if no streams or views reference it.
+of the SdsType. In addition, the SdsType may be deleted only if no streams or stream views reference it.
 
-Only SdsTypes used to define SdsStreams or SdsViews are required to be added to the Sequential data store. 
+Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be added to the Sequential data store. 
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.
 
@@ -163,10 +163,10 @@ SdsTable                | 509
 SdsType                 | 501
 SdsTypeProperty         | 502
 SdsValues               | 511
-SdsView                 | 503
-SdsViewMap              | 505
-SdsViewMapProperty      | 506
-SdsViewProperty         | 504
+SdsStreamView           | 503
+SdsStreamViewMap        | 505
+SdsStreamViewMapProperty| 506
+SdsStreamViewProperty   | 504
 SByte                   | 5
 SByteArray              | 205
 SByteEnum               | 605
@@ -1266,7 +1266,7 @@ Response body
 
 Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.
 
-Note that a type cannot be updated if any streams or views are 
+Note that a type cannot be updated if any streams or stream views are 
 associated with it. Also, certain parameters, including the type id, cannot be changed after 
 they are defined.
 
@@ -1313,7 +1313,7 @@ The type identifier
 ``Delete Type``
 ------------
 
-Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or views reference it.
+Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views reference it.
 
 **Request**
 

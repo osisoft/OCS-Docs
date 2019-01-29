@@ -181,7 +181,7 @@ scenarios, Sds allows you to define multiple properties. Indexes defined by mult
 properties that are combined to define the index. Set the <code>IsKey</code> property to <code>true</code> and give <code>Orderfield</code> a 
 zero-based index value. The <code>Order</code> field defines the precedence of the property when sorting. A property with 
 an order of 0 has highest precedence.</p>
-<p>When defining compound indexes outside of .NET, specify the <code>IsKey</code> and <code>Order</code> fields on the <code>SdsTypePropertyor</code>
+<p>When defining compound indexes outside of .NET, specify the <code>IsKey</code> and <code>Order</code> fields on the <code>SdsTypeProperty</code> of
 Properties.</p>
 <p>Only the primary index (or key) supports compound indexes.</p>
 <p>You can specify a maximum of three Properties to define a compound index.</p>
@@ -492,9 +492,9 @@ and query as follows.</p>
 <h2 id="not-using-net">Not Using .NET</h2>
 <h2 id="simple-indexes-1">Simple Indexes</h2>
 <p>When the .NET SdsTypeBuilder is unavailable, indexes must be built manually.</p>
-<p>The following discusses the types defined in the <code>Python &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic/Python&gt;</code><strong>
-and <code>Java Script &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic/JavaScript&gt;</code></strong>
-samples. Samples in other languages can be found <code>here &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic&gt;</code>__.</p>
+<p>The following discusses the types defined in the <a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/Python/SDSPy">Python</a>
+and <a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript">Java Script</a>
+samples. Samples in other languages can be found <a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS">here</a>.</p>
 <p>To build a SdsType representation of the following sample class, see code_example_1_:</p>
 <p><em>Python</em></p>
 <pre><code>  class State(Enum):

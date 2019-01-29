@@ -145,10 +145,8 @@ The following response would be returned from the above code:
          }
       ]
 
+To retrieve the results in table format, add the form variable and specify table.
 
-     To retrieve the results in table format, add the form variable and specify table.
-
-     ::
 
        api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
        ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
@@ -168,7 +166,7 @@ Response
             },
             {  
                "Name":"State",
-               "Type":"State"
+               "Type":"Int32Enum"
             },
             {  
                "Name":"Measurement",
@@ -250,7 +248,7 @@ Response
             },
             {  
                "Name":"State",
-               "Type":"State"
+               "Type":"Int32Enum"
             },
             {  
                "Name":"Measurement",

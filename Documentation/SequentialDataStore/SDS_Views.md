@@ -457,6 +457,7 @@ with SdsStreamViews. When working in .NET convenient SDS Client libraries are av
 interface, accessed using the ``SdsService.GetMetadataService()`` helper, defines the available functions. 
 See [Stream Views](#stream-views) for general SdsStreamView information.
 
+
 ***********************
 
 ``Get Stream View``

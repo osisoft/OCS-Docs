@@ -85,7 +85,7 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <h2 id="get-stream-metadata"><code>Get stream metadata</code></h2>
 <p>Returns the metadata dictionary for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -112,7 +112,7 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <h2 id="get-stream-metadata-value"><code>Get stream metadata value</code></h2>
 <p>Returns the value for the specified key in the metadata dictionary of the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -141,7 +141,7 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <p>Replaces the metadata for the specified stream with the metadata in the request body. 
 Overwrites any existing metadata; does not merge. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -159,7 +159,7 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="delete-stream-metadata"><code>Delete stream metadata</code></h2>
 <p>Deletes the metadata for the specified stream.  </p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -178,7 +178,7 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="get-stream-tags"><code>Get stream tags</code></h2>
 <p>Returns the tag list for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -205,7 +205,7 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="update-stream-tags"><code>Update stream tags</code></h2>
 <p>Replaces the tag list for the specified stream with the tags listed in the request body.<br>Overwrites any existing tags; does not merge. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier
@@ -224,7 +224,7 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="delete-stream-metadata-1"><code>Delete stream metadata</code></h2>
 <p>Deletes the tag list for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>   DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>   DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
   The tenant identifier

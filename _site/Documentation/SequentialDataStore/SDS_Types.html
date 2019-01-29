@@ -97,10 +97,10 @@ index; that is, each property of an SdsType event is related to the event’s in
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
 information about read characteristics see  Interpolation_ and Extrapolation_.</p>
-<p>SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a view, its form  cannot be changed. 
+<p>SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a stream view, its form  cannot be changed. 
 Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
-of the SdsType. In addition, the SdsType may be deleted only if no streams or views reference it.</p>
-<p>Only SdsTypes used to define SdsStreams or SdsViews are required to be added to the Sequential data store. 
+of the SdsType. In addition, the SdsType may be deleted only if no streams or stream views reference it.</p>
+<p>Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be added to the Sequential data store. 
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.</p>
 <p>The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.</p>
@@ -455,19 +455,19 @@ SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus add
 <td>511</td>
 </tr>
 <tr>
-<td>SdsView</td>
+<td>SdsStreamView</td>
 <td>503</td>
 </tr>
 <tr>
-<td>SdsViewMap</td>
+<td>SdsStreamViewMap</td>
 <td>505</td>
 </tr>
 <tr>
-<td>SdsViewMapProperty</td>
+<td>SdsStreamViewMapProperty</td>
 <td>506</td>
 </tr>
 <tr>
-<td>SdsViewProperty</td>
+<td>SdsStreamViewProperty</td>
 <td>504</td>
 </tr>
 <tr>
@@ -1581,7 +1581,7 @@ defines the available functions. See Types_ for general SdsType information.</p>
 <h2 id="get-type"><code>Get Type</code></h2>
 <p>Returns the type corresponding to the specified typeId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1663,7 +1663,7 @@ in the Namespace. See <a class="xref" href="Searching.html">Searching</a>
 and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
 for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1757,7 +1757,7 @@ including the .NET HttpClient, consider redirecting with the authorization token
 returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1944,11 +1944,11 @@ redirect with the authorization header, you should disable automatic redirect an
 <hr>
 <h2 id="create-or-update-type"><code>Create or Update Type</code></h2>
 <p>Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.</p>
-<p>Note that a type cannot be updated if any streams or views are 
+<p>Note that a type cannot be updated if any streams or stream views are 
 associated with it. Also, certain parameters, including the type id, cannot be changed after 
 they are defined.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1963,9 +1963,9 @@ they are defined.</p>
 <p>  Allowed by administrator accounts</p>
 <hr>
 <h2 id="delete-type"><code>Delete Type</code></h2>
-<p>Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or views reference it.</p>
+<p>Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views reference it.</p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    DELETE  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>

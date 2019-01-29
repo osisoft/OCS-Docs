@@ -13,7 +13,7 @@ SdsStreams are referenced by their identifier or Id field. SdsStream identifiers
 within a Namespace.
 
 An SdsStream must include a TypeId that references the identifier of an existing SdsType. 
-When an SdsStream contains data, you must use a view to update the stream type.
+When an SdsStream contains data, you must use a stream view to update the stream type.
 
 SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. 
 Create the ISdsMetadataService, using one of the ``SdsService.GetMetadataService()`` factory methods.
@@ -415,14 +415,13 @@ The request content is the serialized SdsStream.
 ``Update Stream Type``
 --------------
 
-Updates a stream’s type. The type is modified to match the specified view. 
+Updates a stream’s type. The type is modified to match the specified stream view. 
 Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 
 **Request**
 
-        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
-
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
 
 **Parameters**
 
@@ -435,7 +434,7 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 ``string streamId``  
   The stream identifier  
   
-``string viewId``  
+``string streamViewId``  
   The stream view identifier  
 
 The request contains no content.
@@ -453,7 +452,7 @@ The request contains no content.
 
 **.NET Library**
 
-      Task UpdateStreamTypeAsync(string streamId, string viewId);
+      Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 
 
 **Security**

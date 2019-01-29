@@ -86,7 +86,7 @@ searching for SdsStreams and SdsTypes.</p>
 <p>The syntax of the client libraries method is as follows:</p>
 <pre><code>  _metadataService.GetStreamsAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>Searching for streams is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
-<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;skip={skip}&amp;count={count}
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;skip={skip}&amp;count={count}
 </code></pre><h1 id="searching-for-types">Searching for Types</h1>
 <p>Similarly, the search functionality for types is also exposed through REST API and the client libraries method <code>GetTypesAsync</code>. The query syntax and the request parameters are the same. 
 The only difference is the resource you&#39;re searching on, and you can filter on different properties for types than for streams. See <a class="xref" href="SDS_Types.html">Types</a> for more information.</p>
@@ -94,7 +94,7 @@ The only difference is the resource you&#39;re searching on, and you can filter 
 <p>The syntax of the client libraries method is as follows:</p>
 <pre><code>  _metadataService.GetTypesAsync(query:&quot;QueryString&quot;, skip:0, count:100);
 </code></pre><p>As previously mentioned, searching for types is also possible using the REST API and specifying the optional <code>query</code> parameter, as shown here:</p>
-<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;skip={skip}&amp;count={count}
 </code></pre><h1 id="how-searching-works">How Searching Works</h1>
 <p>The <code>GetStreamsAsync</code> or <code>GetTypesAsync</code> overload return items that match specific search criteria within a given namespace. 
 The query parameter will be applied across all properties of items we’re searching on by default, such as <code>Name</code> or <code>Description</code>.</p>
@@ -168,13 +168,13 @@ skip parameter when more items match the search criteria than can be returned in
 The default value for <code>orderby</code> parameter is ascending order. It can be changed to descending order by specifying <code>desc</code> alongside the orderby field value. It can be used in conjunction with 
 <code>query</code>, <code>filter</code>, <code>skip</code>, and <code>count</code> parameters.</p>
 <p><strong>REST API examples</strong></p>
-<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name
+<pre><code>GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name
 
-GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=id asc
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=id asc
 
-GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc
 
-GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc&amp;skip=10&amp;count=20
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&amp;orderby=name desc&amp;skip=10&amp;count=20
 </code></pre><h1 id="search-operators">Search operators</h1>
 <p>You can specify search operators in the <code>query</code> string to return more specific search results. </p>
 <table>
@@ -223,7 +223,7 @@ It only works when specifying a single search term. For example, you can search 
 <p>You can also qualify which fields are searched by using the following syntax: </p>
 <pre><code>fieldname:fieldvalue
 </code></pre><p><strong>REST API example</strong></p>
-<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
+<pre><code>GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
 </code></pre><p><strong>C# example</strong></p>
 <pre><code>GetStreamsAsync(query:”name:pump name:pressure”);
 </code></pre><h2 id="-operator-1"><strong>* Operator</strong></h2>
@@ -274,7 +274,7 @@ It only works when specifying a single search term. For example, you can search 
 </tbody>
 </table>
 <p><strong>REST API example</strong></p>
-<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
+<pre><code>GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
 </code></pre><p><strong>C# example</strong></p>
 <pre><code>GetStreamsAsync(query:”log*”);
 </code></pre><h2 id="-operator-2">&quot;&quot; Operator</h2>
@@ -299,7 +299,7 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 </tbody>
 </table>
 <p><strong>REST API example</strong></p>
-<pre><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
+<pre><code>GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
 </code></pre><p><strong>C# example</strong></p>
 <pre><code>GetStreamsAsync(query:”\\”pump pressure\\””);
 </code></pre><h2 id="other-operators-examples">Other operators examples</h2>

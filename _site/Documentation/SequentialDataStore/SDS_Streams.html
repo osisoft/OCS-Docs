@@ -84,7 +84,7 @@ of events in an SdsStream.</p>
 <p>SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique 
 within a Namespace.</p>
 <p>An SdsStream must include a TypeId that references the identifier of an existing SdsType. 
-When an SdsStream contains data, you must use a view to update the stream type.</p>
+When an SdsStream contains data, you must use a stream view to update the stream type.</p>
 <p>SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. 
 Create the ISdsMetadataService, using one of the <code>SdsService.GetMetadataService()</code> factory methods.</p>
 <p>The following table shows the required and optional SdsStream fields. Fields not listed are reserved
@@ -222,14 +222,11 @@ SdsStream information. </p>
 <h2 id="get-stream"><code>Get Stream</code></h2>
 <p>Returns the specified stream.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string typeId</code>
-  The type identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier</p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -255,7 +252,7 @@ the search/filter criteria. If neither parameter is specified, the list includes
 in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
 and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a><br>for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>  The tenant identifier</p>
 <p><code>string namespaceId</code><br>  The namespace identifier</p>
@@ -269,13 +266,7 @@ and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: 
   If not specified, a default value of 0 is used.</p>
 <p><code>int count</code><br>  An optional parameter representing the maximum number of SdsStreams to retrieve. 
   If not specified, a default value of 100 is used.</p>
-<p><code>string orderby</code>
-  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given
-  field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). 
-  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
-  using values <code>asc</code> or <code>desc</code>, respectively.
-  For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending.
-  If no value is specified, there is no sorting of results.</p>
+<p><code>string orderby</code><br>  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values <code>asc</code> or <code>desc</code>, respectively. For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending. If no value is specified, there is no sorting of results.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -313,14 +304,11 @@ and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: 
 <h2 id="get-stream-type"><code>Get Stream Type</code></h2>
 <p>Returns the type definition that is associated with a given stream.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -342,14 +330,11 @@ including the .NET HttpClient, consider redirecting with the authorization token
 returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier. The stream identifier must match the identifier in content. 
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier. The stream identifier must match the identifier in content. 
   The request content is the serialized SdsStream.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
@@ -371,14 +356,11 @@ The following changes are permitted:</p>
 •  PropertyOverrides</p>
 <p>Unpermitted changes result in an error.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier of the tenant where you want to update the stream
-<code>string namespaceId</code>
-  The namespace identifier of the namespace where you want to update the stream
-<code>string streamId</code>
-  The stream identifier to be updated</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p>The request content is the serialized SdsStream.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
@@ -388,40 +370,33 @@ The following changes are permitted:</p>
 <p>  Allowed for administrator accounts</p>
 <hr>
 <h2 id="update-stream-type"><code>Update Stream Type</code></h2>
-<p>Updates a stream’s type. The type is modified to match the specified view. 
+<p>Updates a stream’s type. The type is modified to match the specified stream view. 
 Defined Indexes and PropertyOverrides are removed when updating a stream type.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string viewId</code>
-  The view identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
+<p><code>string streamViewId</code><br>  The stream view identifier  </p>
 <p>The request contains no content.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>Response body</strong></p>
 <p>  On failure, the content contains a message describing the issue.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task UpdateStreamTypeAsync(string streamId, string viewId);
+<pre><code>  Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 </code></pre><p><strong>Security</strong></p>
 <p>  Allowed for administrator accounts</p>
 <hr>
 <h2 id="delete-stream"><code>Delete Stream</code></h2>
 <p>Deletes a stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
