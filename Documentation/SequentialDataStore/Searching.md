@@ -60,7 +60,7 @@ Using the stream data above, the following table shows the results of a ``GetStr
 
 **QueryString**     | **Streams returned**
 ------------------ | ----------------------------------------
-``“temperature”``  | stream1 and stream3 returned.
+``“temperature”``  | Only stream1 returned.
 ``“calc*”``        | Only stream3 returned.
 ``“DeviceA*”``     | All three streams returned.
 ``“humidity*”``    | No streams returned.
