@@ -6,7 +6,7 @@ Subscriptions
 =============
 
 
-A Subscription is used to consume data from a topic. Multiple subscriptions can retrieve data from a single topic.  
+A Subscription is used to consume data from a topic. Multiple subscriptions can retrieve data from a single topic.
 
 There are two types of Subscriptions with different behaviors. 
 
@@ -44,7 +44,6 @@ Subscription information is contained in an object called Subscription which has
 | Type                 | integer                 | An enumeration where OCSDataStore=1, Standard=2  |
 | CreatedDate          | string                  | The time that the Subscription was created. The string is formatted using ISO 8601 format. |
 | Enabled              | boolean                 | Whether the topic exists or not        |
-| OCSNamespace         | string                  | If an OCS Data Store Subscription, the namespace being written to |
 
 ***************
 
@@ -144,7 +143,7 @@ Gets the default Access Control List for new subscriptions
 
 **Returns**
 
-An AccessControlList object 
+An AccessControlList object.
 
 *******************
 
@@ -164,11 +163,31 @@ Gets the Access Control List for a particular subscriptions
 
 **Returns**
 
-An AccessControlList object 
+An AccessControlList object.
 
 *******************
 
-``POST api/tenants/{tenantId}/namespaces/{namespaceId}/subscription``
+``GET api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
+--------------------------------------------
+
+Gets the Owner Trustee for a particular subscriptions
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``namespaceId``
+  Unique Id for the namespace. 
+``subscriptionId``
+  Unique Id for the subscription. 
+
+**Returns**
+
+A Trustee object.
+
+*******************
+
+``PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions``
 --------------------------------------------
 
 Create or update a subscription. Only the name and description may be updated. 
@@ -203,7 +222,7 @@ Updates the default Access Control List for new subscriptions
 
 **Body**
 
-An AccessControlList object 
+An AccessControlList object.
 
 *******************
 
@@ -223,7 +242,27 @@ Updates the Access Control List for a particular subscriptions
 
 **Body**
 
-An AccessControlList object 
+An AccessControlList object.
+
+*******************
+
+``PUT api/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
+--------------------------------------------
+
+Updates the Owner Trustee for a particular subscriptions
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``namespaceId``
+  Unique Id for the namespace. 
+``subscriptionId``
+  Unique Id for the subscription. 
+
+**Body**
+
+A Trustee object.
 
 *******************
 

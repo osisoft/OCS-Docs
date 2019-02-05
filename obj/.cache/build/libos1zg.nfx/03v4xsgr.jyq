@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Topics  </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Topics  ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="omfIngressTopics">
+<h1 id="topics-" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="5" sourceendlinenumber="6">Topics </h1>
+
+<h2 id="topic-information-" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="8" sourceendlinenumber="9">Topic information </h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="11" sourceendlinenumber="13">A Topic is used to aggregate data received from publishers and make it available for consumption 
+via a Subscription. A topic must contain at least one publisher. Publishers may be added to or 
+removed from an existing topic. A given publisher may also belong to multiple topics. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="15" sourceendlinenumber="17">When a topic is created, data sent from its assigned publishers is routed to a special queue 
+where it can be consumed by a subscription. This queue provides a buffer of up to one day for 
+subscriptions which are temporarily unable to receive data.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="19" sourceendlinenumber="21">While OMF messages may be sent to OCS immediately after creating a Topic, the messages 
+cannot be made available for consumption until a Subscription is created. However, some 
+messages are stored for later consumption in OCS databases. See OMF documentation for more information.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="23" sourceendlinenumber="23">The API calls in this section are used to create and manipulate topics. </p>
+<h2 id="data-models-" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="25" sourceendlinenumber="26">Data Models </h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="28" sourceendlinenumber="28">Topic information is contained in an object called <code>Topic</code> and has the following format: </p>
+<table sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="31" sourceendlinenumber="39">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TenantId</td>
+<td>string</td>
+<td>Identifies the owner of the Topic</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Unique Id generated by the API during creation</td>
+</tr>
+<tr>
+<td>NamespaceId</td>
+<td>string</td>
+<td>Identifies the namespace for the Topic</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>A friendly name for the Topic</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>An optional description for the Topic.</td>
+</tr>
+<tr>
+<td>CreationDate</td>
+<td>string</td>
+<td>The time that the Topic was created. The string is formatted using ISO 8601 format.</td>
+</tr>
+<tr>
+<td>Publishers</td>
+<td>string array</td>
+<td>An array of Publisher Ids mapped to the Topic</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicscount" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="43" sourceendlinenumber="44"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/count</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="46" sourceendlinenumber="46">Get the number of topics for a tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="48" sourceendlinenumber="48"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="50" sourceendlinenumber="53"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="55" sourceendlinenumber="55"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="57" sourceendlinenumber="57">An integer. </p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicid" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="61" sourceendlinenumber="62"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="64" sourceendlinenumber="64">Get a specific topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="66" sourceendlinenumber="66"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="68" sourceendlinenumber="73"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>topicId</code>
+  Unique Id for the topic. 
+<code>namespaceId</code>
+  Unique Id for the namespace.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="75" sourceendlinenumber="75"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="77" sourceendlinenumber="77">A Topic object. </p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicsskipskipcountcount" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="81" sourceendlinenumber="82"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics?skip={skip}&amp;count={count}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="84" sourceendlinenumber="84">Get all topics for a tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="86" sourceendlinenumber="86"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="88" sourceendlinenumber="95"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace.
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first topic to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of topics to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="97" sourceendlinenumber="97"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="99" sourceendlinenumber="99">An array of Topic objects. </p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidsubscriptionsskipskipcountcount" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="103" sourceendlinenumber="104"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions?skip={skip}&amp;count={count}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="106" sourceendlinenumber="106">Get all subscriptions across all namespaces mapped to a topic.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="108" sourceendlinenumber="108"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="110" sourceendlinenumber="119"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace of the topic.
+<code>topicId</code>
+  Unique Id for the topic.
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first subscription mapped to a topic to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of subscriptions mapped to a topic to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="121" sourceendlinenumber="121"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="123" sourceendlinenumber="123">An array of Subscription objects. </p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidpublishersskipskipcountcount" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="127" sourceendlinenumber="128"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/publishers?skip={skip}&amp;count={count}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="130" sourceendlinenumber="130">Gets a list of publishers that are currently mapped to a topic </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="132" sourceendlinenumber="132"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="134" sourceendlinenumber="143"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace of the topic.
+<code>topicId</code>
+  Unique Id for the topic. 
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first publisher mapped to a topic to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of publishers mapped to a topic to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="145" sourceendlinenumber="145"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="147" sourceendlinenumber="147">An array of Publisher objects.</p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidaccesscontroltopics" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="151" sourceendlinenumber="152"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="154" sourceendlinenumber="154">Gets the default Access Control List for new topics.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="156" sourceendlinenumber="156"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="158" sourceendlinenumber="161"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="163" sourceendlinenumber="163"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="165" sourceendlinenumber="165">An AccessControlList object.</p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidaccesscontrol" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="169" sourceendlinenumber="170"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="172" sourceendlinenumber="172">Gets the Access Control List for a particular topic.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="174" sourceendlinenumber="174"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="176" sourceendlinenumber="181"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="183" sourceendlinenumber="183"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="185" sourceendlinenumber="185">An AccessControlList object.</p>
+<hr>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidowner" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="189" sourceendlinenumber="190"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="192" sourceendlinenumber="192">Gets the Owner Trustee for a particular topic.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="194" sourceendlinenumber="194"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="196" sourceendlinenumber="201"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="203" sourceendlinenumber="203"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="205" sourceendlinenumber="205">A Trustee object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopics" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="209" sourceendlinenumber="210"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="212" sourceendlinenumber="212">Creates or updates a topic. Only the topic name and description can be updated. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="214" sourceendlinenumber="214"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="216" sourceendlinenumber="219"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="221" sourceendlinenumber="221"><strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="223" sourceendlinenumber="223">A MappedTopic object. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="225" sourceendlinenumber="225"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="227" sourceendlinenumber="227">A MappedTopic object. </p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidaccesscontroltopics" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="232" sourceendlinenumber="233"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="235" sourceendlinenumber="235">Update the default Access Control List for new topics</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="237" sourceendlinenumber="237"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="239" sourceendlinenumber="242"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="244" sourceendlinenumber="244"><strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="246" sourceendlinenumber="246">An AccessControlList object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopicstopicidaccesscontrol" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="250" sourceendlinenumber="251"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="253" sourceendlinenumber="253">Update the Access Control List for a particular topic</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="255" sourceendlinenumber="255"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="257" sourceendlinenumber="262"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="264" sourceendlinenumber="264"><strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="266" sourceendlinenumber="266">An AccessControlList object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopicstopicidowner" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="270" sourceendlinenumber="271"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="273" sourceendlinenumber="273">Update the Owner Trustee for a particular topic</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="275" sourceendlinenumber="275"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="277" sourceendlinenumber="282"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="284" sourceendlinenumber="284"><strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="286" sourceendlinenumber="286">A Trustee object.</p>
+<hr>
+<h2 id="delete-apitenantstenantidnamespacesnamespaceidtopicstopicid" sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="290" sourceendlinenumber="291"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="293" sourceendlinenumber="293">Delete a topic. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="295" sourceendlinenumber="295"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Topics.md" sourcestartlinenumber="297" sourceendlinenumber="302"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/DataIngress/OMF_Ingress_Topics.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

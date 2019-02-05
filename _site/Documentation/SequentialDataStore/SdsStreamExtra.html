@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -85,14 +85,11 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <h2 id="get-stream-metadata"><code>Get stream metadata</code></h2>
 <p>Returns the metadata dictionary for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -112,16 +109,12 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <h2 id="get-stream-metadata-value"><code>Get stream metadata value</code></h2>
 <p>Returns the value for the specified key in the metadata dictionary of the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier
-<code>string key</code>
-  The key specifying the metadata value of interest </p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
+<p><code>string key</code><br>  The key specifying the metadata value of interest  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -141,14 +134,11 @@ as a list of strings. Tags can be used to categorize or denote special attribute
 <p>Replaces the metadata for the specified stream with the metadata in the request body. 
 Overwrites any existing metadata; does not merge. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
@@ -159,14 +149,11 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="delete-stream-metadata"><code>Delete stream metadata</code></h2>
 <p>Deletes the metadata for the specified stream.  </p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
@@ -178,14 +165,11 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="get-stream-tags"><code>Get stream tags</code></h2>
 <p>Returns the tag list for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -205,14 +189,11 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="update-stream-tags"><code>Update stream tags</code></h2>
 <p>Replaces the tag list for the specified stream with the tags listed in the request body.<br>Overwrites any existing tags; does not merge. </p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p>  The request content is the serialized list of tags. </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
@@ -224,14 +205,11 @@ Overwrites any existing metadata; does not merge. </p>
 <h2 id="delete-stream-metadata-1"><code>Delete stream metadata</code></h2>
 <p>Deletes the tag list for the specified stream. </p>
 <p><strong>Request</strong></p>
-<pre><code>   DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+<pre><code>   DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier
-<code>string namespaceId</code>
-  The namespace identifier
-<code>string streamId</code>
-  The stream identifier</p>
+<p><code>string tenantId</code><br>  The tenant identifier  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p><code>string streamId</code><br>  The stream identifier  </p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
@@ -262,7 +240,7 @@ Overwrites any existing metadata; does not merge. </p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

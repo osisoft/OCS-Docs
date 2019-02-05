@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -141,7 +141,7 @@ For additional information, including a detailed list of supported data types, r
          simpleType.Description = &quot;Basic sample type&quot;;
   await config.CreateTypeAsync(simpleType);
 </code></pre><p>When working outside of .NET, SDS libraries are unavailable. The SdsType is defined using JSON and is posted to the OSIsoft Cloud Services endpoint.</p>
-<pre><code>  POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  HTTP/1.1
+<pre><code>  POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  HTTP/1.1
   Authorization: Bearer &lt;bearer-token&gt;
   Content-Length: 1562
   Content-Type: application/json
@@ -271,7 +271,7 @@ Detailed information about streams can be found in SdsStreams.</p>
 
   simpleStream = config.CreateStreamAsync(simpleStream);
 </code></pre><p>To create the stream without the libraries, post a JSON representation of the SdsStream to OSIsoft Cloud Services.</p>
-<pre><code>  POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  HTTP/1.1
+<pre><code>  POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  HTTP/1.1
   Authorization: Bearer &lt;bearer-token&gt;
   Content-Length: 139
   Content-Type: application/json
@@ -299,7 +299,7 @@ Inserts fail if events with the same index already exist in the database. Update
 
   await client.InsertValueAsync(simpleStream.Id, value);
 </code></pre><p>To POST a JSON serialized event to the OSIsoft Cloud Services:</p>
-<pre><code>  POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
+<pre><code>  POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
   InsertValue  HTTP/1.1
   Authorization: Bearer &lt;bearer-token&gt;
   Content-Length: 57
@@ -324,7 +324,7 @@ The simplest way to supply an index is as a string. In .NET a <code>DateTime</co
 </code></pre><p>To read a value at a distinct index, use the .NET SDS libraries:</p>
 <pre><code>  value = await client.GetDistinctValueAsync&lt;Simple&gt;(simpleStream.Id, index); 
 </code></pre><p>To read using REST:</p>
-<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/
         Data/GetDistinctValue?index={index} HTTP/1.1
 
   Authorization: Bearer &lt;bearer-token&gt;
@@ -388,7 +388,7 @@ terminates the request if the time it takes to process the request exceeds the t
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

@@ -13,7 +13,7 @@ SdsStreams are referenced by their identifier or Id field. SdsStream identifiers
 within a Namespace.
 
 An SdsStream must include a TypeId that references the identifier of an existing SdsType. 
-When an SdsStream contains data, you must use a view to update the stream type.
+When an SdsStream contains data, you must use a stream view to update the stream type.
 
 SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. 
 Create the ISdsMetadataService, using one of the ``SdsService.GetMetadataService()`` factory methods.
@@ -39,7 +39,7 @@ for internal SDS use.
 1. Is not case sensitive.
 2. Can contain spaces.
 3. Cannot start with two underscores ("\_\_").
-4. Can contain a maximum of 260 characters.
+4. Can contain a maximum of 100 characters.
 5. Cannot use the following characters: ( / : ? # [ ] @ ! $ & ' ( ) \\\* +
    , ; = %)
 6. Cannot start or end with a period.
@@ -65,7 +65,7 @@ Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
 Interpolation and Extrapolation
 -------------------------------
 
-The InterpolationMode, ExtrapolationMode, and PropertyOverrides_ can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see [Types](xref:sdsTypes).
+The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see [Types](xref:sdsTypes).
 
 
 PropertyOverrides
@@ -117,17 +117,19 @@ Returns the specified stream.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**
 
-``string tenantId``
+``string tenantId``  
   The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string typeId``
-  The type identifier
+
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier
 
 
 **Response**
@@ -177,7 +179,7 @@ for information about specifying those respective parameters.
 
 **Request**
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
@@ -205,13 +207,8 @@ for information about specifying those respective parameters.
   An optional parameter representing the maximum number of SdsStreams to retrieve. 
   If not specified, a default value of 100 is used.
 
-``string orderby``
-  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given
-  field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
-  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
-  using values ``asc`` or ``desc``, respectively.
-  For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
-  If no value is specified, there is no sorting of results.
+``string orderby``  
+  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
 **Response**
 
@@ -270,16 +267,18 @@ Returns the type definition that is associated with a given stream.
 
 **Request**
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 
 **Response**
@@ -323,16 +322,18 @@ redirect with the authorization header, you should disable automatic redirect.
 
 **Request**
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
   The stream identifier. The stream identifier must match the identifier in content. 
   The request content is the serialized SdsStream.
 
@@ -376,19 +377,20 @@ The following changes are permitted:
 Unpermitted changes result in an error.
 
 
-
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier of the tenant where you want to update the stream
-``string namespaceId``
-  The namespace identifier of the namespace where you want to update the stream
-``string streamId``
-  The stream identifier to be updated
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 The request content is the serialized SdsStream.
 
@@ -413,25 +415,27 @@ The request content is the serialized SdsStream.
 ``Update Stream Type``
 --------------
 
-Updates a stream’s type. The type is modified to match the specified view. 
+Updates a stream’s type. The type is modified to match the specified stream view. 
 Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 
 **Request**
 
-        PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?viewId={viewId}
-
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
-``string viewId``
-  The view identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
+  
+``string streamViewId``  
+  The stream view identifier  
 
 The request contains no content.
 
@@ -448,7 +452,7 @@ The request contains no content.
 
 **.NET Library**
 
-      Task UpdateStreamTypeAsync(string streamId, string viewId);
+      Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 
 
 **Security**
@@ -466,17 +470,19 @@ Deletes a stream.
 
 **Request**
 
-        DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier
-``string namespaceId``
-  The namespace identifier
-``string streamId``
-  The stream identifier
+``string tenantId``  
+  The tenant identifier  
+  
+``string namespaceId``  
+  The namespace identifier  
+  
+``string streamId``  
+  The stream identifier  
 
 
 **Response**

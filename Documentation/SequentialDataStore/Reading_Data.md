@@ -7,7 +7,7 @@ Reading data
 
 The .NET and REST APIs provide programmatic access to read and write data. This section identifies and describes 
 the APIs used to read [Stream](xref:sdsStreams) data. Results are influenced by [Types](xref:sdsTypes),  
-[Sds Views](xref:sdsViews), [Filter expressions](xref:sdsFilterExpressions), and [Table format](xref:sdsTableFormat).
+[Stream Views](xref:sdsViews), [Filter expressions](xref:sdsFilterExpressions), and [Table format](xref:sdsTableFormat).
 
 If you are working in a .NET environment, convenient SDS Client libraries are available. 
 The ``ISdsDataServiceinterface``, which is accessed using the ``SdsService.GetDataService()`` helper, 
@@ -33,7 +33,7 @@ In addition, the following methods support reading multiple values:
 
 All reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI is as follows:
 
-``api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data``
+``api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data``
 
 
 **where:**
@@ -91,16 +91,16 @@ Read characteristics applied to indexes between, before, or after data when the 
 [`GetRangeValuesAsync`](xref:sdsReadingDataApi#get-range-values)  
 Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.
 
-SdsView and reading data
+SdsStreamView and reading data
 ------------------------
 
-All reads support specifying a SdsView identifier in the query string to shape the results of the read:
+All reads support specifying an SdsStreamView identifier in the query string to shape the results of the read:
 
-``viewId={viewId}``
+``streamViewId={streamViewId}``
 
-Working with views is covered in detail in the [Sds Views](xref:sdsViews) section.
+Working with stream views is covered in detail in the [Stream Views](xref:sdsViews) section.
 
-When data is requested with a SdsView the read characteristics defined by the *target type* of the SdsView 
+When data is requested with an SdsStreamView the read characteristics defined by the *target type* of the SdsStreamView 
 determine what is returned. The read characteristics are discussed in the *Get Value*, 
 *GetValues* and *GetWindowValues* code samples.
 
@@ -162,7 +162,7 @@ SDS supports assigning [Units of Measure](xref:unitsOfMeasure) (Uom) to stream d
 
 | Property          | Type                 | Optionality | Details                                              |
 | ----------------- | -------------------- | ----------- | ---------------------------------------------------- |
-| SdsTypePropertyId | String               | Required    | Identifier for a SdsTypeProperty with a Uom assigned |
+| SdsTypePropertyId | String               | Required    | Identifier for an SdsTypeProperty with a Uom assigned |
 | Uom               | String               | Required    | Target unit of measure                               |
 | InterpolationMode | SdsInterpolationMode | N/A         | Currently not supported in context of data reads     |
 

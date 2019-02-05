@@ -98,7 +98,7 @@ To create an SdsType in .NET, use the .NET SDS libraries SdsTypeBuilder.
 
 When working outside of .NET, SDS libraries are unavailable. The SdsType is defined using JSON and is posted to the OSIsoft Cloud Services endpoint.
 
-      POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  HTTP/1.1
+      POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  HTTP/1.1
       Authorization: Bearer <bearer-token>
       Content-Length: 1562
       Content-Type: application/json
@@ -235,7 +235,7 @@ Create an SdsStream of Simple events using the .NET SDS libraries as follows:
 
 To create the stream without the libraries, post a JSON representation of the SdsStream to OSIsoft Cloud Services.
 
-      POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  HTTP/1.1
+      POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  HTTP/1.1
       Authorization: Bearer <bearer-token>
       Content-Length: 139
       Content-Type: application/json
@@ -271,7 +271,7 @@ To insert an event using the .NET SDS libraries:
 
 To POST a JSON serialized event to the OSIsoft Cloud Services:
 
-      POST /api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
+      POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
       InsertValue  HTTP/1.1
       Authorization: Bearer <bearer-token>
       Content-Length: 57
@@ -308,7 +308,7 @@ To read a value at a distinct index, use the .NET SDS libraries:
 
 To read using REST:
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/
             Data/GetDistinctValue?index={index} HTTP/1.1
 
       Authorization: Bearer <bearer-token>

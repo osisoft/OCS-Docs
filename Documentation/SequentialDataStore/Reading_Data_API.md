@@ -2,7 +2,7 @@
 uid: sdsReadingDataApi
 ---
 # API calls for reading data
-Reading and writing data with the Sds Client Libraries is performed through the ``ISdsDataService`` interface, which can be accessed with the ``SdsService.GetDataService( )`` helper.
+Reading and writing data with the SDS Client Libraries is performed through the ``ISdsDataService`` interface, which can be accessed with the ``SdsService.GetDataService( )`` helper.
 ***********************
 
 ## Sample Types
@@ -168,8 +168,8 @@ Get Value supports two ways to retrieve an event:
 
 ### Request (Standard) 
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
-         ?index={index}&viewId={viewId}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+         ?index={index}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -185,8 +185,8 @@ The stream identifier
 ``string index``  
 The index
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -195,7 +195,7 @@ Optional view identifier
   Consider a stream of type Simple with the default InterpolationMode of Continuous and 
   ExtrapolationMode of All. In the following request, the specified index matches an existing stored event:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
          ?index=2017-11-23T13:00:00Z
 
 The response will contain the event stored at the specified index:
@@ -214,7 +214,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 The following request specifies an index for which no stored event exists:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
           ?index=2017-11-23T13:30:00Z
 
 Because the index is a valid type for interpolation and the stream type specifies a mode of interpolate, 
@@ -233,18 +233,18 @@ this request receives a response with an event interpolated at the specified ind
 **.NET Library**
 
       Task<T> GetValueAsync<T>(string streamId, string index, 
-      string viewId = null);
+      string streamViewId = null);
       Task<T> GetValueAsync<T, T1>(string streamId, Tuple<T1> index, 
-      string viewId = null);
+      string streamViewId = null);
       Task<T> GetValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, 
-      string viewId = null);
+      string streamViewId = null);
 
 <a name="getvalueuomconversion"></a>
 
 ### Request (Uom Conversion)
 
-        POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
-            ?index={index}&viewId={viewId}
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+            ?index={index}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -260,12 +260,12 @@ The stream identifier
 ``string index``  
 The index
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -291,9 +291,9 @@ The response includes a status code and response body containing a serialized ev
 
 **.NET Library**
 
-      Task<T> GetValueAsync<T>(string streamId, string index, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
-      Task<T> GetValueAsync<T, T1>(string streamId, Tuple<T1> index, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
-      Task<T> GetValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+      Task<T> GetValueAsync<T>(string streamId, string index, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
+      Task<T> GetValueAsync<T, T1>(string streamId, Tuple<T1> index, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
+      Task<T> GetValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
 ***********************
 
@@ -306,8 +306,8 @@ Get First Value supports two ways to retrieve an event:
 <a name="getfirstvaluestandard"></a>
 ### Request (Standard)
 
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
-            ?viewId={viewId}
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+            ?streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -320,8 +320,8 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Response**
 
@@ -329,13 +329,13 @@ Optional view identifier
 
 **.NET Library**
 
-      Task<T> GetFirstValueAsync<T>(string streamId, string viewId = null);
+      Task<T> GetFirstValueAsync<T>(string streamId, string streamViewId = null);
 
 <a name="getfirstvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
-         ?viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+         ?streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -348,12 +348,12 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -369,7 +369,7 @@ The Request Body contains a collection of `SdsStreamPropertyOverride` objects. T
 
 **.NET Library**
 
-      Task<T> GetFirstValueAsync<T>(string streamId, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+      Task<T> GetFirstValueAsync<T>(string streamId, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
 ***********************
 
@@ -381,9 +381,8 @@ Get Last Value supports two ways to retrieve an event:
 
 <a name="getlastvaluestandard"></a>
 ### Request (Standard)
-        GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
-            ?viewId={viewId}
-
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+            ?streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -396,8 +395,8 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -407,12 +406,12 @@ Optional view identifier
 
 **.NET Library**
 
-      Task<T> GetLastValueAsync<T>(string streamId, string viewId = null);
+      Task<T> GetLastValueAsync<T>(string streamId, string streamViewId = null);
 
 <a name="getlastvalueuomconversion"></a>
 ### Request (Uom Conversion)
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
-            ?viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+            ?streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -425,12 +424,12 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -446,7 +445,7 @@ The response includes a status code and a response body containing a serialized 
 
 **.NET Library**
 ```csharp
-   Task<T> GetLastValueAsync<T>(string streamId, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+   Task<T> GetLastValueAsync<T>(string streamId, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 ```
 ***********************
 
@@ -461,9 +460,8 @@ do not affect Get Distinct Value.
 <a name="getdistinctvaluestandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
-         ?index={index}&viewId={viewId}
-
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+         ?index={index}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -479,8 +477,8 @@ do not affect Get Distinct Value.
 ``string index``  
   The index
 
-``string viewId``  
-  Optional view identifier
+``string streamViewId``  
+  Optional stream view identifier
 
 
 **Response**
@@ -489,7 +487,7 @@ do not affect Get Distinct Value.
 
   For a stream of type Simple, when making a Get Distinct Value request at an existing stored index: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetDistinctValue?index=2017-11-23T13:00:00Z 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetDistinctValue?index=2017-11-23T13:00:00Z 
 
 The event at that index is returned in the response:
 
@@ -507,7 +505,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 For a request at an index for which no stored event exists:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         GetDistinctValue?index=2017-11-23T13:30:00Z
 
 No distinct value is found at the specified index, and an error response is returned:
@@ -525,18 +523,18 @@ No distinct value is found at the specified index, and an error response is retu
 **.NET Library**
 ```csharp
    Task<T> GetDistinctValueAsync<T>(string streamId, string index, 
-      string viewId = null);
+      string streamViewId = null);
    Task<T> GetDistinctValueAsync<T, T1>(string streamId, Tuple<T1> index, 
-      string viewId = null);
+      string streamViewId = null);
    Task<T> GetDistinctValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, 
-      string viewId = null);
+      string streamViewId = null);
 ```
 
 <a name="getdistinctvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
-         ?index={index}&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+         ?index={index}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -552,12 +550,12 @@ No distinct value is found at the specified index, and an error response is retu
 ``string index``  
   The index
 
-``string viewId``  
-  Optional view identifier
+``string streamViewId``  
+  Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -584,11 +582,11 @@ The response includes a status code and response body containing a serialized ev
 **.NET Library**
 ```csharp
    Task<T> GetDistinctValueAsync<T>(string streamId, string index, IList<SdsStreamPropertyOverride> propertyOverrides,
-      string viewId = null);
+      string streamViewId = null);
    Task<T> GetDistinctValueAsync<T, T1>(string streamId, Tuple<T1> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-      string viewId = null);
+      string streamViewId = null);
    Task<T> GetDistinctValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-      string viewId = null);
+      string streamViewId = null);
 ```
 ***********************
 
@@ -600,8 +598,8 @@ Get Last Value supports two ways to retrieve an event:
 <a name="finddistinctvaluestandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
-         ?index={index}&mode={mode}&viewId={viewId}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+         ?index={index}&mode={mode}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -620,8 +618,8 @@ The index
 ``string mode``  
 The SdsSearchMode
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -630,11 +628,11 @@ Optional view identifier
 
 For a stream of type Simple the following request, 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           FindDistinctValue?index=2017-11-23T13:00:00Z&mode=Next
 
 The request has an index that matches the index of an existing event, but because  
-a SdsSearchMode of ``next`` was specified, the response contains the next event in the stream after the 
+an SdsSearchMode of ``next`` was specified, the response contains the next event in the stream after the 
 specified index:
 
 **Response body**
@@ -653,7 +651,7 @@ Note that State is not included in the JSON as its value is the default value.
 
 For the following request,
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         FindDistinctValue?index=2017-11-23T13:30:00Z&mode=Next
 
 The request specifies an index that does not match an index of an existing event. 
@@ -673,17 +671,17 @@ The next event in the stream is retrieved.
 **.NET Library**
 ```csharp
    Task<T> FindDistinctValueAsync<T>(string streamId, string index, 
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
    Task<T> FindDistinctValueAsync<T, T1>(string streamId, Tuple<T1> index, 
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
    Task<T> FindDistinctValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, 
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
 ```
 <a name="finddistinctvalueuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
-         ?index={index}&mode={mode}&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+         ?index={index}&mode={mode}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -702,12 +700,12 @@ The index
 ``string mode``  
 The SdsSearchMode
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -737,11 +735,11 @@ The response includes a status code and response body containing a serialized ev
 
 ```csharp
    Task<T> FindDistinctValueAsync<T>(string streamId, string index, IList<SdsStreamPropertyOverride> propertyOverrides,
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
    Task<T> FindDistinctValueAsync<T, T1>(string streamId, Tuple<T1> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
    Task<T> FindDistinctValueAsync<T, T1, T2>(string streamId, Tuple<T1, T2> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-            SdsSearchMode mode, string viewId = null);
+            SdsSearchMode mode, string streamViewId = null);
 ```
 
 ***********************
@@ -768,8 +766,8 @@ Get Values supports six ways of specifying which events to return.
 <a name="getvaluesrangedstandard"></a>
 ### Request (Ranged)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
-      ?startIndex={startIndex}&endIndex={endIndex}&count={count}&viewId={viewId}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      ?startIndex={startIndex}&endIndex={endIndex}&count={count}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -791,8 +789,8 @@ The index defining the end of the range
 ``int count``  
 The number of events to return. Read characteristics of the stream determine how the form of the event.
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -801,7 +799,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?startIndex=2017-11-23T13:00:00Z&endIndex=2017-11-23T15:00:00Z&count=3
 
 For this request, the start and end fall exactly on event indexes and the number of events 
@@ -834,18 +832,18 @@ Note that State is not included in the JSON as its value is the default value.
 **.NET Library**
 ```csharp
       Task<IEnumerable<T>> GetValuesAsync<T>(string streamId, string startIndex, 
-           string endIndex, int count, string viewId = null);
+           string endIndex, int count, string streamViewId = null);
       Task<IEnumerable<T>> GetValuesAsync<T, T1>(string streamId, T1 startIndex, 
-           T1 endIndex, int count, string viewId = null);
+           T1 endIndex, int count, string streamViewId = null);
       Task<IEnumerable<T>> GetValuesAsync<T, T1, T2>string streamId, Tuple<T1, T2> startIndex, 
-           Tuple<T1, T2> endIndex, int count, string viewId = null);
+           Tuple<T1, T2> endIndex, int count, string streamViewId = null);
 ```
 
 <a name="getvaluesindexcollectionstandard"></a>
 ### Request (Index collection)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
-      ?index={index}[&index={index} …]&viewId={viewId}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      ?index={index}[&index={index} …]&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -861,8 +859,8 @@ The stream identifier
 ``string index``  
 One or more indexes of values to retrieve
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -871,7 +869,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?index=2017-11-23T12:30:00Z&index=2017-11-23T13:00:00Z&index=2017-11-23T14:00:00Z
 
 For this request, the response contains events for each of the three specified indexes.
@@ -903,20 +901,21 @@ Note that State is not included in the JSON as its value is the default value.
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetValuesAsync<T>(string streamId, IEnumerable<string> index, 
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<T>> GetValuesAsync<T, T1>(string streamId, IEnumerable<T1> index,
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<T>> GetValuesAsync<T, T1, T2>(string streamId, 
-         IEnumerable<Tuple< T1, T2>> index, string viewId = null);
+         IEnumerable<Tuple< T1, T2>> index, string streamViewId = null);
 ```
 
 <a name="getvaluesfilteredstandard"></a>
 ### Request (Filtered)
 
-        GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
-           GetValues?filter={filter}&viewId={viewId}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+           GetValues?filter={filter}&streamViewId={streamViewId}
+
 
 
 **Request Parameters**
@@ -933,8 +932,8 @@ The stream identifier
 ``string filter``  
 The filter expression (see [Filter expressions](xref:sdsFilterExpressions))
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 
 **Response**
@@ -943,7 +942,7 @@ Optional view identifier
 
   For a stream of type Simple, the following request, 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
           ?filter=Measurement gt 10
 
 The events in the stream whose Measurement is less than or equal to 10 are not returned.
@@ -977,14 +976,15 @@ Note that State is not included in the JSON as its value is the default value.
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetFilteredValuesAsync<T>(string streamId, string filter, 
-         string viewId = null);
+         string streamViewId = null);
 ```
 
 <a name="getvaluesrangeduomconversion"></a>
 ### Request (Ranged with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
-      ?startIndex={startIndex}&endIndex={endIndex}&count={count}&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      ?startIndex={startIndex}&endIndex={endIndex}&count={count}&streamViewId={streamViewId}
+
 
 **Request Parameters**
 
@@ -1006,12 +1006,12 @@ The index defining the end of the range
 ``int count``  
 The number of events to return. Read characteristics of the stream determine how the form of the event.
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1048,18 +1048,19 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetValuesAsync<T>(string streamId, string startIndex, 
-         string endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         T1 endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         T1 endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetValuesAsync<T, T1, T2>string streamId, Tuple<T1, T2> startIndex, 
-         Tuple<T1, T2> endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         Tuple<T1, T2> endIndex, int count, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 ```
 
 <a name="getvaluesindexcollectionuomconversion"></a>
 ### Request (Index collection with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
-      ?index={index}[&index={index} …]&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      ?index={index}[&index={index} …]&streamViewId={streamViewId}
+
 
 **Request Parameters**
 
@@ -1075,12 +1076,12 @@ The stream identifier
 ``string index``  
 One or more indexes of values to retrieve
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1117,20 +1118,20 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetValuesAsync<T>(string streamId, IEnumerable<string> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<T>> GetValuesAsync<T, T1>(string streamId, IEnumerable<T1> index, IList<SdsStreamPropertyOverride> propertyOverrides,
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<T>> GetValuesAsync<T, T1, T2>(string streamId, 
-         IEnumerable<Tuple< T1, T2>> index, string viewId = null);
+         IEnumerable<Tuple< T1, T2>> index, string streamViewId = null);
 ```
 
 <a name="getvaluesfiltereduomconversion"></a>
 ### Request (Filtered with Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
-      ?filter={filter}&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValues
+      ?filter={filter}&streamViewId={streamViewId}
 
 
 **Request Parameters**
@@ -1147,12 +1148,12 @@ The stream identifier
 ``string filter``  
 The filter expression (see [Filter expressions](xref:sdsFilterExpressions))
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1189,7 +1190,7 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 ```csharp
       Task<IEnumerable<T>> GetFilteredValuesAsync<T>(string streamId, string filter, IList<SdsStreamPropertyOverride> propertyOverrides,
-          string viewId = null);
+          string streamViewId = null);
 ```
 ***********************
 
@@ -1201,9 +1202,9 @@ Get Range Values supports two ways to retrieve events:
 <a name="getrangevaluesstandard"></a>
 ### Request (Standard)
 
-      GET	api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues
+      GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues
          ?startIndex={startIndex}&count={count}&skip={skip}&reversed={reversed} 
-         &boundaryType={boundaryType}&filter={filter}&viewId={viewId}
+         &boundaryType={boundaryType}&filter={filter}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -1236,8 +1237,8 @@ Optional SdsBoundaryType specifies the handling of events at or near startIndex
 ``string filter``  
 Optional filter expression
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Response**
 
@@ -1246,7 +1247,7 @@ Optional view identifier
   For a stream of type Simple, the following request will return a response with up to 100 events starting 
   at 13:00 and extending forward toward the end of the stream: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100
 
 
@@ -1281,7 +1282,7 @@ Note that State is not included in the JSON as its value is the default value.
 To reverse the direction of the request, set reversed to true. This request will 
 return up to 100 events starting at 13:00 and extending back toward the start of the stream:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true
 
 
@@ -1310,7 +1311,7 @@ event outside the boundary will be included in the response. For a reverse direc
 this means one event forward of the specified start index. In a default direction range request, 
 it would mean one event before the specified start index.
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
           &boundaryType=2
 
@@ -1342,7 +1343,7 @@ Measurement is not included in the last event as its value is default.
 
 Adding a filter to the request means only events that meet the filter criteria are returned:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetRangeValues?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
           &boundaryType=2&filter=Measurement gt 10
 
@@ -1367,50 +1368,50 @@ Adding a filter to the request means only events that meet the filter criteria a
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-         int count, string viewId = null);
+         int count, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         int count, string viewId = null);
+         int count, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, Tuple<T1, T2> 
-         startIndex, int count, string viewId = null);
+         startIndex, int count, string streamViewId = null);
 
    Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-         int count, bool reversed, string viewId = null);
+         int count, bool reversed, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         int count, bool reversed, string viewId = null);
+         int count, bool reversed, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, 
-         Tuple<T1, T2> startIndex, int count, bool reversed, string viewId = null);
+         Tuple<T1, T2> startIndex, int count, bool reversed, string streamViewId = null);
 
    Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-         int count, SdsBoundaryType boundaryType, string viewId = null);
+         int count, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         int count, SdsBoundaryType boundaryType, string viewId = null);
+         int count, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, 
-         Tuple<T1, T2> startIndex, int count, SdsBoundaryType boundaryType, string viewId = null);
+         Tuple<T1, T2> startIndex, int count, SdsBoundaryType boundaryType, string streamViewId = null);
 
    Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string viewId = null);
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string viewId = null);
+         int skip, int count, bool reversed, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, Tuple<T1, T2> 
          startIndex, int skip, int count, bool reversed, SdsBoundaryType 
-         boundaryType, string viewId = null);
+         boundaryType, string streamViewId = null);
 
    Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T>(string streamId, string startIndex, 
          int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, 
-         string viewId = null);
+         string streamViewId = null);
    Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T, T1>(string streamId, T1 startIndex, 
          int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, 
-         string viewId = null);
+         string streamViewId = null);
    Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, int skip, int count, bool reversed, SdsBoundaryType boundaryType, 
-         string filter, string viewId = null);
+         string filter, string streamViewId = null);
 ```
 <a name="getrangevaluesuomconversion"></a>
 ### Request (Unit Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
          ?startIndex={startIndex}&count={count}&skip={skip}&reversed={reversed} 
-         &boundaryType={boundaryType}&filter={filter}&viewId={viewId}
+         &boundaryType={boundaryType}&filter={filter}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -1443,12 +1444,12 @@ Optional SdsBoundaryType specifies the handling of events at or near startIndex
 ``string filter``  
 Optional filter expression
 
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1489,43 +1490,43 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 ```csharp
       Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex,
-          int count, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-          int count, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, Tuple<T1, T2> 
-          startIndex, int count, string viewId = null);
+          startIndex, int count, string streamViewId = null);
 
       Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-          int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-          int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, 
-          Tuple<T1, T2> startIndex, int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          Tuple<T1, T2> startIndex, int count, bool reversed, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
       Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-          int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-          int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, 
-          Tuple<T1, T2> startIndex, int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          Tuple<T1, T2> startIndex, int count, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
       Task<IEnumerable<T>> GetRangeValuesAsync<T>(string streamId, string startIndex, 
-          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1>(string streamId, T1 startIndex, 
-          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          int skip, int count, bool reversed, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
       Task<IEnumerable<T>> GetRangeValuesAsync<T, T1, T2>(string streamId, Tuple<T1, T2> 
           startIndex, int skip, int count, bool reversed, SdsBoundaryType 
-          boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
       Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T>(string streamId, string startIndex, 
           int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides,
-          string viewId = null);
+          string streamViewId = null);
       Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T, T1>(string streamId, T1 startIndex, 
           int skip, int count, bool reversed, SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides,
-          string viewId = null);
+          string streamViewId = null);
       Task<IEnumerable<T>> GetRangeFilteredValuesAsync<T, T1, T2>(string streamId, 
           Tuple<T1, T2> startIndex, int skip, int count, bool reversed, SdsBoundaryType boundaryType, 
-          string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+          string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 ```
 ***********************
 
@@ -1538,7 +1539,7 @@ be passed for the start and end individually.
 * [Uom Conversion](#getwindowvaluesuomconversion): Same as Standard, but with unit conversion(s) applied to data when the SdsStream or SdsType contains unit of measure information. See  [Units of Measure](xref:unitsOfMeasure) for additional information
 
 Get Window Values also supports paging for large result sets. Results for paged requests are returned 
-as a SdsResultPage.
+as an SdsResultPage.
 
 
 | Property          | Type   | Details                                          |
@@ -1552,23 +1553,23 @@ For the first request, specify a null or empty string for the ContinuationToken.
 <a name="getwindowvaluesstandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
-          &filter={filter}&count={count}&viewId={viewId}
+          &filter={filter}&count={count}&streamViewId={streamViewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
-          &viewId={viewId}
+          &streamViewId={streamViewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
-          &filter={filter}&count={count}&continuationToken={continuationToken}&viewId={viewId}
+          &filter={filter}&count={count}&continuationToken={continuationToken}&streamViewId={streamViewId}
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
-          &continuationToken={continuationToken}&viewId={viewId}
+          &continuationToken={continuationToken}&streamViewId={streamViewId}
 
 
 
@@ -1604,8 +1605,8 @@ Optional SdsBoundaryType specifies the first value in the result in relation to 
 ``string filter``  
   Optional filter expression
 
-``string viewId``  
-  Optional view identifier
+``string streamViewId``  
+  Optional stream view identifier
 
 
 
@@ -1615,7 +1616,7 @@ Optional SdsBoundaryType specifies the first value in the result in relation to 
 
   For a stream of type Simple, the following requests all stored events between 13:30 and 15:30: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z
 
 The response will contain the event stored at the specified index:
@@ -1645,7 +1646,7 @@ Note that State is not included in the JSON as its value is the default value.
 When the request is modified to specify a boundary type of Outside, the value 
 before 13:30 and the value after 15:30 are included:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &boundaryType=2
 
@@ -1685,7 +1686,7 @@ If instead a start boundary of Inside, only values inside the start boundary (af
 are included in the result. With an end boundary of Outside one value outside the end index 
 (after 15:30) is included:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&&startBoundaryType=1 
           &endIndex=2017-11-23T15:30:00Z&endBoundaryType=2
 
@@ -1720,7 +1721,7 @@ In order to page the results of the request, a continuation token may be specifi
 This requests the first page of the first two stored events between start index and 
 end index by indicating count is 2 and continuationToken is an empty string:
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &count=2&continuationToken=
 
@@ -1749,7 +1750,7 @@ Note that State is not included in the JSON as its value is the default value.
 This Get Window Values request uses the continuation token from the previous 
 page to request the next page of stored events:
 
-      api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
           GetWindowValues?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
           &count=2&continuationToken=2017-11-23T14:00:00Z
 
@@ -1779,110 +1780,110 @@ Note that State is not included in the JSON as its value is the default value.
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetWindowValuesAsync<T>(string streamId, string startIndex, 
-         string endIndex, string viewId = null);
+         string endIndex, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex,
-         T1 endIndex, string viewId = null);
+         T1 endIndex, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, T
-         uple<T1, T2> startIndex, Tuple<T1, T2> endIndex, string viewId = null);
+         uple<T1, T2> startIndex, Tuple<T1, T2> endIndex, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowValuesAsync<T>(string streamId, string startIndex, 
-         string endIndex, SdsBoundaryType boundaryType, string viewId = null);
+         string endIndex, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         T1 endIndex, SdsBoundaryType boundaryType, string viewId = null);
+         T1 endIndex, SdsBoundaryType boundaryType, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
-   SdsBoundaryType boundaryType, string viewId = null);
+   SdsBoundaryType boundaryType, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, string endIndex, SdsBoundaryType boundaryType, 
-         string filter, string viewId = null);
+         string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
-         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, string viewId = null);
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
-         SdsBoundaryType boundaryType, string filter, string viewId = null);
+         SdsBoundaryType boundaryType, string filter, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
-         SdsBoundaryType endBoundaryType, string filter, string viewId = null);
+         SdsBoundaryType endBoundaryType, string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId,
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, string viewId = null);
+         string filter, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, string viewId = null);
+         string filter, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowValuesAsync<T>(string streamId, string startIndex,
          string endIndex, SdsBoundaryType boundaryType, int count, 
-         string continuationToken, string viewId = null);
+         string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex, 
          T1 endIndex, SdsBoundaryType boundaryType, int count, 
-         string continuationToken, string viewId = null);
+         string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
          SdsBoundaryType boundaryType, int count, string continuationToken, 
-         string viewId = null);
+         string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, string endIndex, SdsBoundaryType boundaryType, 
-         string filter, int count, string continuationToken, string viewId = null);
+         string filter, int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
          T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, 
-         int count, string continuationToken, string viewId = null);
+         int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
          SdsBoundaryType boundaryType, string filter, int count, 
-         string continuationToken, string viewId = null);
+         string continuationToken, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, 
          string endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, string viewId = null);
+         int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1>(string streamId, 
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, string viewId = null);
+         int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, string viewId = null);
+         int count, string continuationToken, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, 
          string endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, string viewId = null);
+         string filter, int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, string viewId = null);
+         string filter, int count, string continuationToken, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, string viewId = null);
+         string filter, int count, string continuationToken, string streamViewId = null);
 ```
 
 <a name="getwindowvaluesuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
-          &filter={filter}&count={count}&viewId={viewId}
+          &filter={filter}&count={count}&streamViewId={streamViewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
-          &viewId={viewId}
+          &streamViewId={streamViewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType} 
-          &filter={filter}&count={count}&continuationToken={continuationToken}&viewId={viewId}
+          &filter={filter}&count={count}&continuationToken={continuationToken}&streamViewId={streamViewId}
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
           ?startIndex={startIndex}&startBoundaryType={startBoundaryType} 
           &endIndex={endIndex}&endBoundaryType={endBoundaryType}&filter={filter}&count={count} 
-          &continuationToken={continuationToken}&viewId={viewId}
+          &continuationToken={continuationToken}&streamViewId={streamViewId}
 
 
 **Request Parameters**
@@ -1917,12 +1918,12 @@ Optional SdsBoundaryType specifies the first value in the result in relation to 
 ``string filter``  
   Optional filter expression
 
-``string viewId``  
-  Optional view identifier
+``string streamViewId``  
+  Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -1960,88 +1961,88 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetWindowValuesAsync<T>(string streamId, string startIndex, 
-         string endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex,
-         T1 endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         T1 endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, T
-         uple<T1, T2> startIndex, Tuple<T1, T2> endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         uple<T1, T2> startIndex, Tuple<T1, T2> endIndex, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowValuesAsync<T>(string streamId, string startIndex, 
-         string endIndex, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string endIndex, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex, 
-         T1 endIndex, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         T1 endIndex, SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
-   SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+   SdsBoundaryType boundaryType, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, string endIndex, SdsBoundaryType boundaryType, 
-         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
-         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
-         SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         SdsBoundaryType boundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
-         SdsBoundaryType endBoundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         SdsBoundaryType endBoundaryType, string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId,
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<IEnumerable<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowValuesAsync<T>(string streamId, string startIndex,
          string endIndex, SdsBoundaryType boundaryType, int count, 
-         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1>(string streamId, T1 startIndex, 
          T1 endIndex, SdsBoundaryType boundaryType, int count, 
-         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
          SdsBoundaryType boundaryType, int count, string continuationToken,  IList<SdsStreamPropertyOverride> propertyOverrides,
-         string viewId = null);
+         string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, string endIndex, SdsBoundaryType boundaryType, 
-         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
          T1 startIndex, T1 endIndex, SdsBoundaryType boundaryType, string filter, 
-         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, 
          SdsBoundaryType boundaryType, string filter, int count, 
-         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, 
          string endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1>(string streamId, 
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T>(string streamId, 
          string startIndex, SdsBoundaryType startBoundaryType, 
          string endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1>(string streamId, 
          T1 startIndex, SdsBoundaryType startBoundaryType, 
          T1 endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
    Task<SdsResultPage<T>> GetWindowFilteredValuesAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, SdsBoundaryType startBoundaryType, 
          Tuple<T1, T2> endIndex, SdsBoundaryType endBoundaryType, 
-         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string viewId = null);
+         string filter, int count, string continuationToken, IList<SdsStreamPropertyOverride> propertyOverrides, string streamViewId = null);
 ```
 ***********************
 
@@ -2088,8 +2089,8 @@ Summary values supported by SdsSummaryType enum:
 <a name="getintervalsstandard"></a>
 ### Request (Standard)
 
-      GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
-         ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&viewId={viewId}
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+         ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -2114,8 +2115,8 @@ The number of intervals requested
 ``string filter``  
 Optional filter expression
   
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Response**
 
@@ -2124,7 +2125,7 @@ Optional view identifier
 For a stream of type Simple, the following requests calculates two summary intervals between the first 
 and last events: 
 
-      api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         GetIntervals?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
 
 
@@ -2238,32 +2239,32 @@ and last events:
 **.NET Library**
 ```csharp
    Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T>(string streamId, string 
-         startIndex, string endIndex, int count, string viewId = null);
+         startIndex, string endIndex, int count, string streamViewId = null);
 
    Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1>(string streamId, T1 
-         startIndex, T1 endIndex, int count, string viewId = null);
+         startIndex, T1 endIndex, int count, string streamViewId = null);
 
    Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1, T2>(string streamId, 
          Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T>(string streamId, 
          string startIndex, string endIndex, int count, string filter, 
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1>(string streamId, 
          T1 startIndex, T1 endIndex, int count, string filter, 
-         string viewId = null);
+         string streamViewId = null);
 
    Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1, T2>(string 
          streamId, Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-         string filter, string viewId = null);
+         string filter, string streamViewId = null);
 ```
 <a name="getintervalsuomconversion"></a>
 ### Request (Uom Conversion)
 
-      POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
-         ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&viewId={viewId}
+      POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+         ?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}&streamViewId={streamViewId}
 
 **Request Parameters**
 
@@ -2288,12 +2289,12 @@ The number of intervals requested
 ``string filter``  
 Optional filter expression
   
-``string viewId``  
-Optional view identifier
+``string streamViewId``  
+Optional stream view identifier
 
 **Request Body**
 
-The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests Sds convert the `Measurement` property of the returned data from meter to centimeter.
+The Request Body contains a collection of `SdsStreamPropertyOverride` objects. The example request body below requests SDS convert the `Measurement` property of the returned data from meter to centimeter.
 ```json
     [
       {
@@ -2416,25 +2417,25 @@ The response includes a status code and response body containing a serialized co
 **.NET Library**
 
       Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T>(string streamId, string 
-          startIndex, string endIndex, int count, string viewId = null);
+          startIndex, string endIndex, int count, string streamViewId = null);
 
       Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1>(string streamId, T1 
-          startIndex, T1 endIndex, int count, string viewId = null);
+          startIndex, T1 endIndex, int count, string streamViewId = null);
 
       Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1, T2>(string streamId, 
           Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-          string viewId = null);
+          string streamViewId = null);
 
       Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T>(string streamId, 
           string startIndex, string endIndex, int count, string filter, 
-          string viewId = null);
+          string streamViewId = null);
 
       Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1>(string streamId, 
           T1 startIndex, T1 endIndex, int count, string filter, 
-          string viewId = null);
+          string streamViewId = null);
 
       Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1, T2>(string 
           streamId, Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-          string filter, string viewId = null);
+          string filter, string streamViewId = null);
 
 ***********************

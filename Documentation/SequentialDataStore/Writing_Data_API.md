@@ -5,8 +5,8 @@ uid: sdsWritingDataApi
 API calls for writing data
 ==========================
 
-Reading and writing data with the Qi Client Libraries is performed through 
-the ``IQiDataService`` interface, which is accessed with the ``QiService.GetDataService( )`` 
+Reading and writing data with the SDS Client Libraries is performed through 
+the ``ISdsDataService`` interface, which is accessed with the ``SdsService.GetDataService( )`` 
 helper.
 
 
@@ -22,22 +22,25 @@ Inserts data into the specified stream. Throws an exception if data is already p
 
         Task InsertValueAsync<T>(string streamId, T item);
 
-*Http*
+**Http**
 
-        POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValue
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 
 Content is serialized event of type T
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T item``
-  The event to insert, where T is the type of the event and the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request 
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T item``  
+  The event to insert, where T is the type of the event and the stream  
 
 
 **Returns**  
@@ -52,13 +55,11 @@ Security
   For HTTP requests, the message content (the event) must be serialized in JSON format. JSON objects 
   consist of a series of name-value property pairs enclosed within brackets. 
 
-  .. _Introducing JSON: http://json.org/index.html
-
-  You can serialize your data using one of many available JSON serializers available at `Introducing JSON`_. 
+  You can serialize your data using one of many available JSON serializers available at [Introducing JSON](http://json.org/index.html). 
 
 
   How the data is serialized depends upon the type of event you are inserting. For example, the following code 
-  shows a single WaveData event serialized as JSON. See the Qi code samples for the complete WaveData example.
+  shows a single WaveData event serialized as JSON. See the OCS code samples for the complete WaveData example.
 
   ::
 
@@ -90,7 +91,7 @@ Inserts items into the specified stream. Throws an exception if data is already 
 
 **Http**
 
-        POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValues
+        POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 
 
 Content is serialized list of events of type T	
@@ -98,13 +99,16 @@ Content is serialized list of events of type T
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request
+  
+``string streamId``  
+  The stream identifier for the request
+  
+``T items``  
   The list of events to insert, where T is the type of the stream and events
 
 
@@ -119,7 +123,8 @@ An IEnumerable of all behavior objects
 
   For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
   comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
-  of three WaveData events that are properly formatted for insertion. See the Qi code samples for 
+  of three WaveData events that are properly formatted for insertion. See the SDS code samples for 
+
   the complete WaveData example.
 
     	[
@@ -178,22 +183,26 @@ Modifies the specified stream event. PatchValue affects only the data item param
 
 **Http**
 
-        PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
+        PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
 
 
 Content is serialized patch property
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``string selectExpression``
-  CSV list of strings that indicates the event fields that will be changed in stream events.
-``T item``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``string selectExpression``  
+  CSV list of strings that indicates the event fields that will be changed in stream events.  
+  
+``T item``  
   Object with index and new values to patch in the stream.
 
 
@@ -230,22 +239,26 @@ Patches values of the selected fields for multiple events in the stream.
 
 **Http**
 
-        PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
+        PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
 
 Content is serialized list of patch property values
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``string selectExpression``
-  CSV list strings that indicates the event fields that will be changed in stream events.
-``T items``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``string selectExpression``  
+  CSV list strings that indicates the event fields that will be changed in stream events  
+  
+``T items``  
   List which contain indexes and new values to patch in the stream.
 
 
@@ -285,18 +298,21 @@ Removes the event at the index from the specified stream. Different overloads ar
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``index``
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``index``  
   String representation of the index in the stream to be deleted.
 
 
@@ -328,19 +344,22 @@ Removes the event at each index from the specified stream. Different overloads a
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``index``
-  List of indices at which to remove events in the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``index``  
+  List of indices at which to remove events in the stream  
 
 
 **Returns**  
@@ -375,21 +394,25 @@ Removes a range of values at and between the given indices.
 
 **Http**
 
-        DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
+        DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``startIndex``
-  String representation of the starting index value.
-``endIndex``
-  String representation of the ending index value
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``startIndex``  
+  String representation of the starting index value  
+  
+``endIndex``  
+  String representation of the ending index value  
 
 
 
@@ -419,20 +442,22 @@ Writes an item over an existing event in the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 
 Content is serialized replacement object
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
 
 **Returns**  
 An IEnumerable of all behavior objects
@@ -459,21 +484,24 @@ Writes **items** over existing events in the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 
 Content is serialized list of replacement values
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
-  List of new items to replace existing items in the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T items``  
+  List of new items to replace existing items in the stream  
 
 
 **Returns**  
@@ -502,21 +530,24 @@ Writes **item** to the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 
 Content is serialized updated value
 
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T item``
-  Event to write to the stream
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T item``  
+  Event to write to the stream  
 
 
 **Returns**  
@@ -543,21 +574,24 @@ Writes items to the specified stream.
 
 **Http**
 
-        PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 
 
 Content is serialized list of updated values	
 
 **Parameters**
 
-``string tenantId``
-  The tenant identifier for the request
-``string namespaceId``
-  The namespace identifier for the request.
-``string streamId``
-  The stream identifier for the request.
-``T items``
-  Events to write to the stream.
+``string tenantId``  
+  The tenant identifier for the request  
+  
+``string namespaceId``  
+  The namespace identifier for the request  
+  
+``string streamId``  
+  The stream identifier for the request  
+  
+``T items``  
+  Events to write to the stream  
 
 
 **Returns**  

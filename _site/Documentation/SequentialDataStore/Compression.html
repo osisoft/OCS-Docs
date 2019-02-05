@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -86,10 +86,10 @@
 <li><code>deflate</code></li>
 </ul>
 <h2 id="request-compression-writing-data">Request compression (writing data)</h2>
-<p>The body content of an HTTP request can be compressed using the <code>Supported compression schemes</code>_ allowing you to send stream values to the REST API more efficiently.</p>
+<p>The body content of an HTTP request can be compressed using the <a href="#supported-compression-schemes">supported compression schemes</a> allowing you to send stream values to the REST API more efficiently.</p>
 <p>The <code>Content-Encoding</code> HTTP header must be used to specify the compression scheme of compressed-content requests. This header provides context to the API to properly decode the request content.</p>
 <h2 id="response-compression-reading-data">Response compression (reading data)</h2>
-<p>Compressed responses can be requested from the REST API by specifying one of the <code>Supported compression schemes</code>_ using the <code>Accept-Encoding</code> HTTP header.</p>
+<p>Compressed responses can be requested from the REST API by specifying one of the <a href="#supported-compression-schemes">supported compression schemes</a> using the <code>Accept-Encoding</code> HTTP header.</p>
 <p>Compressed responses from the REST API will include a <code>Content-Encoding</code> HTTP header indicating the compression scheme used to compress the response content.</p>
 <p><em>Note that specifying a compression scheme through the use of the</em> <code>Accept-Encoding</code> <em>HTTP header does not guarantee a compressed response. Always refer to presence and value of the</em> <code>Content-Encoding</code> <em>HTTP header of the response to properly decode the response content.</em> </p>
 </article>
@@ -115,7 +115,7 @@
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

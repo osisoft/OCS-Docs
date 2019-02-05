@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -78,36 +78,31 @@
             <article class="content wrap" id="_content" data-uid="sdsWritingDataApi">
 <h1 id="api-calls-for-writing-data">API calls for writing data</h1>
 
-<p>Reading and writing data with the Qi Client Libraries is performed through 
-the <code>IQiDataService</code> interface, which is accessed with the <code>QiService.GetDataService( )</code> 
+<p>Reading and writing data with the SDS Client Libraries is performed through 
+the <code>ISdsDataService</code> interface, which is accessed with the <code>SdsService.GetDataService( )</code> 
 helper.</p>
 <hr>
 <h2 id="insertvalueasync"><code>InsertValueAsync()</code></h2>
 <p>Inserts data into the specified stream. Throws an exception if data is already present at the index used in ‘item’.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task InsertValueAsync&lt;T&gt;(string streamId, T item);
-</code></pre><p><em>Http</em></p>
-<pre><code>    POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValue
+</code></pre><p><strong>Http</strong></p>
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
 </code></pre><p>Content is serialized event of type T</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>T item</code>
-  The event to insert, where T is the type of the event and the stream</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>T item</code><br>  The event to insert, where T is the type of the event and the stream  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
 <p><strong>Notes</strong><br><code>InsertValue</code> throws an exception if an event already exists at the specified index.</p>
 <p>  For HTTP requests, the message content (the event) must be serialized in JSON format. JSON objects 
   consist of a series of name-value property pairs enclosed within brackets. </p>
-<p>  .. _Introducing JSON: <a href="http://json.org/index.html">http://json.org/index.html</a></p>
-<p>  You can serialize your data using one of many available JSON serializers available at <code>Introducing JSON</code>_. </p>
+<p>  You can serialize your data using one of many available JSON serializers available at <a href="http://json.org/index.html">Introducing JSON</a>. </p>
 <p>  How the data is serialized depends upon the type of event you are inserting. For example, the following code 
-  shows a single WaveData event serialized as JSON. See the Qi code samples for the complete WaveData example.</p>
+  shows a single WaveData event serialized as JSON. See the OCS code samples for the complete WaveData example.</p>
 <p>  ::</p>
 <pre><code>{
     &quot;Order&quot;:2,  
@@ -126,17 +121,13 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task InsertValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    POST api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValues
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
 </code></pre><p>Content is serialized list of events of type T  </p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>T items</code>
-  The list of events to insert, where T is the type of the stream and events</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request</p>
+<p><code>string streamId</code><br>  The stream identifier for the request</p>
+<p><code>T items</code><br>  The list of events to insert, where T is the type of the stream and events</p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p><strong>Notes</strong><br><code>InsertValuesAsync</code> throws an exception if any index in <strong>items</strong> already has an event. If any individual
   index encounters a problem, the entire operation is rolled back and no
@@ -144,8 +135,8 @@ helper.</p>
   included in the error response.</p>
 <p>  For HTTP requests, the values to be inserted must be formatted as a serialized JSON array of type T. JSON arrays are 
   comma-delimited lists of type T enclosed within square brackets. The following code shows a list 
-  of three WaveData events that are properly formatted for insertion. See the Qi code samples for 
-  the complete WaveData example.</p>
+  of three WaveData events that are properly formatted for insertion. See the SDS code samples for </p>
+<p>  the complete WaveData example.</p>
 <pre><code>    [
         {
             &quot;Order&quot;:2,
@@ -189,19 +180,14 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task PatchValueAsync(string streamId, string selectExpression, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
+<pre><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValue?select={selectExpression}
 </code></pre><p>Content is serialized patch property</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>string selectExpression</code>
-  CSV list of strings that indicates the event fields that will be changed in stream events.
-<code>T item</code>
-  Object with index and new values to patch in the stream.</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>string selectExpression</code><br>  CSV list of strings that indicates the event fields that will be changed in stream events.  </p>
+<p><code>T item</code><br>  Object with index and new values to patch in the stream.</p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p><strong>Notes</strong><br><code>PatchValue</code> is used to modify the stream events. Only the values 
   for fields specified in the SelectExpression are taken from the item 
@@ -217,19 +203,14 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task PatchValuesAsync(string streamId, string selectExpression, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PATCH api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
+<pre><code>    PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues?select={selectExpression}
 </code></pre><p>Content is serialized list of patch property values</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>string selectExpression</code>
-  CSV list strings that indicates the event fields that will be changed in stream events.
-<code>T items</code>
-  List which contain indexes and new values to patch in the stream.</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>string selectExpression</code><br>  CSV list strings that indicates the event fields that will be changed in stream events  </p>
+<p><code>T items</code><br>  List which contain indexes and new values to patch in the stream.</p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -250,16 +231,12 @@ helper.</p>
     Task RemoveValueAsync&lt;T1&gt;(string streamId, T1 index);
     Task RemoveValueAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>index</code>
-  String representation of the index in the stream to be deleted.</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>index</code><br>  String representation of the index in the stream to be deleted.</p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -273,16 +250,12 @@ helper.</p>
     Task RemoveValuesAsync&lt;T1&gt;(string streamId, IEnumerable&lt;T1&gt; index);
     Task RemoveValuesAsync&lt;T1, T2&gt;(string streamId, IEnumerable&lt;Tuple&lt;T1, T2&gt;&gt; index);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>index</code>
-  List of indices at which to remove events in the stream</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>index</code><br>  List of indices at which to remove events in the stream  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -298,18 +271,13 @@ helper.</p>
     Task RemoveWindowValuesAsync&lt;T1&gt;(string streamId, T1 startIndex, T1 endIndex);
     Task RemoveWindowValuesAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    DELETE api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
+<pre><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>startIndex</code>
-  String representation of the starting index value.
-<code>endIndex</code>
-  String representation of the ending index value</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>startIndex</code><br>  String representation of the starting index value  </p>
+<p><code>endIndex</code><br>  String representation of the ending index value  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -321,15 +289,12 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task ReplaceValueAsync&lt;T&gt;(string streamId, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 </code></pre><p>Content is serialized replacement object</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -341,17 +306,13 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task ReplaceValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 </code></pre><p>Content is serialized list of replacement values</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>T items</code>
-  List of new items to replace existing items in the stream</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>T items</code><br>  List of new items to replace existing items in the stream  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -362,17 +323,13 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task UpdateValueAsync&lt;T&gt;(string streamId, T item);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 </code></pre><p>Content is serialized updated value</p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>T item</code>
-  Event to write to the stream</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>T item</code><br>  Event to write to the stream  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -383,17 +340,13 @@ helper.</p>
 <p><strong>Syntax</strong></p>
 <pre><code>    Task UpdateValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
 </code></pre><p><strong>Http</strong></p>
-<pre><code>    PUT api/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 </code></pre><p>Content is serialized list of updated values    </p>
 <p><strong>Parameters</strong></p>
-<p><code>string tenantId</code>
-  The tenant identifier for the request
-<code>string namespaceId</code>
-  The namespace identifier for the request.
-<code>string streamId</code>
-  The stream identifier for the request.
-<code>T items</code>
-  Events to write to the stream.</p>
+<p><code>string tenantId</code><br>  The tenant identifier for the request  </p>
+<p><code>string namespaceId</code><br>  The namespace identifier for the request  </p>
+<p><code>string streamId</code><br>  The stream identifier for the request  </p>
+<p><code>T items</code><br>  Events to write to the stream  </p>
 <p><strong>Returns</strong><br>An IEnumerable of all behavior objects</p>
 <p>Security
   Allowed by administrator accounts</p>
@@ -426,7 +379,7 @@ helper.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

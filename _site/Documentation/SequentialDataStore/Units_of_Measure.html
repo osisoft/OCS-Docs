@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -1786,7 +1786,7 @@
 <h2 id="get-quantity"><code>Get Quantity</code></h2>
 <p>Returns the quantity corresponding to the specified quantityId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
@@ -1826,7 +1826,7 @@
 <h2 id="get-quantities"><code>Get Quantities</code></h2>
 <p>Returns a list of all quantities available within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities?skip={skip}&amp;count={count}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities?skip={skip}&amp;count={count}
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsUomQuantity to retrieve. If not specified, a default value of 0 is used.</p>
@@ -1889,7 +1889,7 @@
 <h2 id="get-quantity-uom"><code>Get Quantity Uom</code></h2>
 <p>Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.</p>
 <p><strong>Request</strong></p>
-<pre><code>    api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string quantityId</code><br>The quantity identifier</p>
@@ -1915,7 +1915,7 @@
 <h2 id="get-quantity-uoms"><code>Get Quantity Uoms</code></h2>
 <p>Returns the list of units of measure that belongs to the quantity with the specified quantityId.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string quantityId</code><br>The quantity identifier</p>
@@ -1954,9 +1954,10 @@
 <h2 id="get-uom"><code>Get Uom</code></h2>
 <p>Returns the unit of measure corresponding to the specified uomId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string uomId</code><br>The unit of measure identifier</p>
 <p><strong>Response</strong></p>
 <p>The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -1979,9 +1980,11 @@
 <h2 id="get-uoms"><code>Get Uoms</code></h2>
 <p>Returns a list of all available units of measure in the system.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Units?skip={skip}&amp;count={count}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Units?skip={skip}&amp;count={count}
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsUomQuantity to retrieve. If not specified, a default value of 0 is used.</p>
+<p><code>int count</code><br>An optional parameter representing the maximum number of SdsUomQuantity to retrieve. If not specified, a default value of 100 is used.</p>
 <p><strong>Response</strong></p>
 <p>The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -2047,7 +2050,7 @@
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

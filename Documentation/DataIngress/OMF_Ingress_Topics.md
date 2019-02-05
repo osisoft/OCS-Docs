@@ -14,7 +14,11 @@ removed from an existing topic. A given publisher may also belong to multiple to
 
 When a topic is created, data sent from its assigned publishers is routed to a special queue 
 where it can be consumed by a subscription. This queue provides a buffer of up to one day for 
-subscriptions which are temporarily unable to receive data. 
+subscriptions which are temporarily unable to receive data.
+
+While OMF messages may be sent to OCS immediately after creating a Topic, the messages 
+cannot be made available for consumption until a Subscription is created. However, some 
+messages are stored for later consumption in OCS databases. See OMF documentation for more information.
 
 The API calls in this section are used to create and manipulate topics. 
 
@@ -32,7 +36,7 @@ Topic information is contained in an object called ``Topic`` and has the followi
 | Name            | string                  | A friendly name for the Topic          |
 | Description     | string                  | An optional description for the Topic. |
 | CreationDate    | string                  | The time that the Topic was created. The string is formatted using ISO 8601 format. |
-| Publishers	    | string array            | An array of Publisher Ids mapped to the Topic   |
+| Publishers	  | string array            | An array of Publisher Ids mapped to the Topic   |
 
 ********************************
 
@@ -120,7 +124,7 @@ An array of Subscription objects.
 
 ************************
 
-``GET api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmappings/topic/{topicId}?skip={skip}&count={count}``
+``GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/publishers?skip={skip}&count={count}``
 -------------------------------------------------------------------------------------
 
 Gets a list of publishers that are currently mapped to a topic 
@@ -140,7 +144,7 @@ Gets a list of publishers that are currently mapped to a topic
 
 **Returns**
 
-An array of strings, each the Id of a publisher that is mapped to the provided topic
+An array of Publisher objects.
 
 ***************************
 
@@ -182,7 +186,27 @@ An AccessControlList object.
 
 ***************************
 
-``POST api/tenants/{tenantId}/namespaces/{namespaceId}/topic``
+``GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
+-------------------------------------------------------------------------------------
+
+Gets the Owner Trustee for a particular topic.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``namespaceId``
+  Unique Id for the namespace. 
+``topicId``
+  Unique Id for the topic. 
+
+**Returns**
+
+A Trustee object.
+
+***************************
+
+``PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics``
 -----------------------------------------
 
 Creates or updates a topic. Only the topic name and description can be updated. 
@@ -240,6 +264,26 @@ Update the Access Control List for a particular topic
 **Body**
 
 An AccessControlList object.
+
+************************
+
+``PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
+----------------------------------------------------------
+
+Update the Owner Trustee for a particular topic
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``namespaceId``
+  Unique Id for the namespace. 
+``topicId``
+  Unique Id for the topic. 
+
+**Body**
+
+A Trustee object.
 
 ************************
 

@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -84,7 +84,10 @@ via a Subscription. A topic must contain at least one publisher. Publishers may 
 removed from an existing topic. A given publisher may also belong to multiple topics. </p>
 <p>When a topic is created, data sent from its assigned publishers is routed to a special queue 
 where it can be consumed by a subscription. This queue provides a buffer of up to one day for 
-subscriptions which are temporarily unable to receive data. </p>
+subscriptions which are temporarily unable to receive data.</p>
+<p>While OMF messages may be sent to OCS immediately after creating a Topic, the messages 
+cannot be made available for consumption until a Subscription is created. However, some 
+messages are stored for later consumption in OCS databases. See OMF documentation for more information.</p>
 <p>The API calls in this section are used to create and manipulate topics. </p>
 <h2 id="data-models-">Data Models </h2>
 <p>Topic information is contained in an object called <code>Topic</code> and has the following format: </p>
@@ -187,7 +190,7 @@ subscriptions which are temporarily unable to receive data. </p>
 <p><strong>Returns</strong></p>
 <p>An array of Subscription objects. </p>
 <hr>
-<h2 id="get-apitenantstenantidnamespacesnamespaceidpublishertopicmappingstopictopicidskipskipcountcount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/publishertopicmappings/topic/{topicId}?skip={skip}&amp;count={count}</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidpublishersskipskipcountcount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/publishers?skip={skip}&amp;count={count}</code></h2>
 <p>Gets a list of publishers that are currently mapped to a topic </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
@@ -201,7 +204,7 @@ subscriptions which are temporarily unable to receive data. </p>
 <code>int count</code>
   An optional parameter representing the maximum number of publishers mapped to a topic to retrieve. If not specified, a default value of 100 is used.</p>
 <p><strong>Returns</strong></p>
-<p>An array of strings, each the Id of a publisher that is mapped to the provided topic</p>
+<p>An array of Publisher objects.</p>
 <hr>
 <h2 id="get-apitenantstenantidnamespacesnamespaceidaccesscontroltopics"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
 <p>Gets the default Access Control List for new topics.</p>
@@ -225,7 +228,19 @@ subscriptions which are temporarily unable to receive data. </p>
 <p><strong>Returns</strong></p>
 <p>An AccessControlList object.</p>
 <hr>
-<h2 id="post-apitenantstenantidnamespacesnamespaceidtopic"><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/topic</code></h2>
+<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidowner"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner</code></h2>
+<p>Gets the Owner Trustee for a particular topic.</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p><strong>Returns</strong></p>
+<p>A Trustee object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopics"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics</code></h2>
 <p>Creates or updates a topic. Only the topic name and description can be updated. </p>
 <p><strong>Parameters</strong></p>
 <p><code>tenantId</code>
@@ -258,6 +273,18 @@ subscriptions which are temporarily unable to receive data. </p>
   Unique Id for the topic. </p>
 <p><strong>Body</strong></p>
 <p>An AccessControlList object.</p>
+<hr>
+<h2 id="put-apitenantstenantidnamespacesnamespaceidtopicstopicidowner"><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner</code></h2>
+<p>Update the Owner Trustee for a particular topic</p>
+<p><strong>Parameters</strong></p>
+<p><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>namespaceId</code>
+  Unique Id for the namespace. 
+<code>topicId</code>
+  Unique Id for the topic. </p>
+<p><strong>Body</strong></p>
+<p>A Trustee object.</p>
 <hr>
 <h2 id="delete-apitenantstenantidnamespacesnamespaceidtopicstopicid"><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}</code></h2>
 <p>Delete a topic. </p>
@@ -292,7 +319,7 @@ subscriptions which are temporarily unable to receive data. </p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>

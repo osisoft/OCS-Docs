@@ -31,11 +31,14 @@ references:
 - uid: AccountUserRole
   name: User Roles
   href: Documentation/Management/Account_UserRole.html
+- uid: Consent
+  name: Consent to OSIsoft Applications
+  href: Documentation/Management/Consent.html
 - uid: dataIngress
   name: Data Ingress and OSIsoft Message Format
   href: Documentation/DataIngress/Data_Ingress.html
 - uid: index
-  name: Welcome to the OCS API Documentation
+  name: OCS API
   href: index.html
 - uid: ManagementOverview
   name: Account Management

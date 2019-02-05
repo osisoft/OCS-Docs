@@ -9,11 +9,7 @@ A Publisher is a logical construct which is used by OSIsoft Cloud Services (OCS)
 and categorize OSIsoft Message Format (OMF) messages. After creating a publisher using the API, 
 a user can then generate a security token for that publisher. The token must be added to the headers 
 of OMF messages that are sent to OCS. If a publisher is deleted, all security tokens generated 
-for the Publisher become invalid. Individual tokens can also be deleted to make them invalid.
-
-While OMF messages may be sent to OCS immediately after provisioning a publisher, the messages 
-cannot be made available for consumption until a Topic is created. However, some 
-messages are stored for later consumption in OCS databases. See OMF documentation for more information. 
+for the Publisher become invalid. Individual tokens can be deleted as needed.
 
 The API calls in this section are all used to manage publishers.
 
@@ -165,6 +161,24 @@ An AccessControlList object.
 
 ***************************
 
+``GET api/tenants/{tenantId}/publishers/{publisherId}/owner``
+--------------------------------------------
+
+Get the Owner Trustee for a specific publisher.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``publisherId``
+  Unique Id for the publisher.  
+
+**Returns**
+
+A Trustee object.
+
+***************************
+
 ``GET api/tenants/{tenantId}/publishers/{publisherId}/tokens?skip={skip}&count={count}``
 --------------------------------------------
 
@@ -207,7 +221,7 @@ Get a specific token
 
 ***************************
 
-``POST api/tenants/{tenantId}/publisher``
+``PUT api/tenants/{tenantId}/publishers``
 -------------------------------------
 
 Creates or updates a publisher. Only the name and description of a publisher can be updated.
@@ -227,10 +241,10 @@ A Publisher object.
 
 ******************************
 
-``POST api/tenants/{tenantId}/publishers/{publisherId}/tokens``
+``PUT api/tenants/{tenantId}/publishers/{publisherId}/tokens``
 --------------------------------------------
 
-Create or undelete a token. If the token object provided does not have a tokenId, a new token is created.
+Create or restore a token. If the token object provided does not have a tokenId, a new token is created.
 Otherwise, specify the id of an existing deleted token that isn't expired, and it will be undeleted.
 
 **Parameters**
@@ -279,6 +293,23 @@ Update the Access Control List for a particular publisher.
 
 **Body**
   An AccessControlList object.
+  
+***************************
+
+``PUT tenants/{tenantId}/publishers/{publisherId}/owner``
+---------------------------------------
+
+Update the Owner Trustee for a particular publisher.
+
+**Parameters**
+
+``tenantId``
+  Unique Id for the tenant. 
+``publisherId``
+  Unique Id for the publisher. 
+
+**Body**
+  A Trustee object.
   
 ***************************
 

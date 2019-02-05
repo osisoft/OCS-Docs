@@ -33,10 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" src="../../images/atlas_icon.png" alt="">
-              </a>    </div>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -96,11 +96,11 @@ index; that is, each property of an SdsType event is related to the event’s in
 <p>SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
-information about read characteristics see  Interpolation_ and Extrapolation_.</p>
-<p>SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a view, its form  cannot be changed. 
+information about read characteristics see <a href="#interpolation">Interpolation</a> and <a href="#extrapolation">Extrapolation</a>.</p>
+<p>SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a stream view, its form  cannot be changed. 
 Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
-of the SdsType. In addition, the SdsType may be deleted only if no streams or views reference it.</p>
-<p>Only SdsTypes used to define SdsStreams or SdsViews are required to be added to the Sequential data store. 
+of the SdsType. In addition, the SdsType may be deleted only if no streams or stream views reference it.</p>
+<p>Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be added to the Sequential data store. 
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.</p>
 <p>The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.</p>
@@ -164,7 +164,7 @@ to be added to the Data Store independently.</p>
 <li>Can contain spaces</li>
 <li>Cannot begin with two underscores (&quot;__&quot;)</li>
 <li>Cannot contain forward slash or backslash characters (&quot;/&quot; or &quot;\&quot;)</li>
-<li>Can contain a maximum of 260 characters</li>
+<li>Can contain a maximum of 100 characters</li>
 <li>Cannot start or end with a period.</li>
 <li>Cannot contain consecutive periods.</li>
 <li>Cannot consist of only periods.</li>
@@ -455,19 +455,19 @@ SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus add
 <td>511</td>
 </tr>
 <tr>
-<td>SdsView</td>
+<td>SdsStreamView</td>
 <td>503</td>
 </tr>
 <tr>
-<td>SdsViewMap</td>
+<td>SdsStreamViewMap</td>
 <td>505</td>
 </tr>
 <tr>
-<td>SdsViewMapProperty</td>
+<td>SdsStreamViewMapProperty</td>
 <td>506</td>
 </tr>
 <tr>
-<td>SdsViewProperty</td>
+<td>SdsStreamViewProperty</td>
 <td>504</td>
 </tr>
 <tr>
@@ -661,7 +661,7 @@ indexes that occur between data in a stream:</p>
 Decimal.MaxValue) the call might result in a BadRequest exception.</p>
 <p>If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
 mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
-on a specific type property see SdsTypeProperty_. For more information on overriding the interpolation mode for a specific stream see <a class="xref" href="SDS_Streams.html">Sds Streams</a>.</p>
+on a specific type property see <a href="#sdstypeproperty">SdsTypeProperty</a>. For more information on overriding the interpolation mode for a specific stream see <a class="xref" href="SDS_Streams.html">Sds Streams</a>.</p>
 <h2 id="extrapolation">Extrapolation</h2>
 <p>Extrapolation defines how a stream responds to requests with indexes that precede or follow all 
 data in the steam. ExtrapolationMode acts as a master switch to determine whether extrapolation 
@@ -904,7 +904,7 @@ that differs from the InterpolationMode of the SdsType. InterpolationMode is onl
 that is not part of the Index. If the InterpolationMode is not set, the Property is are interpolated 
 in the manner defined by the SdsType’s IntepolationMode.</p>
 <p>An SdsType with the InterpolationMode set to <code>Discrete</code> cannot have a Property with an InteroplationMode. 
-For more information on interpolation of events see Interpolation_.</p>
+For more information on interpolation of events see <a href="#interpolation">Interpolation</a>.</p>
 <p>Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
 abbreviation. The names and abbreviations of Uoms are case sensitive. </p>
 <p>The InterpolationMode and Uom of a Property can be overriden on the stream. For more information, see <a class="xref" href="SDS_Streams.html#propertyoverrides">Sds Streams</a>. </p>
@@ -1267,9 +1267,9 @@ unique identifiers. Note that the following table contains only a partial list o
 the Data Store before using SdsTypeBuilder. Base types are maintained within the SdsType.</p>
 <h2 id="working-with-sdstypes-when-not-using-net">Working with SdsTypes when not using .NET</h2>
 <p>SdsTypes must be built manually when .NET SdsTypeBuilder is unavailable. The following discussion 
-refers to the following types and are defined in<br><code>Python &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic/Python&gt;</code><strong> and 
-<code>JavaScript &lt;https://github.com/osisoft/Sds-Samples/tree/master/Basic/JavaScript&gt;</code></strong> samples. 
-Samples in other languages can be found here: <code>Samples &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic&gt;</code>__.</p>
+refers to the following types and are defined in<br><a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/Python/SDSPy">Python</a> and 
+<a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript">JavaScript</a> samples. 
+Samples in other languages can be found here: <a href="https://github.com/osisoft/OCS-Samples/tree/master/basic_samples">Samples</a>.</p>
 <p>In the sample code, <code>SdsType</code>, <code>SdsTypeProperty</code>, and <code>SdsTypeCode</code> are defined as in the code snippets shown here:</p>
 <p><strong>Python</strong></p>
 <pre><code>  class SdsTypeCode(Enum):
@@ -1576,12 +1576,12 @@ Samples in other languages can be found here: <code>Samples &lt;https://github.c
 <p>The REST APIs provide programmatic access to read and write Sds data. The APIs in this section 
 interact with SdsTypes. When working in .NET convenient Sds Client libraries are available. 
 The ISdsMetadataService interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, 
-defines the available functions. See Types_ for general SdsType information.</p>
+defines the available functions. See <a href="#types">Types</a> for general SdsType information.</p>
 <hr>
 <h2 id="get-type"><code>Get Type</code></h2>
 <p>Returns the type corresponding to the specified typeId within a given namespace.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1658,21 +1658,24 @@ defines the available functions. See Types_ for general SdsType information.</p>
 <h2 id="get-types"><code>Get Types</code></h2>
 <p>Returns a list of types within a given namespace.</p>
 <p>If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
-the search/filter criteria. If the neither parameter is specified, the list includes all types 
-in the Namespace. See <a class="xref" href="Searching.html#searching">Searching</a> 
+the search/filter criteria. If neither parameter is specified, the list includes all types 
+in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
 and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
 for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
-<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
-<p><code>string query</code><br>An optional query string to match which SdsTypes will be returned.  See the <a class="xref" href="Searching.html#searching">Searching</a> topic for information about specifying the query parameter.</p>
+<p><code>string query</code><br>An optional query string to match which SdsTypes will be returned.  See the <a class="xref" href="Searching.html">Searching</a> topic for information about specifying the query parameter.</p>
 <p><code>string filter</code><br>An optional filter string to match which SdsTypes will be returned.  See the <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
 topic for information about specifying the filter parameter.</p>
-<p><code>int skip</code><br>  An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
+<p><code>int skip</code><br>An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
 a default value of 0 is used.</p>
 <p><code>int count</code><br>An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.</p>
+<p><code>string orderby</code><br>An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). 
+Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values <code>asc</code> or <code>desc</code>, respectively. For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending.
+If no value is specified, there is no sorting of results.</p>
 <p><strong>Response</strong></p>
 <p>  The response includes a status code and a response body.</p>
 <p><strong>Response body</strong></p>
@@ -1751,7 +1754,7 @@ including the .NET HttpClient, consider redirecting with the authorization token
 returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.</p>
 <p><strong>Request</strong></p>
-<pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1938,11 +1941,11 @@ redirect with the authorization header, you should disable automatic redirect an
 <hr>
 <h2 id="create-or-update-type"><code>Create or Update Type</code></h2>
 <p>Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.</p>
-<p>Note that a type cannot be updated if any streams or views are 
+<p>Note that a type cannot be updated if any streams or stream views are 
 associated with it. Also, certain parameters, including the type id, cannot be changed after 
 they are defined.</p>
 <p><strong>Request</strong></p>
-<pre><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1957,9 +1960,9 @@ they are defined.</p>
 <p>  Allowed by administrator accounts</p>
 <hr>
 <h2 id="delete-type"><code>Delete Type</code></h2>
-<p>Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or views reference it.</p>
+<p>Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views reference it.</p>
 <p><strong>Request</strong></p>
-<pre><code>    DELETE  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+<pre><code>    DELETE  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
@@ -1993,7 +1996,7 @@ they are defined.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2018 - OSIsoft, LLC.<span>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
         </span></span></div>
       </footer>
     </div>
