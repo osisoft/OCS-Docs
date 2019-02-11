@@ -613,27 +613,45 @@ Returns the stream view map corresponding to the specified streamViewId within a
 
 Returns a list of stream views within a given namespace.
 
+If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all stream views 
+in the Namespace. See [Searching](xref:sdsSearching) 
+and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)  
+for information about specifying those respective parameters.
+
 
 **Request**
 
-        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&count={count}
-
+        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
 ``string tenantId``  
-  The tenant identifier  
-  
+  The tenant identifier
+
 ``string namespaceId``  
-  The namespace identifier  
-  
+  The namespace identifier
+
+``string query``  
+  An optional parameter representing a string search. 
+  See [Searching](xref:sdsSearching)
+  for information about specifying the search parameter.
+
+``string filter``   
+  An optional filter string to match which SdsStreamViews will be returned.  See the 
+  [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) topic for information about specifying the filter parameter.
+
 ``int skip``  
-  An optional value representing the zero-based offset of the first SdsStreamView to retrieve. 
-  If not specified, a default value of 0 is used.  
-  
+  An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
+  If not specified, a default value of 0 is used.
+
 ``int count``  
-  An optional value representing the maximum number of SdsStreamViews to retrieve. If not specified, 
-  a default value of 100 is used.  
+  An optional parameter representing the maximum number of SdsStreamViews to retrieve. 
+  If not specified, a default value of 100 is used.
+
+``string orderby``  
+  An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
+
 
 **Response**
 
@@ -644,7 +662,42 @@ Returns a list of stream views within a given namespace.
 
   A collection of zero or more SdsStreamViews.
 
+  Sample response body:
 
+      HTTP/1.1 200
+      Content-Type: application/json
+
+       [  
+         {  
+            "Id":"StreamView",
+            "Name":"StreamView"
+            "SourceTypeId":"Simple",
+            "TargetTypeId":"Simple3"
+         },
+         {  
+            "Id":"StreamViewWithProperties",
+            "Name":"StreamViewWithProperties",
+            "SourceTypeId":"Simple",
+            "TargetTypeId":"Simple3"
+            "Properties":[  
+               {  
+                  "SourceId":"Time",
+                  "TargetId":"Time"
+               },
+               {
+                  "SourceId":"Status",
+                  "TargetId":"Status"
+               },
+               {
+                  "SourceId":"Measurement"
+                  "TargetId":"Value"
+               }				 
+            ]
+         },
+         ...
+       ]
+
+                
 **.NET Library**
 
       Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
