@@ -622,7 +622,7 @@ for information about specifying those respective parameters.
 
 **Request**
 
-        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
@@ -639,7 +639,8 @@ for information about specifying those respective parameters.
 
 ``string filter``   
   An optional filter string to match which SdsStreamViews will be returned.  See the 
-  [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) topic for information about specifying the filter parameter.
+  [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+  topic for information about specifying the filter parameter.
 
 ``int skip``  
   An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
@@ -650,7 +651,7 @@ for information about specifying those respective parameters.
   If not specified, a default value of 100 is used.
 
 ``string orderby``  
-  An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
+  An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the      ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned   results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
 
 **Response**
