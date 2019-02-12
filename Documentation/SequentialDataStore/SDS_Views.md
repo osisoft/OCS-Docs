@@ -670,7 +670,7 @@ in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Me
        [  
          {  
             "Id":"StreamView",
-            "Name":"StreamView"
+            "Name":"StreamView",
             "SourceTypeId":"Simple",
             "TargetTypeId":"Simple3"
          },
@@ -678,7 +678,7 @@ in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Me
             "Id":"StreamViewWithProperties",
             "Name":"StreamViewWithProperties",
             "SourceTypeId":"Simple",
-            "TargetTypeId":"Simple3"
+            "TargetTypeId":"Simple3",
             "Properties":[  
                {  
                   "SourceId":"Time",
@@ -689,12 +689,11 @@ in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Me
                   "TargetId":"Status"
                },
                {
-                  "SourceId":"Measurement"
+                  "SourceId":"Measurement",
                   "TargetId":"Value"
                }				 
             ]
-         },
-         ...
+         }
        ]
 ```
                 
