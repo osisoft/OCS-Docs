@@ -615,9 +615,7 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all stream views 
-in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)  
-for information about specifying those respective parameters.
+in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) for information about specifying those respective parameters.
 
 
 **Request**
