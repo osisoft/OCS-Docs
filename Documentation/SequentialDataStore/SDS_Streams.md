@@ -95,6 +95,9 @@ When specifying property interpolation overrides, if the SdsType InterpolationMo
 at any level. When InterpolationMode is set to ``Discrete`` and an event it not defined for that index, a null 
 value is returned for the entire event.
 
+Security
+-----------------
+Role based access control.
 
 SdsStream API
 ------------
@@ -134,7 +137,7 @@ Returns the specified stream.
 
 **Response**
 
-  The response includes a status code and a response body.
+The response includes a status code and a response body.
 
 
 **Response body**
@@ -156,12 +159,6 @@ Returns the specified stream.
 **.NET Library**
 
       Task<SdsStream> GetStreamAsync(string streamId);
-
-
-**Security**
-
-  Allowed by administrator accounts
-
 
 ***********************
 
@@ -252,11 +249,6 @@ for information about specifying those respective parameters.
           int count = 100);
 
 
-
-**Security**
-
-  Allowed for administrator and user accounts
-
 ***********************
 
 ``Get Stream Type``
@@ -295,10 +287,6 @@ Returns the type definition that is associated with a given stream.
 
       Task<SdsType> GetStreamTypeAsync(string streamId);
 
-
-**Security**
-
-  Allowed by administrator and user accounts
 
 
 ***********************
@@ -356,12 +344,6 @@ If a stream with a matching identifier already exists and it matches the stream 
 the client redirects a GET to the Location header. If the existing stream does not match the stream 
 in the request body, a Conflict error response is returned and the client library method throws an exception. 
 
-
-**Security**
-
-  Allowed for administrator accounts
-
-
 ***********************
 
 ``Create or Update Stream``
@@ -403,12 +385,6 @@ The request content is the serialized SdsStream.
 **.NET Library**
 
       Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
-
-
-**Security**
-
-  Allowed for administrator accounts
-
 
 ***********************
 
@@ -455,11 +431,6 @@ The request contains no content.
       Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 
 
-**Security**
-
-  Allowed for administrator accounts
-
-
 ***********************
 
 ``Delete Stream``
@@ -495,6 +466,3 @@ Deletes a stream.
       Task DeleteStreamAsync(string streamId);
 
 
-**Security**
-
-  Allowed for administrator accounts
