@@ -2,8 +2,7 @@
 uid: sdsTypes
 ---
 
-Types
-=====
+# Types
 
 The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
 events. Events are stored in streams, called SdsStreams. An SdsType defines the shape or structure of the 
@@ -71,8 +70,7 @@ The .NET libraries provide SdsTypeBuilder to help build SdsTypes from .NET types
 discussed in greater detail below.
 
 
-SdsTypeCode
------------
+## SdsTypeCode
 
 The SdsTypeCode is a numeric identifier used by the Data Store to identify SdsTypes. A SdsTypeCode exists for 
 every supported type.
@@ -85,7 +83,6 @@ SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus add
 
 
 **Supported Types**
-
 
 The following types are supported and defined by the SdsTypeCode:
 
@@ -184,8 +181,7 @@ Version                 | 22
 VersionArray            | 222
 
 
-Interpolation
--------------
+## Interpolation
 
 Interpolation determines how a stream behaves when asked to return an event at an index between 
 two existing events. InterpolationMode determines how the returned event is constructed. The table 
@@ -228,8 +224,7 @@ mode is overridden in the TypeProperty or the SdsStream. For more information on
 on a specific type property see [SdsTypeProperty](#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
 
-Extrapolation
--------------
+## Extrapolation
 
 Extrapolation defines how a stream responds to requests with indexes that precede or follow all 
 data in the steam. ExtrapolationMode acts as a master switch to determine whether extrapolation 
@@ -281,8 +276,7 @@ For additional information about the effect of read characteristics, see the
 documentation on the [read method](xref:sdsReadingDataApi)
 you are using.
 
-SdsTypeProperty
----------------
+## SdsTypeProperty
 
 The Properties collection define the fields in an SdsType. 
 
@@ -330,14 +324,11 @@ abbreviation. The names and abbreviations of Uoms are case sensitive.
 
 The InterpolationMode and Uom of a Property can be overriden on the stream. For more information, see [Sds Streams](xref:sdsStreams#propertyoverrides). 
 
-Supported Units of Measure
---------------------------
+## Supported Units of Measure
 
 For a list of units of measures that are supported for an SdsTypeProperty, see [Units of Measure](xref:unitsOfMeasure#supported-units-of-measure).
 
-Working with SdsTypes using .NET
---------------------------------
-
+## Working with SdsTypes using .NET
 
 When working in .NET, use the SdsTypeBuilder to create SdsTypes. The SdsTypeBuilder eliminates 
 potential errors that can occur when working with SdsTypes manually.
@@ -345,25 +336,25 @@ potential errors that can occur when working with SdsTypes manually.
 There are several ways to work with the builder. The most convenient is to use the static 
 methods, as shown here:
 ```csharp
-    public enum State
-    {
-        Ok,
-        Warning,
-        Alarm
-    }
-    
-    public class Simple
-    {
-        [SdsMember(IsKey = true, Order = 0)]
-        public DateTime Time { get; set; }
-        public State State { get; set; }
-        public Double Measurement { get; set; }
-    }
-    
-    SdsType simpleType = SdsTypeBuilder.CreateSdsType<Simple>();
-    simpleType.Id = "Simple";
-    simpleType.Name = "Simple";
-    simpleType.Description = "Basic sample type";
+public enum State
+{
+    Ok,
+    Warning,
+    Alarm
+}
+
+public class Simple
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+}
+
+SdsType simpleType = SdsTypeBuilder.CreateSdsType<Simple>();
+simpleType.Id = "Simple";
+simpleType.Name = "Simple";
+simpleType.Description = "Basic sample type";
 ```
 
 SdsTypeBuilder recognizes the ``System.ComponentModel.DataAnnotations.KeyAttribute`` and 
@@ -433,9 +424,7 @@ unique identifiers. Note that the following table contains only a partial list o
 The SdsTypeBuilder also supports derived types. Note that you need not add the base types to 
 the Data Store before using SdsTypeBuilder. Base types are maintained within the SdsType.
 
-Working with SdsTypes when not using .NET
-----------------------------------------
-
+## Working with SdsTypes when not using .NET
 
 SdsTypes must be built manually when .NET SdsTypeBuilder is unavailable. The following discussion 
 refers to the following types and are defined in  
@@ -447,123 +436,123 @@ In the sample code, ``SdsType``, ``SdsTypeProperty``, and ``SdsTypeCode`` are de
 
 **Python**
 ```python
-      class SdsTypeCode(Enum):
-          Empty = 0
-          Object = 1
-          DBNull = 2
-          Boolean = 3
-          Char = 4
-            ...
-      class SdsTypeProperty(object):
-          """SDS type property definition"""
+class SdsTypeCode(Enum):
+    Empty = 0
+    Object = 1
+    DBNull = 2
+    Boolean = 3
+    Char = 4
+      ...
+class SdsTypeProperty(object):
+    """SDS type property definition"""
 
-          def __init__(self):
-                  self.__isKey = False
+    def __init__(self):
+            self.__isKey = False
 
-          @property
-          def Id(self):
-              return self.__id
-          @Id.setter
-          def Id(self, id):
-              self.__id = id
+    @property
+    def Id(self):
+        return self.__id
+    @Id.setter
+    def Id(self, id):
+        self.__id = id
 
-            ...
+      ...
 
-          @property
-          def IsKey(self):
-              return self.__isKey
-          @IsKey.setter
-          def IsKey(self, iskey):
-              self.__isKey = iskey
+    @property
+    def IsKey(self):
+        return self.__isKey
+    @IsKey.setter
+    def IsKey(self, iskey):
+        self.__isKey = iskey
 
-          @property
-          def SdsType(self):
-              return self.__SdsType
-          @SdsType.setter
-          def SdsType(self, SdsType):
-              self.__SdsType=SdsType
-            ...
+    @property
+    def SdsType(self):
+        return self.__SdsType
+    @SdsType.setter
+    def SdsType(self, SdsType):
+        self.__SdsType=SdsType
+      ...
 
-      class SdsType(object):
-          """SDS type definitions"""
-          def __init__(self):
-              self.SdsTypeCode = SdsTypeCode.Object
+class SdsType(object):
+    """SDS type definitions"""
+    def __init__(self):
+        self.SdsTypeCode = SdsTypeCode.Object
 
-          @property
-          def Id(self):
-              return self.__id
-          @Id.setter
-          def Id(self, id):
-              self.__id = id
+    @property
+    def Id(self):
+        return self.__id
+    @Id.setter
+    def Id(self, id):
+        self.__id = id
 
-            ...
+      ...
 
-          @property
-          def BaseType(self):
-              return self.__baseType
-          @BaseType.setter
-          def BaseType(self, baseType):
-              self.__baseType = baseType
+    @property
+    def BaseType(self):
+        return self.__baseType
+    @BaseType.setter
+    def BaseType(self, baseType):
+        self.__baseType = baseType
 
-          @property
-          def SdsTypeCode(self):
-              return self.__typeCode
-          @SdsTypeCode.setter
-          def SdsTypeCode(self, typeCode):
-              self.__typeCode = typeCode
+    @property
+    def SdsTypeCode(self):
+        return self.__typeCode
+    @SdsTypeCode.setter
+    def SdsTypeCode(self, typeCode):
+        self.__typeCode = typeCode
 
-          @property
-          def Properties(self):
-              return self.__properties
-          @Properties.setter
-          def Properties(self, properties):
-              self.__properties = properties
+    @property
+    def Properties(self):
+        return self.__properties
+    @Properties.setter
+    def Properties(self, properties):
+        self.__properties = properties
 ```
 
 
 **JavaScript**
 ```javascript
-      SdsTypeCodeMap: {
-          Empty: 0,
-          "Object": 1,
-          DBNull: 2,
-          "Boolean": 3,
-          Char: 4,
-          ...
-      SdsTypeProperty: function (SdsTypeProperty) {
-          if (SdsTypeProperty.Id) {
-              this.Id = SdsTypeProperty.Id;
-          }
-          if (SdsTypeProperty.Name) {
-              this.Name = SdsTypeProperty.Name;
-          }
-          if (SdsTypeProperty.Description) {
-              this.Description = SdsTypeProperty.Description;
-          }
-          if (SdsTypeProperty.SdsType) {
-              this.SdsType = SdsTypeProperty.SdsType;
-          }
-          if (SdsTypeProperty.IsKey) {
-              this.IsKey = SdsTypeProperty.IsKey;
-          }
-      },
-      SdsType: function (SdsType) {
-          if (SdsType.Id) {
-              this.Id = SdsType.Id
-          }
-          if (SdsType.Name) {
-              this.Name = SdsType.Name;
-          }
-          if (SdsType.Description) {
-              this.Description = SdsType.Description;
-          }
-          if (SdsType.SdsTypeCode) {
-              this.SdsTypeCode = SdsType.SdsTypeCode;
-          }
-          if (SdsType.Properties) {
-              this.Properties = SdsType.Properties;
-          }
-      },
+SdsTypeCodeMap: {
+    Empty: 0,
+    "Object": 1,
+    DBNull: 2,
+    "Boolean": 3,
+    Char: 4,
+    ...
+SdsTypeProperty: function (SdsTypeProperty) {
+    if (SdsTypeProperty.Id) {
+        this.Id = SdsTypeProperty.Id;
+    }
+    if (SdsTypeProperty.Name) {
+        this.Name = SdsTypeProperty.Name;
+    }
+    if (SdsTypeProperty.Description) {
+        this.Description = SdsTypeProperty.Description;
+    }
+    if (SdsTypeProperty.SdsType) {
+        this.SdsType = SdsTypeProperty.SdsType;
+    }
+    if (SdsTypeProperty.IsKey) {
+        this.IsKey = SdsTypeProperty.IsKey;
+    }
+},
+SdsType: function (SdsType) {
+    if (SdsType.Id) {
+        this.Id = SdsType.Id
+    }
+    if (SdsType.Name) {
+        this.Name = SdsType.Name;
+    }
+    if (SdsType.Description) {
+        this.Description = SdsType.Description;
+    }
+    if (SdsType.SdsTypeCode) {
+        this.SdsTypeCode = SdsType.SdsTypeCode;
+    }
+    if (SdsType.Properties) {
+        this.Properties = SdsType.Properties;
+    }
+},
 ```
 
 
@@ -572,213 +561,212 @@ Working with the following types (both Python and JavaScript classes are shown):
 
 **Python**
 ```python
-      class State(Enum):
-          Ok = 0
-          Warning = 1
-          Alarm = 2
+class State(Enum):
+    Ok = 0
+    Warning = 1
+    Alarm = 2
 
-      class Simple(object):
-          Time = property(getTime, setTime)
-          def getTime(self):
-              return self.__time
-          def setTime(self, time):
-              self.__time = time
+class Simple(object):
+    Time = property(getTime, setTime)
+    def getTime(self):
+        return self.__time
+    def setTime(self, time):
+        self.__time = time
 
-          State = property(getState, setState)
-          def getState(self):
-              return self.__state
-          def setState(self, state):
-              self.__state = state
+    State = property(getState, setState)
+    def getState(self):
+        return self.__state
+    def setState(self, state):
+        self.__state = state
 
-          Measurement = property(getMeasurement, setMeasurement)
-          def getMeasurement(self):
-              return self.__measurement
-          def setMeasurement(self, measurement):
-              self.__measurement = measurement
+    Measurement = property(getMeasurement, setMeasurement)
+    def getMeasurement(self):
+        return self.__measurement
+    def setMeasurement(self, measurement):
+        self.__measurement = measurement
 ```
 
 **JavaScript**
 ```javascript
-      var State =
-        {
-            Ok: 0,
-            Warning: 1,
-            Aalrm: 2,
-        }
+var State =
+{
+    Ok: 0,
+    Warning: 1,
+    Aalrm: 2,
+}
 
-        var Simple = function () {
-            this.Time = null;
-            this.State = null;
-            this.Measurement = null;
-        }
+var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Measurement = null;
+}
 ```
 
 Define the SdsType as follows:
 
 **Python**
 ```python
-      # Create the properties
+# Create the properties
 
-      # Time is the primary key
-      time = SdsTypeProperty()
-      time.Id = "Time"
-      time.Name = "Time"
-      time.IsKey = True
-      time.SdsType = SdsType()
-      time.SdsType.Id = "DateTime"
-      time.SdsType.Name = "DateTime"
-      time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
+# Time is the primary key
+time = SdsTypeProperty()
+time.Id = "Time"
+time.Name = "Time"
+time.IsKey = True
+time.SdsType = SdsType()
+time.SdsType.Id = "DateTime"
+time.SdsType.Name = "DateTime"
+time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
 
-      # State is not a pre-defined type. A SdsType must be defined to represent the enum
-      stateTypePropertyOk = SdsTypeProperty()
-      stateTypePropertyOk.Id = "Ok"
-      stateTypePropertyOk.Value = State.Ok
-      stateTypePropertyWarning = SdsTypeProperty()
-      stateTypePropertyWarning.Id = "Warning"
-      stateTypePropertyWarning.Value = State.Warning
-      stateTypePropertyAlarm = SdsTypeProperty()
-      stateTypePropertyAlarm.Id = "Alarm"
-      stateTypePropertyAlarm.Value = State.Alarm
+# State is not a pre-defined type. A SdsType must be defined to represent the enum
+stateTypePropertyOk = SdsTypeProperty()
+stateTypePropertyOk.Id = "Ok"
+stateTypePropertyOk.Value = State.Ok
+stateTypePropertyWarning = SdsTypeProperty()
+stateTypePropertyWarning.Id = "Warning"
+stateTypePropertyWarning.Value = State.Warning
+stateTypePropertyAlarm = SdsTypeProperty()
+stateTypePropertyAlarm.Id = "Alarm"
+stateTypePropertyAlarm.Value = State.Alarm
 
-      stateType = SdsType()
-      stateType.Id = "State"
-      stateType.Name = "State"
-      stateType.Properties = [ stateTypePropertyOk, stateTypePropertyWarning, \
-                              stateTypePropertyAlarm ]
+stateType = SdsType()
+stateType.Id = "State"
+stateType.Name = "State"
+stateType.Properties = [ stateTypePropertyOk, stateTypePropertyWarning, \
+                        stateTypePropertyAlarm ]
 
-      state = SdsTypeProperty()
-      state.Id = "State"
-      state.Name = "State"
-      state.SdsType = stateType
+state = SdsTypeProperty()
+state.Id = "State"
+state.Name = "State"
+state.SdsType = stateType
 
-      # Value property is a simple non-indexed, pre-defined type
-      value = SdsTypeProperty()
-      value.Id = "Measurement"
-      value.Name = "Measurement"
-      value.SdsType = SdsType()
-      value.SdsType.Id = "Double"
-      value.SdsType.Name = "Double"
+# Value property is a simple non-indexed, pre-defined type
+value = SdsTypeProperty()
+value.Id = "Measurement"
+value.Name = "Measurement"
+value.SdsType = SdsType()
+value.SdsType.Id = "Double"
+value.SdsType.Name = "Double"
 
-      # Create the Simple SdsType
-      simpleType = SdsType()
-      simpleType.Id = "Simple"
-      simpleType.Name = "Simple"
-      simpleType.Description = "Basic sample type"
-      simpleType.SdsTypeCode = SdsTypeCode.Object
-      simpleType.Properties = [ time ]
+# Create the Simple SdsType
+simpleType = SdsType()
+simpleType.Id = "Simple"
+simpleType.Name = "Simple"
+simpleType.Description = "Basic sample type"
+simpleType.SdsTypeCode = SdsTypeCode.Object
+simpleType.Properties = [ time ]
 ```
 
 **JavaScript**
 ```javascript
-      // Time is the primary key
-      var timeProperty = new SdsObjects.SdsTypeProperty({
-          "Id": "Time",
-          "IsKey": true,
-          "SdsType": new SdsObjects.SdsType({
-              "Id": "dateType",
-              "SdsTypeCode": SdsObjects.SdsTypeCodeMap.DateTime
-          })
-      });
+// Time is the primary key
+var timeProperty = new SdsObjects.SdsTypeProperty({
+    "Id": "Time",
+    "IsKey": true,
+    "SdsType": new SdsObjects.SdsType({
+        "Id": "dateType",
+        "SdsTypeCode": SdsObjects.SdsTypeCodeMap.DateTime
+    })
+});
 
-      // State is not a pre-defined type. An SdsType must be defined to represent the enum
-      var stateTypePropertyOk = new SdsObjects.SdsTypeProperty({
-          "Id": "Ok",
-          "Value": State.Ok
-      });
-      var stateTypePropertyWarning = new SdsObjects.SdsTypeProperty({
-          "Id": "Warning",
-          "Value": State.Warning
-      });
-      var stateTypePropertyAlarm = new SdsObjects.SdsTypeProperty({
-          "Id": "Alarm",
-          "Value": State.Alarm
-      });
+// State is not a pre-defined type. An SdsType must be defined to represent the enum
+var stateTypePropertyOk = new SdsObjects.SdsTypeProperty({
+    "Id": "Ok",
+    "Value": State.Ok
+});
+var stateTypePropertyWarning = new SdsObjects.SdsTypeProperty({
+    "Id": "Warning",
+    "Value": State.Warning
+});
+var stateTypePropertyAlarm = new SdsObjects.SdsTypeProperty({
+    "Id": "Alarm",
+    "Value": State.Alarm
+});
 
-      var stateType = new SdsObjects.SdsType({
-          "Id": "State",
-          "Name": "State",
-          "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Int32Enum,
-          "Properties": [stateTypePropertyOk, stateTypePropertyWarning,
-              stateTypePropertyAlarm, stateTypePropertyRed]
-      });
+var stateType = new SdsObjects.SdsType({
+    "Id": "State",
+    "Name": "State",
+    "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Int32Enum,
+    "Properties": [stateTypePropertyOk, stateTypePropertyWarning,
+        stateTypePropertyAlarm, stateTypePropertyRed]
+});
 
-      // Measurement property is a simple non-indexed, pre-defined type
-      var measurementProperty = new SdsObjects.SdsTypeProperty({
-          "Id": "Measurement",
-          "Name": "Measurement",
-          "SdsType": new SdsObjects.SdsType({
-              "Id": "doubleType",
-              "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Double
-          })
-      });
+// Measurement property is a simple non-indexed, pre-defined type
+var measurementProperty = new SdsObjects.SdsTypeProperty({
+    "Id": "Measurement",
+    "Name": "Measurement",
+    "SdsType": new SdsObjects.SdsType({
+        "Id": "doubleType",
+        "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Double
+    })
+});
 
-      // Create the Simple SdsType
-      var simpleType = new SdsObjects.SdsType({
-          "Id": "Simple",
-          "Name": "Simple", 
-          "Description": "This is a simple SDS type ",
-          "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
-          "Properties": [timeProperty, stateProperty, measurementProperty]
-      });
+// Create the Simple SdsType
+var simpleType = new SdsObjects.SdsType({
+    "Id": "Simple",
+    "Name": "Simple", 
+    "Description": "This is a simple SDS type ",
+    "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
+    "Properties": [timeProperty, stateProperty, measurementProperty]
+});
 ```
 
 Working with a derived class is easy. For the following derived class:
 
 ```javascript
-      class Derrived(Simple):
-          @property
-          def Observation(self):
-              return self.__observation
-          @Observation.setter
-          def Observation(self, observation):
-              self.__observation = observation
+class Derrived(Simple):
+    @property
+    def Observation(self):
+        return self.__observation
+    @Observation.setter
+    def Observation(self, observation):
+        self.__observation = observation
 ```
 
 Extend the SdsType as follows:
 
 **Python**
 ```python
-      # Observation property is a simple non-inexed, standard data type
-      observation = SdsTypeProperty()
-      observation.Id = "Observation"
-      observation.Name = "Observation"
-      observation.SdsType = SdsType()
-      observation.SdsType.Id = "String"
-      observation.SdsType.Name = "String"
-      observation.SdsType.SdsTypeCode = SdsTypeCode.String
+# Observation property is a simple non-inexed, standard data type
+observation = SdsTypeProperty()
+observation.Id = "Observation"
+observation.Name = "Observation"
+observation.SdsType = SdsType()
+observation.SdsType.Id = "String"
+observation.SdsType.Name = "String"
+observation.SdsType.SdsTypeCode = SdsTypeCode.String
 
-      # Create the Derived SdsType
-      derived = SdsType()
-      derived.Id = "Derived"
-      derived.Name = "Derived"
-      derived.Description = "Derived sample type"
-      derived.BaseType = simpleType # Set the base type to the derived type
-      derived.SdsTypeCode = SdsTypeCode.Object
-      derived.Properties = [ observation ]
+# Create the Derived SdsType
+derived = SdsType()
+derived.Id = "Derived"
+derived.Name = "Derived"
+derived.Description = "Derived sample type"
+derived.BaseType = simpleType # Set the base type to the derived type
+derived.SdsTypeCode = SdsTypeCode.Object
+derived.Properties = [ observation ]
 ```
 
 **JavaScript**
 ```javascript
-      var observationProprety = new SdsObjects.SdsTypeProperty({
-          "Id": "Observation",
-          "SdsType": new SdsObjects.SdsType({
-              "Id": "strType",
-              "SdsTypeCode": SdsObjects.SdsTypeCodeMap.String
-          })
-      });
+var observationProprety = new SdsObjects.SdsTypeProperty({
+    "Id": "Observation",
+    "SdsType": new SdsObjects.SdsType({
+        "Id": "strType",
+        "SdsTypeCode": SdsObjects.SdsTypeCodeMap.String
+    })
+});
 
-      var derivedType = new SdsObjects.SdsType({
-          "Id": "Derived",
-          "Name": "Derived",
-          "Description": " Derived sample type",
-          "BaseType": simpleType,
-          "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
-          "Properties": [ observationProprety ]
-      });
+var derivedType = new SdsObjects.SdsType({
+    "Id": "Derived",
+    "Name": "Derived",
+    "Description": " Derived sample type",
+    "BaseType": simpleType,
+    "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
+    "Properties": [ observationProprety ]
+});
 ```
 
-SdsType API
-----------
+# SdsType API
 
 The REST APIs provide programmatic access to read and write Sds data. The APIs in this section 
 interact with SdsTypes. When working in .NET, convenient SDS Client Libraries are available. 
@@ -788,8 +776,7 @@ defines the available functions. See [Types](#types) for general SdsType informa
 
 ***********************
 
-``Get Type``
-------------
+## `Get Type`
 
 Returns the type corresponding to the specified typeId within a given namespace.
 
@@ -800,25 +787,23 @@ Returns the type corresponding to the specified typeId within a given namespace.
 
 **Parameters**
 
-``string tenantId``  
+`string tenantId`  
 The tenant identifier
 
-``string namespaceId``  
+`string namespaceId`  
 The namespace identifier
 
-``string typeId``  
+`string typeId`  
 The type identifier
 
 
-**Response**
-
+**Response**  
 The response includes a status code and a response body.
 
-**Response body**
+**Response body**  
+The requested SdsType
 
-  The requested SdsType
-
-  Sample response body:
+Example response body:
 ```json
 HTTP/1.1 200
 Accept: application/json
@@ -881,8 +866,7 @@ Accept: application/json
 
 ***********************
 
-``Get Types``
-------------
+## `Get Types`
 
 Returns a list of types within a given namespace.
 
@@ -898,40 +882,38 @@ for information about specifying those respective parameters.
 
 **Parameters**  
 
-``string tenantId``  
+`string tenantId`  
 The tenant identifier
 
-``string namespaceId``  
+`string namespaceId`  
 The namespace identifier
 
-``string query``  
+`string query`  
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
 
-``string filter``  
+`string filter`  
 An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
 
-``int skip``  
+`int skip`  
 An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
 a default value of 0 is used.
 
-``int count``  
+`int count`  
 An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
 
-``string orderby``  
+`string orderby`  
 An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
 Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
 If no value is specified, there is no sorting of results.
 
-**Response**
-
+**Response**  
 The response includes a status code and a response body.
 
-**Response body**
-
+**Response body**  
 A collection of zero or more SdsTypes
 
-Sample response body:
+Example response body:
 ```json
 HTTP/1.1 200
 Accept: application/json
@@ -998,8 +980,7 @@ Accept: application/json
 
 ***********************
 
-``Create Type``
--------------
+## `Get or Create Type`
 
 Creates the specified type. If a type with a matching identifier already exists, The Data Store compares the 
 existing type with the type that was sent. If the types are identical, a ``Found`` (302) error 
@@ -1021,23 +1002,19 @@ redirect with the authorization header, you should disable automatic redirect an
 
 **Parameters**
 
-``string tenantId``  
+`string tenantId`  
 The tenant identifier
 
-``string namespaceId``  
+`string namespaceId`  
 The namespace identifier
 
-``string typeId``  
-The type identifier. The identifier must match the SdsType.Id field. 
+`string typeId`  
+The type identifier. The identifier must match the `SdsType.Id` field in the request body. 
 
+**Request body**  
+The request content is the serialized SdsType.
 
-**Response**  
-The response includes a status code and a response body.
-
-**Response body**  
-The request content is the serialized SdsType. If you are not using the SDS Client Libraries, it is recommended that you use JSON.
-
-Sample SdsType content:
+Example SdsType content:
 ```json
 {
     "Id": "Simple",
@@ -1088,17 +1065,20 @@ Sample SdsType content:
         }
     ]
 }
-```json
+```
 
-Response
-
+**Response**  
 The response includes a status code and a response body.
 
-Response body
+**Response body**  
+The request content is the serialized SdsType. If you are not using the SDS Client Libraries, it is recommended that you use JSON.
+
+Example Response body:
 ```json
 HTTP/1.1 201
 Accept: application/json
 Accept-Verbosity: verbose
+
 {
     "Id": "Simple",
     "Name": "Simple",
@@ -1239,12 +1219,9 @@ in the request body, a Conflict error response is returned and the client librar
 
 The .NET SDS Client Libraries manage redirects.
 
-
 ***********************
 
-
-``Create or Update Type``
-------------------------
+## `Create or Update Type`
 
 Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.
 
@@ -1258,13 +1235,13 @@ they are defined.
 
 **Parameters**
 
-``string tenantId``  
+`string tenantId`  
 The tenant identifier
 
-``string namespaceId``  
+`string namespaceId`  
 The namespace identifier
 
-``string typeId``  
+`string typeId`  
 The type identifier
 
 **Response**  
@@ -1273,7 +1250,6 @@ The response includes a status code and a response body.
 **Response body**  
 The content is set to true on success.
 
-
 **.NET Library**
 ```csharp
     Task CreateOrUpdateTypeAsync(SdsType SdsType)
@@ -1281,8 +1257,7 @@ The content is set to true on success.
 
 ***********************
 
-``Delete Type``
-------------
+## `Delete Type`
 
 Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views reference it.
 
@@ -1290,22 +1265,19 @@ Deletes a type from the specified tenant and namespace. Note that a type cannot 
 
         DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
 
-
 **Parameters**
 
-``string tenantId``  
+`string tenantId`  
 The tenant identifier
 
-``string namespaceId``  
+`string namespaceId`  
 The namespace identifier
 
-``string typeId``  
+`string typeId`  
 The type identifier
-
 
 **Response**  
 The response includes a status code.
-
 
 **.NET Library**
 ```csharp

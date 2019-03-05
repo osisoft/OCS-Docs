@@ -2,8 +2,7 @@
 uid: sdsStreams
 ---
 
-Streams
-=======
+# Streams
 
 SDS stores collections of events and provides convenient ways to find and associating events. Events 
 of consistent structure are stored in streams, called SdsStreams.  An SdsType defines the structure 
@@ -47,9 +46,7 @@ for internal SDS use.
 8. Cannot consist of only periods. 
 
 
-
-Indexes
--------
+## Indexes
 
 The Key or Primary Index is defined at the SdsType. Secondary
 Indexes are defined at the SdsStream.
@@ -62,14 +59,12 @@ that can be ordered are supported for use in a secondary index.
 Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
 
 
-Interpolation and Extrapolation
--------------------------------
+## Interpolation and Extrapolation
 
 The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see [Types](xref:sdsTypes).
 
 
-PropertyOverrides
------------------
+## PropertyOverrides
 
 PropertyOverrides provide a way to override interpolation behavior and unit of measure for individual 
 SdsType Properties for a specific stream.
@@ -95,13 +90,10 @@ When specifying property interpolation overrides, if the SdsType InterpolationMo
 at any level. When InterpolationMode is set to ``Discrete`` and an event it not defined for that index, a null 
 value is returned for the entire event.
 
-Security
------------------
+## Security
 Role based access control.
 
-SdsStream API
-------------
-
+# SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
 section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
@@ -112,58 +104,51 @@ SdsStream information.
 
 ***********************
 
-``Get Stream``
---------------
-
+## `Get Stream`
 Returns the specified stream.
-
 
 **Request**
 
         GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
-
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier
+`string tenantId`  
+The tenant identifier
 
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier
+`string streamId`  
+The stream identifier
 
 
-**Response**
-
+**Response**  
 The response includes a status code and a response body.
 
+**Response body**  
+The requested SdsStream.
 
-**Response body**
+Example response body:
+```json
+HTTP/1.1 200
+Accept: application/json
 
-  The requested SdsStream.
-
-  Sample response body:
-
-      HTTP/1.1 200
-      Content-Type: application/json
-
-      {  
-         "Id":"Simple"
-         "Name":"Simple"
-         "TypeId":"Simple",
-      }
-
+{  
+   "Id":"Simple"
+   "Name":"Simple"
+   "TypeId":"Simple",
+}
+```
 
 **.NET Library**
-
-      Task<SdsStream> GetStreamAsync(string streamId);
+```csharp
+   Task<SdsStream> GetStreamAsync(string streamId);
+```
 
 ***********************
 
-``Get Streams``
---------------
+## `Get Streams` 
 
 Returns a list of streams.
 
@@ -176,86 +161,81 @@ for information about specifying those respective parameters.
 
 **Request**
 
-        GET	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier
+`string tenantId`  
+The tenant identifier
 
-``string namespaceId``  
-  The namespace identifier
+`string namespaceId`  
+The namespace identifier
 
-``string query``  
-  An optional parameter representing a string search. 
-  See [Searching](xref:sdsSearching)
-  for information about specifying the search parameter.
+`string query`  
+An optional parameter representing a string search. 
+See [Searching](xref:sdsSearching)
+for information about specifying the search parameter.
 
-``string filter``   
-  An optional filter string to match which SdsStreams will be returned.  See the 
-  [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
-  topic for information about specifying the filter parameter.
+`string filter`   
+An optional filter string to match which SdsStreams will be returned.  See the 
+[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+topic for information about specifying the filter parameter.
 
-``int skip``  
-  An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
-  If not specified, a default value of 0 is used.
+`int skip`  
+An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
+If not specified, a default value of 0 is used.
 
-``int count``  
-  An optional parameter representing the maximum number of SdsStreams to retrieve. 
-  If not specified, a default value of 100 is used.
+`int count`  
+An optional parameter representing the maximum number of SdsStreams to retrieve. 
+If not specified, a default value of 100 is used.
 
-``string orderby``  
-  An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
+`string orderby`  
+An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
-**Response**
+**Response**  
+The response includes a status code and a response body.
 
-  The response includes a status code and a response body.
+**Response body**  
+A collection of zero or more SdsStreams.
 
+Example response body:
+```json
+HTTP/1.1 200
+Accept: application/json
 
-**Response body**
-
-  A collection of zero or more SdsStreams.
-
-  Sample response body:
-
-      HTTP/1.1 200
-      Content-Type: application/json
-
-       [  
+[  
+   {  
+      "Id":"Simple",
+      "TypeId":"Simple"
+   },
+   {  
+      "Id":"Simple with Secondary",
+      "TypeId":"Simple",
+      "Indexes":[  
          {  
-            "Id":"Simple",
-            "TypeId":"Simple"
-         },
-         {  
-            "Id":"Simple with Secondary",
-            "TypeId":"Simple",
-            "Indexes":[  
-               {  
-                  "SdsTypePropertyId":"Measurement"
-               }
-            ]
-         },
-         {  
-            "Id":"Compound",
-            "TypeId":"Compound"
-         },
-         ...
+            "SdsTypePropertyId":"Measurement"
+         }
       ]
+   },
+   {  
+      "Id":"Compound",
+      "TypeId":"Compound"
+   },
+   ...
+]
+```
 
-
-**.NET Library**
-
-      Task<IEnumerable<SdsStream>> GetStreamsAsync(string query = "", int skip = 0, 
-          int count = 100);
-
+**.NET Library**  
+```csharp
+   Task<IEnumerable<SdsStream>> GetStreamsAsync(string query = "", int skip = 0, 
+      int count = 100);
+```
 
 ***********************
 
-``Get Stream Type``
--------------------
+## `Get Stream Type`
 
 Returns the type definition that is associated with a given stream.
-
 
 **Request**
 
@@ -263,36 +243,29 @@ Returns the type definition that is associated with a given stream.
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
+**Response**  
+The response includes a status code and a response body.
 
-**Response**
-
-  The response includes a status code and a response body.
-
-
-**Response body**
-
-  The requested SdsType.
-
+**Response body**  
+The requested SdsType.
 
 **.NET Library**
-
-      Task<SdsType> GetStreamTypeAsync(string streamId);
-
-
+```csharp
+   Task<SdsType> GetStreamTypeAsync(string streamId);
+```
 
 ***********************
 
-``Create Stream``
------------------
+## `Get or Create Stream`
 
 Creates the specified stream. If a stream with a matching identifier already exists, SDS compares the 
 existing stream with the stream that was sent. If the streams are identical, a ``Found`` (302) error 
@@ -315,30 +288,29 @@ redirect with the authorization header, you should disable automatic redirect.
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier. The stream identifier must match the identifier in content. 
-  The request content is the serialized SdsStream.
+`string streamId`  
+The stream identifier. The stream identifier must match the identifier in content. 
 
-**Response**
+**Request body**  
+The request content is the serialized SdsStream.
 
-  The response includes a status code and a response body.
+**Response**  
+The response includes a status code and a response body.
 
-
-**Response body**
-
-  The newly created SdsStream.
+**Response body**  
+The newly created SdsStream.
 
 
 **.NET Library**
-
+```csharp
       Task<SdsStream> GetOrCreateStreamAsync(SdsStream SdsStream);
-
+```
 
 If a stream with a matching identifier already exists and it matches the stream in the request body, 
 the client redirects a GET to the Location header. If the existing stream does not match the stream 
@@ -346,18 +318,22 @@ in the request body, a Conflict error response is returned and the client librar
 
 ***********************
 
-``Create or Update Stream``
--------------------------
+## `Create or Update Stream`
 
 Creates the specified stream. If a stream with the same Id already exists, the definition of the stream is updated. 
-The following changes are permitted:
+The following changes are permitted:  
+- Name  
+- Description  
+- Indexes  
+- InterpolationMode  
+- ExtrapolationMode  
+- PropertyOverrides  
 
-•	Name
-•	Description
-•  PropertyOverrides
+Note that modifying Indexes will result in re-indexing all of the stream's data for each additional secondary index.
+
+For more information on secondary indexes, see [Indexes](#indexes).
 
 Unpermitted changes result in an error.
-
 
 **Request**
 
@@ -365,35 +341,32 @@ Unpermitted changes result in an error.
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
+**Request body**  
 The request content is the serialized SdsStream.
 
-
-**Response**
-
-  The response includes a status code.
+**Response**  
+The response includes a status code.
 
 
 **.NET Library**
-
-      Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
-
+```csharp
+   Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
+```
 ***********************
 
-``Update Stream Type``
---------------
+## `Update Stream Type`
 
 Updates a stream’s type. The type is modified to match the specified stream view. 
-Defined Indexes and PropertyOverrides are removed when updating a stream type.
-
+Defined Indexes and PropertyOverrides are removed when updating a stream type. 
 
 **Request**
 
@@ -401,43 +374,37 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
   
-``string streamViewId``  
-  The stream view identifier  
+`string streamViewId`  
+The stream view identifier  
 
-The request contains no content.
+**Request body**  
+The request content is the serialized SdsStream.
 
+**Response**  
+The response includes a status code.
 
-**Response**
-
-  The response includes a status code.
-
-
-**Response body**
-
-  On failure, the content contains a message describing the issue.
-
+**Response body**  
+On failure, the content contains a message describing the issue.
 
 **.NET Library**
-
-      Task UpdateStreamTypeAsync(string streamId, string streamViewId);
-
+```csharp
+   Task UpdateStreamTypeAsync(string streamId, string streamViewId);
+```
 
 ***********************
 
-``Delete Stream``
---------------
+## `Delete Stream`
 
 Deletes a stream. 
-
 
 **Request**
 
@@ -446,23 +413,21 @@ Deletes a stream.
 
 **Parameters**
 
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
-
-**Response**
-
-  The response includes a status code.
-
+**Response**  
+The response includes a status code.
 
 **.NET Library**
-
-      Task DeleteStreamAsync(string streamId);
+```csharp
+   Task DeleteStreamAsync(string streamId);
+```
 
 

@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite
+/.vs/OCS-Docs/v15/Browse.VC.opendb
+/.vs/OCS-Docs/v15/Browse.VC.db
+/.vs/OCS-Docs/v15/.suo
+/.vs/OCS-Docs/v15
