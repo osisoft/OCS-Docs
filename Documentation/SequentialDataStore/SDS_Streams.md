@@ -90,9 +90,6 @@ When specifying property interpolation overrides, if the SdsType InterpolationMo
 at any level. When InterpolationMode is set to ``Discrete`` and an event it not defined for that index, a null 
 value is returned for the entire event.
 
-## Security
-Role based access control.
-
 # SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
