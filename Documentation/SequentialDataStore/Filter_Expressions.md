@@ -8,7 +8,7 @@ Filter Expressions: Values
 Filter expressions can be applied to certain read operations that return Sequential Data Store values or objects. This section covers data values. For filtering on metadata objects refer to [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata).
 
 Filter expressions can be applied to any read that returns multiple values, including 
-``Get Values``, ``Get Range Values``, ``Get Window Values``, and ``Get Intervals``.”
+``Get Values`` and ``Get Summaries``.”
 
 
 SdsTypeCodes
@@ -133,19 +133,19 @@ String operations are case sensitive. The character index in a string is
 0-based. The following string functions are supported for use within a
 filter expression:
 
-| function      | Comment                                                         |
-|---------------|-----------------------------------------------------------------|
-| ``endswith``  | Compare the character at the end of the input string            |
-| ``startwith`` | Compare the character at the start of the input string          |
-| ``length``    | Examines the string length                                      |
-| ``indexof``   | Examines the character starting at a given index                |
-| ``substring`` | Examine characters within another string at a specific location |
-| ``contains``	| Search for characters anywhere in another string                |
-| ``tolower``   | Convert characters to lowercase                                 |
-| ``toupper``   | Convert characters to uppercase                                 |
-| ``trim``      | Remove whitespace from front and end of a string                |
-| ``concat``    | Concatenate strings together                                    |
-| ``replace``   | Replace one set of characters with another                      |
+| function       | Comment                                                         |
+|----------------|-----------------------------------------------------------------|
+| ``endswith``   | Compare the character at the end of the input string            |
+| ``startswith`` | Compare the character at the start of the input string          |
+| ``length``     | Examines the string length                                      |
+| ``indexof``    | Examines the character starting at a given index                |
+| ``substring``  | Examine characters within another string at a specific location |
+| ``contains``	 | Search for characters anywhere in another string                |
+| ``tolower``    | Convert characters to lowercase                                 |
+| ``toupper``    | Convert characters to uppercase                                 |
+| ``trim``       | Remove whitespace from front and end of a string                |
+| ``concat``     | Concatenate strings together                                    |
+| ``replace``    | Replace one set of characters with another                      |
 
 **String function examples**
 
