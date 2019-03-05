@@ -129,11 +129,11 @@ The requested SdsStream.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {  
-   "Id":"Simple"
-   "Name":"Simple"
+   "Id":"Simple",
+   "Name":"Simple",
    "TypeId":"Simple",
 }
 ```
@@ -198,7 +198,7 @@ A collection of zero or more SdsStreams.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [  
    {  

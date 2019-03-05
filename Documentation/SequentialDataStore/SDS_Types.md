@@ -806,7 +806,7 @@ The requested SdsType
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {
     "Id": "Simple",
@@ -916,7 +916,7 @@ A collection of zero or more SdsTypes
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [    
     {
@@ -1076,8 +1076,7 @@ The request content is the serialized SdsType. If you are not using the SDS Clie
 Example Response body:
 ```json
 HTTP/1.1 201
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 {
     "Id": "Simple",

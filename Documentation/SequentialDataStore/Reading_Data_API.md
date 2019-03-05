@@ -182,8 +182,7 @@ specified index:
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -204,8 +203,7 @@ The request specifies an index that does not match an index of an existing event
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
    
 [
     {
@@ -271,7 +269,7 @@ The events in the stream with `Measurement` greater than 10 are returned.
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -351,7 +349,7 @@ This request will return a response with up to 100 events starting at 13:00 and 
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -385,7 +383,8 @@ return up to 100 events starting at 13:00 and extending back toward the start of
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
+
 [
     {
         "Time": "2017-11-23T13:00:00Z",
@@ -414,8 +413,7 @@ it would mean one event before the specified start index.
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose 
+Content-Type: application/json
 
 [
     {
@@ -448,8 +446,7 @@ Adding a filter to the request means only events that meet the filter criteria a
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose 
+Content-Type: application/json
 
 [
     {
@@ -587,7 +584,7 @@ The response will contain the event stored at the specified index:
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -618,7 +615,7 @@ before 13:30 and the value after 15:30 are included:
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -659,7 +656,7 @@ are included in the result. With an end boundary of Outside one value outside th
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -696,8 +693,7 @@ end index by indicating count is 2 and continuationToken is an empty string:
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 {
     "Results": [
@@ -727,8 +723,7 @@ page to request the next page of stored events:
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 {
     "Results": [
@@ -882,8 +877,7 @@ The response will contain the event stored at the specified index.
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -905,8 +899,7 @@ this request receives a response with an event interpolated at the specified ind
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -929,8 +922,7 @@ For this request, the response contains events for two of the three specified in
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1005,8 +997,7 @@ the start and end fall exactly on event indexes, and the number of events from s
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1113,8 +1104,7 @@ The following requests calculates two summary intervals between the `startIndex`
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1306,8 +1296,7 @@ To join multiple streams, for example Simple1 and Simple2, assume that Simple1 p
 
 ```json  
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1337,8 +1326,7 @@ And assume that Simple2 presents the following data:
 
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1379,8 +1367,7 @@ Measurements from both streams with common indexes.
 
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1410,8 +1397,7 @@ All Measurements from both Streams, with default values at indexes where a Strea
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1490,8 +1476,7 @@ All Measurements from both Streams with missing values interpolated. If the miss
 
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1593,8 +1578,7 @@ This is similar to [OuterJoin](#outerjoin-request), but value at each index is t
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1647,8 +1631,7 @@ This is similar to [OuterJoin](#outerjoin-request), but value at each index is t
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1752,8 +1735,7 @@ Only events within the stream's specified index boundaries are considered for th
 **Response body**
 ```json
 HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [

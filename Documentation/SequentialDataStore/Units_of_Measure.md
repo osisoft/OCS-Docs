@@ -317,7 +317,7 @@ The requested SdsUomQuantity.
 Example response body for quantityId = "Length":
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {
     "Id": "Length",
@@ -378,7 +378,7 @@ A list of SdsUomQuantity objects.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -461,7 +461,7 @@ The requested SdsUom.
 Example response for quantityId = "Length" and uomId ="mile":
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {
     "Id": "mile",
@@ -504,7 +504,7 @@ A collection of SdsUom objects for the specified quantity.
 Example response for quantityId = "Electric Current":
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -563,7 +563,7 @@ The requested SdsUom.
 Example response body for uomId = "ounce":
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {
     "Id": "ounce",
@@ -612,8 +612,7 @@ A list of SdsUom objects.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
-
+Content-Type: application/json
 [
     {
         "Id": "count",

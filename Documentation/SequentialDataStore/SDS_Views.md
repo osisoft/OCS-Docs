@@ -482,8 +482,7 @@ The requested SdsStreamView.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
-
+Content-Type: application/json
 {  
    "Id":"StreamView",
    "Name":"StreamView",
@@ -544,7 +543,7 @@ The requested SdsStreamView.
 Example response body:
 ```json
 HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 {  
    "SourceTypeId":"Simple",
@@ -630,11 +629,9 @@ The response includes a status code and a response body.
 A collection of zero or more SdsStreamViews.
 
 Example response body:
-
 ```json
 HTTP/1.1 200
-Accept: application/json
-
+Content-Type: application/json
 [  
   {  
      "Id":"StreamView",
