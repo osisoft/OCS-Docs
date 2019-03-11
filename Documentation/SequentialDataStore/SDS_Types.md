@@ -1283,3 +1283,174 @@ The response includes a status code.
     Task DeleteTypeAsync(string typeId);
 ```
 
+***********************
+
+## `Get Types Access Control List`
+
+Get the default types ACL.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetTypesAccessControlListAsync();
+```
+***********************
+
+## `Update Types Access Control List`
+
+Update the default types ACL.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Request body**  
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateTypesAccessControlListAsync(AccessControlList typesAcl);
+```
+
+***********************
+
+## `Get Type Access Control List`
+
+Get the ACL of the specified type.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetTypeAccessControlListAsync(string typeId);
+```
+***********************
+
+## `Update Type Access Control List`
+
+Update the ACL of the specified type.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+**Request body**
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
+```
+
+## `Get Type Owner`
+
+Get the owner of the specified type.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<Trustee> GetTypeOwnerAsync(string typeId);
+```
+***********************
+
+## `Update Type Owner`
+
+Update the owner of the specified type.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+**Request body**
+Serialized owner
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateTypeOwnerAsync(string typeId, Trustee typeOwner);
+```

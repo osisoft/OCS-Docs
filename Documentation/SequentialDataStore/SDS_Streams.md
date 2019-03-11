@@ -407,7 +407,6 @@ Deletes a stream.
 
         DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
-
 **Parameters**
 
 `string tenantId`  
@@ -425,6 +424,178 @@ The response includes a status code.
 **.NET Library**
 ```csharp
    Task DeleteStreamAsync(string streamId);
+```
+
+***********************
+
+## `Get Streams Access Control List`
+
+Get the default streams ACL.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetStreamsAccessControlListAsync();
+```
+***********************
+
+## `Update Streams Access Control List`
+
+Update the default streams ACL.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Request body**  
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamsAccessControlListAsync(AccessControlList streamsAcl);
+```
+
+***********************
+
+## `Get Stream Access Control List`
+
+Get the ACL of the specified stream.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetStreamAccessControlListAsync(string streamId);
+```
+***********************
+
+## `Update Stream Access Control List`
+
+Update the ACL of the specified stream.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+**Request body**
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamAccessControlListAsync(string streamId, AccessControlList streamAcl);
+```
+
+## `Get Stream Owner`
+
+Get the owner of the specified stream.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<Trustee> GetStreamOwnerAsync(string streamId);
+```
+***********************
+
+## `Update Stream Owner`
+
+Update the owner of the specified stream.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+**Request body**
+Serialized owner
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
 
 

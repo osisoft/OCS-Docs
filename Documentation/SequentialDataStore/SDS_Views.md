@@ -769,3 +769,173 @@ The response includes a status code.
    Task DeleteStreamViewAsync(string streamViewId);
 ```
 
+***********************
+## `Get Stream Views Access Control List`
+
+Get the default stream views ACL.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetStreamViewsAccessControlListAsync();
+```
+***********************
+
+## `Update Stream Views Access Control List`
+
+Update the default stream views ACL.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+**Request body**  
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
+```
+
+***********************
+
+## `Get Stream View Access Control List`
+
+Get the ACL of the specified stream view.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<AccessControlList> GetStreamViewAccessControlListAsync(string streamViewId);
+```
+***********************
+
+## `Update Stream View Access Control List`
+
+Update the ACL of the specified stream view.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+**Request body**
+Serialized access control list
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
+```
+
+## `Get Stream View Owner`
+
+Get the owner of the specified stream view.
+
+**Request**
+
+        GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task<Trustee> GetStreamViewOwnerAsync(string streamViewId);
+```
+***********************
+
+## `Update Stream View Owner`
+
+Update the owner of the specified stream view.
+
+**Request**
+
+        PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+**Request body**
+Serialized owner
+
+**Response**  
+The response includes a status code.
+
+**.NET Library**
+```csharp
+   Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
+```
