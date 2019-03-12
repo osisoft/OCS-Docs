@@ -532,8 +532,6 @@ Content-Type: application/json
 ```
 ***
 
-***********************
-
 ## `Get Quantities Access Control List`
 
 Get the default Quantities ACL.
@@ -557,7 +555,7 @@ The response includes a status code.
 ```csharp
    Task<AccessControlList> GetQuantitiesAccessControlListAsync();
 ```
-***********************
+***
 
 ## `Update Quantities Access Control List`
 
@@ -635,7 +633,7 @@ The namespace identifier
 `string quantityId`  
 The quantity identifier  
 
-**Request body**
+**Request body**  
 Serialized access control list
 
 **Response**  
@@ -645,6 +643,7 @@ The response includes a status code.
 ```csharp
    Task UpdateQuantityAccessControlListAsync(string quantityId, AccessControlList quantityAcl);
 ```
+***
 
 ## `Get Quantity Owner`
 
@@ -693,7 +692,7 @@ The namespace identifier
 `string quantityId`  
 The quantity identifier  
 
-**Request body**
+**Request body**  
 Serialized owner
 
 **Response**  
@@ -874,7 +873,7 @@ The quantity identifier
 `string uomId`  
 The unit of measure identifier
 
-**Request body**
+**Request body**  
 Serialized access control list
 
 **Response**  
@@ -884,6 +883,7 @@ The response includes a status code.
 ```csharp
    Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
 ```
+***
 
 ## `Get Uom Owner`
 
@@ -938,7 +938,7 @@ The quantity identifier
 `string uomId`  
 The unit of measure identifier
 
-**Request body**
+**Request body**  
 Serialized owner
 
 **Response**  

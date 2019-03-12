@@ -529,7 +529,7 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Request body**
+**Request body**  
 Serialized access control list
 
 **Response**  
@@ -539,6 +539,7 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamAccessControlListAsync(string streamId, AccessControlList streamAcl);
 ```
+*** 
 
 ## `Get Stream Owner`
 
@@ -587,7 +588,7 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Request body**
+**Request body**  
 Serialized owner
 
 **Response**  

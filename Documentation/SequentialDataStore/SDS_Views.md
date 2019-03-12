@@ -871,7 +871,7 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**
+**Request body**  
 Serialized access control list
 
 **Response**  
@@ -881,6 +881,7 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
 ```
+***
 
 ## `Get Stream View Owner`
 
@@ -929,7 +930,7 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**
+**Request body**  
 Serialized owner
 
 **Response**  

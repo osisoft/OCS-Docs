@@ -1386,7 +1386,7 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-**Request body**
+**Request body**  
 Serialized access control list
 
 **Response**  
@@ -1396,6 +1396,7 @@ The response includes a status code.
 ```csharp
    Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
 ```
+***
 
 ## `Get Type Owner`
 
@@ -1444,7 +1445,7 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-**Request body**
+**Request body**  
 Serialized owner
 
 **Response**  
