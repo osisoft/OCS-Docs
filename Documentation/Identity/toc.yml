@@ -1,7 +1,5 @@
 - name: Identity Overview
   href: Identity_Overview.md
-- name: Azure Active Directory Tenant Information
-  href: Identity_AzureActiveDirectoryTenantInformation.md
 - name: Client
   href: Identity_Client.md
 - name: Implicit Client

@@ -80,7 +80,7 @@
 
 <p>APIs for creating, getting, updating, and deleting Users</p>
 <h2 id="properties">Properties</h2>
-<p>For HTTP requests and responses, the User object has the following properties and JSON-serialized body: </p>
+<p>For HTTP requests and responses, the UserDto object has the following properties and JSON-serialized body: </p>
 <table>
 <thead>
 <tr>
@@ -92,7 +92,7 @@
 <tbody>
 <tr>
 <td>Id</td>
-<td>string</td>
+<td>Guid</td>
 <td>Unique User ID.</td>
 </tr>
 <tr>
@@ -118,17 +118,17 @@
 <tr>
 <td>ContactEmail</td>
 <td>string</td>
-<td>Preferred contact email to be used.</td>
+<td>Preferred contact email for user.</td>
 </tr>
 <tr>
 <td>ContactGivenName</td>
 <td>string</td>
-<td>Preferred name to be used when contacting user.</td>
+<td>Preferred contact name for user.</td>
 </tr>
 <tr>
 <td>ContactSurname</td>
 <td>string</td>
-<td>Preferred surname to be used when contacting user.</td>
+<td>Preferred contact surname for user.</td>
 </tr>
 <tr>
 <td>ExternalUserId</td>
@@ -136,20 +136,20 @@
 <td>Provider id for user.</td>
 </tr>
 <tr>
-<td>Tenant</td>
-<td>Tenant</td>
-<td>Tenant the user belongs to.</td>
+<td>TenantId</td>
+<td>Guid</td>
+<td>Tenant Id the User belongs to.</td>
 </tr>
 <tr>
-<td>IdentityProvider</td>
-<td>IdentityProvider</td>
-<td>Identity provider used to authenticate user.</td>
+<td>IdentityProviderId</td>
+<td>optional: Guid</td>
+<td>Identity Provider Id used to authenticate user.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="serialized-model">Serialized Model</h3>
 <pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
   &quot;GivenName&quot;: &quot;Name&quot;,
   &quot;Surname&quot;: &quot;Surname&quot;,
   &quot;Name&quot;: &quot;Name&quot;,
@@ -158,27 +158,17 @@
   &quot;ContactGivenName&quot;: &quot;Name&quot;,
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
 }
 </code></pre><hr>
 <h2 id="get-users"><code>Get Users</code></h2>
 <p>Returns a list of User objects for a given tenant</p>
 <h3 id="request">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -200,17 +190,15 @@ int32 count
 <ul>
 <li><code>Account Administrator</code></li>
 <li><code>Account Member</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns">Returns</h3>
 <h4 id="200">200</h4>
 <p>Success.</p>
 <h5 id="type">Type:</h5>
-<p> <code>List[User]</code></p>
+<p> <code>List[UserDto]</code></p>
 <pre><code class="lang-json">[
   {
-    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
     &quot;GivenName&quot;: &quot;Name&quot;,
     &quot;Surname&quot;: &quot;Surname&quot;,
     &quot;Name&quot;: &quot;Name&quot;,
@@ -219,21 +207,11 @@ int32 count
     &quot;ContactGivenName&quot;: &quot;Name&quot;,
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
   },
   {
-    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
     &quot;GivenName&quot;: &quot;Name&quot;,
     &quot;Surname&quot;: &quot;Surname&quot;,
     &quot;Name&quot;: &quot;Name&quot;,
@@ -242,18 +220,8 @@ int32 count
     &quot;ContactGivenName&quot;: &quot;Name&quot;,
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
   }
 ]
 </code></pre><h4 id="400">400</h4>
@@ -270,14 +238,14 @@ int32 count
 <h2 id="get-users-by-ids"><code>Get Users By IDs</code></h2>
 <p>Returns an ordered list of User objects based on userId for a given tenant or a MultiStatusResponseDto with a list of User objects and a list of errors</p>
 <h3 id="request-1">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/Ids</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/Ids</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Required]
-string[] userIds
+Guid[] userIds
 </code></pre><p>Unordered list of ids for all users to get</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -298,17 +266,15 @@ int32 count
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-1">Returns</h3>
 <h4 id="200-1">200</h4>
 <p>Success.</p>
 <h5 id="type-1">Type:</h5>
-<p> <code>IList[User]</code></p>
+<p> <code>List[UserDto]</code></p>
 <pre><code class="lang-json">[
   {
-    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
     &quot;GivenName&quot;: &quot;Name&quot;,
     &quot;Surname&quot;: &quot;Surname&quot;,
     &quot;Name&quot;: &quot;Name&quot;,
@@ -317,21 +283,11 @@ int32 count
     &quot;ContactGivenName&quot;: &quot;Name&quot;,
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
   },
   {
-    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
     &quot;GivenName&quot;: &quot;Name&quot;,
     &quot;Surname&quot;: &quot;Surname&quot;,
     &quot;Name&quot;: &quot;Name&quot;,
@@ -340,24 +296,14 @@ int32 count
     &quot;ContactGivenName&quot;: &quot;Name&quot;,
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
   }
 ]
 </code></pre><h4 id="207">207</h4>
 <p>Partial success.</p>
 <h5 id="type-2">Type:</h5>
-<p> <code>MultiStatusResponseDto[IList[User]]</code></p>
+<p> <code>MultiStatusResponseDto[List[UserDto]]</code></p>
 <pre><code class="lang-json">{
   &quot;OperationId&quot;: &quot;OperationId&quot;,
   &quot;Error&quot;: &quot;Error&quot;,
@@ -372,7 +318,7 @@ int32 count
       &quot;ModelId&quot;: {
         &quot;String&quot;: &quot;String&quot;
       },
-      &quot;TenantId&quot;: &quot;TenantId&quot;
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     },
     {
       &quot;OperationId&quot;: &quot;OperationId&quot;,
@@ -383,12 +329,12 @@ int32 count
       &quot;ModelId&quot;: {
         &quot;String&quot;: &quot;String&quot;
       },
-      &quot;TenantId&quot;: &quot;TenantId&quot;
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   ],
   &quot;Data&quot;: [
     {
-      &quot;Id&quot;: &quot;Id&quot;,
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
       &quot;GivenName&quot;: &quot;Name&quot;,
       &quot;Surname&quot;: &quot;Surname&quot;,
       &quot;Name&quot;: &quot;Name&quot;,
@@ -397,21 +343,11 @@ int32 count
       &quot;ContactGivenName&quot;: &quot;Name&quot;,
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-      &quot;Tenant&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;Alias&quot;: &quot;Alias&quot;,
-        &quot;State&quot;: &quot;State&quot;,
-        &quot;IsCloudConnectCustomer&quot;: false
-      },
-      &quot;IdentityProvider&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;DisplayName&quot;: &quot;Name&quot;,
-        &quot;Scheme&quot;: &quot;Scheme&quot;,
-        &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-      }
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     },
     {
-      &quot;Id&quot;: &quot;Id&quot;,
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
       &quot;GivenName&quot;: &quot;Name&quot;,
       &quot;Surname&quot;: &quot;Surname&quot;,
       &quot;Name&quot;: &quot;Name&quot;,
@@ -420,18 +356,8 @@ int32 count
       &quot;ContactGivenName&quot;: &quot;Name&quot;,
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-      &quot;Tenant&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;Alias&quot;: &quot;Alias&quot;,
-        &quot;State&quot;: &quot;State&quot;,
-        &quot;IsCloudConnectCustomer&quot;: false
-      },
-      &quot;IdentityProvider&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;DisplayName&quot;: &quot;Name&quot;,
-        &quot;Scheme&quot;: &quot;Scheme&quot;,
-        &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-      }
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   ]
 }
@@ -449,10 +375,10 @@ int32 count
 <h2 id="get-users-status"><code>Get Users&#39; Status</code></h2>
 <p>Get User status for multiple users, optionally restrict it to only Users of a specific status.</p>
 <h3 id="request-2">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/Status</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/Status</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -478,8 +404,6 @@ string status
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-2">Returns</h3>
 <h4 id="200-2">200</h4>
@@ -490,7 +414,7 @@ string status
   {
     &quot;InvitationStatus&quot;: 0,
     &quot;User&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
       &quot;GivenName&quot;: &quot;Name&quot;,
       &quot;Surname&quot;: &quot;Surname&quot;,
       &quot;Name&quot;: &quot;Name&quot;,
@@ -499,24 +423,14 @@ string status
       &quot;ContactGivenName&quot;: &quot;Name&quot;,
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-      &quot;Tenant&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;Alias&quot;: &quot;Alias&quot;,
-        &quot;State&quot;: &quot;State&quot;,
-        &quot;IsCloudConnectCustomer&quot;: false
-      },
-      &quot;IdentityProvider&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;DisplayName&quot;: &quot;Name&quot;,
-        &quot;Scheme&quot;: &quot;Scheme&quot;,
-        &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-      }
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   },
   {
     &quot;InvitationStatus&quot;: 0,
     &quot;User&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
       &quot;GivenName&quot;: &quot;Name&quot;,
       &quot;Surname&quot;: &quot;Surname&quot;,
       &quot;Name&quot;: &quot;Name&quot;,
@@ -525,18 +439,8 @@ string status
       &quot;ContactGivenName&quot;: &quot;Name&quot;,
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-      &quot;Tenant&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;Alias&quot;: &quot;Alias&quot;,
-        &quot;State&quot;: &quot;State&quot;,
-        &quot;IsCloudConnectCustomer&quot;: false
-      },
-      &quot;IdentityProvider&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
-        &quot;DisplayName&quot;: &quot;Name&quot;,
-        &quot;Scheme&quot;: &quot;Scheme&quot;,
-        &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-      }
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   }
 ]
@@ -554,29 +458,27 @@ string status
 <h2 id="get-user"><code>Get User</code></h2>
 <p>Returns a User</p>
 <h3 id="request-3">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/{userId}</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/{userId}</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of User</p>
 <h3 id="security-3">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
 <li><code>Account Member</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-3">Returns</h3>
 <h4 id="200-3">200</h4>
 <p>Success</p>
 <h5 id="type-4">Type:</h5>
-<p> <code>User</code></p>
+<p> <code>UserDto</code></p>
 <pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
   &quot;GivenName&quot;: &quot;Name&quot;,
   &quot;Surname&quot;: &quot;Surname&quot;,
   &quot;Name&quot;: &quot;Name&quot;,
@@ -585,18 +487,8 @@ string userId
   &quot;ContactGivenName&quot;: &quot;Name&quot;,
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
 }
 </code></pre><h4 id="401-3">401</h4>
 <p>Unauthorized</p>
@@ -610,21 +502,19 @@ string userId
 <h2 id="get-users-status-1"><code>Get User&#39;s Status</code></h2>
 <p>Returns user invitation status</p>
 <h3 id="request-4">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/{userId}/Status</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Status</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of user</p>
 <h3 id="security-4">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
 <li><code>Account Member</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-4">Returns</h3>
 <h4 id="200-4">200</h4>
@@ -634,7 +524,7 @@ string userId
 <pre><code class="lang-json">{
   &quot;InvitationStatus&quot;: 0,
   &quot;User&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
     &quot;GivenName&quot;: &quot;Name&quot;,
     &quot;Surname&quot;: &quot;Surname&quot;,
     &quot;Name&quot;: &quot;Name&quot;,
@@ -643,18 +533,8 @@ string userId
     &quot;ContactGivenName&quot;: &quot;Name&quot;,
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
   }
 }
 </code></pre><h4 id="401-4">401</h4>
@@ -669,14 +549,14 @@ string userId
 <h2 id="get-users-status-by-ids"><code>Get Users&#39; Status By IDs</code></h2>
 <p>Returns an ordered list of UserStatusDto objects for a given tenant or a MultiStatusDto response with a list of UserStatusDto objects and a list of errors</p>
 <h3 id="request-5">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/Status/Ids</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/Status/Ids</code></p>
 <h3 id="parameters-5">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Required]
-string[] userIds
+Guid[] userIds
 </code></pre><p>Unordered list of ids for all users</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -697,66 +577,50 @@ int32 count
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-5">Returns</h3>
 <h4 id="200-5">200</h4>
 <p>Success.</p>
 <h5 id="type-6">Type:</h5>
-<p> <code>IList[User]</code></p>
+<p> <code>List[UserStatusDto]</code></p>
 <pre><code class="lang-json">[
   {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;GivenName&quot;: &quot;Name&quot;,
-    &quot;Surname&quot;: &quot;Surname&quot;,
-    &quot;Name&quot;: &quot;Name&quot;,
-    &quot;Email&quot;: &quot;user@company.com&quot;,
-    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
-    &quot;ContactGivenName&quot;: &quot;Name&quot;,
-    &quot;ContactSurname&quot;: &quot;Surname&quot;,
-    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
+    &quot;InvitationStatus&quot;: 0,
+    &quot;User&quot;: {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   },
   {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;GivenName&quot;: &quot;Name&quot;,
-    &quot;Surname&quot;: &quot;Surname&quot;,
-    &quot;Name&quot;: &quot;Name&quot;,
-    &quot;Email&quot;: &quot;user@company.com&quot;,
-    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
-    &quot;ContactGivenName&quot;: &quot;Name&quot;,
-    &quot;ContactSurname&quot;: &quot;Surname&quot;,
-    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
+    &quot;InvitationStatus&quot;: 0,
+    &quot;User&quot;: {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   }
 ]
 </code></pre><h4 id="207-1">207</h4>
 <p>Partial success.</p>
 <h5 id="type-7">Type:</h5>
-<p> <code>MultiStatusResponseDto[IList[UserStatusDto]]</code></p>
+<p> <code>MultiStatusResponseDto[List[UserStatusDto]]</code></p>
 <pre><code class="lang-json">{
   &quot;OperationId&quot;: &quot;OperationId&quot;,
   &quot;Error&quot;: &quot;Error&quot;,
@@ -771,7 +635,7 @@ int32 count
       &quot;ModelId&quot;: {
         &quot;String&quot;: &quot;String&quot;
       },
-      &quot;TenantId&quot;: &quot;TenantId&quot;
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     },
     {
       &quot;OperationId&quot;: &quot;OperationId&quot;,
@@ -782,14 +646,14 @@ int32 count
       &quot;ModelId&quot;: {
         &quot;String&quot;: &quot;String&quot;
       },
-      &quot;TenantId&quot;: &quot;TenantId&quot;
+      &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
     }
   ],
   &quot;Data&quot;: [
     {
       &quot;InvitationStatus&quot;: 0,
       &quot;User&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
+        &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
         &quot;GivenName&quot;: &quot;Name&quot;,
         &quot;Surname&quot;: &quot;Surname&quot;,
         &quot;Name&quot;: &quot;Name&quot;,
@@ -798,24 +662,14 @@ int32 count
         &quot;ContactGivenName&quot;: &quot;Name&quot;,
         &quot;ContactSurname&quot;: &quot;Surname&quot;,
         &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-        &quot;Tenant&quot;: {
-          &quot;Id&quot;: &quot;Id&quot;,
-          &quot;Alias&quot;: &quot;Alias&quot;,
-          &quot;State&quot;: &quot;State&quot;,
-          &quot;IsCloudConnectCustomer&quot;: false
-        },
-        &quot;IdentityProvider&quot;: {
-          &quot;Id&quot;: &quot;Id&quot;,
-          &quot;DisplayName&quot;: &quot;Name&quot;,
-          &quot;Scheme&quot;: &quot;Scheme&quot;,
-          &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-        }
+        &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
       }
     },
     {
       &quot;InvitationStatus&quot;: 0,
       &quot;User&quot;: {
-        &quot;Id&quot;: &quot;Id&quot;,
+        &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
         &quot;GivenName&quot;: &quot;Name&quot;,
         &quot;Surname&quot;: &quot;Surname&quot;,
         &quot;Name&quot;: &quot;Name&quot;,
@@ -824,18 +678,8 @@ int32 count
         &quot;ContactGivenName&quot;: &quot;Name&quot;,
         &quot;ContactSurname&quot;: &quot;Surname&quot;,
         &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-        &quot;Tenant&quot;: {
-          &quot;Id&quot;: &quot;Id&quot;,
-          &quot;Alias&quot;: &quot;Alias&quot;,
-          &quot;State&quot;: &quot;State&quot;,
-          &quot;IsCloudConnectCustomer&quot;: false
-        },
-        &quot;IdentityProvider&quot;: {
-          &quot;Id&quot;: &quot;Id&quot;,
-          &quot;DisplayName&quot;: &quot;Name&quot;,
-          &quot;Scheme&quot;: &quot;Scheme&quot;,
-          &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-        }
+        &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
       }
     }
   ]
@@ -854,21 +698,19 @@ int32 count
 <h2 id="get-users-preferences"><code>Get User&#39;s Preferences</code></h2>
 <p>Returns a user&#39;s preferences</p>
 <h3 id="request-6">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/{userId}/Preferences</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Preferences</code></p>
 <h3 id="parameters-6">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of User</p>
 <h3 id="security-6">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
 <li><code>Account Member</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
 <h3 id="returns-6">Returns</h3>
 <h4 id="200-6">200</h4>
@@ -888,24 +730,24 @@ string userId
 <h2 id="update-users-preferences"><code>Update User&#39;s Preferences</code></h2>
 <p>Put a user&#39;s preferences</p>
 <h3 id="request-7">Request</h3>
-<p><code>PUT api/Tenants/{tenantId}/User/{userId}/Preferences</code></p>
+<p><code>PUT api/v1-preview/Tenants/{tenantId}/User/{userId}/Preferences</code></p>
 <h3 id="parameters-7">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of User</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
 JObject preferences
 </code></pre><p>JSON Preferences</p>
-<h3 id="security-7">Security</h3>
+<pre><code class="lang-json">{}
+</code></pre><h3 id="security-7">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
 <li><code>Account Member</code></li>
-<li><code>Cluster Operator</code></li>
 </ul>
 <h3 id="returns-7">Returns</h3>
 <h4 id="200-7">200</h4>
@@ -927,28 +769,37 @@ JObject preferences
 <h2 id="create-user"><code>Create User</code></h2>
 <p>Creates a User</p>
 <h3 id="request-8">Request</h3>
-<p><code>POST api/Tenants/{tenantId}/User/</code></p>
+<p><code>POST api/v1-preview/Tenants/{tenantId}/User/</code></p>
 <h3 id="parameters-8">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
-UserCreateDto userCreateDto
+UserCreateOrUpdateDto userCreateOrUpdateDto
 </code></pre><p>User data transfer object</p>
-<h3 id="security-8">Security</h3>
+<pre><code class="lang-json">{
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h3 id="security-8">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
 </ul>
 <h3 id="returns-8">Returns</h3>
 <h4 id="201">201</h4>
 <p>Created</p>
 <h5 id="type-10">Type:</h5>
-<p> <code>User</code></p>
+<p> <code>UserDto</code></p>
 <pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
   &quot;GivenName&quot;: &quot;Name&quot;,
   &quot;Surname&quot;: &quot;Surname&quot;,
   &quot;Name&quot;: &quot;Name&quot;,
@@ -957,18 +808,8 @@ UserCreateDto userCreateDto
   &quot;ContactGivenName&quot;: &quot;Name&quot;,
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
 }
 </code></pre><h4 id="400-5">400</h4>
 <p>Missing or invalid inputs</p>
@@ -981,33 +822,44 @@ UserCreateDto userCreateDto
 <h4 id="500-8">500</h4>
 <p>Internal server error</p>
 <hr>
-<h2 id="create-user-with-id"><code>Create User With ID</code></h2>
-<p>Creates a User with an Id</p>
+<h2 id="update-user"><code>Update User</code></h2>
+<p>Create or Update a User</p>
 <h3 id="request-9">Request</h3>
-<p><code>POST api/Tenants/{tenantId}/User/{userId}</code></p>
+<p><code>PUT api/v1-preview/Tenants/{tenantId}/User/{userId}</code></p>
 <h3 id="parameters-9">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
-</code></pre><p>Id of Tenant</p>
+Guid tenantId
+</code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
-</code></pre><p>Id of User</p>
+Guid userId
+</code></pre><p>Id of user</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
-UserCreateDto userCreateDto
-</code></pre><p>User data transfer object</p>
-<h3 id="security-9">Security</h3>
+UserCreateOrUpdateDto userCreateOrUpdateDto
+</code></pre><p>A UserStatusDto object</p>
+<pre><code class="lang-json">{
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h3 id="security-9">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
+<li><code>Account Member</code></li>
 </ul>
 <h3 id="returns-9">Returns</h3>
-<h4 id="201-1">201</h4>
-<p>Created</p>
+<h4 id="200-8">200</h4>
+<p>Updated</p>
 <h5 id="type-11">Type:</h5>
-<p> <code>User</code></p>
+<p> <code>UserDto</code></p>
 <pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
   &quot;GivenName&quot;: &quot;Name&quot;,
   &quot;Surname&quot;: &quot;Surname&quot;,
   &quot;Name&quot;: &quot;Name&quot;,
@@ -1016,18 +868,8 @@ UserCreateDto userCreateDto
   &quot;ContactGivenName&quot;: &quot;Name&quot;,
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
 }
 </code></pre><h4 id="400-6">400</h4>
 <p>Missing or invalid inputs</p>
@@ -1036,63 +878,29 @@ UserCreateDto userCreateDto
 <h4 id="403-9">403</h4>
 <p>Forbidden</p>
 <h4 id="404-9">404</h4>
-<p>Tenant not found</p>
-<h4 id="409">409</h4>
-<p>Conflict. Client already exists.</p>
+<p>User or Tenant not found</p>
 <h4 id="500-9">500</h4>
 <p>Internal server error</p>
 <hr>
-<h2 id="update-user"><code>Update User</code></h2>
-<p>Update a user</p>
+<h2 id="delete-user"><code>Delete User</code></h2>
+<p>Delete a user</p>
 <h3 id="request-10">Request</h3>
-<p><code>PUT api/Tenants/{tenantId}/User/{userId}</code></p>
+<p><code>DELETE api/v1-preview/Tenants/{tenantId}/User/{userId}</code></p>
 <h3 id="parameters-10">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of user</p>
-<pre><code class="lang-csharp">[FromBody]
-[Required]
-UserUpdateDto userUpdateDto
-</code></pre><p>A UserStatusDto object</p>
 <h3 id="security-10">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Account Member</code></li>
 </ul>
 <h3 id="returns-10">Returns</h3>
-<h4 id="200-8">200</h4>
-<p>Updated</p>
-<h5 id="type-12">Type:</h5>
-<p> <code>User</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;GivenName&quot;: &quot;Name&quot;,
-  &quot;Surname&quot;: &quot;Surname&quot;,
-  &quot;Name&quot;: &quot;Name&quot;,
-  &quot;Email&quot;: &quot;user@company.com&quot;,
-  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
-  &quot;ContactGivenName&quot;: &quot;Name&quot;,
-  &quot;ContactSurname&quot;: &quot;Surname&quot;,
-  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
-}
-</code></pre><h4 id="400-7">400</h4>
-<p>Missing or invalid inputs</p>
+<h4 id="204">204</h4>
+<p>Deleted</p>
 <h4 id="401-10">401</h4>
 <p>Unauthorized</p>
 <h4 id="403-10">403</h4>
@@ -1102,166 +910,98 @@ UserUpdateDto userUpdateDto
 <h4 id="500-10">500</h4>
 <p>Internal server error</p>
 <hr>
-<h2 id="delete-user"><code>Delete User</code></h2>
-<p>Delete a user</p>
-<h3 id="request-11">Request</h3>
-<p><code>DELETE api/Tenants/{tenantId}/User/{userId}</code></p>
-<h3 id="parameters-11">Parameters</h3>
-<pre><code class="lang-csharp">[Required]
-string tenantId
-</code></pre><p>Id of tenant</p>
-<pre><code class="lang-csharp">[Required]
-string userId
-</code></pre><p>Id of user</p>
-<h3 id="security-11">Security</h3>
-<p>Allowed for these roles:</p>
-<ul>
-<li><code>Account Administrator</code></li>
-</ul>
-<h3 id="returns-11">Returns</h3>
-<h4 id="204">204</h4>
-<p>Deleted</p>
-<h4 id="401-11">401</h4>
-<p>Unauthorized</p>
-<h4 id="403-11">403</h4>
-<p>Forbidden</p>
-<h4 id="404-11">404</h4>
-<p>User or Tenant not found</p>
-<h4 id="500-11">500</h4>
-<p>Internal server error</p>
-<hr>
 <h2 id="get-users-invitation"><code>Get User&#39;s Invitation</code></h2>
 <p>Get the invitations for a user</p>
-<h3 id="request-12">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/{userId}/Invitation</code></p>
-<h3 id="parameters-12">Parameters</h3>
+<h3 id="request-11">Request</h3>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Invitation</code></p>
+<h3 id="parameters-11">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-string tenantId
+Guid tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
-string userId
+Guid userId
 </code></pre><p>Id of user</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
 [Default = False]
 bool includeExpiredInvitations
 </code></pre><p>Specify to return expired invitations</p>
-<h3 id="security-12">Security</h3>
+<h3 id="security-11">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
 <li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
 </ul>
-<h3 id="returns-12">Returns</h3>
+<h3 id="returns-11">Returns</h3>
 <h4 id="200-9">200</h4>
 <p>Success</p>
-<h5 id="type-13">Type:</h5>
-<p> <code>Invitation</code></p>
+<h5 id="type-12">Type:</h5>
+<p> <code>InvitationDto</code></p>
 <pre><code class="lang-json">{
   &quot;Id&quot;: &quot;Id&quot;,
-  &quot;Issued&quot;: &quot;2019-02-20T01:57:33.4002929-05:00&quot;,
-  &quot;Expires&quot;: &quot;2019-02-20T01:57:33.4002979-05:00&quot;,
+  &quot;Issued&quot;: &quot;2019-03-06T11:39:54.6750133-08:00&quot;,
+  &quot;Expires&quot;: &quot;2019-03-06T11:39:54.6750186-08:00&quot;,
   &quot;State&quot;: 0,
-  &quot;TenantId&quot;: &quot;TenantId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;UserId&quot;: &quot;UserId&quot;,
-  &quot;User&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;GivenName&quot;: &quot;Name&quot;,
-    &quot;Surname&quot;: &quot;Surname&quot;,
-    &quot;Name&quot;: &quot;Name&quot;,
-    &quot;Email&quot;: &quot;user@company.com&quot;,
-    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
-    &quot;ContactGivenName&quot;: &quot;Name&quot;,
-    &quot;ContactSurname&quot;: &quot;Surname&quot;,
-    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-    &quot;Tenant&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;Alias&quot;: &quot;Alias&quot;,
-      &quot;State&quot;: &quot;State&quot;,
-      &quot;IsCloudConnectCustomer&quot;: false
-    },
-    &quot;IdentityProvider&quot;: {
-      &quot;Id&quot;: &quot;Id&quot;,
-      &quot;DisplayName&quot;: &quot;Name&quot;,
-      &quot;Scheme&quot;: &quot;Scheme&quot;,
-      &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-    }
-  }
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
 }
-</code></pre><h4 id="401-12">401</h4>
+</code></pre><h4 id="401-11">401</h4>
+<p>Unauthorized</p>
+<h4 id="403-11">403</h4>
+<p>Forbidden</p>
+<h4 id="404-11">404</h4>
+<p>Invitation, User, or Tenant not found</p>
+<h4 id="500-11">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="create-invitation"><code>Create Invitation</code></h2>
+<p>Create an invitation for a user</p>
+<h3 id="request-12">Request</h3>
+<p><code>POST api/v1-preview/Tenants/{tenantId}/User/{userId}/Invitation</code></p>
+<h3 id="parameters-12">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+Guid tenantId
+</code></pre><p>Id of tenant</p>
+<pre><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p>Id of user</p>
+<pre><code class="lang-csharp">[FromBody]
+[Required]
+InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
+</code></pre><p>InvitationCreateDto object</p>
+<pre><code class="lang-json">{
+  &quot;ExpiresDateTime&quot;: &quot;2019-03-06T11:39:54.6774696-08:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;SendInvitation&quot;: false
+}
+</code></pre><h3 id="security-12">Security</h3>
+<p>Allowed for these roles:</p>
+<ul>
+<li><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-12">Returns</h3>
+<h4 id="201-1">201</h4>
+<p>Created</p>
+<h5 id="type-13">Type:</h5>
+<p> <code>InvitationDto</code></p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-03-06T11:39:54.6776252-08:00&quot;,
+  &quot;Expires&quot;: &quot;2019-03-06T11:39:54.6776368-08:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="400-7">400</h4>
+<p>Missing or invalid inputs</p>
+<h4 id="401-12">401</h4>
 <p>Unauthorized</p>
 <h4 id="403-12">403</h4>
 <p>Forbidden</p>
 <h4 id="404-12">404</h4>
-<p>Invitation, User, or Tenant not found</p>
-<h4 id="500-12">500</h4>
-<p>Internal server error</p>
-<hr>
-<h2 id="find-user-by-tenant-id"><code>Find User By Tenant ID</code></h2>
-<p>Search for an external user in a tenant</p>
-<h3 id="request-13">Request</h3>
-<p><code>GET api/Tenants/{tenantId}/User/Search</code></p>
-<h3 id="parameters-13">Parameters</h3>
-<pre><code class="lang-csharp">[Required]
-string tenantId
-</code></pre><p>Id of tenant</p>
-<pre><code class="lang-csharp">[FromQuery]
-[Required]
-string identityProviderScheme
-</code></pre><p>Identity provider scheme</p>
-<pre><code class="lang-csharp">[FromQuery]
-[Required]
-string externalUserId
-</code></pre><p>User external Id</p>
-<h3 id="security-13">Security</h3>
-<p>Allowed for these roles:</p>
-<ul>
-<li><code>Account Administrator</code></li>
-<li><code>Cluster Operator</code></li>
-<li><code>Cluster Support</code></li>
-</ul>
-<h3 id="returns-13">Returns</h3>
-<h4 id="200-10">200</h4>
-<p>Success</p>
-<h5 id="type-14">Type:</h5>
-<p> <code>User</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;GivenName&quot;: &quot;Name&quot;,
-  &quot;Surname&quot;: &quot;Surname&quot;,
-  &quot;Name&quot;: &quot;Name&quot;,
-  &quot;Email&quot;: &quot;user@company.com&quot;,
-  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
-  &quot;ContactGivenName&quot;: &quot;Name&quot;,
-  &quot;ContactSurname&quot;: &quot;Surname&quot;,
-  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
-  &quot;Tenant&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;Alias&quot;: &quot;Alias&quot;,
-    &quot;State&quot;: &quot;State&quot;,
-    &quot;IsCloudConnectCustomer&quot;: false
-  },
-  &quot;IdentityProvider&quot;: {
-    &quot;Id&quot;: &quot;Id&quot;,
-    &quot;DisplayName&quot;: &quot;Name&quot;,
-    &quot;Scheme&quot;: &quot;Scheme&quot;,
-    &quot;UserIdClaimType&quot;: &quot;UserIdClaimType&quot;
-  }
-}
-</code></pre><h4 id="401-13">401</h4>
-<p>Unauthorized</p>
-<h4 id="403-13">403</h4>
-<p>Forbidden</p>
-<h4 id="404-13">404</h4>
 <p>User or Tenant not found</p>
-<h4 id="500-13">500</h4>
+<h4 id="409">409</h4>
+<p>Invitation already exists</p>
+<h4 id="500-12">500</h4>
 <p>Internal server error</p>
 <hr>
 </article>

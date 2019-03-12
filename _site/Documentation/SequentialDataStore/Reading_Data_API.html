@@ -176,8 +176,7 @@ var SimpleType = function () {
 <p><code>string streamId</code><br>The stream identifier</p>
 <p><code>string index</code><br>The index</p>
 <p><code>string searchMode</code><br>The <a class="xref" href="Reading_Data.html#sdssearchmode">SdsSearchMode</a>, the default is <code>exact</code></p>
-<p><strong>Response</strong>
-The response includes a status code and a response body containing a serialized collection with one event. </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body containing a serialized collection with one event. </p>
 <p>Depending on the request <code>index</code> and <code>searchMode</code>, it is possible to have an empty collection returned.</p>
 <p><strong>Example</strong>  </p>
 <pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
@@ -186,8 +185,7 @@ The response includes a status code and a response body containing a serialized 
 specified index:</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -202,8 +200,7 @@ Accept-Verbosity: verbose
 </code></pre><p>The request specifies an index that does not match an index of an existing event. The next event in the stream is retrieved.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -238,15 +235,14 @@ Accept-Verbosity: verbose
 <p><code>string namespaceId</code><br>The namespace identifier</p>
 <p><code>string streamId</code><br>The stream identifier</p>
 <p><code>string filter</code><br>The filter expression (see <a class="xref" href="Filter_Expressions.html">Filter expressions</a>)</p>
-<p><strong>Response</strong>
-The response includes a status code and a response body containing a serialized collection of events.</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body containing a serialized collection of events.</p>
 <p><strong>Example</strong>  </p>
 <pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
       ?filter=Measurement gt 10
 </code></pre><p>The events in the stream with <code>Measurement</code> greater than 10 are returned.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -284,15 +280,14 @@ from startIndex, collecting events after startIndex from the stream. A reversed 
 collect events before startIndex from the stream.</p>
 <p><code>SdsBoundaryType boundaryType</code><br>Optional SdsBoundaryType specifies the handling of events at or near startIndex</p>
 <p><code>string filter</code><br>Optional filter expression</p>
-<p><strong>Response</strong>
-The response includes a status code and a response body containing a serialized collection of events.</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body containing a serialized collection of events.</p>
 <p><strong>Example</strong>  </p>
 <pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
       ?startIndex=2017-11-23T13:00:00Z&amp;count=100
 </code></pre><p>This request will return a response with up to 100 events starting at 13:00 and extending forward toward the end of the stream: </p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -319,7 +314,8 @@ return up to 100 events starting at 13:00 and extending back toward the start of
       ?startIndex=2017-11-23T13:00:00Z&amp;count=100&amp;reversed=true
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
+
 [
     {
         &quot;Time&quot;: &quot;2017-11-23T13:00:00Z&quot;,
@@ -341,8 +337,7 @@ it would mean one event before the specified start index.</p>
       &amp;boundaryType=2
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose 
+Content-Type: application/json
 
 [
     {
@@ -369,8 +364,7 @@ request operates in reverse.</p>
       &amp;boundaryType=2&amp;filter=Measurement gt 10
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose 
+Content-Type: application/json
 
 [
     {
@@ -465,7 +459,7 @@ For the first request, specify a null or empty string for the <code>continuation
 </code></pre><p>The response will contain the event stored at the specified index:</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -489,7 +483,7 @@ before 13:30 and the value after 15:30 are included:</p>
       &amp;boundaryType=2
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -523,7 +517,7 @@ are included in the result. With an end boundary of Outside one value outside th
       &amp;endIndex=2017-11-23T15:30:00Z&amp;endBoundaryType=2
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
+Content-Type: application/json
 
 [
     {
@@ -555,8 +549,7 @@ end index by indicating count is 2 and continuationToken is an empty string:</p>
       &amp;count=2&amp;continuationToken=
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 {
     &quot;Results&quot;: [
@@ -580,8 +573,7 @@ page to request the next page of stored events:</p>
       &amp;count=2&amp;continuationToken=2017-11-23T14:00:00Z
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 {
     &quot;Results&quot;: [
@@ -692,7 +684,7 @@ are calculated for indexes at which no stored event exists. Interpolation is not
 <p>Returns events at the specified indexes. If no stored event exists at a specified index, the stream’s read characteristics determine how the returned event is calculated.</p>
 <p><strong>Request</strong>  </p>
 <pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
-    Interpolated?index={index}[&amp;index={index}...]
+      Interpolated?index={index}[&amp;index={index}...]
 </code></pre><p><strong>Parameters</strong><br><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
 <p><code>string streamId</code><br>The stream identifier</p>
@@ -701,13 +693,12 @@ are calculated for indexes at which no stored event exists. Interpolation is not
 <p>Depending on the specified indexes and read characteristics of the stream, it is possible to have less events returned than specified indexes. An empty collection can also be returned.</p>
 <p><strong>Example</strong><br>Consider a stream of type <code>Simple</code> with the default <code>InterpolationMode</code> of <code>Continuous</code> and 
 <code>ExtrapolationMode</code> of <code>All</code>. In the following request, the specified index matches an existing stored event:</p>
-<pre><code>GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
-  Interpolated?index=2017-11-23T13:00:00Z
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
+      Interpolated?index=2017-11-23T13:00:00Z
 </code></pre><p>The response will contain the event stored at the specified index.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -718,13 +709,12 @@ Accept-Verbosity: verbose
 ]
 </code></pre><p>The following request specifies an index for which no stored event exists:</p>
 <pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
-    Interpolated?index=2017-11-23T13:30:00Z
+      Interpolated?index=2017-11-23T13:30:00Z
 </code></pre><p>Because the index is a valid type for interpolation and the stream has a <code>InterpolationMode</code> of <code>Continuous</code>, 
 this request receives a response with an event interpolated at the specified index:</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -741,8 +731,7 @@ match two existing stored events:</p>
 </code></pre><p>For this request, the response contains events for two of the three specified indexes.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -789,8 +778,7 @@ Accept-Verbosity: verbose
 </code></pre><p>the start and end fall exactly on event indexes, and the number of events from start to end match the count of three (3).</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -920,8 +908,7 @@ that consist of multiple properties is not defined and results in non-determinan
     Summaries?startIndex=2017-11-23T12:00:00Z&amp;endIndex=2017-11-23T16:00:00Z&amp;count=2
 </code></pre><p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1113,8 +1100,7 @@ Accept-Verbosity: verbose
 <h4 id="examples">Examples</h4>
 <p>To join multiple streams, for example Simple1 and Simple2, assume that Simple1 presents the following data:</p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1140,8 +1126,7 @@ Accept-Verbosity: verbose
 ]
 </code></pre><p>And assume that Simple2 presents the following data:</p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1173,8 +1158,7 @@ Accept-Verbosity: verbose
 </code></pre><p><strong>Response</strong><br>Measurements from both streams with common indexes.</p>
 <p><strong>Response body</strong> </p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1197,8 +1181,7 @@ Accept-Verbosity: verbose
 </code></pre><p><strong>Response</strong><br>All Measurements from both Streams, with default values at indexes where a Stream does not have a value.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1269,8 +1252,7 @@ Accept-Verbosity: verbose
 </code></pre><p><strong>Response</strong><br>All Measurements from both Streams with missing values interpolated. If the missing values are between valid Measurements within a Stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [
@@ -1365,8 +1347,7 @@ Accept-Verbosity: verbose
 </code></pre><p><strong>Response</strong><br>This is similar to <a href="#outerjoin-request">OuterJoin</a>, but value at each index is the first available value at that index when iterating the given list of streams from left to right.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1412,8 +1393,7 @@ Accept-Verbosity: verbose
 </code></pre><p><strong>Response</strong><br>This is similar to <a href="#outerjoin-request">OuterJoin</a>, but value at each index is the first available value at that index when iterating the given list of streams from right to left.</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     {
@@ -1452,49 +1432,50 @@ Accept-Verbosity: verbose
         &quot;Measurement&quot;: 80
     }
 ]
-</code></pre><p><a name="getjoin"></a></p>
-<h3 id="post-requests">POST Requests</h3>
+</code></pre><p><a name="postjoin"></a></p>
+<h3 id="post-request">POST Request</h3>
 <pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode={joinMode}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
 <p><code>SdsJoinMode joinMode</code><br>Type of join, i.e. inner, outer, etc.</p>
-<p><strong>Reqeust Body</strong><br>Read options specific to each stream.</p>
+<p><strong>Request Body</strong><br>Read options specific to each stream.</p>
 <p><strong>Response</strong><br> The response includes a status code and a response body containing multiple serialized events.</p>
 <p>Consider the following outer join request,</p>
 <pre><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode=outer
 </code></pre><p>where in the request body, different start indexes and end indexes are specified per stream,</p>
 <pre><code class="lang-json">[  
-   {  
+    {  
         &quot;StreamId&quot;: &quot;Simple1&quot;,
-        &quot;Options&quot;: {
-            &quot;StartIndex&quot;: &quot;2017-11-23T11:00:00Z&quot;,
-            &quot;EndIndex&quot;: &quot;2017-11-23T14:00:00Z&quot;,
-            &quot;StartBoundaryType&quot;: &quot;Exact&quot;,
-            &quot;EndBoundaryType&quot;: &quot;Exact&quot;,
-            &quot;Count&quot;: 100,
-            &quot;Filter&quot;: &quot;&quot;
+        &quot;Options&quot;: 
+    {
+           &quot;StartIndex&quot;: &quot;2017-11-23T11:00:00Z&quot;,
+       &quot;EndIndex&quot;: &quot;2017-11-23T14:00:00Z&quot;,
+       &quot;StartBoundaryType&quot;: &quot;Exact&quot;,
+       &quot;EndBoundaryType&quot;: &quot;Exact&quot;,
+       &quot;Count&quot;: 100,
+       &quot;Filter&quot;: &quot;&quot;
         }
     },
     {
         &quot;StreamId&quot;: &quot;Simple2&quot;,
-        &quot;Options&quot;: {
-            &quot;StartIndex&quot;: &quot;2017-11-23T15:00:00Z&quot;,
-            &quot;EndIndex&quot;: &quot;2017-11-23T17:00:00Z&quot;,
-            &quot;StartBoundaryType&quot;: &quot;Exact&quot;,
-            &quot;EndBoundaryType&quot;: &quot;Exact&quot;,
-            &quot;Count&quot;: 100,
-            &quot;Filter&quot;: &quot;&quot;
+        &quot;Options&quot;: 
+    {
+           &quot;StartIndex&quot;: &quot;2017-11-23T15:00:00Z&quot;,
+       &quot;EndIndex&quot;: &quot;2017-11-23T17:00:00Z&quot;,
+       &quot;StartBoundaryType&quot;: &quot;Exact&quot;,
+       &quot;EndBoundaryType&quot;: &quot;Exact&quot;,
+       &quot;Count&quot;: 100,
+       &quot;Filter&quot;: &quot;&quot;
         }
     }
 ] 
 </code></pre><p>Only events within the stream&#39;s specified index boundaries are considered for the outer join operation</p>
 <p><strong>Response body</strong></p>
 <pre><code class="lang-json">HTTP/1.1 200
-Accept: application/json
-Accept-Verbosity: verbose
+Content-Type: application/json
 
 [
     [

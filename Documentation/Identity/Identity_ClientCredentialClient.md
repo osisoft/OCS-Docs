@@ -12,18 +12,18 @@ For HTTP requests and responses, the ClientCredentialClientDto object has the fo
 
 Property | Type | Descriptions
  --- | --- | ---
-RoleIds | string[] | List of Roles to be assigned to this client.
+RoleIds | Guid[] | List of Roles to be assigned to this client.
 ClientId | string | Client ID for this Client
-Name | string | Name of Client.
-Enabled | optional: bool | Is Client Enabled
+Name | string | Name of ClientDto.
+Enabled | optional: bool | Is ClientDto Enabled
 
 ### Serialized Model
 
 ```json
 {
   "RoleIds": [
-    "String",
-    "String"
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
   ],
   "ClientId": "ClientId",
   "Name": "Name",
@@ -39,13 +39,13 @@ Create a Client Credential flow Client
 
 ### Request
 
-`POST api/Tenants/{tenantId}/ClientCredentialClient/`
+`POST api/v1-preview/Tenants/{tenantId}/ClientCredentialClient/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -57,6 +57,20 @@ ClientCredentialClientCreateDto clientCredentialClientCreateDto
 ```
 
 New ClientCredentialClientCreateDto object
+
+```json
+{
+  "SecretDescription": "description",
+  "SecretExpirationDate": "2019-03-06T11:39:54.8039461-08:00",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "ClientId": "ClientId",
+  "Name": "Name",
+  "Enabled": false
+}
+```
 
 ### Security
 
@@ -77,18 +91,22 @@ Created
 ```json
 {
   "ClientSecret": "ClientSecret",
-  "SecretId": 0,
+  "SecretId": "SecretId",
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-02-20T01:57:32.9770889-05:00",
+  "SecretExpirationDate": "2019-03-06T11:39:54.8074223-08:00",
   "RoleIds": [
-    "String",
-    "String"
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
   ],
   "ClientId": "ClientId",
   "Name": "Name",
   "Enabled": false
 }
 ```
+
+#### 400
+
+Missing or invalid inputs
 
 #### 401
 
@@ -102,6 +120,10 @@ Forbidden
 
 Tenant not found
 
+#### 409
+
+Client Id already exists
+
 #### 500
 
 Internal server error
@@ -113,13 +135,13 @@ Update a Client Credential Client
 
 ### Request
 
-`PUT api/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
+`PUT api/v1-preview/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -138,6 +160,18 @@ ClientCredentialClientDto updatedClientCredentialClientDto
 ```
 
 Updated Client Credential Client values
+
+```json
+{
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "ClientId": "ClientId",
+  "Name": "Name",
+  "Enabled": false
+}
+```
 
 ### Security
 
@@ -158,8 +192,8 @@ Success
 ```json
 {
   "RoleIds": [
-    "String",
-    "String"
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
   ],
   "ClientId": "ClientId",
   "Name": "Name",
@@ -194,13 +228,13 @@ Get a Client Credential Client
 
 ### Request
 
-`GET api/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
+`GET api/v1-preview/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -217,8 +251,6 @@ Id of client
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -233,8 +265,8 @@ Success
 ```json
 {
   "RoleIds": [
-    "String",
-    "String"
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
   ],
   "ClientId": "ClientId",
   "Name": "Name",
@@ -265,13 +297,13 @@ Get all Client Credential Clients
 
 ### Request
 
-`GET api/Tenants/{tenantId}/ClientCredentialClient/`
+`GET api/v1-preview/Tenants/{tenantId}/ClientCredentialClient/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -308,8 +340,6 @@ Max number of clients to return
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -325,8 +355,8 @@ Success
 [
   {
     "RoleIds": [
-      "String",
-      "String"
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
     ],
     "ClientId": "ClientId",
     "Name": "Name",
@@ -334,8 +364,8 @@ Success
   },
   {
     "RoleIds": [
-      "String",
-      "String"
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
     ],
     "ClientId": "ClientId",
     "Name": "Name",
@@ -350,7 +380,7 @@ Partial success.
 
 ##### Type:
 
- `MultiStatusResponseDto[IList[ClientCredentialClientDto]]`
+ `MultiStatusResponseDto[List[ClientCredentialClientDto]]`
 
 ```json
 {
@@ -367,7 +397,7 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     },
     {
       "OperationId": "OperationId",
@@ -378,14 +408,14 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "Data": [
     {
       "RoleIds": [
-        "String",
-        "String"
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
       ],
       "ClientId": "ClientId",
       "Name": "Name",
@@ -393,8 +423,8 @@ Partial success.
     },
     {
       "RoleIds": [
-        "String",
-        "String"
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
       ],
       "ClientId": "ClientId",
       "Name": "Name",
@@ -427,13 +457,13 @@ Delete a Client Credential Client
 
 ### Request
 
-`DELETE api/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/ClientCredentialClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant

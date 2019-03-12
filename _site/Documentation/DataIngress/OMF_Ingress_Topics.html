@@ -79,10 +79,10 @@
 <h1 id="topics-">Topics </h1>
 
 <h2 id="topic-information-">Topic information </h2>
-<p>A Topic is used to aggregate data received from publishers and make it available for consumption 
-via a Subscription. A topic must contain at least one publisher. Publishers may be added to or 
-removed from an existing topic. A given publisher may also belong to multiple topics. </p>
-<p>When a topic is created, data sent from its assigned publishers is routed to a special queue 
+<p>A Topic is used to aggregate data received from clients and make it available for consumption 
+via a Subscription. A topic must contain at least one client Id. Clients may be added to or 
+removed from an existing topic. A given client may also belong to multiple topics in separate namespaces. </p>
+<p>When a topic is created, data sent from its assigned clients is routed to a special queue 
 where it can be consumed by a subscription. This queue provides a buffer of up to one day for 
 subscriptions which are temporarily unable to receive data.</p>
 <p>While OMF messages may be sent to OCS immediately after creating a Topic, the messages 
@@ -131,9 +131,9 @@ messages are stored for later consumption in OCS databases. See OMF documentatio
 <td>The time that the Topic was created. The string is formatted using ISO 8601 format.</td>
 </tr>
 <tr>
-<td>Publishers</td>
+<td>ClientIds</td>
 <td>string array</td>
-<td>An array of Publisher Ids mapped to the Topic</td>
+<td>An array of Client Ids mapped to the Topic</td>
 </tr>
 </tbody>
 </table>
@@ -189,22 +189,6 @@ messages are stored for later consumption in OCS databases. See OMF documentatio
   An optional parameter representing the maximum number of subscriptions mapped to a topic to retrieve. If not specified, a default value of 100 is used.</p>
 <p><strong>Returns</strong></p>
 <p>An array of Subscription objects. </p>
-<hr>
-<h2 id="get-apitenantstenantidnamespacesnamespaceidtopicstopicidpublishersskipskipcountcount"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/publishers?skip={skip}&amp;count={count}</code></h2>
-<p>Gets a list of publishers that are currently mapped to a topic </p>
-<p><strong>Parameters</strong></p>
-<p><code>tenantId</code>
-  Unique Id for the tenant. 
-<code>namespaceId</code>
-  Unique Id for the namespace of the topic.
-<code>topicId</code>
-  Unique Id for the topic. 
-<code>int skip</code>
-  An optional parameter representing the zero-based offset of the first publisher mapped to a topic to retrieve. If not specified, a default value of 0 is used. 
-<code>int count</code>
-  An optional parameter representing the maximum number of publishers mapped to a topic to retrieve. If not specified, a default value of 100 is used.</p>
-<p><strong>Returns</strong></p>
-<p>An array of Publisher objects.</p>
 <hr>
 <h2 id="get-apitenantstenantidnamespacesnamespaceidaccesscontroltopics"><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics</code></h2>
 <p>Gets the default Access Control List for new topics.</p>

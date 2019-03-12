@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Filter Expressions: Metadata Objects </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Filter Expressions: Metadata Objects ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsFilterExpressionsMetadata">
+<h1 id="filter-expressions-metadata-objects" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="5" sourceendlinenumber="6">Filter Expressions: Metadata Objects</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="9" sourceendlinenumber="9">This section focuses on filter expressions that can be applied to certain read operations that return Sequential Data Store objects (e.g. Streams, Types). For filtering on read operations of Sequential Data Store values refer to <a class="xref" href="Filter_Expressions.html" data-raw-source="[Filter Expressions: Values](xref:sdsFilterExpressions)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="9" sourceendlinenumber="9">Filter Expressions: Values</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="11" sourceendlinenumber="12">Filter expressions can be applied to any read operation that returns multiple values, including 
+<code>Get Types</code> and <code>Get Streams</code>.</p>
+<h2 id="fields" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="15" sourceendlinenumber="16">Fields</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="17" sourceendlinenumber="18">For Streams and Types, filter expressions are valid for the same properties that are valid for the Search parameter. Valid fields 
+for both Streams and Types are <code>Name</code>, <code>Id</code>, and <code>Description</code>. </p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="20" sourceendlinenumber="20">Streams have an additional <code>TypeId</code> field that is filterable.</p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="22" sourceendlinenumber="22">Additionally, Types have a collection of SdsTypeProperty objects held in a field named Properties (see <a class="xref" href="SDS_Types.html" data-raw-source="[Types](xref:sdsTypes)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="22" sourceendlinenumber="22">Types</a>). When filtering on these property objects, the filter is applied to the Name or Id of the property. If the Type derives from a base Type, the inherited properties will be filtered as well. To perform a filter on this collection, the Any() or All() functions must be used (see <a href="#Sds_Filter_expressions_metadata_lambda_operators_topic" data-raw-source="[Lambda Operators](#Sds_Filter_expressions_metadata_lambda_operators_topic)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="22" sourceendlinenumber="22">Lambda Operators</a>).</p>
+<h2 id="a-namesdsfilterexpressionsmetadatastringfunctionstopicstring-functionsa" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="24" sourceendlinenumber="24"><a name="Sds_Filter_expressions_metadata_string_functions_topic">String functions</a></h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="26" sourceendlinenumber="26"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="28" sourceendlinenumber="29">String operations are case insensitive for both the search value and the field name provided. The following string functions are supported for use within a
+filter expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="31" sourceendlinenumber="35">
+<thead>
+<tr>
+<th>function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>endswith</code></td>
+<td>Compare the character at the end of the input string</td>
+</tr>
+<tr>
+<td><code>startwith</code></td>
+<td>Compare the character at the start of the input string</td>
+</tr>
+<tr>
+<td><code>contains</code></td>
+<td>Search for characters anywhere in another string</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="37" sourceendlinenumber="37"><strong>String function examples</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="39" sourceendlinenumber="43">
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>endswith(Name, &#39;xyz&#39;)</code></td>
+<td>True if <code>Name</code> ends with the string ‘xyz’</td>
+</tr>
+<tr>
+<td><code>startswith(Id, &#39;abc&#39;)</code></td>
+<td>True if <code>Id</code> starts with the string ‘abc’</td>
+</tr>
+<tr>
+<td><code>contains(Name, &#39;bc&#39;)</code></td>
+<td>True if string ‘bc’ is found anywhere in <code>Name</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="a-namesdsfilterexpressionsmetadatalogicaloperatorstopiclogical-operatorsa" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="46" sourceendlinenumber="46"><a name="Sds_Filter_expressions_metadata_logical_operators_topic">Logical operators</a></h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="48" sourceendlinenumber="48"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="50" sourceendlinenumber="51">The following logical operators are supported for use within an object filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="53" sourceendlinenumber="59">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eq</code></td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>Parenthesis can be used to affect the order of the operation</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>Or logical operator</td>
+</tr>
+<tr>
+<td><code>and</code></td>
+<td>And logical operator</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Not logical operator</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="61" sourceendlinenumber="62">Not all operators supported for <a class="xref" href="Filter_Expressions.html" data-raw-source="[values](xref:sdsFilterExpressions)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="61" sourceendlinenumber="61">values</a> are 
+supported for filtering on object metadata string fields.</p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="64" sourceendlinenumber="64"><strong>Logical Operator Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="66" sourceendlinenumber="66">The following examples show logical operators and string functions.</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="68" sourceendlinenumber="73">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="68" sourceendlinenumber="68"><code>Name eq &#39;abcxyz&#39;</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="69" sourceendlinenumber="69"><code>startswith(Id, &#39;abc&#39;) and endswith(Id, &#39;xyz&#39;)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="70" sourceendlinenumber="70"><code>startswith(Id, &#39;abc&#39;) or startswith(Name, &#39;abc&#39;)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="71" sourceendlinenumber="71"><code>not (Name eq &#39;abcxyz&#39;)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="72" sourceendlinenumber="72"><code>startswith(Id, &#39;abc&#39;) and not endswith(Id, &#39;xyz&#39;)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="73" sourceendlinenumber="73"><code>(startswith(Id, &#39;abc&#39;) and endswith(Id, &#39;xyz&#39;)) or (startswith(Name, &#39;abc&#39;) and endswith(Name, &#39;abc&#39;))</code></li>
+</ul>
+<h2 id="a-namesdsfilterexpressionsmetadatalambdaoperatorstopiclambda-operatorsa" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="75" sourceendlinenumber="75"><a name="Sds_Filter_expressions_metadata_lambda_operators_topic">Lambda operators</a></h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="77" sourceendlinenumber="77">Lambda operators are used for operations against a field which is a collection of strings. The lambda operators require defining a lambda parameter and a boolean expression. Note that currently the only supported boolean expressions for the nested clause of the lambda operators are the three string functions and the equals logical operator. Other <a href="#Sds_Filter_expressions_metadata_logical_operators_topic" data-raw-source="[logical operators](#Sds_Filter_expressions_metadata_logical_operators_topic)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="77" sourceendlinenumber="77">logical operators</a> are not allowed.</p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="79" sourceendlinenumber="79"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="81" sourceendlinenumber="82">The following lambda operators are supported for use within an object filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="84" sourceendlinenumber="87">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>any</code></td>
+<td>Match if any elements of the collection match the criteria</td>
+</tr>
+<tr>
+<td><code>all</code></td>
+<td>Match if all elements of the collection match the criteria</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="89" sourceendlinenumber="89"><strong>Lambda Operator Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="91" sourceendlinenumber="91">The following examples show logical operators which have a body defining the required lambda parameter and a single boolean expression. The lambda parameter is defined initially, and in the provided examples the user has chosen a query time lambda parameter named &quot;parameter&quot;. After the &#39;:&#39; proceed to define your expression as defined in the aforementioned examples for <a href="#Sds_Filter_expressions_metadata_string_functions_topic" data-raw-source="[string functions](#Sds_Filter_expressions_metadata_string_functions_topic)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="91" sourceendlinenumber="91">string functions</a> (or the &#39;eq&#39; <a href="#Sds_Filter_expressions_metadata_logical_operators_topic" data-raw-source="[logical operator](#Sds_Filter_expressions_metadata_logical_operators_topic)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="91" sourceendlinenumber="91">logical operator</a>) but replace all references to your SdsType/SdsStream field name with the lambda parameter name.</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="93" sourceendlinenumber="94">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="93" sourceendlinenumber="93"><code>Properties/any(parameter: parameter eq &#39;value&#39;)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions_Metadata.md" sourcestartlinenumber="94" sourceendlinenumber="94"><code>Properties/all(parameter: startswith(parameter, &#39;abc&#39;))</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/Filter_Expressions_Metadata.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

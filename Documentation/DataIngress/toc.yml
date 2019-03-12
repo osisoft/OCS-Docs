@@ -2,8 +2,6 @@
   href: OMF_Ingress_to_OCS.md
 - name: Using OMF with Cloud Services
   href: OMF_Ingress_Specification.md
-- name: Publishers
-  href: OMF_Ingress_Publishers.md
 - name: Topics
   href: OMF_Ingress_Topics.md
 - name: Subscriptions

@@ -4,7 +4,7 @@ uid: identityIdentityProvider
 
 # IdentityProvider
 
-APIs for CRUD operations on identity providers
+APIs for getting a list of all supported Identity Providers
 
 ## Properties
 
@@ -12,7 +12,7 @@ For HTTP requests and responses, the IdentityProvider object has the following p
 
 Property | Type | Descriptions
  --- | --- | ---
-Id | string | Id of an identity provider
+Id | Guid | Id of an identity provider
 DisplayName | string | Identity provider display name to use
 Scheme | string | Specifies the name of the cookie handler that will temporarily store the outcome of the external authentication.
 UserIdClaimType | string | Type of claim
@@ -21,7 +21,7 @@ UserIdClaimType | string | Type of claim
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "DisplayName": "Name",
   "Scheme": "Scheme",
   "UserIdClaimType": "UserIdClaimType"
@@ -36,7 +36,7 @@ Returns an IdentityProvider object
 
 ### Request
 
-`GET api/IdentityProvider/{identityProviderId}`
+`GET api/v1-preview/IdentityProvider/{identityProviderId}`
 
 ### Parameters
 
@@ -52,8 +52,6 @@ Id of provider
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -67,7 +65,7 @@ Success
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "DisplayName": "Name",
   "Scheme": "Scheme",
   "UserIdClaimType": "UserIdClaimType"
@@ -85,152 +83,6 @@ Forbidden
 #### 404
 
 Identity Provider not found
-
-#### 500
-
-Internal server error
-***
-
-## `Get Identity Provider By Scheme`
-
-Returns a list of IdentityProvider objects that follow a scheme
-
-### Request
-
-`GET api/IdentityProvider/schemes/{scheme}`
-
-### Parameters
-
-```csharp
-[Required]
-string scheme
-```
-
-Scheme name
-
-### Security
-
-Allowed for these roles:
-
-- `Cluster Operator`
-
-### Returns
-
-#### 200
-
-Success
-
-##### Type:
-
- `IdentityProvider`
-
-```json
-{
-  "Id": "Id",
-  "DisplayName": "Name",
-  "Scheme": "Scheme",
-  "UserIdClaimType": "UserIdClaimType"
-}
-```
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-Identity Provider not found
-
-#### 500
-
-Internal server error
-***
-
-## `Get Identity Providers`
-
-Returns a list of IdentityProvider objects
-
-### Request
-
-`GET api/IdentityProvider/`
-
-### Parameters
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-string query
-```
-
-Query to execute. Currently not supported
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 0]
-int32 skip
-```
-
-Number of providers to skip.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 100]
-int32 count
-```
-
-Max number of providers to return
-
-### Security
-
-Allowed for these roles:
-
-- `Cluster Operator`
-
-### Returns
-
-#### 200
-
-Success
-
-##### Type:
-
- `List[IdentityProvider]`
-
-```json
-[
-  {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  },
-  {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
-]
-```
-
-#### 400
-
-Missing or invalid inputs
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
 
 #### 500
 
@@ -243,13 +95,13 @@ Get all identity providers for a tenant
 
 ### Request
 
-`GET api/Tenants/{tenantId}/IdentityProvider/`
+`GET api/v1-preview/Tenants/{tenantId}/IdentityProvider/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -286,8 +138,6 @@ Max number of providers to return
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -302,13 +152,13 @@ Success
 ```json
 [
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "DisplayName": "Name",
     "Scheme": "Scheme",
     "UserIdClaimType": "UserIdClaimType"
   },
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "DisplayName": "Name",
     "Scheme": "Scheme",
     "UserIdClaimType": "UserIdClaimType"
@@ -339,20 +189,20 @@ Get an identity provider
 
 ### Request
 
-`GET api/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
+`GET api/v1-preview/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string identityProviderId
+Guid identityProviderId
 ```
 
 Id of provider
@@ -362,8 +212,6 @@ Id of provider
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -377,7 +225,7 @@ Success
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "DisplayName": "Name",
   "Scheme": "Scheme",
   "UserIdClaimType": "UserIdClaimType"
@@ -407,20 +255,20 @@ Add an existing identity provider to a tenant
 
 ### Request
 
-`POST api/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
+`POST api/v1-preview/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string identityProviderId
+Guid identityProviderId
 ```
 
 Id of provider
@@ -443,7 +291,7 @@ Created
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "DisplayName": "Name",
   "Scheme": "Scheme",
   "UserIdClaimType": "UserIdClaimType"
@@ -477,20 +325,20 @@ Remove an identity provider from a tenant
 
 ### Request
 
-`DELETE api/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/IdentityProvider/{identityProviderId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string identityProviderId
+Guid identityProviderId
 ```
 
 Id of provider

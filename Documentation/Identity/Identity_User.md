@@ -8,27 +8,27 @@ APIs for creating, getting, updating, and deleting Users
 
 ## Properties
 
-For HTTP requests and responses, the User object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the UserDto object has the following properties and JSON-serialized body: 
 
 Property | Type | Descriptions
  --- | --- | ---
-Id | string | Unique User ID.
+Id | Guid | Unique User ID.
 GivenName | string | Given name of user.
 Surname | string | Surname of user.
 Name | string | Name of user.
 Email | string | Email of user.
-ContactEmail | string | Preferred contact email to be used.
-ContactGivenName | string | Preferred name to be used when contacting user.
-ContactSurname | string | Preferred surname to be used when contacting user.
+ContactEmail | string | Preferred contact email for user.
+ContactGivenName | string | Preferred contact name for user.
+ContactSurname | string | Preferred contact surname for user.
 ExternalUserId | string | Provider id for user.
-Tenant | Tenant | Tenant the user belongs to.
-IdentityProvider | IdentityProvider | Identity provider used to authenticate user.
+TenantId | Guid | Tenant Id the User belongs to.
+IdentityProviderId | optional: Guid | Identity Provider Id used to authenticate user.
 
 ### Serialized Model
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "GivenName": "Name",
   "Surname": "Surname",
   "Name": "Name",
@@ -37,18 +37,8 @@ IdentityProvider | IdentityProvider | Identity provider used to authenticate use
   "ContactGivenName": "Name",
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -60,13 +50,13 @@ Returns a list of User objects for a given tenant
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/`
+`GET api/v1-preview/Tenants/{tenantId}/User/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -104,8 +94,6 @@ Allowed for these roles:
 
 - `Account Administrator`
 - `Account Member`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -115,12 +103,12 @@ Success.
 
 ##### Type:
 
- `List[User]`
+ `List[UserDto]`
 
 ```json
 [
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "GivenName": "Name",
     "Surname": "Surname",
     "Name": "Name",
@@ -129,21 +117,11 @@ Success.
     "ContactGivenName": "Name",
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
   },
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "GivenName": "Name",
     "Surname": "Surname",
     "Name": "Name",
@@ -152,18 +130,8 @@ Success.
     "ContactGivenName": "Name",
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
   }
 ]
 ```
@@ -195,13 +163,13 @@ Returns an ordered list of User objects based on userId for a given tenant or a 
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/Ids`
+`GET api/v1-preview/Tenants/{tenantId}/User/Ids`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -209,7 +177,7 @@ Id of tenant
 ```csharp
 [FromQuery]
 [Required]
-string[] userIds
+Guid[] userIds
 ```
 
 Unordered list of ids for all users to get
@@ -246,8 +214,6 @@ Max number of users to return
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -257,12 +223,12 @@ Success.
 
 ##### Type:
 
- `IList[User]`
+ `List[UserDto]`
 
 ```json
 [
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "GivenName": "Name",
     "Surname": "Surname",
     "Name": "Name",
@@ -271,21 +237,11 @@ Success.
     "ContactGivenName": "Name",
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
   },
   {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "GivenName": "Name",
     "Surname": "Surname",
     "Name": "Name",
@@ -294,18 +250,8 @@ Success.
     "ContactGivenName": "Name",
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
   }
 ]
 ```
@@ -316,7 +262,7 @@ Partial success.
 
 ##### Type:
 
- `MultiStatusResponseDto[IList[User]]`
+ `MultiStatusResponseDto[List[UserDto]]`
 
 ```json
 {
@@ -333,7 +279,7 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     },
     {
       "OperationId": "OperationId",
@@ -344,12 +290,12 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "Data": [
     {
-      "Id": "Id",
+      "Id": "00000000-0000-0000-0000-000000000000",
       "GivenName": "Name",
       "Surname": "Surname",
       "Name": "Name",
@@ -358,21 +304,11 @@ Partial success.
       "ContactGivenName": "Name",
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     },
     {
-      "Id": "Id",
+      "Id": "00000000-0000-0000-0000-000000000000",
       "GivenName": "Name",
       "Surname": "Surname",
       "Name": "Name",
@@ -381,18 +317,8 @@ Partial success.
       "ContactGivenName": "Name",
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     }
   ]
 }
@@ -425,13 +351,13 @@ Get User status for multiple users, optionally restrict it to only Users of a sp
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/Status`
+`GET api/v1-preview/Tenants/{tenantId}/User/Status`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -477,8 +403,6 @@ Only return statuses that match this value
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -495,7 +419,7 @@ Success.
   {
     "InvitationStatus": 0,
     "User": {
-      "Id": "Id",
+      "Id": "00000000-0000-0000-0000-000000000000",
       "GivenName": "Name",
       "Surname": "Surname",
       "Name": "Name",
@@ -504,24 +428,14 @@ Success.
       "ContactGivenName": "Name",
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     }
   },
   {
     "InvitationStatus": 0,
     "User": {
-      "Id": "Id",
+      "Id": "00000000-0000-0000-0000-000000000000",
       "GivenName": "Name",
       "Surname": "Surname",
       "Name": "Name",
@@ -530,18 +444,8 @@ Success.
       "ContactGivenName": "Name",
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     }
   }
 ]
@@ -574,20 +478,20 @@ Returns a User
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/{userId}`
+`GET api/v1-preview/Tenants/{tenantId}/User/{userId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of Tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of User
@@ -598,8 +502,6 @@ Allowed for these roles:
 
 - `Account Administrator`
 - `Account Member`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -609,11 +511,11 @@ Success
 
 ##### Type:
 
- `User`
+ `UserDto`
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "GivenName": "Name",
   "Surname": "Surname",
   "Name": "Name",
@@ -622,18 +524,8 @@ Success
   "ContactGivenName": "Name",
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -660,20 +552,20 @@ Returns user invitation status
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/{userId}/Status`
+`GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Status`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of user
@@ -684,8 +576,6 @@ Allowed for these roles:
 
 - `Account Administrator`
 - `Account Member`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -701,7 +591,7 @@ Success
 {
   "InvitationStatus": 0,
   "User": {
-    "Id": "Id",
+    "Id": "00000000-0000-0000-0000-000000000000",
     "GivenName": "Name",
     "Surname": "Surname",
     "Name": "Name",
@@ -710,18 +600,8 @@ Success
     "ContactGivenName": "Name",
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
   }
 }
 ```
@@ -749,13 +629,13 @@ Returns an ordered list of UserStatusDto objects for a given tenant or a MultiSt
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/Status/Ids`
+`GET api/v1-preview/Tenants/{tenantId}/User/Status/Ids`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -763,7 +643,7 @@ Id of tenant
 ```csharp
 [FromQuery]
 [Required]
-string[] userIds
+Guid[] userIds
 ```
 
 Unordered list of ids for all users
@@ -800,8 +680,6 @@ Max number of users to return
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -811,54 +689,40 @@ Success.
 
 ##### Type:
 
- `IList[User]`
+ `List[UserStatusDto]`
 
 ```json
 [
   {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
+    "InvitationStatus": 0,
+    "User": {
+      "Id": "00000000-0000-0000-0000-000000000000",
+      "GivenName": "Name",
+      "Surname": "Surname",
+      "Name": "Name",
+      "Email": "user@company.com",
+      "ContactEmail": "user@company.com",
+      "ContactGivenName": "Name",
+      "ContactSurname": "Surname",
+      "ExternalUserId": "ExternalUserId",
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     }
   },
   {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
+    "InvitationStatus": 0,
+    "User": {
+      "Id": "00000000-0000-0000-0000-000000000000",
+      "GivenName": "Name",
+      "Surname": "Surname",
+      "Name": "Name",
+      "Email": "user@company.com",
+      "ContactEmail": "user@company.com",
+      "ContactGivenName": "Name",
+      "ContactSurname": "Surname",
+      "ExternalUserId": "ExternalUserId",
+      "TenantId": "00000000-0000-0000-0000-000000000000",
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
     }
   }
 ]
@@ -870,7 +734,7 @@ Partial success.
 
 ##### Type:
 
- `MultiStatusResponseDto[IList[UserStatusDto]]`
+ `MultiStatusResponseDto[List[UserStatusDto]]`
 
 ```json
 {
@@ -887,7 +751,7 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     },
     {
       "OperationId": "OperationId",
@@ -898,14 +762,14 @@ Partial success.
       "ModelId": {
         "String": "String"
       },
-      "TenantId": "TenantId"
+      "TenantId": "00000000-0000-0000-0000-000000000000"
     }
   ],
   "Data": [
     {
       "InvitationStatus": 0,
       "User": {
-        "Id": "Id",
+        "Id": "00000000-0000-0000-0000-000000000000",
         "GivenName": "Name",
         "Surname": "Surname",
         "Name": "Name",
@@ -914,24 +778,14 @@ Partial success.
         "ContactGivenName": "Name",
         "ContactSurname": "Surname",
         "ExternalUserId": "ExternalUserId",
-        "Tenant": {
-          "Id": "Id",
-          "Alias": "Alias",
-          "State": "State",
-          "IsCloudConnectCustomer": false
-        },
-        "IdentityProvider": {
-          "Id": "Id",
-          "DisplayName": "Name",
-          "Scheme": "Scheme",
-          "UserIdClaimType": "UserIdClaimType"
-        }
+        "TenantId": "00000000-0000-0000-0000-000000000000",
+        "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
       }
     },
     {
       "InvitationStatus": 0,
       "User": {
-        "Id": "Id",
+        "Id": "00000000-0000-0000-0000-000000000000",
         "GivenName": "Name",
         "Surname": "Surname",
         "Name": "Name",
@@ -940,18 +794,8 @@ Partial success.
         "ContactGivenName": "Name",
         "ContactSurname": "Surname",
         "ExternalUserId": "ExternalUserId",
-        "Tenant": {
-          "Id": "Id",
-          "Alias": "Alias",
-          "State": "State",
-          "IsCloudConnectCustomer": false
-        },
-        "IdentityProvider": {
-          "Id": "Id",
-          "DisplayName": "Name",
-          "Scheme": "Scheme",
-          "UserIdClaimType": "UserIdClaimType"
-        }
+        "TenantId": "00000000-0000-0000-0000-000000000000",
+        "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
       }
     }
   ]
@@ -985,20 +829,20 @@ Returns a user's preferences
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/{userId}/Preferences`
+`GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Preferences`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of Tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of User
@@ -1009,8 +853,6 @@ Allowed for these roles:
 
 - `Account Administrator`
 - `Account Member`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -1049,20 +891,20 @@ Put a user's preferences
 
 ### Request
 
-`PUT api/Tenants/{tenantId}/User/{userId}/Preferences`
+`PUT api/v1-preview/Tenants/{tenantId}/User/{userId}/Preferences`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of Tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of User
@@ -1075,13 +917,16 @@ JObject preferences
 
 JSON Preferences
 
+```json
+{}
+```
+
 ### Security
 
 Allowed for these roles:
 
 - `Account Administrator`
 - `Account Member`
-- `Cluster Operator`
 
 ### Returns
 
@@ -1124,13 +969,13 @@ Creates a User
 
 ### Request
 
-`POST api/Tenants/{tenantId}/User/`
+`POST api/v1-preview/Tenants/{tenantId}/User/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of Tenant
@@ -1138,17 +983,29 @@ Id of Tenant
 ```csharp
 [FromBody]
 [Required]
-UserCreateDto userCreateDto
+UserCreateOrUpdateDto userCreateOrUpdateDto
 ```
 
 User data transfer object
+
+```json
+{
+  "UserId": "00000000-0000-0000-0000-000000000000",
+  "ContactGivenName": "Name",
+  "ContactSurname": "Surname",
+  "ContactEmail": "user@company.com",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
+}
+```
 
 ### Security
 
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
 
 ### Returns
 
@@ -1158,11 +1015,11 @@ Created
 
 ##### Type:
 
- `User`
+ `UserDto`
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "GivenName": "Name",
   "Surname": "Surname",
   "Name": "Name",
@@ -1171,18 +1028,8 @@ Created
   "ContactGivenName": "Name",
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -1201,105 +1048,6 @@ Forbidden
 #### 404
 
 Tenant not found
-
-#### 500
-
-Internal server error
-***
-
-## `Create User With ID`
-
-Creates a User with an Id
-
-### Request
-
-`POST api/Tenants/{tenantId}/User/{userId}`
-
-### Parameters
-
-```csharp
-[Required]
-string tenantId
-```
-
-Id of Tenant
-
-```csharp
-[Required]
-string userId
-```
-
-Id of User
-
-```csharp
-[FromBody]
-[Required]
-UserCreateDto userCreateDto
-```
-
-User data transfer object
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 201
-
-Created
-
-##### Type:
-
- `User`
-
-```json
-{
-  "Id": "Id",
-  "GivenName": "Name",
-  "Surname": "Surname",
-  "Name": "Name",
-  "Email": "user@company.com",
-  "ContactEmail": "user@company.com",
-  "ContactGivenName": "Name",
-  "ContactSurname": "Surname",
-  "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
-}
-```
-
-#### 400
-
-Missing or invalid inputs
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-Tenant not found
-
-#### 409
-
-Conflict. Client already exists.
 
 #### 500
 
@@ -1308,24 +1056,24 @@ Internal server error
 
 ## `Update User`
 
-Update a user
+Create or Update a User
 
 ### Request
 
-`PUT api/Tenants/{tenantId}/User/{userId}`
+`PUT api/v1-preview/Tenants/{tenantId}/User/{userId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of user
@@ -1333,10 +1081,23 @@ Id of user
 ```csharp
 [FromBody]
 [Required]
-UserUpdateDto userUpdateDto
+UserCreateOrUpdateDto userCreateOrUpdateDto
 ```
 
 A UserStatusDto object
+
+```json
+{
+  "UserId": "00000000-0000-0000-0000-000000000000",
+  "ContactGivenName": "Name",
+  "ContactSurname": "Surname",
+  "ContactEmail": "user@company.com",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
+}
+```
 
 ### Security
 
@@ -1353,11 +1114,11 @@ Updated
 
 ##### Type:
 
- `User`
+ `UserDto`
 
 ```json
 {
-  "Id": "Id",
+  "Id": "00000000-0000-0000-0000-000000000000",
   "GivenName": "Name",
   "Surname": "Surname",
   "Name": "Name",
@@ -1366,18 +1127,8 @@ Updated
   "ContactGivenName": "Name",
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -1408,20 +1159,20 @@ Delete a user
 
 ### Request
 
-`DELETE api/Tenants/{tenantId}/User/{userId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/User/{userId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of user
@@ -1461,20 +1212,20 @@ Get the invitations for a user
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/{userId}/Invitation`
+`GET api/v1-preview/Tenants/{tenantId}/User/{userId}/Invitation`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
 [Required]
-string userId
+Guid userId
 ```
 
 Id of user
@@ -1493,8 +1244,6 @@ Specify to return expired invitations
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -1504,45 +1253,16 @@ Success
 
 ##### Type:
 
- `Invitation`
+ `InvitationDto`
 
 ```json
 {
   "Id": "Id",
-  "Issued": "2019-02-20T01:57:33.4002929-05:00",
-  "Expires": "2019-02-20T01:57:33.4002979-05:00",
+  "Issued": "2019-03-06T11:39:54.6750133-08:00",
+  "Expires": "2019-03-06T11:39:54.6750186-08:00",
   "State": 0,
-  "TenantId": "TenantId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "UserId": "UserId",
-  "User": {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "UserId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -1563,82 +1283,76 @@ Invitation, User, or Tenant not found
 Internal server error
 ***
 
-## `Find User By Tenant ID`
+## `Create Invitation`
 
-Search for an external user in a tenant
+Create an invitation for a user
 
 ### Request
 
-`GET api/Tenants/{tenantId}/User/Search`
+`POST api/v1-preview/Tenants/{tenantId}/User/{userId}/Invitation`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
 
 ```csharp
-[FromQuery]
 [Required]
-string identityProviderScheme
+Guid userId
 ```
 
-Identity provider scheme
+Id of user
 
 ```csharp
-[FromQuery]
+[FromBody]
 [Required]
-string externalUserId
+InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
 ```
 
-User external Id
+InvitationCreateDto object
+
+```json
+{
+  "ExpiresDateTime": "2019-03-06T11:39:54.6774696-08:00",
+  "State": 0,
+  "SendInvitation": false
+}
+```
 
 ### Security
 
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
-#### 200
+#### 201
 
-Success
+Created
 
 ##### Type:
 
- `User`
+ `InvitationDto`
 
 ```json
 {
   "Id": "Id",
-  "GivenName": "Name",
-  "Surname": "Surname",
-  "Name": "Name",
-  "Email": "user@company.com",
-  "ContactEmail": "user@company.com",
-  "ContactGivenName": "Name",
-  "ContactSurname": "Surname",
-  "ExternalUserId": "ExternalUserId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "IdentityProvider": {
-    "Id": "Id",
-    "DisplayName": "Name",
-    "Scheme": "Scheme",
-    "UserIdClaimType": "UserIdClaimType"
-  }
+  "Issued": "2019-03-06T11:39:54.6776252-08:00",
+  "Expires": "2019-03-06T11:39:54.6776368-08:00",
+  "State": 0,
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "UserId": "00000000-0000-0000-0000-000000000000"
 }
 ```
+
+#### 400
+
+Missing or invalid inputs
 
 #### 401
 
@@ -1651,6 +1365,10 @@ Forbidden
 #### 404
 
 User or Tenant not found
+
+#### 409
+
+Invitation already exists
 
 #### 500
 

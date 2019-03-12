@@ -8,11 +8,11 @@ Topics
 Topic information 
 -----------------------
 
-A Topic is used to aggregate data received from publishers and make it available for consumption 
-via a Subscription. A topic must contain at least one publisher. Publishers may be added to or 
-removed from an existing topic. A given publisher may also belong to multiple topics. 
+A Topic is used to aggregate data received from clients and make it available for consumption 
+via a Subscription. A topic must contain at least one client Id. Clients may be added to or 
+removed from an existing topic. A given client may also belong to multiple topics in separate namespaces. 
 
-When a topic is created, data sent from its assigned publishers is routed to a special queue 
+When a topic is created, data sent from its assigned clients is routed to a special queue 
 where it can be consumed by a subscription. This queue provides a buffer of up to one day for 
 subscriptions which are temporarily unable to receive data.
 
@@ -36,7 +36,7 @@ Topic information is contained in an object called ``Topic`` and has the followi
 | Name            | string                  | A friendly name for the Topic          |
 | Description     | string                  | An optional description for the Topic. |
 | CreationDate    | string                  | The time that the Topic was created. The string is formatted using ISO 8601 format. |
-| Publishers	  | string array            | An array of Publisher Ids mapped to the Topic   |
+| ClientIds    	  | string array            | An array of Client Ids mapped to the Topic   |
 
 ********************************
 
@@ -121,30 +121,6 @@ Get all subscriptions across all namespaces mapped to a topic.
 **Returns**
 
 An array of Subscription objects. 
-
-************************
-
-``GET api/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/publishers?skip={skip}&count={count}``
--------------------------------------------------------------------------------------
-
-Gets a list of publishers that are currently mapped to a topic 
-
-**Parameters**
-
-``tenantId``
-  Unique Id for the tenant. 
-``namespaceId``
-  Unique Id for the namespace of the topic.
-``topicId``
-  Unique Id for the topic. 
-``int skip``
-  An optional parameter representing the zero-based offset of the first publisher mapped to a topic to retrieve. If not specified, a default value of 0 is used. 
-``int count``
-  An optional parameter representing the maximum number of publishers mapped to a topic to retrieve. If not specified, a default value of 100 is used.
-
-**Returns**
-
-An array of Publisher objects.
 
 ***************************
 

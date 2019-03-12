@@ -40,9 +40,6 @@ references:
 - uid: DataViewsOverview
   name: Data Views (Preview)
   href: Documentation/DataViews/DataViews_Overview.html
-- uid: identityAzureActiveDirectoryTenantInformation
-  name: AzureActiveDirectoryTenantInformation
-  href: Documentation/Identity/Identity_AzureActiveDirectoryTenantInformation.html
 - uid: identityClient
   name: Client
   href: Documentation/Identity/Identity_Client.html
@@ -79,9 +76,6 @@ references:
 - uid: ManagementOverview
   name: Account Management
   href: Documentation/Management/Management_Overview.html
-- uid: omfIngressPublishers
-  name: Publishers
-  href: Documentation/DataIngress/OMF_Ingress_Publishers.html
 - uid: omfIngressSpecification
   name: Using OMF with Cloud Services
   href: Documentation/DataIngress/OMF_Ingress_Specification.html

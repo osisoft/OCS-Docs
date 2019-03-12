@@ -40,7 +40,7 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-### Multi-Stream Reads   
+### Bulk Reads   
  
 SDS supports reading from multiple streams in one request. The following method for reading data from multiple streams is available:
 * [Join Values](xref:sdsReadingDataApi#join-values) retrieves a collection of events across multiple streams and joins the results based on the request parameters.

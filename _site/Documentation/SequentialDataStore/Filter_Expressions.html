@@ -80,7 +80,7 @@
 
 <p>Filter expressions can be applied to certain read operations that return Sequential Data Store values or objects. This section covers data values. For filtering on metadata objects refer to <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a>.</p>
 <p>Filter expressions can be applied to any read that returns multiple values, including 
-<code>Get Values</code>, <code>Get Range Values</code>, <code>Get Window Values</code>, and <code>Get Intervals</code>.”</p>
+<code>Get Values</code> and <code>Get Summaries</code>.</p>
 <h2 id="sdstypecodes">SdsTypeCodes</h2>
 <p><strong>Supported</strong></p>
 <p>The following types are supported for use within a filter expression:</p>
@@ -263,7 +263,7 @@ filter expression:</p>
 <td>Compare the character at the end of the input string</td>
 </tr>
 <tr>
-<td><code>startwith</code></td>
+<td><code>startswith</code></td>
 <td>Compare the character at the start of the input string</td>
 </tr>
 <tr>

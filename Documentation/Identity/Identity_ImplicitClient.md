@@ -13,13 +13,13 @@ For HTTP requests and responses, the ImplicitClientDto object has the following 
 Property | Type | Descriptions
  --- | --- | ---
 AllowedCorsOrigins | string[] | If specified, will be used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.
-RedirectUris | string[] | Specifies the allowed URIs to return tokens or authorization codes to
+RedirectUris | string[] | Specifies the allowed URIs to return tokens or authorization codes to.
 PostLogoutRedirectUris | string[] | Specifies allowed URIs to redirect to after logout.
-ClientUri | string | URI to further information about client (used on consent screen)
-LogoUri | string | URI to client logo (used on consent screen)
+ClientUri | string | URI to a page with information about client (used on consent screen).
+LogoUri | string | URI to client logo (used on consent screen).
 ClientId | string | Client ID for this Client
-Name | string | Name of Client.
-Enabled | optional: bool | Is Client Enabled
+Name | string | Name of ClientDto.
+Enabled | optional: bool | Is ClientDto Enabled
 
 ### Serialized Model
 
@@ -49,17 +49,17 @@ Enabled | optional: bool | Is Client Enabled
 
 ## `Create Implicit Client`
 
-Create an Implicit flow Client
+Create an Implicit flow Clients
 
 ### Request
 
-`POST api/Tenants/{tenantId}/ImplicitClient/`
+`POST api/v1-preview/Tenants/{tenantId}/ImplicitClient/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -71,6 +71,28 @@ ImplicitClientDto implicitClientDto
 ```
 
 New ImplicitClientDto object
+
+```json
+{
+  "AllowedCorsOrigins": [
+    "String",
+    "String"
+  ],
+  "RedirectUris": [
+    "String",
+    "String"
+  ],
+  "PostLogoutRedirectUris": [
+    "String",
+    "String"
+  ],
+  "ClientUri": "ClientUri",
+  "LogoUri": "LogoUri",
+  "ClientId": "ClientId",
+  "Name": "Name",
+  "Enabled": false
+}
+```
 
 ### Security
 
@@ -122,6 +144,10 @@ Forbidden
 
 Tenant not found
 
+#### 409
+
+Client Id already exists.
+
 #### 500
 
 Internal server error
@@ -133,13 +159,13 @@ Update an Implicit Client
 
 ### Request
 
-`PUT api/Tenants/{tenantId}/ImplicitClient/{clientId}`
+`PUT api/v1-preview/Tenants/{tenantId}/ImplicitClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -158,6 +184,28 @@ ImplicitClientDto updatedImplicitClientDto
 ```
 
 Updated Implicit Client values
+
+```json
+{
+  "AllowedCorsOrigins": [
+    "String",
+    "String"
+  ],
+  "RedirectUris": [
+    "String",
+    "String"
+  ],
+  "PostLogoutRedirectUris": [
+    "String",
+    "String"
+  ],
+  "ClientUri": "ClientUri",
+  "LogoUri": "LogoUri",
+  "ClientId": "ClientId",
+  "Name": "Name",
+  "Enabled": false
+}
+```
 
 ### Security
 
@@ -224,13 +272,13 @@ Get an Implicit Client
 
 ### Request
 
-`GET api/Tenants/{tenantId}/ImplicitClient/{clientId}`
+`GET api/v1-preview/Tenants/{tenantId}/ImplicitClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -247,8 +295,6 @@ Id of client
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -305,13 +351,13 @@ Get all Implicit Clients
 
 ### Request
 
-`GET api/Tenants/{tenantId}/ImplicitClient/`
+`GET api/v1-preview/Tenants/{tenantId}/ImplicitClient/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -348,8 +394,6 @@ Max number of clients to return
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -427,13 +471,13 @@ Delete an Implicit Client
 
 ### Request
 
-`DELETE api/Tenants/{tenantId}/ImplicitClient/{clientId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/ImplicitClient/{clientId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant

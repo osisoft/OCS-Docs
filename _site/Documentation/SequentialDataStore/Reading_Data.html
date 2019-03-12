@@ -86,15 +86,15 @@ defines the functions that are available.</p>
 <h3 id="single-stream-reads">Single Stream Reads</h3>
 <p>The following methods for reading a single value are available:</p>
 <ul>
-<li><a class="xref" href="Reading_Data_API.html#get-first-value"><code>Get First Value</code></a> returns the first value in the stream.</li>
-<li><a class="xref" href="Reading_Data_API.html#get-last-value"><code>Get Last Value</code></a> returns the last value in the stream.</li>
-<li><a class="xref" href="Reading_Data_API.html#find-distinct-value"><code>Find Distinct Value</code></a> returns a value based on a starting index and search criteria.</li>
+<li><a class="xref" href="Reading_Data_API.html#get-first-value">Get First Value</a> returns the first value in the stream.</li>
+<li><a class="xref" href="Reading_Data_API.html#get-last-value">Get Last Value</a> returns the last value in the stream.</li>
+<li><a class="xref" href="Reading_Data_API.html#find-distinct-value">Find Distinct Value</a> returns a value based on a starting index and search criteria.</li>
 </ul>
 <p>In addition, the following methods support reading multiple values:</p>
 <ul>
-<li><a class="xref" href="Reading_Data_API.html#get-values"><code>Get Values</code></a> retrieves a collection of stored values based on the request parameters.</li>
-<li><a class="xref" href="Reading_Data_API.html#get-interpolated-values"><code>Get Interpolated Values</code></a> retrieves a collection of stored or calculated values based on the request parameters.</li>
-<li><a class="xref" href="Reading_Data_API.html#get-summaries"><code>Get Summaries</code></a> retrieves a collection of evenly spaced summary intervals based on a count 
+<li><a class="xref" href="Reading_Data_API.html#get-values">Get Values</a> retrieves a collection of stored values based on the request parameters.</li>
+<li><a class="xref" href="Reading_Data_API.html#get-interpolated-values">Get Interpolated Values</a> retrieves a collection of stored or calculated values based on the request parameters.</li>
+<li><a class="xref" href="Reading_Data_API.html#get-summaries">Get Summaries</a> retrieves a collection of evenly spaced summary intervals based on a count 
 and specified start and end indexes.</li>
 </ul>
 <p>All single stream reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI from a single stream is as follows:</p>
@@ -103,10 +103,10 @@ and specified start and end indexes.</li>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
 <p><code>string streamId</code><br>The stream identifier</p>
-<h3 id="multi-stream-reads">Multi-Stream Reads</h3>
+<h3 id="bulk-reads">Bulk Reads</h3>
 <p>SDS supports reading from multiple streams in one request. The following method for reading data from multiple streams is available:</p>
 <ul>
-<li><a class="xref" href="Reading_Data_API.html#join-values"><code>Join Values</code></a> retrieves a collection of events across multiple streams and joins the results based on the request parameters.</li>
+<li><a class="xref" href="Reading_Data_API.html#join-values">Join Values</a> retrieves a collection of events across multiple streams and joins the results based on the request parameters.</li>
 </ul>
 <p>Multi-stream reads can be HTTP GET or POST actions. The base reading URI for reading from multiple streams is as follows:</p>
 <pre><code>    api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data

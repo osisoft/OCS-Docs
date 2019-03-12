@@ -8,58 +8,27 @@ APIs for creating, getting, updating, and deleting an Invitation
 
 ## Properties
 
-For HTTP requests and responses, the Invitation object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the InvitationDto object has the following properties and JSON-serialized body: 
 
 Property | Type | Descriptions
  --- | --- | ---
 Id | string | Unique invitation id.
 Issued | DateTime | Invitation issuing timestamp.
 Expires | DateTime | Invitation expiration timestamp.
-State | int32 | Current state of invitation.
-TenantId | string | ID of tenant the invitation belongs to.
-Tenant | Tenant | Tenant Tenant that owns the invitation.
-UserId | string | ID of user whom the invitation was issued to.
-User | User | User User whom the invitation was issued to.
+State | InvitationStates | Invitation state
+TenantId | Guid | ID of tenant the invitation belongs to.
+UserId | Guid | ID of user whom the invitation was issued to.
 
 ### Serialized Model
 
 ```json
 {
   "Id": "Id",
-  "Issued": "2019-02-20T01:57:33.292122-05:00",
-  "Expires": "2019-02-20T01:57:33.2921272-05:00",
+  "Issued": "2019-03-06T11:39:54.5851986-08:00",
+  "Expires": "2019-03-06T11:39:54.5852039-08:00",
   "State": 0,
-  "TenantId": "TenantId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "UserId": "UserId",
-  "User": {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "UserId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -71,13 +40,13 @@ Get an Invitation using its id in a tenant
 
 ### Request
 
-`GET api/Tenants/{tenantId}/Invitation/{invitationId}`
+`GET api/v1-preview/Tenants/{tenantId}/Invitation/{invitationId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -94,8 +63,6 @@ Id of invitation
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -105,45 +72,16 @@ Success
 
 ##### Type:
 
- `Invitation`
+ `InvitationDto`
 
 ```json
 {
   "Id": "Id",
-  "Issued": "2019-02-20T01:57:33.3071625-05:00",
-  "Expires": "2019-02-20T01:57:33.3071675-05:00",
+  "Issued": "2019-03-06T11:39:54.5905483-08:00",
+  "Expires": "2019-03-06T11:39:54.5905536-08:00",
   "State": 0,
-  "TenantId": "TenantId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "UserId": "UserId",
-  "User": {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "UserId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -170,13 +108,13 @@ Get all invitations for a tenant
 
 ### Request
 
-`GET api/Tenants/{tenantId}/Invitation/`
+`GET api/v1-preview/Tenants/{tenantId}/Invitation/`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -222,8 +160,6 @@ Specify to return expired invitations
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Operator`
-- `Cluster Support`
 
 ### Returns
 
@@ -233,83 +169,25 @@ Success
 
 ##### Type:
 
- `List[Invitation]`
+ `List[InvitationDto]`
 
 ```json
 [
   {
     "Id": "Id",
-    "Issued": "2019-02-20T01:57:33.3080691-05:00",
-    "Expires": "2019-02-20T01:57:33.3080733-05:00",
+    "Issued": "2019-03-06T11:39:54.5914111-08:00",
+    "Expires": "2019-03-06T11:39:54.5914143-08:00",
     "State": 0,
-    "TenantId": "TenantId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "UserId": "UserId",
-    "User": {
-      "Id": "Id",
-      "GivenName": "Name",
-      "Surname": "Surname",
-      "Name": "Name",
-      "Email": "user@company.com",
-      "ContactEmail": "user@company.com",
-      "ContactGivenName": "Name",
-      "ContactSurname": "Surname",
-      "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "UserId": "00000000-0000-0000-0000-000000000000"
   },
   {
     "Id": "Id",
-    "Issued": "2019-02-20T01:57:33.3081558-05:00",
-    "Expires": "2019-02-20T01:57:33.3081579-05:00",
+    "Issued": "2019-03-06T11:39:54.5914298-08:00",
+    "Expires": "2019-03-06T11:39:54.5914315-08:00",
     "State": 0,
-    "TenantId": "TenantId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "UserId": "UserId",
-    "User": {
-      "Id": "Id",
-      "GivenName": "Name",
-      "Surname": "Surname",
-      "Name": "Name",
-      "Email": "user@company.com",
-      "ContactEmail": "user@company.com",
-      "ContactGivenName": "Name",
-      "ContactSurname": "Surname",
-      "ExternalUserId": "ExternalUserId",
-      "Tenant": {
-        "Id": "Id",
-        "Alias": "Alias",
-        "State": "State",
-        "IsCloudConnectCustomer": false
-      },
-      "IdentityProvider": {
-        "Id": "Id",
-        "DisplayName": "Name",
-        "Scheme": "Scheme",
-        "UserIdClaimType": "UserIdClaimType"
-      }
-    }
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+    "UserId": "00000000-0000-0000-0000-000000000000"
   }
 ]
 ```
@@ -341,13 +219,13 @@ Update an invitation
 
 ### Request
 
-`PUT api/Tenants/{tenantId}/Invitation/{invitationId}`
+`PUT api/v1-preview/Tenants/{tenantId}/Invitation/{invitationId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -362,18 +240,24 @@ Id of invitation
 ```csharp
 [FromBody]
 [Required]
-InvitationUpdateDto invitationUpdateDto
+InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
 ```
 
 New InvitationUpdateDto object
+
+```json
+{
+  "ExpiresDateTime": "2019-03-06T11:39:54.5922045-08:00",
+  "State": 0,
+  "SendInvitation": false
+}
+```
 
 ### Security
 
 Allowed for these roles:
 
 - `Account Administrator`
-- `Cluster Support`
-- `Cluster Operator`
 
 ### Returns
 
@@ -383,45 +267,16 @@ Success
 
 ##### Type:
 
- `Invitation`
+ `InvitationDto`
 
 ```json
 {
   "Id": "Id",
-  "Issued": "2019-02-20T01:57:33.3088269-05:00",
-  "Expires": "2019-02-20T01:57:33.3088301-05:00",
+  "Issued": "2019-03-06T11:39:54.5948915-08:00",
+  "Expires": "2019-03-06T11:39:54.5948964-08:00",
   "State": 0,
-  "TenantId": "TenantId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "UserId": "UserId",
-  "User": {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
-  }
+  "TenantId": "00000000-0000-0000-0000-000000000000",
+  "UserId": "00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -448,13 +303,13 @@ Delete an invitation
 
 ### Request
 
-`DELETE api/Tenants/{tenantId}/Invitation/{invitationId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/Invitation/{invitationId}`
 
 ### Parameters
 
 ```csharp
 [Required]
-string tenantId
+Guid tenantId
 ```
 
 Id of tenant
@@ -489,119 +344,6 @@ Forbidden
 #### 404
 
 Invitation or Tenant not found
-
-#### 500
-
-Internal server error
-***
-
-## `Create Invitation`
-
-Create an invitation for a user
-
-### Request
-
-`POST api/Tenants/{tenantId}/User/{userId}/Invitation`
-
-### Parameters
-
-```csharp
-[Required]
-string tenantId
-```
-
-Id of tenant
-
-```csharp
-[Required]
-string userId
-```
-
-Id of user
-
-```csharp
-[FromBody]
-[Required]
-InvitationCreateDto invitationCreateDto
-```
-
-InvitationCreateDto object
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 201
-
-Created
-
-##### Type:
-
- `Invitation`
-
-```json
-{
-  "Id": "Id",
-  "Issued": "2019-02-20T01:57:33.4030254-05:00",
-  "Expires": "2019-02-20T01:57:33.4030318-05:00",
-  "State": 0,
-  "TenantId": "TenantId",
-  "Tenant": {
-    "Id": "Id",
-    "Alias": "Alias",
-    "State": "State",
-    "IsCloudConnectCustomer": false
-  },
-  "UserId": "UserId",
-  "User": {
-    "Id": "Id",
-    "GivenName": "Name",
-    "Surname": "Surname",
-    "Name": "Name",
-    "Email": "user@company.com",
-    "ContactEmail": "user@company.com",
-    "ContactGivenName": "Name",
-    "ContactSurname": "Surname",
-    "ExternalUserId": "ExternalUserId",
-    "Tenant": {
-      "Id": "Id",
-      "Alias": "Alias",
-      "State": "State",
-      "IsCloudConnectCustomer": false
-    },
-    "IdentityProvider": {
-      "Id": "Id",
-      "DisplayName": "Name",
-      "Scheme": "Scheme",
-      "UserIdClaimType": "UserIdClaimType"
-    }
-  }
-}
-```
-
-#### 400
-
-Missing or invalid inputs
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-User or Tenant not found
-
-#### 409
-
-Invitation already exists
 
 #### 500
 
