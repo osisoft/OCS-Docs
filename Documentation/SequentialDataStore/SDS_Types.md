@@ -306,7 +306,7 @@ Key is specified as IsKey. The Order field defines the precedence of fields appl
 
 The Value field is used for properties that represent a value. An example of a property with a 
 value is an enum’s named constant. When representing an enum in a SdsType, the SdsType’s 
-Properies collection defines the enum’s constant list. The SdsTypeProperty’s Identifier represents 
+Properties collection defines the enum’s constant list. The SdsTypeProperty’s Identifier represents 
 the constant’s name and the SdsTypeProperty’s Value represents the constant’s value (see the enum State definitions below).
 
 InterpolationMode is assigned when the Property of the event should be interpolated in a specific way 
@@ -322,7 +322,7 @@ For more information on interpolation of events see [Interpolation](#interpolati
 Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
 abbreviation. The names and abbreviations of Uoms are case sensitive. 
 
-The InterpolationMode and Uom of a Property can be overriden on the stream. For more information, see [Sds Streams](xref:sdsStreams#propertyoverrides). 
+The InterpolationMode and Uom of a Property can be overridden on the stream. For more information, see [Streams](xref:sdsStreams#propertyoverrides). 
 
 ## Supported Units of Measure
 
@@ -592,7 +592,7 @@ var State =
 {
     Ok: 0,
     Warning: 1,
-    Aalrm: 2,
+    Alarm: 2,
 }
 
 var Simple = function () {
@@ -714,7 +714,7 @@ var simpleType = new SdsObjects.SdsType({
 Working with a derived class is easy. For the following derived class:
 
 ```javascript
-class Derrived(Simple):
+class Derived(Simple):
     @property
     def Observation(self):
         return self.__observation
@@ -727,7 +727,7 @@ Extend the SdsType as follows:
 
 **Python**
 ```python
-# Observation property is a simple non-inexed, standard data type
+# Observation property is a simple non-indexed, standard data type
 observation = SdsTypeProperty()
 observation.Id = "Observation"
 observation.Name = "Observation"
@@ -768,7 +768,7 @@ var derivedType = new SdsObjects.SdsType({
 
 # SdsType API
 
-The REST APIs provide programmatic access to read and write Sds data. The APIs in this section 
+The REST APIs provide programmatic access to read and write SDS data. The APIs in this section 
 interact with SdsTypes. When working in .NET, convenient SDS Client Libraries are available. 
 The ISdsMetadataService interface, accessed using the ``SdsService.GetMetadataService()`` helper, 
 defines the available functions. See [Types](#types) for general SdsType information.
@@ -840,7 +840,7 @@ Content-Type: application/json
                         "Value": 1
                     },
                     {
-                        "Id": "Aalrm",
+                        "Id": "Alarm",
                         "Value": 2
                     }
                 ]
@@ -951,7 +951,7 @@ Content-Type: application/json
                             "Value": 1
                         },
                         {
-                            "Id": "Aalrm",
+                            "Id": "Alarm",
                             "Value": 2
                         }
                     ]
@@ -1048,7 +1048,7 @@ Example SdsType content:
                         "Value": 1
                     },
                     {
-                        "Id": "Aalrm",
+                        "Id": "Alarm",
                         "Value": 2
                     }
                 ]
@@ -1153,7 +1153,7 @@ Content-Type: application/json
                         "InterpolationMode": null
                     },
                     {
-                        "Id": "Aalrm",
+                        "Id": "Alarm",
                         "Name": null,
                         "Description": null,
                         "Order": 0,
@@ -1302,7 +1302,7 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -1330,7 +1330,7 @@ The namespace identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -1359,7 +1359,7 @@ The namespace identifier
 The type identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -1390,7 +1390,7 @@ The type identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -1400,7 +1400,7 @@ The response includes a status code
 
 ## `Get Type Owner`
 
-Get the owner of the specified type. For more information on owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified type. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -1418,7 +1418,7 @@ The namespace identifier
 The type identifier  
 
 **Response**  
-The response includes a status code and a serialized owner
+The response includes a status code and a serialized Owner.
 
 **.NET Library**
 ```csharp
@@ -1428,7 +1428,7 @@ The response includes a status code and a serialized owner
 
 ## `Update Type Owner`
 
-Update the owner of the specified type. For more information on owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified type. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -1446,10 +1446,10 @@ The namespace identifier
 The type identifier  
 
 **Request body**  
-Serialized owner
+Serialized Owner
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp

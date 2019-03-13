@@ -373,7 +373,7 @@ An optional parameter representing the maximum number of SdsUomQuantity to retri
 The response includes a status code and a response body.
 
 **Response body**  
-A list of SdsUomQuantity objects.
+A list of SdsUomQuantity objects
 
 Example response body:
 ```json
@@ -456,7 +456,7 @@ The unit of measure identifier
 The response includes a status code and a response body.
 
 **Response body**  
-The requested SdsUom.
+The requested SdsUom
 
 Example response for quantityId = "Length" and uomId ="mile":
 ```json
@@ -499,7 +499,7 @@ The quantity identifier
 The response includes a status code and a response body.
 
 **Response body**  
-A collection of SdsUom objects for the specified quantity.
+A collection of SdsUom objects for the specified quantity
 
 Example response for quantityId = "Electric Current":
 ```json
@@ -549,7 +549,10 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a response body.
+
+**Response body**  
+The default ACL for Quantities
 
 **.NET Library**
 ```csharp
@@ -574,10 +577,10 @@ The tenant identifier
 The namespace identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -606,7 +609,10 @@ The namespace identifier
 The quantity identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a response body.
+
+**Response body**
+The ACL for the specified quantity
 
 **.NET Library**
 ```csharp
@@ -634,10 +640,10 @@ The namespace identifier
 The quantity identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -647,7 +653,7 @@ The response includes a status code
 
 ## `Get Quantity Owner`
 
-Get the owner of the specified quantity. For more information on owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -665,7 +671,10 @@ The namespace identifier
 The quantity identifier  
 
 **Response**  
-The response includes a status code and a serialized owner
+The response includes a status code and a response body.
+
+**Response body**
+The Owner for the specified quantity
 
 **.NET Library**
 ```csharp
@@ -675,7 +684,7 @@ The response includes a status code and a serialized owner
 
 ## `Update Quantity Owner`
 
-Update the owner of the specified quantity. For more information on owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -693,10 +702,10 @@ The namespace identifier
 The quantity identifier  
 
 **Request body**  
-Serialized owner
+Serialized Owner
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -730,7 +739,7 @@ The unit of measure identifier
 The response includes a status code and a response body.
 
 **Response body**  
-The requested SdsUom.
+The requested SdsUom
 
 Example response body for uomId = "ounce":
 ```json
@@ -772,14 +781,11 @@ An optional parameter representing the zero-based offset of the first SdsUomQuan
 ``int count``  
 An optional parameter representing the maximum number of SdsUomQuantity to retrieve. If not specified, a default value of 100 is used.
 
-
-**Response**
-
+**Response**  
 The response includes a status code and a response body.
 
-**Response body**
-
-A list of SdsUom objects.
+**Response body**  
+A list of SdsUom objects
 
 Example response body:
 ```json
@@ -843,7 +849,10 @@ The quantity identifier
 The unit of measure identifier
 
 **Response**  
-The response includes a status code ans a serialized access control list
+The response includes a status code and a response body.
+
+**Response body**  
+The ACL for the specified Uom
 
 **.NET Library**
 ```csharp
@@ -874,10 +883,10 @@ The quantity identifier
 The unit of measure identifier
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -887,7 +896,7 @@ The response includes a status code
 
 ## `Get Uom Owner`
 
-Get the owner of the specified unit of measure. For more information on owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -908,7 +917,10 @@ The quantity identifier
 The unit of measure identifier
 
 **Response**  
-The response includes a status code and a serialized owner
+The response includes a status code and a response body.
+
+**Response Body**  
+The Owner for the specified Uom 
 
 **.NET Library**
 ```csharp
@@ -918,7 +930,7 @@ The response includes a status code and a serialized owner
 
 ## `Update Uom Owner`
 
-Update the owner of the specified unit of measure. For more information on owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -939,10 +951,10 @@ The quantity identifier
 The unit of measure identifier
 
 **Request body**  
-Serialized owner
+Serialized Owner
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp

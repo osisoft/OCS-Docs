@@ -445,7 +445,7 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -473,7 +473,7 @@ The namespace identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -502,7 +502,7 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code and a seralized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -533,7 +533,7 @@ The stream identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -543,7 +543,7 @@ The response includes a status code
 
 ## `Get Stream Owner`
 
-Get the owner of the specified stream. For more information on owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -561,7 +561,7 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code and serialized owner
+The response includes a status code and serialized Owner.
 
 **.NET Library**
 ```csharp
@@ -571,7 +571,7 @@ The response includes a status code and serialized owner
 
 ## `Update Stream Owner`
 
-Update the owner of the specified stream. For more information on owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -589,10 +589,10 @@ The namespace identifier
 The stream identifier  
 
 **Request body**  
-Serialized owner
+Serialized Owner
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp

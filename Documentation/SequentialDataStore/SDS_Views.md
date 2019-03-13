@@ -61,10 +61,10 @@ The SdsStreamView field supports nested Properties.
 
 ## SdsStreamViewMap
 
-When an SdsStreamView is added, Sds defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
+When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
 The SdsStreamViewMap provides a detailed Property-by-Property definition of the mapping. 
 
-The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to Sds, 
+The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to SDS, 
 so required and optional have no meaning.
 
 | Property     | Type                     | Optionality  | Details |
@@ -79,7 +79,7 @@ The SdsStreamViewMapProperty is similar an SdsStreamViewProperty but adds a Mode
 the Property.
 
 The following table shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
-retrieved from Sds, so required and optional have no meaning.
+retrieved from SDS, so required and optional have no meaning.
 
 | Property     | Type        | Details |
 |--------------|-------------|---------|
@@ -672,7 +672,7 @@ Content-Type: application/json
 ## `Get or Create Stream View`
 
 If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
-If the stream views are identical, a Found (302) status is returnd and the stream view. If the stream views are different, the Conflict (409) error is returned.
+If the stream views are identical, a Found (302) status is returned and the stream view. If the stream views are different, the Conflict (409) error is returned.
 
 If no matching identifier is found, the specified stream view is created.  
 
@@ -762,7 +762,7 @@ The namespace identifier
 The stream view identifier  
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -787,7 +787,7 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -815,7 +815,7 @@ The namespace identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -844,7 +844,7 @@ The namespace identifier
 The stream view identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list
+The response includes a status code and a serialized access control list.
 
 **.NET Library**
 ```csharp
@@ -875,7 +875,7 @@ The stream view identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
@@ -885,7 +885,7 @@ The response includes a status code
 
 ## `Get Stream View Owner`
 
-Get the owner of the specified stream view. For more information on owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -903,7 +903,7 @@ The namespace identifier
 The stream view identifier  
 
 **Response**  
-The response includes a status code and a serialized owner
+The response includes a status code and a serialized Owner.
 
 **.NET Library**
 ```csharp
@@ -913,7 +913,7 @@ The response includes a status code and a serialized owner
 
 ## `Update Stream View Owner`
 
-Update the owner of the specified stream view. For more information on owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -931,10 +931,10 @@ The namespace identifier
 The stream view identifier  
 
 **Request body**  
-Serialized owner
+Serialized Owner
 
 **Response**  
-The response includes a status code
+The response includes a status code.
 
 **.NET Library**
 ```csharp
