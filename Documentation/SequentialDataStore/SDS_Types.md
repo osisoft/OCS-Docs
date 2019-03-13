@@ -81,7 +81,6 @@ types do not need fields to define the type.
 Types requiring additional definition, such as enums and objects, are identified using a generic 
 SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus additional SdsProperty fields.
 
-
 **Supported Types**
 
 The following types are supported and defined by the SdsTypeCode:
@@ -215,9 +214,8 @@ indexes that occur between data in a stream:
 |Version                    |No event is returned                           |         |
 |IDictionary or IEnumerable |No event is returned                           |Dictionary, Array, List, and so on. |
 
-\*When extreme values are involved in an interpolation (for example
+When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
-
 
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
 mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
@@ -1209,7 +1207,7 @@ Content-Type: application/json
 
 **.NET Library**
 ```csharp
-    Task<SdsType> GetOrCreateTypeAsync(SdsType SdsType);
+    Task<SdsType> GetOrCreateTypeAsync(SdsType sdsType)
 ```
 
 If a type with a matching identifier already exists and it matches the type in the request body, 

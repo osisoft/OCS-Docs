@@ -102,6 +102,7 @@ SdsStream information.
 ***********************
 
 ## `Get Stream`
+
 Returns the specified stream.
 
 **Request**
@@ -173,7 +174,7 @@ An optional parameter representing a string search.
 See [Searching](xref:sdsSearching)
 for information about specifying the search parameter.
 
-`string filter`   
+`string filter`  
 An optional filter string to match which SdsStreams will be returned.  See the 
 [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
@@ -282,7 +283,6 @@ redirect with the authorization header, you should disable automatic redirect.
 
         POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
 
-
 **Parameters**
 
 `string tenantId`  
@@ -319,6 +319,7 @@ in the request body, a Conflict error response is returned and the client librar
 
 Creates the specified stream. If a stream with the same Id already exists, the definition of the stream is updated. 
 The following changes are permitted:  
+
 - Name  
 - Description  
 - Indexes  
@@ -598,5 +599,3 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
-
-
