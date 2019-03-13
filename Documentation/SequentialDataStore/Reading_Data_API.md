@@ -1098,7 +1098,7 @@ Each SdsInterval has a start, end, and collection of summary values.
 **Example**  
 The following requests calculates two summary intervals between the `startIndex` and `endIndex`: 
 
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
 
 **Response body**
