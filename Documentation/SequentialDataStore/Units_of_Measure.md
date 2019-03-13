@@ -534,7 +534,7 @@ Content-Type: application/json
 
 ## `Get Quantities Access Control List`
 
-Get the default Quantities ACL.
+Get the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -549,7 +549,7 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a serialized access control list
 
 **.NET Library**
 ```csharp
@@ -559,7 +559,7 @@ The response includes a status code.
 
 ## `Update Quantities Access Control List`
 
-Update the default Quanitities ACL.
+Update the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -577,7 +577,7 @@ The namespace identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -588,7 +588,7 @@ The response includes a status code.
 
 ## `Get Quantity Access Control List`
 
-Get the ACL of the specified quantity.
+Get the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -606,7 +606,7 @@ The namespace identifier
 The quantity identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a serialized access control list
 
 **.NET Library**
 ```csharp
@@ -616,7 +616,7 @@ The response includes a status code.
 
 ## `Update Quantity Access Control List`
 
-Update the ACL of the specified quantity.
+Update the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -637,7 +637,7 @@ The quantity identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -647,7 +647,7 @@ The response includes a status code.
 
 ## `Get Quantity Owner`
 
-Get the owner of the specified quantity.
+Get the owner of the specified quantity. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -665,7 +665,7 @@ The namespace identifier
 The quantity identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a serialized owner
 
 **.NET Library**
 ```csharp
@@ -675,7 +675,7 @@ The response includes a status code.
 
 ## `Update Quantity Owner`
 
-Update the owner of the specified quantity.
+Update the owner of the specified quantity. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -696,7 +696,7 @@ The quantity identifier
 Serialized owner
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -822,7 +822,7 @@ Content-Type: application/json
 
 ## `Get Uom Access Control List`
 
-Get the ACL of the specified unit of measure.
+Get the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -843,7 +843,7 @@ The quantity identifier
 The unit of measure identifier
 
 **Response**  
-The response includes a status code.
+The response includes a status code ans a serialized access control list
 
 **.NET Library**
 ```csharp
@@ -853,7 +853,7 @@ The response includes a status code.
 
 ## `Update Uom Access Control List`
 
-Update the ACL of the specified unit of measure.
+Update the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -877,7 +877,7 @@ The unit of measure identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -887,7 +887,7 @@ The response includes a status code.
 
 ## `Get Uom Owner`
 
-Get the owner of the specified unit of measure.
+Get the owner of the specified unit of measure. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -908,7 +908,7 @@ The quantity identifier
 The unit of measure identifier
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a serialized owner
 
 **.NET Library**
 ```csharp
@@ -918,7 +918,7 @@ The response includes a status code.
 
 ## `Update Uom Owner`
 
-Update the owner of the specified unit of measure.
+Update the owner of the specified unit of measure. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -942,7 +942,7 @@ The unit of measure identifier
 Serialized owner
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp

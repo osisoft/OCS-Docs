@@ -430,7 +430,7 @@ The response includes a status code.
 
 ## `Get Streams Access Control List`
 
-Get the default streams ACL.
+Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -445,7 +445,7 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a serialized access control list
 
 **.NET Library**
 ```csharp
@@ -455,7 +455,7 @@ The response includes a status code.
 
 ## `Update Streams Access Control List`
 
-Update the default streams ACL.
+Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -473,7 +473,7 @@ The namespace identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -484,7 +484,7 @@ The response includes a status code.
 
 ## `Get Stream Access Control List`
 
-Get the ACL of the specified stream.
+Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -502,7 +502,7 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and a seralized access control list
 
 **.NET Library**
 ```csharp
@@ -512,7 +512,7 @@ The response includes a status code.
 
 ## `Update Stream Access Control List`
 
-Update the ACL of the specified stream.
+Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -533,7 +533,7 @@ The stream identifier
 Serialized access control list
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
@@ -543,7 +543,7 @@ The response includes a status code.
 
 ## `Get Stream Owner`
 
-Get the owner of the specified stream.
+Get the owner of the specified stream. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -561,7 +561,7 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code.
+The response includes a status code and serialized owner
 
 **.NET Library**
 ```csharp
@@ -571,7 +571,7 @@ The response includes a status code.
 
 ## `Update Stream Owner`
 
-Update the owner of the specified stream.
+Update the owner of the specified stream. For more information on owners, see [Access Control](xref:accesscontrol).
 
 **Request**
 
@@ -592,7 +592,7 @@ The stream identifier
 Serialized owner
 
 **Response**  
-The response includes a status code.
+The response includes a status code
 
 **.NET Library**
 ```csharp
