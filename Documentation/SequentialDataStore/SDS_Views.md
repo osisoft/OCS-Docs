@@ -787,7 +787,10 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list.
+The response includes a status code and a response body.
+
+**Response body**  
+The default ACL for Stream Views
 
 **.NET Library**
 ```csharp
@@ -812,7 +815,7 @@ The tenant identifier
 The namespace identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
 The response includes a status code.
@@ -844,7 +847,10 @@ The namespace identifier
 The stream view identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list.
+The response includes a status code and a response body.
+
+**Response Body**  
+The ACL for the specified stream view
 
 **.NET Library**
 ```csharp
@@ -872,7 +878,7 @@ The namespace identifier
 The stream view identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
 The response includes a status code.
@@ -903,7 +909,10 @@ The namespace identifier
 The stream view identifier  
 
 **Response**  
-The response includes a status code and a serialized Owner.
+The response includes a status code and a response body.
+
+**Response Body**  
+The Owner for the specified stream view
 
 **.NET Library**
 ```csharp

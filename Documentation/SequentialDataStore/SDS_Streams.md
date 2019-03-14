@@ -446,7 +446,10 @@ The tenant identifier
 The namespace identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list.
+The response includes a status code and a response body.
+
+**Response body**  
+The default ACL for Streams
 
 **.NET Library**
 ```csharp
@@ -471,7 +474,7 @@ The tenant identifier
 The namespace identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
 The response includes a status code.
@@ -503,7 +506,10 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code and a serialized access control list.
+The response includes a status code and a response body.
+
+**Response Body**  
+The ACL for the specified stream 
 
 **.NET Library**
 ```csharp
@@ -531,7 +537,7 @@ The namespace identifier
 The stream identifier  
 
 **Request body**  
-Serialized access control list
+Serialized ACL
 
 **Response**  
 The response includes a status code.
@@ -562,7 +568,10 @@ The namespace identifier
 The stream identifier  
 
 **Response**  
-The response includes a status code and serialized Owner.
+The response includes a status code and a response body.
+
+**Response Body**  
+The Owner for the specified stream 
 
 **.NET Library**
 ```csharp
