@@ -866,7 +866,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns the number of references to the specified type. Streams and stream views can reference a type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on how types are used to define those SDS objects.
+Returns the number of references by streams and stream views to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
 
 **Request**
 
