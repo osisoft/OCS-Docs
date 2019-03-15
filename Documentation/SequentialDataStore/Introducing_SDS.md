@@ -55,7 +55,7 @@ Tenants are divided into one or more logical units called Namespaces. Each Names
 other Namespaces, with its own instances of the various OSIsoft Cloud Services and data stores. 
 Namespaces provide isolation of resources. 
 
-Isolation provided by Tenants and Namespaces prevent accidental or malicious data access. 
+Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
 
 Getting help
 ------------
