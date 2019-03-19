@@ -866,7 +866,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns the number of references by streams and stream views to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
+Returns a dictionary mapping the nameof(object) to the number of references held by streams, stream views and parent types for a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
 
 **Request**
 
@@ -887,11 +887,20 @@ The type identifier
 The response includes a status code and a response body.
 
 **Response body**  
-The number of references to the specified type
+A dictionary mapping nameof(object) to number of references.
+
+Example response body:
+```json
+    {
+        "SdsStream": 3,
+        "SdsStreamView": 2,
+        "SdsType": 1
+    }
+```
 
 **.NET Library**
 ```csharp
-    Task<int> GetTypeReferenceCountAsync(string typeId);
+    Task<IDictionary<string, int>> GetTypeReferenceCountAsync(string typeId);
 ```
 
 ***********************
