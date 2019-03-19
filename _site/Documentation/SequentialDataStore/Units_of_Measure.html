@@ -1780,7 +1780,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="sdsuomquantity-api">SdsUomQuantity API</h2>
+<h1 id="sdsuomquantity-api">SdsUomQuantity API</h1>
 <p>The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact with SdsUomQuantitys. When working in .NET, convenient SDS Client Libraries are available. The <code>ISdsMetadataService</code> interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, defines the available functions. See <a href="#units-of-measure">Units of Measure</a> for general <a href="#sdsuomquantity">SdsUomQuantity</a> information.</p>
 <hr>
 <h2 id="get-quantity"><code>Get Quantity</code></h2>
@@ -1791,37 +1791,35 @@
 <p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string quantityId</code><br>The quantity identifier</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>The requested SdsUomQuantity.</p>
-<p>Sample response body for quantityId = &quot;Length&quot;:</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The requested SdsUomQuantity.</p>
+<p>Example response body for quantityId = &quot;Length&quot;:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
 
-    {
-        &quot;Id&quot;: &quot;Length&quot;,
-        &quot;Name&quot;: &quot;Length&quot;,
-        &quot;BaseUom&quot;: {
-            &quot;Id&quot;: &quot;meter&quot;,
-            &quot;Abbreviation&quot;: &quot;m&quot;,
-            &quot;Name&quot;: &quot;meter&quot;,
-            &quot;DisplayName&quot;: &quot;meter&quot;,
-            &quot;QuantityId&quot;: &quot;Length&quot;,
-            &quot;ConversionFactor&quot;: 1
-        },
-        &quot;Dimensions&quot;: [
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-        ]
-    }
+{
+    &quot;Id&quot;: &quot;Length&quot;,
+    &quot;Name&quot;: &quot;Length&quot;,
+    &quot;BaseUom&quot;: {
+        &quot;Id&quot;: &quot;meter&quot;,
+        &quot;Abbreviation&quot;: &quot;m&quot;,
+        &quot;Name&quot;: &quot;meter&quot;,
+        &quot;DisplayName&quot;: &quot;meter&quot;,
+        &quot;QuantityId&quot;: &quot;Length&quot;,
+        &quot;ConversionFactor&quot;: 1
+    },
+    &quot;Dimensions&quot;: [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
+}
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;SdsUomQuantity&gt; GetQuantityAsync(string quantityId);
+<pre><code class="lang-csharp">   Task&lt;SdsUomQuantity&gt; GetQuantityAsync(string quantityId);
 </code></pre><hr>
 <h2 id="get-quantities"><code>Get Quantities</code></h2>
 <p>Returns a list of all quantities available within a given namespace.</p>
@@ -1831,60 +1829,59 @@
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsUomQuantity to retrieve. If not specified, a default value of 0 is used.</p>
 <p><code>int count</code><br>An optional parameter representing the maximum number of SdsUomQuantity to retrieve. If not specified, a default value of 100 is used.</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>A list of SdsUomQuantity objects.</p>
-<p>Sample response body:</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
-    [
-        {
-            &quot;Id&quot;: &quot;Angular Velocity&quot;,
-            &quot;Name&quot;: &quot;Angular Velocity&quot;,
-            &quot;BaseUom&quot;: {
-                &quot;Id&quot;: &quot;radian per second&quot;,
-                &quot;Abbreviation&quot;: &quot;rad/s&quot;,
-                &quot;Name&quot;: &quot;radian per second&quot;,
-                &quot;DisplayName&quot;: &quot;radian per second&quot;,
-                &quot;QuantityId&quot;: &quot;Angular Velocity&quot;,
-                &quot;ConversionFactor&quot;: 1
-            },
-            &quot;Dimensions&quot;: [
-                0,
-                0,
-                -1,
-                0,
-                0,
-                0,
-                0
-            ]
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>A list of SdsUomQuantity objects</p>
+<p>Example response body:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+
+[
+    {
+        &quot;Id&quot;: &quot;Angular Velocity&quot;,
+        &quot;Name&quot;: &quot;Angular Velocity&quot;,
+        &quot;BaseUom&quot;: {
+            &quot;Id&quot;: &quot;radian per second&quot;,
+            &quot;Abbreviation&quot;: &quot;rad/s&quot;,
+            &quot;Name&quot;: &quot;radian per second&quot;,
+            &quot;DisplayName&quot;: &quot;radian per second&quot;,
+            &quot;QuantityId&quot;: &quot;Angular Velocity&quot;,
+            &quot;ConversionFactor&quot;: 1
         },
-        {
-            &quot;Id&quot;: &quot;Area&quot;,
-            &quot;Name&quot;: &quot;Area&quot;,
-            &quot;BaseUom&quot;: {
-                &quot;Id&quot;: &quot;square meter&quot;,
-                &quot;Abbreviation&quot;: &quot;m2&quot;,
-                &quot;Name&quot;: &quot;square meter&quot;,
-                &quot;DisplayName&quot;: &quot;square meter&quot;,
-                &quot;QuantityId&quot;: &quot;Area&quot;,
-                &quot;ConversionFactor&quot;: 1
-            },
-            &quot;Dimensions&quot;: [
-                2,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
-            ]
+        &quot;Dimensions&quot;: [
+            0,
+            0,
+            -1,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        &quot;Id&quot;: &quot;Area&quot;,
+        &quot;Name&quot;: &quot;Area&quot;,
+        &quot;BaseUom&quot;: {
+            &quot;Id&quot;: &quot;square meter&quot;,
+            &quot;Abbreviation&quot;: &quot;m2&quot;,
+            &quot;Name&quot;: &quot;square meter&quot;,
+            &quot;DisplayName&quot;: &quot;square meter&quot;,
+            &quot;QuantityId&quot;: &quot;Area&quot;,
+            &quot;ConversionFactor&quot;: 1
         },
-        ...
-    ]
+        &quot;Dimensions&quot;: [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    ...
+]
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;IEnumerable&lt;SdsUomQuantity&gt;&gt; GetQuantitiesAsync(int skip = 0, int count = 100);
+<pre><code class="lang-csharp">        Task&lt;IEnumerable&lt;SdsUomQuantity&gt;&gt; GetQuantitiesAsync(int skip = 0, int count = 100);
 </code></pre><hr>
 <h2 id="get-quantity-uom"><code>Get Quantity Uom</code></h2>
 <p>Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.</p>
@@ -1894,23 +1891,22 @@
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string quantityId</code><br>The quantity identifier</p>
 <p><code>string uomId</code><br>The unit of measure identifier</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>The requested SdsUom.</p>
-<p>Sample response for quantityId = &quot;Length&quot; and uomId =&quot;mile&quot;:</p>
-<pre><code>    HTTP/1.1 200
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The requested SdsUom</p>
+<p>Example response for quantityId = &quot;Length&quot; and uomId =&quot;mile&quot;:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
 
-    {
-            &quot;Id&quot;: &quot;mile&quot;,
-            &quot;Abbreviation&quot;: &quot;mi&quot;,
-            &quot;Name&quot;: &quot;mile&quot;,
-            &quot;DisplayName&quot;: &quot;mile&quot;,
-            &quot;QuantityId&quot;: &quot;Length&quot;,
-            &quot;ConversionFactor&quot;: 1609.344
-    }
+{
+    &quot;Id&quot;: &quot;mile&quot;,
+    &quot;Abbreviation&quot;: &quot;mi&quot;,
+    &quot;Name&quot;: &quot;mile&quot;,
+    &quot;DisplayName&quot;: &quot;mile&quot;,
+    &quot;QuantityId&quot;: &quot;Length&quot;,
+    &quot;ConversionFactor&quot;: 1609.344
+}
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;SdsUom&gt; GetQuantityUomAsync(string quantityId, string uomId);
+<pre><code class="lang-csharp">   Task&lt;SdsUom&gt; GetQuantityUomAsync(string quantityId, string uomId);
 </code></pre><hr>
 <h2 id="get-quantity-uoms"><code>Get Quantity Uoms</code></h2>
 <p>Returns the list of units of measure that belongs to the quantity with the specified quantityId.</p>
@@ -1919,36 +1915,112 @@
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string quantityId</code><br>The quantity identifier</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>A collection of SdsUom objects for the specified quantity.</p>
-<p>Sample response for quantityId = &quot;Electric Current&quot;:</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>A collection of SdsUom objects for the specified quantity</p>
+<p>Example response for quantityId = &quot;Electric Current&quot;:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
 
-    [
-        {
-            &quot;Id&quot;: &quot;milliampere&quot;,
-            &quot;Abbreviation&quot;: &quot;mA&quot;,
-            &quot;Name&quot;: &quot;milliampere&quot;,
-            &quot;DisplayName&quot;: &quot;milliampere&quot;,
-            &quot;QuantityId&quot;: &quot;Electric Current&quot;,
-            &quot;ConversionFactor&quot;: 0.001
-        },
-        {
-            &quot;Id&quot;: &quot;ampere&quot;,
-            &quot;Abbreviation&quot;: &quot;A&quot;,
-            &quot;Name&quot;: &quot;ampere&quot;,
-            &quot;DisplayName&quot;: &quot;ampere&quot;,
-            &quot;QuantityId&quot;: &quot;Electric Current&quot;,
-            &quot;ConversionFactor&quot;: 1
-        }
-    ]
+[
+    {
+        &quot;Id&quot;: &quot;milliampere&quot;,
+        &quot;Abbreviation&quot;: &quot;mA&quot;,
+        &quot;Name&quot;: &quot;milliampere&quot;,
+        &quot;DisplayName&quot;: &quot;milliampere&quot;,
+        &quot;QuantityId&quot;: &quot;Electric Current&quot;,
+        &quot;ConversionFactor&quot;: 0.001
+    },
+    {
+        &quot;Id&quot;: &quot;ampere&quot;,
+        &quot;Abbreviation&quot;: &quot;A&quot;,
+        &quot;Name&quot;: &quot;ampere&quot;,
+        &quot;DisplayName&quot;: &quot;ampere&quot;,
+        &quot;QuantityId&quot;: &quot;Electric Current&quot;,
+        &quot;ConversionFactor&quot;: 1
+    }
+]
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;IEnumerable&lt;SdsUom&gt;&gt; GetQuantityUomsAsync(string quantityId);
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;SdsUom&gt;&gt; GetQuantityUomsAsync(string quantityId);
 </code></pre><hr>
-<h2 id="sdsuom-api">SdsUom API</h2>
+<h2 id="get-quantities-access-control-list"><code>Get Quantities Access Control List</code></h2>
+<p>Get the default ACL for the Quantities collection. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The default ACL for Quantities</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetQuantitiesAccessControlListAsync();
+</code></pre><hr>
+<h2 id="update-quantities-access-control-list"><code>Update Quantities Access Control List</code></h2>
+<p>Update the default ACL for the Quantities collection. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><strong>Request body</strong><br>Serialized ACL</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateQuantitiesAccessControlListAsync(AccessControlList quantitiesAcl);
+</code></pre><hr>
+<h2 id="get-quantity-access-control-list"><code>Get Quantity Access Control List</code></h2>
+<p>Get the ACL of the specified quantity. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong>
+The ACL for the specified quantity</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetQuantityAccessControlListAsync(string quantityId);
+</code></pre><hr>
+<h2 id="update-quantity-access-control-list"><code>Update Quantity Access Control List</code></h2>
+<p>Update the ACL of the specified quantity. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><strong>Request body</strong><br>Serialized ACL</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateQuantityAccessControlListAsync(string quantityId, AccessControlList quantityAcl);
+</code></pre><hr>
+<h2 id="get-quantity-owner"><code>Get Quantity Owner</code></h2>
+<p>Get the Owner of the specified quantity. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong>
+The Owner for the specified quantity</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;Trustee&gt; GetQuantityOwnerAsync(string quantityId);
+</code></pre><hr>
+<h2 id="update-quantity-owner"><code>Update Quantity Owner</code></h2>
+<p>Update the Owner of the specified quantity. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><strong>Request body</strong><br>Serialized Owner</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateQuantityOwnerAsync(string quantityId, Trustee quantityOwner);
+</code></pre><hr>
+<h1 id="sdsuom-api">SdsUom API</h1>
 <p>The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact with SdsUoms. When working in .NET, convenient SDS Client Libraries are available. The <code>ISdsMetadataService</code> interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, defines the available functions. See <a href="#units-of-measure">Units of Measure</a> for general <a href="#sdsuom">SdsUom</a> information.</p>
 <hr>
 <h2 id="get-uom"><code>Get Uom</code></h2>
@@ -1958,24 +2030,22 @@
 </code></pre><p><code>string tenantId</code><br>The tenant identifier  </p>
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>string uomId</code><br>The unit of measure identifier</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>The requested SdsUom.</p>
-<p>Sample response body for uomId = &quot;ounce&quot;:</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The requested SdsUom</p>
+<p>Example response body for uomId = &quot;ounce&quot;:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
 
-    {
-        &quot;Id&quot;: &quot;ounce&quot;,
-        &quot;Abbreviation&quot;: &quot;oz&quot;,
-        &quot;Name&quot;: &quot;ounce&quot;,
-        &quot;DisplayName&quot;: &quot;ounce&quot;,
-        &quot;QuantityId&quot;: &quot;Mass&quot;,
-        &quot;ConversionFactor&quot;: 0.028349523
-    }
+{
+    &quot;Id&quot;: &quot;ounce&quot;,
+    &quot;Abbreviation&quot;: &quot;oz&quot;,
+    &quot;Name&quot;: &quot;ounce&quot;,
+    &quot;DisplayName&quot;: &quot;ounce&quot;,
+    &quot;QuantityId&quot;: &quot;Mass&quot;,
+    &quot;ConversionFactor&quot;: 0.028349523
+}
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;SdsUom&gt; GetUomAsync(string uomId);
+<pre><code class="lang-csharp">   Task&lt;SdsUom&gt; GetUomAsync(string uomId);
 </code></pre><hr>
 <h2 id="get-uoms"><code>Get Uoms</code></h2>
 <p>Returns a list of all available units of measure in the system.</p>
@@ -1985,43 +2055,96 @@
 <p><code>string namespaceId</code><br>The namespace identifier  </p>
 <p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsUomQuantity to retrieve. If not specified, a default value of 0 is used.</p>
 <p><code>int count</code><br>An optional parameter representing the maximum number of SdsUomQuantity to retrieve. If not specified, a default value of 100 is used.</p>
-<p><strong>Response</strong></p>
-<p>The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>A list of SdsUom objects.</p>
-<p>Sample response body:</p>
-<pre><code>    HTTP/1.1 200
-    Content-Type: application/json
-
-    [
-        {
-            &quot;Id&quot;: &quot;count&quot;,
-            &quot;Abbreviation&quot;: &quot;count&quot;,
-            &quot;Name&quot;: &quot;count&quot;,
-            &quot;DisplayName&quot;: &quot;count&quot;,
-            &quot;QuantityId&quot;: &quot;Quantity&quot;,
-            &quot;ConversionFactor&quot;: 1
-        },
-        {
-            &quot;Id&quot;: &quot;Ampere hour&quot;,
-            &quot;Abbreviation&quot;: &quot;Ah&quot;,
-            &quot;Name&quot;: &quot;Ampere hour&quot;,
-            &quot;DisplayName&quot;: &quot;Ampere hour&quot;,
-            &quot;QuantityId&quot;: &quot;Electric Charge&quot;,
-            &quot;ConversionFactor&quot;: 3600
-        },
-        {
-            &quot;Id&quot;: &quot;coulomb&quot;,
-            &quot;Abbreviation&quot;: &quot;C&quot;,
-            &quot;Name&quot;: &quot;coulomb&quot;,
-            &quot;DisplayName&quot;: &quot;coulomb&quot;,
-            &quot;QuantityId&quot;: &quot;Electric Charge&quot;,
-            &quot;ConversionFactor&quot;: 1
-        }
-        ...
-    ]
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>A list of SdsUom objects</p>
+<p>Example response body:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+[
+    {
+        &quot;Id&quot;: &quot;count&quot;,
+        &quot;Abbreviation&quot;: &quot;count&quot;,
+        &quot;Name&quot;: &quot;count&quot;,
+        &quot;DisplayName&quot;: &quot;count&quot;,
+        &quot;QuantityId&quot;: &quot;Quantity&quot;,
+        &quot;ConversionFactor&quot;: 1
+    },
+    {
+        &quot;Id&quot;: &quot;Ampere hour&quot;,
+        &quot;Abbreviation&quot;: &quot;Ah&quot;,
+        &quot;Name&quot;: &quot;Ampere hour&quot;,
+        &quot;DisplayName&quot;: &quot;Ampere hour&quot;,
+        &quot;QuantityId&quot;: &quot;Electric Charge&quot;,
+        &quot;ConversionFactor&quot;: 3600
+    },
+    {
+        &quot;Id&quot;: &quot;coulomb&quot;,
+        &quot;Abbreviation&quot;: &quot;C&quot;,
+        &quot;Name&quot;: &quot;coulomb&quot;,
+        &quot;DisplayName&quot;: &quot;coulomb&quot;,
+        &quot;QuantityId&quot;: &quot;Electric Charge&quot;,
+        &quot;ConversionFactor&quot;: 1
+    }
+    ...
+]
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>    Task&lt;IEnumerable&lt;SdsUom&gt;&gt; GetUomsAsync(int skip = 0, int count = 100);
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;SdsUom&gt;&gt; GetUomsAsync(int skip = 0, int count = 100);
+</code></pre><hr>
+<h2 id="get-uom-access-control-list"><code>Get Uom Access Control List</code></h2>
+<p>Get the ACL of the specified unit of measure. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><code>string uomId</code><br>The unit of measure identifier</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The ACL for the specified Uom</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetQuantityUomAccessControlListAsync(string quantityId, string uomId);
+</code></pre><hr>
+<h2 id="update-uom-access-control-list"><code>Update Uom Access Control List</code></h2>
+<p>Update the ACL of the specified unit of measure. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><code>string uomId</code><br>The unit of measure identifier</p>
+<p><strong>Request body</strong><br>Serialized ACL</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
+</code></pre><hr>
+<h2 id="get-uom-owner"><code>Get Uom Owner</code></h2>
+<p>Get the Owner of the specified unit of measure. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><code>string uomId</code><br>The unit of measure identifier</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response Body</strong><br>The Owner for the specified Uom </p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;Trustee&gt; GetQuantityUomOwnerAsync(string quantityId, string uomId);
+</code></pre><hr>
+<h2 id="update-uom-owner"><code>Update Uom Owner</code></h2>
+<p>Update the Owner of the specified unit of measure. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string quantityId</code><br>The quantity identifier  </p>
+<p><code>string uomId</code><br>The unit of measure identifier</p>
+<p><strong>Request body</strong><br>Serialized Owner</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateQuantityUomOwnerAsync(string quantityId, string uomId, Trustee uomOwner);
 </code></pre><hr>
 <h2 id="associating-a-unit-of-measure-with-a-sdstype">Associating a unit of measure with a SdsType</h2>
 <p>At <a class="xref" href="SDS_Types.html">SdsType</a> creation, a SdsUom can be associated with a <a class="xref" href="SDS_Types.html#sdstypeproperty">SdsTypeProperty</a>. </p>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Root Access Control </title>
+    <title>Root AccessControl </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Root Access Control ">
+    <meta name="title" content="Root AccessControl ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -76,20 +76,21 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="AccountRootAccessControl">
-<h1 id="root-access-control">Root Access Control</h1>
+<h1 id="root-accesscontrol">Root AccessControl</h1>
 
-<p>APIs to manage default access to entities governed by an <a class="xref" href="../Access_Control.html">AccessControl</a>.</p>
+<p>APIs to manage default access to entities governed by an <a class="xref" href="../Access_Control.html">AccessControlList</a>.</p>
 <hr>
-<h2 id="getrootnamespaceacl"><code>GetRootNamespaceAcl()</code></h2>
-<p>Retrieves the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<h2 id="get-root-namespace-accesscontrollist"><code>Get Root Namespace AccessControlList</code></h2>
+<p>Retrieves the <a class="xref" href="../Access_Control.html">AccessControlList</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
 <h3 id="http">Http</h3>
-<p><code>GET api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier of the account to access.</p>
 <h3 id="security">Security</h3>
-<p>A root <a class="xref" href="../Access_Control.html">AccessControl</a> can only be retrieved if the current principal has Read access.</p>
+<p>A root <a class="xref" href="../Access_Control.html">AccessControlList</a> can only be retrieved if the current principal has Read access.</p>
 <h3 id="returns">Returns</h3>
 <table>
 <thead>
@@ -103,35 +104,36 @@ string tenantId
 <tr>
 <td>200</td>
 <td>AccessControlList</td>
-<td>Returns the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+<td>Returns the root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code>.</td>
 </tr>
 <tr>
 <td>400</td>
 <td>Nothing is returned</td>
-<td>Could not retrieve the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code> due to missing or invalid input.</td>
+<td>Could not retrieve the root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code> due to missing or invalid input.</td>
 </tr>
 <tr>
 <td>403</td>
 <td>Nothing is returned</td>
-<td>Unauthorized to retrieve the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+<td>Unauthorized to retrieve the root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code>.</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h2 id="setrootnamespaceacl"><code>SetRootNamespaceAcl()</code></h2>
-<p>Modifies the <a class="xref" href="../Access_Control.html">AccessControl</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
+<h2 id="set-root-accesscontrollist"><code>Set Root AccessControlList</code></h2>
+<p>Modifies the <a class="xref" href="../Access_Control.html">AccessControlList</a> that is used to authorize access to a <code>Namespace</code> if none is specified during creation.</p>
 <h3 id="http-1">Http</h3>
-<p><code>PUT api/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
+<p><code>PUT api/v1-preview/Tenants/{tenantId}/AccessControl/Namespaces</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier of the account to modify.</p>
 <pre><code class="lang-csharp">[Required]
 [FromBody]
 AccessControlList newAccessControlList
-</code></pre><p>The new root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</p>
+</code></pre><p>The new root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code>.</p>
 <h3 id="security-1">Security</h3>
-<p>A root <a class="xref" href="../Access_Control.html">AccessControl</a> can only be modified if the current principal has ManageAccessControl access.</p>
+<p>A root <a class="xref" href="../Access_Control.html">AccessControlList</a> can only be modified if the current principal has ManageAccessControl access.</p>
 <h3 id="returns-1">Returns</h3>
 <table>
 <thead>
@@ -145,17 +147,17 @@ AccessControlList newAccessControlList
 <tr>
 <td>200</td>
 <td>AccessControlList</td>
-<td>Returns the modified root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+<td>Returns the modified root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code>.</td>
 </tr>
 <tr>
 <td>400</td>
 <td>Nothing is returned</td>
-<td>Could not modify the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code> due to missing or invalid input.</td>
+<td>Could not modify the root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code> due to missing or invalid input.</td>
 </tr>
 <tr>
 <td>403</td>
 <td>Nothing is returned</td>
-<td>Unauthorized to change the root <a class="xref" href="../Access_Control.html">AccessControl</a> for <code>Namespaces</code>.</td>
+<td>Unauthorized to change the root <a class="xref" href="../Access_Control.html">AccessControlList</a> for <code>Namespaces</code>.</td>
 </tr>
 </tbody>
 </table>

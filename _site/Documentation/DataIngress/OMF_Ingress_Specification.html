@@ -82,12 +82,10 @@
 not specify a particular back-end system. This topic is a companion to the OMF specification which describes how
 OMF is interpreted by OSIsoft Cloud Services back-end system. </p>
 <h2 id="headers">Headers</h2>
-<p>A description of each of the headers can be found in the <a href="http://omf-docs.osisoft.com">OMF spec</a>. When 
-sending messages to OSIsoft Cloud Services, the value of the <code>producertoken</code> header must be 
-set to a security token obtained from the OCS Portal. The security token is used to authenticate 
-the sender and to authorize the sender for use with a particular Tenant and Publisher.</p>
+<p>A description of each of the headers can be found in the <a href="http://omf-docs.osisoft.com">OMF spec</a>. Note that rather than using a <code>producertoken</code>, data ingress calls to OCS require a bearer token to be attached in the header, as documented in the <a class="xref" href="../SequentialDataStore/Quick_Start.html">OCS Quick Start</a> documentation. The bearer token is used to authenticate 
+the sender and to authorize the sender for use with a particular Tenant. The client Id associated with this token is used to route messages to a particular <a class="xref" href="OMF_Ingress_Topics.html">Topic</a> that it is mapped to.</p>
 <p>The <code>omfversion</code> header must match the version of the OMF spec used to construct the message.
-Version 1.0 of the spec is currently supported. </p>
+Version 1.1 of the spec is currently supported. </p>
 <h2 id="message-types">Message Types</h2>
 <p>OMF message types fall into three categories: Type, Container, and Data, which are described below. </p>
 <ul>
@@ -130,7 +128,7 @@ types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html">Types</a
 <tr>
 <th>Type</th>
 <th>Format</th>
-<th>QiTypeCode</th>
+<th>SdsTypeCode</th>
 </tr>
 </thead>
 <tbody>
@@ -211,7 +209,7 @@ types (see <a class="xref" href="../SequentialDataStore/SDS_Types.html">Types</a
 in the Container definition are interpreted as follows:</p>
 <ul>
 <li><code>id</code>: Corresponds to the SdsStream Id field. It must conform to the rules defined for
-  an SdsStream.Id specified here : <a class="xref" href="../SequentialDataStore/SDS_Streams.html#streams">Streams</a>.</li>
+  an SdsStream Id specified here: <a class="xref" href="../SequentialDataStore/SDS_Streams.html#streams">Streams</a>.</li>
 <li><code>typeid</code>: Corresponds to the SdsStream TypeId field.</li>
 <li><code>typeversion</code>: Versioning of SdsTypes is not supported.</li>
 <li><code>name</code>: Corresponds to the SdsStream Name field. This is a friendly name for the stream.</li>

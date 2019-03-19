@@ -81,8 +81,7 @@
 <p>A table is a convenient structure for analytics and display. The REST APIs for retrieving multiple events from 
 the data store supports returning results in a table. The form variable can be set to specify a table or a table 
 with headers.</p>
-<p>Table format can be applied to any read that returns multiple values, including Get Values, Get Range Values, 
-Get Window Values, and Get Intervals. </p>
+<p>Table format can be applied to any read that returns multiple values and summaries. </p>
 <p><strong>.NET</strong></p>
 <pre><code>  public enum State
   {
@@ -146,9 +145,9 @@ Get Window Values, and Get Intervals. </p>
   4/1/2017 7:07:00 AM : Warning  7
   4/1/2017 7:08:00 AM : Warning  8
   4/1/2017 7:09:00 AM : Warning  9 
-</code></pre><p>The following is a standard Get Window Values request:</p>
-<pre><code>  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
-    GetWindowValues?startIndex= 2017-04-01T07:00:00Z&amp;endIndex= 2017-04-01T07:10:00Z
+</code></pre><p>The following is a request to retrieve values using the window parameters:</p>
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
+  ?startIndex=2017-04-01T07:00:00Z&amp;endIndex=2017-04-01T07:10:00Z
 </code></pre><p>The following response would be returned from the above code:</p>
 <pre><code>  Content-Type: application/json
 
@@ -204,9 +203,9 @@ Get Window Values, and Get Intervals. </p>
      }
   ]
 </code></pre><p>To retrieve the results in table format, add the form variable and specify table.</p>
-<pre><code>   api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
-   ?startIndex=2017-04-01T07:00:00Z&amp;endIndex=2017-04-01T07:10:00Z
-   &amp;form=table
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
+  ?startIndex=2017-04-01T07:00:00Z&amp;endIndex=2017-04-01T07:10:00Z
+  &amp;form=table
 </code></pre><p>Response</p>
 <pre><code>  Content-Type: application/json
 
@@ -280,7 +279,7 @@ Get Window Values, and Get Intervals. </p>
      ]
   }
 </code></pre><p>To retrieve the results in table format with column headers, add the form variable and specify <code>tableh</code>.</p>
-<pre><code>  api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetWindowValues
+<pre><code>  GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
   ?startIndex=2017-04-01T07:00:00Z&amp;endIndex=2017-04-01T07:10:00Z
   &amp;form=tableh
 </code></pre><p>Response</p>

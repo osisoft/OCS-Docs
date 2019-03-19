@@ -113,12 +113,13 @@
     &quot;State&quot;: 0
 }
 </code></pre><hr>
-<h2 id="getall"><code>GetAll()</code></h2>
+<h2 id="get-all-tenant-feature-states"><code>Get All Tenant Feature States</code></h2>
 <p>Retrieves all <code>FeatureStates</code> for the specified <code>Tenant</code>.</p>
 <h3 id="http">Http</h3>
-<p><code>GET api/Tenants/{tenantId}/Features</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/Features</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier of the account to access.</p>
 <h3 id="security">Security</h3>
@@ -151,15 +152,17 @@ string tenantId
 </tbody>
 </table>
 <hr>
-<h2 id="get"><code>Get()</code></h2>
+<h2 id="get-tenant-feature-state"><code>Get Tenant Feature State</code></h2>
 <p>Retrieves a <code>FeatureState</code> with the specified ID from a <code>Tenant</code>.</p>
 <h3 id="http-1">Http</h3>
-<p><code>GET api/Tenants/{tenantId}/Features/{id}</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/Features/{id}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier of the account to access.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string id
 </code></pre><p>The identifier of the <code>FeatureState</code> to retrieve.</p>
 <h3 id="security-1">Security</h3>

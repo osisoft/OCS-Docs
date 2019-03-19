@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Tier </title>
+    <title>Namespace Tiers </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Tier ">
+    <meta name="title" content="Namespace Tiers ">
     <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -76,7 +76,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="AccountNamespaceTier">
-<h1 id="namespace-tier">Namespace Tier</h1>
+<h1 id="namespace-tiers">Namespace Tiers</h1>
 
 <p>An attribute that specifies <code>Namespace</code> performance.</p>
 <h2 id="properties">Properties</h2>
@@ -119,12 +119,13 @@
     &quot;StorageUnits&quot;: 0
 }
 </code></pre><hr>
-<h2 id="getnamespacetier"><code>GetNamespaceTier()</code></h2>
+<h2 id="get-namespace-tier"><code>Get Namespace Tier</code></h2>
 <p>Retrieves a Namespace tier associated with a specified id.</p>
 <h3 id="http">Http</h3>
-<p><code>GET api/NamespaceTiers/{namespaceTierId}</code></p>
+<p><code>GET api/v1-preview/NamespaceTiers/{namespaceTierId}</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string namespaceTierId
 </code></pre><p>The tier identifier for this request.</p>
 <h3 id="security">Security</h3>
@@ -152,10 +153,10 @@ string namespaceTierId
 </tbody>
 </table>
 <hr>
-<h2 id="getallnamespacetiers"><code>GetAllNamespaceTiers()</code></h2>
+<h2 id="get-all-namespace-tiers"><code>Get All Namespace Tiers</code></h2>
 <p>Retrieves a list of all available namespace tiers.</p>
 <h3 id="http-1">Http</h3>
-<p><code>GET api/NamespaceTiers</code></p>
+<p><code>GET api/v1-preview/NamespaceTiers</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <p>This API call does not have any parameters.</p>
 <h3 id="security-1">Security</h3>

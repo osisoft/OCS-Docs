@@ -2,7 +2,7 @@
 uid: AccountNamespaceTier
 ---
 
-# Namespace Tier
+# Namespace Tiers
 
 An attribute that specifies `Namespace` performance.
 
@@ -28,18 +28,20 @@ For HTTP requests and responses, the NamespaceTier object has the following prop
 ```
 ***
 
-## `GetNamespaceTier()`
+## `Get Namespace Tier`
 
 Retrieves a Namespace tier associated with a specified id.
 
 ### Http
 
-`GET api/NamespaceTiers/{namespaceTierId}`
+`GET api/v1-preview/NamespaceTiers/{namespaceTierId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string namespaceTierId
 ```
 
@@ -59,13 +61,15 @@ A `NamespaceTier` can be retrieved by an Account Member.
 
 
 ***
-## `GetAllNamespaceTiers()`
+
+## `Get All Namespace Tiers`
 
 Retrieves a list of all available namespace tiers.
 
 ### Http
 
-`GET api/NamespaceTiers`
+`GET api/v1-preview/NamespaceTiers`
+
 
 ### Parameters
 
@@ -83,3 +87,4 @@ This API call does not have any parameters.
 
 
 ***
+

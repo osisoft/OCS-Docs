@@ -78,17 +78,19 @@
             <article class="content wrap" id="_content" data-uid="AccountServiceBlog">
 <h1 id="service-blog">Service Blog</h1>
 
-<p>APIs for CRUD operations on the Service Blog.</p>
+<p>API&#39;s for CRUD operations on the Service Blog.</p>
 <hr>
-<h2 id="getbypage"><code>GetByPage()</code></h2>
+<h2 id="get-service-blog-entries"><code>Get Service Blog Entries</code></h2>
 <p>Returns blog entries ordered by time posted.</p>
 <h3 id="http">Http</h3>
-<p><code>GET api/ServiceBlog/Entries</code></p>
+<p><code>GET api/v1-preview/ServiceBlog/Entries</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string skip
 </code></pre><p>Number of blogs to skip for paging purposes.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string count
 </code></pre><p>Number of blogs to count after skip for paging purposes.</p>
 <h3 id="security">Security</h3>
@@ -105,7 +107,7 @@ string count
 <tbody>
 <tr>
 <td>200</td>
-<td>([QiServiceBlogEntry], int32)</td>
+<td>([SdsServiceBlogEntry], int32)</td>
 <td>Returns an response object including a list of blog entries and an int with the total number of entries.</td>
 </tr>
 </tbody>

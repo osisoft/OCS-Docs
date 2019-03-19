@@ -186,9 +186,9 @@ property for it.</p>
 </table>
 <p>The SdsStreamView field supports nested Properties.</p>
 <h2 id="sdsstreamviewmap">SdsStreamViewMap</h2>
-<p>When an SdsStreamView is added, Sds defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
+<p>When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
 The SdsStreamViewMap provides a detailed Property-by-Property definition of the mapping. </p>
-<p>The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to Sds, 
+<p>The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to SDS, 
 so required and optional have no meaning.</p>
 <table>
 <thead>
@@ -220,11 +220,11 @@ so required and optional have no meaning.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="properties--sdsstreamviewmapproperty">Properties / SdsStreamViewMapProperty</h2>
+<h3 id="properties--sdsstreamviewmapproperty">Properties / SdsStreamViewMapProperty</h3>
 <p>The SdsStreamViewMapProperty is similar an SdsStreamViewProperty but adds a Mode detailing one or more actions taken on 
 the Property.</p>
 <p>The following table shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
-retrieved from Sds, so required and optional have no meaning.</p>
+retrieved from SDS, so required and optional have no meaning.</p>
 <table>
 <thead>
 <tr>
@@ -306,14 +306,14 @@ retrieved from Sds, so required and optional have no meaning.</p>
 <h2 id="changing-stream-type">Changing Stream Type</h2>
 <p>Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
 But you can map a stream from its current type to a new type.</p>
-<p>To update a Stream Type, define an SdsStreamView and PUT the stream view to the following:</p>
-<pre><code>   api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
-</code></pre><p>For details, see <a href="#sdsstreamview-api">SdsStreamView API</a>. </p>
+<p>To update a Stream&#39;s Type, define an SdsStreamView and PUT the stream view to the following:</p>
+<pre><code>   PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
+</code></pre><p>For details, see <a href="xref:sdsStreams-update-stream-type">Update Stream Type</a>. </p>
 <h2 id="working-with-stream-views-when-using-net">Working with Stream Views when using .NET</h2>
 <p><strong>Using .Net</strong></p>
 <p>When working in .NET, use the SDS Client libraries’ ISdsMetadataService.</p>
 <p>Given the following:</p>
-<pre><code>public enum State
+<pre><code class="lang-csharp">public enum State
 {
     Ok,
     Warning,
@@ -371,7 +371,7 @@ foreach (Simple value in simpleValues)
 //  4 / 1 / 2017 7:09:00 AM: Warning, 9
 </code></pre><p>To map the Measurement property to a property in the same location of the same type, allow SDS to 
 automatically determine mapping.</p>
-<pre><code>public class Simple1
+<pre><code class="lang-csharp">public class Simple1
 {
     [SdsMember(IsKey = true, Order = 0)]
     public DateTime Time { get; set; }
@@ -424,7 +424,7 @@ foreach (Simple1 value in simple1Values)
 to Value involved a rename.</p>
 <p>SDS can also determine mapping of properties of the same name but different type. Note that the 
 location of the Measurement property is also different yet it is still mapped.</p>
-<pre><code>public class Simple2
+<pre><code class="lang-csharp">public class Simple2
 {
     [SdsMember(IsKey = true, Order = 0)]
     public DateTime Time { get; set; }
@@ -437,7 +437,7 @@ simple2Type.Id = &quot;Simple2&quot;;
 simple2Type.Name = &quot;Simple2&quot;;
 simple2Type = await config.GetOrCreateTypeAsync(simple2Type);
 
-view = new SdsStreamView() 
+SdsStreamView view = new SdsStreamView() 
 {
     Id = &quot;StreamView1&quot;,
     Name = &quot;StreamView1&quot;,
@@ -446,7 +446,7 @@ view = new SdsStreamView()
 };
 view = await config.GetOrCreateStreamViewAsync(view);
 
-map = await config.GetStreamViewMapAsync(view.Id);
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
 Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
 for (int i = 0; i &lt; map.Properties.Count; i++)
     Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
@@ -476,7 +476,7 @@ foreach (Simple2 value in simple2Values)
 </code></pre><p>The SdsStreamViewMap shows that the source, floating point Measurement is converted to the target, integer Measurement.</p>
 <p>When neither the field name nor field type and location match, SDS does not determine mapping. 
 The source is eliminated and target is added and assigned the default value.</p>
-<pre><code>public class Simple3
+<pre><code class="lang-csharp">public class Simple3
 {
     [SdsMember(IsKey = true, Order = 0)]
     public DateTime Time { get; set; }
@@ -489,7 +489,7 @@ simple3Type.Id = &quot;Simple3&quot;;
 simple3Type.Name = &quot;Simple3&quot;;
 simple3Type = await config.GetOrCreateTypeAsync(simple3Type);
 
-view = new SdsStreamView()
+SdsStreamView view = new SdsStreamView()
 {
     Id = &quot;StreamView2&quot;,
     Name = &quot;StreamView2&quot;,
@@ -498,7 +498,7 @@ view = new SdsStreamView()
 };
 view = await config.GetOrCreateStreamViewAsync(view);
 
-map = await config.GetStreamViewMapAsync(view.Id);
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
 Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
 for (int i = 0; i &lt; map.Properties.Count; i++)
     Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
@@ -527,7 +527,7 @@ foreach (Simple3 value in simple3Values)
 // 4 / 1 / 2017 7:08:00 AM: Warning, 0
 // 4 / 1 / 2017 7:09:00 AM: Warning, 0
 </code></pre><p>To map when SDS cannot determine mapping, use SdsStreamView Properties.</p>
-<pre><code>view = new SdsStreamView()
+<pre><code class="lang-csharp">SdsStreamView view = new SdsStreamView()
 {
     Id = &quot;SteamView3&quot;,
     Name = &quot;StreamView3&quot;,
@@ -554,13 +554,13 @@ foreach (Simple3 value in simple3Values)
 };
 view = await config.GetOrCreateStreamViewAsync(view);
 
-map = await config.GetStreamViewMapAsync(view.Id);
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
 Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
 for (int i = 0; i &lt; map.Properties.Count; i++)
     Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
 Console.WriteLine();
 
-simple3Values = await client.GetWindowValuesAsync&lt;Simple3&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+IEnumerable&lt;Simple3&gt; simple3Values = await client.GetWindowValuesAsync&lt;Simple3&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
     start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;), view.Id);
 foreach (Simple3 value in simple3Values)
     Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Value}&quot;);
@@ -586,14 +586,14 @@ foreach (Simple3 value in simple3Values)
 the sample code. Both Python and JavaScript samples have SdsStreamView definitions.</p>
 <p>The JSON for a simple mapping between a source type with identifier Sample and a target 
 type with identifier Sample1 would appear as follows.</p>
-<pre><code>{  
+<pre><code class="lang-json">{  
   &quot;Id&quot;:&quot;StreamView&quot;,
   &quot;Name&quot;:&quot;StreamView&quot;,
   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
   &quot;TargetTypeId&quot;:&quot;Simple1&quot;
 }
 </code></pre><p>The SdsStreamViewMap would appear as follows.</p>
-<pre><code>{  
+<pre><code class="lang-json">{  
   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
   &quot;TargetTypeId&quot;:&quot;Simple1&quot;,
   &quot;Properties&quot;:[  
@@ -612,7 +612,7 @@ type with identifier Sample1 would appear as follows.</p>
       }
   ]
 }
-</code></pre><h2 id="sdsstreamview-api">SdsStreamView API</h2>
+</code></pre><h1 id="sdsstreamview-api">SdsStreamView API</h1>
 <p>The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact 
 with SdsStreamViews. When working in .NET convenient SDS Client libraries are available. The ISdsMetadataService 
 interface, accessed using the <code>SdsService.GetMetadataService()</code> helper, defines the available functions. 
@@ -623,59 +623,113 @@ See <a href="#stream-views">Stream Views</a> for general SdsStreamView informati
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code><br>  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>string streamViewId</code><br>  The stream view identifier  </p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>  The requested SdsStreamView.</p>
-<p>  Sample response body:</p>
-<pre><code>  HTTP/1.1 200
-  Content-Type: application/json
-
-  {  
-     &quot;Id&quot;:&quot;StreamView&quot;,
-     &quot;Name&quot;:&quot;StreamView&quot;,
-     &quot;SourceTypeId&quot;:&quot;Simple&quot;,
-     &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
-     &quot;Properties&quot;:[  
-        {  
-           &quot;SourceId&quot;:&quot;Time&quot;,
-           &quot;TargetId&quot;:&quot;Time&quot;
-        },
-        {  
-           &quot;SourceId&quot;:&quot;Status&quot;,
-           &quot;TargetId&quot;:&quot;Status&quot;
-        },
-        {  
-           &quot;SourceId&quot;:&quot;Measurement&quot;,
-           &quot;TargetId&quot;:&quot;Value&quot;
-        }
-     ]
-  }
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The requested SdsStreamView.</p>
+<p>Example response body:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+{  
+   &quot;Id&quot;:&quot;StreamView&quot;,
+   &quot;Name&quot;:&quot;StreamView&quot;,
+   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+   &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
+   &quot;Properties&quot;:[  
+      {  
+         &quot;SourceId&quot;:&quot;Time&quot;,
+         &quot;TargetId&quot;:&quot;Time&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;Status&quot;,
+         &quot;TargetId&quot;:&quot;Status&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;Measurement&quot;,
+         &quot;TargetId&quot;:&quot;Value&quot;
+      }
+   ]
+}
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;SdsStreamView&gt; GetStreamViewAsync(string streamViewId);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;SdsStreamView&gt; GetStreamViewAsync(string streamViewId);
+</code></pre><hr>
 <h2 id="get-stream-view-map"><code>Get Stream View Map</code></h2>
 <p>Returns the stream view map corresponding to the specified streamViewId within a given namespace.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code><br>  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>string streamViewId</code><br>  The stream view identifier  </p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>  The requested SdsStreamView.</p>
-<p>  Sample response body:</p>
-<pre><code>  HTTP/1.1 200
-  Content-Type: application/json
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Response</strong><br> The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The requested SdsStreamView.</p>
+<p>Example response body:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
 
+{  
+   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+   &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
+   &quot;Properties&quot;:[  
+      {  
+         &quot;SourceId&quot;:&quot;Time&quot;,
+         &quot;TargetId&quot;:&quot;Time&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;Measurement&quot;,
+         &quot;TargetId&quot;:&quot;Value&quot;,
+         &quot;Mode&quot;:20
+      },
+      {  
+         &quot;SourceId&quot;:&quot;State&quot;,
+         &quot;Mode&quot;:2
+      },
+      {  
+         &quot;TargetId&quot;:&quot;State&quot;,
+         &quot;Mode&quot;:1 
+      }
+   ]
+}
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;SdsStreamViewMap&gt; GetStreamViewMapAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="get-stream-views"><code>Get Stream Views</code></h2>
+<p>Returns a list of stream views within a given namespace.</p>
+<p>If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all stream views 
+in the Namespace. See <a class="xref" href="Searching.html">Searching</a> and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> for information about specifying those respective parameters.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier</p>
+<p><code>string namespaceId</code><br>The namespace identifier</p>
+<p><code>string query</code><br>An optional parameter representing a string search. 
+See <a class="xref" href="Searching.html">Searching</a>
+for information about specifying the search parameter.</p>
+<p><code>string filter</code><br>An optional filter string to match which SdsStreamViews will be returned.  See the 
+<a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+topic for information about specifying the filter parameter.</p>
+<p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
+If not specified, a default value of 0 is used.</p>
+<p><code>int count</code><br>An optional parameter representing the maximum number of SdsStreamViews to retrieve. 
+If not specified, a default value of 100 is used.</p>
+<p><code>string orderby</code><br>An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, <code>orderby=name</code> would sort the returned results by the      <code>name</code> values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values <code>asc</code> or <code>desc</code>, respectively. For example, <code>orderby=name desc</code> would sort the returned   results by the <code>name</code> values, descending. If no value is specified, there is no sorting of results.</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>A collection of zero or more SdsStreamViews.</p>
+<p>Example response body:</p>
+<pre><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+[  
   {  
+     &quot;Id&quot;:&quot;StreamView&quot;,
+     &quot;Name&quot;:&quot;StreamView&quot;,
+     &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+     &quot;TargetTypeId&quot;:&quot;Simple3&quot;
+  },
+  {  
+     &quot;Id&quot;:&quot;StreamViewWithProperties&quot;,
+     &quot;Name&quot;:&quot;StreamViewWithProperties&quot;,
      &quot;SourceTypeId&quot;:&quot;Simple&quot;,
      &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
      &quot;Properties&quot;:[  
@@ -683,99 +737,139 @@ See <a href="#stream-views">Stream Views</a> for general SdsStreamView informati
            &quot;SourceId&quot;:&quot;Time&quot;,
            &quot;TargetId&quot;:&quot;Time&quot;
         },
-        {  
+        {
+           &quot;SourceId&quot;:&quot;Status&quot;,
+           &quot;TargetId&quot;:&quot;Status&quot;
+        },
+        {
            &quot;SourceId&quot;:&quot;Measurement&quot;,
-           &quot;TargetId&quot;:&quot;Value&quot;,
-           &quot;Mode&quot;:20
-        },
-        {  
-           &quot;SourceId&quot;:&quot;State&quot;,
-           &quot;Mode&quot;:2
-        },
-        {  
-           &quot;TargetId&quot;:&quot;State&quot;,
-           &quot;Mode&quot;:1 
-        }
+           &quot;TargetId&quot;:&quot;Value&quot;
+        }                
      ]
   }
+]
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;SdsStreamViewMap&gt; GetStreamViewMapAsync(string streamViewId);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
-<h2 id="get-stream-views"><code>Get Stream Views</code></h2>
-<p>Returns a list of stream views within a given namespace.</p>
-<p><strong>Request</strong></p>
-<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?skip={skip}&amp;count={count}
-</code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code><br>  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>int skip</code><br>  An optional value representing the zero-based offset of the first SdsStreamView to retrieve. 
-  If not specified, a default value of 0 is used.  </p>
-<p><code>int count</code><br>  An optional value representing the maximum number of SdsStreamViews to retrieve. If not specified, 
-  a default value of 100 is used.  </p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>  A collection of zero or more SdsStreamViews.</p>
-<p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;IEnumerable&lt;SdsStreamView&gt;&gt; GetStreamViewsAsync(int skip = 0, int count = 100);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator and user accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;IEnumerable&lt;SdsStreamView&gt;&gt; GetStreamViewsAsync(int skip = 0, int count = 100);
+</code></pre><hr>
 <h2 id="get-or-create-stream-view"><code>Get or Create Stream View</code></h2>
 <p>If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
-If the stream views are identical, the stream view is returned. If the stream views are different, the Found (302) error is returned.</p>
+If the stream views are identical, a Found (302) status is returned and the stream view. If the stream views are different, the Conflict (409) error is returned.</p>
 <p>If no matching identifier is found, the specified stream view is created.  </p>
 <p><strong>Request</strong></p>
 <pre><code>    POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code><br>  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>string streamViewId</code><br>  The stream view identifier. The identifier must match the <code>SdsStreamView.Id</code> field.   </p>
-<p>The request content is the serialized SdsStreamView. If you are not using the SDS client libraries, using JSON is recommended.</p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p> The newly created or matching SdsStreamView.</p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier. The identifier must match the <code>SdsStreamView.Id</code> field.   </p>
+<p><strong>Request body</strong><br>The request content is the serialized SdsStreamView. If you are not using the SDS client libraries, using JSON is recommended.</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The newly created or matching SdsStreamView.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task&lt;SdsStreamView&gt; GetOrCreateStreamViewAsync(SdsStreamView sdsStreamView);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task&lt;SdsStreamView&gt; GetOrCreateStreamViewAsync(SdsStreamView sdsStreamView);
+</code></pre><hr>
 <h2 id="create-or-update-stream-view"><code>Create or Update Stream View</code></h2>
 <p>Creates or updates the definition of a stream view. </p>
 <p><strong>Request</strong></p>
 <pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 </code></pre><p><strong>Parameters</strong></p>
 <p><code>string tenantId</code>
-  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>string streamViewId</code><br>  The stream view identifier  </p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code and a response body.</p>
-<p><strong>Response body</strong></p>
-<p>  The content is set to true on success.</p>
+The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Request body</strong><br>The request content is the serialized SdsStreamView.</p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The newly created or updated SdsStreamView.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator accounts</p>
-<hr>
+<pre><code class="lang-csharp">   Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
+</code></pre><hr>
 <h2 id="delete-stream-view"><code>Delete Stream View</code></h2>
 <p>Deletes a stream view from the specified tenant and namespace.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
 </code></pre><p><strong>Parameters</strong></p>
-<p><code>string tenantId</code><br>  The tenant identifier  </p>
-<p><code>string namespaceId</code><br>  The namespace identifier  </p>
-<p><code>string streamViewId</code><br>  The stream view identifier  </p>
-<p><strong>Response</strong></p>
-<p>  The response includes a status code.</p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
 <p><strong>.NET Library</strong></p>
-<pre><code>  Task DeleteStreamViewAsync(string streamViewId);
-</code></pre><p><strong>Security</strong></p>
-<p>  Allowed for administrator accounts</p>
-</article>
+<pre><code class="lang-csharp">   Task DeleteStreamViewAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="get-stream-views-access-control-list"><code>Get Stream Views Access Control List</code></h2>
+<p>Get the default ACL for the Stream Views collection. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response body</strong><br>The default ACL for Stream Views</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetStreamViewsAccessControlListAsync();
+</code></pre><hr>
+<h2 id="update-stream-views-access-control-list"><code>Update Stream Views Access Control List</code></h2>
+<p>Update the default ACL for the Stream Views collection. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><strong>Request body</strong><br>Serialized ACL</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
+</code></pre><hr>
+<h2 id="get-stream-view-access-control-list"><code>Get Stream View Access Control List</code></h2>
+<p>Get the ACL of the specified stream view. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response Body</strong><br>The ACL for the specified stream view</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetStreamViewAccessControlListAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="update-stream-view-access-control-list"><code>Update Stream View Access Control List</code></h2>
+<p>Update the ACL of the specified stream view. For more information on ACLs, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Request body</strong><br>Serialized ACL</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
+</code></pre><hr>
+<h2 id="get-stream-view-owner"><code>Get Stream View Owner</code></h2>
+<p>Get the Owner of the specified stream view. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p><strong>Response Body</strong><br>The Owner for the specified stream view</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task&lt;Trustee&gt; GetStreamViewOwnerAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="update-stream-view-owner"><code>Update Stream View Owner</code></h2>
+<p>Update the Owner of the specified stream view. For more information on Owners, see <a href="xref:accesscontrol">Access Control</a>.</p>
+<p><strong>Request</strong></p>
+<pre><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code><br>The tenant identifier  </p>
+<p><code>string namespaceId</code><br>The namespace identifier  </p>
+<p><code>string streamViewId</code><br>The stream view identifier  </p>
+<p><strong>Request body</strong><br>Serialized Owner</p>
+<p><strong>Response</strong><br>The response includes a status code.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code class="lang-csharp">   Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

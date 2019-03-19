@@ -4,13 +4,10 @@ uid: AccountClientRole
 
 # Client Roles
 
-Client `Roles` authorize API requests made by clients to various OCS features. Clients can be assigned more than one `Role`, but all clients have the Account Member role.
+Client `Roles` authorize API requests made by clients to various OCS features. Clients can be assigned more than one `Role`, but all clients have the Account Member role. The following are currently available Client `Roles`:
+- Account Administrator: Can add, edit, and remove data using APIs.
+- Account Member: Can read data using most APIs.
 
-The following are currently available Client `Roles`:
-- Account Administrator: Can add, edit, and remove data using APIs except for displays.
-- Account Contributor: Can add, edit, and remove data using APIs for displays.
-- Account Member: Can read data using most APIs, except displays.
-- Account Viewer: Can read data using APIs for displays.
 
 ## Properties
 
@@ -30,30 +27,34 @@ For HTTP requests and responses, the ClientRole object has the following propert
 ```
 ***
 
-## `AddRoleToClient()`
+## `Add Role to Client`
 
 Assigns a `Role` to a specified client.
 
 ### Http
 
-`PUT api/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}`
+`PUT api/v1-preview/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account in which the client belongs to.
 ```csharp
 [Required]
+[FromRoute]
 string clientId
 ```
 
 The identifier of the client who will be given the role.
 ```csharp
 [Required]
+[FromRoute]
 string roleId
 ```
 
@@ -75,24 +76,28 @@ A `Role` can only be assigned to a client by an Account Administrator.
 
 
 ***
-## `ReplaceClientRoles()`
+
+## `Replace Client Roles`
 
 Replaces the `Roles` of a client with a new list of roles.
 
 ### Http
 
-`PUT api/Tenants/{tenantId}/Clients/{clientId}/Roles`
+`PUT api/v1-preview/Tenants/{tenantId}/Clients/{clientId}/Roles`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account the client belongs to.
 ```csharp
 [Required]
+[FromRoute]
 string clientId
 ```
 
@@ -121,30 +126,35 @@ List of `Role` objects to set as the Roles for the specified client.
 
 
 ***
-## `RemoveRoleFromClient()`
+
+## `Remove Role from Client`
 
 Removes a `Role` from a client.
 
 ### Http
 
-`DELETE api/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/Clients/{clientId}/Roles/{roleId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account in which the client belongs to.
 ```csharp
 [Required]
+[FromRoute]
 string clientId
 ```
 
 The identifier of the client whose role will be removed.
 ```csharp
 [Required]
+[FromRoute]
 string roleId
 ```
 
@@ -166,36 +176,42 @@ A `Role` can only be removed from a client by an Account Administrator.
 
 
 ***
-## `Find()`
+
+## `Find Client Roles`
 
 Retrieves all `Roles` from a client.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Clients/{clientId}/Roles`
+`GET api/v1-preview/Tenants/{tenantId}/Clients/{clientId}/Roles`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier for the account in which the client belongs to.
 ```csharp
 [Required]
+[FromRoute]
 string clientId
 ```
 
 The identifier of the client whose `Roles` will be retrieved.
 ```csharp
 [Required]
+[FromRoute]
 string skip
 ```
 
 Number of `Roles` to ignore.
 ```csharp
 [Required]
+[FromRoute]
 string count
 ```
 
@@ -216,3 +232,4 @@ Number of `Roles` to return.
 
 
 ***
+

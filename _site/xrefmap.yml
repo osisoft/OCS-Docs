@@ -8,22 +8,22 @@ references:
   name: Client Roles
   href: Documentation/Management/Account_ClientRole.html
 - uid: AccountNamespace
-  name: Namespace
+  name: Namespaces
   href: Documentation/Management/Account_Namespace.html
 - uid: AccountNamespaceTier
-  name: Namespace Tier
+  name: Namespace Tiers
   href: Documentation/Management/Account_NamespaceTier.html
 - uid: AccountRole
   name: Roles
   href: Documentation/Management/Account_Role.html
 - uid: AccountRootAccessControl
-  name: Root Access Control
+  name: Root AccessControl
   href: Documentation/Management/Account_RootAccessControl.html
 - uid: AccountServiceBlog
   name: Service Blog
   href: Documentation/Management/Account_ServiceBlog.html
 - uid: AccountTenant
-  name: Tenant
+  name: Tenants
   href: Documentation/Management/Account_Tenant.html
 - uid: AccountTenantFeatureState
   name: Tenant Feature States
@@ -31,21 +31,51 @@ references:
 - uid: AccountUserRole
   name: User Roles
   href: Documentation/Management/Account_UserRole.html
-- uid: Consent
-  name: Consent to OSIsoft Applications
-  href: Documentation/Management/Consent.html
 - uid: dataIngress
   name: Data Ingress and OSIsoft Message Format
   href: Documentation/DataIngress/Data_Ingress.html
+- uid: DataViewsApi
+  name: DataViews
+  href: Documentation/DataViews/DataViews_API.html
+- uid: DataViewsOverview
+  name: Data Views (Preview)
+  href: Documentation/DataViews/DataViews_Overview.html
+- uid: identityClient
+  name: Client
+  href: Documentation/Identity/Identity_Client.html
+- uid: identityClientCredentialClient
+  name: ClientCredentialClient
+  href: Documentation/Identity/Identity_ClientCredentialClient.html
+- uid: identityConsent
+  name: Consent to OSIsoft Applications
+  href: Documentation/Identity/Consent.html
+- uid: identityHybridClient
+  name: HybridClient
+  href: Documentation/Identity/Identity_HybridClient.html
+- uid: identityIdentityProvider
+  name: IdentityProvider
+  href: Documentation/Identity/Identity_IdentityProvider.html
+- uid: identityImplicitClient
+  name: ImplicitClient
+  href: Documentation/Identity/Identity_ImplicitClient.html
+- uid: identityInvitation
+  name: Invitation
+  href: Documentation/Identity/Identity_Invitation.html
+- uid: identityOverview
+  name: OSIsoft Identity Service
+  href: Documentation/Identity/Identity_Overview.html
+- uid: identitySecret
+  name: Secret
+  href: Documentation/Identity/Identity_Secret.html
+- uid: identityUser
+  name: User
+  href: Documentation/Identity/Identity_User.html
 - uid: index
   name: OCS API
   href: index.html
 - uid: ManagementOverview
   name: Account Management
   href: Documentation/Management/Management_Overview.html
-- uid: omfIngressPublishers
-  name: Publishers
-  href: Documentation/DataIngress/OMF_Ingress_Publishers.html
 - uid: omfIngressSpecification
   name: Using OMF with Cloud Services
   href: Documentation/DataIngress/OMF_Ingress_Specification.html

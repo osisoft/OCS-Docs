@@ -4,28 +4,31 @@ uid: AccountServiceBlog
 
 # Service Blog
 
-APIs for CRUD operations on the Service Blog.
+API's for CRUD operations on the Service Blog.
 
 ***
 
-## `GetByPage()`
+## `Get Service Blog Entries`
 
 Returns blog entries ordered by time posted.
 
 ### Http
 
-`GET api/ServiceBlog/Entries`
+`GET api/v1-preview/ServiceBlog/Entries`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string skip
 ```
 
 Number of blogs to skip for paging purposes.
 ```csharp
 [Required]
+[FromRoute]
 string count
 ```
 
@@ -39,7 +42,8 @@ Any identity, including anonymous, can retrieve service blog entries.
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
-| 200 | ([QiServiceBlogEntry], int32) | Returns an response object including a list of blog entries and an int with the total number of entries. | 
+| 200 | ([SdsServiceBlogEntry], int32) | Returns an response object including a list of blog entries and an int with the total number of entries. | 
 
 
 ***
+

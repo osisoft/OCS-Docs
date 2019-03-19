@@ -26,18 +26,20 @@ For HTTP requests and responses, the TenantFeatureState object has the following
 ```
 ***
 
-## `GetAll()`
+## `Get All Tenant Feature States`
 
 Retrieves all `FeatureStates` for the specified `Tenant`.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Features`
+`GET api/v1-preview/Tenants/{tenantId}/Features`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
@@ -58,24 +60,28 @@ Authorized for Account Members of the specified account.
 
 
 ***
-## `Get()`
+
+## `Get Tenant Feature State`
 
 Retrieves a `FeatureState` with the specified ID from a `Tenant`.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Features/{id}`
+`GET api/v1-preview/Tenants/{tenantId}/Features/{id}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string id
 ```
 
@@ -96,3 +102,4 @@ Authorized for Account Members of the specified account.
 
 
 ***
+

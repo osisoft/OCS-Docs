@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Client </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Client ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identityClient">
+<h1 id="client" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="5" sourceendlinenumber="5">Client</h1>
+
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting Clients</p>
+<h2 id="properties" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the Client object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="13" sourceendlinenumber="56">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>Specifies if client is enabled (defaults to true)</td>
+</tr>
+<tr>
+<td>ClientId</td>
+<td>string</td>
+<td>Unique ID of the client</td>
+</tr>
+<tr>
+<td>ClientSecrets</td>
+<td>Secret[]</td>
+<td>Client secrets - only relevant for flows that require a secret</td>
+</tr>
+<tr>
+<td>RequireClientSecret</td>
+<td>bool</td>
+<td>If set to false, no client secret is needed to request tokens at the token endpoint (defaults to true)</td>
+</tr>
+<tr>
+<td>ClientName</td>
+<td>string</td>
+<td>Client display name (used for logging and consent screen)</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>Client description</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>URI to further information about client (used on consent screen)</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>URI to client logo (used on consent screen)</td>
+</tr>
+<tr>
+<td>RequireConsent</td>
+<td>bool</td>
+<td>Specifies whether a consent screen is required (defaults to true)</td>
+</tr>
+<tr>
+<td>AllowRememberConsent</td>
+<td>bool</td>
+<td>Specifies whether user can choose to store consent decisions (defaults to true)</td>
+</tr>
+<tr>
+<td>AllowedGrantTypes</td>
+<td>string[]</td>
+<td>Specifies the allowed grant types (legal combinations of AuthorizationCode, Implicit, Hybrid, ResourceOwner, ClientCredentials).</td>
+</tr>
+<tr>
+<td>AllowAccessTokensViaBrowser</td>
+<td>bool</td>
+<td>Controls whether access tokens are transmitted via the browser for this client (defaults to false). This can prevent accidental leakage of access tokens when multiple response types are allowed.</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>Specifies allowed URIs to return tokens or authorization codes to</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>Specifies allowed URIs to redirect to after logout</td>
+</tr>
+<tr>
+<td>FrontChannelLogoutUri</td>
+<td>string</td>
+<td>Specifies logout URI at client for HTTP front-channel based logout.</td>
+</tr>
+<tr>
+<td>FrontChannelLogoutSessionRequired</td>
+<td>bool</td>
+<td>Specifies is the user&#39;s session id should be sent to the FrontChannelLogoutUri. Defaults to true.</td>
+</tr>
+<tr>
+<td>BackChannelLogoutUri</td>
+<td>string</td>
+<td>Specifies logout URI at client for HTTP back-channel based logout.</td>
+</tr>
+<tr>
+<td>BackChannelLogoutSessionRequired</td>
+<td>bool</td>
+<td>Specifies is the user&#39;s session id should be sent to the BackChannelLogoutUri. Defaults to true.</td>
+</tr>
+<tr>
+<td>AllowOfflineAccess</td>
+<td>bool</td>
+<td>Gets or sets a value indicating whether [allow offline access]. Defaults to false.</td>
+</tr>
+<tr>
+<td>AllowedScopes</td>
+<td>string[]</td>
+<td>Specifies the api scopes that the client is allowed to request. If empty, the client can&#39;t access any scope</td>
+</tr>
+<tr>
+<td>AlwaysIncludeUserClaimsInIdToken</td>
+<td>bool</td>
+<td>When requesting both an id token and access token, should the user claims always be added to the id token instead of requiring the client to use the user info endpoint. Defaults to false.</td>
+</tr>
+<tr>
+<td>IdentityTokenLifetime</td>
+<td>int32</td>
+<td>Lifetime of identity token in seconds (defaults to 300 seconds / 5 minutes)</td>
+</tr>
+<tr>
+<td>AccessTokenLifetime</td>
+<td>int32</td>
+<td>Lifetime of access token in seconds (defaults to 3600 seconds / 1 hour)</td>
+</tr>
+<tr>
+<td>AuthorizationCodeLifetime</td>
+<td>int32</td>
+<td>Lifetime of authorization code in seconds (defaults to 300 seconds / 5 minutes)</td>
+</tr>
+<tr>
+<td>AbsoluteRefreshTokenLifetime</td>
+<td>int32</td>
+<td>Maximum lifetime of a refresh token in seconds. Defaults to 2592000 seconds / 30 days</td>
+</tr>
+<tr>
+<td>SlidingRefreshTokenLifetime</td>
+<td>int32</td>
+<td>Sliding lifetime of a refresh token in seconds. Defaults to 1296000 seconds / 15 days</td>
+</tr>
+<tr>
+<td>ConsentLifetime</td>
+<td>optional: int32</td>
+<td>Lifetime of a user consent in seconds. Defaults to null (no expiration)</td>
+</tr>
+<tr>
+<td>RefreshTokenUsage</td>
+<td>TokenUsage</td>
+<td>ReUse: the refresh token handle will stay the same when refreshing tokens OneTime: the refresh token handle will be updated when refreshing tokens</td>
+</tr>
+<tr>
+<td>UpdateAccessTokenClaimsOnRefresh</td>
+<td>bool</td>
+<td>Gets or sets a value indicating whether the access token (and its claims) should be updated on a refresh token request. Defaults to false.</td>
+</tr>
+<tr>
+<td>RefreshTokenExpiration</td>
+<td>TokenExpiration</td>
+<td>Absolute: the refresh token will expire on a fixed point in time (specified by the AbsoluteRefreshTokenLifetime) Sliding: when refreshing the token, the lifetime of the refresh token will be renewed (by the amount specified in SlidingRefreshTokenLifetime). The lifetime will not exceed AbsoluteRefreshTokenLifetime.</td>
+</tr>
+<tr>
+<td>AccessTokenType</td>
+<td>AccessTokenType</td>
+<td>Specifies whether the access token is a reference token or a self contained JWT token (defaults to Jwt).</td>
+</tr>
+<tr>
+<td>IdentityProviderRestrictions</td>
+<td>string[]</td>
+<td>Specifies which external IdPs can be used with this client (if list is empty all IdPs are allowed). Defaults to empty.</td>
+</tr>
+<tr>
+<td>IncludeJwtId</td>
+<td>bool</td>
+<td>Gets or sets a value indicating whether JWT access tokens should include an identifier. Defaults to false.</td>
+</tr>
+<tr>
+<td>Claims</td>
+<td>Claim[]</td>
+<td>Allows settings claims for the client (will be included in the access token).</td>
+</tr>
+<tr>
+<td>AlwaysSendClientClaims</td>
+<td>bool</td>
+<td>Gets or sets a value indicating whether client claims should be always included in the access tokens - or only for client credentials flow. Defaults to false</td>
+</tr>
+<tr>
+<td>ClientClaimsPrefix</td>
+<td>string</td>
+<td>Gets or sets a value to prefix it on client claim types. Defaults to client_.</td>
+</tr>
+<tr>
+<td>PairWiseSubjectSalt</td>
+<td>string</td>
+<td>Subject salt to be used.</td>
+</tr>
+<tr>
+<td>UserSsoLifetime</td>
+<td>optional: int32</td>
+<td>The maximum duration (in seconds) since the last time the user authenticated.</td>
+</tr>
+<tr>
+<td>UserCodeType</td>
+<td>string</td>
+<td>Gets or sets the type of the device flow user code.</td>
+</tr>
+<tr>
+<td>DeviceCodeLifetime</td>
+<td>int32</td>
+<td>Gets or sets the device code lifetime.</td>
+</tr>
+<tr>
+<td>AllowedCorsOrigins</td>
+<td>string[]</td>
+<td>Gets or sets the allowed CORS origins for JavaScript clients.</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>string,string[]</td>
+<td>Gets or sets the custom properties for the client.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serialized-model" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="58" sourceendlinenumber="58">Serialized Model</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="60" sourceendlinenumber="183"><code class="lang-json">{
+  &quot;Enabled&quot;: true,
+  &quot;ClientId&quot;: &quot;ClientId&quot;,
+  &quot;ClientSecrets&quot;: [
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.0731668-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    },
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.0733354-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    }
+  ],
+  &quot;RequireClientSecret&quot;: true,
+  &quot;ClientName&quot;: &quot;Name&quot;,
+  &quot;Description&quot;: &quot;description&quot;,
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;RequireConsent&quot;: true,
+  &quot;AllowRememberConsent&quot;: true,
+  &quot;AllowedGrantTypes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;FrontChannelLogoutUri&quot;: &quot;FrontChannelLogoutUri&quot;,
+  &quot;FrontChannelLogoutSessionRequired&quot;: true,
+  &quot;BackChannelLogoutUri&quot;: &quot;BackChannelLogoutUri&quot;,
+  &quot;BackChannelLogoutSessionRequired&quot;: true,
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowedScopes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AlwaysIncludeUserClaimsInIdToken&quot;: false,
+  &quot;IdentityTokenLifetime&quot;: 300,
+  &quot;AccessTokenLifetime&quot;: 3600,
+  &quot;AuthorizationCodeLifetime&quot;: 300,
+  &quot;AbsoluteRefreshTokenLifetime&quot;: 2592000,
+  &quot;SlidingRefreshTokenLifetime&quot;: 1296000,
+  &quot;ConsentLifetime&quot;: 0,
+  &quot;RefreshTokenUsage&quot;: 0,
+  &quot;UpdateAccessTokenClaimsOnRefresh&quot;: false,
+  &quot;RefreshTokenExpiration&quot;: 0,
+  &quot;AccessTokenType&quot;: 0,
+  &quot;IdentityProviderRestrictions&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;IncludeJwtId&quot;: false,
+  &quot;Claims&quot;: [
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    },
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    }
+  ],
+  &quot;AlwaysSendClientClaims&quot;: false,
+  &quot;ClientClaimsPrefix&quot;: &quot;ClientClaimsPrefix&quot;,
+  &quot;PairWiseSubjectSalt&quot;: &quot;PairWiseSubjectSalt&quot;,
+  &quot;UserSsoLifetime&quot;: 0,
+  &quot;UserCodeType&quot;: &quot;UserCodeType&quot;,
+  &quot;DeviceCodeLifetime&quot;: 300,
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;Properties&quot;: {
+    &quot;String&quot;: &quot;String&quot;
+  }
+}
+</code></pre><hr>
+<h2 id="get-clients" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="187" sourceendlinenumber="187"><code>Get Clients</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="189" sourceendlinenumber="189">Get all clients for a tenant</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="191" sourceendlinenumber="191">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="193" sourceendlinenumber="193"><code>GET api/Tenants/{tenantId}/Client/</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="195" sourceendlinenumber="195">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="197" sourceendlinenumber="200"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="202" sourceendlinenumber="202">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="204" sourceendlinenumber="209"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="211" sourceendlinenumber="211">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="213" sourceendlinenumber="218"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="220" sourceendlinenumber="220">Number of clients to skip. From query.</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="222" sourceendlinenumber="227"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="229" sourceendlinenumber="229">Max number of clients to return</p>
+<h3 id="security" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="231" sourceendlinenumber="231">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="233" sourceendlinenumber="233">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="235" sourceendlinenumber="237">
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="235" sourceendlinenumber="235"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="236" sourceendlinenumber="236"><code>Cluster Operator</code></li>
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="237" sourceendlinenumber="237"><code>Cluster Support</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="239" sourceendlinenumber="239">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="241" sourceendlinenumber="241">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="243" sourceendlinenumber="243">Success</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="245" sourceendlinenumber="245">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="247" sourceendlinenumber="247"> <code>List[Client]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="249" sourceendlinenumber="496"><code class="lang-json">[
+  {
+    &quot;Enabled&quot;: true,
+    &quot;ClientId&quot;: &quot;ClientId&quot;,
+    &quot;ClientSecrets&quot;: [
+      {
+        &quot;Id&quot;: 0,
+        &quot;Description&quot;: &quot;description&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1150524-05:00&quot;,
+        &quot;Type&quot;: &quot;Type&quot;
+      },
+      {
+        &quot;Id&quot;: 0,
+        &quot;Description&quot;: &quot;description&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1150644-05:00&quot;,
+        &quot;Type&quot;: &quot;Type&quot;
+      }
+    ],
+    &quot;RequireClientSecret&quot;: true,
+    &quot;ClientName&quot;: &quot;Name&quot;,
+    &quot;Description&quot;: &quot;description&quot;,
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;RequireConsent&quot;: true,
+    &quot;AllowRememberConsent&quot;: true,
+    &quot;AllowedGrantTypes&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;AllowAccessTokensViaBrowser&quot;: false,
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;FrontChannelLogoutUri&quot;: &quot;FrontChannelLogoutUri&quot;,
+    &quot;FrontChannelLogoutSessionRequired&quot;: true,
+    &quot;BackChannelLogoutUri&quot;: &quot;BackChannelLogoutUri&quot;,
+    &quot;BackChannelLogoutSessionRequired&quot;: true,
+    &quot;AllowOfflineAccess&quot;: false,
+    &quot;AllowedScopes&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;AlwaysIncludeUserClaimsInIdToken&quot;: false,
+    &quot;IdentityTokenLifetime&quot;: 300,
+    &quot;AccessTokenLifetime&quot;: 3600,
+    &quot;AuthorizationCodeLifetime&quot;: 300,
+    &quot;AbsoluteRefreshTokenLifetime&quot;: 2592000,
+    &quot;SlidingRefreshTokenLifetime&quot;: 1296000,
+    &quot;ConsentLifetime&quot;: 0,
+    &quot;RefreshTokenUsage&quot;: 0,
+    &quot;UpdateAccessTokenClaimsOnRefresh&quot;: false,
+    &quot;RefreshTokenExpiration&quot;: 0,
+    &quot;AccessTokenType&quot;: 0,
+    &quot;IdentityProviderRestrictions&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;IncludeJwtId&quot;: false,
+    &quot;Claims&quot;: [
+      {
+        &quot;Issuer&quot;: &quot;Issuer&quot;,
+        &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+        &quot;Properties&quot;: {
+          &quot;String&quot;: &quot;String&quot;
+        },
+        &quot;Subject&quot;: {
+          &quot;AuthenticationType&quot;: null,
+          &quot;IsAuthenticated&quot;: false,
+          &quot;Actor&quot;: null,
+          &quot;BootstrapContext&quot;: null,
+          &quot;Claims&quot;: [],
+          &quot;Label&quot;: &quot;Label&quot;,
+          &quot;Name&quot;: null,
+          &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+          &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+        },
+        &quot;Type&quot;: &quot;Type&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;ValueType&quot;: &quot;ValueType&quot;
+      },
+      {
+        &quot;Issuer&quot;: &quot;Issuer&quot;,
+        &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+        &quot;Properties&quot;: {
+          &quot;String&quot;: &quot;String&quot;
+        },
+        &quot;Subject&quot;: {
+          &quot;AuthenticationType&quot;: null,
+          &quot;IsAuthenticated&quot;: false,
+          &quot;Actor&quot;: null,
+          &quot;BootstrapContext&quot;: null,
+          &quot;Claims&quot;: [],
+          &quot;Label&quot;: &quot;Label&quot;,
+          &quot;Name&quot;: null,
+          &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+          &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+        },
+        &quot;Type&quot;: &quot;Type&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;ValueType&quot;: &quot;ValueType&quot;
+      }
+    ],
+    &quot;AlwaysSendClientClaims&quot;: false,
+    &quot;ClientClaimsPrefix&quot;: &quot;ClientClaimsPrefix&quot;,
+    &quot;PairWiseSubjectSalt&quot;: &quot;PairWiseSubjectSalt&quot;,
+    &quot;UserSsoLifetime&quot;: 0,
+    &quot;UserCodeType&quot;: &quot;UserCodeType&quot;,
+    &quot;DeviceCodeLifetime&quot;: 300,
+    &quot;AllowedCorsOrigins&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;Properties&quot;: {
+      &quot;String&quot;: &quot;String&quot;
+    }
+  },
+  {
+    &quot;Enabled&quot;: true,
+    &quot;ClientId&quot;: &quot;ClientId&quot;,
+    &quot;ClientSecrets&quot;: [
+      {
+        &quot;Id&quot;: 0,
+        &quot;Description&quot;: &quot;description&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1151752-05:00&quot;,
+        &quot;Type&quot;: &quot;Type&quot;
+      },
+      {
+        &quot;Id&quot;: 0,
+        &quot;Description&quot;: &quot;description&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1151826-05:00&quot;,
+        &quot;Type&quot;: &quot;Type&quot;
+      }
+    ],
+    &quot;RequireClientSecret&quot;: true,
+    &quot;ClientName&quot;: &quot;Name&quot;,
+    &quot;Description&quot;: &quot;description&quot;,
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;RequireConsent&quot;: true,
+    &quot;AllowRememberConsent&quot;: true,
+    &quot;AllowedGrantTypes&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;AllowAccessTokensViaBrowser&quot;: false,
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;FrontChannelLogoutUri&quot;: &quot;FrontChannelLogoutUri&quot;,
+    &quot;FrontChannelLogoutSessionRequired&quot;: true,
+    &quot;BackChannelLogoutUri&quot;: &quot;BackChannelLogoutUri&quot;,
+    &quot;BackChannelLogoutSessionRequired&quot;: true,
+    &quot;AllowOfflineAccess&quot;: false,
+    &quot;AllowedScopes&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;AlwaysIncludeUserClaimsInIdToken&quot;: false,
+    &quot;IdentityTokenLifetime&quot;: 300,
+    &quot;AccessTokenLifetime&quot;: 3600,
+    &quot;AuthorizationCodeLifetime&quot;: 300,
+    &quot;AbsoluteRefreshTokenLifetime&quot;: 2592000,
+    &quot;SlidingRefreshTokenLifetime&quot;: 1296000,
+    &quot;ConsentLifetime&quot;: 0,
+    &quot;RefreshTokenUsage&quot;: 0,
+    &quot;UpdateAccessTokenClaimsOnRefresh&quot;: false,
+    &quot;RefreshTokenExpiration&quot;: 0,
+    &quot;AccessTokenType&quot;: 0,
+    &quot;IdentityProviderRestrictions&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;IncludeJwtId&quot;: false,
+    &quot;Claims&quot;: [
+      {
+        &quot;Issuer&quot;: &quot;Issuer&quot;,
+        &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+        &quot;Properties&quot;: {
+          &quot;String&quot;: &quot;String&quot;
+        },
+        &quot;Subject&quot;: {
+          &quot;AuthenticationType&quot;: null,
+          &quot;IsAuthenticated&quot;: false,
+          &quot;Actor&quot;: null,
+          &quot;BootstrapContext&quot;: null,
+          &quot;Claims&quot;: [],
+          &quot;Label&quot;: &quot;Label&quot;,
+          &quot;Name&quot;: null,
+          &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+          &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+        },
+        &quot;Type&quot;: &quot;Type&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;ValueType&quot;: &quot;ValueType&quot;
+      },
+      {
+        &quot;Issuer&quot;: &quot;Issuer&quot;,
+        &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+        &quot;Properties&quot;: {
+          &quot;String&quot;: &quot;String&quot;
+        },
+        &quot;Subject&quot;: {
+          &quot;AuthenticationType&quot;: null,
+          &quot;IsAuthenticated&quot;: false,
+          &quot;Actor&quot;: null,
+          &quot;BootstrapContext&quot;: null,
+          &quot;Claims&quot;: [],
+          &quot;Label&quot;: &quot;Label&quot;,
+          &quot;Name&quot;: null,
+          &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+          &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+        },
+        &quot;Type&quot;: &quot;Type&quot;,
+        &quot;Value&quot;: &quot;Value&quot;,
+        &quot;ValueType&quot;: &quot;ValueType&quot;
+      }
+    ],
+    &quot;AlwaysSendClientClaims&quot;: false,
+    &quot;ClientClaimsPrefix&quot;: &quot;ClientClaimsPrefix&quot;,
+    &quot;PairWiseSubjectSalt&quot;: &quot;PairWiseSubjectSalt&quot;,
+    &quot;UserSsoLifetime&quot;: 0,
+    &quot;UserCodeType&quot;: &quot;UserCodeType&quot;,
+    &quot;DeviceCodeLifetime&quot;: 300,
+    &quot;AllowedCorsOrigins&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;Properties&quot;: {
+      &quot;String&quot;: &quot;String&quot;
+    }
+  }
+]
+</code></pre><h4 id="401" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="498" sourceendlinenumber="498">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="500" sourceendlinenumber="500">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="502" sourceendlinenumber="502">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="504" sourceendlinenumber="504">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="506" sourceendlinenumber="506">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="508" sourceendlinenumber="508">Tenant not found</p>
+<h4 id="400" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="510" sourceendlinenumber="510">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="512" sourceendlinenumber="512">Missing or invalid inputs</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="514" sourceendlinenumber="514">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="516" sourceendlinenumber="516">Internal server error</p>
+<hr>
+<h2 id="get-client" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="519" sourceendlinenumber="519"><code>Get Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="521" sourceendlinenumber="521">Get a client object</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="523" sourceendlinenumber="523">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="525" sourceendlinenumber="525"><code>GET api/Tenants/{tenantId}/Client/{clientId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="527" sourceendlinenumber="527">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="529" sourceendlinenumber="532"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="534" sourceendlinenumber="534">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="536" sourceendlinenumber="539"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="541" sourceendlinenumber="541">Id of client</p>
+<h3 id="security-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="543" sourceendlinenumber="543">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="545" sourceendlinenumber="545">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="547" sourceendlinenumber="549">
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="547" sourceendlinenumber="547"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="548" sourceendlinenumber="548"><code>Cluster Operator</code></li>
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="549" sourceendlinenumber="549"><code>Cluster Support</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="551" sourceendlinenumber="551">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="553" sourceendlinenumber="553">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="555" sourceendlinenumber="555">Success</p>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="557" sourceendlinenumber="557">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="559" sourceendlinenumber="559"> <code>Client</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="561" sourceendlinenumber="684"><code class="lang-json">{
+  &quot;Enabled&quot;: true,
+  &quot;ClientId&quot;: &quot;ClientId&quot;,
+  &quot;ClientSecrets&quot;: [
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1156974-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    },
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1157055-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    }
+  ],
+  &quot;RequireClientSecret&quot;: true,
+  &quot;ClientName&quot;: &quot;Name&quot;,
+  &quot;Description&quot;: &quot;description&quot;,
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;RequireConsent&quot;: true,
+  &quot;AllowRememberConsent&quot;: true,
+  &quot;AllowedGrantTypes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;FrontChannelLogoutUri&quot;: &quot;FrontChannelLogoutUri&quot;,
+  &quot;FrontChannelLogoutSessionRequired&quot;: true,
+  &quot;BackChannelLogoutUri&quot;: &quot;BackChannelLogoutUri&quot;,
+  &quot;BackChannelLogoutSessionRequired&quot;: true,
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowedScopes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AlwaysIncludeUserClaimsInIdToken&quot;: false,
+  &quot;IdentityTokenLifetime&quot;: 300,
+  &quot;AccessTokenLifetime&quot;: 3600,
+  &quot;AuthorizationCodeLifetime&quot;: 300,
+  &quot;AbsoluteRefreshTokenLifetime&quot;: 2592000,
+  &quot;SlidingRefreshTokenLifetime&quot;: 1296000,
+  &quot;ConsentLifetime&quot;: 0,
+  &quot;RefreshTokenUsage&quot;: 0,
+  &quot;UpdateAccessTokenClaimsOnRefresh&quot;: false,
+  &quot;RefreshTokenExpiration&quot;: 0,
+  &quot;AccessTokenType&quot;: 0,
+  &quot;IdentityProviderRestrictions&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;IncludeJwtId&quot;: false,
+  &quot;Claims&quot;: [
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    },
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    }
+  ],
+  &quot;AlwaysSendClientClaims&quot;: false,
+  &quot;ClientClaimsPrefix&quot;: &quot;ClientClaimsPrefix&quot;,
+  &quot;PairWiseSubjectSalt&quot;: &quot;PairWiseSubjectSalt&quot;,
+  &quot;UserSsoLifetime&quot;: 0,
+  &quot;UserCodeType&quot;: &quot;UserCodeType&quot;,
+  &quot;DeviceCodeLifetime&quot;: 300,
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;Properties&quot;: {
+    &quot;String&quot;: &quot;String&quot;
+  }
+}
+</code></pre><h4 id="401-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="686" sourceendlinenumber="686">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="688" sourceendlinenumber="688">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="690" sourceendlinenumber="690">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="692" sourceendlinenumber="692">Forbidden</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="694" sourceendlinenumber="694">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="696" sourceendlinenumber="696">Client or Tenant not found</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="698" sourceendlinenumber="698">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="700" sourceendlinenumber="700">Internal server error</p>
+<hr>
+<h2 id="update-client-with-a-given-id" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="703" sourceendlinenumber="703"><code>Update Client With a Given ID</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="705" sourceendlinenumber="705">Create a client</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="707" sourceendlinenumber="707">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="709" sourceendlinenumber="709"><code>POST api/Tenants/{tenantId}/Client/{clientId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="711" sourceendlinenumber="711">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="713" sourceendlinenumber="716"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="718" sourceendlinenumber="718">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="720" sourceendlinenumber="723"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="725" sourceendlinenumber="725">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="727" sourceendlinenumber="731"><code class="lang-csharp">[FromQuery]
+[Required]
+string secretDescription
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="733" sourceendlinenumber="733">Description of Client secret</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="735" sourceendlinenumber="739"><code class="lang-csharp">[FromQuery]
+[Required]
+string secretExpiration
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="741" sourceendlinenumber="741">Expiration of Client secret</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="743" sourceendlinenumber="747"><code class="lang-csharp">[FromBody]
+[Required]
+Client client
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="749" sourceendlinenumber="749">New Client object</p>
+<h3 id="security-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="751" sourceendlinenumber="751">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="753" sourceendlinenumber="753">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="755" sourceendlinenumber="755">
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="755" sourceendlinenumber="755"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="757" sourceendlinenumber="757">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="759" sourceendlinenumber="759">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="761" sourceendlinenumber="761">Success</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="763" sourceendlinenumber="763">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="765" sourceendlinenumber="765"> <code>ClientCredentialClientCreateDto</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="767" sourceendlinenumber="779"><code class="lang-json">{
+  &quot;SecretDescription&quot;: &quot;description&quot;,
+  &quot;SecretExpirationDate&quot;: &quot;2019-02-20T01:57:33.1161762-05:00&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientId&quot;: &quot;ClientId&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false
+}
+</code></pre><h4 id="401-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="781" sourceendlinenumber="781">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="783" sourceendlinenumber="783">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="785" sourceendlinenumber="785">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="787" sourceendlinenumber="787">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="789" sourceendlinenumber="789">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="791" sourceendlinenumber="791">Client or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="793" sourceendlinenumber="793">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="795" sourceendlinenumber="795">Internal server error</p>
+<hr>
+<h2 id="update-client" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="798" sourceendlinenumber="798"><code>Update Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="800" sourceendlinenumber="800">Update a client</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="802" sourceendlinenumber="802">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="804" sourceendlinenumber="804"><code>PUT api/Tenants/{tenantId}/Client/{clientId}</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="806" sourceendlinenumber="806">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="808" sourceendlinenumber="811"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="813" sourceendlinenumber="813">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="815" sourceendlinenumber="818"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="820" sourceendlinenumber="820">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="822" sourceendlinenumber="826"><code class="lang-csharp">[FromBody]
+[Required]
+Client client
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="828" sourceendlinenumber="828">New Client</p>
+<h3 id="security-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="830" sourceendlinenumber="830">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="832" sourceendlinenumber="832">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="834" sourceendlinenumber="834">
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="834" sourceendlinenumber="834"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="836" sourceendlinenumber="836">Returns</h3>
+<h4 id="200-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="838" sourceendlinenumber="838">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="840" sourceendlinenumber="840">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="842" sourceendlinenumber="842">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="844" sourceendlinenumber="844"> <code>Client</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="846" sourceendlinenumber="969"><code class="lang-json">{
+  &quot;Enabled&quot;: true,
+  &quot;ClientId&quot;: &quot;ClientId&quot;,
+  &quot;ClientSecrets&quot;: [
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1179443-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    },
+    {
+      &quot;Id&quot;: 0,
+      &quot;Description&quot;: &quot;description&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;Expiration&quot;: &quot;2019-02-20T01:57:33.1179531-05:00&quot;,
+      &quot;Type&quot;: &quot;Type&quot;
+    }
+  ],
+  &quot;RequireClientSecret&quot;: true,
+  &quot;ClientName&quot;: &quot;Name&quot;,
+  &quot;Description&quot;: &quot;description&quot;,
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;RequireConsent&quot;: true,
+  &quot;AllowRememberConsent&quot;: true,
+  &quot;AllowedGrantTypes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;FrontChannelLogoutUri&quot;: &quot;FrontChannelLogoutUri&quot;,
+  &quot;FrontChannelLogoutSessionRequired&quot;: true,
+  &quot;BackChannelLogoutUri&quot;: &quot;BackChannelLogoutUri&quot;,
+  &quot;BackChannelLogoutSessionRequired&quot;: true,
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowedScopes&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;AlwaysIncludeUserClaimsInIdToken&quot;: false,
+  &quot;IdentityTokenLifetime&quot;: 300,
+  &quot;AccessTokenLifetime&quot;: 3600,
+  &quot;AuthorizationCodeLifetime&quot;: 300,
+  &quot;AbsoluteRefreshTokenLifetime&quot;: 2592000,
+  &quot;SlidingRefreshTokenLifetime&quot;: 1296000,
+  &quot;ConsentLifetime&quot;: 0,
+  &quot;RefreshTokenUsage&quot;: 0,
+  &quot;UpdateAccessTokenClaimsOnRefresh&quot;: false,
+  &quot;RefreshTokenExpiration&quot;: 0,
+  &quot;AccessTokenType&quot;: 0,
+  &quot;IdentityProviderRestrictions&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;IncludeJwtId&quot;: false,
+  &quot;Claims&quot;: [
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    },
+    {
+      &quot;Issuer&quot;: &quot;Issuer&quot;,
+      &quot;OriginalIssuer&quot;: &quot;OriginalIssuer&quot;,
+      &quot;Properties&quot;: {
+        &quot;String&quot;: &quot;String&quot;
+      },
+      &quot;Subject&quot;: {
+        &quot;AuthenticationType&quot;: null,
+        &quot;IsAuthenticated&quot;: false,
+        &quot;Actor&quot;: null,
+        &quot;BootstrapContext&quot;: null,
+        &quot;Claims&quot;: [],
+        &quot;Label&quot;: &quot;Label&quot;,
+        &quot;Name&quot;: null,
+        &quot;NameClaimType&quot;: &quot;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&quot;,
+        &quot;RoleClaimType&quot;: &quot;http://schemas.microsoft.com/ws/2008/06/identity/claims/role&quot;
+      },
+      &quot;Type&quot;: &quot;Type&quot;,
+      &quot;Value&quot;: &quot;Value&quot;,
+      &quot;ValueType&quot;: &quot;ValueType&quot;
+    }
+  ],
+  &quot;AlwaysSendClientClaims&quot;: false,
+  &quot;ClientClaimsPrefix&quot;: &quot;ClientClaimsPrefix&quot;,
+  &quot;PairWiseSubjectSalt&quot;: &quot;PairWiseSubjectSalt&quot;,
+  &quot;UserSsoLifetime&quot;: 0,
+  &quot;UserCodeType&quot;: &quot;UserCodeType&quot;,
+  &quot;DeviceCodeLifetime&quot;: 300,
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;Properties&quot;: {
+    &quot;String&quot;: &quot;String&quot;
+  }
+}
+</code></pre><h4 id="401-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="971" sourceendlinenumber="971">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="973" sourceendlinenumber="973">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="975" sourceendlinenumber="975">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="977" sourceendlinenumber="977">Forbidden</p>
+<h4 id="400-1" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="979" sourceendlinenumber="979">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="981" sourceendlinenumber="981">Missing or invalid inputs</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="983" sourceendlinenumber="983">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="985" sourceendlinenumber="985">Client or Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="987" sourceendlinenumber="987">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="989" sourceendlinenumber="989">Internal server error</p>
+<hr>
+<h2 id="delete-client" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="992" sourceendlinenumber="992"><code>Delete Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="994" sourceendlinenumber="994">Delete a client</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="996" sourceendlinenumber="996">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="998" sourceendlinenumber="998"><code>DELETE api/Tenants/{tenantId}/Client/{clientId}</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1000" sourceendlinenumber="1000">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1002" sourceendlinenumber="1005"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1007" sourceendlinenumber="1007">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1009" sourceendlinenumber="1012"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1014" sourceendlinenumber="1014">Id of client</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1016" sourceendlinenumber="1016">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1018" sourceendlinenumber="1018">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1020" sourceendlinenumber="1020">
+<li sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1020" sourceendlinenumber="1020"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1022" sourceendlinenumber="1022">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1024" sourceendlinenumber="1024">204</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1026" sourceendlinenumber="1026">Deleted</p>
+<h4 id="401-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1028" sourceendlinenumber="1028">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1030" sourceendlinenumber="1030">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1032" sourceendlinenumber="1032">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1034" sourceendlinenumber="1034">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1036" sourceendlinenumber="1036">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1038" sourceendlinenumber="1038">Client or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1040" sourceendlinenumber="1040">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Client.md" sourcestartlinenumber="1042" sourceendlinenumber="1042">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_Client.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

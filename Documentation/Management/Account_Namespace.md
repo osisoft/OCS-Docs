@@ -2,16 +2,15 @@
 uid: AccountNamespace
 ---
 
-# Namespace
+# Namespaces
 
-A `Namespace` is a collection of SDS types, streams, and stream views.
-
-Namespace identifiers are unique within an account. Requirements for `Namespace` Ids are the following:
-- Must contain 260 characters or fewer
+A `Namespace` is a collection of SDS types, streams, and stream views. Namespace identifiers are unique within an account. Requirements for Namespace IDs are the following:
+- Must contain 100 characters or fewer
 - Must only contain alphanumeric characters, underscores, dashes, spaces, and periods
 - Must not contain two consecutive periods
 - Must not start or end with a period
 - Must not start with two consecutive underscores
+
 
 ## Properties
 
@@ -29,7 +28,7 @@ For HTTP requests and responses, the Namespace object has the following properti
 | StorageUnits | int32 | Number of Storage units for this Namespace. | 
 | State | NamespaceProvisioningState | Current state of this Namespace. | 
 | Owner | Trustee | Owner [Trustee](xref:accessControl) of this Namespace. | 
-| AccessControl | AccessControlList | The [AccessControl](xref:accessControl) that defines Access Control for this `Namespace` | 
+| AccessControl | AccessControlList | The [AccessControlList](xref:accessControl) that defines Access Control for this `Namespace` | 
 
 
 ```json
@@ -53,18 +52,20 @@ For HTTP requests and responses, the Namespace object has the following properti
 ```
 ***
 
-## `GetAll()`
+## `Get All Namespaces`
 
 Returns all `Namespaces` owned by the specified `Tenant` that the caller has access to.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Namespaces`
+`GET api/v1-preview/Tenants/{tenantId}/Namespaces`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
@@ -85,24 +86,28 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 
 ***
-## `GetNamespaceById()`
+
+## `Get Namespace By Id`
 
 Returns a `Namespace` with the specified Id.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Namespaces/{namespaceId}`
+`GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -124,18 +129,21 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 
 ***
-## `Create()`
+
+## `Create New Namespace`
 
 Creates a new `Namespace` in the specified `Tenant`.
 
 ### Http
 
-`POST api/Tenants/{tenantId}/Namespaces`
+`POST api/v1-preview/Tenants/{tenantId}/Namespaces`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
@@ -163,24 +171,29 @@ A `Namespace` can only be created if the current principal has Write access.
 
 
 ***
-## `Update()`
 
-Updates `Namespace` information: Description and TierId. The [AccessControl](xref:accessControl) and Owner's [Trustee](xref:accessControl) can only be updated through their own routes.
+## `Update Namespace`
+
+Updates `Namespace` information: Description and TierId.
+            The [AccessControlList](xref:accessControl) and Owner's [Trustee](xref:accessControl) can only be updated through their own routes.
 
 ### Http
 
-`PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}`
+`PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -208,24 +221,28 @@ A `Namespace` can only be updated if the current principal has Write access.
 
 
 ***
-## `Delete()`
+
+## `Delete Namespace`
 
 Deletes a `Namespace` in the specified `Tenant`.
 
 ### Http
 
-`DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}`
+`DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -246,24 +263,28 @@ A `Namespace` can only be deleted if the current principal has Delete access.
 
 
 ***
-## `GetAccessControl()`
 
-Returns the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
+## `Get Namespace AccessControlList`
+
+Returns the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
+`GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -272,36 +293,40 @@ The identifier of the `Namespace` to access.
 
 ### Security
 
-An [AccessControl](xref:accessControl) can only be retrieved if the current principal has Read access.
+An [AccessControlList](xref:accessControl) can only be retrieved if the current principal has Read access.
 
 ### Returns
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
-| 200 | AccessControl | Returns the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
-| 400 | Nothing is returned | Could not retrieve the [AccessControl](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to get the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
+| 200 | AccessControlList | Returns the [AccessControlList](xref:accessControl) for the specified `Namespace`. | 
+| 400 | Nothing is returned | Could not retrieve the [AccessControlList](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to get the [AccessControlList](xref:accessControl) for the specified `Namespace`. | 
 
 
 ***
-## `SetAccessControl()`
 
-Updates the [AccessControl](xref:accessControl) that is used to authorize access to a `Namespace`.
+## `Set Namespace AccessControlList`
+
+Updates the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
 ### Http
 
-`PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
+`PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -312,41 +337,45 @@ The identifier of the `Namespace` to access.
 AccessControlList newAccessControlList
 ```
 
-The updated [AccessControl](xref:accessControl) for the `Namespace`.
+The updated [AccessControlList](xref:accessControl) for the `Namespace`.
 
 
 ### Security
 
-An [AccessControl](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
+An [AccessControlList](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
 
 ### Returns
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
-| 200 | AccessControl | Returns the updated [AccessControl](xref:accessControl). | 
-| 400 | Nothing is returned | Could not update the [AccessControl](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to update the [AccessControl](xref:accessControl) for the specified `Namespace`. | 
+| 200 | AccessControlList | Returns the updated [AccessControlList](xref:accessControl). | 
+| 400 | Nothing is returned | Could not update the [AccessControlList](xref:accessControl) of the specified `Namespace` due to missing or invalid input. | 
+| 403 | Nothing is returned | Unauthorized to update the [AccessControlList](xref:accessControl) for the specified `Namespace`. | 
 
 
 ***
-## `GetOwner()`
+
+## `Get Namespace Owner`
 
 Returns the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 ### Http
 
-`GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
+`GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -367,24 +396,28 @@ An Owner's [Trustee](xref:accessControl) can only be retrieved if the current pr
 
 
 ***
-## `SetOwner()`
+
+## `Set Namespace Owner`
 
 Changes the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 ### Http
 
-`PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
+`PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
+
 
 ### Parameters
 
 ```csharp
 [Required]
+[FromRoute]
 string tenantId
 ```
 
 The identifier of the account to access.
 ```csharp
 [Required]
+[FromRoute]
 string namespaceId
 ```
 
@@ -412,3 +445,4 @@ An Owner's [Trustee](xref:accessControl) can only be changed if the current prin
 
 
 ***
+

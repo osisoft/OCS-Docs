@@ -78,8 +78,7 @@
             <article class="content wrap" id="_content" data-uid="AccountUserRole">
 <h1 id="user-roles">User Roles</h1>
 
-<p>User <code>Roles</code> authorize API requests made by users to various OCS features. Users can be assigned more than one <code>Role</code>, but all users have the Account Member role.</p>
-<p>The following are currently available User <code>Roles</code>:</p>
+<p>User <code>Roles</code> authorize API requests made by users to various OCS features. Users can be assigned more than one <code>Role</code>, but all users have the Account Member role. The following are currently available User <code>Roles</code>:</p>
 <ul>
 <li>Account Administrator: Can add, edit, and remove users. Can also edit the permissions of existing users.</li>
 <li>Account Member: Can log in and access the OCS portal.</li>
@@ -112,21 +111,25 @@
     &quot;RoleId&quot;: &quot;roleid&quot;
 }
 </code></pre><hr>
-<h2 id="getrolesforuser"><code>GetRolesForUser()</code></h2>
+<h2 id="get-roles-for-user"><code>Get Roles for User</code></h2>
 <p>Retrieves all <code>Roles</code> for the specified user.</p>
 <h3 id="http">Http</h3>
-<p><code>GET api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
+<p><code>GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier of the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string userId
 </code></pre><p>The identifier of the user whose roles will be retrieved.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string skip
 </code></pre><p>Number of <code>Roles</code> to ignore.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string count
 </code></pre><p>Number of <code>Roles</code> to return.</p>
 <h3 id="security">Security</h3>
@@ -164,18 +167,21 @@ string count
 </tbody>
 </table>
 <hr>
-<h2 id="addaccountroletouser"><code>AddAccountRoleToUser()</code></h2>
+<h2 id="add-account-role-to-user"><code>Add Account Role to User</code></h2>
 <p>Adds a <code>Role</code> to the specified user.</p>
 <h3 id="http-1">Http</h3>
-<p><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
+<p><code>PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string userId
 </code></pre><p>The identifier of the user who will be given the <code>Role</code>.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string roleId
 </code></pre><p>The identifier of the <code>Role</code> to be assigned.</p>
 <h3 id="security-1">Security</h3>
@@ -213,18 +219,21 @@ string roleId
 </tbody>
 </table>
 <hr>
-<h2 id="removerolefromuser"><code>RemoveRoleFromUser()</code></h2>
+<h2 id="remove-role-from-user"><code>Remove Role from User</code></h2>
 <p>Removes a <code>Role</code> from a user.</p>
 <h3 id="http-2">Http</h3>
-<p><code>DELETE api/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
+<p><code>DELETE api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string userId
 </code></pre><p>The identifier of the user whose <code>Role</code> will be removed.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string roleId
 </code></pre><p>The identifier of the <code>Role</code> to be removed.</p>
 <h3 id="security-2">Security</h3>
@@ -262,15 +271,17 @@ string roleId
 </tbody>
 </table>
 <hr>
-<h2 id="replaceuserroles"><code>ReplaceUserRoles()</code></h2>
+<h2 id="replace-user-roles"><code>Replace User Roles</code></h2>
 <p>Replaces the <code>Roles</code> of a user with a new list of roles.</p>
 <h3 id="http-3">Http</h3>
-<p><code>PUT api/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
+<p><code>PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string tenantId
 </code></pre><p>The identifier for the account in which the user belongs.</p>
 <pre><code class="lang-csharp">[Required]
+[FromRoute]
 string userId
 </code></pre><p>The identifier of the user whose roles will be replaced.</p>
 <pre><code class="lang-csharp">[Required]

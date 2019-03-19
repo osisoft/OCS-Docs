@@ -1,0 +1,785 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DataViews </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="DataViews ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DataViewsApi">
+<h1 id="dataviews">DataViews</h1>
+
+<p>APIs for working with data views.</p>
+<h2 id="properties">Properties</h2>
+<p>For HTTP requests and responses, the DataViewDefinition object has the following properties and JSON-serialized body: (Note that this is a sample object with default/example field values. Subsequent references to DataViewDefinition in this documentation will be abbreviated.) </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Id of the data view</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>(Optional) Name of the data view</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>(Optional) Description of the data view</td>
+</tr>
+<tr>
+<td>Queries</td>
+<td>[QueryInfo]</td>
+<td>A list of queries to select the data items to be displayed in the data view</td>
+</tr>
+<tr>
+<td>GroupRules</td>
+<td>[GroupRule]</td>
+<td>(Optional) A list of group rules to organize data items into data groups</td>
+</tr>
+<tr>
+<td>Mappings</td>
+<td>Mappings</td>
+<td>(Optional) Mappings define the names of the columns and the stream properties that get mapped to them</td>
+</tr>
+<tr>
+<td>IndexDataType</td>
+<td>string</td>
+<td>Defines the index data type that index config uses</td>
+</tr>
+<tr>
+<td>IndexConfig</td>
+<td>IndexConfig</td>
+<td>(Optional) Defines the index information from which to retrieve data. Currently, only interpolation mode is supported</td>
+</tr>
+</tbody>
+</table>
+<h3 id="full-object-example">Full object example:</h3>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;DataViewDefinition_Id&quot;,
+  &quot;Name&quot;: &quot;DataViewDefinition_Name&quot;,
+  &quot;Description&quot;: &quot;DataViewDefinition_Description&quot;,
+  &quot;Queries&quot;: [
+    {
+      &quot;Id&quot;: &quot;pump&quot;,
+      &quot;Query&quot;: {
+        &quot;Resource&quot;: &quot;Streams&quot;,
+        &quot;Field&quot;: &quot;Id&quot;,
+        &quot;Name&quot;: null,
+        &quot;Value&quot;: &quot;TestPump&quot;,
+        &quot;Operator&quot;: &quot;Contains&quot;
+      }
+    }
+  ],
+  &quot;GroupRules&quot;: [
+    {
+      &quot;Id&quot;: &quot;DefaultGroupRule&quot;,
+      &quot;Type&quot;: &quot;StreamName&quot;,
+      &quot;TokenRules&quot;: null
+    }
+  ],
+  &quot;Mappings&quot;: {
+    &quot;SharedMappingRules&quot;: [
+      {
+        &quot;Id&quot;: &quot;shared mapping rule&quot;,
+        &quot;Token&quot;: &quot;{measurement}&quot;,
+        &quot;MappingRulePattern&quot;: {
+          &quot;PropertyPaths&quot;: [
+            &quot;Value&quot;
+          ],
+          &quot;ItemIdentifier&quot;: {
+            &quot;Resource&quot;: &quot;Streams&quot;,
+            &quot;Field&quot;: &quot;Id&quot;,
+            &quot;Name&quot;: null,
+            &quot;Value&quot;: &quot;{measurement}&quot;,
+            &quot;Operator&quot;: &quot;Equals&quot;
+          }
+        }
+      }
+    ],
+    &quot;Columns&quot;: [
+      {
+        &quot;Name&quot;: &quot;keyColumn&quot;,
+        &quot;MappingRule&quot;: {
+          &quot;PropertyPaths&quot;: [
+            &quot;path&quot;
+          ],
+          &quot;ItemIdentifier&quot;: null
+        },
+        &quot;IsKey&quot;: true,
+        &quot;DataType&quot;: &quot;DateTime&quot;
+      },
+      {
+        &quot;Name&quot;: &quot;group rule&quot;,
+        &quot;MappingRule&quot;: {
+          &quot;GroupRuleId&quot;: &quot;id&quot;,
+          &quot;GroupRuleToken&quot;: &quot;token&quot;
+        },
+        &quot;IsKey&quot;: false,
+        &quot;DataType&quot;: &quot;string&quot;
+      },
+      {
+        &quot;Name&quot;: &quot;column1&quot;,
+        &quot;MappingRule&quot;: {
+          &quot;PropertyPaths&quot;: [
+            &quot;path&quot;
+          ],
+          &quot;ItemIdentifier&quot;: null
+        },
+        &quot;IsKey&quot;: false,
+        &quot;DataType&quot;: null
+      },
+      {
+        &quot;Name&quot;: &quot;column2&quot;,
+        &quot;MappingRule&quot;: {
+          &quot;PropertyPaths&quot;: [
+            &quot;path&quot;
+          ],
+          &quot;ItemIdentifier&quot;: {
+            &quot;Resource&quot;: &quot;Streams&quot;,
+            &quot;Field&quot;: &quot;Id&quot;,
+            &quot;Name&quot;: null,
+            &quot;Value&quot;: &quot;test&quot;,
+            &quot;Operator&quot;: &quot;Equals&quot;
+          }
+        },
+        &quot;IsKey&quot;: false,
+        &quot;DataType&quot;: null
+      },
+      {
+        &quot;Name&quot;: &quot;column3&quot;,
+        &quot;MappingRule&quot;: {
+          &quot;SharedMappingRuleId&quot;: &quot;shared mapping rule&quot;,
+          &quot;Token&quot;: &quot;{measurement}&quot;
+        },
+        &quot;IsKey&quot;: false,
+        &quot;DataType&quot;: null
+      }
+    ],
+    &quot;IsDefault&quot;: false
+  },
+  &quot;IndexDataType&quot;: &quot;DateTime&quot;,
+  &quot;IndexConfig&quot;: {
+    &quot;IsDefault&quot;: false,
+    &quot;StartIndex&quot;: &quot;2018-01-01T00:00:00Z&quot;,
+    &quot;EndIndex&quot;: &quot;2018-01-02T00:00:00Z&quot;,
+    &quot;Mode&quot;: &quot;Interpolated&quot;,
+    &quot;Interval&quot;: &quot;00:05:00&quot;
+  }
+}
+</code></pre><hr>
+<h2 id="get-data-views"><code>Get Data Views</code></h2>
+<p>Get all created dataviews</p>
+<h3 id="request">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/</code></p>
+<h3 id="parameters">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Skip:</p>
+<pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
+</code></pre><p>Count:</p>
+<pre><code class="lang-csharp">Int32 count [FromQuery] [Required] [No Default Value]
+</code></pre><h3 id="returns">Returns</h3>
+<h4 id="200">200</h4>
+<p>OK - retrieved the data views (could be an empty array). Return type: [DataViewDefinition]</p>
+<pre><code class="lang-json">[
+{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+]
+</code></pre><h4 id="400">400</h4>
+<p>Bad request</p>
+<h4 id="500">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-view"><code>Get Data View</code></h2>
+<p>Get a dataview by id</p>
+<h3 id="request-1">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}</code></p>
+<h3 id="parameters-1">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="returns-1">Returns</h3>
+<h4 id="200-1">200</h4>
+<p>OK - retrieved the data view. Return type: DataViewDefinition</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h4 id="403">403</h4>
+<p>Unauthorized</p>
+<h4 id="404">404</h4>
+<p>Specified data view not found</p>
+<h4 id="500-1">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="create-data-view"><code>Create Data View</code></h2>
+<p>Create a new dataview</p>
+<h3 id="request-2">Request</h3>
+<p><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/</code></p>
+<h3 id="parameters-2">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><h3 id="parameters-from-request-body">Parameters from request body:</h3>
+<p>Dataview definition object:</p>
+<pre><code class="lang-csharp">DataViewDefinition dataViewDefinition [FromBody] [Required] [No Default Value]
+</code></pre><pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h3 id="returns-2">Returns</h3>
+<h4 id="201">201</h4>
+<p>Successfully created a dataview definition. Return type: DataViewDefinition</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h4 id="400-1">400</h4>
+<p>Bad request</p>
+<h4 id="403-1">403</h4>
+<p>Unauthorized</p>
+<h4 id="500-2">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="create-data-view-with-id"><code>Create Data View With Id</code></h2>
+<p>Create a new dataview</p>
+<h3 id="request-3">Request</h3>
+<p><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}</code></p>
+<h3 id="parameters-3">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="parameters-from-request-body-1">Parameters from request body:</h3>
+<p>Dataview definition object:</p>
+<pre><code class="lang-csharp">DataViewDefinition dataViewDefinition [FromBody] [Required] [No Default Value]
+</code></pre><pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h3 id="returns-3">Returns</h3>
+<h4 id="201-1">201</h4>
+<p>Successfully created a dataview definition. Return type: DataViewDefinition</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h4 id="400-2">400</h4>
+<p>Bad request</p>
+<h4 id="403-2">403</h4>
+<p>Unauthorized</p>
+<h4 id="409">409</h4>
+<p>Data view definition with the specified Id already exists</p>
+<h4 id="500-3">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="update-data-view"><code>Update Data View</code></h2>
+<p>Edit the dataview with specified Id</p>
+<h3 id="request-4">Request</h3>
+<p><code>PUT api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}</code></p>
+<h3 id="parameters-4">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="parameters-from-request-body-2">Parameters from request body:</h3>
+<p>Updated dataview definition object in the request body:</p>
+<pre><code class="lang-csharp">DataViewDefinition updates [FromBody] [Required] [No Default Value]
+</code></pre><pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h3 id="returns-4">Returns</h3>
+<h4 id="200-2">200</h4>
+<p>OK - retrieved the data view. Return type: DataViewDefinition</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Name&quot;: &quot;String&quot;,
+  &quot;Description&quot;: &quot;String&quot;,
+  &quot;Queries&quot;: &quot;List`1&quot;,
+  &quot;GroupRules&quot;: &quot;List`1&quot;,
+  &quot;Mappings&quot;: &quot;Mappings object&quot;,
+  &quot;IndexDataType&quot;: &quot;String&quot;,
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
+}
+</code></pre><h4 id="400-3">400</h4>
+<p>Bad request</p>
+<h4 id="403-3">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-1">404</h4>
+<p>Specified data view not found</p>
+<h4 id="500-4">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="delete-data-view"><code>Delete Data View</code></h2>
+<p>Delete the dataview with specified Id</p>
+<h3 id="request-5">Request</h3>
+<p><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}</code></p>
+<h3 id="parameters-5">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="returns-5">Returns</h3>
+<h4 id="204">204</h4>
+<p>Successfully deleted the data view</p>
+<h4 id="403-4">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-2">404</h4>
+<p>Specified data view not found</p>
+<h4 id="500-5">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="preview-data-view-data"><code>Preview Data View Data</code></h2>
+<p>Get data preview based on created data view definition</p>
+<h3 id="request-6">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/preview/interpolated</code></p>
+<h3 id="parameters-6">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Start index for the data:</p>
+<pre><code class="lang-csharp">string startIndex [FromQuery] [Required] [No Default Value]
+</code></pre><p>End index for the data:</p>
+<pre><code class="lang-csharp">string endIndex [FromQuery] [Required] [No Default Value]
+</code></pre><p>Data interval:</p>
+<pre><code class="lang-csharp">string interval [FromQuery] [Required] [No Default Value]
+</code></pre><p>Data form:</p>
+<pre><code class="lang-csharp">string form [FromQuery] [Required] [No Default Value]
+</code></pre><p>Max count of data points to retrieve:</p>
+<pre><code class="lang-csharp">Int32 maxcount [FromQuery] [Optional] [Default = 1000]
+</code></pre><h3 id="returns-6">Returns</h3>
+<h4 id="200-3">200</h4>
+<p>Successfully retrieved data. Return type: ContentResult</p>
+<pre><code class="lang-json">Returns data formatted according to the user settings. Output formats: Default, Table, Tableh, Csv, Csvh
+</code></pre><h4 id="400-4">400</h4>
+<p>Bad request</p>
+<h4 id="403-5">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-3">404</h4>
+<p>Specified data view Id not found</p>
+<h4 id="500-6">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-view-data"><code>Get Data View Data</code></h2>
+<p>Get data from a specific session</p>
+<h3 id="request-7">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/data/interpolated</code></p>
+<h3 id="parameters-7">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Id of session:</p>
+<pre><code class="lang-csharp">string sessionId [FromQuery] [Required] [No Default Value]
+</code></pre><p>Form:</p>
+<pre><code class="lang-csharp">string form [FromQuery] [Required] [No Default Value]
+</code></pre><p>Skip:</p>
+<pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
+</code></pre><p>Count:</p>
+<pre><code class="lang-csharp">Int32 count [FromQuery] [Optional] [Default = 1000]
+</code></pre><h3 id="returns-7">Returns</h3>
+<h4 id="200-4">200</h4>
+<p>Successfully retrieved data. Return type: ContentResult</p>
+<pre><code class="lang-json">Returns data formatted according to the user settings. Output formats: Default, Table, Tableh, Csv, Csvh
+</code></pre><h4 id="400-5">400</h4>
+<p>Bad request</p>
+<h4 id="403-6">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-4">404</h4>
+<p>Specified data view Id or session Id not found</p>
+<h4 id="500-7">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-groups"><code>Get Data Groups</code></h2>
+<p>Get data groups for a specified data view</p>
+<h3 id="request-8">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/datagroups</code></p>
+<h3 id="parameters-8">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Skip:</p>
+<pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
+</code></pre><p>Count:</p>
+<pre><code class="lang-csharp">Int32 count [FromQuery] [Required] [No Default Value]
+</code></pre><h3 id="returns-8">Returns</h3>
+<h4 id="200-5">200</h4>
+<p>Successfully retrieved data. Return type: DataGroupCollection</p>
+<pre><code class="lang-json">{
+  &quot;DataGroups&quot;: &quot;Dictionary of &lt;Int32, IDataGroup&gt; pairs&quot;,
+  &quot;Errors&quot;: &quot;List`1&quot;
+}
+</code></pre><h4 id="207">207</h4>
+<p>Multi-status. Look at response message. Return type: DataGroupCollection</p>
+<pre><code class="lang-json">{
+  &quot;DataGroups&quot;: &quot;Dictionary of &lt;Int32, IDataGroup&gt; pairs&quot;,
+  &quot;Errors&quot;: &quot;List`1&quot;
+}
+</code></pre><h4 id="403-7">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-5">404</h4>
+<p>Specified data view Id not found</p>
+<h4 id="500-8">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-group"><code>Get Data Group</code></h2>
+<p>Get a specific data group</p>
+<h3 id="request-9">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/dataGroups/{dataGroupId}</code></p>
+<h3 id="parameters-9">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Id of the data group:</p>
+<pre><code class="lang-csharp">string dataGroupId  [Required] [No Default Value]
+</code></pre><h3 id="returns-9">Returns</h3>
+<h4 id="200-6">200</h4>
+<p>Successfully retrieved data group. Return type: DataGroup</p>
+<pre><code class="lang-json">{
+  &quot;Errors&quot;: &quot;List`1&quot;,
+  &quot;Tokens&quot;: &quot;Dictionary of &lt;String, Dictionary`2&gt; pairs&quot;,
+  &quot;DataItems&quot;: &quot;Dictionary of &lt;String, IDataItem&gt; pairs&quot;
+}
+</code></pre><h4 id="403-8">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-6">404</h4>
+<p>Specified data view Id not found</p>
+<h4 id="500-9">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="create-data-view-session"><code>Create Data View Session</code></h2>
+<p>Create a session for a dataview</p>
+<h3 id="request-10">Request</h3>
+<p><code>POST api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/sessions</code></p>
+<h3 id="parameters-10">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Dataview id:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="parameters-from-request-body-3">Parameters from request body:</h3>
+<p>Session configuration object:</p>
+<pre><code class="lang-csharp">SessionIndexAndTimeout sessionConfig [FromBody] [Required] [No Default Value]
+</code></pre><pre><code class="lang-json">{
+  &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;,
+  &quot;SessionTimeout&quot;: &quot;String&quot;
+}
+</code></pre><h3 id="returns-10">Returns</h3>
+<h4 id="201-2">201</h4>
+<p>Successfully created a session. Return type: SessionInfo</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Status&quot;: &quot;SessionStatus object&quot;,
+  &quot;SessionTimeout&quot;: &quot;String&quot;,
+  &quot;CreatedDate&quot;: &quot;DateTime&quot;,
+  &quot;LastAccessedTime&quot;: &quot;DateTime&quot;,
+  &quot;DataViewDefinition&quot;: &quot;DataViewDefinition object&quot;,
+  &quot;DataGroups&quot;: &quot;DataGroupCollection object&quot;,
+  &quot;IdleTimeout&quot;: &quot;TimeSpan&quot;
+}
+</code></pre><h4 id="400-6">400</h4>
+<p>Bad request</p>
+<h4 id="403-9">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-7">404</h4>
+<p>Specified data view id not found</p>
+<h4 id="500-10">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-view-session"><code>Get Data View Session</code></h2>
+<p>Get a specific session corresponding to a specific dataview</p>
+<h3 id="request-11">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/sessions/{sessionId}</code></p>
+<h3 id="parameters-11">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Dataview id:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Session Id:</p>
+<pre><code class="lang-csharp">string sessionId  [Required] [No Default Value]
+</code></pre><h3 id="returns-11">Returns</h3>
+<h4 id="200-7">200</h4>
+<p>Successfully retrieved the session. Return type: SessionInfo</p>
+<pre><code class="lang-json">{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Status&quot;: &quot;SessionStatus object&quot;,
+  &quot;SessionTimeout&quot;: &quot;String&quot;,
+  &quot;CreatedDate&quot;: &quot;DateTime&quot;,
+  &quot;LastAccessedTime&quot;: &quot;DateTime&quot;,
+  &quot;DataViewDefinition&quot;: &quot;DataViewDefinition object&quot;,
+  &quot;DataGroups&quot;: &quot;DataGroupCollection object&quot;,
+  &quot;IdleTimeout&quot;: &quot;TimeSpan&quot;
+}
+</code></pre><h4 id="403-10">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-8">404</h4>
+<p>Session or dataview not found</p>
+<h4 id="500-11">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-data-view-sessions"><code>Get Data View Sessions</code></h2>
+<p>Get all sessions for a dataview</p>
+<h3 id="request-12">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/sessions</code></p>
+<h3 id="parameters-12">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Dataview id:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><h3 id="returns-12">Returns</h3>
+<h4 id="200-8">200</h4>
+<p>Successfully retrieved sessions. Return type: [SessionInfo]</p>
+<pre><code class="lang-json">[
+{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Status&quot;: &quot;SessionStatus object&quot;,
+  &quot;SessionTimeout&quot;: &quot;String&quot;,
+  &quot;CreatedDate&quot;: &quot;DateTime&quot;,
+  &quot;LastAccessedTime&quot;: &quot;DateTime&quot;,
+  &quot;DataViewDefinition&quot;: &quot;DataViewDefinition object&quot;,
+  &quot;DataGroups&quot;: &quot;DataGroupCollection object&quot;,
+  &quot;IdleTimeout&quot;: &quot;TimeSpan&quot;
+}
+]
+</code></pre><h4 id="403-11">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-9">404</h4>
+<p>Specified data view id not found</p>
+<h4 id="500-12">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="get-sessions"><code>Get Sessions</code></h2>
+<p>Get all sessions for all dataviews</p>
+<h3 id="request-13">Request</h3>
+<p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/sessions</code></p>
+<h3 id="parameters-13">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><h3 id="returns-13">Returns</h3>
+<h4 id="200-9">200</h4>
+<p>Successfully retrieved all sessions. Return type: [SessionInfo]</p>
+<pre><code class="lang-json">[
+{
+  &quot;Id&quot;: &quot;String&quot;,
+  &quot;Status&quot;: &quot;SessionStatus object&quot;,
+  &quot;SessionTimeout&quot;: &quot;String&quot;,
+  &quot;CreatedDate&quot;: &quot;DateTime&quot;,
+  &quot;LastAccessedTime&quot;: &quot;DateTime&quot;,
+  &quot;DataViewDefinition&quot;: &quot;DataViewDefinition object&quot;,
+  &quot;DataGroups&quot;: &quot;DataGroupCollection object&quot;,
+  &quot;IdleTimeout&quot;: &quot;TimeSpan&quot;
+}
+]
+</code></pre><h4 id="500-13">500</h4>
+<p>Internal server error</p>
+<hr>
+<h2 id="delete-data-view-session"><code>Delete Data View Session</code></h2>
+<p>Delete a specific session</p>
+<h3 id="request-14">Request</h3>
+<p><code>DELETE api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/sessions/{sessionId}</code></p>
+<h3 id="parameters-14">Parameters</h3>
+<p>Id of tenant:</p>
+<pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
+</code></pre><p>Id of namespace:</p>
+<pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Id of dataview:</p>
+<pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Id of the session:</p>
+<pre><code class="lang-csharp">string sessionId  [Required] [No Default Value]
+</code></pre><h3 id="returns-14">Returns</h3>
+<h4 id="204-1">204</h4>
+<p>Successfully deleted session</p>
+<h4 id="403-12">403</h4>
+<p>Unauthorized</p>
+<h4 id="404-10">404</h4>
+<p>Session with specified Id not found</p>
+<h4 id="500-14">500</h4>
+<p>Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/DataViews/DataViews_API.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
