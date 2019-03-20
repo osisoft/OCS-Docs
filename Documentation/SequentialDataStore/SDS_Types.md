@@ -866,7 +866,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns a dictionary mapping the nameof(object) to the number of references held by streams, stream views and parent types for a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
+Returns a dictionary mapping object name to the number of references held by streams, stream views and parent types for a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
 
 **Request**
 
@@ -887,7 +887,7 @@ The type identifier
 The response includes a status code and a response body.
 
 **Response body**  
-A dictionary mapping nameof(object) to number of references.
+A dictionary mapping object name to number of references.
 
 Example response body:
 ```json
