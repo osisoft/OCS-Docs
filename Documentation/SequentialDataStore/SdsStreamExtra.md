@@ -305,7 +305,7 @@ Overwrites any existing tags; does not merge.
 ***********************
 
 
-``Delete stream metadata``
+``Delete stream tags``
 ------------------------
 
 Deletes the tag list for the specified stream. 
