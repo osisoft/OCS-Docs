@@ -4,8 +4,8 @@ uid: sdsSearching
 
 Searching
 =====================
-SdsSearch provides a way to search text, phrases, fields, etc. cross the Sequential Data Store. This document covers the 
-searching for SdsStreams and SdsTypes.
+SdsSearch provides a way to search text, phrases, fields, etc. across the Sequential Data Store. This document covers the 
+searching for SdsStreams, SdsTypes, and SdsStreamViews.
 
 Searching for Streams
 =====================
@@ -23,6 +23,8 @@ Searching for streams is also possible using the REST API and specifying the opt
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
 
+The Stream fields valid for search are identified in the fields table located on the [Streams](xref:sdsStreams) page. Note that Stream Metadata has unique 
+syntax rules, see [How Searching Works: Stream Metadata](#Stream_Metadata_search_topic).
 
 Searching for Types
 =====================
@@ -41,11 +43,39 @@ As previously mentioned, searching for types is also possible using the REST API
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
 
+The Type fields valid for search are identified in the fields table located on the [Types](xref:sdsTypes) page. The Properties fields is identified
+as being searchable but with limitations: Each SdsTypeProperty of a given SdsType has its Name and Id included in the "Properties" field. This includes nested
+SdsTypes of the given SdsType. Therefore, the searching of Properties will distinguish SdsTypes by their respective lists of relevant SdsTypeProperty Ids and Names.
+
+Searching for Stream Views
+=====================
+
+Similarly, the search functionality for stream views is also exposed through REST API and the client libraries method ``GetStreamViewsAsync``. The query syntax and the request parameters are the same. 
+The only difference is the resource you're searching on, and you can match on different properties for stream views than for streams and types. 
+See [Stream Views](xref:sdsViews) for more information.
+
+``GetStreamViewsAsync`` is an overloaded method that is used to search for and return stream views. 
+
+The syntax of the client libraries method is as follows:
+
+      _metadataService.GetStreamViewsAsync(query:"QueryString", skip:0, count:100);
+
+
+As previously mentioned, searching for types is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
+
+      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}
+
+The Stream View fields valid for search are identified in the fields table located on the [Stream Views](xref:sdsViews) page. The Properties field
+is identified as being searchable but with limitations because SdsStreamViewProperty objects are not searchable. Only the SdsStreamViewProperty's
+SdsStreamView is searchable by its Id, SourceTypeId, and TargetTypeId, which are used to return the top level SdsStreamView object when searching. 
+This includes nested SdsStreamViewProperties.
+
 How Searching Works
 =====================
 
-The ``GetStreamsAsync`` or ``GetTypesAsync`` overload return items that match specific search criteria within a given namespace. 
-The query parameter will be applied across all properties of items we’re searching on by default, such as ``Name`` or ``Description``.
+The ``GetStreamsAsync``, ``GetTypesAsync``, and ``GetStreamViewsAsync`` overloads return items that match specific 
+search criteria within a given namespace. 
+The query parameter will be applied across all searchable fields of objects we’re searching on by default.
 
 For example, assume that a namespace contains the following Streams:
 
@@ -59,11 +89,11 @@ stream3      | calcA     | calculation from DeviceA values
 Using the stream data above, the following table shows the results of a ``GetStreamsAsync`` call with different ``Query`` values:
 
 **QueryString**     | **Streams returned**
------------------- | ----------------------------------------
-``“temperature”``  | Only stream1 returned.
-``“calc*”``        | Only stream3 returned.
-``“DeviceA*”``     | All three streams returned.
-``“humidity*”``    | No streams returned.
+------------------  | ----------------------------------------
+``temperature``  | Only stream1 returned.
+``calc*``        | Only stream3 returned.
+``DeviceA*``     | All three streams returned.
+``humidity*``    | No streams returned.
 
 The ``skip`` and ``count`` parameters determine which items are returned when a large number of them match 
 the ``query`` criteria.   
@@ -143,14 +173,14 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 
 **Query string**     | **Matches field value** | **Does not match field value**
 ------------------ | --------------------------------- | -----------------------------
-``“log*”`` | log<br>logger | analog
-``“*log”`` | analog<br>alog | logg
-``“*log*”`` | analog<br>alogger | lop
-``“l*g”`` | log<br>logg | lop
+``log*`` | log<br>logger | analog
+``*log`` | analog<br>alog | logg
+``*log*`` | analog<br>alogger | lop
+``l*g`` | log<br>logg | lop
 
 **Supported**     | **Not Supported**
 ------------------ | ----------------------------------------
-``“*”``<br>``“*log”``<br>``“l*g”``<br>``“log*”``<br>``“*log*”``	| ``“*l*g*”``<br>``“*l*g”``<br>``“l*g*”``
+``*``<br>``*log``<br>``l*g``<br>``log*``<br>``*log*``	| ``*l*g*``<br>``*l*g``<br>``l*g*``
 
 **REST API example**
 
@@ -186,8 +216,71 @@ Other operators examples
 
 **Query string**     | **Matches field value** | **Does not match field value**
 ------------------ | --------------------------------- | -----------------------------
-``“mud AND log”`` | log mud<br>mud log | mud<br>log
-``“mud OR log”`` | log mud<br>mud<br>log | 
-``“mud AND (NOT log)”`` | mud | mud log
-``“mud AND (log OR pump*)”`` | mud log<br>mud pumps | mud bath
-``“name:stream\* AND (description:pressure OR description:pump)”`` | The name starts with “stream” and the description has the either of the terms “pressure” or “pump” | 
+``mud AND log`` | log mud<br>mud log | mud<br>log
+``mud OR log`` | log mud<br>mud<br>log | 
+``mud AND (NOT log)`` | mud | mud log
+``mud AND (log OR pump*)`` | mud log<br>mud pumps | mud bath
+``name:stream\* AND (description:pressure OR description:pump)`` | The name starts with “stream” and the description has the either of the terms “pressure” or “pump” | 
+
+
+## <a name="Stream_Metadata_search_topic">How Searching Works: Stream Metadata</a>
+-------------------
+
+[Stream Metadata](xref:sdsStreamExtra) modifies the aforementioned search syntax rules and each operator's behavior is described below. 
+For example, assume that a namespace contains the following Streams and the respective Metadata Key-Value pair(s) for each stream.
+
+**streamId** | **Metadata**
+------------ | --------- 
+stream1      | { manufacturer, company }<br>{ serial, abc }
+stream2      | { serial, a1 }
+stream3      | { status, active }<br>{ second key, second value }   
+ 
+
+: Operator
+-------------------
+A Stream Metadata key is only searchable in association with a Stream Metadata value. This pairing is defined using the same  field scoping ``‘:’`` operator. 
+
+	myStreamMetadataKey:streamMetadataValue
+
+If the ``‘:’`` operator is not used within an individual search clause then Metadata Keys are not searched against but Metadata 
+Values are searched against (along with the other searchable Stream fields).
+
+**QueryString**     | **Streams returned**
+------------------  | ----------------------------------------
+``manufacturer:company``  | Only stream1 returned.
+``company``  | Only stream1 returned.
+``a*``  | All three streams returned.
+
+\* Operator
+-------------------
+
+For searching on Metadata values the ``‘*’`` character is again used as a wildcard to specify an incomplete string. Additionally,
+this wildcard character can be used with the Metadata key as well. This is not supported for any other "fields", so by including a wildcard in a field
+(defined as a value to the immediate left of a ``‘:’`` operator) the query will only be valid against Stream Metadata.
+
+**QueryString**     | **Streams returned**
+------------------  | ----------------------------------------
+``manufa*turer:compan*``  | Only stream1 returned.
+``ser*al:a*``  | Stream1 and stream2 are returned.
+``s*:a*``  | All three streams returned.
+``Id:stream*``  |  All three streams returned.
+``Id*:stream*``  | Nothing returned.
+
+Note that in the final example nothing matches on a Stream's Id value because including ``‘*’`` in a search clause's 
+field prevents non-Stream Metadata fields from being searched.
+
+\"" Operator
+-------------------
+
+This operator works the same when matching on Stream Metadata values as other Stream fields.
+Also, when defining a field scoped search clause with a Stream Metadata key this operator is invalid, 
+just as it is invalid with any other field. This means that if a Stream Metadata Key is tokenized on whitespace then 
+an exact match on the key with a Phrase style search clause is not valid.
+
+**QueryString**     | **Streams returned**
+------------------  | ----------------------------------------
+``“second key”:“second value”``  | Nothing returned (invalid query syntax).
+``“second value”``  | Only stream3 returned.
+``second*:“second value”``  | Only stream3 returned.
+
+In the last example the wildcard operator ``‘*’`` is utilized to construct a similar query in lieu of a phrase search query clause.

@@ -18,15 +18,16 @@ To map a property that is beyond the ability of SDS to map on its own, you shoul
 and add it to the SdsStreamView’s Properties collection.
 
 The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.
+See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 
-| Property     | Type                   | Optionality | Details |
-|--------------|------------------------|-------------|---------|
-| Id           | String                 | Required    | Identifier for referencing the stream view |
-| Name         | String                 | Optional    | Friendly name |
-| Description  | String                 | Optional    | Description text |
-| SourceTypeId | String                 | Required    | Identifier of the SdsType of the SdsStream |
-| TargetTypeId | String                 | Required    | Identifier of the SdsType to convert events to |
-| Properties   | IList<SdsStreamViewProperty> | Optional    | Property level mapping |
+| Property     | Type                   | Optionality | Searchable | Details |
+|--------------|------------------------|-------------|------------|---------|
+| Id           | String                 | Required    | Yes		   |Identifier for referencing the stream view |
+| Name         | String                 | Optional    | Yes		   |Friendly name |
+| Description  | String                 | Optional    | Yes		   |Description text |
+| SourceTypeId | String                 | Required    | Yes		   |Identifier of the SdsType of the SdsStream |
+| TargetTypeId | String                 | Required    | Yes		   |Identifier of the SdsType to convert events to |
+| Properties   | IList<SdsStreamViewProperty> | Optional    | Yes, with limitations	  |Property level mapping |
 
 
 **Rules for type identifier**

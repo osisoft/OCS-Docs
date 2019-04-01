@@ -2,7 +2,7 @@
 uid: sdsFilterExpressionsMetadata
 ---
 
-Filter Expressions: Metadata Objects
+Filter Expressions: Sds Objects
 ==================
 
 
@@ -58,8 +58,8 @@ expression:
 | ``and``    | And logical operator                                |
 | ``not``    | Not logical operator                                |
 
-Not all operators supported for [values](xref:sdsFilterExpressions) are 
-supported for filtering on object metadata string fields.
+Note that not all of the operators supported for filtering on [values](xref:sdsFilterExpressions) are 
+supported for filtering on objects.
 
 **Logical Operator Examples**
 

@@ -38,18 +38,19 @@ Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be add
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.
 
-The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.
+The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use. 
+See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 
 
-| Property          | Type                   | Optionality | Details |
-|-------------------|------------------------|-------------|---------|
-| Id                | String                 | Required    | Identifier for referencing the type |
-| Name              | String                 | Optional    | Friendly name |
-| Description       | String                 | Optional    | Description text |
-| SdsTypeCode       | SdsTypeCode            | Required    | Numeric code identifying the base SdsType |
-| InterpolationMode | SdsInterpolationMode   | Optional    | Interpolation setting of the type. Default is Continuous. |
-| ExtrapolationMode | SdsExtrapolationMode   | Optional    | Extrapolation setting of the type. Default is All. |
-| Properties        | IList<SdsTypeProperty> | Required    | List of SdsTypeProperty items |
+| Property          | Type                   | Optionality | Searchable | Details |
+|-------------------|------------------------|-------------|---------|---------|
+| Id                | String                 | Required    | Yes | Identifier for referencing the type |
+| Name              | String                 | Optional    | Yes | Friendly name |
+| Description       | String                 | Optional    | Yes | Description text |
+| SdsTypeCode       | SdsTypeCode            | Required    | No | Numeric code identifying the base SdsType |
+| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. |
+| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. Default is All. |
+| Properties        | IList`<SdsTypeProperty>` | Required    | Yes, with limitations | List of SdsTypeProperty items |
 
 
 **Rules for typeId**
@@ -903,7 +904,7 @@ Returns a list of types within a given namespace.
 If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+and [Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata) 
 for information about specifying those respective parameters.
 
 **Request**
@@ -922,7 +923,7 @@ The namespace identifier
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
 
 `string filter`  
-An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
 
 `int skip`  
