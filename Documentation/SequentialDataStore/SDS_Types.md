@@ -904,7 +904,7 @@ Returns a list of types within a given namespace.
 If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata) 
+and [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
 for information about specifying those respective parameters.
 
 **Request**
@@ -923,7 +923,7 @@ The namespace identifier
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
 
 `string filter`  
-An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata) 
+An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
 
 `int skip`  

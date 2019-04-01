@@ -157,7 +157,7 @@ Returns a list of streams.
 If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all streams 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata)  
+and [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata)  
 for information about specifying those respective parameters.
 
 
@@ -180,7 +180,7 @@ for information about specifying the search parameter.
 
 `string filter`  
 An optional filter string to match which SdsStreams will be returned.  See the 
-[Filter Expressions: Sds Objects](xref:sdsFilterExpressionsMetadata) 
+[Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
 
 `int skip`  
