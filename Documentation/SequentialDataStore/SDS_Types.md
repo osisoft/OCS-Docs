@@ -203,22 +203,24 @@ indexes that occur between data in a stream:
 
 | Type                      | Result for an index between data in a stream  | Comment |
 |---------------------------|-----------------------------------------------|---------|
-|Numeric Types              |Interpolated*                                  |Rounding is done as needed for integer types |
-|Time related Types         |Interpolated                                   |DateTime, DateTimeOffset, TimeSpan |
-|Nullable Types             |No event is returned                           |Cannot reliably interpolate due to possibility of a null value |
-|Array and List Types       |No event is returned                           |         |
-|String Type                |No event is returned                           |         |
-|Boolean Type               |Returns value of nearest index                 |         |
-|Enumeration Types          |Returns Enum value at 0                        |This may have a value for the enumeration |
-|GUID                       |                                               |         |
-|Version                    |No event is returned                           |         |
-|IDictionary or IEnumerable |No event is returned                           |Dictionary, Array, List, and so on. |
+|Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types |
+|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
+|Nullable Types             |Interpolated**                  |Cannot reliably interpolate due to possibility of a null value |
+|Array and List Types       |No event is returned            |         |
+|String Type                |No event is returned            |         |
+|Boolean Type               |Returns value of nearest index  |         |
+|Enumeration Types          |Returns Enum value at 0         |This may have a value for the enumeration |
+|GUID                       |No event is returned            |         |
+|Version                    |No event is returned            |         |
+|IDictionary or IEnumerable |No event is returned            |Dictionary, Array, List, and so on. |
 
 *When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
 
+\**Nullable types are interpolated in the same manner as their non-nulllable equivalents as long as the events surrounding the desired interpolation index are non-null. If either of the indexes are null, the interpolated value will be null.
+
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
-mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
+mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
 on a specific type property see [SdsTypeProperty](#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
 
@@ -362,13 +364,12 @@ the Primary Index, set the IsKey to true.
 The type is created with the following parameters. SdsTypeBuilder automatically generates 
 unique identifiers. Note that the following table contains only a partial list of fields.
 
-
 | Field            | Values                  |             |                                      |
 |------------------|-------------------------|-------------|--------------------------------------|
-| Id               | Simple                  |             |                                      |
-| Name             | Simple                  |             |                                      |
-| Description      | Basic sample type       |             |                                      |
-| Properties       | Count = 3               |             |                                      |
+| Id               | Simple                                                                       |
+| Name             | Simple                                                                       |
+| Description      | Basic sample type                                                            |
+| Properties       | Count = 3                                                                    |
 |   [0]            | Id                      | Time                                               |
 |                  | Name                    | Time                                               |
 |                  | Description             | null                                               |
