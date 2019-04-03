@@ -217,7 +217,7 @@ indexes that occur between data in a stream:
 *When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
 
-\**Nullable types are interpolated in the same manner as their non-nulllable equivalents as long as the events surrounding the desired interpolation index are non-null. If either of the indexes are null, the interpolated value will be null.
+\**Nullable types are interpolated in the same manner as their non-nulllable equivalents as long as the values surrounding the desired interpolation index are non-null. If either of the values are null, the interpolated value will be null.
 
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
 mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
