@@ -50,7 +50,7 @@ See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 | SdsTypeCode       | SdsTypeCode            | Required    | No | Numeric code identifying the base SdsType |
 | InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. |
 | ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. Default is All. |
-| Properties        | IList`<SdsTypeProperty>` | Required    | Yes, with limitations | List of SdsTypeProperty items |
+| Properties        | IList\<SdsTypeProperty\> | Required    | Yes, with limitations | List of SdsTypeProperty items |
 
 
 **Rules for typeId**
@@ -904,7 +904,7 @@ Returns a list of types within a given namespace.
 If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
+and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
 for information about specifying those respective parameters.
 
 **Request**
@@ -923,7 +923,7 @@ The namespace identifier
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
 
 `string filter`  
-An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
+An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Objects](xref:sdsFilterExpressionsObjects) 
 topic for information about specifying the filter parameter.
 
 `int skip`  
