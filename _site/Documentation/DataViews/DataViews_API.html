@@ -79,13 +79,13 @@
 <h1 id="dataviews">DataViews</h1>
 
 <p>APIs for working with data views.</p>
-<h2 id="properties">Properties</h2>
-<p>For HTTP requests and responses, the DataViewDefinition object has the following properties and JSON-serialized body: (Note that this is a sample object with default/example field values. Subsequent references to DataViewDefinition in this documentation will be abbreviated.) </p>
+<h3 id="properties">Properties</h3>
 <table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Type</th>
+<th>Requried</th>
 <th>Descriptions</th>
 </tr>
 </thead>
@@ -93,160 +93,184 @@
 <tr>
 <td>Id</td>
 <td>string</td>
+<td>True</td>
 <td>Id of the data view</td>
 </tr>
 <tr>
 <td>Name</td>
 <td>string</td>
-<td>(Optional) Name of the data view</td>
+<td>False</td>
+<td>Name of the data view</td>
 </tr>
 <tr>
 <td>Description</td>
 <td>string</td>
-<td>(Optional) Description of the data view</td>
+<td>False</td>
+<td>Description of the data view</td>
 </tr>
 <tr>
 <td>Queries</td>
 <td>[QueryInfo]</td>
+<td>True</td>
 <td>A list of queries to select the data items to be displayed in the data view</td>
 </tr>
 <tr>
 <td>GroupRules</td>
 <td>[GroupRule]</td>
-<td>(Optional) A list of group rules to organize data items into data groups</td>
+<td>False</td>
+<td>A list of group rules to organize data items into data groups</td>
 </tr>
 <tr>
 <td>Mappings</td>
 <td>Mappings</td>
-<td>(Optional) Mappings define the names of the columns and the stream properties that get mapped to them</td>
+<td>False</td>
+<td>Defines the names of the columns and the stream properties that get mapped to them</td>
 </tr>
 <tr>
 <td>IndexDataType</td>
 <td>string</td>
+<td>True</td>
 <td>Defines the index data type that index config uses</td>
 </tr>
 <tr>
 <td>IndexConfig</td>
 <td>IndexConfig</td>
-<td>(Optional) Defines the index information from which to retrieve data. Currently, only interpolation mode is supported</td>
+<td>False</td>
+<td>Defines the index information from which to retrieve data. Currently, only interpolation mode is supported</td>
 </tr>
 </tbody>
 </table>
-<h3 id="full-object-example">Full object example:</h3>
+<h2 id="indexdatatype"><code>IndexDataType</code></h2>
+<p> The IndexDataType can have the following values: </p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DateTime</td>
+<td>string</td>
+<td>Use DateTime as index type</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="full-body-example"><code>Full Body Example</code></h2>
 <pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;DataViewDefinition_Id&quot;,
-  &quot;Name&quot;: &quot;DataViewDefinition_Name&quot;,
-  &quot;Description&quot;: &quot;DataViewDefinition_Description&quot;,
-  &quot;Queries&quot;: [
-    {
-      &quot;Id&quot;: &quot;pump&quot;,
-      &quot;Query&quot;: {
-        &quot;Resource&quot;: &quot;Streams&quot;,
-        &quot;Field&quot;: &quot;Id&quot;,
-        &quot;Name&quot;: null,
-        &quot;Value&quot;: &quot;TestPump&quot;,
-        &quot;Operator&quot;: &quot;Contains&quot;
-      }
-    }
-  ],
-  &quot;GroupRules&quot;: [
-    {
-      &quot;Id&quot;: &quot;DefaultGroupRule&quot;,
-      &quot;Type&quot;: &quot;StreamName&quot;,
-      &quot;TokenRules&quot;: null
-    }
-  ],
-  &quot;Mappings&quot;: {
-    &quot;SharedMappingRules&quot;: [
-      {
-        &quot;Id&quot;: &quot;shared mapping rule&quot;,
-        &quot;Token&quot;: &quot;{measurement}&quot;,
-        &quot;MappingRulePattern&quot;: {
-          &quot;PropertyPaths&quot;: [
-            &quot;Value&quot;
-          ],
-          &quot;ItemIdentifier&quot;: {
-            &quot;Resource&quot;: &quot;Streams&quot;,
-            &quot;Field&quot;: &quot;Id&quot;,
-            &quot;Name&quot;: null,
-            &quot;Value&quot;: &quot;{measurement}&quot;,
-            &quot;Operator&quot;: &quot;Equals&quot;
-          }
-        }
-      }
-    ],
-    &quot;Columns&quot;: [
-      {
-        &quot;Name&quot;: &quot;keyColumn&quot;,
-        &quot;MappingRule&quot;: {
-          &quot;PropertyPaths&quot;: [
-            &quot;path&quot;
-          ],
-          &quot;ItemIdentifier&quot;: null
-        },
-        &quot;IsKey&quot;: true,
-        &quot;DataType&quot;: &quot;DateTime&quot;
-      },
-      {
-        &quot;Name&quot;: &quot;group rule&quot;,
-        &quot;MappingRule&quot;: {
-          &quot;GroupRuleId&quot;: &quot;id&quot;,
-          &quot;GroupRuleToken&quot;: &quot;token&quot;
-        },
-        &quot;IsKey&quot;: false,
-        &quot;DataType&quot;: &quot;string&quot;
-      },
-      {
-        &quot;Name&quot;: &quot;column1&quot;,
-        &quot;MappingRule&quot;: {
-          &quot;PropertyPaths&quot;: [
-            &quot;path&quot;
-          ],
-          &quot;ItemIdentifier&quot;: null
-        },
-        &quot;IsKey&quot;: false,
-        &quot;DataType&quot;: null
-      },
-      {
-        &quot;Name&quot;: &quot;column2&quot;,
-        &quot;MappingRule&quot;: {
-          &quot;PropertyPaths&quot;: [
-            &quot;path&quot;
-          ],
-          &quot;ItemIdentifier&quot;: {
-            &quot;Resource&quot;: &quot;Streams&quot;,
-            &quot;Field&quot;: &quot;Id&quot;,
-            &quot;Name&quot;: null,
-            &quot;Value&quot;: &quot;test&quot;,
-            &quot;Operator&quot;: &quot;Equals&quot;
-          }
-        },
-        &quot;IsKey&quot;: false,
-        &quot;DataType&quot;: null
-      },
-      {
-        &quot;Name&quot;: &quot;column3&quot;,
-        &quot;MappingRule&quot;: {
-          &quot;SharedMappingRuleId&quot;: &quot;shared mapping rule&quot;,
-          &quot;Token&quot;: &quot;{measurement}&quot;
-        },
-        &quot;IsKey&quot;: false,
-        &quot;DataType&quot;: null
-      }
-    ],
-    &quot;IsDefault&quot;: false
-  },
-  &quot;IndexDataType&quot;: &quot;DateTime&quot;,
-  &quot;IndexConfig&quot;: {
-    &quot;IsDefault&quot;: false,
-    &quot;StartIndex&quot;: &quot;2018-01-01T00:00:00Z&quot;,
-    &quot;EndIndex&quot;: &quot;2018-01-02T00:00:00Z&quot;,
-    &quot;Mode&quot;: &quot;Interpolated&quot;,
-    &quot;Interval&quot;: &quot;00:05:00&quot;
-  }
+ &quot;Id&quot;: &quot;DataViewDefinition_Id&quot;,
+ &quot;Name&quot;: &quot;DataViewDefinition_Name&quot;,
+ &quot;Description&quot;: &quot;DataViewDefinition_Description&quot;,
+ &quot;Queries&quot;: [
+   {
+     &quot;Id&quot;: &quot;pump&quot;,
+     &quot;Query&quot;: {
+       &quot;Resource&quot;: &quot;Streams&quot;,
+       &quot;Field&quot;: &quot;Id&quot;,
+       &quot;Name&quot;: null,
+       &quot;Value&quot;: &quot;TestPump&quot;,
+       &quot;Function&quot;: &quot;Contains&quot;
+     }
+   }
+ ],
+ &quot;GroupRules&quot;: [
+   {
+     &quot;Id&quot;: &quot;DefaultGroupRule&quot;,
+     &quot;Type&quot;: &quot;StreamName&quot;,
+     &quot;TokenRules&quot;: null
+   }
+ ],
+ &quot;Mappings&quot;: {
+   &quot;SharedMappingRules&quot;: [
+     {
+       &quot;Id&quot;: &quot;shared mapping rule&quot;,
+       &quot;Token&quot;: &quot;{measurement}&quot;,
+       &quot;MappingRulePattern&quot;: {
+         &quot;PropertyPaths&quot;: [
+           &quot;Value&quot;
+         ],
+         &quot;ItemIdentifier&quot;: {
+           &quot;Resource&quot;: &quot;Streams&quot;,
+           &quot;Field&quot;: &quot;Id&quot;,
+           &quot;Name&quot;: null,
+           &quot;Value&quot;: &quot;{measurement}&quot;,
+           &quot;Function&quot;: &quot;Equals&quot;
+         }
+       }
+     }
+   ],
+   &quot;Columns&quot;: [
+     {
+       &quot;Name&quot;: &quot;keyColumn&quot;,
+       &quot;MappingRule&quot;: {
+         &quot;PropertyPaths&quot;: [
+           &quot;path&quot;
+         ],
+         &quot;ItemIdentifier&quot;: null
+       },
+       &quot;IsKey&quot;: true,
+       &quot;DataType&quot;: &quot;DateTime&quot;
+     },
+     {
+       &quot;Name&quot;: &quot;group rule&quot;,
+       &quot;MappingRule&quot;: {
+         &quot;GroupRuleId&quot;: &quot;id&quot;,
+         &quot;GroupRuleToken&quot;: &quot;token&quot;
+       },
+       &quot;IsKey&quot;: false,
+       &quot;DataType&quot;: &quot;string&quot;
+     },
+     {
+       &quot;Name&quot;: &quot;column1&quot;,
+       &quot;MappingRule&quot;: {
+         &quot;PropertyPaths&quot;: [
+           &quot;path&quot;
+         ],
+         &quot;ItemIdentifier&quot;: null
+       },
+       &quot;IsKey&quot;: false,
+       &quot;DataType&quot;: null
+     },
+     {
+       &quot;Name&quot;: &quot;column2&quot;,
+       &quot;MappingRule&quot;: {
+         &quot;PropertyPaths&quot;: [
+           &quot;path&quot;
+         ],
+         &quot;ItemIdentifier&quot;: {
+           &quot;Resource&quot;: &quot;Streams&quot;,
+           &quot;Field&quot;: &quot;Id&quot;,
+           &quot;Name&quot;: null,
+           &quot;Value&quot;: &quot;test&quot;,
+           &quot;Function&quot;: &quot;Equals&quot;
+         }
+       },
+       &quot;IsKey&quot;: false,
+       &quot;DataType&quot;: null
+     },
+     {
+       &quot;Name&quot;: &quot;column3&quot;,
+       &quot;MappingRule&quot;: {
+         &quot;SharedMappingRuleId&quot;: &quot;shared mapping rule&quot;,
+         &quot;Token&quot;: &quot;{measurement}&quot;
+       },
+       &quot;IsKey&quot;: false,
+       &quot;DataType&quot;: null
+     }
+   ]
+ },
+ &quot;IndexDataType&quot;: &quot;DateTime&quot;,
+ &quot;IndexConfig&quot;: {
+   &quot;StartIndex&quot;: &quot;2018-01-01T00:00:00Z&quot;,
+   &quot;EndIndex&quot;: &quot;2018-01-02T00:00:00Z&quot;,
+   &quot;Mode&quot;: &quot;Interpolated&quot;,
+   &quot;Interval&quot;: &quot;00:05:00&quot;
+ }
 }
-</code></pre><hr>
-<h2 id="get-data-views"><code>Get Data Views</code></h2>
+</code></pre><h2 id="get-data-views"><code>Get Data Views</code></h2>
 <p>Get all created dataviews</p>
 <h3 id="request">Request</h3>
 <p><code>GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/</code></p>
@@ -259,6 +283,8 @@
 <pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
 </code></pre><p>Count:</p>
 <pre><code class="lang-csharp">Int32 count [FromQuery] [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns">Returns</h3>
 <h4 id="200">200</h4>
 <p>OK - retrieved the data views (could be an empty array). Return type: [DataViewDefinition]</p>
@@ -290,6 +316,8 @@
 <pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
 </code></pre><p>Id of dataview:</p>
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-1">Returns</h3>
 <h4 id="200-1">200</h4>
 <p>OK - retrieved the data view. Return type: DataViewDefinition</p>
@@ -332,6 +360,8 @@
   &quot;IndexDataType&quot;: &quot;String&quot;,
   &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
 }
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-2">Returns</h3>
 <h4 id="201">201</h4>
 <p>Successfully created a dataview definition. Return type: DataViewDefinition</p>
@@ -376,6 +406,8 @@
   &quot;IndexDataType&quot;: &quot;String&quot;,
   &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
 }
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-3">Returns</h3>
 <h4 id="201-1">201</h4>
 <p>Successfully created a dataview definition. Return type: DataViewDefinition</p>
@@ -422,6 +454,8 @@
   &quot;IndexDataType&quot;: &quot;String&quot;,
   &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;
 }
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-4">Returns</h3>
 <h4 id="200-2">200</h4>
 <p>OK - retrieved the data view. Return type: DataViewDefinition</p>
@@ -455,6 +489,8 @@
 <pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
 </code></pre><p>Id of dataview:</p>
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-5">Returns</h3>
 <h4 id="204">204</h4>
 <p>Successfully deleted the data view</p>
@@ -486,6 +522,8 @@
 <pre><code class="lang-csharp">string form [FromQuery] [Required] [No Default Value]
 </code></pre><p>Max count of data points to retrieve:</p>
 <pre><code class="lang-csharp">Int32 maxcount [FromQuery] [Optional] [Default = 1000]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-6">Returns</h3>
 <h4 id="200-3">200</h4>
 <p>Successfully retrieved data. Return type: ContentResult</p>
@@ -518,6 +556,8 @@
 <pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
 </code></pre><p>Count:</p>
 <pre><code class="lang-csharp">Int32 count [FromQuery] [Optional] [Default = 1000]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-7">Returns</h3>
 <h4 id="200-4">200</h4>
 <p>Successfully retrieved data. Return type: ContentResult</p>
@@ -546,6 +586,8 @@
 <pre><code class="lang-csharp">Int32 skip [FromQuery] [Required] [No Default Value]
 </code></pre><p>Count:</p>
 <pre><code class="lang-csharp">Int32 count [FromQuery] [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-8">Returns</h3>
 <h4 id="200-5">200</h4>
 <p>Successfully retrieved data. Return type: DataGroupCollection</p>
@@ -579,6 +621,8 @@
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
 </code></pre><p>Id of the data group:</p>
 <pre><code class="lang-csharp">string dataGroupId  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-9">Returns</h3>
 <h4 id="200-6">200</h4>
 <p>Successfully retrieved data group. Return type: DataGroup</p>
@@ -612,6 +656,8 @@
   &quot;IndexConfig&quot;: &quot;IndexConfig object&quot;,
   &quot;SessionTimeout&quot;: &quot;String&quot;
 }
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-10">Returns</h3>
 <h4 id="201-2">201</h4>
 <p>Successfully created a session. Return type: SessionInfo</p>
@@ -647,6 +693,8 @@
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
 </code></pre><p>Session Id:</p>
 <pre><code class="lang-csharp">string sessionId  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-11">Returns</h3>
 <h4 id="200-7">200</h4>
 <p>Successfully retrieved the session. Return type: SessionInfo</p>
@@ -678,6 +726,8 @@
 <pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
 </code></pre><p>Dataview id:</p>
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-12">Returns</h3>
 <h4 id="200-8">200</h4>
 <p>Successfully retrieved sessions. Return type: [SessionInfo]</p>
@@ -709,6 +759,8 @@
 <pre><code class="lang-csharp">string tenantId  [Required] [No Default Value]
 </code></pre><p>Id of namespace:</p>
 <pre><code class="lang-csharp">string namespaceId  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-13">Returns</h3>
 <h4 id="200-9">200</h4>
 <p>Successfully retrieved all sessions. Return type: [SessionInfo]</p>
@@ -740,6 +792,8 @@
 <pre><code class="lang-csharp">string id  [Required] [No Default Value]
 </code></pre><p>Id of the session:</p>
 <pre><code class="lang-csharp">string sessionId  [Required] [No Default Value]
+</code></pre><p>Cancellation token:</p>
+<pre><code class="lang-csharp">CancellationToken token  [Optional] [Default = &quot;&quot;]
 </code></pre><h3 id="returns-14">Returns</h3>
 <h4 id="204-1">204</h4>
 <p>Successfully deleted session</p>
