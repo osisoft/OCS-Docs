@@ -6,23 +6,32 @@ uid: DataViewsApi
 
 APIs for working with data views.
 
-## Properties
+### Properties
 
-For HTTP requests and responses, the DataViewDefinition object has the following properties and JSON-serialized body: (Note that this is a sample object with default/example field values. Subsequent references to DataViewDefinition in this documentation will be abbreviated.) 
+Property | Type | Requried | Descriptions
+ --- | --- | --- | ---
+Id | string | True | Id of the data view
+Name | string | False | Name of the data view
+Description | string | False | Description of the data view
+Queries | [QueryInfo] | True | A list of queries to select the data items to be displayed in the data view
+GroupRules | [GroupRule] | False | A list of group rules to organize data items into data groups
+Mappings | Mappings | False | Defines the names of the columns and the stream properties that get mapped to them
+IndexDataType | string | True | Defines the index data type that index config uses
+IndexConfig | IndexConfig | False | Defines the index information from which to retrieve data. Currently, only interpolation mode is supported
 
-Property | Type | Descriptions
+
+
+ ## `IndexDataType` 
+ The IndexDataType can have the following values: 
+Value | Type | Description
  --- | --- | ---
-Id | string | Id of the data view
-Name | string | (Optional) Name of the data view
-Description | string | (Optional) Description of the data view
-Queries | [QueryInfo] | A list of queries to select the data items to be displayed in the data view
-GroupRules | [GroupRule] | (Optional) A list of group rules to organize data items into data groups
-Mappings | Mappings | (Optional) Mappings define the names of the columns and the stream properties that get mapped to them
-IndexDataType | string | Defines the index data type that index config uses
-IndexConfig | IndexConfig | (Optional) Defines the index information from which to retrieve data. Currently, only interpolation mode is supported
+DateTime | string | Use DateTime as index type
 
-### Full object example:
-```json
+
+***
+
+## `Full Body Example` 
+ ```json
 {
   "Id": "DataViewDefinition_Id",
   "Name": "DataViewDefinition_Name",
@@ -35,7 +44,7 @@ IndexConfig | IndexConfig | (Optional) Defines the index information from which 
         "Field": "Id",
         "Name": null,
         "Value": "TestPump",
-        "Operator": "Contains"
+        "Function": "Contains"
       }
     }
   ],
@@ -60,7 +69,7 @@ IndexConfig | IndexConfig | (Optional) Defines the index information from which 
             "Field": "Id",
             "Name": null,
             "Value": "{measurement}",
-            "Operator": "Equals"
+            "Function": "Equals"
           }
         }
       }
@@ -108,7 +117,7 @@ IndexConfig | IndexConfig | (Optional) Defines the index information from which 
             "Field": "Id",
             "Name": null,
             "Value": "test",
-            "Operator": "Equals"
+            "Function": "Equals"
           }
         },
         "IsKey": false,
@@ -123,20 +132,17 @@ IndexConfig | IndexConfig | (Optional) Defines the index information from which 
         "IsKey": false,
         "DataType": null
       }
-    ],
-    "IsDefault": false
+    ]
   },
   "IndexDataType": "DateTime",
   "IndexConfig": {
-    "IsDefault": false,
     "StartIndex": "2018-01-01T00:00:00Z",
     "EndIndex": "2018-01-02T00:00:00Z",
     "Mode": "Interpolated",
     "Interval": "00:05:00"
   }
 }
-```
-***
+``` 
 
 ## `Get Data Views`
 
@@ -168,6 +174,12 @@ Int32 skip [FromQuery] [Required] [No Default Value]
 Count:
 ```csharp
 Int32 count [FromQuery] [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -227,6 +239,12 @@ string namespaceId  [Required] [No Default Value]
 Id of dataview:
 ```csharp
 string id  [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -304,6 +322,12 @@ DataViewDefinition dataViewDefinition [FromBody] [Required] [No Default Value]
   "IndexConfig": "IndexConfig object"
 }
 ```
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
 
 ### Returns
 
@@ -385,6 +409,12 @@ DataViewDefinition dataViewDefinition [FromBody] [Required] [No Default Value]
   "IndexConfig": "IndexConfig object"
 }
 ```
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
 
 ### Returns
 
@@ -472,6 +502,12 @@ DataViewDefinition updates [FromBody] [Required] [No Default Value]
 }
 ```
 
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
+
 ### Returns
 
 #### 200
@@ -536,6 +572,12 @@ string namespaceId  [Required] [No Default Value]
 Id of dataview:
 ```csharp
 string id  [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -616,6 +658,12 @@ string form [FromQuery] [Required] [No Default Value]
 Max count of data points to retrieve:
 ```csharp
 Int32 maxcount [FromQuery] [Optional] [Default = 1000]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -701,6 +749,12 @@ Int32 count [FromQuery] [Optional] [Default = 1000]
 ```
 
 
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
+
 ### Returns
 
 #### 200
@@ -768,6 +822,12 @@ Int32 skip [FromQuery] [Required] [No Default Value]
 Count:
 ```csharp
 Int32 count [FromQuery] [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -844,6 +904,12 @@ string dataGroupId  [Required] [No Default Value]
 ```
 
 
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
+
 ### Returns
 
 #### 200
@@ -913,6 +979,12 @@ SessionIndexAndTimeout sessionConfig [FromBody] [Required] [No Default Value]
   "SessionTimeout": "String"
 }
 ```
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
 
 ### Returns
 
@@ -987,6 +1059,12 @@ string sessionId  [Required] [No Default Value]
 ```
 
 
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
+
 ### Returns
 
 #### 200
@@ -1049,6 +1127,12 @@ string id  [Required] [No Default Value]
 ```
 
 
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
+```
+
+
 ### Returns
 
 #### 200
@@ -1104,6 +1188,12 @@ string tenantId  [Required] [No Default Value]
 Id of namespace:
 ```csharp
 string namespaceId  [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
@@ -1164,6 +1254,12 @@ string id  [Required] [No Default Value]
 Id of the session:
 ```csharp
 string sessionId  [Required] [No Default Value]
+```
+
+
+Cancellation token:
+```csharp
+CancellationToken token  [Optional] [Default = ""]
 ```
 
 
