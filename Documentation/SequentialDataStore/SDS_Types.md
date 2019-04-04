@@ -323,104 +323,7 @@ For more information on interpolation of events see [Interpolation](#interpolati
 Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
 abbreviation. The names and abbreviations of Uoms are case sensitive. 
 
-The InterpolationMode and Uom of a Property can be overridden on the stream. For more information, see [Streams](xref:sdsStreams#propertyoverrides). 
-
-## Type Reusability
-An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
-
-For example, if there is a common index and value property for a group of types that may have additional properties, a base type can be created with those properties.
-
-```json
-{
-    "Id": "Simple",
-    "Name": "Simple",
-    "SdsTypeCode": 1,
-    "Properties": [
-        {
-            "Id": "Time",
-            "Name": "Time",
-            "IsKey": true,
-            "SdsType": {
-                "SdsTypeCode": 16
-            }
-        },
-        {
-            "Id": "Measurement",
-            "Name": "Measurement",
-            "SdsType": {
-                "SdsTypeCode": 14
-            }
-        }
-    ]
-}
-```
-
-If a new type should be created with properties additional to the ones above, a reference to the base type can be added by simply specifying the base type's Id.
-
-```json
-{
-    "Id": "Complex",
-    "Name": "Complex",
-    "SdsTypeCode": 1,
-	"BaseType":{
-		"Id":"Simple"
-	},
-    "Properties": [
-        {
-            "Id": "Depth",
-            "Name": "Depth",
-            "SdsType": {
-                "SdsTypeCode": 14
-            }
-        }
-    ]
-}
-```
-
-The new type may also include the full type definition of the reference type instead of specifying only the Id. For example,
-
-```json
-{
-    "Id": "Complex",
-    "Name": "Complex",
-    "SdsTypeCode": 1,
-	"BaseType":{
-		"Id": "Simple",
-		"Name": "Simple",
-		"SdsTypeCode": 1,
-		"Properties": [
-			{
-				"Id": "Time",
-				"Name": "Time",
-				"IsKey": true,
-				"SdsType": {
-					"SdsTypeCode": 16
-				}
-			},
-			{
-				"Id": "Measurement",
-				"Name": "Measurement",
-				"SdsType": {
-					"SdsTypeCode": 14
-				}
-			}
-		]
-	},
-    "Properties": [
-        {
-            "Id": "Depth",
-            "Name": "Depth",
-            "SdsType": {
-                "SdsTypeCode": 14
-            }
-        }
-    ]
-}
-```
-
-If the full body of the type is passed, the referenced types (base type "Simple" in the above example) should match the actual type initially created, unless a type update is attempted. For type update behavior, see (#Create or Update Type). If the full body of the type is sent and the referenced types did not exist, they will be created automatically. And further type creations can reference them by using their Ids as demostrated above. Note that when trying to get types back from SDS, the results will also include types that were automatically created by SDS.
-
-Base types and property types of type codes Object, Enum, user-defined collections such as, Array, List and Dictionary will be treated as referenced types. Note that streams cannot be created using these types. If a stream of particular type is to be created, the type should contain at least one property with a valid index type as described in this section, [Indexes](xref:sdsIndexes). The index property may also be in the base type.
+The InterpolationMode and Uom of a Property can be overridden on the stream. For more information, see [Streams](xref:sdsStreams#propertyoverrides).
 
 ## Supported Units of Measure
 
@@ -864,6 +767,138 @@ var derivedType = new SdsObjects.SdsType({
 });
 ```
 
+## Type Reusability
+
+An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
+
+For example, if there is a common index and value property for a group of types that may have additional properties, a base type can be created with those properties.
+
+```json
+{
+    "Id": "Simple",
+    "Name": "Simple",
+    "SdsTypeCode": 1,
+    "Properties": [
+        {
+            "Id": "Time",
+            "Name": "Time",
+            "IsKey": true,
+            "SdsType": {
+                "SdsTypeCode": 16
+            }
+        },
+        {
+            "Id": "Measurement",
+            "Name": "Measurement",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+If a new type should be created with properties additional to the ones above, a reference to the base type can be added by simply specifying the base type's Id.
+
+```json
+{
+    "Id": "Complex",
+    "Name": "Complex",
+    "SdsTypeCode": 1,
+	"BaseType":{
+		"Id":"Simple"
+	},
+    "Properties": [
+        {
+            "Id": "Depth",
+            "Name": "Depth",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+The new type may also include the full type definition of the reference type instead of specifying only the Id. For example,
+
+```json
+{
+    "Id": "Complex",
+    "Name": "Complex",
+    "SdsTypeCode": 1,
+	"BaseType":{
+		"Id": "Simple",
+		"Name": "Simple",
+		"SdsTypeCode": 1,
+		"Properties": [
+			{
+				"Id": "Time",
+				"Name": "Time",
+				"IsKey": true,
+				"SdsType": {
+					"SdsTypeCode": 16
+				}
+			},
+			{
+				"Id": "Measurement",
+				"Name": "Measurement",
+				"SdsType": {
+					"SdsTypeCode": 14
+				}
+			}
+		]
+	},
+    "Properties": [
+        {
+            "Id": "Depth",
+            "Name": "Depth",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+If the full definition is sent, the referenced types (base type "Simple" in the above example) should match the actual type initially created, unless a type update is attempted. For type update behavior, see (#create-or-update-type). If the full definition is sent and the referenced types did not exist, they will be created automatically by SDS. Further type creations can reference them as demostrated above. Note that when trying to get types back from SDS, the results will also include types that were automatically created by SDS.
+
+Base types and properties of type Object, Enum, user-defined collections such as, Array, List and Dictionary will be treated as referenced types. Note that streams cannot be created using these referenced types. If a stream of particular type is to be created, the type should contain at least one property with a valid index type as described in this section, [Indexes](xref:sdsIndexes). The index property may also be in the base type as shown in the example above.
+
+This works seamlessly when using any programming language. For example if you are using .NET,
+
+```csharp
+
+public class Basic
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+
+    public double Temperature { get; set; }
+}
+
+public class EngineMonitor : Basic
+{
+    public double PistonSpeed { get; set; }
+}
+
+public class WindShieldMonitor : Basic
+{
+    public double Luminance { get; set; }
+}
+
+SdsType engineType = SdsTypeBuilder.CreateSdsType<EngineMonitor>();
+engineType.Id = "Engine";
+engineType.BaseType.Id = "Basic";
+
+SdsType windShieldType = SdsTypeBuilder.CreateSdsType<WindShieldMonitor>();
+windShieldType.Id = "WindShield";
+windShieldType.BaseType.Id = "Basic";
+
+```
+
+Note that the base type's Id can also be changed, if necessary, to be more meaningful.
+
 # SdsType API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section 
@@ -1005,6 +1040,7 @@ the search/filter criteria. If neither parameter is specified, the list includes
 in the Namespace. See [Searching](xref:sdsSearching) 
 and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
 for information about specifying those respective parameters.
+
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
 **Request**
