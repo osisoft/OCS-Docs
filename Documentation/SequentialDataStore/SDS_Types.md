@@ -25,14 +25,17 @@ index; that is, each property of an SdsType event is related to the event’s in
 
 An SdsType is referenced by its identifier or Id field. SdsType identifiers must be unique within a Namespace.
 
+An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
+Nested types and base types are automatically created as separate types. For further information, see [Type Reusability](#Type Reusability)
+
 SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
 information about read characteristics see [Interpolation](#interpolation) and [Extrapolation](#extrapolation).
 
-SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a stream view, its form  cannot be changed. 
+SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a stream view or another type, its form  cannot be changed. 
 Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
-of the SdsType. In addition, the SdsType may be deleted only if no streams or stream views reference it.
+of the SdsType. In addition, the SdsType may be deleted only if no streams or stream views or types reference it.
 
 Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be added to the Sequential data store. 
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
@@ -321,6 +324,103 @@ Uom is the unit of measure for the Property. The Uom of a Property may be specif
 abbreviation. The names and abbreviations of Uoms are case sensitive. 
 
 The InterpolationMode and Uom of a Property can be overridden on the stream. For more information, see [Streams](xref:sdsStreams#propertyoverrides). 
+
+## Type Reusability
+An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
+
+For example, if there is a common index and value property for a group of types that may have additional properties, a base type can be created with those properties.
+
+```json
+{
+    "Id": "Simple",
+    "Name": "Simple",
+    "SdsTypeCode": 1,
+    "Properties": [
+        {
+            "Id": "Time",
+            "Name": "Time",
+            "IsKey": true,
+            "SdsType": {
+                "SdsTypeCode": 16
+            }
+        },
+        {
+            "Id": "Measurement",
+            "Name": "Measurement",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+If a new type should be created with properties additional to the ones above, a reference to the base type can be added by simply specifying the base type's Id.
+
+```json
+{
+    "Id": "Complex",
+    "Name": "Complex",
+    "SdsTypeCode": 1,
+	"BaseType":{
+		"Id":"Simple"
+	},
+    "Properties": [
+        {
+            "Id": "Depth",
+            "Name": "Depth",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+The new type may also include the full type definition of the reference type instead of specifying only the Id. For example,
+
+```json
+{
+    "Id": "Complex",
+    "Name": "Complex",
+    "SdsTypeCode": 1,
+	"BaseType":{
+		"Id": "Simple",
+		"Name": "Simple",
+		"SdsTypeCode": 1,
+		"Properties": [
+			{
+				"Id": "Time",
+				"Name": "Time",
+				"IsKey": true,
+				"SdsType": {
+					"SdsTypeCode": 16
+				}
+			},
+			{
+				"Id": "Measurement",
+				"Name": "Measurement",
+				"SdsType": {
+					"SdsTypeCode": 14
+				}
+			}
+		]
+	},
+    "Properties": [
+        {
+            "Id": "Depth",
+            "Name": "Depth",
+            "SdsType": {
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+}
+```
+
+If the full body of the type is passed, the referenced types (base type "Simple" in the above example) should match the actual type initially created, unless a type update is attempted. For type update behavior, see (#Create or Update Type). If the full body of the type is sent and the referenced types did not exist, they will be created automatically. And further type creations can reference them by using their Ids as demostrated above. Note that when trying to get types back from SDS, the results will also include types that were automatically created by SDS.
+
+Base types and property types of type codes Object, Enum, user-defined collections such as, Array, List and Dictionary will be treated as referenced types. Note that streams cannot be created using these types. If a stream of particular type is to be created, the type should contain at least one property with a valid index type as described in this section, [Indexes](xref:sdsIndexes). The index property may also be in the base type.
 
 ## Supported Units of Measure
 
@@ -866,7 +966,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns the number of references by streams and stream views to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views.
+Returns the number of references by streams, stream views and other types to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#Type Reusability)
 
 **Request**
 
@@ -905,6 +1005,7 @@ the search/filter criteria. If neither parameter is specified, the list includes
 in the Namespace. See [Searching](xref:sdsSearching) 
 and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
 for information about specifying those respective parameters.
+Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#Type Reusability)
 
 **Request**
 
@@ -1012,10 +1113,14 @@ Content-Type: application/json
 
 ## `Get or Create Type`
 
-Creates the specified type. If a type with a matching identifier already exists, The Data Store compares the 
-existing type with the type that was sent. If the types are identical, a ``Found`` (302) error 
+Creates the specified type. If a type with a matching identifier already exists, SDS compares the 
+existing type with the type that was sent.
+
+If the types are identical, a ``Found`` (302) error 
 is returned with the Location header set to the URI where the type may be retrieved using a Get function. 
+
 If the types do not match, a ``Conflict`` (409) error is returned.
+Note that a ``Conflict`` (409) error will also be returned if the type contains reference to any existing type, but the referenced type definition in the body does not match the existing type. You may reference an existing type without including the reference type definition in the body by using only the Ids. For further details about type referencing please see: [Type Reusability](#Type Reusability).
 
 For a matching type (``Found``), clients that are capable of performing a redirect that includes the 
 authorization header can automatically redirect to retrieve the type. However, most clients, 
@@ -1024,7 +1129,6 @@ including the .NET HttpClient, consider redirecting with the authorization token
 When a client performs a redirect and strips the authorization header, SDS cannot authorize the request and 
 returns ``Unauthorized`` (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.
-
 
 **Request**
 
@@ -1254,8 +1358,10 @@ The .NET SDS Client Libraries manage redirects.
 
 Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.
 
-Note that a type cannot be updated if any streams or stream views are 
-associated with it. Also, certain parameters, including the type id, cannot be changed after 
+Note that a type cannot be updated if any streams or stream views or other types are 
+associated with it. This will also be true for any reference types that it includes. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+
+Also, certain parameters, including the type id, cannot be changed after 
 they are defined.
 
 **Request**
@@ -1288,7 +1394,7 @@ The content is set to true on success.
 
 ## `Delete Type`
 
-Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views reference it.
+Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views or other types reference it.
 
 **Request**
 
@@ -1407,6 +1513,8 @@ The ACL for the specified type
 
 Update the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
+Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+
 **Request**
 
         PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
@@ -1468,6 +1576,8 @@ The Owner for the specified type
 ## `Update Type Owner`
 
 Update the Owner of the specified type. For more information on Owners, see [Access Control](xref:accesscontrol).
+
+Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#Type Reusability).
 
 **Request**
 
