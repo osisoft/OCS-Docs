@@ -1,0 +1,1198 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>API calls for reading data </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="API calls for reading data ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsReadingDataApi">
+<h1 id="api-calls-for-reading-data">API calls for reading data</h1>
+
+<p>Reading and writing data with the Qi Client Libraries is performed through the <code>IQiDataService</code> interface, which can be accessed with the <code>QiService.GetDataService( )</code> helper.</p>
+<h2 id="get-value"><code>Get Value</code></h2>
+<p>Returns the value at the specified index. If no stored event exists at the specified index, the stream’s 
+read characteristics determines how the returned event is calculated.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetValue
+        ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The index
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event.
+  Consider a stream of type Simple with the default InterpolationMode of Continuous and 
+  ExtrapolationMode of All. In the following request, the specified index matches an existing stored event:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+     ?index=2017-11-23T13:00:00Z
+</code></pre><p>The response will contain the event stored at the specified index:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+     &quot;Measurement&quot;:10.0
+  }
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>The following request specifies an index for which no stored event exists:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValue 
+      ?index=2017-11-23T13:30:00Z
+</code></pre><p>Because the index is a valid type for interpolation and the stream type specifies a mode of interpolate, 
+this request receives a response with an event interpolated at the specified index:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T13:30:00Z&quot;,
+     &quot;Measurement&quot;:15.0
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetValueAsync&lt;T&gt;(string streamId, string index, 
+  string viewId = null);
+  Task&lt;T&gt; GetValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
+  string viewId = null);
+  Task&lt;T&gt; GetValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
+  string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-first-value"><code>Get First Value</code></h2>
+<p>Returns the first value in the stream. If no values exist in the stream, null is returned.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+        ?viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetFirstValueAsync&lt;T&gt;(string streamId, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-last-value"><code>Get Last Value</code></h2>
+<p>Returns the last value in the stream. If no values exist in the stream, null is returned.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+        ?viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetLastValueAsync&lt;T&gt;(string streamId, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-distinct-value"><code>Get Distinct Value</code></h2>
+<p>Returns the value at the specified index. If no value exists at the specified index, 
+Get Distinct Value returns HTTP Status Code Not Found, 404.  The stream’s read characteristics 
+do not affect Get Distinct Value.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue
+        ?index={index}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The index
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event.</p>
+<p>  For a stream of type Simple, when making a Get Distinct Value request at an existing stored index: </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+    GetDistinctValue?index=2017-11-23T13:00:00Z 
+</code></pre><p>The event at that index is returned in the response:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+     &quot;Measurement&quot;:10.0
+  }
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>For a request at an index for which no stored event exists:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+    GetDistinctValue?index=2017-11-23T13:30:00Z
+</code></pre><p>No distinct value is found at the specified index, and an error response is returned:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 404
+  Content-Type: application/json
+
+  {  
+     &quot;Message&quot;:&quot;Resource not found&quot; 
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; GetDistinctValueAsync&lt;T&gt;(string streamId, string index, 
+    string viewId = null);
+  Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
+    string viewId = null);
+  Task&lt;T&gt; GetDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
+    string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="find-distinct-value"><code>Find Distinct Value</code></h2>
+<p>Returns a stored event found based on the specified QiSearchMode and index. </p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue
+        ?index={index}&amp;mode={mode}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The index
+<code>string mode</code>
+  The QiSearchMode
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized event.</p>
+<p>For a stream of type Simple the following request, </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      FindDistinctValue?index=2017-11-23T13:00:00Z&amp;mode=Next
+</code></pre><p>The request has an index that matches the index of an existing event, but because<br>a QiSearchMode of <code>next</code> was specified, the response contains the next event in the stream after the 
+specified index:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  Formatted JSON Data
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+     &quot;Measurement&quot;:20.0
+  }
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>For the following request,</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+    FindDistinctValue?index=2017-11-23T13:30:00Z&amp;mode=Next
+</code></pre><p>The request specifies an index that does not match an index of an existing event. 
+The next event in the stream is retrieved.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  Formatted JSON Data
+  {  
+     &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+     &quot;Measurement&quot;:20.0
+  }
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;T&gt; FindDistinctValueAsync&lt;T&gt;(string streamId, string index, 
+          QiSearchMode mode, string viewId = null);
+  Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1&gt;(string streamId, Tuple&lt;T1&gt; index, 
+          QiSearchMode mode, string viewId = null);
+  Task&lt;T&gt; FindDistinctValueAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; index, 
+          QiSearchMode mode, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-values"><code>Get Values</code></h2>
+<p>Returns a collection of values at indexes based on request parameters. </p>
+<p>As with the single event call to Get Value, the stream’s read characteristics determine how events 
+are calculated for indexes at which no stored event exists.</p>
+<p>Get Values supports three ways of specifying which events to return. </p>
+<ul>
+<li>A range can be specified with a start index, end index, and count. This will return the specified 
+count of events evenly spaced from start index to end index.</li>
+<li>Multiple indexes can be passed to the request in order to retrieve events at exactly those indexes.</li>
+<li>A filtered request accepts a <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a> that limits results by applying an expression against 
+event fields. Filter expressions are explained in detail in the <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a> section.</li>
+</ul>
+<p><strong>Request (Ranged)</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+      GetValues?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  The index defining the beginning of the range
+<code>string endIndex</code>
+  The index defining the end of the range<br><code>int count</code>
+  The number of events to return. Read characteristics of the stream determine how the form of the event.
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of events.</p>
+<p>  For a stream of type Simple, the following request, </p>
+<pre><code>  api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      ?startIndex=2017-11-23T13:00:00Z&amp;endIndex=2017-11-23T15:00:00Z&amp;count=3
+</code></pre><p>For this request, the start and end fall exactly on event indexes and the number of events 
+from start to end match the count of three (3).</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:30.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+       string endIndex, int count, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+       T1 endIndex, int count, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;string streamId, Tuple&lt;T1, T2&gt; startIndex, 
+       Tuple&lt;T1, T2&gt; endIndex, int count, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<p><strong>Request (Index collection)</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+       GetValues?index={index}[&amp;index={index} …]&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  One or more indexes of values to retrieve
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of events.</p>
+<p>  For a stream of type Simple, the following request, </p>
+<pre><code>  api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      ?index=2017-11-23T12:30:00Z&amp;index=2017-11-23T13:00:00Z&amp;index=2017-11-23T14:00:00Z
+</code></pre><p>For this request, the response contains events for each of the three specified indexes.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T12:30:00Z&quot;,
+        &quot;Measurement&quot;:5.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T&gt;(string streamId, IEnumerable&lt;string&gt; index, 
+       string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1&gt;(string streamId, IEnumerable&lt;T1&gt; index,
+       string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+       IEnumerable&lt;Tuple&lt; T1, T2&gt;&gt; index, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<p><strong>Request (Filtered)</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+       GetValues?filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string filter</code>
+  The filter expression (see <a class="xref" href="Filter_Expressions.html#qifilterexpressionstopic">Qi_Filter_expressions_topic</a>) <code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of events.</p>
+<p>  For a stream of type Simple, the following request, </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/GetValues 
+      ?filter=Measurement gt 10
+</code></pre><p>The events in the stream whose Measurement is less than or equal to 10 are not returned.</p>
+<p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:30.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:40.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetFilteredValuesAsync&lt;T&gt;(string streamId, string filter, 
+      string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-range-values"><code>Get Range Values</code></h2>
+<p>Returns a collection of values as determined by a start index and count. </p>
+<p>Additional optional parameters specify the direction of the range, how to handle events near or 
+at the start index, whether to skip a certain number of events at the start of the range, and 
+how to filter the data.</p>
+<p><strong>Request</strong></p>
+<pre><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetRangeValues 
+        ?startIndex={startIndex}&amp;count={count}&amp;skip={skip}&amp;reversed={reversed} 
+        &amp;boundaryType={boundaryType}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  Index identifying the beginning of the series of events to return
+<code>int count</code>
+  The number of events to return
+<code>int skip</code>
+  Optional value specifying the number of events to skip at the beginning of the result
+<code>bool reversed</code>
+  Optional specification of the direction of the request. By default, range requests move forward 
+  from startIndex, collecting events after startIndex from the stream. A reversed request will 
+  collect events before startIndex from the stream.
+<code>QiBoundaryType boundaryType</code>
+  Optional QiBoundaryType specifies the handling of events at or near startIndex
+<code>string filter</code>
+  Optional filter expression
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of events.</p>
+<p>  For a stream of type Simple, the following request will return a response with up to 100 events starting 
+  at 13:00 and extending forward toward the end of the stream: </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetRangeValues?startIndex=2017-11-23T13:00:00Z&amp;count=100
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:30.0
+     },
+     {  
+       &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:40.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>To reverse the direction of the request, set reversed to true. This request will 
+return up to 100 events starting at 13:00 and extending back toward the start of the stream:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetRangeValues?startIndex=2017-11-23T13:00:00Z&amp;count=100&amp;reversed=true
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value. 
+Further, Measurement is not include in the second, 12:00:00, event as zero is the default value for numbers.</p>
+<p>The following request specifies a boundary type of Outside for a reversed-direction range request. 
+The response will contain up to 100 events. The boundary type Outside indicates that up to one 
+event outside the boundary will be included in the response. For a reverse direction range request, 
+this means one event forward of the specified start index. In a default direction range request, 
+it would mean one event before the specified start index.</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetRangeValues?startIndex=2017-11-23T13:00:00Z&amp;count=100&amp;reversed=true 
+      &amp;boundaryType=2
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;
+     }
+  ] 
+</code></pre><p>The event outside of the index is the next event or the event at 14:00 because the 
+request operates in reverse.</p>
+<p>Note that State is not included in the JSON as its value is the default value. Further 
+Measurement is not included in the last event as its value is default.</p>
+<p>Adding a filter to the request means only events that meet the filter criteria are returned:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetRangeValues?startIndex=2017-11-23T13:00:00Z&amp;count=100&amp;reversed=true 
+      &amp;boundaryType=2&amp;filter=Measurement gt 10
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+  ] 
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      int count, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      int count, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+      startIndex, int count, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      int count, bool reversed, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      int count, bool reversed, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, int count, bool reversed, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      int count, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      int count, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, int count, QiBoundaryType boundaryType, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      int skip, int count, bool reversed, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      int skip, int count, bool reversed, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeValuesAsync&lt;T, T1, T2&gt;(string streamId, Tuple&lt;T1, T2&gt; 
+      startIndex, int skip, int count, bool reversed, QiBoundaryType 
+      boundaryType, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      int skip, int count, bool reversed, QiBoundaryType boundaryType, string filter, 
+      string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      int skip, int count, bool reversed, QiBoundaryType boundaryType, string filter, 
+      string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetRangeFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, int skip, int count, bool reversed, QiBoundaryType boundaryType, 
+      string filter, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-window-values"><code>Get Window Values</code></h2>
+<p>Get Window Values returns a collection of stored events based on specified start and end indexes. 
+For handling events at and near the boundaries of the window, a single QiBoundaryType that applies 
+to both the start and end indexes can be passed with the request, or separate boundary types may 
+be passed for the start and end individually. </p>
+<p>Get Window Values also supports paging for large result sets. Results for paged requests are returned 
+as a QiResultPage.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Results</td>
+<td>IList</td>
+<td>Collection of events of type T</td>
+</tr>
+<tr>
+<td>ContinuationToken</td>
+<td>String</td>
+<td>The token used to retrieve the next page of data</td>
+</tr>
+</tbody>
+</table>
+<p>To retrieve the next page of values, include the ContinuationToken from the results of the previous request. 
+For the first request, specify a null or empty string for the ContinuationToken.</p>
+<p><strong>Request</strong></p>
+<pre><code>  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;boundaryType={boundaryType} 
+      &amp;filter={filter}&amp;count={count}&amp;viewId={viewId}
+
+  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;startBoundaryType={startBoundaryType} 
+      &amp;endIndex={endIndex}&amp;endBoundaryType={endBoundaryType}&amp;filter={filter}&amp;count={count} 
+      &amp;viewId={viewId}
+
+  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;boundaryType={boundaryType} 
+      &amp;filter={filter}&amp;count={count}&amp;continuationToken={continuationToken}&amp;viewId={viewId}
+
+  GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetWindowValues 
+      ?startIndex={startIndex}&amp;startBoundaryType={startBoundaryType} 
+      &amp;endIndex={endIndex}&amp;endBoundaryType={endBoundaryType}&amp;filter={filter}&amp;count={count} 
+      &amp;continuationToken={continuationToken}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  Index bounding the beginning of the series of events to return
+<code>string endIndex</code>
+  Index bounding the end of the series of events to return
+<code>int count</code>
+  Optional maximum number of events to return
+<code>QiBoundaryType boundaryType</code>
+  Optional QiBoundaryType specifies handling of events at or near the start and end indexes
+<code>QiBoundaryType startBoundaryType</code>
+  Optional QiBoundaryType specifies the first value in the result in relation to the start index
+<code>QiBoundaryType endBoundaryType</code>
+  Optional QiBoundaryType specifies the last value in the result in relation to the end index
+<code>string filter</code>
+  Optional filter expression
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of events.</p>
+<p>  For a stream of type Simple, the following requests all stored events between 13:30 and 15:30: </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;endIndex=2017-11-23T15:30:00Z
+</code></pre><p>The response will contain the event stored at the specified index:</p>
+<p><strong>Response body</strong></p>
+<pre><code>  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:30.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>When the request is modified to specify a boundary type of Outside, the value 
+before 13:30 and the value after 15:30 are included:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;endIndex=2017-11-23T15:30:00Z 
+      &amp;boundaryType=2
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+       &quot;Measurement&quot;:30.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:40.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value. 
+Further, Measurement is not include in the second, 12:00:00, event as zero is the default 
+value for numbers.</p>
+<p>If instead a start boundary of Inside, only values inside the start boundary (after 13:30) 
+are included in the result. With an end boundary of Outside one value outside the end index 
+(after 15:30) is included:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;&amp;startBoundaryType=1 
+      &amp;endIndex=2017-11-23T15:30:00Z&amp;endBoundaryType=2
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+        &quot;Measurement&quot;:10.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+        &quot;Measurement&quot;:20.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+        &quot;Measurement&quot;:30.0
+     },
+     {  
+        &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+        &quot;Measurement&quot;:40.0
+     }
+  ] 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>In order to page the results of the request, a continuation token may be specified. 
+This requests the first page of the first two stored events between start index and 
+end index by indicating count is 2 and continuationToken is an empty string:</p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;endIndex=2017-11-23T15:30:00Z 
+      &amp;count=2&amp;continuationToken=
+</code></pre><p><em>Response body</em>*</p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Results&quot;:[  
+        {  
+           &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+           &quot;Measurement&quot;:10.0
+        },
+        {  
+           &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+           &quot;Measurement&quot;:20.0
+        }
+     ],
+     &quot;ContinuationToken&quot;:&quot;2017-11-23T14:00:00.0000000Z&quot;
+  } 
+</code></pre><p>Note that State is not included in the JSON as its value is the default value.</p>
+<p>This Get Window Values request uses the continuation token from the previous 
+page to request the next page of stored events:</p>
+<pre><code>  api/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+      GetWindowValues?startIndex=2017-11-23T12:30:00Z&amp;endIndex=2017-11-23T15:30:00Z 
+      &amp;count=2&amp;continuationToken=2017-11-23T14:00:00Z
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Results&quot;:[  
+        {  
+           &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+           &quot;Measurement&quot;:30.0
+        }
+     ]
+  } 
+</code></pre><p>In this case, the results contain the final event. The returned continuation token is null 
+(not shown because it null is the default value for a JSON string). </p>
+<p>Note that State is not included in the JSON as its value is the default value.</p>
+<p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      string endIndex, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex,
+      T1 endIndex, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, T
+      uple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex, 
+      string endIndex, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      T1 endIndex, QiBoundaryType boundaryType, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+  QiBoundaryType boundaryType, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+      string startIndex, string endIndex, QiBoundaryType boundaryType, 
+      string filter, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+      T1 startIndex, T1 endIndex, QiBoundaryType boundaryType, string filter, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+      QiBoundaryType boundaryType, string filter, string viewId = null);
+
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+      string startIndex, QiBoundaryType startBoundaryType, string endIndex, 
+      QiBoundaryType endBoundaryType, string filter, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId,
+      T1 startIndex, QiBoundaryType startBoundaryType, 
+      T1 endIndex, QiBoundaryType endBoundaryType, 
+      string filter, string viewId = null);
+  Task&lt;IEnumerable&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
+      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
+      string filter, string viewId = null);
+
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, string startIndex,
+      string endIndex, QiBoundaryType boundaryType, int count, 
+      string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, T1 startIndex, 
+      T1 endIndex, QiBoundaryType boundaryType, int count, 
+      string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+      QiBoundaryType boundaryType, int count, string continuationToken, 
+      string viewId = null);
+
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+      string startIndex, string endIndex, QiBoundaryType boundaryType, 
+      string filter, int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+      T1 startIndex, T1 endIndex, QiBoundaryType boundaryType, string filter, 
+      int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, 
+      QiBoundaryType boundaryType, string filter, int count, 
+      string continuationToken, string viewId = null);
+
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T&gt;(string streamId, 
+      string startIndex, QiBoundaryType startBoundaryType, 
+      string endIndex, QiBoundaryType endBoundaryType, 
+      int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1&gt;(string streamId, 
+      T1 startIndex, QiBoundaryType startBoundaryType, 
+      T1 endIndex, QiBoundaryType endBoundaryType, 
+      int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
+      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
+      int count, string continuationToken, string viewId = null);
+
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T&gt;(string streamId, 
+      string startIndex, QiBoundaryType startBoundaryType, 
+      string endIndex, QiBoundaryType endBoundaryType, 
+      string filter, int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1&gt;(string streamId, 
+      T1 startIndex, QiBoundaryType startBoundaryType, 
+      T1 endIndex, QiBoundaryType endBoundaryType, 
+      string filter, int count, string continuationToken, string viewId = null);
+  Task&lt;QiResultPage&lt;T&gt;&gt; GetWindowFilteredValuesAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, QiBoundaryType startBoundaryType, 
+      Tuple&lt;T1, T2&gt; endIndex, QiBoundaryType endBoundaryType, 
+      string filter, int count, string continuationToken, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-intervals"><code>Get Intervals</code></h2>
+<p>Returns summary intervals between a specified start and end index. </p>
+<p>Index types that cannot be interpolated do not 
+support GetIntervals requests. Strings are an example of indexes that cannot be interpolated. The 
+Get Intervals method does not support compound indexes. Interpolating between two indexes 
+that consist of multiple properties is not defined and results in non-determinant behavior.</p>
+<p>Results are returned as a collection of QiIntervals. Each QiInterval has a start, end, and collection of 
+summary values.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td>T</td>
+<td>The start of the interval</td>
+</tr>
+<tr>
+<td>End</td>
+<td>T</td>
+<td>The end of the interval</td>
+</tr>
+<tr>
+<td>Summaries</td>
+<td>IDictionary&lt;QiSummaryType,</td>
+<td>The summary values for the interval, keyed by</td>
+</tr>
+<tr>
+<td></td>
+<td>IDictionary&lt;string, object&gt;</td>
+<td>summary type. The nested dictionary contains</td>
+</tr>
+<tr>
+<td></td>
+<td>Summaries</td>
+<td>property name keys and summary calculation result</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>values.</td>
+</tr>
+</tbody>
+</table>
+<p>Summary values supported by QiSummaryType enum:</p>
+<table>
+<thead>
+<tr>
+<th>Summary</th>
+<th>Enumeration value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Count</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Minimum</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Maximum</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Range</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td>16</td>
+</tr>
+<tr>
+<td>StandardDeviation</td>
+<td>64</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>128</td>
+</tr>
+<tr>
+<td>Skewness</td>
+<td>256</td>
+</tr>
+<tr>
+<td>Kurtosis</td>
+<td>512</td>
+</tr>
+<tr>
+<td>WeightedMean</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>WeightedStandardDeviation</td>
+<td>2048</td>
+</tr>
+<tr>
+<td>WeightedPopulationStandardDeviatio</td>
+<td>4096</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request</strong></p>
+<pre><code>   GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/GetIntervals
+       ?startIndex={startIndex}&amp;endIndex={endIndex}&amp;count={count}&amp;filter={filter}&amp;viewId={viewId}
+</code></pre><p><strong>Parameters</strong></p>
+<p><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  The start index for the intervals
+<code>string endIndex</code>
+  The end index for the intervals
+<code>int count</code>
+  The number of intervals requested
+<code>string filter</code>
+  Optional filter expression
+<code>string viewId</code>
+  Optional view identifier</p>
+<p><strong>Response</strong></p>
+<p>  The response includes a status code and a response body containing a serialized collection of QiIntervals.</p>
+<p>For a stream of type Simple, the following requests calculates two summary intervals between the first 
+and last events: </p>
+<pre><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+    GetIntervals?startIndex=2017-11-23T12:00:00Z&amp;endIndex=2017-11-23T16:00:00Z&amp;count=2
+</code></pre><p><strong>Response body</strong></p>
+<pre><code>  [{
+      &quot;Start&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T20:00:00Z&quot;
+      },
+      &quot;End&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T22:00:00Z&quot;,
+         &quot;Measurement&quot;:20.0
+      },
+      &quot;Summaries&quot;:{  
+         &quot;Count&quot;:{  
+            &quot;Measurement&quot;:2
+         },
+         &quot;Minimum&quot;:{  
+            &quot;Measurement&quot;:0.0
+         },
+         &quot;Maximum&quot;:{  
+            &quot;Measurement&quot;:20.0
+         },
+         &quot;Range&quot;:{  
+            &quot;Measurement&quot;:20.0
+         },
+         &quot;Total&quot;:{  
+            &quot;Measurement&quot;:20.0
+         },
+         &quot;Mean&quot;:{  
+            &quot;Measurement&quot;:10.0
+         },
+         &quot;StandardDeviation&quot;:{  
+            &quot;Measurement&quot;:7.0710678118654755
+         },
+         &quot;PopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:5.0
+         },
+         &quot;WeightedMean&quot;:{  
+            &quot;Measurement&quot;:10.0
+         },
+         &quot;WeightedStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:7.0710678118654755
+         },
+         &quot;WeightedPopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:5.0
+         },
+         &quot;Skewness&quot;:{  
+            &quot;Measurement&quot;:0.0
+         },
+         &quot;Kurtosis&quot;:{  
+            &quot;Measurement&quot;:-2.0
+         }
+      }
+   },
+   {  
+      &quot;Start&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-24T22:00:00Z&quot;,
+         &quot;Measurement&quot;:20.0
+      },
+      &quot;End&quot;:{  
+         &quot;Time&quot;:&quot;2017-11-25T00:00:00Z&quot;,
+         &quot;Measurement&quot;:40.0
+      },
+      &quot;Summaries&quot;:{  
+         &quot;Count&quot;:{  
+            &quot;Measurement&quot;:2
+         },
+         &quot;Minimum&quot;:{  
+            &quot;Measurement&quot;:20.0
+         },
+         &quot;Maximum&quot;:{  
+            &quot;Measurement&quot;:40.0
+         },
+         &quot;Range&quot;:{  
+            &quot;Measurement&quot;:20.0
+         },
+         &quot;Total&quot;:{  
+            &quot;Measurement&quot;:60.0
+         },
+         &quot;Mean&quot;:{  
+            &quot;Measurement&quot;:30.0
+         },
+         &quot;StandardDeviation&quot;:{  
+            &quot;Measurement&quot;:7.0710678118654755
+         },
+         &quot;PopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:5.0
+         },
+         &quot;WeightedMean&quot;:{  
+            &quot;Measurement&quot;:30.0
+         },
+         &quot;WeightedStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:7.0710678118654755
+         },
+         &quot;WeightedPopulationStandardDeviation&quot;:{  
+            &quot;Measurement&quot;:5.0
+         },
+         &quot;Skewness&quot;:{  
+            &quot;Measurement&quot;:0.0
+         },
+         &quot;Kurtosis&quot;:{  
+            &quot;Measurement&quot;:-2.0
+         }
+      }
+  }]
+</code></pre><p><strong>.NET Library</strong></p>
+<pre><code>  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T&gt;(string streamId, string 
+      startIndex, string endIndex, int count, string viewId = null);
+
+  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1&gt;(string streamId, T1 
+      startIndex, T1 endIndex, int count, string viewId = null);
+
+  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetIntervalsAsync&lt;T, T1, T2&gt;(string streamId, 
+      Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
+      string viewId = null);
+
+  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T&gt;(string streamId, 
+      string startIndex, string endIndex, int count, string filter, 
+      string viewId = null);
+
+  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1&gt;(string streamId, 
+      T1 startIndex, T1 endIndex, int count, string filter, 
+      string viewId = null);
+
+  Task&lt;IEnumerable&lt;QiInterval&lt;T&gt;&gt;&gt; GetFilteredIntervalsAsync&lt;T, T1, T2&gt;(string 
+      streamId, Tuple&lt;T1, T2&gt; startIndex, Tuple&lt;T1, T2&gt; endIndex, int count, 
+      string filter, string viewId = null);
+</code></pre><p><strong>Security</strong></p>
+<p>  Allowed for administrator and user accounts</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/Reading_Data_API.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

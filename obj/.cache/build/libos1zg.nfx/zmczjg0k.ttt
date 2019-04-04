@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Types </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Types ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsTypes">
+<h1 id="types" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="5" sourceendlinenumber="6">Types</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="8" sourceendlinenumber="10">The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
+events. Events are stored in streams, called SdsStreams. An SdsType defines the shape or structure of the 
+event and how to associate events within the SdsStream.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="15" sourceendlinenumber="17">SdsTypes can define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
+they can define complex types using SdsTypes. You can define complex, nested types using the Properties 
+collection of an SdsType. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="19" sourceendlinenumber="23">An SdsType used to define an SdsStream must have a Key. A Key is a Property, or a combination of Properties 
+that constitute an ordered, unique identity. The Key is ordered, so it functions as an index; it is 
+known as the Primary Index. While a timestamp (DateTime) is a very common type of Key, any type that 
+can be ordered is permitted. Other indexes (secondary indexes), are defined in the SdsStream. 
+Indexes are discussed in greater detail here: <a class="xref" href="indexes.html" data-raw-source="[Indexes](xref:sdsIndexes)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="23" sourceendlinenumber="23">Indexes</a></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="25" sourceendlinenumber="27">When defining a type, consider how the events will be represented in a stream. The SdsType defines 
+each event in the stream. An event is a single unit whose properties have values that relate to the 
+index; that is, each property of an SdsType event is related to the event’s index. Each event is a single unit.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="29" sourceendlinenumber="29">An SdsType is referenced by its identifier or Id field. SdsType identifiers must be unique within a Namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="31" sourceendlinenumber="34">SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
+characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
+existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
+information about read characteristics see  Interpolation_ and Extrapolation_.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="36" sourceendlinenumber="38">SdsTypes are mostly immutable. When an SdsType is referenced by a stream or a view, its form  cannot be changed. 
+Certain fields, such as the friendly name or description, can be changed because they do not affect the function 
+of the SdsType. In addition, the SdsType may be deleted only if no streams or views reference it.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="40" sourceendlinenumber="42">Only SdsTypes used to define SdsStreams or SdsViews are required to be added to the Sequential data store. 
+SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
+to be added to the Data Store independently.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="44" sourceendlinenumber="44">The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="47" sourceendlinenumber="55">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier for referencing the type</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Optional</td>
+<td>Friendly name</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>String</td>
+<td>Optional</td>
+<td>Description text</td>
+</tr>
+<tr>
+<td>SdsTypeCode</td>
+<td>SdsTypeCode</td>
+<td>Required</td>
+<td>Numeric code identifying the base SdsType</td>
+</tr>
+<tr>
+<td>InterpolationMode</td>
+<td>SdsInterpolationMode</td>
+<td>Optional</td>
+<td>Interpolation setting of the type. Default is Continuous.</td>
+</tr>
+<tr>
+<td>ExtrapolationMode</td>
+<td>SdsExtrapolationMode</td>
+<td>Optional</td>
+<td>Extrapolation setting of the type. Default is All.</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>IList<sdstypeproperty></sdstypeproperty></td>
+<td>Required</td>
+<td>List of SdsTypeProperty items</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="61" sourceendlinenumber="61"><strong>Rules for typeId</strong></p>
+<ol sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="63" sourceendlinenumber="70">
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="63" sourceendlinenumber="63">Is not case sensitive</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="64" sourceendlinenumber="64">Can contain spaces</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="65" sourceendlinenumber="65">Cannot begin with two underscores (&quot;__&quot;)</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="66" sourceendlinenumber="66">Cannot contain forward slash or backslash characters (&quot;/&quot; or &quot;\&quot;)</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="67" sourceendlinenumber="67">Can contain a maximum of 260 characters</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="68" sourceendlinenumber="68">Cannot start or end with a period.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="69" sourceendlinenumber="69">Cannot contain consecutive periods.</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="70" sourceendlinenumber="70">Cannot consist of only periods.</li>
+</ol>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="72" sourceendlinenumber="73">SdsType management using the .NET SDS Client Libraries is performed through the <code>ISdsMetadataService</code>. 
+You can create the <code>ISdsMetadataService</code> using one of the <code>SdsService.GetMetadataService()</code> factory methods.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="75" sourceendlinenumber="76">The .NET libraries provide SdsTypeBuilder to help build SdsTypes from .NET types. SdsTypeBuilder is 
+discussed in greater detail below.</p>
+<h2 id="sdstypecode" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="79" sourceendlinenumber="80">SdsTypeCode</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="82" sourceendlinenumber="83">The SdsTypeCode is a numeric identifier used by the Data Store to identify SdsTypes. A SdsTypeCode exists for 
+every supported type.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="85" sourceendlinenumber="86">Atomic types, such as strings, floats and arrays, are defined entirely by the SdsTypeCode. Atomic 
+types do not need fields to define the type.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="88" sourceendlinenumber="89">Types requiring additional definition, such as enums and objects, are identified using a generic 
+SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus additional SdsProperty fields.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="92" sourceendlinenumber="92"><strong>Supported Types</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="95" sourceendlinenumber="95">The following types are supported and defined by the SdsTypeCode:</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="98" sourceendlinenumber="189">
+<thead>
+<tr>
+<th>Type</th>
+<th>SdsTypeCode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array</td>
+<td>400</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>3</td>
+</tr>
+<tr>
+<td>BooleanArray</td>
+<td>203</td>
+</tr>
+<tr>
+<td>Byte</td>
+<td>6</td>
+</tr>
+<tr>
+<td>ByteArray</td>
+<td>206</td>
+</tr>
+<tr>
+<td>ByteEnum</td>
+<td>606</td>
+</tr>
+<tr>
+<td>Char</td>
+<td>4</td>
+</tr>
+<tr>
+<td>CharArray</td>
+<td>204</td>
+</tr>
+<tr>
+<td>DateTime</td>
+<td>16</td>
+</tr>
+<tr>
+<td>DateTimeArray</td>
+<td>216</td>
+</tr>
+<tr>
+<td>DateTimeOffset</td>
+<td>20</td>
+</tr>
+<tr>
+<td>DateTimeOffsetArray</td>
+<td>220</td>
+</tr>
+<tr>
+<td>DBNull</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Decimal</td>
+<td>15</td>
+</tr>
+<tr>
+<td>DecimalArray</td>
+<td>215</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>14</td>
+</tr>
+<tr>
+<td>DoubleArray</td>
+<td>214</td>
+</tr>
+<tr>
+<td>Empty</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Guid</td>
+<td>19</td>
+</tr>
+<tr>
+<td>GuidArray</td>
+<td>219</td>
+</tr>
+<tr>
+<td>IDictionary</td>
+<td>402</td>
+</tr>
+<tr>
+<td>IEnumerable</td>
+<td>403</td>
+</tr>
+<tr>
+<td>IList</td>
+<td>401</td>
+</tr>
+<tr>
+<td>Int16</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Int16Array</td>
+<td>207</td>
+</tr>
+<tr>
+<td>Int16Enum</td>
+<td>607</td>
+</tr>
+<tr>
+<td>Int32</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Int32Array</td>
+<td>209</td>
+</tr>
+<tr>
+<td>Int32Enum</td>
+<td>609</td>
+</tr>
+<tr>
+<td>Int64</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Int64Array</td>
+<td>211</td>
+</tr>
+<tr>
+<td>Int64Enum</td>
+<td>611</td>
+</tr>
+<tr>
+<td>NullableBoolean</td>
+<td>103</td>
+</tr>
+<tr>
+<td>NullableByte</td>
+<td>106</td>
+</tr>
+<tr>
+<td>NullableByteEnum</td>
+<td>706</td>
+</tr>
+<tr>
+<td>NullableChar</td>
+<td>104</td>
+</tr>
+<tr>
+<td>NullableDateTime</td>
+<td>116</td>
+</tr>
+<tr>
+<td>NullableDateTimeOffset</td>
+<td>120</td>
+</tr>
+<tr>
+<td>NullableDecimal</td>
+<td>115</td>
+</tr>
+<tr>
+<td>NullableDouble</td>
+<td>114</td>
+</tr>
+<tr>
+<td>NullableGuid</td>
+<td>119</td>
+</tr>
+<tr>
+<td>NullableInt16</td>
+<td>107</td>
+</tr>
+<tr>
+<td>NullableInt16Enum</td>
+<td>707</td>
+</tr>
+<tr>
+<td>NullableInt32</td>
+<td>109</td>
+</tr>
+<tr>
+<td>NullableInt32Enum</td>
+<td>709</td>
+</tr>
+<tr>
+<td>NullableInt64</td>
+<td>111</td>
+</tr>
+<tr>
+<td>NullableInt64Enum</td>
+<td>711</td>
+</tr>
+<tr>
+<td>NullableSByte</td>
+<td>105</td>
+</tr>
+<tr>
+<td>NullableSByteEnum</td>
+<td>705</td>
+</tr>
+<tr>
+<td>NullableSingle</td>
+<td>113</td>
+</tr>
+<tr>
+<td>NullableTimeSpan</td>
+<td>121</td>
+</tr>
+<tr>
+<td>NullableUInt16</td>
+<td>108</td>
+</tr>
+<tr>
+<td>NullableUInt16Enum</td>
+<td>708</td>
+</tr>
+<tr>
+<td>NullableUInt32</td>
+<td>110</td>
+</tr>
+<tr>
+<td>NullableUInt32Enum</td>
+<td>710</td>
+</tr>
+<tr>
+<td>NullableUInt64</td>
+<td>112</td>
+</tr>
+<tr>
+<td>NullableUInt64Enum</td>
+<td>712</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>1</td>
+</tr>
+<tr>
+<td>SdsColumn</td>
+<td>510</td>
+</tr>
+<tr>
+<td>SdsObject</td>
+<td>512</td>
+</tr>
+<tr>
+<td>SdsStream</td>
+<td>507</td>
+</tr>
+<tr>
+<td>SdsStreamIndex</td>
+<td>508</td>
+</tr>
+<tr>
+<td>SdsTable</td>
+<td>509</td>
+</tr>
+<tr>
+<td>SdsType</td>
+<td>501</td>
+</tr>
+<tr>
+<td>SdsTypeProperty</td>
+<td>502</td>
+</tr>
+<tr>
+<td>SdsValues</td>
+<td>511</td>
+</tr>
+<tr>
+<td>SdsView</td>
+<td>503</td>
+</tr>
+<tr>
+<td>SdsViewMap</td>
+<td>505</td>
+</tr>
+<tr>
+<td>SdsViewMapProperty</td>
+<td>506</td>
+</tr>
+<tr>
+<td>SdsViewProperty</td>
+<td>504</td>
+</tr>
+<tr>
+<td>SByte</td>
+<td>5</td>
+</tr>
+<tr>
+<td>SByteArray</td>
+<td>205</td>
+</tr>
+<tr>
+<td>SByteEnum</td>
+<td>605</td>
+</tr>
+<tr>
+<td>Single</td>
+<td>13</td>
+</tr>
+<tr>
+<td>SingleArray</td>
+<td>213</td>
+</tr>
+<tr>
+<td>String</td>
+<td>18</td>
+</tr>
+<tr>
+<td>StringArray</td>
+<td>218</td>
+</tr>
+<tr>
+<td>TimeSpan</td>
+<td>21</td>
+</tr>
+<tr>
+<td>TimeSpanArray</td>
+<td>221</td>
+</tr>
+<tr>
+<td>UInt16</td>
+<td>8</td>
+</tr>
+<tr>
+<td>UInt16Array</td>
+<td>208</td>
+</tr>
+<tr>
+<td>UInt16Enum</td>
+<td>608</td>
+</tr>
+<tr>
+<td>UInt32</td>
+<td>10</td>
+</tr>
+<tr>
+<td>UInt32Array</td>
+<td>210</td>
+</tr>
+<tr>
+<td>UInt32Enum</td>
+<td>610</td>
+</tr>
+<tr>
+<td>UInt64</td>
+<td>12</td>
+</tr>
+<tr>
+<td>UInt64Array</td>
+<td>212</td>
+</tr>
+<tr>
+<td>UInt64Enum</td>
+<td>612</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>22</td>
+</tr>
+<tr>
+<td>VersionArray</td>
+<td>222</td>
+</tr>
+</tbody>
+</table>
+<h2 id="interpolation" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="192" sourceendlinenumber="193">Interpolation</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="195" sourceendlinenumber="197">Interpolation determines how a stream behaves when asked to return an event at an index between 
+two existing events. InterpolationMode determines how the returned event is constructed. The table 
+below lists InterpolationModes:</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="199" sourceendlinenumber="205">
+<thead>
+<tr>
+<th>Mode</th>
+<th>Enumeration value</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>0</td>
+<td>The default InterpolationMode is Continuous</td>
+</tr>
+<tr>
+<td>Continuous</td>
+<td>0</td>
+<td>Interpolates the data using previous and next index values</td>
+</tr>
+<tr>
+<td>StepwiseContinuousLeading</td>
+<td>1</td>
+<td>Returns the data from the previous index</td>
+</tr>
+<tr>
+<td>StepwiseContinuousTrailing</td>
+<td>2</td>
+<td>Returns the data from the next index</td>
+</tr>
+<tr>
+<td>Discrete</td>
+<td>3</td>
+<td>Returns ‘null’</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="207" sourceendlinenumber="207">Note that <code>Continuous</code> cannot return events for values that cannot be interpolated, such as when the type is not numeric.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="209" sourceendlinenumber="210">The table below describes how the <strong>Continuous InterpolationMode</strong> affects
+indexes that occur between data in a stream:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="212" sourceendlinenumber="212"><strong>InterpolationMode = Continuous or Default</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="214" sourceendlinenumber="225">
+<thead>
+<tr>
+<th>Type</th>
+<th>Result for an index between data in a stream</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeric Types</td>
+<td>Interpolated*</td>
+<td>Rounding is done as needed for integer types</td>
+</tr>
+<tr>
+<td>Time related Types</td>
+<td>Interpolated</td>
+<td>DateTime, DateTimeOffset, TimeSpan</td>
+</tr>
+<tr>
+<td>Nullable Types</td>
+<td>Returns ‘null’</td>
+<td>Cannot reliably interpolate due to possibility of a null value</td>
+</tr>
+<tr>
+<td>Array and List Types</td>
+<td>Returns ‘null’</td>
+<td></td>
+</tr>
+<tr>
+<td>String Type</td>
+<td>Returns ‘null’</td>
+<td></td>
+</tr>
+<tr>
+<td>Boolean Type</td>
+<td>Returns value of nearest index</td>
+<td></td>
+</tr>
+<tr>
+<td>Enumeration Types</td>
+<td>Returns Enum value at 0</td>
+<td>This may have a value for the enumeration</td>
+</tr>
+<tr>
+<td>GUID</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Returns ‘null’</td>
+<td></td>
+</tr>
+<tr>
+<td>IDictionary or IEnumerable</td>
+<td>Returns ‘null’</td>
+<td>Dictionary, Array, List, and so on.</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="227" sourceendlinenumber="228">*When extreme values are involved in an interpolation (for example
+Decimal.MaxValue) the call might result in a BadRequest exception.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="231" sourceendlinenumber="233">If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
+mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
+on a specific type property see SdsTypeProperty_. For more information on overriding the interpolation mode for a specific stream see <a class="xref" href="SDS_Streams.html" data-raw-source="[Sds Streams](xref:sdsStreams)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="233" sourceendlinenumber="233">Sds Streams</a>.</p>
+<h2 id="extrapolation" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="236" sourceendlinenumber="237">Extrapolation</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="239" sourceendlinenumber="241">Extrapolation defines how a stream responds to requests with indexes that precede or follow all 
+data in the steam. ExtrapolationMode acts as a master switch to determine whether extrapolation 
+occurs and at which end of the data. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="243" sourceendlinenumber="244">ExtrapolationMode works with the InterpolationMode to determine how a stream responds. The following tables 
+show how ExtrapolationMode affects returned values for each InterpolationMode value:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="246" sourceendlinenumber="246"><strong>ExtrapolationMode with Mode\ =Default or Continuous</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="248" sourceendlinenumber="253">
+<thead>
+<tr>
+<th>ExtrapolationMode</th>
+<th>Enumeration value</th>
+<th>Index before data</th>
+<th>Index after data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td>0</td>
+<td>Returns first data value</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>None</td>
+<td>1</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>2</td>
+<td>Returns ‘null’</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>Backward</td>
+<td>3</td>
+<td>Returns first data value</td>
+<td>Returns ‘null’</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="255" sourceendlinenumber="255"><strong>ExtrapolationMode with InterpolationMode\ =Discrete</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="257" sourceendlinenumber="262">
+<thead>
+<tr>
+<th>ExtrapolationMode</th>
+<th>Enumeration value</th>
+<th>Index before data</th>
+<th>Index after data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td>0</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>None</td>
+<td>1</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>2</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>Backward</td>
+<td>3</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="264" sourceendlinenumber="264"><strong>ExtrapolationMode with InterpolationMode\ =StepwiseContinuousLeading</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="266" sourceendlinenumber="271">
+<thead>
+<tr>
+<th>ExtrapolationMode</th>
+<th>Enumeration value</th>
+<th>Index before data</th>
+<th>Index after data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td>0</td>
+<td>Returns first data value</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>None</td>
+<td>1</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>2</td>
+<td>Returns ‘null’</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>Backward</td>
+<td>3</td>
+<td>Returns first data value</td>
+<td>Returns ‘null’</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="273" sourceendlinenumber="273"><strong>ExtrapolationMode with InterpolationMode\ =StepwiseContinuousTrailing</strong></p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="275" sourceendlinenumber="280">
+<thead>
+<tr>
+<th>ExtrapolationMode</th>
+<th>Enumeration value</th>
+<th>Index before data</th>
+<th>Index after data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All</td>
+<td>0</td>
+<td>Returns first data value</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>None</td>
+<td>1</td>
+<td>Returns ‘null’</td>
+<td>Returns ‘null’</td>
+</tr>
+<tr>
+<td>Forward</td>
+<td>2</td>
+<td>Returns ‘null’</td>
+<td>Returns last data value</td>
+</tr>
+<tr>
+<td>Backward</td>
+<td>3</td>
+<td>Returns first data value</td>
+<td>Returns ‘null’</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="283" sourceendlinenumber="283">If the ExtrapolationMode is not assigned, the events are extrapolated in the default manner, unless the extrapolation mode is overridden on the SdsStream. For more information on overriding the extrapolation mode on a specific stream see <a class="xref" href="SDS_Streams.html" data-raw-source="[Sds Streams](xref:sdsStreams)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="283" sourceendlinenumber="283">Sds Streams</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="285" sourceendlinenumber="287">For additional information about the effect of read characteristics, see the
+documentation on the <a class="xref" href="Reading_Data_API.html" data-raw-source="[read method](xref:sdsReadingDataApi)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="286" sourceendlinenumber="286">read method</a>
+you are using.</p>
+<h2 id="sdstypeproperty" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="289" sourceendlinenumber="290">SdsTypeProperty</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="292" sourceendlinenumber="292">The Properties collection define the fields in an SdsType. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="294" sourceendlinenumber="295">The following table shows the required and optional SdsTypeProperty fields. Fields that 
+are not included are reserved for internal SDS use.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="297" sourceendlinenumber="307">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier for referencing the type</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Optional</td>
+<td>Friendly name</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>String</td>
+<td>Optional</td>
+<td>Description text</td>
+</tr>
+<tr>
+<td>SdsType</td>
+<td>SdsType</td>
+<td>Required</td>
+<td>Field defining the property&#39;s Type</td>
+</tr>
+<tr>
+<td>IsKey</td>
+<td>Boolean</td>
+<td>Required</td>
+<td>Identifies the property as the Key (Primary Index)</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Object</td>
+<td>Optional</td>
+<td>Value of the property</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>Int</td>
+<td>Optional</td>
+<td>Order of comparison within a compound index</td>
+</tr>
+<tr>
+<td>InterpolationMode</td>
+<td>SdsInterpolationMode</td>
+<td>Optional</td>
+<td>Interpolation setting of the property. Default is null.</td>
+</tr>
+<tr>
+<td>Uom</td>
+<td>String</td>
+<td>Optional</td>
+<td>Unit of Measure of the property</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="310" sourceendlinenumber="310">The SdsTypeProperty’s identifier follows the same rules as the SdsType’s identifier.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="312" sourceendlinenumber="313">IsKey is a Boolean value used to identify the SdsType’s Key. A Key defined by more than one 
+Property is called a compound key. The maximum number of Properties that can define a compound key is three. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="315" sourceendlinenumber="316">In a compound key, each Property that is included in the 
+Key is specified as IsKey. The Order field defines the precedence of fields applied to the Index.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="318" sourceendlinenumber="321">The Value field is used for properties that represent a value. An example of a property with a 
+value is an enum’s named constant. When representing an enum in a SdsType, the SdsType’s 
+Properies collection defines the enum’s constant list. The SdsTypeProperty’s Identifier represents 
+the constant’s name and the SdsTypeProperty’s Value represents the constant’s value (see the enum State definitions below).</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="323" sourceendlinenumber="326">InterpolationMode is assigned when the Property of the event should be interpolated in a specific way 
+that differs from the InterpolationMode of the SdsType. InterpolationMode is only applied to a Property 
+that is not part of the Index. If the InterpolationMode is not set, the Property is are interpolated 
+in the manner defined by the SdsType’s IntepolationMode.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="329" sourceendlinenumber="330">An SdsType with the InterpolationMode set to <code>Discrete</code> cannot have a Property with an InteroplationMode. 
+For more information on interpolation of events see Interpolation_.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="333" sourceendlinenumber="334">Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
+abbreviation. The names and abbreviations of Uoms are case sensitive. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="336" sourceendlinenumber="336">The InterpolationMode and Uom of a Property can be overriden on the stream. For more information, see <a class="xref" href="SDS_Streams.html#propertyoverrides" data-raw-source="[Sds Streams](xref:sdsStreams#propertyoverrides)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="336" sourceendlinenumber="336">Sds Streams</a>. </p>
+<h2 id="supported-units-of-measure" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="338" sourceendlinenumber="339">Supported Units of Measure</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="341" sourceendlinenumber="341">For a list of units of measures that are supported for an SdsTypeProperty, see <a class="xref" href="Units_of_Measure.html#supported-units-of-measure" data-raw-source="[Units of Measure](xref:unitsOfMeasure#supported-units-of-measure)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="341" sourceendlinenumber="341">Units of Measure</a>.</p>
+<h2 id="working-with-sdstypes-using-net" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="343" sourceendlinenumber="344">Working with SdsTypes using .NET</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="347" sourceendlinenumber="348">When working in .NET, use the SdsTypeBuilder to create SdsTypes. The SdsTypeBuilder eliminates 
+potential errors that can occur when working with SdsTypes manually.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="350" sourceendlinenumber="351">There are several ways to work with the builder. The most convenient is to use the static 
+methods, as shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="353" sourceendlinenumber="371"><code>  public enum State
+  {
+      Ok,
+      Warning,
+      Alarm
+  }
+
+  public class Simple
+  {
+      [SdsMember(IsKey = true, Order = 0)]
+      public DateTime Time { get; set; }
+      public State State { get; set; }
+      public Double Measurement { get; set; }
+  }
+
+  SdsType simpleType = SdsTypeBuilder.CreateSdsType&lt;Simple&gt;();
+  simpleType.Id = &quot;Simple&quot;;
+  simpleType.Name = &quot;Simple&quot;;
+  simpleType.Description = &quot;Basic sample type&quot;;
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="374" sourceendlinenumber="376">SdsTypeBuilder recognizes the <code>System.ComponentModel.DataAnnotations.KeyAttribute</code> and 
+its own <code>OSIsoft.Sds.SdsMemberAttribute</code>. When using the SdsMemberAttribute to specify 
+the Primary Index, set the IsKey to true.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="378" sourceendlinenumber="379">The type is created with the following parameters. SdsTypeBuilder automatically generates 
+unique identifiers. Note that the following table contains only a partial list of fields.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="382" sourceendlinenumber="435">
+<thead>
+<tr>
+<th>Field</th>
+<th>Values</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>Simple</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Simple</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Basic sample type</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>Count = 3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>[0]</td>
+<td>Id</td>
+<td>Time</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Name</td>
+<td>Time</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Description</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Order</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>IsKey</td>
+<td>true</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>SdsType</td>
+<td>Id</td>
+<td>c48bfdf5-a271-384b-bf13-bd21d931c1bf</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Name</td>
+<td>DateTime</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Description</td>
+<td>null</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Properties</td>
+<td>null</td>
+</tr>
+<tr>
+<td></td>
+<td>Value</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>[1]</td>
+<td>Id</td>
+<td>State</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Name</td>
+<td>State</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Description</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Order</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>IsKey</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>SdsType</td>
+<td>Id</td>
+<td>02728a4f-4a2d-3588-b669-e08f19c35fe5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Name</td>
+<td>State</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Description</td>
+<td>null</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Properties</td>
+<td>Count = 3</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>[0]</td>
+<td>Id</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Name</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Description</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Order</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>SdsType</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Value</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>[1]</td>
+<td>Id</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Name</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Description</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Order</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>SdsType</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Value</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>[2]</td>
+<td>Id</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Name</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Description</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Order</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>SdsType</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>Value</td>
+</tr>
+<tr>
+<td></td>
+<td>Value</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td>[2]</td>
+<td>Id</td>
+<td>Measurement</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Name</td>
+<td>Measurement</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Description</td>
+<td>null</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Order</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>IsKey</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>SdsType</td>
+<td>Id</td>
+<td>0f4f147f-4369-3388-8e4b-71e20c96f9ad</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Name</td>
+<td>Double</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Description</td>
+<td>null</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Properties</td>
+<td>null</td>
+</tr>
+<tr>
+<td></td>
+<td>Value</td>
+<td>null</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="438" sourceendlinenumber="439">The SdsTypeBuilder also supports derived types. Note that you need not add the base types to 
+the Data Store before using SdsTypeBuilder. Base types are maintained within the SdsType.</p>
+<h2 id="working-with-sdstypes-when-not-using-net" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="441" sourceendlinenumber="442">Working with SdsTypes when not using .NET</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="445" sourceendlinenumber="449">SdsTypes must be built manually when .NET SdsTypeBuilder is unavailable. The following discussion 
+refers to the following types and are defined in<br><code>Python &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic/Python&gt;</code><strong> and 
+<code>JavaScript &lt;https://github.com/osisoft/Sds-Samples/tree/master/Basic/JavaScript&gt;</code></strong> samples. 
+Samples in other languages can be found here: <code>Samples &lt;https://github.com/osisoft/Qi-Samples/tree/master/Basic&gt;</code>__.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="451" sourceendlinenumber="451">In the sample code, <code>SdsType</code>, <code>SdsTypeProperty</code>, and <code>SdsTypeCode</code> are defined as in the code snippets shown here:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="453" sourceendlinenumber="453"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="455" sourceendlinenumber="525"><code>  class SdsTypeCode(Enum):
+      Empty = 0
+      Object = 1
+      DBNull = 2
+      Boolean = 3
+      Char = 4
+        ...
+  class SdsTypeProperty(object):
+      &quot;&quot;&quot;SDS type property definition&quot;&quot;&quot;
+
+      def __init__(self):
+              self.__isKey = False
+
+      @property
+      def Id(self):
+          return self.__id
+      @Id.setter
+      def Id(self, id):
+          self.__id = id
+
+        ...
+
+      @property
+      def IsKey(self):
+          return self.__isKey
+      @IsKey.setter
+      def IsKey(self, iskey):
+          self.__isKey = iskey
+
+      @property
+      def SdsType(self):
+          return self.__SdsType
+      @SdsType.setter
+      def SdsType(self, SdsType):
+          self.__SdsType=SdsType
+        ...
+
+  class SdsType(object):
+      &quot;&quot;&quot;SDS type definitions&quot;&quot;&quot;
+      def __init__(self):
+          self.SdsTypeCode = SdsTypeCode.Object
+
+      @property
+      def Id(self):
+          return self.__id
+      @Id.setter
+      def Id(self, id):
+          self.__id = id
+
+        ...
+
+      @property
+      def BaseType(self):
+          return self.__baseType
+      @BaseType.setter
+      def BaseType(self, baseType):
+          self.__baseType = baseType
+
+      @property
+      def SdsTypeCode(self):
+          return self.__typeCode
+      @SdsTypeCode.setter
+      def SdsTypeCode(self, typeCode):
+          self.__typeCode = typeCode
+
+      @property
+      def Properties(self):
+          return self.__properties
+      @Properties.setter
+      def Properties(self, properties):
+          self.__properties = properties
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="529" sourceendlinenumber="529"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="531" sourceendlinenumber="571"><code>  SdsTypeCodeMap: {
+      Empty: 0,
+      &quot;Object&quot;: 1,
+      DBNull: 2,
+      &quot;Boolean&quot;: 3,
+      Char: 4,
+      ...
+  SdsTypeProperty: function (SdsTypeProperty) {
+      if (SdsTypeProperty.Id) {
+          this.Id = SdsTypeProperty.Id;
+      }
+      if (SdsTypeProperty.Name) {
+          this.Name = SdsTypeProperty.Name;
+      }
+      if (SdsTypeProperty.Description) {
+          this.Description = SdsTypeProperty.Description;
+      }
+      if (SdsTypeProperty.SdsType) {
+          this.SdsType = SdsTypeProperty.SdsType;
+      }
+      if (SdsTypeProperty.IsKey) {
+          this.IsKey = SdsTypeProperty.IsKey;
+      }
+  },
+  SdsType: function (SdsType) {
+      if (SdsType.Id) {
+          this.Id = SdsType.Id
+      }
+      if (SdsType.Name) {
+          this.Name = SdsType.Name;
+      }
+      if (SdsType.Description) {
+          this.Description = SdsType.Description;
+      }
+      if (SdsType.SdsTypeCode) {
+          this.SdsTypeCode = SdsType.SdsTypeCode;
+      }
+      if (SdsType.Properties) {
+          this.Properties = SdsType.Properties;
+      }
+  },
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="575" sourceendlinenumber="575">Working with the following types (both Python and JavaScript classes are shown):</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="578" sourceendlinenumber="578"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="580" sourceendlinenumber="602"><code>  class State(Enum):
+      Ok = 0
+      Warning = 1
+      Alarm = 2
+
+  class Simple(object):
+      Time = property(getTime, setTime)
+      def getTime(self):
+          return self.__time
+      def setTime(self, time):
+          self.__time = time
+
+      State = property(getState, setState)
+      def getState(self):
+          return self.__state
+      def setState(self, state):
+          self.__state = state
+
+      Measurement = property(getMeasurement, setMeasurement)
+      def getMeasurement(self):
+          return self.__measurement
+      def setMeasurement(self, measurement):
+          self.__measurement = measurement
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="605" sourceendlinenumber="605"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="607" sourceendlinenumber="618"><code>  var State =
+    {
+        Ok: 0,
+        Warning: 1,
+        Aalrm: 2,
+    }
+
+    var Simple = function () {
+        this.Time = null;
+        this.State = null;
+        this.Measurement = null;
+    }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="621" sourceendlinenumber="621">Define the SdsType as follows:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="623" sourceendlinenumber="623"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="625" sourceendlinenumber="673"><code>  # Create the properties
+
+  # Time is the primary key
+  time = SdsTypeProperty()
+  time.Id = &quot;Time&quot;
+  time.Name = &quot;Time&quot;
+  time.IsKey = True
+  time.SdsType = SdsType()
+  time.SdsType.Id = &quot;DateTime&quot;
+  time.SdsType.Name = &quot;DateTime&quot;
+  time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
+
+  # State is not a pre-defined type. A SdsType must be defined to represent the enum
+  stateTypePropertyOk = SdsTypeProperty()
+  stateTypePropertyOk.Id = &quot;Ok&quot;
+  stateTypePropertyOk.Value = State.Ok
+  stateTypePropertyWarning = SdsTypeProperty()
+  stateTypePropertyWarning.Id = &quot;Warning&quot;
+  stateTypePropertyWarning.Value = State.Warning
+  stateTypePropertyAlarm = SdsTypeProperty()
+  stateTypePropertyAlarm.Id = &quot;Alarm&quot;
+  stateTypePropertyAlarm.Value = State.Alarm
+
+  stateType = SdsType()
+  stateType.Id = &quot;State&quot;
+  stateType.Name = &quot;State&quot;
+  stateType.Properties = [ stateTypePropertyOk, stateTypePropertyWarning, \
+                          stateTypePropertyAlarm ]
+
+  state = SdsTypeProperty()
+  state.Id = &quot;State&quot;
+  state.Name = &quot;State&quot;
+  state.SdsType = stateType
+
+  # Value property is a simple non-indexed, pre-defined type
+  value = SdsTypeProperty()
+  value.Id = &quot;Measurement&quot;
+  value.Name = &quot;Measurement&quot;
+  value.SdsType = SdsType()
+  value.SdsType.Id = &quot;Double&quot;
+  value.SdsType.Name = &quot;Double&quot;
+
+  # Create the Simple SdsType
+  simpleType = SdsType()
+  simpleType.Id = &quot;Simple&quot;
+  simpleType.Name = &quot;Simple&quot;
+  simpleType.Description = &quot;Basic sample type&quot;
+  simpleType.SdsTypeCode = SdsTypeCode.Object
+  simpleType.Properties = [ time ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="676" sourceendlinenumber="676"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="678" sourceendlinenumber="738"><code>  // Time is the primary key
+  var timeProperty = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Time&quot;,
+      &quot;IsKey&quot;: true,
+      &quot;SdsType&quot;: new SdsObjects.SdsType({
+          &quot;Id&quot;: &quot;dateType&quot;,
+          &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.DateTime
+      })
+  });
+
+  // State is not a pre-defined type. An SdsType must be defined to represent the enum
+  var stateTypePropertyOk = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Ok&quot;,
+      &quot;Value&quot;: State.Ok
+  });
+  var stateTypePropertyWarning = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Warning&quot;,
+      &quot;Value&quot;: State.Warning
+  });
+  var stateTypePropertyAlarm = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Alarm&quot;,
+      &quot;Value&quot;: State.Alarm
+  });
+
+  var stateType = new SdsObjects.SdsType({
+      &quot;Id&quot;: &quot;State&quot;,
+      &quot;Name&quot;: &quot;State&quot;,
+      &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.Int32Enum,
+      &quot;Properties&quot;: [stateTypePropertyOk, stateTypePropertyWarning,
+          stateTypePropertyAlarm, stateTypePropertyRed]
+  });
+
+  // Measurement property is a simple non-indexed, pre-defined type
+  var measurementProperty = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Measurement&quot;,
+      &quot;Name&quot;: &quot;Measurement&quot;,
+      &quot;SdsType&quot;: new SdsObjects.SdsType({
+          &quot;Id&quot;: &quot;doubleType&quot;,
+          &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.Double
+      })
+  });
+
+  // Create the Simple SdsType
+  var simpleType = new SdsObjects.SdsType({
+      &quot;Id&quot;: &quot;Simple&quot;,
+      &quot;Name&quot;: &quot;Simple&quot;, 
+      &quot;Description&quot;: &quot;This is a simple SDS type &quot;,
+      &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.Object,
+      &quot;Properties&quot;: [timeProperty, stateProperty, measurementProperty]
+  });
+
+
+ Working with a derived class is easy. For the following derived class:
+
+  class Derrived(Simple):
+      @property
+      def Observation(self):
+          return self.__observation
+      @Observation.setter
+      def Observation(self, observation):
+          self.__observation = observation
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="741" sourceendlinenumber="741">Extend the SdsType as follows:</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="743" sourceendlinenumber="743"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="745" sourceendlinenumber="761"><code>  # Observation property is a simple non-inexed, standard data type
+  observation = SdsTypeProperty()
+  observation.Id = &quot;Observation&quot;
+  observation.Name = &quot;Observation&quot;
+  observation.SdsType = SdsType()
+  observation.SdsType.Id = &quot;String&quot;
+  observation.SdsType.Name = &quot;String&quot;
+  observation.SdsType.SdsTypeCode = SdsTypeCode.String
+
+  # Create the Derived SdsType
+  derived = SdsType()
+  derived.Id = &quot;Derived&quot;
+  derived.Name = &quot;Derived&quot;
+  derived.Description = &quot;Derived sample type&quot;
+  derived.BaseType = simpleType # Set the base type to the derived type
+  derived.SdsTypeCode = SdsTypeCode.Object
+  derived.Properties = [ observation ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="764" sourceendlinenumber="764"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="766" sourceendlinenumber="781"><code>  var observationProprety = new SdsObjects.SdsTypeProperty({
+      &quot;Id&quot;: &quot;Observation&quot;,
+      &quot;SdsType&quot;: new SdsObjects.SdsType({
+          &quot;Id&quot;: &quot;strType&quot;,
+          &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.String
+      })
+  });
+
+  var derivedType = new SdsObjects.SdsType({
+      &quot;Id&quot;: &quot;Derived&quot;,
+      &quot;Name&quot;: &quot;Derived&quot;,
+      &quot;Description&quot;: &quot; Derived sample type&quot;,
+      &quot;BaseType&quot;: simpleType,
+      &quot;SdsTypeCode&quot;: SdsObjects.SdsTypeCodeMap.Object,
+      &quot;Properties&quot;: [ observationProprety ]
+  });
+</code></pre><h2 id="sdstype-api" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="784" sourceendlinenumber="785">SdsType API</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="788" sourceendlinenumber="791">The REST APIs provide programmatic access to read and write Sds data. The APIs in this section 
+interact with SdsTypes. When working in .NET convenient Sds Client libraries are available. 
+The ISdsMetadataService interface, accessed using the <code>SdsService.GetMetadataService( )</code> helper, 
+defines the available functions. See Types_ for general SdsType information.</p>
+<hr>
+<h2 id="get-type" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="796" sourceendlinenumber="797"><code>Get Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="799" sourceendlinenumber="799">Returns the type corresponding to the specified typeId within a given namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="801" sourceendlinenumber="801"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="803" sourceendlinenumber="803"><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="806" sourceendlinenumber="806"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="808" sourceendlinenumber="809"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="811" sourceendlinenumber="812"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="814" sourceendlinenumber="815"><code>string typeId</code><br>The type identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="818" sourceendlinenumber="818"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="820" sourceendlinenumber="820">The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="822" sourceendlinenumber="822"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="824" sourceendlinenumber="824">  The requested SdsType</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="826" sourceendlinenumber="826">  Sample response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="828" sourceendlinenumber="886"><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Id&quot;:&quot;f1a7ef61-d47f-3007-a260-449643a7c219&quot;,
+     &quot;Name&quot;:&quot;Simple&quot;,
+     &quot;SdsTypeCode&quot;:1,
+     &quot;Properties&quot;:[  
+        {  
+           &quot;Id&quot;:&quot;Time&quot;,
+           &quot;Name&quot;:&quot;Time&quot;,
+           &quot;IsKey&quot;:true,
+           &quot;SdsType&quot;:{  
+              &quot;$id&quot;:&quot;567&quot;,
+              &quot;Id&quot;:&quot;19a87a76-614a-385b-ba48-6f8b30ff6ab2&quot;,
+              &quot;Name&quot;:&quot;DateTime&quot;,
+              &quot;SdsTypeCode&quot;:16
+           }
+        },
+        {  
+           &quot;Id&quot;:&quot;State&quot;,
+          &quot;Name&quot;:&quot;State&quot;,
+           &quot;SdsType&quot;:{  
+              &quot;$id&quot;:&quot;569&quot;,
+              &quot;Id&quot;:&quot;e20bdd7e-590b-3372-ab39-ff61950fb4f3&quot;,
+              &quot;Name&quot;:&quot;State&quot;,
+              &quot;SdsTypeCode&quot;:609,
+              &quot;Properties&quot;:[  
+                 {  
+                    &quot;$id&quot;:&quot;570&quot;,
+                    &quot;Id&quot;:&quot;Ok&quot;,
+                    &quot;Value&quot;:0
+                 },
+                 {  
+                    &quot;$id&quot;:&quot;571&quot;,
+                    &quot;Id&quot;:&quot;Warning&quot;,
+                    &quot;Value&quot;:1
+                 },
+                 {  
+                    &quot;$id&quot;:&quot;572&quot;,
+                    &quot;Id&quot;:&quot;Aalrm&quot;,
+                    &quot;Value&quot;:2
+                 }
+              ]
+           }
+        },
+        {  
+           &quot;$id&quot;:&quot;573&quot;,
+           &quot;Id&quot;:&quot;Measurement&quot;,
+           &quot;Name&quot;:&quot;Measurement&quot;,
+           &quot;SdsType&quot;:{  
+              &quot;$id&quot;:&quot;574&quot;,
+              &quot;Id&quot;:&quot;6fecef77-20b1-37ae-aa3b-e6bb838d5a86&quot;,
+              &quot;Name&quot;:&quot;Double&quot;,
+              &quot;SdsTypeCode&quot;:14
+           }
+        }
+     ]
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="890" sourceendlinenumber="890"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="892" sourceendlinenumber="892"><code>  Task&lt;SdsType&gt; GetTypeAsync(string typeId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="895" sourceendlinenumber="895"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="897" sourceendlinenumber="897">  Allowed by administrator and user accounts</p>
+<hr>
+<h2 id="get-types" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="902" sourceendlinenumber="903"><code>Get Types</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="905" sourceendlinenumber="905">Returns a list of types within a given namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="907" sourceendlinenumber="911">If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
+the search/filter criteria. If neither parameter is specified, the list includes all types 
+in the Namespace. See <a class="xref" href="Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="909" sourceendlinenumber="909">Searching</a> 
+and <a class="xref" href="Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="910" sourceendlinenumber="910">Filter Expressions: Metadata Objects</a> 
+for information about specifying those respective parameters.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="913" sourceendlinenumber="913"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="915" sourceendlinenumber="915"><code>    GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="918" sourceendlinenumber="918"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="920" sourceendlinenumber="921"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="923" sourceendlinenumber="924"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="926" sourceendlinenumber="927"><code>string query</code><br>An optional query string to match which SdsTypes will be returned.  See the <a class="xref" href="Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="927" sourceendlinenumber="927">Searching</a> topic for information about specifying the query parameter.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="929" sourceendlinenumber="931"><code>string filter</code><br>An optional filter string to match which SdsTypes will be returned.  See the <a class="xref" href="Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="930" sourceendlinenumber="930">Filter Expressions: Metadata Objects</a> 
+topic for information about specifying the filter parameter.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="933" sourceendlinenumber="935"><code>int skip</code><br>  An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
+a default value of 0 is used.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="937" sourceendlinenumber="938"><code>int count</code><br>An optional value representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="940" sourceendlinenumber="946"><code>string orderby</code><br>An optional parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given
+  field (of type string). For example, <code>orderby=name</code> would sort the returned results by the <code>name</code> values (ascending by default). 
+  Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by 
+  using values <code>asc</code> or <code>desc</code>, respectively.
+  For example, <code>orderby=name desc</code> would sort the returned results by the <code>name</code> values, descending.
+  If no value is specified, there is no sorting of results.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="948" sourceendlinenumber="948"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="950" sourceendlinenumber="950">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="952" sourceendlinenumber="952"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="954" sourceendlinenumber="954">  A collection of zero or more SdsTypes.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="956" sourceendlinenumber="956">  Sample response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="958" sourceendlinenumber="1013"><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  [  
+    {  
+        &quot;Id&quot;:&quot;f1a7ef61-d47f-3007-a260-449643a7c219&quot;,
+        &quot;Name&quot;:&quot;Simple&quot;,
+        &quot;SdsTypeCode&quot;:1,
+        &quot;Properties&quot;:[  
+           {  
+              &quot;Id&quot;:&quot;Time&quot;,
+              &quot;Name&quot;:&quot;Time&quot;,
+              &quot;IsKey&quot;:true,
+              &quot;SdsType&quot;:{  
+                 &quot;Id&quot;:&quot;19a87a76-614a-385b-ba48-6f8b30ff6ab2&quot;,
+                 &quot;Name&quot;:&quot;DateTime&quot;,
+                 &quot;SdsTypeCode&quot;:16
+              }
+           },
+           {  
+              &quot;Id&quot;:&quot;State&quot;,
+              &quot;Name&quot;:&quot;State&quot;,
+              &quot;SdsType&quot;:{  
+                 &quot;Id&quot;:&quot;e20bdd7e-590b-3372-ab39-ff61950fb4f3&quot;,
+                 &quot;Name&quot;:&quot;State&quot;,
+                 &quot;SdsTypeCode&quot;:609,
+                 &quot;Properties&quot;:[  
+                    {  
+                       &quot;Id&quot;:&quot;Ok&quot;,
+                       &quot;Value&quot;:0
+                    },
+                    {  
+                       &quot;Id&quot;:&quot;Warning&quot;,
+                       &quot;Value&quot;:1
+                    },
+                    {  
+                       &quot;Id&quot;:&quot;Aalrm&quot;,
+                       &quot;Value&quot;:2
+                    }
+                 ]
+              }
+           },
+           {  
+              &quot;Id&quot;:&quot;Measurement&quot;,
+              &quot;Name&quot;:&quot;Measurement&quot;,
+              &quot;SdsType&quot;:{  
+                 &quot;$id&quot;:&quot;574&quot;,
+                 &quot;Id&quot;:&quot;6fecef77-20b1-37ae-aa3b-e6bb838d5a86&quot;,
+                 &quot;Name&quot;:&quot;Double&quot;,
+                 &quot;SdsTypeCode&quot;:14
+              }
+           }
+        ]
+     },
+     …
+  ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1017" sourceendlinenumber="1017"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1019" sourceendlinenumber="1019"><code>  Task&lt;IEnumerable&lt;SdsType&gt;&gt; GetTypesAsync(string query = &quot;&quot;, int skip = 0, int count = 100);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1022" sourceendlinenumber="1022"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1024" sourceendlinenumber="1024">  Allowed by administrator and user accounts</p>
+<hr>
+<h2 id="create-type" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1029" sourceendlinenumber="1030"><code>Create Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1032" sourceendlinenumber="1035">Creates the specified type. If a type with a matching identifier already exists, The Data Store compares the 
+existing type with the type that was sent. If the types are identical, a <code>Found</code> (302) error 
+is returned with the Location header set to the URI where the type may be retrieved using a Get function. 
+If the types do not match, a <code>Conflict</code> (409) error is returned.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1037" sourceendlinenumber="1039">For a matching type (<code>Found</code>), clients that are capable of performing a redirect that includes the 
+authorization header can automatically redirect to retrieve the type. However, most clients, 
+including the .NET HttpClient, consider redirecting with the authorization token to be a security vulnerability.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1041" sourceendlinenumber="1043">When a client performs a redirect and strips the authorization header, SDS cannot authorize the request and 
+returns <code>Unauthorized</code> (401). For this reason, it is recommended that when using clients that do not 
+redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1046" sourceendlinenumber="1046"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1048" sourceendlinenumber="1048"><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1050" sourceendlinenumber="1050"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1052" sourceendlinenumber="1053"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1055" sourceendlinenumber="1056"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1058" sourceendlinenumber="1059"><code>string typeId</code><br>The type identifier. The identifier must match the SdsType.Id field. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1062" sourceendlinenumber="1062"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1064" sourceendlinenumber="1064">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1066" sourceendlinenumber="1066"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1068" sourceendlinenumber="1069">  The request content is the serialized SdsType. If you are not using the SDS client libraries, it is recommended 
+  that you use JSON.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1071" sourceendlinenumber="1071">  Sample SdsType content:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1073" sourceendlinenumber="1179"><code>  {  
+     &quot;Id&quot;:&quot;Simple&quot;,
+     &quot;Name&quot;:&quot;Simple&quot;,
+     &quot;Description&quot;:&quot;Basic sample type&quot;,
+     &quot;SdsTypeCode&quot;:1,
+     &quot;IsGenericType&quot;:false,
+     &quot;IsReferenceType&quot;:false,
+     &quot;GenericArguments&quot;:null,
+     &quot;Properties&quot;:[  
+        {  
+           &quot;Id&quot;:&quot;Time&quot;,
+           &quot;Name&quot;:&quot;Time&quot;,
+           &quot;Description&quot;:null,
+           &quot;Order&quot;:0,
+           &quot;IsKey&quot;:true,
+           &quot;FixedSize&quot;:0,
+           &quot;SdsType&quot;:{  
+              &quot;Id&quot;:&quot;c48bfdf5-a271-384b-bf13-bd21d931c1bf&quot;,
+              &quot;Name&quot;:&quot;DateTime&quot;,
+              &quot;Description&quot;:null,
+              &quot;SdsTypeCode&quot;:16,
+              &quot;IsGenericType&quot;:false,
+              &quot;IsReferenceType&quot;:false,
+              &quot;GenericArguments&quot;:null,
+              &quot;Properties&quot;:null,
+              &quot;BaseType&quot;:null,
+              &quot;DerivedTypes&quot;:null
+           },
+           &quot;Value&quot;:null
+        },
+        {  
+           &quot;Id&quot;:&quot;State&quot;,
+           &quot;Name&quot;:&quot;State&quot;,
+           &quot;Description&quot;:null,
+           &quot;Order&quot;:0,
+           &quot;IsKey&quot;:false,
+           &quot;FixedSize&quot;:0,
+           &quot;SdsType&quot;:{  
+              &quot;Id&quot;:&quot;ba5d20e1-cd21-3ad0-99f3-c3a3b0146aa1&quot;,
+              &quot;Name&quot;:&quot;State&quot;,
+              &quot;Description&quot;:null,
+              &quot;SdsTypeCode&quot;:609,
+              &quot;IsGenericType&quot;:false,
+              &quot;IsReferenceType&quot;:false,
+              &quot;GenericArguments&quot;:null,
+              &quot;Properties&quot;:[  
+                 {  
+                    &quot;Id&quot;:&quot;Ok&quot;,
+                    &quot;Name&quot;:null,
+                    &quot;Description&quot;:null,
+                    &quot;Order&quot;:0,
+                    &quot;IsKey&quot;:false,
+                    &quot;FixedSize&quot;:0,
+                    &quot;SdsType&quot;:null,
+                    &quot;Value&quot;:0
+                 },
+                 {  
+                    &quot;Id&quot;:&quot;Warning&quot;,
+                    &quot;Name&quot;:null,
+                    &quot;Description&quot;:null,
+                    &quot;Order&quot;:0,
+                    &quot;IsKey&quot;:false,
+                    &quot;FixedSize&quot;:0,
+                    &quot;SdsType&quot;:null,
+                    &quot;Value&quot;:1
+                 },
+                 {  
+                    &quot;Id&quot;:&quot;Alarm&quot;,
+                    &quot;Name&quot;:null,
+                    &quot;Description&quot;:null,
+                    &quot;Order&quot;:0,
+                    &quot;IsKey&quot;:false,
+                    &quot;FixedSize&quot;:0,
+                    &quot;SdsType&quot;:null,
+                    &quot;Value&quot;:2
+                 }
+              ],
+              &quot;BaseType&quot;:null,
+              &quot;DerivedTypes&quot;:null
+           },
+           &quot;Value&quot;:null
+        },
+        {  
+           &quot;Id&quot;:&quot;Measurement&quot;,
+           &quot;Name&quot;:&quot;Measurement&quot;,
+           &quot;Description&quot;:null,
+           &quot;Order&quot;:0,
+           &quot;IsKey&quot;:false,
+           &quot;FixedSize&quot;:0,
+           &quot;SdsType&quot;:{  
+              &quot;Id&quot;:&quot;0f4f147f-4369-3388-8e4b-71e20c96f9ad&quot;,
+              &quot;Name&quot;:&quot;Double&quot;,
+              &quot;Description&quot;:null,
+              &quot;SdsTypeCode&quot;:14,
+              &quot;IsGenericType&quot;:false,
+              &quot;IsReferenceType&quot;:false,
+              &quot;GenericArguments&quot;:null,
+              &quot;Properties&quot;:null,
+              &quot;BaseType&quot;:null,
+              &quot;DerivedTypes&quot;:null
+           },
+           &quot;Value&quot;:null
+        }
+     ],
+     &quot;BaseType&quot;:null,
+     &quot;DerivedTypes&quot;:null
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1182" sourceendlinenumber="1182">Response</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1184" sourceendlinenumber="1184">The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1186" sourceendlinenumber="1186">Response body</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1188" sourceendlinenumber="1242"><code>  HTTP/1.1 200
+  Content-Type: application/json
+
+  {  
+     &quot;Id&quot;:&quot;Simple&quot;,
+     &quot;Name&quot;:&quot;Simple&quot;,
+     &quot;Description&quot;:&quot;Basic sample type&quot;,
+     &quot;SdsTypeCode&quot;:1,
+     &quot;Properties&quot;:[  
+        {  
+           &quot;Id&quot;:&quot;Time&quot;,
+           &quot;Name&quot;:&quot;Time&quot;,
+           &quot;IsKey&quot;:true,
+           &quot;SdsType&quot;:{  
+              &quot;$id&quot;:&quot;596&quot;,
+              &quot;Id&quot;:&quot;c48bfdf5-a271-384b-bf13-bd21d931c1bf&quot;,
+              &quot;Name&quot;:&quot;DateTime&quot;,
+              &quot;SdsTypeCode&quot;:16
+           }
+        },
+        {  
+           &quot;Id&quot;:&quot;State&quot;,
+           &quot;Name&quot;:&quot;State&quot;,
+           &quot;SdsType&quot;:{  
+              &quot;$id&quot;:&quot;598&quot;,
+              &quot;Id&quot;:&quot;ba5d20e1-cd21-3ad0-99f3-c3a3b0146aa1&quot;,
+              &quot;Name&quot;:&quot;State&quot;,
+              &quot;SdsTypeCode&quot;:609,
+              &quot;Properties&quot;:[  
+                 {  
+                    &quot;Id&quot;:&quot;Ok&quot;,
+                    &quot;Value&quot;:0
+                 },
+                 {  
+                    &quot;Id&quot;:&quot;Warning&quot;,
+                    &quot;Value&quot;:1
+                 },
+                 {  
+                    &quot;Id&quot;:&quot;Alarm&quot;,
+                    &quot;Value&quot;:2
+                 }
+              ]
+           }
+        },
+        {  
+           &quot;Id&quot;:&quot;Measurement&quot;,
+           &quot;Name&quot;:&quot;Measurement&quot;,
+           &quot;SdsType&quot;:{  
+              &quot;Id&quot;:&quot;0f4f147f-4369-3388-8e4b-71e20c96f9ad&quot;,
+              &quot;Name&quot;:&quot;Double&quot;,
+              &quot;SdsTypeCode&quot;:14
+           }
+        }
+     ]
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1247" sourceendlinenumber="1247"><strong>.NET Library</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1250" sourceendlinenumber="1250">  <code>Task&lt;SdsType&gt; GetOrCreateTypeAsync(SdsType SdsType);</code></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1252" sourceendlinenumber="1254">  If a type with a matching identifier already exists and it matches the type in the request body, 
+  the client redirects a GET to the Location header. If the existing type does not match the type
+  in the request body, a Conflict error response is returned and the client library method throws an exception. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1256" sourceendlinenumber="1256">  The SDS .NET Libraries manage redirects.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1258" sourceendlinenumber="1258"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1260" sourceendlinenumber="1260">  Allowed by administrator accounts</p>
+<hr>
+<h2 id="create-or-update-type" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1267" sourceendlinenumber="1268"><code>Create or Update Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1270" sourceendlinenumber="1270">Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1272" sourceendlinenumber="1274">Note that a type cannot be updated if any streams or views are 
+associated with it. Also, certain parameters, including the type id, cannot be changed after 
+they are defined.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1276" sourceendlinenumber="1276"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1278" sourceendlinenumber="1278"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1281" sourceendlinenumber="1281"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1283" sourceendlinenumber="1284"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1286" sourceendlinenumber="1287"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1289" sourceendlinenumber="1290"><code>string typeId</code><br>The type identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1293" sourceendlinenumber="1293"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1295" sourceendlinenumber="1295">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1297" sourceendlinenumber="1297"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1299" sourceendlinenumber="1299">  The content is set to true on success.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1302" sourceendlinenumber="1302"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1304" sourceendlinenumber="1304"><code>  Task CreateOrUpdateTypeAsync(SdsType SdsType)
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1307" sourceendlinenumber="1307"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1309" sourceendlinenumber="1309">  Allowed by administrator accounts</p>
+<hr>
+<h2 id="delete-type" sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1316" sourceendlinenumber="1317"><code>Delete Type</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1319" sourceendlinenumber="1319">Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or views reference it.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1321" sourceendlinenumber="1321"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1323" sourceendlinenumber="1323"><code>    DELETE  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1326" sourceendlinenumber="1326"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1328" sourceendlinenumber="1329"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1331" sourceendlinenumber="1332"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1334" sourceendlinenumber="1335"><code>string typeId</code><br>The type identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1338" sourceendlinenumber="1338"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1340" sourceendlinenumber="1340">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1343" sourceendlinenumber="1343"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1345" sourceendlinenumber="1345"><code>  Task DeleteTypeAsync(string typeId);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1348" sourceendlinenumber="1348"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Types.md" sourcestartlinenumber="1350" sourceendlinenumber="1350">  Allowed by administrator accounts</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Types.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

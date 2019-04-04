@@ -8,7 +8,7 @@
     <title>Types </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Types ">
-    <meta name="generator" content="docfx 2.39.2.0">
+    <meta name="generator" content="docfx 2.40.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -33,8 +33,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="../../index.html" width="46">
-                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -103,13 +104,15 @@ of the SdsType. In addition, the SdsType may be deleted only if no streams or st
 <p>Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be added to the Sequential data store. 
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.</p>
-<p>The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.</p>
+<p>The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use. 
+See the <a class="xref" href="Searching.html">Searching</a> topic regarding limitations on search.</p>
 <table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Type</th>
 <th>Optionality</th>
+<th>Searchable</th>
 <th>Details</th>
 </tr>
 </thead>
@@ -118,42 +121,49 @@ to be added to the Data Store independently.</p>
 <td>Id</td>
 <td>String</td>
 <td>Required</td>
+<td>Yes</td>
 <td>Identifier for referencing the type</td>
 </tr>
 <tr>
 <td>Name</td>
 <td>String</td>
 <td>Optional</td>
+<td>Yes</td>
 <td>Friendly name</td>
 </tr>
 <tr>
 <td>Description</td>
 <td>String</td>
 <td>Optional</td>
+<td>Yes</td>
 <td>Description text</td>
 </tr>
 <tr>
 <td>SdsTypeCode</td>
 <td>SdsTypeCode</td>
 <td>Required</td>
+<td>No</td>
 <td>Numeric code identifying the base SdsType</td>
 </tr>
 <tr>
 <td>InterpolationMode</td>
 <td>SdsInterpolationMode</td>
 <td>Optional</td>
+<td>No</td>
 <td>Interpolation setting of the type. Default is Continuous.</td>
 </tr>
 <tr>
 <td>ExtrapolationMode</td>
 <td>SdsExtrapolationMode</td>
 <td>Optional</td>
+<td>No</td>
 <td>Extrapolation setting of the type. Default is All.</td>
 </tr>
 <tr>
 <td>Properties</td>
-<td>IList<sdstypeproperty></sdstypeproperty></td>
+<td>IList&lt;SdsTypeProperty></td>
 <td>Required</td>
+<td>Yes, with limitations</td>
 <td>List of SdsTypeProperty items</td>
 </tr>
 </tbody>
@@ -1659,7 +1669,7 @@ Content-Type: application/json
 <p>If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
-and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: SDS Objects</a> 
 for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
@@ -1667,7 +1677,7 @@ for information about specifying those respective parameters.</p>
 <p><code>string tenantId</code><br>The tenant identifier</p>
 <p><code>string namespaceId</code><br>The namespace identifier</p>
 <p><code>string query</code><br>An optional query string to match which SdsTypes will be returned.  See the <a class="xref" href="Searching.html">Searching</a> topic for information about specifying the query parameter.</p>
-<p><code>string filter</code><br>An optional filter string to match which SdsTypes will be returned.  See the <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+<p><code>string filter</code><br>An optional filter string to match which SdsTypes will be returned.  See the <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Objects</a> 
 topic for information about specifying the filter parameter.</p>
 <p><code>int skip</code><br>An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
 a default value of 0 is used.</p>
@@ -2055,7 +2065,7 @@ they are defined.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Types.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Types.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -2070,8 +2080,14 @@ they are defined.</p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
-        </span></span></div>
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
       </footer>
     </div>
     

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Welcome to the OCS API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Welcome to the OCS API Documentation ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="index">
+<h1 id="welcome-to-the-ocs-api-documentation" sourcefile="index.md" sourcestartlinenumber="5" sourceendlinenumber="6">Welcome to the OCS API Documentation</h1>
+
+<p sourcefile="index.md" sourcestartlinenumber="8" sourceendlinenumber="9">OSIsoft Cloud Services (OCS) is a highly flexible cloud-based platform that provides scalable, elastic,<br>centralized environment to aggregate data for reporting, advanced analytics, and third-party applications.</p>
+<h2 id="sequential-data-store-sds" sourcefile="index.md" sourcestartlinenumber="11" sourceendlinenumber="12">Sequential data store (SDS)</h2>
+<p sourcefile="index.md" sourcestartlinenumber="14" sourceendlinenumber="18">A sequential data store (SDS) is used to store, retrieve, and analyze data. You create and write data
+to streams using a simple REST API. The streams are able to store simple or
+complex data types to suit the application needs. An assortment of
+methods with customizable behaviors are available to read data and
+easily obtain needed information.</p>
+<ul sourcefile="index.md" sourcestartlinenumber="21" sourceendlinenumber="59">
+<li sourcefile="index.md" sourcestartlinenumber="21" sourceendlinenumber="21"><a class="xref" href="Documentation/OSIsoft_Cloud_Services.html" data-raw-source="[OSIsoft Cloud Services](xref:osisoftCloudServices)" sourcefile="index.md" sourcestartlinenumber="21" sourceendlinenumber="21">OSIsoft Cloud Services</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="22" sourceendlinenumber="31"><a class="xref" href="Documentation/Management/Management_Overview.html" data-raw-source="[Management](xref:ManagementOverview)" sourcefile="index.md" sourcestartlinenumber="22" sourceendlinenumber="22">Management</a><ul sourcefile="index.md" sourcestartlinenumber="23" sourceendlinenumber="31">
+<li sourcefile="index.md" sourcestartlinenumber="23" sourceendlinenumber="23"><a class="xref" href="Documentation/Management/Account_ClientRole.html" data-raw-source="[Client Roles](xref:AccountClientRole)" sourcefile="index.md" sourcestartlinenumber="23" sourceendlinenumber="23">Client Roles</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="24" sourceendlinenumber="24"><a class="xref" href="Documentation/Management/Account_Namespace.html" data-raw-source="[Namespace](xref:AccountNamespace)" sourcefile="index.md" sourcestartlinenumber="24" sourceendlinenumber="24">Namespace</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="25" sourceendlinenumber="25"><a class="xref" href="Documentation/Management/Account_NamespaceTier.html" data-raw-source="[NamespaceTier](xref:AccountNamespaceTier)" sourcefile="index.md" sourcestartlinenumber="25" sourceendlinenumber="25">NamespaceTier</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="26" sourceendlinenumber="26"><a class="xref" href="Documentation/Management/Account_Role.html" data-raw-source="[Roles](xref:AccountRole)" sourcefile="index.md" sourcestartlinenumber="26" sourceendlinenumber="26">Roles</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="27" sourceendlinenumber="27"><a class="xref" href="Documentation/Management/Account_RootAccessControl.html" data-raw-source="[RootAccessControl](xref:AccountRootAccessControl)" sourcefile="index.md" sourcestartlinenumber="27" sourceendlinenumber="27">RootAccessControl</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="28" sourceendlinenumber="28"><a class="xref" href="Documentation/Management/Account_Tenant.html" data-raw-source="[Tenant](xref:AccountTenant)" sourcefile="index.md" sourcestartlinenumber="28" sourceendlinenumber="28">Tenant</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="29" sourceendlinenumber="29"><a class="xref" href="Documentation/Management/Account_TenantFeatureState.html" data-raw-source="[Tenant Feature States](xref:AccountTenantFeatureState)" sourcefile="index.md" sourcestartlinenumber="29" sourceendlinenumber="29">Tenant Feature States</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="30" sourceendlinenumber="30"><a class="xref" href="Documentation/Management/Account_UserRole.html" data-raw-source="[User Roles](xref:AccountUserRole)" sourcefile="index.md" sourcestartlinenumber="30" sourceendlinenumber="30">User Roles</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="31" sourceendlinenumber="31"><a class="xref" href="Documentation/Management/Account_ServiceBlog.html" data-raw-source="[ServiceBlog](xref:AccountServiceBlog)" sourcefile="index.md" sourcestartlinenumber="31" sourceendlinenumber="31">ServiceBlog</a></li>
+</ul>
+</li>
+<li sourcefile="index.md" sourcestartlinenumber="32" sourceendlinenumber="49"><a class="xref" href="Documentation/SequentialDataStore/Data_Store_and_SDS.html" data-raw-source="[Sequential Data Store](xref:sds)" sourcefile="index.md" sourcestartlinenumber="32" sourceendlinenumber="32">Sequential Data Store</a><ul sourcefile="index.md" sourcestartlinenumber="33" sourceendlinenumber="49">
+<li sourcefile="index.md" sourcestartlinenumber="33" sourceendlinenumber="33"><a class="xref" href="Documentation/SequentialDataStore/Introducing_SDS.html" data-raw-source="[Introducing the Sequential Data Store](xref:sdsIntroduction)" sourcefile="index.md" sourcestartlinenumber="33" sourceendlinenumber="33">Introducing the Sequential Data Store</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="34" sourceendlinenumber="34"><a class="xref" href="Documentation/SequentialDataStore/Quick_Start.html" data-raw-source="[Quick Start](xref:sdsQuickStart)" sourcefile="index.md" sourcestartlinenumber="34" sourceendlinenumber="34">Quick Start</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="35" sourceendlinenumber="35"><a class="xref" href="Documentation/SequentialDataStore/SDS_Types.html" data-raw-source="[Types](xref:sdsTypes)" sourcefile="index.md" sourcestartlinenumber="35" sourceendlinenumber="35">Types</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="36" sourceendlinenumber="36"><a class="xref" href="Documentation/SequentialDataStore/SDS_Streams.html" data-raw-source="[Streams](xref:sdsStreams)" sourcefile="index.md" sourcestartlinenumber="36" sourceendlinenumber="36">Streams</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="37" sourceendlinenumber="37"><a class="xref" href="Documentation/SequentialDataStore/SdsStreamExtra.html" data-raw-source="[Stream Metadata and Tags](xref:sdsStreamExtra)" sourcefile="index.md" sourcestartlinenumber="37" sourceendlinenumber="37">Stream Metadata and Tags</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="38" sourceendlinenumber="38"><a class="xref" href="Documentation/SequentialDataStore/SDS_Views.html" data-raw-source="[Stream Views](xref:sdsViews)" sourcefile="index.md" sourcestartlinenumber="38" sourceendlinenumber="38">Stream Views</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="39" sourceendlinenumber="39"><a class="xref" href="Documentation/SequentialDataStore/indexes.html" data-raw-source="[Indexes](xref:sdsIndexes)" sourcefile="index.md" sourcestartlinenumber="39" sourceendlinenumber="39">Indexes</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="40" sourceendlinenumber="40"><a class="xref" href="Documentation/SequentialDataStore/Units_of_Measure.html" data-raw-source="[Units of Measure](xref:unitsOfMeasure)" sourcefile="index.md" sourcestartlinenumber="40" sourceendlinenumber="40">Units of Measure</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="41" sourceendlinenumber="41"><a class="xref" href="Documentation/SequentialDataStore/Reading_Data.html" data-raw-source="[Reading Data](xref:sdsReadingData)" sourcefile="index.md" sourcestartlinenumber="41" sourceendlinenumber="41">Reading Data</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="42" sourceendlinenumber="42"><a class="xref" href="Documentation/SequentialDataStore/Reading_Data_API.html" data-raw-source="[Reading Data API](xref:sdsReadingDataApi)" sourcefile="index.md" sourcestartlinenumber="42" sourceendlinenumber="42">Reading Data API</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="43" sourceendlinenumber="43"><a class="xref" href="Documentation/SequentialDataStore/Writing_Data.html" data-raw-source="[Writing Data](xref:sdsWritingData)" sourcefile="index.md" sourcestartlinenumber="43" sourceendlinenumber="43">Writing Data</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="44" sourceendlinenumber="44"><a class="xref" href="Documentation/SequentialDataStore/Writing_Data_API.html" data-raw-source="[Writing Data API](xref:sdsWritingDataApi)" sourcefile="index.md" sourcestartlinenumber="44" sourceendlinenumber="44">Writing Data API</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="45" sourceendlinenumber="45"><a class="xref" href="Documentation/SequentialDataStore/Compression.html" data-raw-source="[Compression](xref:sdsCompression)" sourcefile="index.md" sourcestartlinenumber="45" sourceendlinenumber="45">Compression</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="46" sourceendlinenumber="46"><a class="xref" href="Documentation/SequentialDataStore/Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="index.md" sourcestartlinenumber="46" sourceendlinenumber="46">Searching</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="47" sourceendlinenumber="47"><a class="xref" href="Documentation/SequentialDataStore/Filter_Expressions.html" data-raw-source="[Filter Expressions - Data](xref:sdsFilterExpressions)" sourcefile="index.md" sourcestartlinenumber="47" sourceendlinenumber="47">Filter Expressions - Data</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="48" sourceendlinenumber="48"><a class="xref" href="Documentation/SequentialDataStore/Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions - Metadata Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="index.md" sourcestartlinenumber="48" sourceendlinenumber="48">Filter Expressions - Metadata Objects</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="49" sourceendlinenumber="49"><a class="xref" href="Documentation/SequentialDataStore/table_format.html" data-raw-source="[Table Format](xref:sdsTableFormat)" sourcefile="index.md" sourcestartlinenumber="49" sourceendlinenumber="49">Table Format</a></li>
+</ul>
+</li>
+<li sourcefile="index.md" sourcestartlinenumber="50" sourceendlinenumber="56"><a class="xref" href="Documentation/DataIngress/Data_Ingress.html" data-raw-source="[Data Ingress and OSIsoft Message Format](xref:dataIngress)" sourcefile="index.md" sourcestartlinenumber="50" sourceendlinenumber="50">Data Ingress and OSIsoft Message Format</a><ul sourcefile="index.md" sourcestartlinenumber="51" sourceendlinenumber="56">
+<li sourcefile="index.md" sourcestartlinenumber="51" sourceendlinenumber="51"><a class="xref" href="Documentation/DataIngress/OMF_Ingress_to_OCS.html" data-raw-source="[Data Ingress to Cloud Services Using OMF](xref:omfIngressToOCS)" sourcefile="index.md" sourcestartlinenumber="51" sourceendlinenumber="51">Data Ingress to Cloud Services Using OMF</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="52" sourceendlinenumber="52"><a class="xref" href="Documentation/SequentialDataStore/Quick_Start.html" data-raw-source="[Quick Start](xref:sdsQuickStart)" sourcefile="index.md" sourcestartlinenumber="52" sourceendlinenumber="52">Quick Start</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="53" sourceendlinenumber="53"><a class="xref" href="Documentation/DataIngress/OMF_Ingress_Specification.html" data-raw-source="[Using OMF with Cloud Services](xref:omfIngressSpecification)" sourcefile="index.md" sourcestartlinenumber="53" sourceendlinenumber="53">Using OMF with Cloud Services</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="54" sourceendlinenumber="54"><a class="xref" href="Documentation/DataIngress/OMF_Ingress_Publishers.html" data-raw-source="[Publishers](xref:omfIngressPublishers)" sourcefile="index.md" sourcestartlinenumber="54" sourceendlinenumber="54">Publishers</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="55" sourceendlinenumber="55"><a class="xref" href="Documentation/DataIngress/OMF_Ingress_Topics.html" data-raw-source="[Topics](xref:omfIngressTopics)" sourcefile="index.md" sourcestartlinenumber="55" sourceendlinenumber="55">Topics</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="56" sourceendlinenumber="56"><a class="xref" href="Documentation/DataIngress/OMF_Ingress_Subscriptions.html" data-raw-source="[Subscriptions](xref:omfIngressSubsctriptions)" sourcefile="index.md" sourcestartlinenumber="56" sourceendlinenumber="56">Subscriptions</a></li>
+</ul>
+</li>
+<li sourcefile="index.md" sourcestartlinenumber="57" sourceendlinenumber="57"><a class="xref" href="Documentation/Access_Control.html" data-raw-source="[Role-based Access Control](xref:accessControl)" sourcefile="index.md" sourcestartlinenumber="57" sourceendlinenumber="57">Role-based Access Control</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="58" sourceendlinenumber="58"><a class="xref" href="Documentation/samples.html" data-raw-source="[Samples](xref:samples)" sourcefile="index.md" sourcestartlinenumber="58" sourceendlinenumber="58">Samples</a></li>
+<li sourcefile="index.md" sourcestartlinenumber="59" sourceendlinenumber="59"><a class="xref" href="Documentation/support.html" data-raw-source="[Getting Support](xref:support)" sourcefile="index.md" sourcestartlinenumber="59" sourceendlinenumber="59">Getting Support</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

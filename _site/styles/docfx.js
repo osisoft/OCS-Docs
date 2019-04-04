@@ -1,7 +1,4 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
-const MINIMUM_QUERY_LENGTH = 2;
-
 $(function () {
   var active = 'active';
   var expanded = 'in';
@@ -226,7 +223,7 @@ $(function () {
         $("body").bind("queryReady", function () {
           worker.postMessage({ q: query });
         });
-        if (query && (query.length >= MINIMUM_QUERY_LENGTH)) {
+        if (query && (query.length >= 3)) {
           worker.postMessage({ q: query });
         }
       });
@@ -254,7 +251,7 @@ $(function () {
 
         $('#search-query').keyup(function () {
           query = $(this).val();
-          if (query.length < MINIMUM_QUERY_LENGTH) {
+          if (query.length < 3) {
             flipContents("show");
           } else {
             flipContents("hide");
@@ -380,7 +377,6 @@ $(function () {
             href = navrel + href;
             $(e).attr("href", href);
 
-            // TODO: currently only support one level navbar
             var isActive = false;
             var originalHref = e.name;
             if (originalHref) {
@@ -390,7 +386,10 @@ $(function () {
               }
             } else {
               if (util.getAbsolutePath(href) === currentAbsPath) {
-                isActive = true;
+                var dropdown = $(e).attr('data-toggle') == "dropdown"
+                if (!dropdown) {
+                  isActive = true;
+                }
               }
             }
             if (isActive) {

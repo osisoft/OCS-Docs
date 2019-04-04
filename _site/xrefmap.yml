@@ -103,8 +103,8 @@ references:
 - uid: sdsFilterExpressions
   name: 'Filter Expressions: Values'
   href: Documentation/SequentialDataStore/Filter_Expressions.html
-- uid: sdsFilterExpressionsMetadata
-  name: 'Filter Expressions: Metadata Objects'
+- uid: sdsFilterExpressionsObjects
+  name: 'Filter Expressions: SDS Objects'
   href: Documentation/SequentialDataStore/Filter_Expressions_Metadata.html
 - uid: sdsIndexes
   name: Indexes

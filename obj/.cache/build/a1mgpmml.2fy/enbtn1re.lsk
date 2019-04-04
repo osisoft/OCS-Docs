@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reading data </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Reading data ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsReadingData">
+
+<h4 id="qireadingdatatopic" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="5" sourceendlinenumber="5">Qi_Reading_data_topic</h4>
+<h1 id="reading-data" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="7" sourceendlinenumber="8">Reading data</h1>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="10" sourceendlinenumber="12">The REST APIs provide programmatic access to read and write data. This section identifies and describes 
+the APIs used to read <a class="xref" href="SDS_Streams.html#sdsstreamtopic" data-raw-source="[Qi_Stream_topic](xref:sdsStreams#sdsstreamtopic)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="11" sourceendlinenumber="11">Qi_Stream_topic</a> data. Results are influenced by <a class="xref" href="SDS_Types.html#sdstypetopic" data-raw-source="[Qi_Types_topic](xref:sdsTypes#sdstypetopic)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="11" sourceendlinenumber="11">Qi_Types_topic</a>,<br><a class="xref" href="SDS_Views.html" data-raw-source="[Sds_View_topic](xref:sdsViews)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="12" sourceendlinenumber="12">Sds_View_topic</a>, <a class="xref" href="Filter_Expressions.html" data-raw-source="[Qi_Filter_expressions_topic](xref:sdsFilterExpressions)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="12" sourceendlinenumber="12">Qi_Filter_expressions_topic</a>, and <a class="xref" href="table_format.html" data-raw-source="[Qi_Table_format_topic](xref:sdsTableFormat)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="12" sourceendlinenumber="12">Qi_Table_format_topic</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="14" sourceendlinenumber="16">If you are working in a .NET environment, convenient SDS Client libraries are available. 
+The <code>ISdsDataServiceinterface</code>, which is accessed using the <code>SdsService.GetDataService()</code> helper, 
+defines the functions that are available.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="18" sourceendlinenumber="18">The following methods for reading a single value are available:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="20" sourceendlinenumber="24">
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="20" sourceendlinenumber="20"><code>Get Value</code> returns a value at a specified index, calculated if no stored value exists at that index. </li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="21" sourceendlinenumber="21"><code>Get First Value</code> returns the first value in the stream.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="22" sourceendlinenumber="22"><code>Get Last Value</code> returns the last value in the stream.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="23" sourceendlinenumber="23"><code>Get Distinct Value</code> returns a value at the specified index, only if a stored value exists at that index.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="24" sourceendlinenumber="24"><code>Find Distinct Value</code> searches for a value based on a starting index and search criteria.</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="26" sourceendlinenumber="26">In addition, the following methods support reading multiple values:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="28" sourceendlinenumber="34">
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="28" sourceendlinenumber="30"><code>Get Values</code> retrieves a collection of values at specified indexes, calculated if no stored 
+value exists at the index(es). <code>Get values</code> supports specifying the desired indexes as a list of indexes, 
+a filter expression and count, or a starting index, ending index, and count.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="31" sourceendlinenumber="31"><code>Get Range Values</code> retrieves a collection of stored values based on the specified start index and count.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="32" sourceendlinenumber="32"><code>Get Window Values</code> retrieves a collection of stored values based on specified start and end indexes.</li>
+<li sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="33" sourceendlinenumber="34"><code>Get Intervals</code> retrieves a collection of evenly spaced summary intervals based on a count 
+and specified start and end indexes.</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="36" sourceendlinenumber="36">All reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI is as follows:</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="38" sourceendlinenumber="38"><code>api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data</code></p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="41" sourceendlinenumber="41"><strong>where:</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="43" sourceendlinenumber="48"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<h2 id="response-format" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="51" sourceendlinenumber="52">Response Format</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="54" sourceendlinenumber="54">Supported response formats include json, verbose json, and Sds. </p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="56" sourceendlinenumber="57">The default response format for is json, which is used in all examples in this document.  Default json 
+responses do not include any values that are equal to the default value for their type.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="59" sourceendlinenumber="60">Verbose json responses include all values, including defaults, in the returned json payload. To specify 
+verbose json return, add the header <code>Accept-Verbosity</code> with a value of <code>verbose</code> to the request.  </p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="62" sourceendlinenumber="62">To specify SDS format, set the <code>Accept</code> header in the request to <code>application/Sds</code>.</p>
+<h2 id="indexes-and-reading-data" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="64" sourceendlinenumber="65">Indexes and reading data</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="67" sourceendlinenumber="69">Most read operations take at least one index as a parameter. Indexes may be specified as strings, or, 
+when using the Sds Client libraries, the index may be passed as-is to read methods that take the index 
+type as a generic argument. Additional details about working with indexes can be found on the <a class="xref" href="indexes.html" data-raw-source="[Indexes_topic](xref:sdsIndexes)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="69" sourceendlinenumber="69">Indexes_topic</a> page.</p>
+<h2 id="read-characteristics" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="71" sourceendlinenumber="72">Read Characteristics</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="74" sourceendlinenumber="78">When data is requested at an index for which no stored event exists, the read characterisitics determine 
+whether the result is an error, null event, interpolated event, or extrapolated event. The combination of 
+the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
+determine the read characteristics. For more information on read characteristics, 
+see <a class="xref" href="SDS_Types.html#sdstypetopic" data-raw-source="[QiType_topic](xref:sdsTypes#sdstypetopic)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="78" sourceendlinenumber="78">QiType_topic</a> and <a class="xref" href="SDS_Streams.html#sdsstreamtopic" data-raw-source="[Qi_Stream_topic](xref:sdsStreams#sdsstreamtopic)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="78" sourceendlinenumber="78">Qi_Stream_topic</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="80" sourceendlinenumber="80"><strong>Methods affected by Read Characteristics</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="82" sourceendlinenumber="83"><code>GetValueAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getvalueasync&gt;</code>__
+  Read characteristics are applied when the index is between, before, or after all data.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="85" sourceendlinenumber="86"><code>GetValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getvaluesasync&gt;</code>__
+  Read characteristics applied when an index determined by the call is between, before, or after all data.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="88" sourceendlinenumber="89"><code>GetWindowValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getwindowvaluesasync&gt;</code>__
+  Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="91" sourceendlinenumber="92"><code>GetRangeValuesAsync &lt;https://qi-docs-rst.readthedocs.org/en/latest/Reading_Data_API.html#getrangevaluesasync&gt;</code>__
+  Read characteristics applied to indexes between, before, or after data when the calls Boundary parameter is set to ExactOrCalculated.</p>
+<h2 id="sdsview-and-reading-data" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="94" sourceendlinenumber="95">SdsView and reading data</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="97" sourceendlinenumber="97">All reads support specifying a SdsView identifier in the query string to shape the results of the read:</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="99" sourceendlinenumber="99"><code>viewId={viewId}</code></p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="101" sourceendlinenumber="101">Working with views is covered in detail in the <a class="xref" href="SDS_Views.html" data-raw-source="[Sds_View_topic](xref:sdsViews)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="101" sourceendlinenumber="101">Sds_View_topic</a> section.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="103" sourceendlinenumber="105">When data is requested with a SdsView the read characteristics defined by the <em>target type</em> of the SdsView 
+determine what is returned. The read characteristics are discussed in the <em>Get Value</em>, 
+<em>GetValues</em> and <em>GetWindowValues</em> code samples.</p>
+<h2 id="filter-expressions" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="107" sourceendlinenumber="108">Filter Expressions</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="110" sourceendlinenumber="112">Filter expressions can be applied to any read that returns multiple values, including Get Values, Get Range Values, 
+Get Window Values, and Get Intervals. The filter expression is applied to the collection events conditionally 
+filtering events that do not meet the filter conditions.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="114" sourceendlinenumber="114">Filter expressions are covered in detail in the <a class="xref" href="Filter_Expressions.html" data-raw-source="[Qi_Filter_expressions_topic](xref:sdsFilterExpressions)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="114" sourceendlinenumber="114">Qi_Filter_expressions_topic</a> section.</p>
+<h2 id="table-format" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="116" sourceendlinenumber="117">Table Format</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="119" sourceendlinenumber="120">Results of a query can be organized into tables by directing the form parameter to return a table. 
+Two forms of table are available: table and header table.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="122" sourceendlinenumber="124">When the form parameter is specified as table, <code>?form=table</code>, events are returned in row column form. 
+Results include a collection named <code>Columns</code> that lists column name and type and a collection named 
+<code>Rows</code> containing a collection of rows matching the order of the columns.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="126" sourceendlinenumber="127">Specifying a form of type <code>table-headers</code>, <code>?form=tableh</code>, results in a collection where the Rows collection 
+contains a column header list.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="129" sourceendlinenumber="129">Table formats are covered in detail in the <a class="xref" href="table_format.html" data-raw-source="[Qi_Table_format_topic](xref:sdsTableFormat)" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="129" sourceendlinenumber="129">Qi_Table_format_topic</a> section.</p>
+<h2 id="sdsboundarytype" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="132" sourceendlinenumber="133">SdsBoundaryType</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="135" sourceendlinenumber="136">SdsBoundaryType defines how data on the boundary of queries is handled: around the start index for range value queries, 
+and around the start and end index for window values. The following are valid values for SdsBoundaryType:</p>
+<table sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="138" sourceendlinenumber="148">
+<thead>
+<tr>
+<th>Boundary</th>
+<th>Enumeration value</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact</td>
+<td>0</td>
+<td>Results include the event at the specified index boundary</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>if a stored event exists at that index.</td>
+</tr>
+<tr>
+<td>Inside</td>
+<td>1</td>
+<td>Results include only events within the index boundaries</td>
+</tr>
+<tr>
+<td>Outside</td>
+<td>2</td>
+<td>Results include up to one event that falls immediately</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>outside of the specified index boundary.</td>
+</tr>
+<tr>
+<td>ExactOrCalculated</td>
+<td>3</td>
+<td>Results include the event at the specified index boundary. If</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>no stored event exists at that index, one is calculated based</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on the index type and interpolation and extrapolation</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>settings.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sdssearchmode" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="150" sourceendlinenumber="151">SdsSearchMode</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="153" sourceendlinenumber="154">The SdsSearchMode enum defines search behavior when seeking a stored event near a specified index. The following are 
+available SdsSearchModes:</p>
+<table sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="156" sourceendlinenumber="167">
+<thead>
+<tr>
+<th>Mode</th>
+<th>Enumeration value</th>
+<th>Operation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exact</td>
+<td>0</td>
+<td>If a stored event exists at the specified index, that event</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is returned. Otherwise no event is returned.</td>
+</tr>
+<tr>
+<td>ExactOrNext</td>
+<td>1</td>
+<td>If a stored event exists at the specified index, that event</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is returned. Otherwise the next event in the stream is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>returned.</td>
+</tr>
+<tr>
+<td>Next</td>
+<td>2</td>
+<td>Returns the stored event after the specified index.</td>
+</tr>
+<tr>
+<td>ExactOrPrevious</td>
+<td>3</td>
+<td>If a stored event exists at the specified index, that event</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is returned. Otherwise the previous event in the stream is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>returned.</td>
+</tr>
+<tr>
+<td>Previous</td>
+<td>4</td>
+<td>Returns the stored event before the specified index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reading-data-api-and-examples" sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="169" sourceendlinenumber="170">Reading data API and examples</h2>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="172" sourceendlinenumber="172">Many of the API methods described below contain sample JSON and sample code. </p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="174" sourceendlinenumber="175">When specifying a parameter of type enum, the API accepts both the name of the field and the numeric value of the field. 
+Samples vary to highlight enum flexibility.</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="177" sourceendlinenumber="177">Samples use the following types:</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="179" sourceendlinenumber="179">Type with a simple index, named <em>Simple</em>:</p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="181" sourceendlinenumber="181"><strong>.NET</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="183" sourceendlinenumber="196"><code>  public enum State
+  {
+    Ok,
+    Warning,
+    Alarm
+  }
+
+  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0) ]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="198" sourceendlinenumber="198"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="200" sourceendlinenumber="222"><code>  class State(Enum):
+    Ok = 0
+    Warning = 1
+    Alarm = 2
+
+  class Simple(object):
+    Time = property(getTime, setTime)
+    def getTime(self):
+      return self.__time
+    def setTime(self, time):
+      self.__time = time
+
+    State = property(getState, setState)
+    def getState(self):
+      return self.__state
+    def setState(self, state):
+      self.__state = state
+
+    Measurement = property(getValue, setValue)
+    def getValue(self):
+      return self.__measurement
+    def setValue(self, measurement):
+      self.__measurement = measurement
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="224" sourceendlinenumber="224"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="226" sourceendlinenumber="237"><code>  var State =
+  {
+    Ok: 0,
+    Warning: 1,
+    Alarm: 2,
+  }
+
+  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="239" sourceendlinenumber="239">Has values as follows:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="241" sourceendlinenumber="245"><code>  11/23/2017 12:00:00 PM: Ok  0
+  11/23/2017  1:00:00 PM: Ok 10
+  11/23/2017  2:00:00 PM: Ok 20
+  11/23/2017  3:00:00 PM: Ok 30
+  11/23/2017  4:00:00 PM: Ok 40
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="247" sourceendlinenumber="247">Type with Compound Index, named <code>DerivedCompoundIndex</code></p>
+<p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="250" sourceendlinenumber="250"><strong>.NET</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="252" sourceendlinenumber="264"><code>  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+
+  public class DerivedCompoundIndex : Simple
+  {
+    [SdsMember(IsKey = true, Order = 1)]
+    public DateTime Recorded { get; set; }
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="266" sourceendlinenumber="266"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="268" sourceendlinenumber="295"><code>  class Simple(object):
+  # First-order Key property
+  Time = property(getTime, setTime)
+  def getTime(self):
+    return self.__time
+  def setTime(self, time):
+    self.__time = time
+
+  State = property(getState, setState)
+  def getState(self):
+    return self.__state
+  def setState(self, state):
+    self.__state = state
+
+  Measurement = property(getValue, setValue)
+  def getValue(self):
+    return self.__measurement
+  def setValue(self, measurement):
+    self.__measurement = measurement
+
+  class DerivedCompoundIndex(Simple):
+  # Second-order Key property
+  @property
+  def Recorded(self):
+    return self.__recorded
+  @Recorded.setter
+  def Recorded(self, recorded):
+    self.__recorded = recorded
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="297" sourceendlinenumber="297"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="299" sourceendlinenumber="308"><code>  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+
+  var DerivedCompoundIndex = function() {
+    Simple.call(this);
+    this.Recorded = null;
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="310" sourceendlinenumber="310">Has values as follows:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="312" sourceendlinenumber="318"><code>  1/20/2017 1:00:00 AM : 1/20/2017 12:00:00 AM  0
+  1/20/2017 1:00:00 AM : 1/20/2017  1:00:00 AM  2
+  1/20/2017 1:00:00 AM : 1/20/2017  2:00:00 PM  5
+  1/20/2017 2:00:00 AM : 1/20/2017 12:00:00 AM  1
+  1/20/2017 2:00:00 AM : 1/20/2017  1:00:00 AM  3
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 AM  4
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 PM  6
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Reading_Data.md" sourcestartlinenumber="320" sourceendlinenumber="320">All times are represented at offset 0, GMT.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/Reading_Data.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

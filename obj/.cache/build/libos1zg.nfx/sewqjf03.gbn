@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Filter Expressions: Values </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Filter Expressions: Values ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsFilterExpressions">
+<h1 id="filter-expressions-values" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="5" sourceendlinenumber="6">Filter Expressions: Values</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="8" sourceendlinenumber="8">Filter expressions can be applied to certain read operations that return Sequential Data Store values or objects. This section covers data values. For filtering on Sds objects refer to <a class="xref" href="Filter_Expressions_Metadata.html" data-raw-source="[Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata)" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="8" sourceendlinenumber="8">Filter Expressions: Objects</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="10" sourceendlinenumber="11">Filter expressions can be applied to any read that returns multiple values, including 
+<code>Get Values</code> and <code>Get Summaries</code>.</p>
+<h2 id="sdstypecodes" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="14" sourceendlinenumber="15">SdsTypeCodes</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="17" sourceendlinenumber="17"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="19" sourceendlinenumber="19">The following types are supported for use within a filter expression:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="21" sourceendlinenumber="38">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="21" sourceendlinenumber="21"><code>Boolean</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="22" sourceendlinenumber="22"><code>Byte</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="23" sourceendlinenumber="23"><code>Char</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="24" sourceendlinenumber="24"><code>DateTime</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="25" sourceendlinenumber="25"><code>DateTimeOffset</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="26" sourceendlinenumber="26"><code>Decimal</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="27" sourceendlinenumber="27"><code>Double</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="28" sourceendlinenumber="28"><code>Guid</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="29" sourceendlinenumber="29"><code>Int16</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="30" sourceendlinenumber="30"><code>Int32</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="31" sourceendlinenumber="31"><code>Int64</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="32" sourceendlinenumber="32"><code>Sbyte</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="33" sourceendlinenumber="33"><code>Single</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="34" sourceendlinenumber="34"><code>String</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="35" sourceendlinenumber="35"><code>Timespan</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="36" sourceendlinenumber="36"><code>UInt16</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="37" sourceendlinenumber="37"><code>UInt32</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="38" sourceendlinenumber="38"><code>Uint64</code></li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="41" sourceendlinenumber="41"><strong>Types that are not supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="43" sourceendlinenumber="44">The following types are not supported for use within a filter
+expression:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="46" sourceendlinenumber="52">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="46" sourceendlinenumber="46"><code>Array</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="47" sourceendlinenumber="47"><code>IEnumerable</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="48" sourceendlinenumber="48"><code>IDictionary</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="49" sourceendlinenumber="49"><code>IList</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="50" sourceendlinenumber="50"><code>SdsType</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="51" sourceendlinenumber="51"><code>SdsTypeProperty</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="52" sourceendlinenumber="52"><code>Nullable Types</code></li>
+</ul>
+<h2 id="logical-operators" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="55" sourceendlinenumber="56">Logical operators</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="58" sourceendlinenumber="58"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="60" sourceendlinenumber="61">The following logical operators are supported for use within a filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="63" sourceendlinenumber="75">
+<thead>
+<tr>
+<th>Operator</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eq</code></td>
+<td>Equal to</td>
+</tr>
+<tr>
+<td><code>ne</code></td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td><code>ge</code></td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td><code>le</code></td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td><code>lt</code></td>
+<td>Less than</td>
+</tr>
+<tr>
+<td><code>gt</code></td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td><code>( )</code></td>
+<td>Parenthesis can be used to affect the order of the operation</td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>Or logical operator</td>
+</tr>
+<tr>
+<td><code>and</code></td>
+<td>And logical operator</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>Not logical operator</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Negation</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="77" sourceendlinenumber="77"><strong>Logical Operator Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="79" sourceendlinenumber="79">For the following examples, assume that the SDS Type event includes a field named <code>Value</code> of type <strong>double</strong>: </p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="81" sourceendlinenumber="89">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="81" sourceendlinenumber="81"><code>Value eq 1.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="82" sourceendlinenumber="82"><code>Value ne 15.6</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="83" sourceendlinenumber="83"><code>Value ge 5.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="84" sourceendlinenumber="84"><code>Value le 8.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="85" sourceendlinenumber="85"><code>Value gt 5.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="86" sourceendlinenumber="86"><code>Value lt 4.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="87" sourceendlinenumber="87"><code>Value gt 2.0 and Value lt 9.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="88" sourceendlinenumber="88"><code>Value gt 6.0 or Value lt 2.0</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="89" sourceendlinenumber="89"><code>not (Value eq 1.0)</code></li>
+</ul>
+<h2 id="math-functions" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="91" sourceendlinenumber="92">Math functions</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="94" sourceendlinenumber="94"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="96" sourceendlinenumber="97">The following math functions are supported for use within a filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="99" sourceendlinenumber="108">
+<thead>
+<tr>
+<th>Function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>add</code></td>
+<td>Addition</td>
+</tr>
+<tr>
+<td><code>sub</code></td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td><code>mul</code></td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td><code>div</code></td>
+<td>Division</td>
+</tr>
+<tr>
+<td><code>mod</code></td>
+<td>Modulo</td>
+</tr>
+<tr>
+<td><code>round</code></td>
+<td>Rounds to the nearest numeric component without a decimal, with the midpoint rounded away from 0. For example, 0.5 rounds to 1; -0.5 rounds to -1)</td>
+</tr>
+<tr>
+<td><code>floor</code></td>
+<td>Rounds down to the nearest numeric component without a decimal</td>
+</tr>
+<tr>
+<td><code>ceiling</code></td>
+<td>Rounds up to the nearest numeric component without a decimal</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="110" sourceendlinenumber="110"><strong>Math Function Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="112" sourceendlinenumber="112">For the following examples, assume that the SDS Type event includes a field named <code>Value</code> of type <strong>double</strong>: </p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="114" sourceendlinenumber="121">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="114" sourceendlinenumber="114"><code>Value eq (6.0 add 3.0)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="115" sourceendlinenumber="115"><code>Value eq (6.0 sub 3.0)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="116" sourceendlinenumber="116"><code>Value eq (6.0 mul 3.0)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="117" sourceendlinenumber="117"><code>Value eq (6.0 div 3.0)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="118" sourceendlinenumber="118"><code>Value eq (7.0 mod 3.0)</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="119" sourceendlinenumber="119"><code>round(Value) eq 16</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="120" sourceendlinenumber="120"><code>floor(Value) eq 15</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="121" sourceendlinenumber="121"><code>ceiling(Value) eq 16</code></li>
+</ul>
+<h2 id="string-functions" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="127" sourceendlinenumber="128">String functions</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="130" sourceendlinenumber="130"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="132" sourceendlinenumber="134">String operations are case sensitive. The character index in a string is
+0-based. The following string functions are supported for use within a
+filter expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="136" sourceendlinenumber="148">
+<thead>
+<tr>
+<th>function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>endswith</code></td>
+<td>Compare the character at the end of the input string</td>
+</tr>
+<tr>
+<td><code>startswith</code></td>
+<td>Compare the character at the start of the input string</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>Examines the string length</td>
+</tr>
+<tr>
+<td><code>indexof</code></td>
+<td>Examines the character starting at a given index</td>
+</tr>
+<tr>
+<td><code>substring</code></td>
+<td>Examine characters within another string at a specific location</td>
+</tr>
+<tr>
+<td><code>contains</code></td>
+<td>Search for characters anywhere in another string</td>
+</tr>
+<tr>
+<td><code>tolower</code></td>
+<td>Convert characters to lowercase</td>
+</tr>
+<tr>
+<td><code>toupper</code></td>
+<td>Convert characters to uppercase</td>
+</tr>
+<tr>
+<td><code>trim</code></td>
+<td>Remove whitespace from front and end of a string</td>
+</tr>
+<tr>
+<td><code>concat</code></td>
+<td>Concatenate strings together</td>
+</tr>
+<tr>
+<td><code>replace</code></td>
+<td>Replace one set of characters with another</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="150" sourceendlinenumber="150"><strong>String function examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="152" sourceendlinenumber="153">The following examples assume that the SDS Type event includes a field named
+<code>sValue</code> of type <strong>string</strong>:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="155" sourceendlinenumber="167">
+<thead>
+<tr>
+<th>Example</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>endswith(sValue, &#39;XYZ&#39;)</code></td>
+<td>True if <code>sValue</code> ends with the characters ‘XYZ’</td>
+</tr>
+<tr>
+<td><code>startswith(sValue, &#39;Val&#39;</code></td>
+<td>True if <code>sValue</code> starts with the characters ‘Val’</td>
+</tr>
+<tr>
+<td><code>length(sValue) eq 11</code></td>
+<td>True if <code>sValue</code> is 11 characters</td>
+</tr>
+<tr>
+<td><code>indexof(sValue, &#39;ab&#39;) eq 4</code></td>
+<td>True if the 5th and 6th characters are ‘ab’</td>
+</tr>
+<tr>
+<td><code>contains(sValue, &#39;ab&#39;)</code></td>
+<td>True if characters ‘ab’ are found anywhere in <code>sValue</code></td>
+</tr>
+<tr>
+<td><code>substring(sValue, 10) eq &#39;a b&#39;</code></td>
+<td>True if ‘a b’ is found in <code>sValue</code> at index 10</td>
+</tr>
+<tr>
+<td><code>tolower(sValue) eq &#39;val5&#39;</code></td>
+<td>Change <code>sValue</code> to lowercase and compare to ‘val5’</td>
+</tr>
+<tr>
+<td><code>toupper(sValue) eq &#39;ABC&#39;</code></td>
+<td>Change <code>sValue</code> to uppercase and compare to ‘ABC’</td>
+</tr>
+<tr>
+<td><code>trim(sValue) eq &#39;vall22&#39;</code></td>
+<td>Trim whitespace from front and end of <code>sValue</code> and compare to ‘val22’</td>
+</tr>
+<tr>
+<td><code>concat(sValue,&#39;xyz&#39;) eq &#39;dataValue_7xyz&#39;</code></td>
+<td>Add characters to <code>sValue</code> and compare to ‘dataValue_7xyz’</td>
+</tr>
+<tr>
+<td><code>replace(sValue,&#39;L&#39;,&#39;D&#39;) eq &#39;Dog1&#39;</code></td>
+<td>Replace any ‘L’ in <code>sValue</code> with ‘D’ and compare to ‘Dog1’</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datetime-functions" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="169" sourceendlinenumber="170">DateTime functions</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="172" sourceendlinenumber="172"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="174" sourceendlinenumber="175">The following DateTime functions are supported for use within a filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="177" sourceendlinenumber="184">
+<thead>
+<tr>
+<th>Function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>year</code></td>
+<td>Get year value from DateTime</td>
+</tr>
+<tr>
+<td><code>month</code></td>
+<td>Get month value from DateTime</td>
+</tr>
+<tr>
+<td><code>day</code></td>
+<td>Get day value from DateTime</td>
+</tr>
+<tr>
+<td><code>hour</code></td>
+<td>Get hour value from DateTime</td>
+</tr>
+<tr>
+<td><code>minute</code></td>
+<td>Get minute value from DateTime</td>
+</tr>
+<tr>
+<td><code>second</code></td>
+<td>Get second value from DateTime</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="186" sourceendlinenumber="186"><strong>DateTime Function Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="188" sourceendlinenumber="189">The following examples assume that the SDS Type event includes a field named
+<code>TimeId</code> of type <strong>DateTime</strong>:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="191" sourceendlinenumber="196">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="191" sourceendlinenumber="191"><code>year(TimeId) eq 2015</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="192" sourceendlinenumber="192"><code>month(TimeId) eq 11</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="193" sourceendlinenumber="193"><code>day(TimeId) eq 3</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="194" sourceendlinenumber="194"><code>hour(TimeId) eq 1</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="195" sourceendlinenumber="195"><code>minute(TimeId) eq 5</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="196" sourceendlinenumber="196"><code>second(TimeId) eq 3</code></li>
+</ul>
+<h2 id="timespan-functions" sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="198" sourceendlinenumber="199">TimeSpan functions</h2>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="201" sourceendlinenumber="201"><strong>Supported</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="203" sourceendlinenumber="204">The following TimeSpan functions are supported for use within a filter
+expression:</p>
+<table sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="206" sourceendlinenumber="212">
+<thead>
+<tr>
+<th>function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>years</code></td>
+<td>Get year value from TimeSpan</td>
+</tr>
+<tr>
+<td><code>days</code></td>
+<td>Get day value from TimeSpan</td>
+</tr>
+<tr>
+<td><code>hours</code></td>
+<td>Get hour value from TimeSpan</td>
+</tr>
+<tr>
+<td><code>minutes</code></td>
+<td>Get minute value from TimeSpan</td>
+</tr>
+<tr>
+<td><code>seconds</code></td>
+<td>Get second value from TimeSpan</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="214" sourceendlinenumber="214"><strong>TimeSpan Function Examples</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="216" sourceendlinenumber="217">For the following examples, assume that the SDS Type event includes a field named
+<code>TimeSpanValue</code> of type <strong>TimeSpan</strong>:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="219" sourceendlinenumber="223">
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="219" sourceendlinenumber="219"><code>years(TimeSpanValue) eq 1</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="220" sourceendlinenumber="220"><code>days(TimeSpanValue) eq 22</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="221" sourceendlinenumber="221"><code>hours(TimeSpanValue) eq 1</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="222" sourceendlinenumber="222"><code>minutes(TimeSpanValue) eq 1</code></li>
+<li sourcefile="Documentation/SequentialDataStore/Filter_Expressions.md" sourcestartlinenumber="223" sourceendlinenumber="223"><code>seconds(TimeSpanValue) eq 2</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/Filter_Expressions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

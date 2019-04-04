@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Writing data </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Writing data ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsWritingData">
+
+<h4 id="qiwritingdatatopic" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="5" sourceendlinenumber="5">Qi_Writing_Data_topic</h4>
+<h1 id="writing-data" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="7" sourceendlinenumber="8">Writing data</h1>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="10" sourceendlinenumber="11">The Sds REST APIs provide programmatic access to read and write Sds data. This section describes 
+the APIs used to write SdsStream data.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="13" sourceendlinenumber="14">When working in .NET, convenient Sds Client libraries are available. The <code>ISdsDataServiceinterface</code>, accessed using the
+<code>SdsService.GetDataService( )</code> helper, defines the available functions.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="16" sourceendlinenumber="18">All writes rely on a stream’s key or primary index. Preexisting values and positioning within the stream 
+is determined exclusively by the primary index. Secondary indexes are updated, but they do not contribute 
+to the request. All references to indexes are to the primary index.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="20" sourceendlinenumber="20">The following single value write methods are available:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="22" sourceendlinenumber="26">
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="22" sourceendlinenumber="22"><strong>Insert Value</strong> inserts a value at the specified primary index. </li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="23" sourceendlinenumber="23"><strong>Patch Value</strong> updates specific fields in an existing value identified by the primary index.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="24" sourceendlinenumber="24"><strong>Replace Value</strong> replaces the value at the specified primary index.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="25" sourceendlinenumber="25"><strong>Update Value</strong> replaces the value with matching primary index. If no value exists the value is added.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="26" sourceendlinenumber="26"><strong>Remove Value</strong> deletes the value at the specified primary index.</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="29" sourceendlinenumber="29">The following support writing multiple values:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="31" sourceendlinenumber="36">
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="31" sourceendlinenumber="31"><strong>Insert Values</strong> inserts a collection of values.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="32" sourceendlinenumber="32"><strong>Patch Values</strong> updates specific fields for a collection of values.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="33" sourceendlinenumber="33"><strong>Replace Values</strong> replaces a collection of values.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="34" sourceendlinenumber="34"><strong>Update Values</strong> replaces or adds a collection of values.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="35" sourceendlinenumber="35"><strong>Remove Values</strong> deletes the values at the specified primary indexes.</li>
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="36" sourceendlinenumber="36"><strong>Remove Window Values</strong> removes values that fall within the window defined by the start and end primary indexes.</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="39" sourceendlinenumber="39">The base URI for writing Sds data is:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="41" sourceendlinenumber="41"><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="43" sourceendlinenumber="43"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="45" sourceendlinenumber="50"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<h2 id="response-format" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="53" sourceendlinenumber="54">Response Format</h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="56" sourceendlinenumber="56">Supported response formats include JSON, verbose JSON, and Sds. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="58" sourceendlinenumber="59">The default response format for reading data is JSON, which is used in all examples in this document. 
+Default JSON responses do not include any values that are equal to the default value for their type.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="61" sourceendlinenumber="62">Verbose JSON responses include all values in the returned JSON payload, including defaults.
+To specify verbose JSON return, add the header <code>Accept-Verbosity</code> with a value of <code>verbose</code> to the request. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="64" sourceendlinenumber="64">Verbose has no impact on writes; writes return only error messages.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="66" sourceendlinenumber="66">To specify Sds format, set the <code>Accept</code> header in the request to <code>application/Sds</code>.</p>
+<h2 id="indexes" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="68" sourceendlinenumber="69">Indexes</h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="71" sourceendlinenumber="75">Sds writes rely on the primary index for positioning within streams and locating existing events. 
+Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
+indexes are specified as strings in the URI, or, when using the Sds Client libraries, the index may be 
+passed as-is to delete methods that take the index type as a generic argument. More details about working 
+with indexes can be found on the <a class="xref" href="indexes.html" data-raw-source="[Qi_Indexes_topic](xref:sdsIndexes)" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="75" sourceendlinenumber="75">Qi_Indexes_topic</a> page. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="77" sourceendlinenumber="78">To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
+separated by the pipe character, ‘|’.</p>
+<h2 id="examples" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="80" sourceendlinenumber="81">Examples</h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="83" sourceendlinenumber="83">Many of the API methods described below contain sample JSON. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="85" sourceendlinenumber="86">When specifying a parameter of type <code>enum</code>, the API accepts both the name of the field and the numeric 
+value of the field. Samples vary to highlight enum flexibility.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="88" sourceendlinenumber="88">Samples use the following types:</p>
+<ul sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="90" sourceendlinenumber="90">
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="90" sourceendlinenumber="90">Type with a simple index, named <em>Simple</em>:</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="92" sourceendlinenumber="92"><strong>.NET</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="95" sourceendlinenumber="108"><code>  public enum State 
+  {
+    Ok,
+    Warning,
+    Alarm
+  }
+
+  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0) ] 
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="110" sourceendlinenumber="110"><strong>Python</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="113" sourceendlinenumber="135"><code>  class State(Enum):
+    Ok = 0
+    Warning = 1
+    Alarm = 2
+
+  class Simple(object):
+    Time = property(getTime, setTime)
+    def getTime(self):
+      return self.__time
+    def setTime(self, time):
+      self.__time = time
+
+    State = property(getState, setState)
+    def getState(self):
+      return self.__state
+    def setState(self, state):
+      self.__state = state
+
+    Measurement = property(getValue, setValue)
+    def getValue(self):
+      return self.__measurement
+    def setValue(self, measurement):
+      self.__measurement = measurement
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="137" sourceendlinenumber="137"><strong>JavaScript</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="140" sourceendlinenumber="151"><code>  var State =
+  {
+    Ok: 0,
+    Warning: 1,
+    Aalrm: 2,
+  }
+
+  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="154" sourceendlinenumber="154">The values produced by the above code is as follows:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="157" sourceendlinenumber="161"><code>  11/23/2017 12:00:00 PM: Ok  0
+  11/23/2017  1:00:00 PM: Ok 10
+  11/23/2017  2:00:00 PM: Ok 20
+  11/23/2017  3:00:00 PM: Ok 30
+  11/23/2017  4:00:00 PM: Ok 40
+</code></pre><ul sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="163" sourceendlinenumber="163">
+<li sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="163" sourceendlinenumber="163">Type with Compound Index, named DerivedCompoundIndex</li>
+</ul>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="165" sourceendlinenumber="165">.NET</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="168" sourceendlinenumber="180"><code>  public class Simple
+  {
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public Double Measurement { get; set; }
+  }
+
+  public class DerivedCompoundIndex : Simple
+  {
+    [SdsMember(IsKey = true, Order = 1)]
+    public DateTime Recorded { get; set; }
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="182" sourceendlinenumber="182">Python</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="185" sourceendlinenumber="212"><code>  class Simple(object):
+  # First-order Key property
+  Time = property(getTime, setTime)
+  def getTime(self):
+    return self.__time
+  def setTime(self, time):
+    self.__time = time
+
+  State = property(getState, setState)
+  def getState(self):
+    return self.__state
+  def setState(self, state):
+    self.__state = state
+
+  Measurement = property(getValue, setValue)
+  def getValue(self):
+    return self.__measurement
+  def setValue(self, measurement):
+    self.__measurement = measurement
+
+  class DerivedCompoundIndex(Simple):
+  # Second-order Key property
+  @property
+  def Recorded(self):
+    return self.__recorded
+   @Recorded.setter
+  def Recorded(self, recorded):
+    self.__recorded = recorded
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="214" sourceendlinenumber="214">JavaScript</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="217" sourceendlinenumber="226"><code>  var Simple = function () {
+    this.Time = null;
+    this.State = null;
+    this.Value = null;
+  }
+
+  var DerivedCompoundIndex = function() {
+    Simple.call(this);
+    this.Recorded = null;
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="228" sourceendlinenumber="228">Has values as follows:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="231" sourceendlinenumber="237"><code>  1/20/2017 1:00:00 AM : 1/20/2017 12:00:00 AM  0
+  1/20/2017 1:00:00 AM : 1/20/2017  1:00:00 AM  2
+  1/20/2017 1:00:00 AM : 1/20/2017  2:00:00 PM  5
+  1/20/2017 2:00:00 AM : 1/20/2017 12:00:00 AM  1
+  1/20/2017 2:00:00 AM : 1/20/2017  1:00:00 AM  3
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 AM  4
+  1/20/2017 2:00:00 AM : 1/20/2017  2:00:00 PM  6
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="239" sourceendlinenumber="239">All times are represented at offset 0, GMT.</p>
+<hr>
+<h2 id="insert-value" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="244" sourceendlinenumber="245"><code>Insert value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="247" sourceendlinenumber="248">Inserts an event into the specified stream. If an event already exists at the specified primary index, 
+the insert operation fails, and returns HTTP status code Conflict, 409.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="251" sourceendlinenumber="251"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="253" sourceendlinenumber="253"><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="256" sourceendlinenumber="256"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="258" sourceendlinenumber="263"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="265" sourceendlinenumber="266">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="268" sourceendlinenumber="268">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="271" sourceendlinenumber="275"><code>  {  
+     &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+     &quot;State&quot;:0,
+     &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="279" sourceendlinenumber="279"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="281" sourceendlinenumber="281">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="285" sourceendlinenumber="285"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="288" sourceendlinenumber="288"><code>  Task InsertValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="291" sourceendlinenumber="291"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="293" sourceendlinenumber="293">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="patch-value" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="298" sourceendlinenumber="299"><code>Patch value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="301" sourceendlinenumber="302">Updates fields in an event. Use the select parameter to specify the fields to update. If there is 
+not an event with a matching primary index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="305" sourceendlinenumber="305"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="308" sourceendlinenumber="309"><code>    PATCH api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+          PatchValue?select={select}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="311" sourceendlinenumber="311"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="313" sourceendlinenumber="320"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string select</code>
+  Comma-separated list of fields to update</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="323" sourceendlinenumber="324">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="326" sourceendlinenumber="326">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="329" sourceendlinenumber="333"><code>  {  
+    &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+    &quot;State&quot;:”Warning”,
+    &quot;Measurement&quot;:500.0
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="335" sourceendlinenumber="336">To update the state field to Warning, set the index to <code>state</code>. To update the state to Warning 
+and the measurement to 500, set the index to <code>state,measurement</code>.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="338" sourceendlinenumber="338"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="340" sourceendlinenumber="340">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="343" sourceendlinenumber="343"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="345" sourceendlinenumber="345"><code>  Task PatchValueAsync&lt;T&gt;(string streamId, string select, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="348" sourceendlinenumber="348"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="350" sourceendlinenumber="350">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="replace-value" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="355" sourceendlinenumber="356"><code>Replace value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="358" sourceendlinenumber="359">Replaces an existing event with an event with matching primary index. If there is not an event with a 
+matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="362" sourceendlinenumber="362"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="364" sourceendlinenumber="364"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="367" sourceendlinenumber="367"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="369" sourceendlinenumber="374"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="376" sourceendlinenumber="377">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="379" sourceendlinenumber="379">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="382" sourceendlinenumber="386"><code>  {  
+    &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+    &quot;State&quot;:0,
+    &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="391" sourceendlinenumber="391"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="393" sourceendlinenumber="393">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="397" sourceendlinenumber="397"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="399" sourceendlinenumber="399"><code>  Task ReplaceValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="402" sourceendlinenumber="402"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="404" sourceendlinenumber="404">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="update-value" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="409" sourceendlinenumber="410"><code>Update value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="412" sourceendlinenumber="413">Replaces an existing event with an event that has a matching primary index. If there is not an event with 
+a matching index, the event is inserted.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="416" sourceendlinenumber="416"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="418" sourceendlinenumber="418"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="421" sourceendlinenumber="421"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="423" sourceendlinenumber="428"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="430" sourceendlinenumber="431">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="433" sourceendlinenumber="433">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="436" sourceendlinenumber="440"><code>  {  
+     &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+     &quot;State&quot;:0,
+     &quot;Measurement&quot;:1000.0
+  }
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="444" sourceendlinenumber="444"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="446" sourceendlinenumber="446">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="449" sourceendlinenumber="449"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="451" sourceendlinenumber="451"><code>  Task UpdateValueAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="454" sourceendlinenumber="454"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="456" sourceendlinenumber="456">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-value" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="461" sourceendlinenumber="462"><code>Remove value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="464" sourceendlinenumber="465">Removes an event that matches a primary index. If there is not an event with a matching index, 
+the remove operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="468" sourceendlinenumber="468"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="470" sourceendlinenumber="471"><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+         RemoveValue?index={index}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="474" sourceendlinenumber="474"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="476" sourceendlinenumber="483"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The primary index identifying the event</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="486" sourceendlinenumber="486"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="488" sourceendlinenumber="488">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="492" sourceendlinenumber="492"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="494" sourceendlinenumber="496"><code>  Task RemoveValueAsync(string streamId, string index);
+  Task RemoveValueAsync&lt;T1&gt;(string streamId, T1 index);
+  Task RemoveValueAsync&lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T1&gt; index);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="499" sourceendlinenumber="499"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="501" sourceendlinenumber="501">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="insert-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="506" sourceendlinenumber="507"><code>Insert values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="509" sourceendlinenumber="510">Inserts a collection of events into the specified stream. If an event exists at the same primary 
+index as any of the values, the insert operation fails and returns HTTP status code Conflict, 409.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="513" sourceendlinenumber="513"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="515" sourceendlinenumber="515"><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/InsertValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="518" sourceendlinenumber="518"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="520" sourceendlinenumber="525"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="527" sourceendlinenumber="528">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="530" sourceendlinenumber="530">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="533" sourceendlinenumber="559"><code>  [  
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:0.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:10.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:20.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:30.0
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T16:00:00Z&quot;,
+       &quot;State&quot;:0,
+       &quot;Measurement&quot;:40.0
+    }
+  ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="563" sourceendlinenumber="563"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="565" sourceendlinenumber="565">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="569" sourceendlinenumber="569"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="571" sourceendlinenumber="571"><code>   Task InsertValuesAsyncs&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="574" sourceendlinenumber="574"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="576" sourceendlinenumber="576">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="patch-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="581" sourceendlinenumber="582"><code>Patch values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="584" sourceendlinenumber="585">Updates fields for a collection of events in the specified stream. If there is not an event with 
+a matching index, the patch operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="588" sourceendlinenumber="588"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="590" sourceendlinenumber="591"><code>    POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/PatchValues 
+         ?select={select}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="594" sourceendlinenumber="594"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="596" sourceendlinenumber="603"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string select</code>
+  Comma separated list of fields to update</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="606" sourceendlinenumber="607">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="609" sourceendlinenumber="609">To patch the State of the sample stream shown previously, a URI resembles the following:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="611" sourceendlinenumber="612"><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{simpleStream.Id}/ 
+      Data/PatchValues?select=state
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="615" sourceendlinenumber="615">A sample of serialized Simple type content is shown here:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="618" sourceendlinenumber="635"><code>  [  
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T12:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T13:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T14:00:00Z&quot;,
+       &quot;State&quot;:1
+    },
+    {  
+       &quot;Time&quot;:&quot;2017-11-23T15:00:00Z&quot;,
+       &quot;State&quot;:1
+    }
+  ]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="639" sourceendlinenumber="639"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="641" sourceendlinenumber="641">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="645" sourceendlinenumber="645"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="647" sourceendlinenumber="647"><code>   Task PatchValuesAsync&lt;T&gt;(string streamId, string select, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="650" sourceendlinenumber="650"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="652" sourceendlinenumber="652">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="replace-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="658" sourceendlinenumber="659"><code>Replace values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="661" sourceendlinenumber="662">Replaces a collection of events with events that match primary indexes. If there is not an event with a 
+matching index, the replace operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="665" sourceendlinenumber="665"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="667" sourceendlinenumber="667"><code>   PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="671" sourceendlinenumber="671"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="673" sourceendlinenumber="678"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="680" sourceendlinenumber="681">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="685" sourceendlinenumber="685"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="687" sourceendlinenumber="687">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="691" sourceendlinenumber="691"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="693" sourceendlinenumber="693"><code>   Task ReplaceValuesAsync&lt;T&gt;(string streamId, IList&lt;T&gt; items);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="696" sourceendlinenumber="696"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="698" sourceendlinenumber="698">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="update-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="704" sourceendlinenumber="705"><code>Update values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="707" sourceendlinenumber="708">Replaces a collection of events with events that contain matching primary indexes. If there is not a collectin of events with a 
+matching index, the events are inserted.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="711" sourceendlinenumber="711"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="713" sourceendlinenumber="713"><code>    PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="716" sourceendlinenumber="716"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="718" sourceendlinenumber="723"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="725" sourceendlinenumber="726">The request content is the serialized object matching the stream type. If you are not 
+using the Sds client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="730" sourceendlinenumber="730"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="732" sourceendlinenumber="732">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="736" sourceendlinenumber="736"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="738" sourceendlinenumber="738"><code>   Task UpdateValuesAsync&lt;T&gt;(string streamId, T item);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="740" sourceendlinenumber="740"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="742" sourceendlinenumber="742">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="748" sourceendlinenumber="749"><code>Remove values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="751" sourceendlinenumber="752">Removes events at matching primary indexes. If there is not an event with a matching index, 
+the remove operation fails and returns HTTP status code Not Found, 404.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="755" sourceendlinenumber="755"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="757" sourceendlinenumber="758"><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+           RemoveValues?index={index}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="761" sourceendlinenumber="761"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="763" sourceendlinenumber="770"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string index</code>
+  The collection of indexes identifying the events</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="772" sourceendlinenumber="773">Each index is treated like a separate parameter. For example, to delete three events, the URI 
+should resebble the following:</p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="775" sourceendlinenumber="778"><code>  api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+       RemoveValues?index=2017-01-20T01:00:00Z|2017-01-20T00:00:00Z
+       &amp;index=2017-01-20T01:00:00Z|2017-01-20T01:00:00Z
+       &amp;index=2017-01-20T01:00:00Z|2017-01-20T14:00:00Z
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="782" sourceendlinenumber="782"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="784" sourceendlinenumber="784">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="788" sourceendlinenumber="788"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="790" sourceendlinenumber="792"><code>   Task RemoveValuesAsync(string streamId, IEnumerable&lt;string&gt;&gt; index);
+   Task RemoveValuesAsync&lt;T1&gt;(string streamId, IEnumerable&lt;T1&gt; index);
+   Task RemoveValuesAsync&lt;T1, T2&gt;(string streamId, IEnumerable&lt;Tuple&lt;T1, T1&gt;&gt; index);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="796" sourceendlinenumber="796"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="798" sourceendlinenumber="798">  Allowed for administrator accounts.</p>
+<hr>
+<h2 id="remove-window-values" sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="804" sourceendlinenumber="805"><code>Remove window values</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="807" sourceendlinenumber="808">Removes events that fall within a window defined by start and end primary indexes. Events that fall 
+at the start or end index are also deleted. </p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="811" sourceendlinenumber="811"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="813" sourceendlinenumber="814"><code>    DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
+           RemoveWindowValues?startIndex={startIndex}&amp;endIndex={endIndex}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="817" sourceendlinenumber="817"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="819" sourceendlinenumber="828"><code>string tenantId</code>
+  The tenant identifier
+<code>string namespaceId</code>
+  The namespace identifier
+<code>string streamId</code>
+  The stream identifier
+<code>string startIndex</code>
+  Index defining the beginning of the window
+<code>string endIndex</code>
+  The Index defining the end of the window</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="832" sourceendlinenumber="832"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="834" sourceendlinenumber="834">  The response includes a status code. On error, the response body contains a serialized description of the error.</p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="838" sourceendlinenumber="838"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="840" sourceendlinenumber="842"><code>   Task RemoveWindowValuesAsync (string streamId, string startIndex, string endIndex);
+   Task RemoveWindowValuesAsync &lt;T1&gt;(string streamId, T1 startIndex, T1 endIndex);
+   Task RemoveWindowValuesAsync &lt;T1, T2&gt;(string streamId, Tuple&lt;T1, T1&gt; startIndex, Tuple&lt;T1, T1&gt;endIndex);
+</code></pre><p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="846" sourceendlinenumber="846"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/Writing_Data.md" sourcestartlinenumber="848" sourceendlinenumber="848">  Allowed for administrator accounts.</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/Writing_Data.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

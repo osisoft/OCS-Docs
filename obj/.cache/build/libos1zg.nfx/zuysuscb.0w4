@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Publishers </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Publishers ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="omfIngressPublishers">
+<h1 id="publishers" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="5" sourceendlinenumber="6">Publishers</h1>
+
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="8" sourceendlinenumber="12">A Publisher is a logical construct which is used by OSIsoft Cloud Services (OCS) to authenticate 
+and categorize OSIsoft Message Format (OMF) messages. After creating a publisher using the API, 
+a user can then generate a security token for that publisher. The token must be added to the headers 
+of OMF messages that are sent to OCS. If a publisher is deleted, all security tokens generated 
+for the Publisher become invalid. Individual tokens can also be deleted to make them invalid.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="14" sourceendlinenumber="16">While OMF messages may be sent to OCS immediately after provisioning a publisher, the messages 
+cannot be made available for consumption until a Topic is created. However, some 
+messages are stored for later consumption in OCS databases. See OMF documentation for more information. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="18" sourceendlinenumber="18">The API calls in this section are all used to manage publishers.</p>
+<h2 id="tokens" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="20" sourceendlinenumber="21">Tokens</h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="23" sourceendlinenumber="28">After creating a publisher, security tokens for that publisher can be created. These tokens are 
+a type of bearer token, which means that any client that presents the token will be able to 
+authenticate as that publisher, assuming the token is valid. Because of this, it is imperative 
+that the token be stored in a secure location that is accessible only to the application that 
+is sending data. If the security token is ever compromised, it is possible for an unauthorized 
+client to impersonate the publisher until the token expires or is deleted. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="30" sourceendlinenumber="31">The security token contains information that uniquely 
+identifies the publisher. The following information is contained in the token: </p>
+<ul sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="33" sourceendlinenumber="38">
+<li sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="33" sourceendlinenumber="33">Token Id: A unique Id for the token. The Id is generated by the API. </li>
+<li sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="34" sourceendlinenumber="34">Publisher Id: The Id of the publisher this token is for.</li>
+<li sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="35" sourceendlinenumber="35">Tenant Id: This Id identifies the owner of the publisher. </li>
+<li sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="36" sourceendlinenumber="36">Expiration Time: This determines when the security token expires. </li>
+<li sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="37" sourceendlinenumber="38">Signature: This is a cryptographic signature that verifies that the token is legitimate 
+and has not been tampered with. The signature uses the HMAC-SHA256 algorithm. </li>
+</ul>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="40" sourceendlinenumber="43">The security token should never be transported over an unsecure network connection. If, for example, 
+you have a separate management service that performs token registration and renewal with the 
+API and then pushes the token down to the publisher that generates OMF messages, you must ensure that
+your network connection to the publisher uses SSL/TLS or another secure protocol. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="45" sourceendlinenumber="50">Because each OMF message contains the token, never send OMF data to a service that does not 
+implement SSL/TLS or other secure protocol. It is recommended that you keep token expiration times 
+short and to have your application renew the token before it expires. For example, you could 
+specify that the token expires after 24 hours and have your application renew the token every 
+12 hours. By following this example, if the token is compromised, you limit the amount of time 
+the token is valid. </p>
+<h2 id="data-models-" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="52" sourceendlinenumber="53">Data Models </h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="55" sourceendlinenumber="55">Publisher information is contained in an object called <code>Publisher</code> and has the following format: </p>
+<table sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="57" sourceendlinenumber="63">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TenantId</td>
+<td>string</td>
+<td>Identifies the owner of the publisher.</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>A unique ID generated by the API when the publisher is created.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>A friendly name for the publisher.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>A description for the publisher.</td>
+</tr>
+<tr>
+<td>CreationDate</td>
+<td>string</td>
+<td>The time that the Publisher was created. The string is formatted using ISO 8601 format.</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="65" sourceendlinenumber="65">Token information is contained in an object called <code>Token</code> and has the following format: </p>
+<table sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="67" sourceendlinenumber="74">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>A unique ID generated by the API when the token is created.</td>
+</tr>
+<tr>
+<td>PublisherId</td>
+<td>string</td>
+<td>Identifies the publisher this token belongs to.</td>
+</tr>
+<tr>
+<td>TokenString</td>
+<td>string</td>
+<td>A set of claims along with a cryptographic signature that verifies that the token is legitimate and has not been tampered with. It is usedwhen building OMF messages that are sent to the OCS.</td>
+</tr>
+<tr>
+<td>CreationDate</td>
+<td>string</td>
+<td>The time that the Token was created. The string is formatted using ISO 8601 format.</td>
+</tr>
+<tr>
+<td>ExpirationDate</td>
+<td>string</td>
+<td>The time that the Token will expire. The string is formatted using ISO 8601 format.</td>
+</tr>
+<tr>
+<td>IsDeleted</td>
+<td>boolean</td>
+<td>If a Token is revoked, any clients using that token are prevented from sending data.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="get-apitenantstenantidpublisherscount" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="78" sourceendlinenumber="79"><code>GET api/tenants/{tenantId}/publishers/count</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="81" sourceendlinenumber="81">Returns the number of publishers assigned for a specified tenant.  </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="84" sourceendlinenumber="84"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="86" sourceendlinenumber="87"><code>tenantId</code>
+  A unique Id for the Tenant</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="90" sourceendlinenumber="90"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="92" sourceendlinenumber="92">Integer count of the number of publishers found. </p>
+<hr>
+<h2 id="get-apitenantstenantidpublishersskipskipcountcount" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="96" sourceendlinenumber="97"><code>GET api/tenants/{tenantId}/publishers?skip={skip}&amp;count={count}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="99" sourceendlinenumber="99">Returns all publishers for a tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="101" sourceendlinenumber="101"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="103" sourceendlinenumber="108"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first publisher to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of publishers to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="110" sourceendlinenumber="110"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="112" sourceendlinenumber="112">  A list of Publisher objects found. </p>
+<hr>
+<h2 id="get-apitenantstenantidpublisherspublisherid" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="116" sourceendlinenumber="117"><code>GET api/tenants/{tenantId}/publishers/{publisherId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="119" sourceendlinenumber="119">Get a specific publisher. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="121" sourceendlinenumber="121"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="123" sourceendlinenumber="126"><code>tenantId</code>
+ Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="128" sourceendlinenumber="128"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="130" sourceendlinenumber="130">  The Publisher object found.  </p>
+<hr>
+<h2 id="get-apitenantstenantidaccesscontrolpublishers" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="134" sourceendlinenumber="135"><code>GET api/tenants/{tenantId}/accesscontrol/publishers</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="137" sourceendlinenumber="137">Get the Access Control List that is used by default for new publishers.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="139" sourceendlinenumber="139"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="141" sourceendlinenumber="142"><code>tenantId</code>
+  Unique Id for the tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="144" sourceendlinenumber="144"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="146" sourceendlinenumber="146">An AccessControlList object.</p>
+<hr>
+<h2 id="get-apitenantstenantidpublisherspublisheridaccesscontrol" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="150" sourceendlinenumber="151"><code>GET api/tenants/{tenantId}/publishers/{publisherId}/accesscontrol</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="153" sourceendlinenumber="153">Get the Access Control List for a specific publisher.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="155" sourceendlinenumber="155"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="157" sourceendlinenumber="160"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher.  </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="162" sourceendlinenumber="162"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="164" sourceendlinenumber="164">An AccessControlList object.</p>
+<hr>
+<h2 id="get-apitenantstenantidpublisherspublisheridtokensskipskipcountcount" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="168" sourceendlinenumber="169"><code>GET api/tenants/{tenantId}/publishers/{publisherId}/tokens?skip={skip}&amp;count={count}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="171" sourceendlinenumber="171">Get all tokens for a publisher.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="173" sourceendlinenumber="173"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="175" sourceendlinenumber="182"><code>tenantId</code>
+ Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. 
+<code>int skip</code>
+  An optional parameter representing the zero-based offset of the first token to retrieve. If not specified, a default value of 0 is used. 
+<code>int count</code>
+  An optional parameter representing the maximum number of tokens to retrieve. If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="184" sourceendlinenumber="184"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="186" sourceendlinenumber="186">An array of Token objects.   </p>
+<hr>
+<h2 id="get-apitenantstenantidpublisherspublisheridtokenstokenid" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="190" sourceendlinenumber="191"><code>GET api/tenants/{tenantId}/publishers/{publisherId}/tokens/{tokenId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="193" sourceendlinenumber="193">Get a specific token</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="195" sourceendlinenumber="195"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="197" sourceendlinenumber="202"><code>tenantId</code>
+ Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. 
+<code>tokenId</code>
+  Unique Id for the token.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="204" sourceendlinenumber="204"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="206" sourceendlinenumber="206">  The token object found. </p>
+<hr>
+<h2 id="post-apitenantstenantidpublisher" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="210" sourceendlinenumber="211"><code>POST api/tenants/{tenantId}/publisher</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="213" sourceendlinenumber="213">Creates or updates a publisher. Only the name and description of a publisher can be updated.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="215" sourceendlinenumber="215">Parameters: </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="217" sourceendlinenumber="218"><code>tenantId</code>
+  Unique Id for the tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="220" sourceendlinenumber="220"><strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="222" sourceendlinenumber="222">A Publisher object.  </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="224" sourceendlinenumber="224"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="226" sourceendlinenumber="226">  A Publisher object. </p>
+<hr>
+<h2 id="post-apitenantstenantidpublisherspublisheridtokens" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="230" sourceendlinenumber="231"><code>POST api/tenants/{tenantId}/publishers/{publisherId}/tokens</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="233" sourceendlinenumber="234">Create or undelete a token. If the token object provided does not have a tokenId, a new token is created.
+Otherwise, specify the id of an existing deleted token that isn&#39;t expired, and it will be undeleted.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="236" sourceendlinenumber="236"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="238" sourceendlinenumber="241"><code>tenantId</code>
+ Unique Id for the tenant. 
+<code>publisherId</code>
+ Unique Id for the publisher. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="243" sourceendlinenumber="243"> <strong>Body</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="245" sourceendlinenumber="245">A Token object.  </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="247" sourceendlinenumber="247"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="249" sourceendlinenumber="249">A Token object. </p>
+<hr>
+<h2 id="put-apitenantstenantidaccesscontrolpublishers" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="253" sourceendlinenumber="254"><code>PUT api/tenants/{tenantId}/accesscontrol/publishers</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="256" sourceendlinenumber="256">Update the default Access Control List for new publishers.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="258" sourceendlinenumber="258"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="260" sourceendlinenumber="261"><code>tenantId</code>
+  Unique Id for the tenant. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="263" sourceendlinenumber="264"><strong>Body</strong>
+  An AccessControlList object.</p>
+<hr>
+<h2 id="put-tenantstenantidpublisherspublisheridaccesscontrol" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="268" sourceendlinenumber="269"><code>PUT tenants/{tenantId}/publishers/{publisherId}/accesscontrol</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="271" sourceendlinenumber="271">Update the Access Control List for a particular publisher.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="273" sourceendlinenumber="273"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="275" sourceendlinenumber="278"><code>tenantId</code>
+  Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="280" sourceendlinenumber="281"><strong>Body</strong>
+  An AccessControlList object.</p>
+<hr>
+<h2 id="delete-apitenantstenantidpublisherspublisherid" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="285" sourceendlinenumber="286"><code>DELETE api/tenants/{tenantId}/publishers/{publisherId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="288" sourceendlinenumber="288">Deletes a publisher. All tokens for that publisher are deleted as well. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="290" sourceendlinenumber="290"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="292" sourceendlinenumber="295"><code>tenantId</code> 
+  Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. </p>
+<hr>
+<h2 id="delete-apitenantstenantidpublisherspublisheridtokenstokenid" sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="299" sourceendlinenumber="300"><code>DELETE api/tenants/{tenantId}/publishers/{publisherId}/tokens/{tokenId}</code></h2>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="302" sourceendlinenumber="302">Deletes a token.</p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="304" sourceendlinenumber="304"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="306" sourceendlinenumber="311"><code>tenantId</code> 
+  Unique Id for the tenant. 
+<code>publisherId</code>
+  Unique Id for the publisher. 
+<code>tokenId</code>
+  Unique Id for the token. </p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="313" sourceendlinenumber="313"><strong>Returns</strong></p>
+<p sourcefile="Documentation/DataIngress/OMF_Ingress_Publishers.md" sourcestartlinenumber="315" sourceendlinenumber="315">A Token object for the deleted token. </p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/DataIngress/OMF_Ingress_Publishers.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

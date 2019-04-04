@@ -28,7 +28,7 @@
   href: Searching.md
 - name: Filter Expressions - Data
   href: Filter_Expressions.md
-- name: Filter Expressions - Objects
+- name: Filter Expressions - SDS Objects
   href: Filter_Expressions_Metadata.md
 - name: Table Format
   href: table_format.md

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AccountNamespace">
+<h1 id="namespace" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="5" sourceendlinenumber="5">Namespace</h1>
+
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="7" sourceendlinenumber="7">A Namespace is a collection of Data Streams.</p>
+<h2 id="properties" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="13" sourceendlinenumber="26">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Name of this Namespace. Unique within a Tenant&#39;s Namespaces.</td>
+</tr>
+<tr>
+<td>TenantId</td>
+<td>string</td>
+<td>GUID of the Tenant that this Namespace corresponds to</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>string</td>
+<td>The region that the namespace is provisioned in</td>
+</tr>
+<tr>
+<td>Self</td>
+<td>string</td>
+<td>The namespace&#39;s URI</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>Description of this Namespace.</td>
+</tr>
+<tr>
+<td>TierId</td>
+<td>string</td>
+<td>Id of the Tier that this Namespace is associated with.</td>
+</tr>
+<tr>
+<td>ThroughputUnits</td>
+<td>int32</td>
+<td>Number of Throughput units for this Namespace.</td>
+</tr>
+<tr>
+<td>StorageUnits</td>
+<td>int32</td>
+<td>Number of Storage units for this Namespace.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>NamespaceProvisioningState</td>
+<td>Current state of this Namespace.</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Trustee</td>
+<td>Owner <a class="xref" href="../Access_Control.html" data-raw-source="[Trustee](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="24" sourceendlinenumber="24">Trustee</a> of this Namespace.</td>
+</tr>
+<tr>
+<td>AccessControl</td>
+<td>AccessControlList</td>
+<td>The <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="25" sourceendlinenumber="25">AccessControl</a> that defines Access Control for this <code>Namespace</code></td>
+</tr>
+<tr>
+<td>AccessControlList</td>
+<td>AccessControlList</td>
+<td>Access Control List.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="29" sourceendlinenumber="50"><code class="lang-json">{
+    &quot;Id&quot;: &quot;id&quot;,
+    &quot;TenantId&quot;: &quot;tenantid&quot;,
+    &quot;Region&quot;: &quot;region&quot;,
+    &quot;Self&quot;: &quot;self&quot;,
+    &quot;Description&quot;: &quot;description&quot;,
+    &quot;TierId&quot;: &quot;tierid&quot;,
+    &quot;ThroughputUnits&quot;: 0,
+    &quot;StorageUnits&quot;: 0,
+    &quot;State&quot;: 0,
+    &quot;Owner&quot;: {
+        &quot;Type&quot;: 0
+    },
+    &quot;AccessControl&quot;: {
+        &quot;RoleTrusteeAccessControlEntries&quot;: []
+    },
+    &quot;AccessControlList&quot;: {
+        &quot;RoleTrusteeAccessControlEntries&quot;: []
+    }
+}
+</code></pre><hr>
+<h2 id="getall" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="53" sourceendlinenumber="53"><code>GetAll()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="55" sourceendlinenumber="55">Returns all <code>Namespaces</code> owned by the specified tenant that the caller has access to.</p>
+<h3 id="http" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="57" sourceendlinenumber="57">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="59" sourceendlinenumber="59"><code>GET api/Tenants/{tenantId}/Namespaces</code></p>
+<h3 id="parameters" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="61" sourceendlinenumber="61">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="63" sourceendlinenumber="66"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="68" sourceendlinenumber="68">The <code>Tenant</code> identifier for the request.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="69" sourceendlinenumber="73"><code class="lang-csharp">[Optional]
+[Default = &quot;&quot;]
+string include
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="75" sourceendlinenumber="75">An optional parameter specifying which attached properties to include</p>
+<h3 id="security" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="78" sourceendlinenumber="78">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="80" sourceendlinenumber="80">A <code>Namespace</code> can only be retrieved if the current principal has Read access.</p>
+<h3 id="returns" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="82" sourceendlinenumber="82">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="84" sourceendlinenumber="84">An array of all <code>Namespace</code> objects for the specified tenantId that the caller has access.</p>
+<hr>
+<h2 id="getnamespacebyid" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="87" sourceendlinenumber="87"><code>GetNamespaceById()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="89" sourceendlinenumber="89">Returns the Namespace with the specified Id.</p>
+<h3 id="http-1" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="91" sourceendlinenumber="91">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="93" sourceendlinenumber="93"><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="95" sourceendlinenumber="95">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="97" sourceendlinenumber="100"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="102" sourceendlinenumber="102">The account identifier for the request</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="103" sourceendlinenumber="106"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="108" sourceendlinenumber="108">The Namespace identifier for this request</p>
+<h3 id="security-1" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="111" sourceendlinenumber="111">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="113" sourceendlinenumber="113">A <code>Namespace</code> can only be retrieved if the current principal has Read access.</p>
+<h3 id="returns-1" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="115" sourceendlinenumber="115">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="117" sourceendlinenumber="117">A <code>Namespace</code> object with the specified namespaceId</p>
+<hr>
+<h2 id="create" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="120" sourceendlinenumber="120"><code>Create()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="122" sourceendlinenumber="122">Creates a namespace.</p>
+<h3 id="http-2" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="124" sourceendlinenumber="124">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="126" sourceendlinenumber="126"><code>POST api/Tenants/{tenantId}/Namespaces</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="128" sourceendlinenumber="128">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="130" sourceendlinenumber="133"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="135" sourceendlinenumber="135">The identifier for the account the namespace is to be created for.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="136" sourceendlinenumber="140"><code class="lang-csharp">[Required]
+[FromBody]
+Namespace namespaceObj
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="142" sourceendlinenumber="142">The <code>Namespace</code> to be created.</p>
+<h3 id="security-2" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="145" sourceendlinenumber="145">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="147" sourceendlinenumber="147">A <code>Namespace</code> can only be create if the current principal has Write access.</p>
+<h3 id="returns-2" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="149" sourceendlinenumber="149">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="151" sourceendlinenumber="151">The created <code>Namespace</code> object</p>
+<hr>
+<h2 id="update" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="154" sourceendlinenumber="154"><code>Update()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="156" sourceendlinenumber="156">Updates Namespace information - Description, TierId, AccessControl, and Owner.</p>
+<h3 id="http-3" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="158" sourceendlinenumber="158">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="160" sourceendlinenumber="160"><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="162" sourceendlinenumber="162">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="164" sourceendlinenumber="167"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="169" sourceendlinenumber="169">The identifier of Namespace&#39;s Account.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="170" sourceendlinenumber="173"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="175" sourceendlinenumber="175">The identifier for the Namespace to update.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="176" sourceendlinenumber="180"><code class="lang-csharp">[Required]
+[FromBody]
+Namespace newProperties
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="182" sourceendlinenumber="182">The new details to store for the Namespace.</p>
+<h3 id="security-3" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="185" sourceendlinenumber="185">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="187" sourceendlinenumber="187">A <code>Namespace</code> can only be updated if the current principal has Write access. The <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="187" sourceendlinenumber="187">AccessControl</a> and owner <a class="xref" href="../Access_Control.html" data-raw-source="[Trustee](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="187" sourceendlinenumber="187">Trustee</a> can only be updated if the current principal has ManageAccessControl access.</p>
+<h3 id="returns-3" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="189" sourceendlinenumber="189">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="191" sourceendlinenumber="191">The updated <code>Namespace</code>.</p>
+<hr>
+<h2 id="delete" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="194" sourceendlinenumber="194"><code>Delete()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="196" sourceendlinenumber="196">Deletes a namespace.</p>
+<h3 id="http-4" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="198" sourceendlinenumber="198">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="200" sourceendlinenumber="200"><code>DELETE api/Tenants/{tenantId}/Namespaces/{namespaceId}</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="202" sourceendlinenumber="202">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="204" sourceendlinenumber="207"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="209" sourceendlinenumber="209">The identifier of namespace&#39;s account</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="210" sourceendlinenumber="213"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="215" sourceendlinenumber="215">The identifier of the namespace to be deleted</p>
+<h3 id="security-4" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="218" sourceendlinenumber="218">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="220" sourceendlinenumber="220">A <code>Namespace</code> can only be deleted if the current principal has Delete access.</p>
+<h3 id="returns-4" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="222" sourceendlinenumber="222">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="224" sourceendlinenumber="224">Nothing is returned.</p>
+<hr>
+<h2 id="getaccesscontrol" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="227" sourceendlinenumber="227"><code>GetAccessControl()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="229" sourceendlinenumber="229">Gets the <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="229" sourceendlinenumber="229">AccessControl</a> that is used to authorize access to a <code>Namespace</code>.</p>
+<h3 id="http-5" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="231" sourceendlinenumber="231">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="233" sourceendlinenumber="233"><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol</code></p>
+<h3 id="parameters-5" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="235" sourceendlinenumber="235">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="237" sourceendlinenumber="240"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="242" sourceendlinenumber="242">The identifier of the account being accessed.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="243" sourceendlinenumber="246"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="248" sourceendlinenumber="248">The identifier of the <code>Namespace</code> being accessed.</p>
+<h3 id="security-5" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="251" sourceendlinenumber="251">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="253" sourceendlinenumber="253">The current principal has Read access.</p>
+<h3 id="returns-5" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="255" sourceendlinenumber="255">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="257" sourceendlinenumber="257">The <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="257" sourceendlinenumber="257">AccessControl</a> for the <code>Namespace</code>.</p>
+<hr>
+<h2 id="setaccesscontrol" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="260" sourceendlinenumber="260"><code>SetAccessControl()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="262" sourceendlinenumber="262">Edits the <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="262" sourceendlinenumber="262">AccessControl</a> that is used to authorize access to a <code>Namespace</code>.</p>
+<h3 id="http-6" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="264" sourceendlinenumber="264">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="266" sourceendlinenumber="266"><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol</code></p>
+<h3 id="parameters-6" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="268" sourceendlinenumber="268">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="270" sourceendlinenumber="273"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="275" sourceendlinenumber="275">The identifier of the account being modified.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="276" sourceendlinenumber="279"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="281" sourceendlinenumber="281">The identifier of the <code>Namespace</code> being modified.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="282" sourceendlinenumber="286"><code class="lang-csharp">[Required]
+[FromBody]
+AccessControlList newAccessControlList
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="288" sourceendlinenumber="288">The new <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="288" sourceendlinenumber="288">AccessControl</a> for the <code>Namespace</code>.</p>
+<h3 id="security-6" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="291" sourceendlinenumber="291">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="293" sourceendlinenumber="293">The current principal has ManageAccessControl access.</p>
+<h3 id="returns-6" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="295" sourceendlinenumber="295">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="297" sourceendlinenumber="297">The updated <a class="xref" href="../Access_Control.html" data-raw-source="[AccessControl](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="297" sourceendlinenumber="297">AccessControl</a> for the <code>Namespace</code>.</p>
+<hr>
+<h2 id="getowner" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="300" sourceendlinenumber="300"><code>GetOwner()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="302" sourceendlinenumber="302">Gets the owner for a given <code>Namespace</code>.</p>
+<h3 id="http-7" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="304" sourceendlinenumber="304">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="306" sourceendlinenumber="306"><code>GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner</code></p>
+<h3 id="parameters-7" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="308" sourceendlinenumber="308">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="310" sourceendlinenumber="313"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="315" sourceendlinenumber="315">The identifier of the account being accessed.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="316" sourceendlinenumber="319"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="321" sourceendlinenumber="321">The identifier of the <code>Namespace</code> being accessed.</p>
+<h3 id="security-7" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="324" sourceendlinenumber="324">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="326" sourceendlinenumber="326">The current principal has Read access.</p>
+<h3 id="returns-7" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="328" sourceendlinenumber="328">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="330" sourceendlinenumber="330">The owner <a class="xref" href="../Access_Control.html" data-raw-source="[Trustee](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="330" sourceendlinenumber="330">Trustee</a> of the <code>Namespace</code>.</p>
+<hr>
+<h2 id="setowner" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="333" sourceendlinenumber="333"><code>SetOwner()</code></h2>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="335" sourceendlinenumber="335">Changes the owner for a given <code>Namespace</code>.</p>
+<h3 id="http-8" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="337" sourceendlinenumber="337">Http</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="339" sourceendlinenumber="339"><code>PUT api/Tenants/{tenantId}/Namespaces/{namespaceId}/owner</code></p>
+<h3 id="parameters-8" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="341" sourceendlinenumber="341">Parameters</h3>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="343" sourceendlinenumber="346"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="348" sourceendlinenumber="348">The identifier of the account being edited.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="349" sourceendlinenumber="352"><code class="lang-csharp">[Required]
+string namespaceId
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="354" sourceendlinenumber="354">The identifier of the <code>Namespace</code> being edited.</p>
+<pre sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="355" sourceendlinenumber="359"><code class="lang-csharp">[Required]
+[FromBody]
+Trustee newOwner
+</code></pre><p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="361" sourceendlinenumber="361">The new owner <a class="xref" href="../Access_Control.html" data-raw-source="[Trustee](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="361" sourceendlinenumber="361">Trustee</a> for the <code>Namespace</code>.</p>
+<h3 id="security-8" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="364" sourceendlinenumber="364">Security</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="366" sourceendlinenumber="366">The current principal has ManageAccessControl access.</p>
+<h3 id="returns-8" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="368" sourceendlinenumber="368">Returns</h3>
+<p sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="370" sourceendlinenumber="370">The new owner <a class="xref" href="../Access_Control.html" data-raw-source="[Trustee](xref:accessControl)" sourcefile="Documentation/Management/Account_Namespace.md" sourcestartlinenumber="370" sourceendlinenumber="370">Trustee</a> of the <code>Namespace</code>.</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/Management/Account_Namespace.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

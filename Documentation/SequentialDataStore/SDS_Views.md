@@ -27,7 +27,7 @@ See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 | Description  | String                 | Optional    | Yes		   |Description text |
 | SourceTypeId | String                 | Required    | Yes		   |Identifier of the SdsType of the SdsStream |
 | TargetTypeId | String                 | Required    | Yes		   |Identifier of the SdsType to convert events to |
-| Properties   | IList<SdsStreamViewProperty> | Optional    | Yes, with limitations	  |Property level mapping |
+| Properties   | IList\<SdsStreamViewProperty\> | Optional    | Yes, with limitations	  |Property level mapping |
 
 
 **Rules for type identifier**
@@ -585,7 +585,7 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all stream views 
-in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) for information about specifying those respective parameters.
+in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) for information about specifying those respective parameters.
 
 
 **Request**
@@ -607,7 +607,7 @@ for information about specifying the search parameter.
 
 `string filter`   
 An optional filter string to match which SdsStreamViews will be returned.  See the 
-[Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
+[Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
 topic for information about specifying the filter parameter.
 
 `int skip`  

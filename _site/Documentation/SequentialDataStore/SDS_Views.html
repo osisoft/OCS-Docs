@@ -8,7 +8,7 @@
     <title>Stream Views </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Stream Views ">
-    <meta name="generator" content="docfx 2.39.2.0">
+    <meta name="generator" content="docfx 2.40.4.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -33,8 +33,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="../../index.html" width="46">
-                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -87,13 +88,15 @@ or when the properties have the same name, SDS will map the properties automatic
 a target property that it cannot map to, the property is added and configured with a default value.</p>
 <p>To map a property that is beyond the ability of SDS to map on its own, you should define an SdsStreamViewProperty 
 and add it to the SdsStreamView’s Properties collection.</p>
-<p>The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.</p>
+<p>The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.
+See the <a class="xref" href="Searching.html">Searching</a> topic regarding limitations on search.</p>
 <table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Type</th>
 <th>Optionality</th>
+<th>Searchable</th>
 <th>Details</th>
 </tr>
 </thead>
@@ -102,36 +105,42 @@ and add it to the SdsStreamView’s Properties collection.</p>
 <td>Id</td>
 <td>String</td>
 <td>Required</td>
+<td>Yes</td>
 <td>Identifier for referencing the stream view</td>
 </tr>
 <tr>
 <td>Name</td>
 <td>String</td>
 <td>Optional</td>
+<td>Yes</td>
 <td>Friendly name</td>
 </tr>
 <tr>
 <td>Description</td>
 <td>String</td>
 <td>Optional</td>
+<td>Yes</td>
 <td>Description text</td>
 </tr>
 <tr>
 <td>SourceTypeId</td>
 <td>String</td>
 <td>Required</td>
+<td>Yes</td>
 <td>Identifier of the SdsType of the SdsStream</td>
 </tr>
 <tr>
 <td>TargetTypeId</td>
 <td>String</td>
 <td>Required</td>
+<td>Yes</td>
 <td>Identifier of the SdsType to convert events to</td>
 </tr>
 <tr>
 <td>Properties</td>
-<td>IList<sdsstreamviewproperty></sdsstreamviewproperty></td>
+<td>IList&lt;SdsStreamViewProperty></td>
 <td>Optional</td>
+<td>Yes, with limitations</td>
 <td>Property level mapping</td>
 </tr>
 </tbody>
@@ -698,7 +707,7 @@ Content-Type: application/json
 <p>Returns a list of stream views within a given namespace.</p>
 <p>If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all stream views 
-in the Namespace. See <a class="xref" href="Searching.html">Searching</a> and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> for information about specifying those respective parameters.</p>
+in the Namespace. See <a class="xref" href="Searching.html">Searching</a> and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: SDS Objects</a> for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
@@ -708,7 +717,7 @@ in the Namespace. See <a class="xref" href="Searching.html">Searching</a> and <a
 See <a class="xref" href="Searching.html">Searching</a>
 for information about specifying the search parameter.</p>
 <p><code>string filter</code><br>An optional filter string to match which SdsStreamViews will be returned.  See the 
-<a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
+<a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: SDS Objects</a> 
 topic for information about specifying the filter parameter.</p>
 <p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
 If not specified, a default value of 0 is used.</p>
@@ -877,7 +886,7 @@ The tenant identifier  </p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Views.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Views.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -892,8 +901,14 @@ The tenant identifier  </p>
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
-        </span></span></div>
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
       </footer>
     </div>
     

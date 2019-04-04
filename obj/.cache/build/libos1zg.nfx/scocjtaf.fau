@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Stream Metadata and Tags </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Stream Metadata and Tags ">
+    <meta name="generator" content="docfx 2.40.4.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsStreamExtra">
+<h1 id="stream-metadata-and-tags" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="5" sourceendlinenumber="6">Stream Metadata and Tags</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="8" sourceendlinenumber="13">SdsStream metadata is represented as a dictionary of string keys and associated string values. 
+It can be used to associate additional information with a stream. SdsStream tags are represented 
+as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
+The SdsStream Metadata API And SdsStream Tags API do not accept the search query parameter in their respective
+Get calls. However, stream tags and metadata can be used as criteria in search query strings to return 
+SdsStream results with the <a class="xref" href="SDS_Streams.html" data-raw-source="[Stream](xref:sdsStreams)" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="13" sourceendlinenumber="13">Stream</a> API.</p>
+<h2 id="sdsstream-metadata-api-" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="15" sourceendlinenumber="16">SdsStream Metadata API </h2>
+<h2 id="get-stream-metadata" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="18" sourceendlinenumber="19"><code>Get stream metadata</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="21" sourceendlinenumber="21">Returns the metadata dictionary for the specified stream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="24" sourceendlinenumber="24"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="26" sourceendlinenumber="26"><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="29" sourceendlinenumber="29"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="31" sourceendlinenumber="32"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="34" sourceendlinenumber="35"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="37" sourceendlinenumber="38"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="41" sourceendlinenumber="41"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="43" sourceendlinenumber="43">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="45" sourceendlinenumber="45"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="47" sourceendlinenumber="47">  The metadata for the specified SdsStream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="49" sourceendlinenumber="49"><strong>Sample response body</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="51" sourceendlinenumber="56"><code>  HTTP/1.1 200 
+  Content-Type: application/json 
+  { 
+      &quot;a metadata key&quot;:&quot;a metadata value&quot;, 
+      &quot;another key&quot;:&quot;another value&quot; 
+  } 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="59" sourceendlinenumber="59"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="61" sourceendlinenumber="61"><code>  Task&lt;IDictionary&lt;string, string&gt;&gt; GetStreamMetadataAsync(string streamId); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="64" sourceendlinenumber="64"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="66" sourceendlinenumber="66">  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="get-stream-metadata-value" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="72" sourceendlinenumber="73"><code>Get stream metadata value</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="75" sourceendlinenumber="75">Returns the value for the specified key in the metadata dictionary of the specified stream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="78" sourceendlinenumber="78"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="80" sourceendlinenumber="80"><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="83" sourceendlinenumber="83"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="85" sourceendlinenumber="86"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="88" sourceendlinenumber="89"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="91" sourceendlinenumber="92"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="94" sourceendlinenumber="95"><code>string key</code><br>  The key specifying the metadata value of interest  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="99" sourceendlinenumber="99"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="101" sourceendlinenumber="101">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="103" sourceendlinenumber="103"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="105" sourceendlinenumber="105">  The metadata for the specified SdsStream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="107" sourceendlinenumber="107"><strong>Sample response body</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="109" sourceendlinenumber="113"><code>  HTTP/1.1 200 
+  Content-Type: application/json 
+  { 
+      &quot;a metadata value” 
+  } 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="116" sourceendlinenumber="116"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="118" sourceendlinenumber="118"><code>  Task&lt;string&gt; GetStreamMetadataValueAsync(string streamId, string key); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="121" sourceendlinenumber="121"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="123" sourceendlinenumber="123">  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="update-stream-metadata" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="128" sourceendlinenumber="129"><code>Update stream metadata</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="131" sourceendlinenumber="132">Replaces the metadata for the specified stream with the metadata in the request body. 
+Overwrites any existing metadata; does not merge. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="135" sourceendlinenumber="135"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="137" sourceendlinenumber="137"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="140" sourceendlinenumber="140"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="142" sourceendlinenumber="143"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="145" sourceendlinenumber="146"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="148" sourceendlinenumber="149"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="152" sourceendlinenumber="152"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="154" sourceendlinenumber="154">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="157" sourceendlinenumber="157"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="159" sourceendlinenumber="159"><code>   Task UpdateStreamMetadataAsync(string streamId, IDictionary&lt;string, string&gt; metadata); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="162" sourceendlinenumber="162"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="164" sourceendlinenumber="164">  Allowed for administrator accounts</p>
+<hr>
+<h2 id="delete-stream-metadata" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="171" sourceendlinenumber="172"><code>Delete stream metadata</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="174" sourceendlinenumber="174">Deletes the metadata for the specified stream.  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="176" sourceendlinenumber="176"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="178" sourceendlinenumber="178"><code>    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="181" sourceendlinenumber="181"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="183" sourceendlinenumber="184"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="186" sourceendlinenumber="187"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="189" sourceendlinenumber="190"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="193" sourceendlinenumber="193"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="195" sourceendlinenumber="195">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="198" sourceendlinenumber="198"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="200" sourceendlinenumber="200"><code>    Task DeleteStreamMetadataAsync(string streamId); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="203" sourceendlinenumber="203"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="205" sourceendlinenumber="205">  Allowed for administrator accounts</p>
+<hr>
+<h2 id="sdsstream-tags-api-" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="211" sourceendlinenumber="212">SdsStream Tags API </h2>
+<h2 id="get-stream-tags" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="215" sourceendlinenumber="216"><code>Get stream tags</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="218" sourceendlinenumber="218">Returns the tag list for the specified stream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="221" sourceendlinenumber="221"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="223" sourceendlinenumber="223"><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="226" sourceendlinenumber="226"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="228" sourceendlinenumber="229"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="231" sourceendlinenumber="232"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="234" sourceendlinenumber="235"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="238" sourceendlinenumber="238"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="240" sourceendlinenumber="240">  The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="242" sourceendlinenumber="242"><strong>Response body</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="244" sourceendlinenumber="244">  The tags for the specified SdsStream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="246" sourceendlinenumber="246"><strong>Sample response body</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="248" sourceendlinenumber="253"><code>  HTTP/1.1 200 
+  Content-Type: application/json 
+  [ 
+      &quot;a tag&quot;, 
+      &quot;another tag&quot; 
+  ] 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="256" sourceendlinenumber="256"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="258" sourceendlinenumber="258"><code>  Task&lt;IList&lt;string&gt;&gt; GetStreamTagsAsync(string streamId); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="261" sourceendlinenumber="261"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="263" sourceendlinenumber="263">  Allowed for administrator and user accounts</p>
+<hr>
+<h2 id="update-stream-tags" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="268" sourceendlinenumber="269"><code>Update stream tags</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="271" sourceendlinenumber="272">Replaces the tag list for the specified stream with the tags listed in the request body.<br>Overwrites any existing tags; does not merge. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="275" sourceendlinenumber="275"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="277" sourceendlinenumber="277"><code>    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="280" sourceendlinenumber="280"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="282" sourceendlinenumber="283"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="285" sourceendlinenumber="286"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="288" sourceendlinenumber="289"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="291" sourceendlinenumber="291">  The request content is the serialized list of tags. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="293" sourceendlinenumber="293"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="295" sourceendlinenumber="295">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="298" sourceendlinenumber="298"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="300" sourceendlinenumber="300"><code>   Task UpdateStreamTagsAsync(string streamId, IList&lt;string&gt; tags); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="303" sourceendlinenumber="303"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="305" sourceendlinenumber="305">  Allowed by administrator accounts.</p>
+<hr>
+<h2 id="delete-stream-tags" sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="311" sourceendlinenumber="312"><code>Delete stream tags</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="314" sourceendlinenumber="314">Deletes the tag list for the specified stream. </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="317" sourceendlinenumber="317"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="319" sourceendlinenumber="319"><code>   DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="322" sourceendlinenumber="322"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="324" sourceendlinenumber="325"><code>string tenantId</code><br>  The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="327" sourceendlinenumber="328"><code>string namespaceId</code><br>  The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="330" sourceendlinenumber="331"><code>string streamId</code><br>  The stream identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="334" sourceendlinenumber="334"><strong>Response</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="336" sourceendlinenumber="336">  The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="339" sourceendlinenumber="339"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="341" sourceendlinenumber="341"><code>   Task DeleteStreamTagsAsync(string streamId); 
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="344" sourceendlinenumber="344"><strong>Security</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SdsStreamExtra.md" sourcestartlinenumber="346" sourceendlinenumber="346">  Allowed for administrator accounts.</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/SdsStreamExtra.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
