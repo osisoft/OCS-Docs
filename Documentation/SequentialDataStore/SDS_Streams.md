@@ -30,11 +30,11 @@ for internal SDS use.
 | Indexes           | IList<SdsStreamIndex>            | Optional    | No		  | Used to define secondary indexes for stream |
 | InterpolationMode | SdsInterpolationMode             | Optional    | No		  | Interpolation setting of the stream. Default is null. |
 | ExtrapolationMode | SdsExtrapolationMode             | Optional    | No		  | Extrapolation setting of the stream. Default is null. |
-| PropertyOverrides | IList\<SdsStreamPropertyOverride\> | Optional    | No		  | Used to define unit of measure and interpolation mode overrides for a stream. |
-| [Tags](xref:sdsStreamExtra)*		| IList\<String\>					| Optional    | Yes		  | A list of tags denoting special attributes or categories.|
-| [Metadata](xref:sdsStreamExtra)*	| IDictionary\<String, String\>	| Optional    | Yes		  | A dictionary of string keys and associated string values.  |
+| PropertyOverrides | IList<SdsStreamPropertyOverride> | Optional    | No		  | Used to define unit of measure and interpolation mode overrides for a stream. |
+| [Tags](xref:sdsStreamExtra)*		| IList<string>					| Optional    | Yes		  | A list of tags denoting special attributes or categories.|
+| [Metadata](xref:sdsStreamExtra)*	| IDictionary<string, string>	| Optional    | Yes		  | A dictionary of string keys and associated string values.  |
 
-**\* Notes regarding Tags and Metadata:** Stream Tags and Metadata are accessed via the Tags API And Metadata API respectively. However, 
+*NOTE: Tags and Metadata are accessed via the Tags API And Metadata API. However, 
 they are associated with SdsStream objects and can be used as search criteria.
 
 **Rules for Identifier (SdsStream.Id)**
@@ -157,7 +157,7 @@ Returns a list of streams.
 If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all streams 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects)  
+and [Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata)  
 for information about specifying those respective parameters.
 
 
@@ -180,7 +180,7 @@ for information about specifying the search parameter.
 
 `string filter`  
 An optional filter string to match which SdsStreams will be returned.  See the 
-[Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
+[Filter Expressions: Objects](xref:sdsFilterExpressionsMetadata) 
 topic for information about specifying the filter parameter.
 
 `int skip`  

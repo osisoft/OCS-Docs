@@ -4,27 +4,13 @@ uid: sdsSearching
 
 Searching
 =====================
-Search in SDS provides a way to search text, phrases, fields, etc. across the Sequential Data Store. This document covers the 
+SdsSearch provides a way to search text, phrases, fields, etc. across the Sequential Data Store. This document covers the 
 searching for SdsStreams, SdsTypes, and SdsStreamViews.
 
 Searching for Streams
 =====================
 
 The search functionality for streams is exposed through the REST API and the client libraries method ``GetStreamsAsync``.
-The searchable properties are below. 
-
-| Property          | Searchable  |
-|-------------------|-------------|
-| Id                | Yes		  |
-| TypeId            | Yes		  |
-| Name              | Yes		  |
-| Description       | Yes		  |
-| Indexes           | No		  |
-| InterpolationMode | No		  |
-| ExtrapolationMode | No		  |
-| PropertyOverrides | No		  |
-| [Tags](xref:sdsStreamExtra)*		| Yes		  |
-| [Metadata](xref:sdsStreamExtra)*	| Yes		  |
 
 ``GetStreamsAsync`` is an overloaded method that is used to search for and return streams (also see [Streams](xref:sdsStreams) for information about using ``GetStreamAsync`` to return streams). When you call an overloaded method, the software determines the most appropriate method to use by comparing the argument types specified in the call to the method definition.
 
@@ -33,7 +19,7 @@ The syntax of the client libraries method is as follows:
       _metadataService.GetStreamsAsync(query:"QueryString", skip:0, count:100);
 
 
-Searching for streams is also possible using the REST API and specifying the optional `query` parameter, as shown here:
+Searching for streams is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
 
@@ -44,19 +30,7 @@ Searching for Types
 =====================
 
 Similarly, the search functionality for types is also exposed through REST API and the client libraries method ``GetTypesAsync``. The query syntax and the request parameters are the same. 
-The only difference is the resource you're searching on, and you can filter on different properties for types than for streams. The searchable properties are below. 
-See [Types](xref:sdsTypes) for more information.
-
-| Property          | Searchable |
-|-------------------|------------|
-| Id                | Yes |
-| Name              | Yes |
-| Description       | Yes |
-| SdsTypeCode       | No |
-| InterpolationMode | No |
-| ExtrapolationMode | No |
-| Properties        | Yes, with limitations |
-
+The only difference is the resource you're searching on, and you can filter on different properties for types than for streams. See [Types](xref:sdsTypes) for more information.
 
 ``GetTypesAsync`` is an overloaded method that is used to search for and return types. 
 
@@ -65,7 +39,7 @@ The syntax of the client libraries method is as follows:
       _metadataService.GetTypesAsync(query:"QueryString", skip:0, count:100);
 
 
-As previously mentioned, searching for types is also possible using the REST API and specifying the optional `query` parameter, as shown here:
+As previously mentioned, searching for types is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
 
@@ -78,17 +52,7 @@ Searching for Stream Views
 
 Similarly, the search functionality for stream views is also exposed through REST API and the client libraries method ``GetStreamViewsAsync``. The query syntax and the request parameters are the same. 
 The only difference is the resource you're searching on, and you can match on different properties for stream views than for streams and types. 
-The searchable properties are below. See [Stream Views](xref:sdsViews) for more information.
-
-| Property     | Searchable |
-|--------------|------------|
-| Id           | Yes		   |
-| Name         | Yes		   |
-| Description  | Yes		   |
-| SourceTypeId | Yes		   |
-| TargetTypeId | Yes		   |
-| Properties   | Yes, with limitations	  |
-
+See [Stream Views](xref:sdsViews) for more information.
 
 ``GetStreamViewsAsync`` is an overloaded method that is used to search for and return stream views. 
 
@@ -97,7 +61,7 @@ The syntax of the client libraries method is as follows:
       _metadataService.GetStreamViewsAsync(query:"QueryString", skip:0, count:100);
 
 
-As previously mentioned, searching for stream views is also possible using the REST API and specifying the optional `query` parameter, as shown here:
+As previously mentioned, searching for types is also possible using the REST API and specifying the optional ``query`` parameter, as shown here:
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}
 
@@ -140,8 +104,6 @@ the ``count`` parameter is 1000.
 ``skip`` indicates the number of matched items to skip over before returning matching items. You use the 
 skip parameter when more items match the search criteria than can be returned in a single call. 
 
-**.NET Library**
-
 For example, assume there are 175 streams that match the search criteria: “temperature”.
 
 The following call returns the first 100 matches:
@@ -157,7 +119,7 @@ The ``orderby`` parameter is supported for searching both the streams and types.
 The default value for ``orderby`` parameter is ascending order. It can be changed to descending order by specifying ``desc`` alongside the orderby field value. It can be used in conjunction with 
 ``query``, ``filter``, ``skip``, and ``count`` parameters.
 
-**Request**
+**REST API examples**
 
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name
 
@@ -183,7 +145,7 @@ Operators | Description
 ``" "`` | Phrase search operator. For example, while ``Roach Motel`` (without quotes) would search for streams containing Roach Motel anywhere in any order, ``"Roach Motel"`` (with quotes) will only match documents that contain the whole phrase together and in that order.
 ``( )`` | Precedence operator. For example, ``motel AND (wifi OR luxury)`` searches for streams containing the motel term and either wifi or luxury (or both).
 
-**Notes regarding wildcard operator ``*``:** The wildcard ``*`` can only be used once for each search term, except for the case of a Contains type query clause. In that case two wildcards are allowed: 
+**Notes regarding wildcard:** The wildcard ``*`` can only be used once for each search term, except for the case of a Contains type query clause. In that case two wildcards are allowed: 
 one as prefix and one as suffix e.g. ``*Tank*`` is valid but ``*Ta*nk``, ``Ta*nk*``, and ``*Ta*nk*`` are currently not supported.
 
  The wildcard ``*`` can't be combined when searching for a phrase using the ``" "`` operators which combine multiple ordered search terms. 
@@ -196,11 +158,11 @@ You can also qualify which fields are searched by using the following syntax:
 
 	fieldname:fieldvalue
 
-**Request**
+**REST API example**
 
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure
 
-**.NET Library**
+**C# example**
 
 	GetStreamsAsync(query:”name:pump name:pressure”);
 
@@ -220,11 +182,11 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 ------------------ | ----------------------------------------
 ``*``<br>``*log``<br>``l*g``<br>``log*``<br>``*log*``	| ``*l*g*``<br>``*l*g``<br>``l*g*``
 
-**Request**
+**REST API example**
 
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=log*
 
-**.NET Library**
+**C# example**
 
 	GetStreamsAsync(query:”log*”);
 
@@ -241,13 +203,13 @@ or TypeId fields). To search for values that include delimiters, enclose the val
 ------------------ | --------------------------------- | -----------------------------
 ``“pump pressure”`` | pump pressure<br>pump pressure gauge<br>the pump pressure gauge | the pump<br>pressure<br>pressure pump
 
-**Request**
+**REST API example**
 
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
 
-**.NET Library**
+**C# example**
 
-	GetStreamsAsync(query:“\\“pump pressure\\””);
+	GetStreamsAsync(query:”\\”pump pressure\\””);
 
 Other operators examples
 ---------------------
@@ -262,6 +224,7 @@ Other operators examples
 
 
 ## <a name="Stream_Metadata_search_topic">How Searching Works: Stream Metadata</a>
+-------------------
 
 [Stream Metadata](xref:sdsStreamExtra) modifies the aforementioned search syntax rules and each operator's behavior is described below. 
 For example, assume that a namespace contains the following Streams and the respective Metadata Key-Value pair(s) for each stream.
@@ -288,14 +251,6 @@ Values are searched against (along with the other searchable Stream fields).
 ``company``  | Only stream1 returned.
 ``a*``  | All three streams returned.
 
-**Request**
-
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=manufacturer:company
-
-**.NET Library**
-
-	GetStreamsAsync(query:“manufacturer:company”);
-
 \* Operator
 -------------------
 
@@ -314,14 +269,6 @@ this wildcard character can be used with the Metadata key as well. This is not s
 Note that in the final example nothing matches on a Stream's Id value because including ``‘*’`` in a search clause's 
 field prevents non-Stream Metadata fields from being searched.
 
-**Request**
-
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=manufa*turer:compan*
-
-**.NET Library**
-
-	GetStreamsAsync(query:“manufa*turer:compan*”);
-
 \"" Operator
 -------------------
 
@@ -337,11 +284,3 @@ an exact match on the key with a Phrase style search clause is not valid.
 ``second*:“second value”``  | Only stream3 returned.
 
 In the last example the wildcard operator ``‘*’`` is utilized to construct a similar query in lieu of a phrase search query clause.
-
-**Request**
-
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=second*:“second value”
-
-**.NET Library**
-
-	GetStreamsAsync(query:“second*:\\“second value\\””);

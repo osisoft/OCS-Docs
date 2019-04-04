@@ -8,7 +8,7 @@
     <title>Streams </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Streams ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.39.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -33,9 +33,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -89,14 +88,13 @@ When an SdsStream contains data, you must use a stream view to update the stream
 <p>SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. 
 Create the ISdsMetadataService, using one of the <code>SdsService.GetMetadataService()</code> factory methods.</p>
 <p>The following table shows the required and optional SdsStream fields. Fields not listed are reserved
-for internal SDS use.</p>
+for internal SDS use. </p>
 <table>
 <thead>
 <tr>
 <th>Property</th>
 <th>Type</th>
 <th>Optionality</th>
-<th>Searchable</th>
 <th>Details</th>
 </tr>
 </thead>
@@ -105,76 +103,52 @@ for internal SDS use.</p>
 <td>Id</td>
 <td>String</td>
 <td>Required</td>
-<td>Yes</td>
 <td>An identifier for referencing the stream</td>
 </tr>
 <tr>
 <td>TypeId</td>
 <td>String</td>
 <td>Required</td>
-<td>Yes</td>
 <td>The SdsType identifier of the type to be used for this stream</td>
 </tr>
 <tr>
 <td>Name</td>
 <td>String</td>
 <td>Optional</td>
-<td>Yes</td>
 <td>Friendly name</td>
 </tr>
 <tr>
 <td>Description</td>
 <td>String</td>
 <td>Optional</td>
-<td>Yes</td>
 <td>Description text</td>
 </tr>
 <tr>
 <td>Indexes</td>
 <td>IList<sdsstreamindex></sdsstreamindex></td>
 <td>Optional</td>
-<td>No</td>
 <td>Used to define secondary indexes for stream</td>
 </tr>
 <tr>
 <td>InterpolationMode</td>
 <td>SdsInterpolationMode</td>
 <td>Optional</td>
-<td>No</td>
 <td>Interpolation setting of the stream. Default is null.</td>
 </tr>
 <tr>
 <td>ExtrapolationMode</td>
 <td>SdsExtrapolationMode</td>
 <td>Optional</td>
-<td>No</td>
 <td>Extrapolation setting of the stream. Default is null.</td>
 </tr>
 <tr>
 <td>PropertyOverrides</td>
-<td>IList&lt;SdsStreamPropertyOverride></td>
+<td>IList<sdsstreampropertyoverride></sdsstreampropertyoverride></td>
 <td>Optional</td>
-<td>No</td>
-<td>Used to define unit of measure and interpolation mode overrides for a stream.</td>
-</tr>
-<tr>
-<td><a class="xref" href="SdsStreamExtra.html">Tags</a>*</td>
-<td>IList&lt;String></td>
-<td>Optional</td>
-<td>Yes</td>
-<td>A list of tags denoting special attributes or categories.</td>
-</tr>
-<tr>
-<td><a class="xref" href="SdsStreamExtra.html">Metadata</a>*</td>
-<td>IDictionary&lt;String, String></td>
-<td>Optional</td>
-<td>Yes</td>
-<td>A dictionary of string keys and associated string values.</td>
+<td>Used to define unit of measure and interpolation mode overrides for a stream</td>
 </tr>
 </tbody>
 </table>
-<p>*NOTE: Tags and Metadata are accessed via the Tags API And Metadata API. However, 
-they are associated with SdsStream objects and can be used as search criteria.</p>
 <p><strong>Rules for Identifier (SdsStream.Id)</strong></p>
 <ol>
 <li>Is not case sensitive.</li>
@@ -272,7 +246,7 @@ Content-Type: application/json
 <p>If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all streams 
 in the Namespace. See <a class="xref" href="Searching.html">Searching</a> 
-and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: SDS Objects</a><br>for information about specifying those respective parameters.</p>
+and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a><br>for information about specifying those respective parameters.</p>
 <p><strong>Request</strong></p>
 <pre><code>    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&amp;filter={filter}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
 </code></pre><p><strong>Parameters</strong></p>
@@ -282,7 +256,7 @@ and <a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: 
 See <a class="xref" href="Searching.html">Searching</a>
 for information about specifying the search parameter.</p>
 <p><code>string filter</code><br>An optional filter string to match which SdsStreams will be returned.  See the 
-<a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: SDS Objects</a> 
+<a class="xref" href="Filter_Expressions_Metadata.html">Filter Expressions: Metadata Objects</a> 
 topic for information about specifying the filter parameter.</p>
 <p><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
 If not specified, a default value of 0 is used.</p>
@@ -494,7 +468,7 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type. <
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/garyclee510/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Streams.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Streams.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
@@ -509,14 +483,8 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type. <
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
       </footer>
     </div>
     

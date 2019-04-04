@@ -1,0 +1,120 @@
+body {
+font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+
+/* Custom Navbar
+  ------------------------------------------------------- */
+ .navbar-header {
+  height: 40px;
+  max-height: 40px;
+}
+.navbar-collapse {
+  height: 40px;
+  max-height: 40px;
+}
+
+/* Subbar #2c3e50*/
+
+.navbar-inverse {
+  background-color: #19242d; /* #006a91; */
+  color: #fafafa;
+  box-shadow: 0 0 0.3rem rgba(0,0,0,.4);
+}
+.navbar-inverse .navbar-brand {
+  color: #fafafa;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+  color: #fafafa;
+}
+.navbar-inverse .navbar-text {
+  color: #fafafa;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #fafafa;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #3498db; /*#fafafa;*/
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #3498db; /*#fafafa;*/
+  /* color: #fafafa;
+  background-color: #2680a1; */
+}
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #fafafa;
+  background-color: #2680a1;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: #2680a1;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #2680a1;
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border: none;
+}
+.navbar-inverse .navbar-link {
+  color: #ffffff;
+}
+.navbar-inverse .navbar-link:hover {
+  color: #fafafa;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fafafa;
+  }
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fafafa;
+    background-color: #2680a1;
+  }
+}
+
+/* Sub Nav Bar*/
+.subnav {
+  background-color: #2c3e50;
+  /* color: #bdc3c7; */
+  font-size: 16px;
+  height: 40px;
+}
+
+.subnav a {
+  color: #bdc3c7
+}
+
+.sidebar a:hover {
+  color: #3498db;
+}
+
+/* Footer */
+.footer {
+  background-color: #2980b9;
+  color: #fff;
+  text-align: center;
+}
+
+#toc_filter_input {
+  border-radius: 3px;
+}
+
+.toc-filter > input {
+  padding-left: 0;
+}

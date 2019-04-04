@@ -55,7 +55,7 @@ easily obtain needed information.
      - [Compression](xref:sdsCompression)
      - [Searching](xref:sdsSearching)
      - [Filter Expressions - Data](xref:sdsFilterExpressions)
-     - [Filter Expressions - SDS Objects](xref:sdsFilterExpressionsObjects)
+     - [Filter Expressions - Metadata Objects](xref:sdsFilterExpressionsMetadata)
      - [Table Format](xref:sdsTableFormat)
    - [Data Ingress and OSIsoft Message Format](xref:dataIngress)
      - [Data Ingress to Cloud Services Using OMF](xref:omfIngressToOCS)
