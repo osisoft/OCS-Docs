@@ -861,7 +861,7 @@ The new type may also include the full type definition of the reference type ins
 }
 ```
 
-If the full definition is sent, the referenced types (base type "Simple" in the above example) should match the actual type initially created, unless a type update is attempted. For type update behavior, see (#create-or-update-type). If the full definition is sent and the referenced types did not exist, they will be created automatically by SDS. Further type creations can reference them as demostrated above. Note that when trying to get types back from SDS, the results will also include types that were automatically created by SDS.
+If the full definition is sent, the referenced types (base type "Simple" in the above example) should match the actual type initially created, unless a type update is attempted. For type update behavior, see [Create Or Update Type](#create-or-update-type). If the full definition is sent and the referenced types did not exist, they will be created automatically by SDS. Further type creations can reference them as demostrated above. Note that when trying to get types back from SDS, the results will also include types that were automatically created by SDS.
 
 Base types and properties of type Object, Enum, user-defined collections such as, Array, List and Dictionary will be treated as referenced types. Note that streams cannot be created using these referenced types. If a stream of particular type is to be created, the type should contain at least one property with a valid index type as described in this section, [Indexes](xref:sdsIndexes). The index property may also be in the base type as shown in the example above.
 
