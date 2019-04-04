@@ -26,7 +26,7 @@ index; that is, each property of an SdsType event is related to the event’s in
 An SdsType is referenced by its identifier or Id field. SdsType identifiers must be unique within a Namespace.
 
 An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
-Nested types and base types are automatically created as separate types. For further information, see [Type Reusability](#Type Reusability)
+Nested types and base types are automatically created as separate types. For further information, see [Type Reusability](#type-reusability)
 
 SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
@@ -966,7 +966,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns the number of references by streams, stream views and other types to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#Type Reusability)
+Returns the number of references by streams, stream views and other types to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
 **Request**
 
@@ -1005,7 +1005,7 @@ the search/filter criteria. If neither parameter is specified, the list includes
 in the Namespace. See [Searching](xref:sdsSearching) 
 and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
 for information about specifying those respective parameters.
-Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#Type Reusability)
+Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
 **Request**
 
@@ -1120,7 +1120,7 @@ If the types are identical, a ``Found`` (302) error
 is returned with the Location header set to the URI where the type may be retrieved using a Get function. 
 
 If the types do not match, a ``Conflict`` (409) error is returned.
-Note that a ``Conflict`` (409) error will also be returned if the type contains reference to any existing type, but the referenced type definition in the body does not match the existing type. You may reference an existing type without including the reference type definition in the body by using only the Ids. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+Note that a ``Conflict`` (409) error will also be returned if the type contains reference to any existing type, but the referenced type definition in the body does not match the existing type. You may reference an existing type without including the reference type definition in the body by using only the Ids. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 For a matching type (``Found``), clients that are capable of performing a redirect that includes the 
 authorization header can automatically redirect to retrieve the type. However, most clients, 
@@ -1359,7 +1359,7 @@ The .NET SDS Client Libraries manage redirects.
 Creates the specified type. If a type with the same Id already exists, the definition of the type is updated.
 
 Note that a type cannot be updated if any streams or stream views or other types are 
-associated with it. This will also be true for any reference types that it includes. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+associated with it. This will also be true for any reference types that it includes. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 Also, certain parameters, including the type id, cannot be changed after 
 they are defined.
@@ -1513,7 +1513,7 @@ The ACL for the specified type
 
 Update the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
-Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
 
@@ -1577,7 +1577,7 @@ The Owner for the specified type
 
 Update the Owner of the specified type. For more information on Owners, see [Access Control](xref:accesscontrol).
 
-Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#Type Reusability).
+Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
 
