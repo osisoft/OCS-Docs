@@ -49,12 +49,12 @@ See [Types](xref:sdsTypes) for more information.
 
 | Property          | Searchable |
 |-------------------|------------|
-| Id                | Yes |
-| Name              | Yes |
-| Description       | Yes |
-| SdsTypeCode       | No |
-| InterpolationMode | No |
-| ExtrapolationMode | No |
+| Id                | Yes        |
+| Name              | Yes        |
+| Description       | Yes        |
+| SdsTypeCode       | No         |
+| InterpolationMode | No         |
+| ExtrapolationMode | No         |
 | Properties        | Yes, with limitations |
 
 
@@ -82,12 +82,12 @@ The searchable properties are below. See [Stream Views](xref:sdsViews) for more 
 
 | Property     | Searchable |
 |--------------|------------|
-| Id           | Yes		   |
-| Name         | Yes		   |
-| Description  | Yes		   |
-| SourceTypeId | Yes		   |
-| TargetTypeId | Yes		   |
-| Properties   | Yes, with limitations	  |
+| Id           | Yes		|
+| Name         | Yes		|
+| Description  | Yes		|
+| SourceTypeId | Yes		|
+| TargetTypeId | Yes		|
+| Properties   | Yes, with limitations |
 
 
 ``GetStreamViewsAsync`` is an overloaded method that is used to search for and return stream views. 
