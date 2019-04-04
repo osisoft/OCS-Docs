@@ -69,8 +69,8 @@ As previously mentioned, searching for types is also possible using the REST API
 
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
 
-The Type fields valid for search are identified in the fields table located on the [Types](xref:sdsTypes) page. The Properties fields is identified
-as being searchable but with limitations: Each SdsTypeProperty of a given SdsType has its Name and Id included in the "Properties" field. This includes nested
+The Type fields valid for search are identified in the fields table located on the [Types](xref:sdsTypes) page. The Properties field is identified
+as being searchable but with limitations: Each SdsTypeProperty of a given SdsType has its Name and Id included in the Properties field. This includes nested
 SdsTypes of the given SdsType. Therefore, the searching of Properties will distinguish SdsTypes by their respective lists of relevant SdsTypeProperty Ids and Names.
 
 Searching for Stream Views
