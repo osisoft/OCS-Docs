@@ -846,7 +846,7 @@ The new type may also include the full type definition of the reference type ins
                 }
             }
         ]
-	},
+    },
     "Properties": [
         {
             "Id": "Depth",
