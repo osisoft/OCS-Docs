@@ -1,16 +1,14 @@
 ---
-uid: sdsFilterExpressionsMetadata
+uid: sdsFilterExpressionsObjects
 ---
 
-Filter Expressions: Metadata Objects
+Filter Expressions: SDS Objects
 ==================
 
 
 This section focuses on filter expressions that can be applied to certain read operations that return Sequential Data Store objects (e.g. Streams, Types). For filtering on read operations of Sequential Data Store values refer to [Filter Expressions: Values](xref:sdsFilterExpressions).
 
-Filter expressions can be applied to any read operation that returns multiple values, including 
-``Get Types`` and ``Get Streams``.
-
+Filter expressions can be applied to any read operation that return Sequential Data Store objects, including Streams, Types, and Stream Views.
 
 Fields
 ------------
@@ -58,8 +56,8 @@ expression:
 | ``and``    | And logical operator                                |
 | ``not``    | Not logical operator                                |
 
-Not all operators supported for [values](xref:sdsFilterExpressions) are 
-supported for filtering on object metadata string fields.
+Note that not all of the operators supported for filtering on [values](xref:sdsFilterExpressions) are 
+supported for filtering on SDS objects.
 
 **Logical Operator Examples**
 

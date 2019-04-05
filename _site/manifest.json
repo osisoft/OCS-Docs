@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/DataViews/DataViews_API.html",
-          "hash": "ibYGUc2YGl0A6/CZ2qRPQw=="
+          "hash": "W0AQvtOqQtc3+GhNiQf00A=="
         }
       },
       "is_incremental": false,
@@ -103,6 +103,66 @@
         ".html": {
           "relative_path": "Documentation/DataViews/DataViews_Overview.html",
           "hash": "GU2dqGNr5CjlvbqzVu0tdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/DataViews/GroupRules.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/DataViews/GroupRules.html",
+          "hash": "F2D1UIPVtUtX9J8KQVrQog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/DataViews/IndexConfig.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/DataViews/IndexConfig.html",
+          "hash": "YEqHPYydyGoA7RJ3Hc/VAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/DataViews/Introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/DataViews/Introduction.html",
+          "hash": "gWT5AE5VIvS87viJUCBCpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/DataViews/Mappings.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/DataViews/Mappings.html",
+          "hash": "4RZtv0QsT0vMbxwuPN9xdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "Documentation/DataViews/Queries.md",
+      "output": {
+        ".html": {
+          "relative_path": "Documentation/DataViews/Queries.html",
+          "hash": "Pq+UBi3jMX+IX+VE87U7dQ=="
         }
       },
       "is_incremental": false,
@@ -507,7 +567,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/SequentialDataStore/SdsStreamExtra.html",
-          "hash": "R4JfMsQl45NxSeiX8vjLlw=="
+          "hash": "nIJdNG3J3R/64TOSBo9cww=="
         }
       },
       "is_incremental": false,
@@ -750,7 +810,7 @@
       "output": {
         ".html": {
           "relative_path": "Documentation/toc.html",
-          "hash": "CTj5FQpcrNdvnPaezZAhkA=="
+          "hash": "nQYVqQFr4qyrhznOrHV/rA=="
         }
       },
       "is_incremental": false,
@@ -762,7 +822,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "e6SopcHN90OtOA5Dvk1bVw=="
+          "hash": "NX7OCQCqhebsu/XYznmYpw=="
         }
       },
       "is_incremental": false,

@@ -18,27 +18,24 @@ To map a property that is beyond the ability of SDS to map on its own, you shoul
 and add it to the SdsStreamView’s Properties collection.
 
 The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.
+See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 
-| Property     | Type                   | Optionality | Details |
-|--------------|------------------------|-------------|---------|
-| Id           | String                 | Required    | Identifier for referencing the stream view |
-| Name         | String                 | Optional    | Friendly name |
-| Description  | String                 | Optional    | Description text |
-| SourceTypeId | String                 | Required    | Identifier of the SdsType of the SdsStream |
-| TargetTypeId | String                 | Required    | Identifier of the SdsType to convert events to |
-| Properties   | IList<SdsStreamViewProperty> | Optional    | Property level mapping |
+| Property     | Type                   | Optionality | Searchable | Details |
+|--------------|------------------------|-------------|------------|---------|
+| Id           | String                 | Required    | Yes		   |Identifier for referencing the stream view |
+| Name         | String                 | Optional    | Yes		   |Friendly name |
+| Description  | String                 | Optional    | Yes		   |Description text |
+| SourceTypeId | String                 | Required    | Yes		   |Identifier of the SdsType of the SdsStream |
+| TargetTypeId | String                 | Required    | Yes		   |Identifier of the SdsType to convert events to |
+| Properties   | IList\<SdsStreamViewProperty\> | Optional    | Yes, with limitations	  |Property level mapping |
 
 
-**Rules for type identifier**
+**Rules for the Stream View Identifier (SdsStreamView.Id)**
 
 1. Is not case sensitive
 2. Can contain spaces
-3. Cannot begin with two underscores ("\_\_")
-4. Cannot contain forward slash or backslash characters ("/" or "\\")
-5. Can contain a maximum of 100 characters
-6. Cannot start or end with a period.
-7. Cannot contain consecutive periods.
-8. Cannot consist of only periods.
+3. Cannot contain forward slash ("/")
+4. Can contain a maximum of 100 characters
 
 
 ## Properties / SdsStreamViewProperty
@@ -584,7 +581,7 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all stream views 
-in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) for information about specifying those respective parameters.
+in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) for information about specifying those respective parameters.
 
 
 **Request**
@@ -606,7 +603,7 @@ for information about specifying the search parameter.
 
 `string filter`   
 An optional filter string to match which SdsStreamViews will be returned.  See the 
-[Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+[Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
 topic for information about specifying the filter parameter.
 
 `int skip`  
