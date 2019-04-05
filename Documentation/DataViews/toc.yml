@@ -1,2 +1,12 @@
 - name: Data Views API
   href: DataViews_API.md
+- name: Introduction
+  href: Introduction.md
+- name: Queries
+  href: Queries.md
+- name: Mappings
+  href: Mappings.md
+- name: Group Rules
+  href: GroupRules.md
+- name: Index Config
+  href: IndexConfig.md

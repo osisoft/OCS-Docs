@@ -41,30 +41,27 @@ Only SdsTypes used to define SdsStreams or SdsStreamViews are required to be add
 SdsTypes that define Properties or base types are contained within the parent SdsType and are not required
 to be added to the Data Store independently.
 
-The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use.
+The following table shows the required and optional SdsType fields. Fields that are not included are reserved for internal SDS use. 
+See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 
 
-| Property          | Type                   | Optionality | Details |
-|-------------------|------------------------|-------------|---------|
-| Id                | String                 | Required    | Identifier for referencing the type |
-| Name              | String                 | Optional    | Friendly name |
-| Description       | String                 | Optional    | Description text |
-| SdsTypeCode       | SdsTypeCode            | Required    | Numeric code identifying the base SdsType |
-| InterpolationMode | SdsInterpolationMode   | Optional    | Interpolation setting of the type. Default is Continuous. |
-| ExtrapolationMode | SdsExtrapolationMode   | Optional    | Extrapolation setting of the type. Default is All. |
-| Properties        | IList<SdsTypeProperty> | Required    | List of SdsTypeProperty items |
+| Property          | Type                   | Optionality | Searchable | Details |
+|-------------------|------------------------|-------------|---------|---------|
+| Id                | String                 | Required    | Yes | Identifier for referencing the type |
+| Name              | String                 | Optional    | Yes | Friendly name |
+| Description       | String                 | Optional    | Yes | Description text |
+| SdsTypeCode       | SdsTypeCode            | Required    | No | Numeric code identifying the base SdsType |
+| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. |
+| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. Default is All. |
+| Properties        | IList\<SdsTypeProperty\> | Required    | Yes, with limitations | List of SdsTypeProperty items |
 
 
-**Rules for typeId**
+**Rules for the Type Identifier (SdsType.Id)**
 
 1. Is not case sensitive
 2. Can contain spaces
-3. Cannot begin with two underscores ("\_\_")
-4. Cannot contain forward slash or backslash characters ("/" or "\\")
-5. Can contain a maximum of 100 characters
-6. Cannot start or end with a period.
-7. Cannot contain consecutive periods.
-8. Cannot consist of only periods.
+3. Cannot contain forward slash ("/")
+4. Can contain a maximum of 100 characters  
 
 SdsType management using the .NET SDS Client Libraries is performed through the ``ISdsMetadataService``. 
 You can create the ``ISdsMetadataService`` using one of the ``SdsService.GetMetadataService()`` factory methods.
@@ -206,22 +203,24 @@ indexes that occur between data in a stream:
 
 | Type                      | Result for an index between data in a stream  | Comment |
 |---------------------------|-----------------------------------------------|---------|
-|Numeric Types              |Interpolated*                                  |Rounding is done as needed for integer types |
-|Time related Types         |Interpolated                                   |DateTime, DateTimeOffset, TimeSpan |
-|Nullable Types             |No event is returned                           |Cannot reliably interpolate due to possibility of a null value |
-|Array and List Types       |No event is returned                           |         |
-|String Type                |No event is returned                           |         |
-|Boolean Type               |Returns value of nearest index                 |         |
-|Enumeration Types          |Returns Enum value at 0                        |This may have a value for the enumeration |
-|GUID                       |                                               |         |
-|Version                    |No event is returned                           |         |
-|IDictionary or IEnumerable |No event is returned                           |Dictionary, Array, List, and so on. |
+|Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types |
+|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
+|Nullable Types             |Interpolated**                  |Cannot reliably interpolate due to possibility of a null value |
+|Array and List Types       |No event is returned            |         |
+|String Type                |No event is returned            |         |
+|Boolean Type               |Returns value of nearest index  |         |
+|Enumeration Types          |Returns Enum value at 0         |This may have a value for the enumeration |
+|GUID                       |No event is returned            |         |
+|Version                    |No event is returned            |         |
+|IDictionary or IEnumerable |No event is returned            |Dictionary, Array, List, and so on. |
 
 *When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
 
+\**Nullable types are interpolated in the same manner as their non-nulllable equivalents as long as the values surrounding the desired interpolation index are non-null. If either of the values are null, the interpolated value will be null.
+
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
-mode is overridden in the TypeProperty or the SdsStream. For more information on overriding the interpolation mode 
+mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
 on a specific type property see [SdsTypeProperty](#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
 
@@ -365,13 +364,12 @@ the Primary Index, set the IsKey to true.
 The type is created with the following parameters. SdsTypeBuilder automatically generates 
 unique identifiers. Note that the following table contains only a partial list of fields.
 
-
 | Field            | Values                  |             |                                      |
 |------------------|-------------------------|-------------|--------------------------------------|
-| Id               | Simple                  |             |                                      |
-| Name             | Simple                  |             |                                      |
-| Description      | Basic sample type       |             |                                      |
-| Properties       | Count = 3               |             |                                      |
+| Id               | Simple                                                                       |
+| Name             | Simple                                                                       |
+| Description      | Basic sample type                                                            |
+| Properties       | Count = 3                                                                    |
 |   [0]            | Id                      | Time                                               |
 |                  | Name                    | Time                                               |
 |                  | Description             | null                                               |
@@ -1001,7 +999,7 @@ Content-Type: application/json
 
 ## `Get Type Reference Count`
 
-Returns the number of references by streams, stream views and other types to a specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#type-reusability)
+Returns a dictionary mapping the object name to the number of references held by streams, stream views and parent types for the specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsviews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
 
@@ -1022,11 +1020,20 @@ The type identifier
 The response includes a status code and a response body.
 
 **Response body**  
-The number of references to the specified type
+A dictionary mapping object name to number of references.
+
+Example response body:
+```json
+    {
+        "SdsStream": 3,
+        "SdsStreamView": 2,
+        "SdsType": 1
+    }
+```
 
 **.NET Library**
 ```csharp
-    Task<int> GetTypeReferenceCountAsync(string typeId);
+    Task<IDictionary<string, int>> GetTypeReferenceCountAsync(string typeId);
 ```
 
 ***********************
@@ -1038,7 +1045,7 @@ Returns a list of types within a given namespace.
 If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
 for information about specifying those respective parameters.
 
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
@@ -1059,7 +1066,7 @@ The namespace identifier
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
 
 `string filter`  
-An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Metadata Objects](xref:sdsFilterExpressionsMetadata) 
+An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: Objects](xref:sdsFilterExpressionsObjects) 
 topic for information about specifying the filter parameter.
 
 `int skip`  
