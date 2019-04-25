@@ -80,7 +80,7 @@ Searching for Stream Views
 
 Similarly, the search functionality for stream views is also exposed through REST API and the client libraries method ``GetStreamViewsAsync``. The query syntax and the request parameters are the same. 
 The only difference is the resource you're searching on, and you can match on different properties for stream views than for streams and types. 
-The searchable properties are below. See [Stream Views](xref:sdsViews) for more information.
+The searchable properties are below. See [Stream Views](xref:sdsStreamViews) for more information.
 
 | Property     | Searchable |
 |--------------|------------|
@@ -103,7 +103,7 @@ As previously mentioned, searching for stream views is also possible using the R
  ```
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}
  ```
-The Stream View fields valid for search are identified in the fields table located on the [Stream Views](xref:sdsViews) page. The Properties field
+The Stream View fields valid for search are identified in the fields table located on the [Stream Views](xref:sdsStreamViews) page. The Properties field
 is identified as being searchable but with limitations because SdsStreamViewProperty objects are not searchable. Only the SdsStreamViewProperty's
 SdsStreamView is searchable by its Id, SourceTypeId, and TargetTypeId, which are used to return the top level SdsStreamView object when searching. 
 This includes nested SdsStreamViewProperties.
