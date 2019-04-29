@@ -69,6 +69,7 @@ For additional information, including a detailed list of supported data types, r
 To help users develop .NET client applications, OSIsoft provides OCS client libraries through NuGet packages, [OCSClients](xref:https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients contains the libraries necessary to connect to OCS and manage data.
 
 To create an SdsType in .NET, use the .NET SDS client libraries SdsTypeBuilder.
+
 ```csharp
 public enum State
 {
@@ -231,7 +232,7 @@ Host: dat-b.osisoft.com
     "InterpolationMode": 0,
     "ExtrapolationMode": 0
 }
-```json
+```
 
 #### Step 5: Create a stream
 ***********************
@@ -240,6 +241,7 @@ An SdsStream has an associated SdsType and stores a stream of events or objects 
 Detailed information about streams can be found in SdsStreams.
 
 Create an SdsStream of Simple events using the .NET SDS libraries as follows:
+
 ```csharp
 SdsStream simpleStream = new SdsStream() 
 {
@@ -269,8 +271,8 @@ Host: dat-b.osisoft.com
     "TypeId":"Simple",
     "Indexes":null 
 }
-
 ```
+
 #### Step 6: Write data
 ******************
 
@@ -279,6 +281,7 @@ Inserts fail if events with the same index already exist in the database. Update
 adds new events and replaces existing events.
 
 To insert an event using the .NET SDS libraries:
+
 ```csharp
 Simple value = new Simple()
 {
@@ -308,6 +311,7 @@ Host: dat-b.osisoft.com
     }
 ]
 ```
+
 Additional information about writing data can be found in [Writing data](xref:sdsWritingData#writing-data).
 
 #### Step 7: Read data
@@ -326,7 +330,9 @@ The simplest way to supply an index is as a string. In .NET a `DateTime` index c
 string index = DateTime.Parse("2017-08-17T17:21:36.3494129Z")
                .ToUniversalTime().ToString("o"); 
 ```
+
 To read a value at a distinct index, use the .NET SDS libraries:
+
 ```csharp
 value = await client.GetDistinctValueAsync<Simple>(simpleStream.Id, index); 
 ```
@@ -372,6 +378,7 @@ An immediate first retry is recommended, followed by an exponential backoff.
 If you access SDS using the .NET libraries, be aware that any non-success responses returned 
 to the client are packaged in an SdsHttpClientException, which is an Exception with the following 
 additional properties:
+
 ```csharp
 string ReasonPhrase
 HttpStatusCode StatusCode
