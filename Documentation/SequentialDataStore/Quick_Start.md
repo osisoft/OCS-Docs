@@ -250,6 +250,7 @@ SdsStream simpleStream = new SdsStream()
 
 simpleStream = config.CreateStreamAsync(simpleStream);
 ```
+
 To create the stream without the libraries, post a JSON representation of the SdsStream to OSIsoft Cloud Services.
 
     POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  
