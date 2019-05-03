@@ -168,7 +168,7 @@
 <p><code>POST api/v1-preview/Tenants/{tenantId}/ImplicitClients</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
@@ -230,7 +230,9 @@ ImplicitClientDto implicitClientDto
     &quot;String&quot;
   ]
 }
-</code></pre><h4 id="401">401</h4>
+</code></pre><h4 id="400">400</h4>
+<p>Client limit exceeded.</p>
+<h4 id="401">401</h4>
 <p>Unauthorized</p>
 <h4 id="403">403</h4>
 <p>Forbidden</p>
@@ -247,7 +249,7 @@ ImplicitClientDto implicitClientDto
 <p><code>PUT api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string clientId
@@ -316,7 +318,7 @@ ImplicitClientDto updatedImplicitClientDto
 <p>Unauthorized</p>
 <h4 id="403-1">403</h4>
 <p>Forbidden</p>
-<h4 id="400">400</h4>
+<h4 id="400-1">400</h4>
 <p>Missing or invalid inputs</p>
 <h4 id="404-1">404</h4>
 <p>Client or Tenant not found</p>
@@ -329,7 +331,7 @@ ImplicitClientDto updatedImplicitClientDto
 <p><code>GET api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string clientId
@@ -382,8 +384,13 @@ string clientId
 <p><code>GET api/v1-preview/Tenants/{tenantId}/ImplicitClients</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
+<pre><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string[] tags
+</code></pre><p>Only return Clients that have these tags.</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
 [Default = &quot;&quot;]
@@ -472,7 +479,7 @@ int32 count
 <p><code>DELETE api/v1-preview/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string clientId

@@ -92,7 +92,7 @@ All times are represented at offset 0, GMT.
 Inserts data into the specified stream. Returns an error if data is already present at the index of any event.
 
 **Request**
- ```
+ ```text
     POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
  ```
 
@@ -117,7 +117,7 @@ This request will return an error if an event already exists for any index in th
 
 **Example**  
 The following request is used to insert events into stream `Simple` of `SimpleType`,
- ```
+ ```text
     POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
  ```
 
@@ -150,7 +150,7 @@ where the request body specifies the values to insert:
 Modifies the specified stream event(s). Patching affects only the data item parameters that are included in the call.
 
 **Request**
- ```
+ ```text
     PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		 ?select={selectExpression}
  ```
@@ -175,7 +175,7 @@ A serialized collection of one or more patch property events
 The response includes a status code
 
 Consider you have a stream `Simple` of `SimpleType`, to change one property, `Measurement`, for one event specify the following request
- ```        
+ ```text        
     PATCH api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
 		?select=measurement
  ```
@@ -217,7 +217,7 @@ There are two options for specifying which events to remove from a stream:
 Removes the event at each index from the specified stream. Different overloads are available to make it easier to indicate the index where you want to remove a data event. 
 
 **Request**  
- ```
+ ```text
     DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		?index={index}[&index={index}…]
  ```
@@ -260,7 +260,7 @@ If you attempt to remove events at indexes that have no events, an error is retu
 Removes events at and between the start index and end index.
 
 **Request**
- ```
+ ```text
     DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		?startIndex={startIndex}&endIndex={endIndex}
  ```
@@ -301,7 +301,7 @@ If any individual event fails to be removed, the entire operation is rolled back
 Writes one or more events over existing events in the specified stream.
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		?allowCreate=false
  ```
@@ -338,7 +338,7 @@ This request returns an error if the stream does not have an event to be replace
 Writes one or more events to the specified stream.
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
  ```
 

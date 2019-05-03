@@ -89,7 +89,7 @@
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Clients</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -162,7 +162,7 @@ int32 count
 <p><code>DELETE api/v1-preview/Tenants/{tenantId}/Clients/{clientId}</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string clientId

@@ -262,7 +262,7 @@ string namespaceId
 <h2 id="create-new-namespace"><code>Create New Namespace</code></h2>
 <p>Creates a new <code>Namespace</code> in the specified <code>Tenant</code>.</p>
 <h3 id="http-2">Http</h3>
-<p><code>POST api/v1-preview/Tenants/{tenantId}/Namespaces</code></p>
+<p><code>POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId?}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 [FromRoute]
@@ -272,6 +272,11 @@ string tenantId
 [FromBody]
 Namespace namespaceObj
 </code></pre><p>The new <code>Namespace</code> to be created.</p>
+<pre><code class="lang-csharp">[Optional]
+[Default = &quot;&quot;]
+[FromRoute]
+string namespaceId
+</code></pre><p>The Id of the new <code>Namespace</code>. The Id can also be specified in the namespaceObj. If it is omitted in both, the Id will be generated.</p>
 <h3 id="security-2">Security</h3>
 <p>A <code>Namespace</code> can only be created if the current principal has Write access.</p>
 <h3 id="returns-2">Returns</h3>
@@ -290,6 +295,11 @@ Namespace namespaceObj
 <td>Returns the created <code>Namespace</code> object.</td>
 </tr>
 <tr>
+<td>302</td>
+<td>Nothing is returned</td>
+<td>Returns the location of the existing <code>Namespace</code> object.</td>
+</tr>
+<tr>
 <td>400</td>
 <td>Nothing is returned</td>
 <td>Could not create the <code>Namespace</code> due to missing or invalid input.</td>
@@ -298,6 +308,11 @@ Namespace namespaceObj
 <td>403</td>
 <td>Nothing is returned</td>
 <td>Unauthorized to create a <code>Namespace</code> in this account.</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Nothing is returned</td>
+<td>A <code>Namespace</code> already exists with different values.</td>
 </tr>
 </tbody>
 </table>

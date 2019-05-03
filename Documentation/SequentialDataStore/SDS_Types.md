@@ -912,7 +912,7 @@ defines the available functions. See [Types](#types) for general SdsType informa
 Returns the type corresponding to the specified typeId within a given namespace.
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
@@ -1003,7 +1003,7 @@ Content-Type: application/json
 Returns a dictionary mapping the object name to the number of references held by streams, stream views and parent types for the specified type. See [Streams](xref:sdsstreams) and [Steam Views](xref:sdsStreamViews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/ReferenceCount
  ```
 
@@ -1053,7 +1053,7 @@ for information about specifying those respective parameters.
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
  ```
 
@@ -1177,7 +1177,7 @@ returns ``Unauthorized`` (401). For this reason, it is recommended that when usi
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.
 
 **Request**
- ```
+ ```text
 	POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
@@ -1412,7 +1412,7 @@ Also, certain parameters, including the type id, cannot be changed after
 they are defined.
 
 **Request**
- ```
+ ```text
 	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
@@ -1445,7 +1445,7 @@ The content is set to true on success.
 Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams or stream views or other types reference it.
 
 **Request**
- ```
+ ```text
 	DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
@@ -1475,7 +1475,7 @@ The response includes a status code.
 Get the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
  ```
 
@@ -1504,7 +1504,7 @@ The default ACL for Types
 Update the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
 	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
  ```
 
@@ -1534,7 +1534,7 @@ The response includes a status code.
 Get the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
  ```
 
@@ -1568,7 +1568,7 @@ Update the ACL of the specified type. For more information on ACLs, see [Access 
 Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
- ```
+ ```text
 	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
  ```
 
@@ -1600,7 +1600,7 @@ The response includes a status code.
 Get the Owner of the specified type. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
  ```
 
@@ -1634,7 +1634,7 @@ Update the Owner of the specified type. For more information on Owners, see [Acc
 Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
 **Request**
- ```
+ ```text
 	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
  ```
 

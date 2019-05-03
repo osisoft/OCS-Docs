@@ -78,7 +78,7 @@
             <article class="content wrap" id="_content" data-uid="AccountServiceBlog">
 <h1 id="service-blog">Service Blog</h1>
 
-<p>API&#39;s for CRUD operations on the Service Blog.</p>
+<p>API&#39;s for retrieving service blog entries from OSIsoft Cloud Services.</p>
 <hr>
 <h2 id="get-service-blog-entries"><code>Get Service Blog Entries</code></h2>
 <p>Returns blog entries ordered by time posted.</p>
@@ -108,7 +108,36 @@ string count
 <tr>
 <td>200</td>
 <td>([SdsServiceBlogEntry], int32)</td>
-<td>Returns an response object including a list of blog entries and an int with the total number of entries.</td>
+<td>Returns a response object including a list of blog entries and an int with the total number of entries.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="get-service-blog-entry"><code>Get Service Blog Entry</code></h2>
+<p>Returns a blog entry specified by ID.</p>
+<h3 id="http-1">Http</h3>
+<p><code>GET api/v1-preview/ServiceBlog/Entries/{id}</code></p>
+<h3 id="parameters-1">Parameters</h3>
+<pre><code class="lang-csharp">[Required]
+[FromRoute]
+string id
+</code></pre><p>Identifier of the blog entry to retrieve.</p>
+<h3 id="security-1">Security</h3>
+<p>Any identity, including anonymous, can retrieve service blog entries.</p>
+<h3 id="returns-1">Returns</h3>
+<table>
+<thead>
+<tr>
+<th>Status Code</th>
+<th>Return Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>SdsServiceBlogEntry</td>
+<td>Returns a response object including the specified blog entry.</td>
 </tr>
 </tbody>
 </table>

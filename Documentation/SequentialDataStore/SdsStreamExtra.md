@@ -22,7 +22,7 @@ Returns the metadata dictionary for the specified stream.
 
 
 **Request**
- ```
+ ```text
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
@@ -76,7 +76,7 @@ Returns the value for the specified key in the metadata dictionary of the specif
 
 
 **Request**
- ```
+ ```text
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
  ```
 
@@ -133,7 +133,7 @@ Overwrites any existing metadata; does not merge.
 
 
 **Request**
- ```
+ ```text
       PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
@@ -174,7 +174,7 @@ Overwrites any existing metadata; does not merge.
 Deletes the metadata for the specified stream.  
 
 **Request**
- ```
+ ```text
       DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
@@ -219,7 +219,7 @@ Returns the tag list for the specified stream.
 
 
 **Request**
- ```
+ ```text
       GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
@@ -273,7 +273,7 @@ Overwrites any existing tags; does not merge.
 
 
 **Request**
- ```
+ ```text
       PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
@@ -315,7 +315,7 @@ Deletes the tag list for the specified stream.
 
 
 **Request**
- ```
+ ```text
       DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 

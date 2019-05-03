@@ -24,7 +24,7 @@ This method is obsolete, please use the following instead:
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -137,7 +137,7 @@ This method is obsolete, please use the following instead:
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

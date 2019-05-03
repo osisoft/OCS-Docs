@@ -4,7 +4,7 @@ uid: AccountServiceBlog
 
 # Service Blog
 
-API's for CRUD operations on the Service Blog.
+API's for retrieving service blog entries from OSIsoft Cloud Services.
 
 ***
 
@@ -42,7 +42,40 @@ Any identity, including anonymous, can retrieve service blog entries.
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
-| 200 | ([SdsServiceBlogEntry], int32) | Returns an response object including a list of blog entries and an int with the total number of entries. | 
+| 200 | ([SdsServiceBlogEntry], int32) | Returns a response object including a list of blog entries and an int with the total number of entries. | 
+
+
+***
+
+## `Get Service Blog Entry`
+
+Returns a blog entry specified by ID.
+
+### Http
+
+`GET api/v1-preview/ServiceBlog/Entries/{id}`
+
+
+### Parameters
+
+```csharp
+[Required]
+[FromRoute]
+string id
+```
+
+Identifier of the blog entry to retrieve.
+
+
+### Security
+
+Any identity, including anonymous, can retrieve service blog entries.
+
+### Returns
+
+| Status Code | Return Type | Description | 
+ | --- | --- | ---  | 
+| 200 | SdsServiceBlogEntry | Returns a response object including the specified blog entry. | 
 
 
 ***

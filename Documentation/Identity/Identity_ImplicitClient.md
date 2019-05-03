@@ -64,7 +64,7 @@ Create an Implicit flow Clients
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -145,6 +145,10 @@ Created
 }
 ```
 
+#### 400
+
+Client limit exceeded.
+
 #### 401
 
 Unauthorized
@@ -178,7 +182,7 @@ Update an Implicit Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -299,7 +303,7 @@ Get an Implicit Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -382,10 +386,19 @@ Get all Implicit Clients
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] tags
+```
+
+Only return Clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -510,7 +523,7 @@ Delete an Implicit Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

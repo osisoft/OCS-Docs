@@ -50,7 +50,7 @@ Create a Client Credential flow Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -66,7 +66,7 @@ New ClientCredentialClientCreateDto object
 ```json
 {
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-11T17:16:26.5003088-07:00",
+  "SecretExpirationDate": "2019-04-30T11:35:12.3647771-07:00",
   "RoleIds": [
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
@@ -102,7 +102,7 @@ Created
   "ClientSecret": "ClientSecret",
   "SecretId": "SecretId",
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-11T17:16:26.5027101-07:00",
+  "SecretExpirationDate": "2019-04-30T11:35:12.3673783-07:00",
   "RoleIds": [
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
@@ -119,7 +119,7 @@ Created
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs, or Client limit exceeded.
 
 #### 401
 
@@ -154,7 +154,7 @@ Update a Client Credential Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -255,7 +255,7 @@ Get a Client Credential Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -329,7 +329,7 @@ Get all Client Credential Clients
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -341,7 +341,7 @@ Id of tenant
 string[] tags
 ```
 
-A list of all tags to include
+Only return Clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -515,7 +515,7 @@ Delete a Client Credential Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

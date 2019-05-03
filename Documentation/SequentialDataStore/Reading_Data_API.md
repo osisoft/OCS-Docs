@@ -91,7 +91,7 @@ All times are represented at offset 0, GMT.
 Returns the first value in the stream. If no values exist in the stream, null is returned.
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/First
  ```
 
@@ -119,7 +119,7 @@ The response includes a status code and a response body containing a serialized 
 Returns the last value in the stream. If no values exist in the stream, null is returned.
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Last
  ```
 
@@ -148,7 +148,7 @@ The response includes a status code and a response body containing a serialized 
 Returns a stored event based on the specified `index` and `searchMode`. 
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		?index={index}&searchMode={searchMode}
  ```
@@ -175,7 +175,7 @@ The response includes a status code and a response body containing a serialized 
 Depending on the request `index` and `searchMode`, it is possible to have an empty collection returned.
 
 **Example**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
 		?index=2017-11-23T13:00:00Z&searchMode=Next
  ```
@@ -198,7 +198,7 @@ Content-Type: application/json
 ```
 
 **Example**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?index=2017-11-23T13:30:00Z&searchMode=Next
  ```
@@ -244,7 +244,7 @@ SDS supports three ways of specifying which stored events to return:
 Returns a collection of stored values as determined by a `filter`. The `filter` limits results by applying an expression against event fields. Filter expressions are explained in detail in the [Filter expressions](xref:sdsFilterExpressions) section.
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data 
 		?filter={filter}
  ```
@@ -266,7 +266,7 @@ The filter expression (see [Filter expressions](xref:sdsFilterExpressions))
 The response includes a status code and a response body containing a serialized collection of events.
 
 **Example**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
 		?filter=Measurement gt 10
  ```
@@ -308,7 +308,7 @@ Note that `State` is not included in the JSON as its value is the default value.
 Returns a collection of stored values as determined by a ``startIndex`` and ``count``. Additional optional parameters specify the direction of the range, how to handle events near or at the start index, whether to skip a certain number of events at the start of the range, and how to filter the data.
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 		?startIndex={startIndex}&count={count}[&skip={skip}&reversed={reversed} 
         &boundaryType={boundaryType}&filter={filter}]
@@ -348,7 +348,7 @@ Optional filter expression
 The response includes a status code and a response body containing a serialized collection of events.
 
 **Example**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T13:00:00Z&count=100
  ```
@@ -385,7 +385,7 @@ Note that `State` is not included in the JSON as its value is the default value.
 **Example**   
 To reverse the direction of the request, set reversed to true. The following request will 
 return up to 100 events starting at 13:00 and extending back toward the start of the stream:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
 		?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true
  ```
@@ -415,7 +415,7 @@ The response will contain up to 100 events. The boundary type Outside indicates 
 event outside the boundary will be included in the response. For a reverse direction range request, 
 this means one event forward of the specified start index. In a default direction range request, 
 it would mean one event before the specified start index.
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
 		?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
         &boundaryType=2
@@ -449,7 +449,7 @@ The event outside of the index is the next event or the event at 14:00 because t
 request operates in reverse.
 
 Adding a filter to the request means only events that meet the filter criteria are returned:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T13:00:00Z&count=100&reversed=true 
         &boundaryType=2&filter=Measurement gt 10
@@ -526,7 +526,7 @@ To retrieve the next page of values, include the `continuationToken` from the re
 For the first request, specify a null or empty string for the `continuationToken`.
 
 **Requests**
- ```
+ ```text
      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data? 
           ?startIndex={startIndex}&endIndex={endIndex}
 
@@ -588,7 +588,7 @@ A continuation token can be returned if specified in the request.
 
 **Example**  
 The following requests all stored events between 12:30 and 15:30: 
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z
  ```
@@ -621,7 +621,7 @@ Note that `State` is not included in the JSON as its value is the default value.
 **Example**   
 When the request is modified to specify a boundary type of Outside, the value 
 before 13:30 and the value after 15:30 are included:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
         &boundaryType=2
@@ -663,7 +663,7 @@ value for numbers.
 If instead a start boundary of Inside, only values inside the start boundary (after 13:30) 
 are included in the result. With an end boundary of Outside one value outside the end index 
 (after 15:30) is included:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T12:30:00Z&&startBoundaryType=1 
         &endIndex=2017-11-23T15:30:00Z&endBoundaryType=2
@@ -701,7 +701,7 @@ Content-Type: application/json
 In order to page the results of the request, a continuation token may be specified. 
 This requests the first page of the first two stored events between start index and 
 end index by indicating count is 2 and continuationToken is an empty string:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
         &count=2&continuationToken=
@@ -731,7 +731,7 @@ Content-Type: application/json
 
 This request uses the continuation token from the previous 
 page to request the next page of stored events:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data 
         ?startIndex=2017-11-23T12:30:00Z&endIndex=2017-11-23T15:30:00Z 
         &count=2&continuationToken=2017-11-23T14:00:00Z
@@ -860,7 +860,7 @@ SDS supports two ways of specifying which interpolated events to return:
 Returns events at the specified indexes. If no stored event exists at a specified index, the stream’s read characteristics determine how the returned event is calculated.
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
         Interpolated?index={index}[&index={index}...]
  ```
@@ -886,7 +886,7 @@ Depending on the specified indexes and read characteristics of the stream, it is
 **Example**  
 Consider a stream of type ``Simple`` with the default ``InterpolationMode`` of ``Continuous`` and 
 ``ExtrapolationMode`` of ``All``. In the following request, the specified index matches an existing stored event:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
         Interpolated?index=2017-11-23T13:00:00Z
  ```
@@ -908,7 +908,7 @@ Content-Type: application/json
 ```
 
 The following request specifies an index for which no stored event exists:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
         Interpolated?index=2017-11-23T13:30:00Z
  ```
@@ -933,7 +933,7 @@ Content-Type: application/json
 Consider a stream of type ``Simple`` with an ``InterpolationMode`` of ``Discrete`` and 
 ``ExtrapolationMode`` of ``All``. In the following request, the specified indexes only 
 match two existing stored events:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data 
         Interpolated?index=2017-11-23T12:30:00Z&index=2017-11-23T13:00:00Z&index=2017-11-23T14:00:00Z
  ```
@@ -982,7 +982,7 @@ Content-Type: application/json
 Returns events at evenly spaced intervals based on the specified start index, end index, and count. If no stored event exists at an index interval, the stream’s read characteristics determine how the returned event is calculated.
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
         Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}
  ```
@@ -1010,7 +1010,7 @@ The number of events to return. Read characteristics of the stream determine how
 The response includes a status code and a response body containing a serialized collection of events. Depending on the read characteristics and input parameters, it is possible for a collection to be returned with less events than specified in the count.
 
 For a stream, named Simple, of type ``Simple`` for the following request:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}}/Namespaces/{namespaceId}/Streams/Simple/Data/
 		Interpolated?startIndex=2017-11-23T13:00:00Z&endIndex=2017-11-23T15:00:00Z&count=3
  ```
@@ -1078,7 +1078,7 @@ Summary values supported by `SdsSummaryType` enum:
 | WeightedPopulationStandardDeviatio | 4096              |
 
 **Request**  
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
         Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&filter={filter}
  ```
@@ -1121,7 +1121,7 @@ Each SdsInterval has a start, end, and collection of summary values.
 
 **Example**  
 The following request calculates two summary intervals between the `startIndex` and `endIndex`: 
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
  ```
@@ -1288,7 +1288,7 @@ SDS supports two types of join requests:
 
 <a name="getjoin"></a>
 ### `GET Request`
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams={streams}&joinMode={joinMode}
         &startIndex={startIndex}&endIndex={endIndex}
@@ -1381,7 +1381,7 @@ Content-Type: application/json
 The following are responses for various Joins request options:
 
 ##### Inner Join Example
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=inner
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
@@ -1413,7 +1413,7 @@ Content-Type: application/json
 ```
 
 ##### Outer Join Example
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=outer
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
@@ -1492,7 +1492,7 @@ Content-Type: application/json
 ```
 
 ##### Interpolated Join Example
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=interpolated
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
@@ -1596,7 +1596,7 @@ Content-Type: application/json
 ```
 
 ##### MergeLeft Join Example
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeleft
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
@@ -1650,7 +1650,7 @@ Content-Type: application/json
 ```
 
 ##### MergeRight Join Example
- ```
+ ```text
     GET api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeright
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
@@ -1706,7 +1706,7 @@ Content-Type: application/json
 
 <a name="postjoin"></a>
 ### POST Request
- ```
+ ```text
     POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode={joinMode}
  ```
@@ -1729,7 +1729,7 @@ Read options specific to each stream.
  The response includes a status code and a response body containing multiple serialized events.
 
 Consider the following outer join request,
- ```
+ ```text
     POST api/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode=outer
  ```

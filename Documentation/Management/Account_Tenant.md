@@ -18,7 +18,6 @@ For HTTP requests and responses, the Tenant object has the following properties 
 | Created | DateTime | Date and time this Tenant was added to OCS. | 
 | LastUpdated | DateTime | Date this Tenant was last updated. | 
 | Alias | string | Specifies a unique alias for this Tenant | 
-| AzureAdTenantId | string | Specifies if this tenant uses Azure AD and its Tenant Id if so | 
 | Features | [FeatureState] | List of Feature States for this Tenant. Returned during get calls. | 
 
 
@@ -30,7 +29,6 @@ For HTTP requests and responses, the Tenant object has the following properties 
 	"Created": "0001-01-01T00:00:00",
 	"LastUpdated": "0001-01-01T00:00:00",
 	"Alias": "alias",
-	"AzureAdTenantId": "azureadtenantid",
 	"Features": []
 }
 ```

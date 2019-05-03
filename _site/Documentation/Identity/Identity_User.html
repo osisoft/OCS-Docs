@@ -137,13 +137,18 @@
 </tr>
 <tr>
 <td>TenantId</td>
-<td>Guid</td>
+<td>string</td>
 <td>Tenant Id the User belongs to.</td>
 </tr>
 <tr>
 <td>IdentityProviderId</td>
 <td>optional: Guid</td>
 <td>Identity Provider Id used to authenticate user.</td>
+</tr>
+<tr>
+<td>RoleIds</td>
+<td>Guid[]</td>
+<td>List of strings of RoleIds.</td>
 </tr>
 </tbody>
 </table>
@@ -159,7 +164,11 @@
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
   &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
 }
 </code></pre><hr>
 <h2 id="get-users"><code>Get Users</code></h2>
@@ -168,7 +177,7 @@
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -208,7 +217,11 @@ int32 count
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
     &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
   },
   {
     &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
@@ -221,7 +234,11 @@ int32 count
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
     &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
   }
 ]
 </code></pre><h4 id="400">400</h4>
@@ -241,7 +258,7 @@ int32 count
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/Ids</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Required]
@@ -284,7 +301,11 @@ int32 count
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
     &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
   },
   {
     &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
@@ -297,7 +318,11 @@ int32 count
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
     &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
   }
 ]
 </code></pre><h4 id="207">207</h4>
@@ -344,7 +369,11 @@ int32 count
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     },
     {
       &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
@@ -357,7 +386,11 @@ int32 count
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     }
   ]
 }
@@ -378,7 +411,7 @@ int32 count
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/Status</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -424,7 +457,11 @@ string status
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     }
   },
   {
@@ -440,7 +477,11 @@ string status
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     }
   }
 ]
@@ -461,7 +502,7 @@ string status
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/{userId}</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -488,7 +529,11 @@ Guid userId
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
   &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
 }
 </code></pre><h4 id="401-3">401</h4>
 <p>Unauthorized</p>
@@ -505,7 +550,7 @@ Guid userId
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Status</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -534,7 +579,11 @@ Guid userId
     &quot;ContactSurname&quot;: &quot;Surname&quot;,
     &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
     &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
   }
 }
 </code></pre><h4 id="401-4">401</h4>
@@ -552,7 +601,7 @@ Guid userId
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/Status/Ids</code></p>
 <h3 id="parameters-5">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Required]
@@ -597,7 +646,11 @@ int32 count
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     }
   },
   {
@@ -613,7 +666,11 @@ int32 count
       &quot;ContactSurname&quot;: &quot;Surname&quot;,
       &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
       &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
     }
   }
 ]
@@ -663,7 +720,11 @@ int32 count
         &quot;ContactSurname&quot;: &quot;Surname&quot;,
         &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
         &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;RoleIds&quot;: [
+          &quot;00000000-0000-0000-0000-000000000000&quot;,
+          &quot;00000000-0000-0000-0000-000000000000&quot;
+        ]
       }
     },
     {
@@ -679,7 +740,11 @@ int32 count
         &quot;ContactSurname&quot;: &quot;Surname&quot;,
         &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
         &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+        &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;RoleIds&quot;: [
+          &quot;00000000-0000-0000-0000-000000000000&quot;,
+          &quot;00000000-0000-0000-0000-000000000000&quot;
+        ]
       }
     }
   ]
@@ -701,7 +766,7 @@ int32 count
 <p><code>GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Preferences</code></p>
 <h3 id="parameters-6">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -733,7 +798,7 @@ Guid userId
 <p><code>PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Preferences</code></p>
 <h3 id="parameters-7">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -772,7 +837,7 @@ JObject preferences
 <p><code>POST api/v1-preview/Tenants/{tenantId}/Users</code></p>
 <h3 id="parameters-8">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of Tenant</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
@@ -809,10 +874,14 @@ UserCreateOrUpdateDto userCreateOrUpdateDto
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
   &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
 }
 </code></pre><h4 id="400-5">400</h4>
-<p>Missing or invalid inputs</p>
+<p>Missing or invalid inputs, or User limit exceeded</p>
 <h4 id="401-8">401</h4>
 <p>Unauthorized</p>
 <h4 id="403-8">403</h4>
@@ -828,7 +897,7 @@ UserCreateOrUpdateDto userCreateOrUpdateDto
 <p><code>PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}</code></p>
 <h3 id="parameters-9">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -869,7 +938,11 @@ UserCreateOrUpdateDto userCreateOrUpdateDto
   &quot;ContactSurname&quot;: &quot;Surname&quot;,
   &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
   &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
 }
 </code></pre><h4 id="400-6">400</h4>
 <p>Missing or invalid inputs</p>
@@ -888,7 +961,7 @@ UserCreateOrUpdateDto userCreateOrUpdateDto
 <p><code>DELETE api/v1-preview/Tenants/{tenantId}/Users/{userId}</code></p>
 <h3 id="parameters-10">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid userId
@@ -908,171 +981,6 @@ Guid userId
 <h4 id="404-10">404</h4>
 <p>User or Tenant not found</p>
 <h4 id="500-10">500</h4>
-<p>Internal server error</p>
-<hr>
-<h2 id="get-users-invitation"><code>Get User&#39;s Invitation</code></h2>
-<p>Get the invitations for a user</p>
-<h3 id="request-11">Request</h3>
-<p><code>GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
-<h3 id="parameters-11">Parameters</h3>
-<pre><code class="lang-csharp">[Required]
-Guid tenantId
-</code></pre><p>Id of tenant</p>
-<pre><code class="lang-csharp">[Required]
-Guid userId
-</code></pre><p>Id of user</p>
-<pre><code class="lang-csharp">[FromQuery]
-[Optional]
-[Default = False]
-bool includeExpiredInvitations
-</code></pre><p>Specify to return expired invitations</p>
-<h3 id="security-11">Security</h3>
-<p>Allowed for these roles:</p>
-<ul>
-<li><code>Account Administrator</code></li>
-</ul>
-<h3 id="returns-11">Returns</h3>
-<h4 id="200-9">200</h4>
-<p>Success</p>
-<h5 id="type-12">Type:</h5>
-<p> <code>InvitationDto</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;Issued&quot;: &quot;2019-04-11T17:16:26.4044082-07:00&quot;,
-  &quot;Expires&quot;: &quot;2019-04-11T17:16:26.4044121-07:00&quot;,
-  &quot;Accepted&quot;: &quot;2019-04-11T17:16:26.404416-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h4 id="401-11">401</h4>
-<p>Unauthorized</p>
-<h4 id="403-11">403</h4>
-<p>Forbidden</p>
-<h4 id="404-11">404</h4>
-<p>Invitation, User, or Tenant not found</p>
-<h4 id="500-11">500</h4>
-<p>Internal server error</p>
-<hr>
-<h2 id="create-invitation"><code>Create Invitation</code></h2>
-<p>Create an invitation for a user. Should use when no other invitation exists for the user.</p>
-<h3 id="request-12">Request</h3>
-<p><code>POST api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
-<h3 id="parameters-12">Parameters</h3>
-<pre><code class="lang-csharp">[Required]
-Guid tenantId
-</code></pre><p>Id of tenant</p>
-<pre><code class="lang-csharp">[Required]
-Guid userId
-</code></pre><p>Id of user</p>
-<pre><code class="lang-csharp">[FromBody]
-[Required]
-InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
-</code></pre><p>InvitationCreateDto object</p>
-<pre><code class="lang-json">{
-  &quot;ExpiresDateTime&quot;: &quot;2019-04-11T17:16:26.4065042-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;SendInvitation&quot;: false,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h3 id="security-12">Security</h3>
-<p>Allowed for these roles:</p>
-<ul>
-<li><code>Account Administrator</code></li>
-</ul>
-<h3 id="returns-12">Returns</h3>
-<h4 id="201-1">201</h4>
-<p>Created</p>
-<h5 id="type-13">Type:</h5>
-<p> <code>InvitationDto</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;Issued&quot;: &quot;2019-04-11T17:16:26.406617-07:00&quot;,
-  &quot;Expires&quot;: &quot;2019-04-11T17:16:26.4066188-07:00&quot;,
-  &quot;Accepted&quot;: &quot;2019-04-11T17:16:26.4066213-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h4 id="400-7">400</h4>
-<p>Missing or invalid inputs</p>
-<h4 id="401-12">401</h4>
-<p>Unauthorized</p>
-<h4 id="403-12">403</h4>
-<p>Forbidden</p>
-<h4 id="404-12">404</h4>
-<p>User or Tenant not found</p>
-<h4 id="409">409</h4>
-<p>Invitation already exists</p>
-<h4 id="500-12">500</h4>
-<p>Internal server error</p>
-<hr>
-<h2 id="create-invitation-1"><code>Create Invitation</code></h2>
-<p>Create or update an invitation for a user</p>
-<h3 id="request-13">Request</h3>
-<p><code>PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
-<h3 id="parameters-13">Parameters</h3>
-<pre><code class="lang-csharp">[Required]
-Guid tenantId
-</code></pre><p>Id of tenant</p>
-<pre><code class="lang-csharp">[Required]
-Guid userId
-</code></pre><p>Id of user</p>
-<pre><code class="lang-csharp">[FromBody]
-[Required]
-InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
-</code></pre><p>InvitationCreateDto object</p>
-<pre><code class="lang-json">{
-  &quot;ExpiresDateTime&quot;: &quot;2019-04-11T17:16:26.4075064-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;SendInvitation&quot;: false,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h3 id="security-13">Security</h3>
-<p>Allowed for these roles:</p>
-<ul>
-<li><code>Account Administrator</code></li>
-</ul>
-<h3 id="returns-13">Returns</h3>
-<h4 id="200-10">200</h4>
-<p>Updated</p>
-<h5 id="type-14">Type:</h5>
-<p> <code>InvitationDto</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;Issued&quot;: &quot;2019-04-11T17:16:26.4075896-07:00&quot;,
-  &quot;Expires&quot;: &quot;2019-04-11T17:16:26.407591-07:00&quot;,
-  &quot;Accepted&quot;: &quot;2019-04-11T17:16:26.4075931-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h4 id="201-2">201</h4>
-<p>Created</p>
-<h5 id="type-15">Type:</h5>
-<p> <code>InvitationDto</code></p>
-<pre><code class="lang-json">{
-  &quot;Id&quot;: &quot;Id&quot;,
-  &quot;Issued&quot;: &quot;2019-04-11T17:16:26.4076175-07:00&quot;,
-  &quot;Expires&quot;: &quot;2019-04-11T17:16:26.4076185-07:00&quot;,
-  &quot;Accepted&quot;: &quot;2019-04-11T17:16:26.4076203-07:00&quot;,
-  &quot;State&quot;: 0,
-  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
-}
-</code></pre><h4 id="400-8">400</h4>
-<p>Missing or invalid inputs</p>
-<h4 id="401-13">401</h4>
-<p>Unauthorized</p>
-<h4 id="403-13">403</h4>
-<p>Forbidden</p>
-<h4 id="404-13">404</h4>
-<p>User or Tenant not found</p>
-<h4 id="500-13">500</h4>
 <p>Internal server error</p>
 <hr>
 </article>

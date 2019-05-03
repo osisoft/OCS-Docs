@@ -63,7 +63,7 @@ Create a Hybrid flow Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -79,7 +79,7 @@ New HybridClientCreateDto object
 ```json
 {
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-11T17:16:26.4301336-07:00",
+  "SecretExpirationDate": "2019-04-30T11:35:12.2957095-07:00",
   "AllowOfflineAccess": false,
   "AllowAccessTokensViaBrowser": false,
   "RedirectUris": [
@@ -123,7 +123,7 @@ Created
   "ClientSecret": "ClientSecret",
   "SecretId": "SecretId",
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-11T17:16:26.4335791-07:00",
+  "SecretExpirationDate": "2019-04-30T11:35:12.2989504-07:00",
   "AllowOfflineAccess": false,
   "AllowAccessTokensViaBrowser": false,
   "RedirectUris": [
@@ -145,6 +145,10 @@ Created
   ]
 }
 ```
+
+#### 400
+
+Client Limit exceeded
 
 #### 401
 
@@ -179,7 +183,7 @@ Update a Hybrid Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -296,7 +300,7 @@ Get a Hybrid Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -377,10 +381,19 @@ Get all Hybrid Clients
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] tags
+```
+
+Only return Clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -501,7 +514,7 @@ Delete an Hybrid Client
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

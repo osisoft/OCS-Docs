@@ -21,8 +21,9 @@ ContactEmail | string | Preferred contact email for user.
 ContactGivenName | string | Preferred contact name for user.
 ContactSurname | string | Preferred contact surname for user.
 ExternalUserId | string | Provider id for user.
-TenantId | Guid | Tenant Id the User belongs to.
+TenantId | string | Tenant Id the User belongs to.
 IdentityProviderId | optional: Guid | Identity Provider Id used to authenticate user.
+RoleIds | Guid[] | List of strings of RoleIds.
 
 ### Serialized Model
 
@@ -38,7 +39,11 @@ IdentityProviderId | optional: Guid | Identity Provider Id used to authenticate 
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
   "TenantId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
 
@@ -56,7 +61,7 @@ Returns a list of User objects for a given tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -118,7 +123,11 @@ Success.
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
     "TenantId": "00000000-0000-0000-0000-000000000000",
-    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ]
   },
   {
     "Id": "00000000-0000-0000-0000-000000000000",
@@ -131,7 +140,11 @@ Success.
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
     "TenantId": "00000000-0000-0000-0000-000000000000",
-    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ]
   }
 ]
 ```
@@ -169,7 +182,7 @@ Returns an ordered list of User objects based on userId for a given tenant or a 
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -238,7 +251,11 @@ Success.
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
     "TenantId": "00000000-0000-0000-0000-000000000000",
-    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ]
   },
   {
     "Id": "00000000-0000-0000-0000-000000000000",
@@ -251,7 +268,11 @@ Success.
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
     "TenantId": "00000000-0000-0000-0000-000000000000",
-    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ]
   }
 ]
 ```
@@ -305,7 +326,11 @@ Partial success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     },
     {
       "Id": "00000000-0000-0000-0000-000000000000",
@@ -318,7 +343,11 @@ Partial success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     }
   ]
 }
@@ -357,7 +386,7 @@ Get User status for multiple users, optionally restrict it to only Users of a sp
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -429,7 +458,11 @@ Success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     }
   },
   {
@@ -445,7 +478,11 @@ Success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     }
   }
 ]
@@ -484,7 +521,7 @@ Returns a User
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of Tenant
@@ -525,7 +562,11 @@ Success
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
   "TenantId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
 
@@ -558,7 +599,7 @@ Returns user invitation status
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -601,7 +642,11 @@ Success
     "ContactSurname": "Surname",
     "ExternalUserId": "ExternalUserId",
     "TenantId": "00000000-0000-0000-0000-000000000000",
-    "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+    "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ]
   }
 }
 ```
@@ -635,7 +680,7 @@ Returns an ordered list of UserStatusDto objects for a given tenant or a MultiSt
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -706,7 +751,11 @@ Success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     }
   },
   {
@@ -722,7 +771,11 @@ Success.
       "ContactSurname": "Surname",
       "ExternalUserId": "ExternalUserId",
       "TenantId": "00000000-0000-0000-0000-000000000000",
-      "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+      "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+      "RoleIds": [
+        "00000000-0000-0000-0000-000000000000",
+        "00000000-0000-0000-0000-000000000000"
+      ]
     }
   }
 ]
@@ -779,7 +832,11 @@ Partial success.
         "ContactSurname": "Surname",
         "ExternalUserId": "ExternalUserId",
         "TenantId": "00000000-0000-0000-0000-000000000000",
-        "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+        "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+        "RoleIds": [
+          "00000000-0000-0000-0000-000000000000",
+          "00000000-0000-0000-0000-000000000000"
+        ]
       }
     },
     {
@@ -795,7 +852,11 @@ Partial success.
         "ContactSurname": "Surname",
         "ExternalUserId": "ExternalUserId",
         "TenantId": "00000000-0000-0000-0000-000000000000",
-        "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+        "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+        "RoleIds": [
+          "00000000-0000-0000-0000-000000000000",
+          "00000000-0000-0000-0000-000000000000"
+        ]
       }
     }
   ]
@@ -835,7 +896,7 @@ Returns a user's preferences
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of Tenant
@@ -897,7 +958,7 @@ Put a user's preferences
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of Tenant
@@ -975,7 +1036,7 @@ Creates a User
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of Tenant
@@ -1029,13 +1090,17 @@ Created
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
   "TenantId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs, or User limit exceeded
 
 #### 401
 
@@ -1066,7 +1131,7 @@ Create or Update a User
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -1128,7 +1193,11 @@ Updated
   "ContactSurname": "Surname",
   "ExternalUserId": "ExternalUserId",
   "TenantId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
+  "IdentityProviderId": "00000000-0000-0000-0000-000000000000",
+  "RoleIds": [
+    "00000000-0000-0000-0000-000000000000",
+    "00000000-0000-0000-0000-000000000000"
+  ]
 }
 ```
 
@@ -1165,7 +1234,7 @@ Delete a user
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -1188,292 +1257,6 @@ Allowed for these roles:
 #### 204
 
 Deleted
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-User or Tenant not found
-
-#### 500
-
-Internal server error
-***
-
-## `Get User's Invitation`
-
-Get the invitations for a user
-
-### Request
-
-`GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation`
-
-### Parameters
-
-```csharp
-[Required]
-Guid tenantId
-```
-
-Id of tenant
-
-```csharp
-[Required]
-Guid userId
-```
-
-Id of user
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = False]
-bool includeExpiredInvitations
-```
-
-Specify to return expired invitations
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 200
-
-Success
-
-##### Type:
-
- `InvitationDto`
-
-```json
-{
-  "Id": "Id",
-  "Issued": "2019-04-11T17:16:26.4044082-07:00",
-  "Expires": "2019-04-11T17:16:26.4044121-07:00",
-  "Accepted": "2019-04-11T17:16:26.404416-07:00",
-  "State": 0,
-  "TenantId": "00000000-0000-0000-0000-000000000000",
-  "UserId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-Invitation, User, or Tenant not found
-
-#### 500
-
-Internal server error
-***
-
-## `Create Invitation`
-
-Create an invitation for a user. Should use when no other invitation exists for the user.
-
-### Request
-
-`POST api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation`
-
-### Parameters
-
-```csharp
-[Required]
-Guid tenantId
-```
-
-Id of tenant
-
-```csharp
-[Required]
-Guid userId
-```
-
-Id of user
-
-```csharp
-[FromBody]
-[Required]
-InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
-```
-
-InvitationCreateDto object
-
-```json
-{
-  "ExpiresDateTime": "2019-04-11T17:16:26.4065042-07:00",
-  "State": 0,
-  "SendInvitation": false,
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 201
-
-Created
-
-##### Type:
-
- `InvitationDto`
-
-```json
-{
-  "Id": "Id",
-  "Issued": "2019-04-11T17:16:26.406617-07:00",
-  "Expires": "2019-04-11T17:16:26.4066188-07:00",
-  "Accepted": "2019-04-11T17:16:26.4066213-07:00",
-  "State": 0,
-  "TenantId": "00000000-0000-0000-0000-000000000000",
-  "UserId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-#### 400
-
-Missing or invalid inputs
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden
-
-#### 404
-
-User or Tenant not found
-
-#### 409
-
-Invitation already exists
-
-#### 500
-
-Internal server error
-***
-
-## `Create Invitation`
-
-Create or update an invitation for a user
-
-### Request
-
-`PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Invitation`
-
-### Parameters
-
-```csharp
-[Required]
-Guid tenantId
-```
-
-Id of tenant
-
-```csharp
-[Required]
-Guid userId
-```
-
-Id of user
-
-```csharp
-[FromBody]
-[Required]
-InvitationCreateOrUpdateDto invitationCreateOrUpdateDto
-```
-
-InvitationCreateDto object
-
-```json
-{
-  "ExpiresDateTime": "2019-04-11T17:16:26.4075064-07:00",
-  "State": 0,
-  "SendInvitation": false,
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 200
-
-Updated
-
-##### Type:
-
- `InvitationDto`
-
-```json
-{
-  "Id": "Id",
-  "Issued": "2019-04-11T17:16:26.4075896-07:00",
-  "Expires": "2019-04-11T17:16:26.407591-07:00",
-  "Accepted": "2019-04-11T17:16:26.4075931-07:00",
-  "State": 0,
-  "TenantId": "00000000-0000-0000-0000-000000000000",
-  "UserId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-#### 201
-
-Created
-
-##### Type:
-
- `InvitationDto`
-
-```json
-{
-  "Id": "Id",
-  "Issued": "2019-04-11T17:16:26.4076175-07:00",
-  "Expires": "2019-04-11T17:16:26.4076185-07:00",
-  "Accepted": "2019-04-11T17:16:26.4076203-07:00",
-  "State": 0,
-  "TenantId": "00000000-0000-0000-0000-000000000000",
-  "UserId": "00000000-0000-0000-0000-000000000000",
-  "IdentityProviderId": "00000000-0000-0000-0000-000000000000"
-}
-```
-
-#### 400
-
-Missing or invalid inputs
 
 #### 401
 

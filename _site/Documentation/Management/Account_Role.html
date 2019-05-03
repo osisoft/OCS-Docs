@@ -257,6 +257,11 @@ Role role
 <td>Returns the new <code>Role</code>.</td>
 </tr>
 <tr>
+<td>302</td>
+<td>Nothing is returned</td>
+<td>Returns the location of the existing <code>Role</code> object.</td>
+</tr>
+<tr>
 <td>400</td>
 <td>Nothing is returned</td>
 <td>Could not create a new <code>Role</code> due to missing or invalid input.</td>
@@ -265,6 +270,11 @@ Role role
 <td>403</td>
 <td>Nothing is returned</td>
 <td>Unauthorized to create the new <code>Role</code> in the specified account.</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Nothing is returned</td>
+<td>A <code>Role</code> already exists with different values.</td>
 </tr>
 </tbody>
 </table>

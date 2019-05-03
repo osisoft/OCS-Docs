@@ -136,7 +136,7 @@ Creates a new `Namespace` in the specified `Tenant`.
 
 ### Http
 
-`POST api/v1-preview/Tenants/{tenantId}/Namespaces`
+`POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId?}`
 
 
 ### Parameters
@@ -155,6 +155,14 @@ Namespace namespaceObj
 ```
 
 The new `Namespace` to be created.
+```csharp
+[Optional]
+[Default = ""]
+[FromRoute]
+string namespaceId
+```
+
+The Id of the new `Namespace`. The Id can also be specified in the namespaceObj. If it is omitted in both, the Id will be generated.
 
 
 ### Security
@@ -166,8 +174,10 @@ A `Namespace` can only be created if the current principal has Write access.
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
 | 201 | Namespace | Returns the created `Namespace` object. | 
+| 302 | Nothing is returned | Returns the location of the existing `Namespace` object. | 
 | 400 | Nothing is returned | Could not create the `Namespace` due to missing or invalid input. | 
 | 403 | Nothing is returned | Unauthorized to create a `Namespace` in this account. | 
+| 409 | Nothing is returned | A `Namespace` already exists with different values. | 
 
 
 ***

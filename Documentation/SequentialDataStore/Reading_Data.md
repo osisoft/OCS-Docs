@@ -26,7 +26,7 @@ In addition, the following methods support reading multiple values:
   and specified start and end indexes.
 
 All single stream reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI from a single stream is as follows:
- ```
+ ```text
 	api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
  ```
 
@@ -47,7 +47,7 @@ SDS supports reading from multiple streams in one request. The following method 
 * [Join Values](xref:sdsReadingDataApi#join-values) retrieves a collection of events across multiple streams and joins the results based on the request parameters.
 
 Multi-stream reads can be HTTP GET or POST actions. The base reading URI for reading from multiple streams is as follows:
- ```
+ ```text
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data
  ```
 
@@ -140,7 +140,7 @@ SDS provides the ability to transform data upon reads. The supported data transf
 * [Unit of Measure Conversions](#unit-conversion-of-data): Converting the unit of measure of the data  
 
 Data tranformations are suppported for all single stream reads, but transformations have specific endpoints. The following are the base URIs for the tranformation endpoints:
-```
+```text
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/First
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/Last
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform
@@ -152,7 +152,7 @@ Data tranformations are suppported for all single stream reads, but transformati
 When transforming data with an SdsStreamView, the data read is converted to the *target type* specified in the SdsStreamView. Working with stream views is covered in detail in the [Stream Views](xref:sdsStreamViews) section.
 
 All stream view transformations are GET HTTP requests. The stream view is specified by appending the stream view identifier to requests to the transformation endpoint. For example the following request:
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/First?streamViewId={streamViewId}
  ```
 
@@ -176,7 +176,7 @@ SDS supports assigning [Units of Measure](xref:unitsOfMeasure) (UOM) to stream d
 This is supported in the .NET API via overloads that accept a collection of `SdsStreamPropertyOverride` objects, and in the REST API via HTTP POST calls with a request body containing a collection of `SdsStreamPropertyOverride` objects.  
 
 All unit conversions are POST HTTP requests. The unit conversion transformation URI is as follows:
- ```
+ ```text
     POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform
  ```
 

@@ -162,8 +162,10 @@ Authorized for Account Administrators of the specified account.
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
 | 201 | Role | Returns the new `Role`. | 
+| 302 | Nothing is returned | Returns the location of the existing `Role` object. | 
 | 400 | Nothing is returned | Could not create a new `Role` due to missing or invalid input. | 
 | 403 | Nothing is returned | Unauthorized to create the new `Role` in the specified account. | 
+| 409 | Nothing is returned | A `Role` already exists with different values. | 
 
 
 ***

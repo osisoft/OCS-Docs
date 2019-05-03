@@ -103,8 +103,9 @@ Stream Views can be used to change the Type defining a Stream. You cannot modify
 But you can map a stream from its current type to a new type.
 
 To update a Stream's Type, define an SdsStreamView and PUT the stream view to the following:
-
+```text
    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
+```
 
 For details, see [Update Stream Type](xref:sdsStreams-update-stream-type). 
 
@@ -454,7 +455,7 @@ See [Stream Views](#stream-views) for general SdsStreamView information.
 Returns the stream view corresponding to the specified streamViewId within a given namespace.
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
@@ -491,8 +492,8 @@ Content-Type: application/json
          "TargetId":"Time"
       },
       {  
-         "SourceId":"Status",
-         "TargetId":"Status"
+         "SourceId":"State",
+         "TargetId":"State"
       },
       {  
          "SourceId":"Measurement",
@@ -514,7 +515,7 @@ Content-Type: application/json
 Returns the stream view map corresponding to the specified streamViewId within a given namespace.
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
  ```
 
@@ -584,7 +585,7 @@ in the Namespace. See [Searching](xref:sdsSearching) and [Filter Expressions: SD
 
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
  ```
 
@@ -674,7 +675,7 @@ If the stream views are identical, a Found (302) status is returned and the stre
 If no matching identifier is found, the specified stream view is created.  
 
 **Request**
- ```
+ ```text
     POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
@@ -710,7 +711,7 @@ The newly created or matching SdsStreamView.
 Creates or updates the definition of a stream view. 
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
@@ -746,7 +747,7 @@ The newly created or updated SdsStreamView.
 Deletes a stream view from the specified tenant and namespace.
 
 **Request**
- ```
+ ```text
     DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
@@ -775,7 +776,7 @@ The response includes a status code.
 Get the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
  ```
 
@@ -804,7 +805,7 @@ The default ACL for Stream Views
 Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
  ```
 
@@ -834,7 +835,7 @@ The response includes a status code.
 Get the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
  ```
 
@@ -866,7 +867,7 @@ The ACL for the specified stream view
 Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
  ```
 
@@ -898,7 +899,7 @@ The response includes a status code.
 Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
  ```
 
@@ -930,7 +931,7 @@ The Owner for the specified stream view
 Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
  ```
 

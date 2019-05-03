@@ -38,7 +38,7 @@ Add Azure Active Directory Tenant to a Tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -110,7 +110,7 @@ Get all Azure Active Directory Tenants for a Tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -200,7 +200,7 @@ Get Azure Active Directory Tenant from a tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -268,7 +268,7 @@ Remove Azure Active Directory Tenant from a tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -325,7 +325,7 @@ Send consent for an Azure Active Directory Tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

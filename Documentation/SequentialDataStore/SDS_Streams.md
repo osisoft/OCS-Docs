@@ -104,7 +104,7 @@ SdsStream information.
 Returns the specified stream.
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
@@ -157,7 +157,7 @@ for information about specifying those respective parameters.
 
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
  ```
 
@@ -236,7 +236,7 @@ Content-Type: application/json
 Returns the type definition that is associated with a given stream.
 
 **Request**
- ```
+ ```text
 	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
  ```
 
@@ -281,7 +281,7 @@ redirect with the authorization header, you should disable automatic redirect.
 
 
 **Request**
- ```
+ ```text
 	POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
@@ -336,7 +336,7 @@ For more information on secondary indexes, see [Indexes](#indexes).
 Unpermitted changes result in an error.
 
 **Request**
- ```
+ ```text
 	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
@@ -370,7 +370,7 @@ Updates a stream’s type. The type is modified to match the specified stream vi
 Defined Indexes and PropertyOverrides are removed when updating a stream type. 
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
  ```
 
@@ -409,7 +409,7 @@ On failure, the content contains a message describing the issue.
 Deletes a stream. 
 
 **Request**
- ```
+ ```text
     DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
@@ -439,7 +439,7 @@ The response includes a status code.
 Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
  ```
 
@@ -468,7 +468,7 @@ The default ACL for Streams
 Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
  ```
 
@@ -498,7 +498,7 @@ The response includes a status code.
 Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
@@ -530,7 +530,7 @@ The ACL for the specified stream
 Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
@@ -562,7 +562,7 @@ The response includes a status code.
 Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 
@@ -594,7 +594,7 @@ The Owner for the specified stream
 Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
 
 **Request**
- ```
+ ```text
     PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 

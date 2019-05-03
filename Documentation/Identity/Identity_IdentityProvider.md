@@ -101,7 +101,7 @@ Get all identity providers for a tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -196,7 +196,7 @@ Get an identity provider
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -263,7 +263,7 @@ Add an existing identity provider to a tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant
@@ -349,7 +349,7 @@ Remove an identity provider from a tenant
 
 ```csharp
 [Required]
-Guid tenantId
+string tenantId
 ```
 
 Id of tenant

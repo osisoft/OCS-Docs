@@ -159,7 +159,7 @@ string identityProviderId
 <p><code>GET api/v1-preview/Tenants/{tenantId}/IdentityProviders</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromQuery]
 [Optional]
@@ -216,7 +216,7 @@ int32 count
 <p><code>GET api/v1-preview/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid identityProviderId
@@ -253,7 +253,7 @@ Guid identityProviderId
 <p><code>POST api/v1-preview/Tenants/{tenantId}/IdentityProviders</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
@@ -302,7 +302,7 @@ IdentityProviderAddDto identityProviderAddDto
 <p><code>DELETE api/v1-preview/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
-Guid tenantId
+string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 Guid identityProviderId
