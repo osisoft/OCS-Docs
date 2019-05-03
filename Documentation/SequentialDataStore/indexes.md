@@ -385,7 +385,7 @@ To build a SdsType representation of the following sample class, see [Sample](#s
       {
         Ok: 0,
         Warning: 1,
-        Alarm: 2,
+        Alarm: 2
       }
 
       var Simple = function () {

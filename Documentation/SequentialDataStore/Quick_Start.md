@@ -95,16 +95,13 @@ await config.CreateTypeAsync(simpleType);
 
 When working outside of .NET, SDS client libraries are unavailable. The SdsType is defined using JSON and is posted to the OSIsoft Cloud Services endpoint.
 
-
-    POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  
-
 ```json
+POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  
 HTTP/1.1
 Authorization: Bearer <bearer-token>
 Content-Length: 1562
 Content-Type: application/json
 Host: dat-b.osisoft.com
-
 {
     "Id": "Simple",
     "Name": "Simple",
@@ -255,15 +252,13 @@ simpleStream = config.CreateStreamAsync(simpleStream);
 
 To create the stream without the libraries, post a JSON representation of the SdsStream to OSIsoft Cloud Services.
 
-    POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  
-
 ```json 
+POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  
 HTTP/1.1
 Authorization: Bearer <bearer-token>
 Content-Length: 139
 Content-Type: application/json
 Host: dat-b.osisoft.com
-
 {  
     "Id":"Simple",
     "Name":"Simple",
@@ -295,9 +290,8 @@ await client.InsertValueAsync(simpleStream.Id, value);
 
 To POST a JSON serialized event to the OSIsoft Cloud Services:
 
-    POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
-
 ```json
+POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data
 HTTP/1.1
 Authorization: Bearer <bearer-token>
 Content-Length: 57
@@ -338,14 +332,10 @@ value = await client.GetDistinctValueAsync<Simple>(simpleStream.Id, index);
 ```
 
 To read using REST:
-
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/
-        Data?index=2017-08-17T17:21:36.3494129Z 
-
 ```json
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?index=2017-08-17T17:21:36.3494129Z 
 HTTP/1.1 200
 Content-Type: application/json
-
 [
     {
         "Time": "2017-11-23T14:00:00Z",
