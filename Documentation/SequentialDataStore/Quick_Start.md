@@ -260,9 +260,9 @@ Host: dat-b.osisoft.com
     "Description": null,
     "TypeId": "Simple",
     "Indexes": null,
-	"InterpolationMode": null,
-	"ExtrapolationMode": null,
-	"PropertyOverrides": null 
+    "InterpolationMode": null,
+    "ExtrapolationMode": null,
+    "PropertyOverrides": null 
 }
 ```
 
