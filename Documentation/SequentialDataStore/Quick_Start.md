@@ -17,14 +17,12 @@ You will also need a Namespace and administrative client keys.
 
 
 #### Step 1: Acquire a Namespace
-***
 
 Navigate to the OSIsoft Cloud Services page. Then, select the **Manage** tab and select **Namespaces**. For the 
 steps in this section, you can use either an existing Namespace or you can create a new Namespace.
 
 
 #### Step 2: Acquire client keys
-***
 
 For this example, the application acts as a confidential client – an application that is capable 
 of securely maintaining a secret. In Azure Active Directory, the confidential client authentication 
@@ -42,7 +40,6 @@ provider (Azure Active Directory).
 
 
 #### Step 3: Acquire authentication token
-************************************
 
 You use the Tenant Identity, Client Identity, and Client Secret to acquire an access token 
 from Azure Active Directory. Click on the eye icon next to the desired key to see the values 
@@ -53,7 +50,6 @@ and code samples for various languages.
 
 
 #### Step 4: Create data types
-*************************
 
 An SdsType describes the structure of a single measured event or object. An SdsStream has an associated 
 SdsType and stores a stream of events or objects that take the shape of that type.
@@ -66,7 +62,7 @@ SDS supports a wide variety of property types, including simple types like integ
 and complex types like lists, arrays and enumerations. Properties can be of any complex SdsType. 
 For additional information, including a detailed list of supported data types, refer to [Types](xref:sdsTypes).
 
-To help users develop .NET client applications, OSIsoft provides OCS client libraries through NuGet packages, [OCSClients](xref:https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients contains the libraries necessary to connect to OCS and manage data.
+To help users develop .NET client applications, OSIsoft provides OCS client libraries through NuGet packages, [OCSClients](https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients contains the libraries necessary to connect to OCS and manage data.
 
 To create an SdsType in .NET, use the .NET SDS client libraries SdsTypeBuilder.
 
@@ -232,7 +228,6 @@ Host: dat-b.osisoft.com
 ```
 
 #### Step 5: Create a stream
-***********************
 
 An SdsStream has an associated SdsType and stores a stream of events or objects that take the shape of that type. 
 Detailed information about streams can be found in SdsStreams.
@@ -260,16 +255,18 @@ Content-Length: 139
 Content-Type: application/json
 Host: dat-b.osisoft.com
 {  
-    "Id":"Simple",
-    "Name":"Simple",
-    "Description":null,
-    "TypeId":"Simple",
-    "Indexes":null 
+    "Id": "Simple",
+    "Name": "Simple",
+    "Description": null,
+    "TypeId": "Simple",
+    "Indexes": null,
+	"InterpolationMode": null,
+	"ExtrapolationMode": null,
+	"PropertyOverrides": null 
 }
 ```
 
 #### Step 6: Write data
-******************
 
 SDS supports many methods for adding and updating data. In this section, you will insert data. 
 Inserts fail if events with the same index already exist in the database. Update  
@@ -309,7 +306,6 @@ Host: dat-b.osisoft.com
 Additional information about writing data can be found in [Writing data](xref:sdsWritingData#writing-data).
 
 #### Step 7: Read data
-*****************
 
 SDS includes many different read methods for retrieving data from streams. In this section, 
 you will read the value that was recently written.
