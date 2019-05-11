@@ -235,28 +235,6 @@ You can use the ``‘*’`` character as a wildcard to specify an incomplete str
 	GetStreamsAsync(query:”log*”);
 ```
 
-\"" Operator
--------------------
-
-The search engine automatically searches on strings delimited by
-whitespace and dashes (with the exception of identifier fields like Id
-or TypeId fields). To search for values that include delimiters, enclose the value in double quotes.
-``"*"`` can not be used in conjunction with this operator.
-
-**Query string**     | **Matches field value** | **Does not match field value**
------------------- | --------------------------------- | -----------------------------
-``“pump pressure”`` | pump pressure<br>pump pressure gauge<br>the pump pressure gauge | the pump<br>pressure<br>pressure pump
-
-**Request**
- ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”
- ```
-
-**.NET Library**
-```csharp
-	GetStreamsAsync(query:“\\“pump pressure\\””);
-```
-
 Other operators examples
 ---------------------
 
@@ -334,28 +312,3 @@ field prevents non-Stream Metadata fields from being searched.
 	GetStreamsAsync(query:“manufa*turer:compan*”);
 ```
 
-\"" Operator
--------------------
-
-This operator works the same when matching on Stream Metadata values as other Stream fields.
-Also, when defining a field scoped search clause with a Stream Metadata key this operator is invalid, 
-just as it is invalid with any other field. This means that if a Stream Metadata Key is tokenized on whitespace then 
-an exact match on the key with a Phrase style search clause is not valid.
-
-**QueryString**     | **Streams returned**
-------------------  | ----------------------------------------
-``“second key”:“second value”``  | Nothing returned (invalid query syntax).
-``“second value”``  | Only stream3 returned.
-``second*:“second value”``  | Only stream3 returned.
-
-In the last example the wildcard operator ``‘*’`` is utilized to construct a similar query in lieu of a phrase search query clause.
-
-**Request**
- ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=second*:“second value”
- ```
-
-**.NET Library**
-```csharp
-	GetStreamsAsync(query:“second*:\\“second value\\””);
-```

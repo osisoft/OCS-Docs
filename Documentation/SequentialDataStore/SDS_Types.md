@@ -1046,14 +1046,13 @@ Returns a list of types within a given namespace.
 If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
 the search/filter criteria. If neither parameter is specified, the list includes all types 
 in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
 for information about specifying those respective parameters.
 
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
 **Request**
  ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}&orderby={orderby}
  ```
 
 **Parameters**  
@@ -1066,10 +1065,6 @@ The namespace identifier
 
 `string query`  
 An optional query string to match which SdsTypes will be returned.  See the [Searching](xref:sdsSearching) topic for information about specifying the query parameter.
-
-`string filter`  
-An optional filter string to match which SdsTypes will be returned.  See the [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
-topic for information about specifying the filter parameter.
 
 `int skip`  
 An optional value representing the zero-based offset of the first SdsType to retrieve. If not specified, 
