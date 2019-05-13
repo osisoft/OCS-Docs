@@ -149,9 +149,9 @@ Content-Type: application/json
 
 Returns a list of streams.
 
-If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
-the search/filter criteria. If neither parameter is specified, the list includes all streams 
-in the Namespace. See [Searching](xref:sdsSearching) 
+If specifying the optional search query parameter, the list of streams returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all streams in the Namespace. See [Searching](xref:sdsSearching) 
 for information about specifying those respective parameters.
 
 

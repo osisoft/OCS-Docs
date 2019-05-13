@@ -4,7 +4,7 @@ uid: sdsSearching
 
 Searching
 =====================
-Search in SDS provides a way to search text, phrases, fields, etc. across the Sequential Data Store. This document covers the 
+Search in SDS provides a way to search text, fields, etc. across the Sequential Data Store. This document covers the 
 searching for SdsStreams, SdsTypes, and SdsStreamViews.
 
 Searching for Streams
@@ -45,7 +45,7 @@ Searching for Types
 =====================
 
 Similarly, the search functionality for types is also exposed through REST API and the client libraries method ``GetTypesAsync``. The query syntax and the request parameters are the same. 
-The only difference is the resource you're searching on, and you can filter on different properties for types than for streams. The searchable properties are below. 
+The only difference is the resource you're searching on, and you can search on different properties for types than for streams. The searchable properties are below. 
 See [Types](xref:sdsTypes) for more information.
 
 | Property          | Searchable |
@@ -159,7 +159,7 @@ After the previous call, you can use the following call to return the remaining 
 
 The ``orderby`` parameter is supported for searching both the streams and types. The basic functionality of it is to search the items and then return the result in sorted order.
 The default value for ``orderby`` parameter is ascending order. It can be changed to descending order by specifying ``desc`` alongside the orderby field value. It can be used in conjunction with 
-``query``, ``filter``, ``skip``, and ``count`` parameters.
+``query``, ``skip``, and ``count`` parameters.
 
 **Request**
  ```text
@@ -179,18 +179,17 @@ You can specify search operators in the ``query`` string to return more specific
 
 Operators | Description
 ----------|-------------------------------------------------------------------
-``AND`` | AND operator. For example, ``"cat AND dog"`` searches for streams containing both "cat" and "dog".  AND must be in all caps.
-``OR``  | OR operator. For example, ``"cat OR dog"`` searches for streams containing either "cat" or "dog" or both.  OR must be in all caps.
-``NOT`` | NOT operator. For example, ``"cat NOT dog"`` searches for streams that have the "cat" term or do not have "dog".  NOT must be in all caps.
-``*``   | Wildcard operator. For example, ``"cat*"`` searches for streams that have a term that starts with "cat", ignoring case.
+``AND`` | AND operator. For example, ``cat AND dog`` searches for streams containing both "cat" and "dog".  AND must be in all caps.
+``OR``  | OR operator. For example, ``cat OR dog`` searches for streams containing either "cat" or "dog" or both.  OR must be in all caps.
+``NOT`` | NOT operator. For example, ``cat NOT dog`` searches for streams that have the "cat" term or do not have "dog".  NOT must be in all caps.
+``*``   | Wildcard operator. For example, ``cat*`` searches for streams that have a term that starts with "cat", ignoring case.
 ``:``   | Field-scoped query.  For example, ``id:stream*`` will search for streams where the ``id`` field starts with "stream", but will not search on other fields like ``name`` or ``description``.  *Note that field names are camel case and are case sensitive.*
 ``( )`` | Precedence operator. For example, ``motel AND (wifi OR luxury)`` searches for streams containing the motel term and either wifi or luxury (or both).
 
 **Notes regarding wildcard operator ``*``:** The wildcard ``*`` can only be used once for each search term, except for the case of a Contains type query clause. In that case two wildcards are allowed: 
 one as prefix and one as suffix e.g. ``*Tank*`` is valid but ``*Ta*nk``, ``Ta*nk*``, and ``*Ta*nk*`` are currently not supported.
 
- The wildcard ``*`` can't be combined when searching for a phrase using the ``" "`` operators which combine multiple ordered search terms. 
-It only works when specifying a single search term. For example, you can search for ``Tank*``, ``*Tank``, ``Ta*nk`` but not ``"Tank Meter*"``.
+The wildcard ``*`` only works when specifying a single search term. For example, you can search for ``Tank*``, ``*Tank``, ``Ta*nk`` but not ``Tank Meter*``.
 
 **: Operator**
 ---------------

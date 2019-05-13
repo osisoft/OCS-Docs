@@ -579,9 +579,9 @@ Content-Type: application/json
 
 Returns a list of stream views within a given namespace.
 
-If specifying the optional query parameter or optional filter parameter, the list of stream views returned is filtered to match 
-the search/filter criteria. If neither parameter is specified, the list includes all stream views 
-in the Namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
+If specifying the optional search query parameter, the list of stream views returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all stream views in the Namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
 
 
 **Request**

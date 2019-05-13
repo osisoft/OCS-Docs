@@ -1043,9 +1043,9 @@ Example response body:
 
 Returns a list of types within a given namespace.
 
-If specifying the optional search parameter or optional filter parameter, the list of types returned are filtered to match 
-the search/filter criteria. If neither parameter is specified, the list includes all types 
-in the Namespace. See [Searching](xref:sdsSearching) 
+If specifying the optional search query parameter, the list of types returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all types in the Namespace. See [Searching](xref:sdsSearching) 
 for information about specifying those respective parameters.
 
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
