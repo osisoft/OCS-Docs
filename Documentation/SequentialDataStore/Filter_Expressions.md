@@ -5,7 +5,7 @@ uid: sdsFilterExpressions
 Filter Expressions: Values
 ==================
 
-Filter expressions can be applied to certain read operations that return Sequential Data Store values including 
+Filter expressions can be applied to certain read operations that return Sequential Data Store values, including: 
 `Get Values` and `Get Summaries`.
 
 
