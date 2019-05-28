@@ -1276,9 +1276,9 @@ Sampling is driven by a specified Property or Properties of the stream's Sds Typ
 **Request**  
  ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
-        Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&sampleBy={sampleBy}&boundaryType=
-        {boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}&filter={filter}
-        &streamViewId={streamViewId}
+        Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&sampleBy={sampleBy}
+        &boundaryType={boundaryType}&startBoundaryType={startBoundaryType}
+        &endBoundaryType={endBoundaryType}&filter={filter}&streamViewId={streamViewId}
  ```
 
 **Parameters**  
@@ -1373,18 +1373,20 @@ Content-Type: application/json
     }
 ]
 ```
+Note that `State` is not included in the JSON when its value is the default value.
 
 **.NET Library**
 ```csharp
-   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex, int intervals, 
-      IEnumerable<string> sampleBy, string streamViewId = null, string filter = null);  
+   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, string streamViewId = null, string filter = null);  
    
-   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex, int intervals, 
-      IEnumerable<string> sampleBy, SdsBoundaryType boundaryType, string streamViewId = null, string filter = null);  
+   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, SdsBoundaryType boundaryType, 
+      string streamViewId = null, string filter = null);  
    
-   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex, int intervals, 
-      IEnumerable<string> sampleBy, SdsBoundaryType startBoundaryType, SdsBoundaryType endBoundaryType, 
-      string streamViewId = null, string filter = null);
+   Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, SdsBoundaryType startBoundaryType, 
+      SdsBoundaryType endBoundaryType, string streamViewId = null, string filter = null);
 ```
 ****
 
