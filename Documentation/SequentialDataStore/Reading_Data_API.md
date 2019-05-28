@@ -1314,9 +1314,6 @@ Optional SdsBoundaryType specifies the handling of events at or near the endInde
 
 ``string filter``  
 Optional filter expression
-  
-``string streamViewId``
-Optional stream view identifier
 
 **Response**  
 The response includes a status code and a response body containing a serialized collection of events.
