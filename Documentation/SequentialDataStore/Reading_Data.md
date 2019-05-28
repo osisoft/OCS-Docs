@@ -24,6 +24,7 @@ In addition, the following methods support reading multiple values:
 * [Get Interpolated Values](xref:sdsReadingDataApi#get-interpolated-values) retrieves a collection of stored or calculated values based on the request parameters.
 * [Get Summaries](xref:sdsReadingDataApi#get-summaries) retrieves a collection of evenly spaced summary intervals based on a count 
   and specified start and end indexes.
+* [Get Samples](xref:sdsReadingDataApi#get-samples) retrieves a collection of sampled data based on the request parameters.
 
 All single stream reads are HTTP GET actions. Reading data involves getting events from streams. The base reading URI from a single stream is as follows:
  ```text
@@ -146,6 +147,7 @@ Data transformations are supported for all single stream reads, but transformati
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/Interpolated
     api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/Summaries
+    api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/Sampled
 ```
 
 ### Reading with SdsStreamViews
