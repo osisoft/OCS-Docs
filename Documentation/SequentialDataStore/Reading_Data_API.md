@@ -1375,15 +1375,15 @@ Note that `State` is not included in the JSON when its value is the default valu
 **.NET Library**
 ```csharp
    Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
-      int intervals, IEnumerable<string> sampleBy, string streamViewId = null, string filter = null);  
+      int intervals, IEnumerable<string> sampleBy, string streamViewId = null);  
    
    Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
       int intervals, IEnumerable<string> sampleBy, SdsBoundaryType boundaryType, 
-      string streamViewId = null, string filter = null);  
+      string streamViewId = null);  
    
    Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
       int intervals, IEnumerable<string> sampleBy, SdsBoundaryType startBoundaryType, 
-      SdsBoundaryType endBoundaryType, string streamViewId = null, string filter = null);
+      SdsBoundaryType endBoundaryType, string streamViewId = null);
 ```
 ****
 
