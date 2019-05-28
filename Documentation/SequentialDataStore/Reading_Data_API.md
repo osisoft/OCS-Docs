@@ -1276,7 +1276,7 @@ Sampling is driven by a specified Property or Properties of the stream's Sds Typ
 **Request**  
  ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
-        Sampled?startIndex={startIndex}&endIndex={endIndex}&sampleBy={sampleBy}&intervals={intervals}&boundaryType=
+        Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&sampleBy={sampleBy}&boundaryType=
         {boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}&filter={filter}
         &streamViewId={streamViewId}
  ```
@@ -1297,11 +1297,11 @@ The start index for the intervals
 ``string endIndex``  
 The end index for the intervals
 
-``string sampleBy``  
-Property or properties to use when sampling
-
 ``int intervals``  
 The number of intervals requested
+
+``string sampleBy``  
+Property or properties to use when sampling
 
 ``SdsBoundaryType boundaryType``  
 Optional SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
