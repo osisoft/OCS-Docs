@@ -1275,10 +1275,10 @@ Sampling is driven by a specified Property or Properties of the stream's Sds Typ
 
 **Request**  
  ```text
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/ 
-    Sampled?startIndex={startIndex}&endIndex={endIndex}&sampleBy={sampleBy}&intervals={intervals}&boundaryType= 
-    {boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}&filter={filter} 
-    &streamViewId={streamViewId}
+    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
+        Sampled?startIndex={startIndex}&endIndex={endIndex}&sampleBy={sampleBy}&intervals={intervals}&boundaryType=
+        {boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}&filter={filter}
+        &streamViewId={streamViewId}
  ```
 
 **Parameters**  
@@ -1324,8 +1324,8 @@ The response includes a status code and a response body containing a serialized 
 **Example**  
 The following request returns two sample intervals between the `startIndex` and `endIndex`: 
  ```text
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
-    Sampled?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&intervals=2&sampleBy=Measurement
+    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
+        Sampled?startIndex=2019-01-01T00:00:00Z&endIndex=2019-01-02T00:00:00Z&intervals=2&sampleBy=Measurement
  ```
  
 **Response body**
@@ -1335,14 +1335,41 @@ Content-Type: application/json
 
 [
     {
-        "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
-        "Measurement": 20
+        "Time": "2019-01-01T00:00:01Z",
+        "State": 1,
+        "Measurement": 1
     },
     {
-        "Time": "2017-11-23T16:00:00Z",
-         "State": 0,
-         "Measurement": 40
+        "Time": "2019-01-01T00:11:50Z",
+        "State": 2,
+        "Measurement": 0.00006028870675578446
+    },
+    {
+        "Time": "2019-01-01T11:55:33Z",
+        "Measurement": 6.277981349066863
+    },
+    {
+        "Time": "2019-01-01T12:00:00Z",
+        "Measurement": 3.101013140344655
+    },
+    {
+        "Time": "2019-01-01T12:00:01Z",
+        "State": 1,
+        "Measurement": 4.101013140344655
+    },
+    {
+        "Time": "2019-01-01T12:01:50Z",
+        "State": 2,
+        "Measurement": 0.0036776111121028521
+    },
+    {
+        "Time": "2019-01-01T23:57:23Z",
+        "State": 2,
+        "Measurement": 6.2816589601789659
+    },
+    {
+        "Time": "2019-01-02T00:00:00Z",
+        "Measurement": 6.20202628068931
     }
 ]
 ```
