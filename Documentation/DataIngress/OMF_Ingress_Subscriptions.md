@@ -37,7 +37,7 @@ Subscription information is contained in an object called Subscription which has
 
 *****************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions?skip={skip}&count={count}``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions?skip={skip}&count={count}``
 ---------------------------------------------
 
 Get all Subscriptions for a tenant. 
@@ -59,7 +59,7 @@ An array of Subscription objects.
 
 *********************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
 ---------------------------------------------------------------
 
 Get a specific Subscription. 
@@ -79,7 +79,7 @@ A Subscription object.
 
 *****************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
 --------------------------------------------
 
 Get the default Access Control List for new Subscriptions.
@@ -97,7 +97,7 @@ An AccessControlList object.
 
 *******************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol``
 --------------------------------------------
 
 Get the Access Control List for a particular Subscription.
@@ -117,7 +117,7 @@ An AccessControlList object.
 
 *******************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
 --------------------------------------------
 
 Get the Owner for a particular Subscription.
@@ -137,7 +137,7 @@ A Trustee object.
 
 *******************
 
-``POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions``
+``POST api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions``
 --------------------------------------------
 
 Create a new Subscription.
@@ -159,7 +159,7 @@ The Subscription object that was created.
 
 *******************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
 --------------------------------------------
 
 Update an existing Subscription. Only the name and description may be updated. 
@@ -183,7 +183,7 @@ The Subscription object that was updated.
 
 *******************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
 --------------------------------------------
 
 Update the default Access Control List for new Subscriptions.
@@ -201,7 +201,7 @@ An AccessControlList object.
 
 *******************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol``
 --------------------------------------------
 
 Update the Access Control List for a particular Subscription.
@@ -221,7 +221,7 @@ An AccessControlList object.
 
 *******************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
 --------------------------------------------
 
 Update the Owner for a particular Subscription.
@@ -241,7 +241,7 @@ A Trustee object.
 
 *******************
 
-``DELETE api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
+``DELETE api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
 -----------------------------------------------------------------
 
 Delete a Subscription. 
