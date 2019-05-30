@@ -40,7 +40,7 @@ Topic information is contained in an object called ``Topic`` and has the followi
 
 **************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics?skip={skip}&count={count}``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics?skip={skip}&count={count}``
 -------------------------------------------
 
 Get all Topics for a tenant. 
@@ -62,7 +62,7 @@ An array of Topic objects.
 
 **************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
 ------------------------------------------------------------
 
 Get a specific Topic. 
@@ -82,7 +82,7 @@ A Topic object.
 
 ************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions?skip={skip}&count={count}``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions?skip={skip}&count={count}``
 -------------------------------------------
 
 Get all Subscriptions across all namespaces mapped to a Topic.
@@ -106,7 +106,7 @@ An array of Subscription objects.
 
 ***************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
 -------------------------------------------------------------------------------------
 
 Get the default Access Control List for new Topics.
@@ -124,7 +124,7 @@ An AccessControlList object.
 
 ***************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
 -------------------------------------------------------------------------------------
 
 Get the Access Control List for a particular Topic.
@@ -144,7 +144,7 @@ An AccessControlList object.
 
 ***************************
 
-``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
+``GET api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
 -------------------------------------------------------------------------------------
 
 Get the Owner for a particular Topic.
@@ -164,7 +164,7 @@ A Trustee object.
 
 ***************************
 
-``POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics``
+``POST api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics``
 -----------------------------------------
 
 Create a new topic. 
@@ -186,7 +186,7 @@ The Topic object that was created.
 
 ***********************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
 -----------------------------------------
 
 Update an existing Topic. Only the name and description can be updated. 
@@ -210,7 +210,7 @@ The Topic object that was updated.
 
 ***********************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
 ----------------------------------------------------------
 
 Update the default Access Control List for new Topics.
@@ -228,7 +228,7 @@ An AccessControlList object.
 
 ************************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
 ----------------------------------------------------------
 
 Update the Access Control List for a particular Topic.
@@ -248,7 +248,7 @@ An AccessControlList object.
 
 ************************
 
-``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
+``PUT api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
 ----------------------------------------------------------
 
 Update the Owner for a particular Topic.
@@ -268,7 +268,7 @@ A Trustee object.
 
 ************************
 
-``DELETE api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
+``DELETE api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
 ----------------------------------------------------------------
 
 Delete a Topic. 
