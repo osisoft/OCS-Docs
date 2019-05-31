@@ -1271,7 +1271,7 @@ Content-Type: application/json
 
 Returns representative data sampled by intervals between a specified start and end index. 
   
-Sampling is driven by a specified Property or Properties of the stream's Sds Type. Property types that cannot be interpolated do not support sampling requests. Strings are an example of indexes that cannot be interpolated. For more 
+Sampling is driven by a specified property or properties of the stream's Sds Type. Property types that cannot be interpolated do not support sampling requests. Strings are an example of a property that cannot be interpolated. For more 
 information see [Interpolation.](https://ocs-docs.osisoft.com/Documentation/SequentialDataStore/SDS_Types.html#interpolation) 
 
 **Request**  
