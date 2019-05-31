@@ -1384,6 +1384,17 @@ Note that `State` is not included in the JSON when its value is the default valu
    Task<IEnumerable<T>> GetSampledValuesAsync<T>(string streamId, string startIndex, string endIndex,
       int intervals, IEnumerable<string> sampleBy, SdsBoundaryType startBoundaryType, 
       SdsBoundaryType endBoundaryType, string streamViewId = null);
+
+   Task<IEnumerable<T>> GetSampledFilteredValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, string filter, string streamViewId = null);  
+   
+   Task<IEnumerable<T>> GetSampledFilteredValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, SdsBoundaryType boundaryType, string filter, 
+      string streamViewId = null);  
+   
+   Task<IEnumerable<T>> GetSampledFilteredValuesAsync<T>(string streamId, string startIndex, string endIndex,
+      int intervals, IEnumerable<string> sampleBy, SdsBoundaryType startBoundaryType, 
+      SdsBoundaryType endBoundaryType, string filter, string streamViewId = null);
 ```
 ****
 
