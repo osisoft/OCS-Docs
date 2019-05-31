@@ -1267,9 +1267,9 @@ Content-Type: application/json
 ```
 ****
 
-## ``Get Samples``
+## ``Get Sampled Values``
 
-Returns data sampled by intervals between a specified start and end index. 
+Returns representative data sampled by intervals between a specified start and end index. 
   
 Sampling is driven by a specified Property or Properties of the stream's Sds Type.  Property types that cannot be interpolated do not support sampling requests. Strings are an example of indexes that cannot be interpolated. 
 
