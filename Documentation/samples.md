@@ -5,11 +5,11 @@ uid: samples
 Samples
 =======
 
-The OCS-Samples illustrate several ways for applications to interact with the SDS REST API.
+The OCS-Samples illustrate several ways for applications to interact with the OCS REST API.
 
 The examples cover the basics of interacting with SDS, such as:
 
-* Connecting to SDS
+* Connecting to OCS
 * Creating SdsTypes and instances of SdsStreams 
 * Sending data to, and retrieving data from SdsStreams 
 * Performing queries against SdsStreams 

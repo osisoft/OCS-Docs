@@ -31,7 +31,6 @@ centralized environment to aggregate data for reporting, advanced analytics, and
      - [IdentityProvider](xref:identityIdentityProvider)
      - [Consent to OSIsoft Applications](xref:identityConsent)
    - [Sequential Data Store](xref:sds)
-     - [Introducing the Sequential Data Store](xref:sdsIntroduction)
      - [Quick Start](xref:sdsQuickStart)
      - [Types](xref:sdsTypes)
      - [Streams](xref:sdsStreams)
