@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Stream Views </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Stream Views ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="sdsStreamViews">
+<h1 id="stream-views" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="5" sourceendlinenumber="5">Stream Views</h1>
+
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="7" sourceendlinenumber="8">An SdsStreamView provides a way to map Stream data requests from one data type to another. You can apply 
+a Stream View to any read or GET operation. SdsStreamView is used to specify the mapping between source and target types.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="10" sourceendlinenumber="12">SDS attempts to determine how to map Properties from the source to the destination. When the mapping 
+is straightforward, such as when the properties are in the same position and of the same data type, 
+or when the properties have the same name, SDS will map the properties automatically.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="14" sourceendlinenumber="15">When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
+a target property that it cannot map to, the property is added and configured with a default value.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="17" sourceendlinenumber="18">To map a property that is beyond the ability of SDS to map on its own, you should define an SdsStreamViewProperty 
+and add it to the SdsStreamView’s Properties collection.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="20" sourceendlinenumber="21">The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.
+See the <a class="xref" href="Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="21" sourceendlinenumber="21">Searching</a> topic regarding limitations on search.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="23" sourceendlinenumber="30">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Searchable</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>String</td>
+<td>Required</td>
+<td>Yes</td>
+<td>Identifier for referencing the stream view</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Optional</td>
+<td>Yes</td>
+<td>Friendly name</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>String</td>
+<td>Optional</td>
+<td>Yes</td>
+<td>Description text</td>
+</tr>
+<tr>
+<td>SourceTypeId</td>
+<td>String</td>
+<td>Required</td>
+<td>Yes</td>
+<td>Identifier of the SdsType of the SdsStream</td>
+</tr>
+<tr>
+<td>TargetTypeId</td>
+<td>String</td>
+<td>Required</td>
+<td>Yes</td>
+<td>Identifier of the SdsType to convert events to</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>IList&lt;SdsStreamViewProperty></td>
+<td>Optional</td>
+<td>Yes, with limitations</td>
+<td>Property level mapping</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="33" sourceendlinenumber="33"><strong>Rules for the Stream View Identifier (SdsStreamView.Id)</strong></p>
+<ol sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="35" sourceendlinenumber="38">
+<li sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="35" sourceendlinenumber="35">Is not case sensitive</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="36" sourceendlinenumber="36">Can contain spaces</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="37" sourceendlinenumber="37">Cannot contain forward slash (&quot;/&quot;)</li>
+<li sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="38" sourceendlinenumber="38">Can contain a maximum of 100 characters</li>
+</ol>
+<h2 id="properties--sdsstreamviewproperty" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="41" sourceendlinenumber="41">Properties / SdsStreamViewProperty</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="43" sourceendlinenumber="47">The SdsStreamView Properties collection provides detailed instructions for specifying the mapping of 
+event properties. Each SdsStreamViewProperty in the Properties collection defines the mapping of an 
+event’s property. SdsStreamView Properties are required only when property mapping is not straightforward. 
+Additionally, if you do not want a type property mapped, it is not necessary to create an SdsStreamView 
+property for it.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="49" sourceendlinenumber="49">The following table shows the required and optional SdsStreamViewProperty fields.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="51" sourceendlinenumber="55">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SourceId</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier of the SdsTypeProperty from the source SdsType Properties list</td>
+</tr>
+<tr>
+<td>TargetId</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier of the SdsTypeProperty from the target SdsType Properties list</td>
+</tr>
+<tr>
+<td>SdsStreamView</td>
+<td>SdsStreamView</td>
+<td>Optional</td>
+<td>Additional mapping instructions for derived types</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="57" sourceendlinenumber="57">The SdsStreamView field supports nested Properties.</p>
+<h2 id="sdsstreamviewmap" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="59" sourceendlinenumber="59">SdsStreamViewMap</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="61" sourceendlinenumber="62">When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
+The SdsStreamViewMap provides a detailed Property-by-Property definition of the mapping. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="64" sourceendlinenumber="65">The following table shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to SDS, 
+so required and optional have no meaning.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="67" sourceendlinenumber="71">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SourceTypeId</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier of the SdsType of the SdsStream</td>
+</tr>
+<tr>
+<td>TargetTypeId</td>
+<td>String</td>
+<td>Required</td>
+<td>Identifier of the SdsType to convert events to</td>
+</tr>
+<tr>
+<td>Properties</td>
+<td>IList&lt;SdsStreamViewMapProperty></td>
+<td>Optional</td>
+<td>Property level mapping</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties--sdsstreamviewmapproperty" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="73" sourceendlinenumber="73">Properties / SdsStreamViewMapProperty</h3>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="75" sourceendlinenumber="76">The SdsStreamViewMapProperty is similar an SdsStreamViewProperty but adds a Mode detailing one or more actions taken on 
+the Property.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="78" sourceendlinenumber="79">The following table shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
+retrieved from SDS, so required and optional have no meaning.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="81" sourceendlinenumber="86">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SourceTypeId</td>
+<td>String</td>
+<td>Identifier of the SdsType of the SdsStream</td>
+</tr>
+<tr>
+<td>TargetTypeId</td>
+<td>String</td>
+<td>Identifier of the SdsType to convert events to</td>
+</tr>
+<tr>
+<td>Mode</td>
+<td>SdsStreamViewMode</td>
+<td>Aggregate of actions applied to the properties. SdsStreamViewModes are combined via binary arithmetic</td>
+</tr>
+<tr>
+<td>SdsStreamViewMap</td>
+<td>SdsStreamViewMap</td>
+<td>Mapping for derived types</td>
+</tr>
+</tbody>
+</table>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="88" sourceendlinenumber="88">The available SdsStreamViewModes are shown in the table below.</p>
+<table sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="90" sourceendlinenumber="98">
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>0x0000</td>
+<td>No action</td>
+</tr>
+<tr>
+<td>FieldAdd</td>
+<td>0x0001</td>
+<td>Add a property matching the specified SdsTypeProperty</td>
+</tr>
+<tr>
+<td>FieldRemove</td>
+<td>0x0002</td>
+<td>Remove the property matching the specified SdsTypeProperty</td>
+</tr>
+<tr>
+<td>FieldRename</td>
+<td>0x0004</td>
+<td>Rename the property matching the source SdsTypeProperty to the target SdsTypeProperty</td>
+</tr>
+<tr>
+<td>FieldMove</td>
+<td>0x0008</td>
+<td>Move the property from the location in the source to the location in the target</td>
+</tr>
+<tr>
+<td>FieldConversion</td>
+<td>0x0016</td>
+<td>Converts the source property to the target type</td>
+</tr>
+<tr>
+<td>InvalidFieldConversion</td>
+<td>0x0032</td>
+<td>Cannot perform the specified mapping</td>
+</tr>
+</tbody>
+</table>
+<h2 id="changing-stream-type" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="100" sourceendlinenumber="100">Changing Stream Type</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="102" sourceendlinenumber="103">Stream Views can be used to change the Type defining a Stream. You cannot modify the SdsType; types are immutable. 
+But you can map a stream from its current type to a new type.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="105" sourceendlinenumber="105">To update a Stream&#39;s Type, define an SdsStreamView and PUT the stream view to the following:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="106" sourceendlinenumber="108"><code class="lang-text">   PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="110" sourceendlinenumber="110">For details, see <a href="xref:sdsStreams-update-stream-type" data-raw-source="[Update Stream Type](xref:sdsStreams-update-stream-type)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="110" sourceendlinenumber="110">Update Stream Type</a>. </p>
+<h2 id="working-with-stream-views-when-using-net" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="112" sourceendlinenumber="112">Working with Stream Views when using .NET</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="114" sourceendlinenumber="114"><strong>Using .Net</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="116" sourceendlinenumber="116">When working in .NET, use the SDS Client libraries’ ISdsMetadataService.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="118" sourceendlinenumber="118">Given the following:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="119" sourceendlinenumber="176"><code class="lang-csharp">public enum State
+{
+    Ok,
+    Warning,
+    Alarm
+}
+
+public class Simple
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public double Measurement { get; set; }
+}
+
+SdsType simpleType = SdsTypeBuilder.CreateSdsType&lt;Simple&gt;();
+simpleType.Id = &quot;Simple&quot;;
+simpleType.Name = &quot;Simple&quot;;
+await config.GetOrCreateTypeAsync(simpleType);
+
+SdsStream simpleStream = await config.GetOrCreateStreamAsync(new SdsStream()
+{
+    Id = &quot;Simple&quot;,
+    Name = &quot;Simple&quot;,
+    TypeId = simpleType.Id
+});
+
+DateTime start = new DateTime(2017, 4, 1).ToUniversalTime();
+
+for (int i = 0; i &lt; 10; i++)
+{
+    Simple value = new Simple()
+    {
+        Time = start + TimeSpan.FromMinutes(i),
+        State = State.Warning,
+        Measurement = i
+    };
+    await client.InsertValueAsync(simpleStream.Id, value);
+}
+
+IEnumerable&lt;Simple&gt; simpleValues = await client.GetWindowValuesAsync&lt;Simple&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+    start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;));
+foreach (Simple value in simpleValues)
+    Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Measurement}&quot;);
+
+// The example displays the following output:
+//  4 / 1 / 2017 7:00:00 AM: Warning, 0
+//  4 / 1 / 2017 7:01:00 AM: Warning, 1
+//  4 / 1 / 2017 7:02:00 AM: Warning, 2
+//  4 / 1 / 2017 7:03:00 AM: Warning, 3
+//  4 / 1 / 2017 7:04:00 AM: Warning, 4
+//  4 / 1 / 2017 7:05:00 AM: Warning, 5
+//  4 / 1 / 2017 7:06:00 AM: Warning, 6
+//  4 / 1 / 2017 7:07:00 AM: Warning, 7
+//  4 / 1 / 2017 7:08:00 AM: Warning, 8
+//  4 / 1 / 2017 7:09:00 AM: Warning, 9
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="178" sourceendlinenumber="179">To map the Measurement property to a property in the same location of the same type, allow SDS to 
+automatically determine mapping.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="180" sourceendlinenumber="230"><code class="lang-csharp">public class Simple1
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public double Value { get; set; }
+}
+
+SdsType simple1Type = SdsTypeBuilder.CreateSdsType&lt;Simple1&gt;();
+simple1Type.Id = &quot;Simple1&quot;;
+simple1Type.Name = &quot;Simple1&quot;;
+simple1Type = await config.GetOrCreateTypeAsync(simple1Type);
+
+SdsStreamView view = new SdsStreamView()
+{
+    Id = &quot;StreamView&quot;,
+    Name = &quot;StreamView&quot;,
+    SourceTypeId = simpleType.Id,
+    TargetTypeId = simple1Type.Id,
+};
+view = await config.GetOrCreateStreamViewAsync(view);
+
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
+Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
+for (int i = 0; i &lt; map.Properties.Count; i++)
+    Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
+Console.WriteLine();
+
+IEnumerable&lt;Simple1&gt; simple1Values = await client.GetWindowValuesAsync&lt;Simple1&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+    start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;), view.Id);
+foreach (Simple1 value in simple1Values)
+    Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Value}&quot;);
+
+// The example displays the following output:
+//    Simple to Simple1
+//        0) Time to Time - None
+//        1) State to State - None
+//        2) Measurement to Value - FieldRename
+//
+//  4 / 1 / 2017 7:00:00 AM: Warning, 0
+//  4 / 1 / 2017 7:01:00 AM: Warning, 1
+//  4 / 1 / 2017 7:02:00 AM: Warning, 2
+//  4 / 1 / 2017 7:03:00 AM: Warning, 3
+//  4 / 1 / 2017 7:04:00 AM: Warning, 4
+//  4 / 1 / 2017 7:05:00 AM: Warning, 5
+//  4 / 1 / 2017 7:06:00 AM: Warning, 6
+//  4 / 1 / 2017 7:07:00 AM: Warning, 7
+//  4 / 1 / 2017 7:08:00 AM: Warning, 8
+//  4 / 1 / 2017 7:09:00 AM: Warning, 9
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="232" sourceendlinenumber="233">A quick look at the SdsStreamViewMap shows that SDS was able to determine that mapping from Measurement 
+to Value involved a rename.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="235" sourceendlinenumber="236">SDS can also determine mapping of properties of the same name but different type. Note that the 
+location of the Measurement property is also different yet it is still mapped.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="237" sourceendlinenumber="287"><code class="lang-csharp">public class Simple2
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public int Measurement { get; set; }
+    public State State { get; set; }
+}
+
+SdsType simple2Type = SdsTypeBuilder.CreateSdsType&lt;Simple2&gt;();
+simple2Type.Id = &quot;Simple2&quot;;
+simple2Type.Name = &quot;Simple2&quot;;
+simple2Type = await config.GetOrCreateTypeAsync(simple2Type);
+
+SdsStreamView view = new SdsStreamView() 
+{
+    Id = &quot;StreamView1&quot;,
+    Name = &quot;StreamView1&quot;,
+    SourceTypeId = simpleType.Id,
+    TargetTypeId = simple2Type.Id,
+};
+view = await config.GetOrCreateStreamViewAsync(view);
+
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
+Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
+for (int i = 0; i &lt; map.Properties.Count; i++)
+    Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
+Console.WriteLine();
+
+IEnumerable&lt;Simple2&gt; simple2Values = await client.GetWindowValuesAsync&lt;Simple2&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+    start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;), view.Id);
+foreach (Simple2 value in simple2Values)
+    Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Measurement}&quot;);
+
+//The example displays the following output:
+//    Simple to Simple2
+//        0) Time to Time - None
+//        1) State to State - None
+//        2) Measurement to Measurement - FieldConversion
+//
+//    4 / 1 / 2017 7:00:00 AM: Warning, 0
+//    4 / 1 / 2017 7:01:00 AM: Warning, 1
+//    4 / 1 / 2017 7:02:00 AM: Warning, 2
+//    4 / 1 / 2017 7:03:00 AM: Warning, 3
+//    4 / 1 / 2017 7:04:00 AM: Warning, 4
+//    4 / 1 / 2017 7:05:00 AM: Warning, 5
+//    4 / 1 / 2017 7:06:00 AM: Warning, 6
+//    4 / 1 / 2017 7:07:00 AM: Warning, 7
+//    4 / 1 / 2017 7:08:00 AM: Warning, 8
+//    4 / 1 / 2017 7:09:00 AM: Warning, 9
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="289" sourceendlinenumber="289">The SdsStreamViewMap shows that the source, floating point Measurement is converted to the target, integer Measurement.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="291" sourceendlinenumber="292">When neither the field name nor field type and location match, SDS does not determine mapping. 
+The source is eliminated and target is added and assigned the default value.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="293" sourceendlinenumber="344"><code class="lang-csharp">public class Simple3
+{
+    [SdsMember(IsKey = true, Order = 0)]
+    public DateTime Time { get; set; }
+    public State State { get; set; }
+    public int Value { get; set; }
+}
+
+SdsType simple3Type = SdsTypeBuilder.CreateSdsType&lt;Simple3&gt;();
+simple3Type.Id = &quot;Simple3&quot;;
+simple3Type.Name = &quot;Simple3&quot;;
+simple3Type = await config.GetOrCreateTypeAsync(simple3Type);
+
+SdsStreamView view = new SdsStreamView()
+{
+    Id = &quot;StreamView2&quot;,
+    Name = &quot;StreamView2&quot;,
+    SourceTypeId = simpleType.Id,
+    TargetTypeId = simple3Type.Id,
+};
+view = await config.GetOrCreateStreamViewAsync(view);
+
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
+Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
+for (int i = 0; i &lt; map.Properties.Count; i++)
+    Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
+Console.WriteLine();
+
+IEnumerable&lt;Simple3&gt; simple3Values = await client.GetWindowValuesAsync&lt;Simple3&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+    start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;), view.Id);
+foreach (Simple3 value in simple3Values)
+    Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Value}&quot;);
+
+//The example displays the following output:
+//    Simple to Simple3
+//        0) Time to Time - None
+//        1) State to State - None
+//        2) Measurement to  -FieldRemove
+//        3)  to Value -FieldAdd
+//
+// 4 / 1 / 2017 7:00:00 AM: Warning, 0
+// 4 / 1 / 2017 7:01:00 AM: Warning, 0
+// 4 / 1 / 2017 7:02:00 AM: Warning, 0
+// 4 / 1 / 2017 7:03:00 AM: Warning, 0
+// 4 / 1 / 2017 7:04:00 AM: Warning, 0
+// 4 / 1 / 2017 7:05:00 AM: Warning, 0
+// 4 / 1 / 2017 7:06:00 AM: Warning, 0
+// 4 / 1 / 2017 7:07:00 AM: Warning, 0
+// 4 / 1 / 2017 7:08:00 AM: Warning, 0
+// 4 / 1 / 2017 7:09:00 AM: Warning, 0
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="346" sourceendlinenumber="346">To map when SDS cannot determine mapping, use SdsStreamView Properties.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="347" sourceendlinenumber="402"><code class="lang-csharp">SdsStreamView view = new SdsStreamView()
+{
+    Id = &quot;SteamView3&quot;,
+    Name = &quot;StreamView3&quot;,
+    SourceTypeId = simpleType.Id,
+    TargetTypeId = simple3Type.Id,
+    Properties = new List&lt;SdsStreamViewProperty&gt;()
+    {
+        new SdsStreamViewProperty()
+        {
+            SourceId = &quot;Time&quot;,
+            TargetId = &quot;Time&quot;
+        },
+        new SdsStreamViewProperty()
+        {
+            SourceId = &quot;State&quot;,
+            TargetId = &quot;State&quot;
+        },
+        new SdsStreamViewProperty()
+        {
+            SourceId = &quot;Measurement&quot;,
+            TargetId = &quot;Value&quot;
+        }
+    }
+};
+view = await config.GetOrCreateStreamViewAsync(view);
+
+SdsStreamViewMap map = await config.GetStreamViewMapAsync(view.Id);
+Console.WriteLine($&quot;{map.SourceTypeId} to {map.TargetTypeId}&quot;);
+for (int i = 0; i &lt; map.Properties.Count; i++)
+    Console.WriteLine($&quot;\t{i}) {map.Properties[i].SourceId} to {map.Properties[i].TargetId} - {map.Properties[i].Mode}&quot;);
+Console.WriteLine();
+
+IEnumerable&lt;Simple3&gt; simple3Values = await client.GetWindowValuesAsync&lt;Simple3&gt;(simpleStream.Id, start.ToString(&quot;o&quot;),
+    start.Add(TimeSpan.FromMinutes(10)).ToString(&quot;o&quot;), view.Id);
+foreach (Simple3 value in simple3Values)
+    Console.WriteLine($&quot;{value.Time}: {value.State}, {value.Value}&quot;);
+
+//The example displays the following output:
+//    Simple to Simple3
+//        0) Time to Time - None
+//        1) State to State - None
+//        2) Measurement to Value - FieldRename, FieldConversion
+//
+//    4 / 1 / 2017 7:00:00 AM: Warning, 0
+//    4 / 1 / 2017 7:01:00 AM: Warning, 1
+//    4 / 1 / 2017 7:02:00 AM: Warning, 2
+//    4 / 1 / 2017 7:03:00 AM: Warning, 3
+//    4 / 1 / 2017 7:04:00 AM: Warning, 4
+//    4 / 1 / 2017 7:05:00 AM: Warning, 5
+//    4 / 1 / 2017 7:06:00 AM: Warning, 6
+//    4 / 1 / 2017 7:07:00 AM: Warning, 7
+//    4 / 1 / 2017 7:08:00 AM: Warning, 8
+//    4 / 1 / 2017 7:09:00 AM: Warning, 9
+</code></pre><h2 id="working-with-sdsstreamviews-when-not-using-net" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="404" sourceendlinenumber="404">Working with SdsStreamViews when not using .NET</h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="406" sourceendlinenumber="407">When working with Stream Views and not using .NET, either invoke HTTP directly or use some of 
+the sample code. Both Python and JavaScript samples have SdsStreamView definitions.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="409" sourceendlinenumber="410">The JSON for a simple mapping between a source type with identifier Sample and a target 
+type with identifier Sample1 would appear as follows.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="411" sourceendlinenumber="418"><code class="lang-json">{  
+  &quot;Id&quot;:&quot;StreamView&quot;,
+  &quot;Name&quot;:&quot;StreamView&quot;,
+  &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+  &quot;TargetTypeId&quot;:&quot;Simple1&quot;
+}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="420" sourceendlinenumber="420">The SdsStreamViewMap would appear as follows.</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="422" sourceendlinenumber="442"><code class="lang-json">{  
+  &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+  &quot;TargetTypeId&quot;:&quot;Simple1&quot;,
+  &quot;Properties&quot;:[  
+      {  
+        &quot;SourceId&quot;:&quot;Time&quot;,
+        &quot;TargetId&quot;:&quot;Time&quot;
+      },
+      {  
+        &quot;SourceId&quot;:&quot;State&quot;,
+        &quot;TargetId&quot;:&quot;State&quot;
+      },
+      {  
+        &quot;SourceId&quot;:&quot;Measurement&quot;,
+        &quot;TargetId&quot;:&quot;Value&quot;,
+        &quot;Mode&quot;:4
+      }
+  ]
+}
+</code></pre><h1 id="sdsstreamview-api" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="444" sourceendlinenumber="444">SdsStreamView API</h1>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="446" sourceendlinenumber="449">The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact 
+with SdsStreamViews. When working in .NET convenient SDS Client libraries are available. The ISdsMetadataService 
+interface, accessed using the <code>SdsService.GetMetadataService()</code> helper, defines the available functions. 
+See <a href="#stream-views" data-raw-source="[Stream Views](#stream-views)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="449" sourceendlinenumber="449">Stream Views</a> for general SdsStreamView information.</p>
+<hr>
+<h2 id="get-stream-view" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="453" sourceendlinenumber="453"><code>Get Stream View</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="455" sourceendlinenumber="455">Returns the stream view corresponding to the specified streamViewId within a given namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="457" sourceendlinenumber="457"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="458" sourceendlinenumber="460"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="462" sourceendlinenumber="462"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="464" sourceendlinenumber="465"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="467" sourceendlinenumber="468"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="470" sourceendlinenumber="471"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="473" sourceendlinenumber="474"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="477" sourceendlinenumber="478"><strong>Response body</strong><br>The requested SdsStreamView.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="480" sourceendlinenumber="480">Example response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="481" sourceendlinenumber="504"><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+{  
+   &quot;Id&quot;:&quot;StreamView&quot;,
+   &quot;Name&quot;:&quot;StreamView&quot;,
+   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+   &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
+   &quot;Properties&quot;:[  
+      {  
+         &quot;SourceId&quot;:&quot;Time&quot;,
+         &quot;TargetId&quot;:&quot;Time&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;State&quot;,
+         &quot;TargetId&quot;:&quot;State&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;Measurement&quot;,
+         &quot;TargetId&quot;:&quot;Value&quot;
+      }
+   ]
+}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="506" sourceendlinenumber="506"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="507" sourceendlinenumber="509"><code class="lang-csharp">   Task&lt;SdsStreamView&gt; GetStreamViewAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="get-stream-view-map" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="513" sourceendlinenumber="513"><code>Get Stream View Map</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="515" sourceendlinenumber="515">Returns the stream view map corresponding to the specified streamViewId within a given namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="517" sourceendlinenumber="517"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="518" sourceendlinenumber="520"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="522" sourceendlinenumber="522"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="524" sourceendlinenumber="525"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="527" sourceendlinenumber="528"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="530" sourceendlinenumber="531"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="533" sourceendlinenumber="534"><strong>Response</strong><br> The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="537" sourceendlinenumber="538"><strong>Response body</strong><br>The requested SdsStreamView.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="540" sourceendlinenumber="540">Example response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="541" sourceendlinenumber="568"><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+
+{  
+   &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+   &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
+   &quot;Properties&quot;:[  
+      {  
+         &quot;SourceId&quot;:&quot;Time&quot;,
+         &quot;TargetId&quot;:&quot;Time&quot;
+      },
+      {  
+         &quot;SourceId&quot;:&quot;Measurement&quot;,
+         &quot;TargetId&quot;:&quot;Value&quot;,
+         &quot;Mode&quot;:20
+      },
+      {  
+         &quot;SourceId&quot;:&quot;State&quot;,
+         &quot;Mode&quot;:2
+      },
+      {  
+         &quot;TargetId&quot;:&quot;State&quot;,
+         &quot;Mode&quot;:1 
+      }
+   ]
+}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="571" sourceendlinenumber="571"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="572" sourceendlinenumber="574"><code class="lang-csharp">   Task&lt;SdsStreamViewMap&gt; GetStreamViewMapAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="get-stream-views" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="578" sourceendlinenumber="578"><code>Get Stream Views</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="580" sourceendlinenumber="580">Returns a list of stream views within a given namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="582" sourceendlinenumber="584">If specifying the optional search query parameter, the list of stream views returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all stream views in the Namespace. See <a class="xref" href="Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="584" sourceendlinenumber="584">Searching</a> for information about specifying those respective parameters.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="587" sourceendlinenumber="587"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="588" sourceendlinenumber="590"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&amp;skip={skip}&amp;count={count}&amp;orderby={orderby}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="592" sourceendlinenumber="592"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="594" sourceendlinenumber="595"><code>string tenantId</code><br>The tenant identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="597" sourceendlinenumber="598"><code>string namespaceId</code><br>The namespace identifier</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="600" sourceendlinenumber="603"><code>string query</code><br>An optional parameter representing a string search. 
+See <a class="xref" href="Searching.html" data-raw-source="[Searching](xref:sdsSearching)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="602" sourceendlinenumber="602">Searching</a>
+for information about specifying the search parameter.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="605" sourceendlinenumber="607"><code>int skip</code><br>An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
+If not specified, a default value of 0 is used.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="609" sourceendlinenumber="611"><code>int count</code><br>An optional parameter representing the maximum number of SdsStreamViews to retrieve. 
+If not specified, a default value of 100 is used.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="613" sourceendlinenumber="614"><code>string orderby</code><br>An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, <code>orderby=name</code> would sort the returned results by the      <code>name</code> values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values <code>asc</code> or <code>desc</code>, respectively. For example, <code>orderby=name desc</code> would sort the returned   results by the <code>name</code> values, descending. If no value is specified, there is no sorting of results.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="617" sourceendlinenumber="618"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="621" sourceendlinenumber="622"><strong>Response body</strong><br>A collection of zero or more SdsStreamViews.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="624" sourceendlinenumber="624">Example response body:</p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="625" sourceendlinenumber="656"><code class="lang-json">HTTP/1.1 200
+Content-Type: application/json
+[  
+  {  
+     &quot;Id&quot;:&quot;StreamView&quot;,
+     &quot;Name&quot;:&quot;StreamView&quot;,
+     &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+     &quot;TargetTypeId&quot;:&quot;Simple3&quot;
+  },
+  {  
+     &quot;Id&quot;:&quot;StreamViewWithProperties&quot;,
+     &quot;Name&quot;:&quot;StreamViewWithProperties&quot;,
+     &quot;SourceTypeId&quot;:&quot;Simple&quot;,
+     &quot;TargetTypeId&quot;:&quot;Simple3&quot;,
+     &quot;Properties&quot;:[  
+        {  
+           &quot;SourceId&quot;:&quot;Time&quot;,
+           &quot;TargetId&quot;:&quot;Time&quot;
+        },
+        {
+           &quot;SourceId&quot;:&quot;State&quot;,
+           &quot;TargetId&quot;:&quot;State&quot;
+        },
+        {
+           &quot;SourceId&quot;:&quot;Measurement&quot;,
+           &quot;TargetId&quot;:&quot;Value&quot;
+        }                
+     ]
+  }
+]
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="658" sourceendlinenumber="658"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="659" sourceendlinenumber="661"><code class="lang-csharp">   Task&lt;IEnumerable&lt;SdsStreamView&gt;&gt; GetStreamViewsAsync(int skip = 0, int count = 100);
+</code></pre><hr>
+<h2 id="get-or-create-stream-view" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="665" sourceendlinenumber="665"><code>Get or Create Stream View</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="667" sourceendlinenumber="668">If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
+If the stream views are identical, a Found (302) status is returned and the stream view. If the stream views are different, the Conflict (409) error is returned.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="670" sourceendlinenumber="670">If no matching identifier is found, the specified stream view is created.  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="672" sourceendlinenumber="672"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="673" sourceendlinenumber="675"><code class="lang-text">   POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="677" sourceendlinenumber="677"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="679" sourceendlinenumber="680"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="682" sourceendlinenumber="683"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="685" sourceendlinenumber="686"><code>string streamViewId</code><br>The stream view identifier. The identifier must match the <code>SdsStreamView.Id</code> field.   </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="688" sourceendlinenumber="689"><strong>Request body</strong><br>The request content is the serialized SdsStreamView. If you are not using the SDS client libraries, using JSON is recommended.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="691" sourceendlinenumber="692"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="694" sourceendlinenumber="695"><strong>Response body</strong><br>The newly created or matching SdsStreamView.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="697" sourceendlinenumber="697"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="698" sourceendlinenumber="700"><code class="lang-csharp">   Task&lt;SdsStreamView&gt; GetOrCreateStreamViewAsync(SdsStreamView sdsStreamView);
+</code></pre><hr>
+<h2 id="create-or-update-stream-view" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="704" sourceendlinenumber="704"><code>Create or Update Stream View</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="706" sourceendlinenumber="706">Creates or updates the definition of a stream view. </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="708" sourceendlinenumber="708"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="709" sourceendlinenumber="711"><code class="lang-text">   PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="713" sourceendlinenumber="713"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="715" sourceendlinenumber="716"><code>string tenantId</code>
+The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="718" sourceendlinenumber="719"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="721" sourceendlinenumber="722"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="724" sourceendlinenumber="725"><strong>Request body</strong><br>The request content is the serialized SdsStreamView.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="727" sourceendlinenumber="728"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="730" sourceendlinenumber="731"><strong>Response body</strong><br>The newly created or updated SdsStreamView.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="733" sourceendlinenumber="733"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="734" sourceendlinenumber="736"><code class="lang-csharp">   Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
+</code></pre><hr>
+<h2 id="delete-stream-view" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="740" sourceendlinenumber="740"><code>Delete Stream View</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="742" sourceendlinenumber="742">Deletes a stream view from the specified tenant and namespace.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="744" sourceendlinenumber="744"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="745" sourceendlinenumber="747"><code class="lang-text">   DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="749" sourceendlinenumber="749"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="751" sourceendlinenumber="752"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="754" sourceendlinenumber="755"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="757" sourceendlinenumber="758"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="760" sourceendlinenumber="761"><strong>Response</strong><br>The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="763" sourceendlinenumber="763"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="764" sourceendlinenumber="766"><code class="lang-csharp">   Task DeleteStreamViewAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="get-stream-views-access-control-list" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="769" sourceendlinenumber="769"><code>Get Stream Views Access Control List</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="771" sourceendlinenumber="771">Get the default ACL for the Stream Views collection. For more information on ACLs, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="771" sourceendlinenumber="771">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="773" sourceendlinenumber="773"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="774" sourceendlinenumber="776"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="778" sourceendlinenumber="778"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="780" sourceendlinenumber="781"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="783" sourceendlinenumber="784"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="786" sourceendlinenumber="787"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="789" sourceendlinenumber="790"><strong>Response body</strong><br>The default ACL for Stream Views</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="792" sourceendlinenumber="792"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="793" sourceendlinenumber="795"><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetStreamViewsAccessControlListAsync();
+</code></pre><hr>
+<h2 id="update-stream-views-access-control-list" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="798" sourceendlinenumber="798"><code>Update Stream Views Access Control List</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="800" sourceendlinenumber="800">Update the default ACL for the Stream Views collection. For more information on ACLs, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="800" sourceendlinenumber="800">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="802" sourceendlinenumber="802"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="803" sourceendlinenumber="805"><code class="lang-text">   PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="807" sourceendlinenumber="807"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="809" sourceendlinenumber="810"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="812" sourceendlinenumber="813"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="815" sourceendlinenumber="816"><strong>Request body</strong><br>Serialized ACL</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="818" sourceendlinenumber="819"><strong>Response</strong><br>The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="821" sourceendlinenumber="821"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="822" sourceendlinenumber="824"><code class="lang-csharp">   Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
+</code></pre><hr>
+<h2 id="get-stream-view-access-control-list" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="828" sourceendlinenumber="828"><code>Get Stream View Access Control List</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="830" sourceendlinenumber="830">Get the ACL of the specified stream view. For more information on ACLs, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="830" sourceendlinenumber="830">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="832" sourceendlinenumber="832"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="833" sourceendlinenumber="835"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="837" sourceendlinenumber="837"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="839" sourceendlinenumber="840"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="842" sourceendlinenumber="843"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="845" sourceendlinenumber="846"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="848" sourceendlinenumber="849"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="851" sourceendlinenumber="852"><strong>Response Body</strong><br>The ACL for the specified stream view</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="854" sourceendlinenumber="854"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="855" sourceendlinenumber="857"><code class="lang-csharp">   Task&lt;AccessControlList&gt; GetStreamViewAccessControlListAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="update-stream-view-access-control-list" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="860" sourceendlinenumber="860"><code>Update Stream View Access Control List</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="862" sourceendlinenumber="862">Update the ACL of the specified stream view. For more information on ACLs, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="862" sourceendlinenumber="862">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="864" sourceendlinenumber="864"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="865" sourceendlinenumber="867"><code class="lang-text">   PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="869" sourceendlinenumber="869"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="871" sourceendlinenumber="872"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="874" sourceendlinenumber="875"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="877" sourceendlinenumber="878"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="880" sourceendlinenumber="881"><strong>Request body</strong><br>Serialized ACL</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="883" sourceendlinenumber="884"><strong>Response</strong><br>The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="886" sourceendlinenumber="886"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="887" sourceendlinenumber="889"><code class="lang-csharp">   Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
+</code></pre><hr>
+<h2 id="get-stream-view-owner" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="892" sourceendlinenumber="892"><code>Get Stream View Owner</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="894" sourceendlinenumber="894">Get the Owner of the specified stream view. For more information on Owners, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="894" sourceendlinenumber="894">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="896" sourceendlinenumber="896"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="897" sourceendlinenumber="899"><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="901" sourceendlinenumber="901"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="903" sourceendlinenumber="904"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="906" sourceendlinenumber="907"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="909" sourceendlinenumber="910"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="912" sourceendlinenumber="913"><strong>Response</strong><br>The response includes a status code and a response body.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="915" sourceendlinenumber="916"><strong>Response Body</strong><br>The Owner for the specified stream view</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="918" sourceendlinenumber="918"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="919" sourceendlinenumber="921"><code class="lang-csharp">   Task&lt;Trustee&gt; GetStreamViewOwnerAsync(string streamViewId);
+</code></pre><hr>
+<h2 id="update-stream-view-owner" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="924" sourceendlinenumber="924"><code>Update Stream View Owner</code></h2>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="926" sourceendlinenumber="926">Update the Owner of the specified stream view. For more information on Owners, see <a href="xref:accesscontrol" data-raw-source="[Access Control](xref:accesscontrol)" sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="926" sourceendlinenumber="926">Access Control</a>.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="928" sourceendlinenumber="928"><strong>Request</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="929" sourceendlinenumber="931"><code class="lang-text">   PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
+</code></pre><p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="933" sourceendlinenumber="933"><strong>Parameters</strong></p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="935" sourceendlinenumber="936"><code>string tenantId</code><br>The tenant identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="938" sourceendlinenumber="939"><code>string namespaceId</code><br>The namespace identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="941" sourceendlinenumber="942"><code>string streamViewId</code><br>The stream view identifier  </p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="944" sourceendlinenumber="945"><strong>Request body</strong><br>Serialized Owner</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="947" sourceendlinenumber="948"><strong>Response</strong><br>The response includes a status code.</p>
+<p sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="950" sourceendlinenumber="950"><strong>.NET Library</strong></p>
+<pre sourcefile="Documentation/SequentialDataStore/SDS_Views.md" sourcestartlinenumber="951" sourceendlinenumber="953"><code class="lang-csharp">   Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Views.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

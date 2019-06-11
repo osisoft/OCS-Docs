@@ -304,10 +304,10 @@ skip parameter when more items match the search criteria than can be returned in
 <p><strong>.NET Library</strong></p>
 <p>For example, assume there are 175 streams that match the search criteria: “temperature”.</p>
 <p>The following call returns the first 100 matches:</p>
-<pre><code class="lang-csharp">    _metadataService.GetStreamsAsync(“temperature”, 0, 100)
+<pre><code class="lang-csharp">    _metadataService.GetStreamsAsync(&quot;temperature&quot;, 0, 100)
 </code></pre><p>After the previous call, you can use the following call to return the remaining 75 matches, skipping over the first 
 100 matches because of the skip parameter set at 100):</p>
-<pre><code class="lang-csharp">    _metadataService.GetStreamsAsync(“temperature”, 100, 100)
+<pre><code class="lang-csharp">    _metadataService.GetStreamsAsync(&quot;temperature&quot;, 100, 100)
 </code></pre><p>The <code>orderby</code> parameter is supported for searching both the streams and types. The basic functionality of it is to search the items and then return the result in sorted order.
 The default value for <code>orderby</code> parameter is ascending order. It can be changed to descending order by specifying <code>desc</code> alongside the orderby field value. It can be used in conjunction with 
 <code>query</code>, <code>skip</code>, and <code>count</code> parameters.</p>
@@ -366,7 +366,7 @@ one as prefix and one as suffix e.g. <code>*Tank*</code> is valid but <code>*Ta*
 </code></pre><p><strong>.NET Library</strong></p>
 <pre><code class="lang-csharp">    GetStreamsAsync(query:”name:pump name:pressure”);
 </code></pre><h2 id="-operator-1"><strong>* Operator</strong></h2>
-<p>You can use the <code>‘*’</code> character as a wildcard to specify an incomplete string.</p>
+<p>You can use the <code>&#39;*&#39;</code> character as a wildcard to specify an incomplete string.</p>
 <table>
 <thead>
 <tr>
@@ -447,8 +447,8 @@ one as prefix and one as suffix e.g. <code>*Tank*</code> is valid but <code>*Ta*
 <td>mud bath</td>
 </tr>
 <tr>
-<td><code>name:stream\* AND (description:pressure OR description:pump)</code></td>
-<td>The name starts with “stream” and the description has the either of the terms “pressure” or “pump”</td>
+<td><code>name:stream* AND (description:pressure OR description:pump)</code></td>
+<td>The name starts with &quot;stream&quot; and the description has the either of the terms &quot;pressure&quot; or &quot;pump&quot;</td>
 <td></td>
 </tr>
 </tbody>
@@ -479,9 +479,9 @@ For example, assume that a namespace contains the following Streams and the resp
 </tbody>
 </table>
 <h2 id="-operator-2">: Operator</h2>
-<p>A Stream Metadata key is only searchable in association with a Stream Metadata value. This pairing is defined using the same  field scoping <code>‘:’</code> operator. </p>
+<p>A Stream Metadata key is only searchable in association with a Stream Metadata value. This pairing is defined using the same  field scoping <code>&#39;:&#39;</code> operator. </p>
 <pre><code>myStreamMetadataKey:streamMetadataValue
-</code></pre><p>If the <code>‘:’</code> operator is not used within an individual search clause then Metadata Keys are not searched against but Metadata 
+</code></pre><p>If the <code>&#39;:&#39;</code> operator is not used within an individual search clause then Metadata Keys are not searched against but Metadata 
 Values are searched against (along with the other searchable Stream fields).</p>
 <table>
 <thead>
@@ -508,11 +508,11 @@ Values are searched against (along with the other searchable Stream fields).</p>
 <p><strong>Request</strong></p>
 <pre><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=manufacturer:company
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code class="lang-csharp">    GetStreamsAsync(query:“manufacturer:company”);
+<pre><code class="lang-csharp">    GetStreamsAsync(query:&quot;manufacturer:company&quot;);
 </code></pre><h2 id="-operator-3">* Operator</h2>
-<p>For searching on Metadata values the <code>‘*’</code> character is again used as a wildcard to specify an incomplete string. Additionally,
+<p>For searching on Metadata values the <code>&#39;*&#39;</code> character is again used as a wildcard to specify an incomplete string. Additionally,
 this wildcard character can be used with the Metadata key as well. This is not supported for any other &quot;fields&quot;, so by including a wildcard in a field
-(defined as a value to the immediate left of a <code>‘:’</code> operator) the query will only be valid against Stream Metadata.</p>
+(defined as a value to the immediate left of a <code>&#39;:&#39;</code> operator) the query will only be valid against Stream Metadata.</p>
 <table>
 <thead>
 <tr>
@@ -543,12 +543,12 @@ this wildcard character can be used with the Metadata key as well. This is not s
 </tr>
 </tbody>
 </table>
-<p>Note that in the final example nothing matches on a Stream&#39;s Id value because including <code>‘*’</code> in a search clause&#39;s 
+<p>Note that in the final example nothing matches on a Stream&#39;s Id value because including <code>&#39;*&#39;</code> in a search clause&#39;s 
 field prevents non-Stream Metadata fields from being searched.</p>
 <p><strong>Request</strong></p>
 <pre><code class="lang-text">   GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=manufa*turer:compan*
 </code></pre><p><strong>.NET Library</strong></p>
-<pre><code class="lang-csharp">    GetStreamsAsync(query:“manufa*turer:compan*”);
+<pre><code class="lang-csharp">    GetStreamsAsync(query:&quot;manufa*turer:compan*&quot;);
 </code></pre></article>
           </div>
           

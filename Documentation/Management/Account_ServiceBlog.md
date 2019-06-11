@@ -16,20 +16,23 @@ Returns blog entries ordered by time posted.
 
 `GET api/v1-preview/ServiceBlog/Entries`
 
+`GET api/v1/ServiceBlog/Entries`
 
 ### Parameters
 
 ```csharp
-[Required]
-[FromRoute]
-string skip
+[Optional]
+[Default = "0"]
+[FromQuery]
+int32 skip
 ```
 
 Number of blogs to skip for paging purposes.
 ```csharp
-[Required]
-[FromRoute]
-string count
+[Optional]
+[Default = "100"]
+[FromQuery]
+int32 count
 ```
 
 Number of blogs to count after skip for paging purposes.
@@ -55,6 +58,7 @@ Returns a blog entry specified by ID.
 
 `GET api/v1-preview/ServiceBlog/Entries/{id}`
 
+`GET api/v1/ServiceBlog/Entries/{id}`
 
 ### Parameters
 

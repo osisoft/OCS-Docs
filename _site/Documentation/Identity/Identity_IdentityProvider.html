@@ -86,7 +86,7 @@
 <tr>
 <th>Property</th>
 <th>Type</th>
-<th>Descriptions</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -123,7 +123,7 @@
 <h2 id="get-identity-provider"><code>Get Identity Provider</code></h2>
 <p>Returns an IdentityProvider object</p>
 <h3 id="request">Request</h3>
-<p><code>GET api/v1-preview/IdentityProviders/{identityProviderId}</code></p>
+<p><code>GET api/v1/IdentityProviders/{identityProviderId}</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string identityProviderId
@@ -156,7 +156,7 @@ string identityProviderId
 <h2 id="get-tenant-identity-providers"><code>Get Tenant Identity Providers</code></h2>
 <p>Get all identity providers for a tenant</p>
 <h3 id="request-1">Request</h3>
-<p><code>GET api/v1-preview/Tenants/{tenantId}/IdentityProviders</code></p>
+<p><code>GET api/v1/Tenants/{tenantId}/IdentityProviders</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
@@ -213,7 +213,7 @@ int32 count
 <h2 id="get-tenant-identity-provider"><code>Get Tenant Identity Provider</code></h2>
 <p>Get an identity provider</p>
 <h3 id="request-2">Request</h3>
-<p><code>GET api/v1-preview/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
+<p><code>GET api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
@@ -250,22 +250,70 @@ Guid identityProviderId
 <h2 id="add-identity-provider-to-tenant"><code>Add Identity Provider to Tenant</code></h2>
 <p>Add an existing identity provider to a tenant</p>
 <h3 id="request-3">Request</h3>
-<p><code>POST api/v1-preview/Tenants/{tenantId}/IdentityProviders</code></p>
+<p><code>POST api/v1/Tenants/{tenantId}/IdentityProviders</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
-IdentityProviderAddDto identityProviderAddDto
+IdentityProviderAdd identityProviderAdd
 </code></pre><p>Add Identity Provider object</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>Yes</td>
+<td>Identity Provider Id to Add</td>
+</tr>
+<tr>
+<td>AzureActiveDirectorySendConsent</td>
+<td>bool</td>
+<td>No</td>
+<td>Send consent email for Azure Active Directory.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryConsentEmail</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred Azure Active Directory consent email for user. Must be provided if AzureActiveDirectorySendConsent is set to true.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryConsentGivenName</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred Azure Active Directory consent name for user. Must be provided if AzureActiveDirectorySendConsent is set to true.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryConsentSurname</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred Azure Active Directory consent surname for user. Must be provided if AzureActiveDirectorySendConsent is set to true.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryTenant</td>
+<td>string</td>
+<td>No</td>
+<td>Domain Name of Azure Active Directory (e.g. mydomain.onmicrosoft.com). Must be provided if you add AAd as an Identity Provider.</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="lang-json">{
   &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
-  &quot;AzureActiveDirectoryTenant&quot;: &quot;AzureActiveDirectoryTenant&quot;,
   &quot;AzureActiveDirectorySendConsent&quot;: false,
   &quot;AzureActiveDirectoryConsentEmail&quot;: &quot;user@company.com&quot;,
   &quot;AzureActiveDirectoryConsentGivenName&quot;: &quot;Name&quot;,
-  &quot;AzureActiveDirectoryConsentSurname&quot;: &quot;Surname&quot;
+  &quot;AzureActiveDirectoryConsentSurname&quot;: &quot;Surname&quot;,
+  &quot;AzureActiveDirectoryTenant&quot;: &quot;AzureActiveDirectoryTenant&quot;
 }
 </code></pre><h3 id="security-3">Security</h3>
 <p>Allowed for these roles:</p>
@@ -299,7 +347,7 @@ IdentityProviderAddDto identityProviderAddDto
 <h2 id="remove-identity-provider-from-tenant"><code>Remove Identity Provider From Tenant</code></h2>
 <p>Remove an identity provider from a tenant</p>
 <h3 id="request-4">Request</h3>
-<p><code>DELETE api/v1-preview/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
+<p><code>DELETE api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId

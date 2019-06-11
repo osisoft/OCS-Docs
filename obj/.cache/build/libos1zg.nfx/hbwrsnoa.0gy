@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Invitation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Invitation ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identityInvitation">
+<h1 id="invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="5" sourceendlinenumber="5">Invitation</h1>
+
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting an Invitation</p>
+<h2 id="properties" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the Invitation object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="13" sourceendlinenumber="22">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Unique Invitation Id.</td>
+</tr>
+<tr>
+<td>Issued</td>
+<td>DateTime</td>
+<td>Invitation issuing timestamp.</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>DateTime</td>
+<td>Invitation expiration timestamp.</td>
+</tr>
+<tr>
+<td>Accepted</td>
+<td>DateTime</td>
+<td>Invitation accepted timestamp.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>InvitationStates</td>
+<td>Invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2)</td>
+</tr>
+<tr>
+<td>TenantId</td>
+<td>string</td>
+<td>ID of the Tenant the invitation belongs to.</td>
+</tr>
+<tr>
+<td>UserId</td>
+<td>Guid</td>
+<td>ID of the User whom the invitation was issued to.</td>
+</tr>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>ID of the Identity Provider that must be used to accept the invitation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serialized-model" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="24" sourceendlinenumber="24">Serialized Model</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="26" sourceendlinenumber="37"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.818742-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8187457-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8187487-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><hr>
+<h2 id="get-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="41" sourceendlinenumber="41"><code>Get Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="43" sourceendlinenumber="43">Get an Invitation using its id in a tenant</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="45" sourceendlinenumber="45">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="47" sourceendlinenumber="47"><code>GET api/v1/Tenants/{tenantId}/Invitations/{invitationId}</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="49" sourceendlinenumber="49">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="51" sourceendlinenumber="54"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="56" sourceendlinenumber="56">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="58" sourceendlinenumber="61"><code class="lang-csharp">[Required]
+string invitationId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="63" sourceendlinenumber="63">Id of invitation</p>
+<h3 id="security" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="65" sourceendlinenumber="65">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="67" sourceendlinenumber="67">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="69" sourceendlinenumber="69">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="69" sourceendlinenumber="69"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="71" sourceendlinenumber="71">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="73" sourceendlinenumber="73">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="75" sourceendlinenumber="75">Success</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="77" sourceendlinenumber="77">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="79" sourceendlinenumber="79"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="81" sourceendlinenumber="92"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8230985-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8231026-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.823106-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="401" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="94" sourceendlinenumber="94">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="96" sourceendlinenumber="96">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="98" sourceendlinenumber="98">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="100" sourceendlinenumber="100">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="102" sourceendlinenumber="102">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="104" sourceendlinenumber="104">Invitation or Tenant not found</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="106" sourceendlinenumber="106">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="108" sourceendlinenumber="108">Internal server error</p>
+<hr>
+<h2 id="get-invitations" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="111" sourceendlinenumber="111"><code>Get Invitations</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="113" sourceendlinenumber="113">Get all invitations for a tenant</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="115" sourceendlinenumber="115">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="117" sourceendlinenumber="117"><code>GET api/v1/Tenants/{tenantId}/Invitations</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="119" sourceendlinenumber="119">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="121" sourceendlinenumber="124"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="126" sourceendlinenumber="126">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="128" sourceendlinenumber="133"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="135" sourceendlinenumber="135">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="137" sourceendlinenumber="142"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="144" sourceendlinenumber="144">Number of invitations to skip</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="146" sourceendlinenumber="151"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="153" sourceendlinenumber="153">Max number of invitations to return</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="155" sourceendlinenumber="160"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = False]
+bool includeExpiredInvitations
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="162" sourceendlinenumber="162">Specify to return expired invitations</p>
+<h3 id="security-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="164" sourceendlinenumber="164">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="166" sourceendlinenumber="166">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="168" sourceendlinenumber="168">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="168" sourceendlinenumber="168"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="170" sourceendlinenumber="170">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="172" sourceendlinenumber="172">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="174" sourceendlinenumber="174">Success</p>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="176" sourceendlinenumber="176">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="178" sourceendlinenumber="178"> <code>List[Invitation]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="180" sourceendlinenumber="203"><code class="lang-json">[
+  {
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8247538-07:00&quot;,
+    &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8247586-07:00&quot;,
+    &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8247617-07:00&quot;,
+    &quot;State&quot;: 0,
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  },
+  {
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8247759-07:00&quot;,
+    &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8247768-07:00&quot;,
+    &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8247784-07:00&quot;,
+    &quot;State&quot;: 0,
+    &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+  }
+]
+</code></pre><h4 id="400" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="205" sourceendlinenumber="205">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="207" sourceendlinenumber="207">Missing or invalid inputs</p>
+<h4 id="401-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="209" sourceendlinenumber="209">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="211" sourceendlinenumber="211">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="213" sourceendlinenumber="213">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="215" sourceendlinenumber="215">Forbidden</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="217" sourceendlinenumber="217">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="219" sourceendlinenumber="219">Tenant not found</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="221" sourceendlinenumber="221">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="223" sourceendlinenumber="223">Internal server error</p>
+<hr>
+<h2 id="update-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="226" sourceendlinenumber="226"><code>Update Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="228" sourceendlinenumber="228">Update an invitation</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="230" sourceendlinenumber="230">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="232" sourceendlinenumber="232"><code>PUT api/v1/Tenants/{tenantId}/Invitations/{invitationId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="234" sourceendlinenumber="234">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="236" sourceendlinenumber="239"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="241" sourceendlinenumber="241">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="243" sourceendlinenumber="246"><code class="lang-csharp">[Required]
+string invitationId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="248" sourceendlinenumber="248">Id of invitation</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="250" sourceendlinenumber="254"><code class="lang-csharp">[FromBody]
+[Required]
+InvitationCreateOrUpdate invitationCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="256" sourceendlinenumber="256">New InvitationCreateOrUpdate object</p>
+<table sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="258" sourceendlinenumber="263">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExpiresDateTime</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Invitation expiration date. Must be in the future.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>InvitationStates</td>
+<td>No</td>
+<td>Set the state of invitation.</td>
+</tr>
+<tr>
+<td>SendInvitation</td>
+<td>bool</td>
+<td>No</td>
+<td>Send the invitation. Default is true.</td>
+</tr>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>No</td>
+<td>Identity Provider to use for accepting this invitation. Null implies invitation can be accepted using any            configured Identity Provider.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="267" sourceendlinenumber="274"><code class="lang-json">{
+  &quot;ExpiresDateTime&quot;: &quot;2019-05-31T14:57:08.8271583-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;SendInvitation&quot;: false,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h3 id="security-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="276" sourceendlinenumber="276">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="278" sourceendlinenumber="278">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="280" sourceendlinenumber="280">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="280" sourceendlinenumber="280"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="282" sourceendlinenumber="282">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="284" sourceendlinenumber="284">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="286" sourceendlinenumber="286">Success</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="288" sourceendlinenumber="288">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="290" sourceendlinenumber="290"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="292" sourceendlinenumber="303"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.829861-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8298663-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8298719-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="400-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="305" sourceendlinenumber="305">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="307" sourceendlinenumber="307">Missing or invalid inputs</p>
+<h4 id="401-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="309" sourceendlinenumber="309">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="311" sourceendlinenumber="311">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="313" sourceendlinenumber="313">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="315" sourceendlinenumber="315">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="317" sourceendlinenumber="317">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="319" sourceendlinenumber="319">Invitation or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="321" sourceendlinenumber="321">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="323" sourceendlinenumber="323">Internal server error</p>
+<hr>
+<h2 id="delete-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="326" sourceendlinenumber="326"><code>Delete Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="328" sourceendlinenumber="328">Delete an invitation</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="330" sourceendlinenumber="330">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="332" sourceendlinenumber="332"><code>DELETE api/v1/Tenants/{tenantId}/Invitations/{invitationId}</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="334" sourceendlinenumber="334">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="336" sourceendlinenumber="339"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="341" sourceendlinenumber="341">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="343" sourceendlinenumber="346"><code class="lang-csharp">[Required]
+string invitationId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="348" sourceendlinenumber="348">Id of invitation</p>
+<h3 id="security-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="350" sourceendlinenumber="350">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="352" sourceendlinenumber="352">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="354" sourceendlinenumber="354">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="354" sourceendlinenumber="354"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="356" sourceendlinenumber="356">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="358" sourceendlinenumber="358">204</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="360" sourceendlinenumber="360">Deleted</p>
+<h4 id="401-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="362" sourceendlinenumber="362">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="364" sourceendlinenumber="364">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="366" sourceendlinenumber="366">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="368" sourceendlinenumber="368">Forbidden</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="370" sourceendlinenumber="370">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="372" sourceendlinenumber="372">Invitation or Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="374" sourceendlinenumber="374">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="376" sourceendlinenumber="376">Internal server error</p>
+<hr>
+<h2 id="get-users-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="379" sourceendlinenumber="379"><code>Get User&#39;s Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="381" sourceendlinenumber="381">Get the invitations for a user</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="383" sourceendlinenumber="383">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="385" sourceendlinenumber="385"><code>GET api/v1/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="387" sourceendlinenumber="387">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="389" sourceendlinenumber="392"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="394" sourceendlinenumber="394">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="396" sourceendlinenumber="399"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="401" sourceendlinenumber="401">Id of user</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="403" sourceendlinenumber="403">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="405" sourceendlinenumber="405">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="407" sourceendlinenumber="407">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="407" sourceendlinenumber="407"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="409" sourceendlinenumber="409">Returns</h3>
+<h4 id="200-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="411" sourceendlinenumber="411">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="413" sourceendlinenumber="413">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="415" sourceendlinenumber="415">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="417" sourceendlinenumber="417"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="419" sourceendlinenumber="430"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8742373-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8742414-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.874277-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="401-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="432" sourceendlinenumber="432">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="434" sourceendlinenumber="434">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="436" sourceendlinenumber="436">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="438" sourceendlinenumber="438">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="440" sourceendlinenumber="440">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="442" sourceendlinenumber="442">Invitation, User, or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="444" sourceendlinenumber="444">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="446" sourceendlinenumber="446">Internal server error</p>
+<hr>
+<h2 id="create-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="449" sourceendlinenumber="449"><code>Create Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="451" sourceendlinenumber="451">Create an invitation for a user. Should use when no other invitation exists for the user.</p>
+<h3 id="request-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="453" sourceendlinenumber="453">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="455" sourceendlinenumber="455"><code>POST api/v1/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
+<h3 id="parameters-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="457" sourceendlinenumber="457">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="459" sourceendlinenumber="462"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="464" sourceendlinenumber="464">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="466" sourceendlinenumber="469"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="471" sourceendlinenumber="471">Id of user</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="473" sourceendlinenumber="477"><code class="lang-csharp">[FromBody]
+[Required]
+InvitationCreateOrUpdate invitationCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="479" sourceendlinenumber="479">InvitationCreateOrUpdate object</p>
+<table sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="481" sourceendlinenumber="486">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExpiresDateTime</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Invitation expiration date. Must be within 2 months in the future.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>InvitationStates</td>
+<td>No</td>
+<td>Set the state of invitation.</td>
+</tr>
+<tr>
+<td>SendInvitation</td>
+<td>bool</td>
+<td>No</td>
+<td>Send the invitation. Default is true.</td>
+</tr>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>No</td>
+<td>Identity Provider to use for accepting this invitation. Null implies invitation can be accepted using any            configured Identity Provider.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="490" sourceendlinenumber="497"><code class="lang-json">{
+  &quot;ExpiresDateTime&quot;: &quot;2019-05-31T14:57:08.8763743-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;SendInvitation&quot;: false,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h3 id="security-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="499" sourceendlinenumber="499">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="501" sourceendlinenumber="501">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="503" sourceendlinenumber="503">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="503" sourceendlinenumber="503"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="505" sourceendlinenumber="505">Returns</h3>
+<h4 id="201" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="507" sourceendlinenumber="507">201</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="509" sourceendlinenumber="509">Created</p>
+<h5 id="type-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="511" sourceendlinenumber="511">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="513" sourceendlinenumber="513"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="515" sourceendlinenumber="526"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8765326-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8765354-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8765399-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="400-2" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="528" sourceendlinenumber="528">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="530" sourceendlinenumber="530">Missing or invalid inputs</p>
+<h4 id="401-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="532" sourceendlinenumber="532">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="534" sourceendlinenumber="534">Unauthorized</p>
+<h4 id="403-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="536" sourceendlinenumber="536">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="538" sourceendlinenumber="538">Forbidden</p>
+<h4 id="404-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="540" sourceendlinenumber="540">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="542" sourceendlinenumber="542">User or Tenant not found</p>
+<h4 id="409" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="544" sourceendlinenumber="544">409</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="546" sourceendlinenumber="546">Invitation already exists</p>
+<h4 id="500-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="548" sourceendlinenumber="548">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="550" sourceendlinenumber="550">Internal server error</p>
+<hr>
+<h2 id="create-or-update-invitation" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="553" sourceendlinenumber="553"><code>Create or Update Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="555" sourceendlinenumber="555">Create or update an invitation for a user</p>
+<h3 id="request-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="557" sourceendlinenumber="557">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="559" sourceendlinenumber="559"><code>PUT api/v1/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
+<h3 id="parameters-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="561" sourceendlinenumber="561">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="563" sourceendlinenumber="566"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="568" sourceendlinenumber="568">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="570" sourceendlinenumber="573"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="575" sourceendlinenumber="575">Id of user</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="577" sourceendlinenumber="581"><code class="lang-csharp">[FromBody]
+[Required]
+InvitationCreateOrUpdate invitationCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="583" sourceendlinenumber="583">InvitationCreateOrUpdate object</p>
+<table sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="585" sourceendlinenumber="590">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ExpiresDateTime</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Invitation expiration date. Must be within 2 months in the future.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>InvitationStates</td>
+<td>No</td>
+<td>Set the state of invitation.</td>
+</tr>
+<tr>
+<td>SendInvitation</td>
+<td>bool</td>
+<td>No</td>
+<td>Send the invitation. Default is true.</td>
+</tr>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>No</td>
+<td>Identity Provider to use for accepting this invitation. Null implies invitation can be accepted using any            configured Identity Provider.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="594" sourceendlinenumber="601"><code class="lang-json">{
+  &quot;ExpiresDateTime&quot;: &quot;2019-05-31T14:57:08.8782746-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;SendInvitation&quot;: false,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h3 id="security-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="603" sourceendlinenumber="603">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="605" sourceendlinenumber="605">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="607" sourceendlinenumber="607">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="607" sourceendlinenumber="607"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="609" sourceendlinenumber="609">Returns</h3>
+<h4 id="200-4" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="611" sourceendlinenumber="611">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="613" sourceendlinenumber="613">Updated</p>
+<h5 id="type-5" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="615" sourceendlinenumber="615">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="617" sourceendlinenumber="617"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="619" sourceendlinenumber="630"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8784046-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8784072-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.8784113-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="201-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="632" sourceendlinenumber="632">201</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="634" sourceendlinenumber="634">Created</p>
+<h5 id="type-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="636" sourceendlinenumber="636">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="638" sourceendlinenumber="638"> <code>Invitation</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="640" sourceendlinenumber="651"><code class="lang-json">{
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Issued&quot;: &quot;2019-05-31T14:57:08.8784625-07:00&quot;,
+  &quot;Expires&quot;: &quot;2019-05-31T14:57:08.8784643-07:00&quot;,
+  &quot;Accepted&quot;: &quot;2019-05-31T14:57:08.878468-07:00&quot;,
+  &quot;State&quot;: 0,
+  &quot;TenantId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;UserId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;
+}
+</code></pre><h4 id="400-3" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="653" sourceendlinenumber="653">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="655" sourceendlinenumber="655">Missing or invalid inputs</p>
+<h4 id="401-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="657" sourceendlinenumber="657">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="659" sourceendlinenumber="659">Unauthorized</p>
+<h4 id="403-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="661" sourceendlinenumber="661">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="663" sourceendlinenumber="663">Forbidden</p>
+<h4 id="404-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="665" sourceendlinenumber="665">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="667" sourceendlinenumber="667">User or Tenant not found</p>
+<h4 id="500-6" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="669" sourceendlinenumber="669">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="671" sourceendlinenumber="671">Internal server error</p>
+<hr>
+<h2 id="delete-invitation-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="674" sourceendlinenumber="674"><code>Delete Invitation</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="676" sourceendlinenumber="676">Delete an invitation for a user</p>
+<h3 id="request-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="678" sourceendlinenumber="678">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="680" sourceendlinenumber="680"><code>DELETE api/v1/Tenants/{tenantId}/Users/{userId}/Invitation</code></p>
+<h3 id="parameters-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="682" sourceendlinenumber="682">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="684" sourceendlinenumber="687"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="689" sourceendlinenumber="689">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="691" sourceendlinenumber="694"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="696" sourceendlinenumber="696">Id of user</p>
+<h3 id="security-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="698" sourceendlinenumber="698">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="700" sourceendlinenumber="700">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="702" sourceendlinenumber="702">
+<li sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="702" sourceendlinenumber="702"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="704" sourceendlinenumber="704">Returns</h3>
+<h4 id="204-1" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="706" sourceendlinenumber="706">204</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="708" sourceendlinenumber="708">Deleted</p>
+<h4 id="401-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="710" sourceendlinenumber="710">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="712" sourceendlinenumber="712">Unauthorized</p>
+<h4 id="403-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="714" sourceendlinenumber="714">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="716" sourceendlinenumber="716">Forbidden</p>
+<h4 id="404-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="718" sourceendlinenumber="718">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="720" sourceendlinenumber="720">Invitation or Tenant not found</p>
+<h4 id="500-7" sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="722" sourceendlinenumber="722">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Invitation.md" sourcestartlinenumber="724" sourceendlinenumber="724">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_Invitation.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

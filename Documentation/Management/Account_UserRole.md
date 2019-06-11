@@ -35,6 +35,7 @@ Retrieves all `Roles` for the specified user.
 
 `GET api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles`
 
+`GET api/v1/Tenants/{tenantId}/Users/{userId}/Roles`
 
 ### Parameters
 
@@ -53,16 +54,18 @@ string userId
 
 The identifier of the user whose roles will be retrieved.
 ```csharp
-[Required]
-[FromRoute]
-string skip
+[Optional]
+[Default = "0"]
+[FromQuery]
+int32 skip
 ```
 
 Number of `Roles` to ignore.
 ```csharp
-[Required]
-[FromRoute]
-string count
+[Optional]
+[Default = "100"]
+[FromQuery]
+int32 count
 ```
 
 Number of `Roles` to return.
@@ -83,106 +86,6 @@ Authorized for Account Administrators of the specified account and an Account Me
 
 ***
 
-## `Add Account Role to User`
-
-Adds a `Role` to the specified user.
-
-### Http
-
-`PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}`
-
-
-### Parameters
-
-```csharp
-[Required]
-[FromRoute]
-string tenantId
-```
-
-The identifier for the account in which the user belongs.
-```csharp
-[Required]
-[FromRoute]
-string userId
-```
-
-The identifier of the user who will be given the `Role`.
-```csharp
-[Required]
-[FromRoute]
-string roleId
-```
-
-The identifier of the `Role` to be assigned.
-
-
-### Security
-
-Authorized for Account Administrators of the specified account.
-
-### Returns
-
-| Status Code | Return Type | Description | 
- | --- | --- | ---  | 
-| 200 | Role | Returns the added `Role` with the specified roleId. | 
-| 400 | Nothing is returned | Could not add the `Role` to the specified user due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to add the `Role` to the specified user. | 
-| 404 | Nothing is returned | A user with the specified userId was not found. | 
-
-
-***
-
-## `Remove Role from User`
-
-Removes a `Role` from a user.
-
-### Http
-
-`DELETE api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles/{roleId}`
-
-
-### Parameters
-
-```csharp
-[Required]
-[FromRoute]
-string tenantId
-```
-
-The identifier for the account in which the user belongs.
-```csharp
-[Required]
-[FromRoute]
-string userId
-```
-
-The identifier of the user whose `Role` will be removed.
-```csharp
-[Required]
-[FromRoute]
-string roleId
-```
-
-The identifier of the `Role` to be removed.
-
-
-### Security
-
-Authorized for Account Administrators of the specified account.
-
-### Returns
-
-| Status Code | Return Type | Description | 
- | --- | --- | ---  | 
-| 204 | Nothing is returned | The `Role` was removed from the specified user. | 
-| 400 | Nothing is returned | Could not remove the `Role` due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to remove the `Role` from the specified user. | 
-| 404 | Nothing is returned | A user with the specified userId was not found. | 
-
-
-***
-
 ## `Replace User Roles`
 
 Replaces the `Roles` of a user with a new list of roles.
@@ -191,6 +94,7 @@ Replaces the `Roles` of a user with a new list of roles.
 
 `PUT api/v1-preview/Tenants/{tenantId}/Users/{userId}/Roles`
 
+`PUT api/v1/Tenants/{tenantId}/Users/{userId}/Roles`
 
 ### Parameters
 

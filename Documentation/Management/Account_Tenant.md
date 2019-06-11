@@ -42,6 +42,7 @@ Retrieves a specific `Tenant` by ID.
 
 `GET api/v1-preview/Tenants/{tenantId}`
 
+`GET api/v1/Tenants/{tenantId}`
 
 ### Parameters
 
@@ -77,6 +78,7 @@ Checks if a `Tenant` with a specific ID exists.
 
 `HEAD api/v1-preview/Tenants/{tenantId}`
 
+`HEAD api/v1/Tenants/{tenantId}`
 
 ### Parameters
 
@@ -112,6 +114,7 @@ Updates a specified `Tenant` object.
 
 `PUT api/v1-preview/Tenants/{tenantId}`
 
+`PUT api/v1/Tenants/{tenantId}`
 
 ### Parameters
 
@@ -154,6 +157,7 @@ Returns an icon specified by its `Tenant` ID.
 
 `GET api/v1-preview/Tenants/{tenantId}/Icon`
 
+`GET api/v1/Tenants/{tenantId}/Icon`
 
 ### Parameters
 
@@ -189,6 +193,7 @@ Creates or updates the icon for a `Tenant`. Note that the icon size must be less
 
 `PUT api/v1-preview/Tenants/{tenantId}/Icon`
 
+`PUT api/v1/Tenants/{tenantId}/Icon`
 
 ### Parameters
 
@@ -231,6 +236,7 @@ Deletes the icon for a `Tenant`.
 
 `DELETE api/v1-preview/Tenants/{tenantId}/Icon`
 
+`DELETE api/v1/Tenants/{tenantId}/Icon`
 
 ### Parameters
 

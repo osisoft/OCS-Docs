@@ -86,7 +86,7 @@
 <tr>
 <th>Property</th>
 <th>Type</th>
-<th>Descriptions</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -111,7 +111,7 @@
 <h2 id="add-azure-active-directory-tenant"><code>Add Azure Active Directory Tenant</code></h2>
 <p>Add Azure Active Directory Tenant to a Tenant</p>
 <h3 id="request">Request</h3>
-<p><code>POST api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants</code></p>
+<p><code>POST api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}</code></p>
 <h3 id="parameters">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
@@ -149,7 +149,7 @@ string azureActiveDirectoryTenantId
 <h2 id="get-all-azure-active-directory-tenants"><code>Get All Azure Active Directory Tenants</code></h2>
 <p>Get all Azure Active Directory Tenants for a Tenant</p>
 <h3 id="request-1">Request</h3>
-<p><code>GET api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants</code></p>
+<p><code>GET api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants</code></p>
 <h3 id="parameters-1">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
@@ -201,14 +201,14 @@ int32 count
 <h2 id="get-azure-active-directory-tenant"><code>Get Azure Active Directory Tenant</code></h2>
 <p>Get Azure Active Directory Tenant from a tenant</p>
 <h3 id="request-2">Request</h3>
-<p><code>GET api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}</code></p>
+<p><code>GET api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}</code></p>
 <h3 id="parameters-2">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string azureActiveDirectoryTenantId
-</code></pre><p>Azure Active Directory Tenant Id to remove</p>
+</code></pre><p>Azure Active Directory Tenant Id</p>
 <h3 id="security-2">Security</h3>
 <p>Allowed for these roles:</p>
 <ul>
@@ -237,7 +237,7 @@ string azureActiveDirectoryTenantId
 <h2 id="remove-azure-active-directory-tenant-from-tenant"><code>Remove Azure Active Directory Tenant From Tenant</code></h2>
 <p>Remove Azure Active Directory Tenant from a tenant</p>
 <h3 id="request-3">Request</h3>
-<p><code>DELETE api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}</code></p>
+<p><code>DELETE api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}</code></p>
 <h3 id="parameters-3">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
@@ -267,22 +267,59 @@ string azureActiveDirectoryTenantId
 <h2 id="send-consent-for-azure-active-directory-tenant"><code>Send Consent for Azure Active Directory Tenant</code></h2>
 <p>Send consent for an Azure Active Directory Tenant</p>
 <h3 id="request-4">Request</h3>
-<p><code>POST api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}/SendConsent</code></p>
+<p><code>POST api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}/SendConsent</code></p>
 <h3 id="parameters-4">Parameters</h3>
 <pre><code class="lang-csharp">[Required]
 string tenantId
 </code></pre><p>Id of tenant</p>
 <pre><code class="lang-csharp">[Required]
 string azureActiveDirectoryTenantId
-</code></pre><p>Azure Active Directory Tenant Id to remove</p>
+</code></pre><p>Azure Active Directory Tenant Id</p>
 <pre><code class="lang-csharp">[FromBody]
 [Required]
-ConsentInformationDto consentInformationDto
+ConsentInformation consentInformation
 </code></pre><p>Consent information used to send</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AzureActiveDirectoryConsentEmail</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred Azure Active Directory consent email for user.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryConsentGivenName</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred Azure Active Directory consent name for user.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryConsentSurname</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred Azure Active Directory consent surname for user.</td>
+</tr>
+<tr>
+<td>AzureActiveDirectoryTenant</td>
+<td>string</td>
+<td>Yes</td>
+<td>Domain Name of Azure Active Directory (e.g. mydomain.onmicrosoft.com)</td>
+</tr>
+</tbody>
+</table>
 <pre><code class="lang-json">{
   &quot;AzureActiveDirectoryConsentEmail&quot;: &quot;user@company.com&quot;,
   &quot;AzureActiveDirectoryConsentGivenName&quot;: &quot;Name&quot;,
-  &quot;AzureActiveDirectoryConsentSurname&quot;: &quot;Surname&quot;
+  &quot;AzureActiveDirectoryConsentSurname&quot;: &quot;Surname&quot;,
+  &quot;AzureActiveDirectoryTenant&quot;: &quot;AzureActiveDirectoryTenant&quot;
 }
 </code></pre><h3 id="security-4">Security</h3>
 <p>Allowed for these roles:</p>

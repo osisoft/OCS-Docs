@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ImplicitClient </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ImplicitClient ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identityImplicitClient">
+<h1 id="implicitclient" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="5" sourceendlinenumber="5">ImplicitClient</h1>
+
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting Implicit Clients</p>
+<h2 id="properties" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the ImplicitClient object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="13" sourceendlinenumber="23">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllowedCorsOrigins</td>
+<td>string[]</td>
+<td>If specified, will be used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Client ID for this Client</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serialized-model" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="25" sourceendlinenumber="25">Serialized Model</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="27" sourceendlinenumber="51"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><hr>
+<h2 id="create-implicit-client" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="55" sourceendlinenumber="55"><code>Create Implicit Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="57" sourceendlinenumber="57">Create an Implicit flow Clients</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="59" sourceendlinenumber="59">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="61" sourceendlinenumber="61"><code>POST api/v1/Tenants/{tenantId}/ImplicitClients</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="63" sourceendlinenumber="63">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="65" sourceendlinenumber="68"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="70" sourceendlinenumber="70">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="72" sourceendlinenumber="76"><code class="lang-csharp">[FromBody]
+[Required]
+ImplicitClient implicitClient
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="78" sourceendlinenumber="78">New ImplicitClient object</p>
+<table sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="80" sourceendlinenumber="90">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllowedCorsOrigins</td>
+<td>string[]</td>
+<td>No</td>
+<td>If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>No</td>
+<td>Client ID for this Client</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>No</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>No</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="94" sourceendlinenumber="118"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h3 id="security" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="120" sourceendlinenumber="120">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="122" sourceendlinenumber="122">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="124" sourceendlinenumber="124">
+<li sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="124" sourceendlinenumber="124"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="126" sourceendlinenumber="126">Returns</h3>
+<h4 id="201" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="128" sourceendlinenumber="128">201</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="130" sourceendlinenumber="130">Created</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="132" sourceendlinenumber="132">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="134" sourceendlinenumber="134"> <code>ImplicitClient</code></p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="136" sourceendlinenumber="160"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h4 id="400" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="162" sourceendlinenumber="162">400</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="164" sourceendlinenumber="164">Client limit exceeded.</p>
+<h4 id="401" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="166" sourceendlinenumber="166">401</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="168" sourceendlinenumber="168">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="170" sourceendlinenumber="170">403</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="172" sourceendlinenumber="172">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="174" sourceendlinenumber="174">404</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="176" sourceendlinenumber="176">Tenant not found</p>
+<h4 id="409" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="178" sourceendlinenumber="178">409</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="180" sourceendlinenumber="180">Client Id already exists.</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="182" sourceendlinenumber="182">500</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="184" sourceendlinenumber="184">Internal server error</p>
+<hr>
+<h2 id="update-implicit-client" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="187" sourceendlinenumber="187"><code>Update Implicit Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="189" sourceendlinenumber="189">Update an Implicit Client</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="191" sourceendlinenumber="191">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="193" sourceendlinenumber="193"><code>PUT api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="195" sourceendlinenumber="195">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="197" sourceendlinenumber="200"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="202" sourceendlinenumber="202">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="204" sourceendlinenumber="207"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="209" sourceendlinenumber="209">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="211" sourceendlinenumber="215"><code class="lang-csharp">[FromBody]
+[Required]
+ImplicitClient implicitClient
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="217" sourceendlinenumber="217">Updated Implicit Client values</p>
+<table sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="219" sourceendlinenumber="229">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllowedCorsOrigins</td>
+<td>string[]</td>
+<td>No</td>
+<td>If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>No</td>
+<td>Client ID for this Client. Must be the same as the Id in the route.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>No</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>No</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="233" sourceendlinenumber="257"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h3 id="security-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="259" sourceendlinenumber="259">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="261" sourceendlinenumber="261">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="263" sourceendlinenumber="263">
+<li sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="263" sourceendlinenumber="263"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="265" sourceendlinenumber="265">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="267" sourceendlinenumber="267">200</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="269" sourceendlinenumber="269">Success</p>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="271" sourceendlinenumber="271">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="273" sourceendlinenumber="273"> <code>ImplicitClient</code></p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="275" sourceendlinenumber="299"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h4 id="401-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="301" sourceendlinenumber="301">401</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="303" sourceendlinenumber="303">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="305" sourceendlinenumber="305">403</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="307" sourceendlinenumber="307">Forbidden</p>
+<h4 id="400-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="309" sourceendlinenumber="309">400</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="311" sourceendlinenumber="311">Missing or invalid inputs</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="313" sourceendlinenumber="313">404</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="315" sourceendlinenumber="315">Client or Tenant not found</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="317" sourceendlinenumber="317">500</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="319" sourceendlinenumber="319">Internal server error</p>
+<hr>
+<h2 id="get-implicit-client" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="322" sourceendlinenumber="322"><code>Get Implicit Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="324" sourceendlinenumber="324">Get an Implicit Client</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="326" sourceendlinenumber="326">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="328" sourceendlinenumber="328"><code>GET api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="330" sourceendlinenumber="330">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="332" sourceendlinenumber="335"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="337" sourceendlinenumber="337">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="339" sourceendlinenumber="342"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="344" sourceendlinenumber="344">Id of client</p>
+<h3 id="security-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="346" sourceendlinenumber="346">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="348" sourceendlinenumber="348">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="350" sourceendlinenumber="350">
+<li sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="350" sourceendlinenumber="350"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="352" sourceendlinenumber="352">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="354" sourceendlinenumber="354">200</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="356" sourceendlinenumber="356">Success</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="358" sourceendlinenumber="358">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="360" sourceendlinenumber="360"> <code>ImplicitClient</code></p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="362" sourceendlinenumber="386"><code class="lang-json">{
+  &quot;AllowedCorsOrigins&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h4 id="401-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="388" sourceendlinenumber="388">401</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="390" sourceendlinenumber="390">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="392" sourceendlinenumber="392">403</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="394" sourceendlinenumber="394">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="396" sourceendlinenumber="396">404</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="398" sourceendlinenumber="398">Client or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="400" sourceendlinenumber="400">500</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="402" sourceendlinenumber="402">Internal server error</p>
+<hr>
+<h2 id="get-all-implicit-clients" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="405" sourceendlinenumber="405"><code>Get All Implicit Clients</code></h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="407" sourceendlinenumber="407">Get all Implicit Clients</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="409" sourceendlinenumber="409">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="411" sourceendlinenumber="411"><code>GET api/v1/Tenants/{tenantId}/ImplicitClients</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="413" sourceendlinenumber="413">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="415" sourceendlinenumber="418"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="420" sourceendlinenumber="420">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="422" sourceendlinenumber="427"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string[] tag
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="429" sourceendlinenumber="429">Only return Clients that have these tags.</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="431" sourceendlinenumber="436"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="438" sourceendlinenumber="438">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="440" sourceendlinenumber="445"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="447" sourceendlinenumber="447">Number of clients to skip. From query.</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="449" sourceendlinenumber="454"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="456" sourceendlinenumber="456">Max number of clients to return</p>
+<h3 id="security-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="458" sourceendlinenumber="458">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="460" sourceendlinenumber="460">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="462" sourceendlinenumber="462">
+<li sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="462" sourceendlinenumber="462"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="464" sourceendlinenumber="464">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="466" sourceendlinenumber="466">200</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="468" sourceendlinenumber="468">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="470" sourceendlinenumber="470">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="472" sourceendlinenumber="472"> <code>List[ImplicitClient]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="474" sourceendlinenumber="523"><code class="lang-json">[
+  {
+    &quot;AllowedCorsOrigins&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Enabled&quot;: false,
+    &quot;Tags&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ]
+  },
+  {
+    &quot;AllowedCorsOrigins&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Enabled&quot;: false,
+    &quot;Tags&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ]
+  }
+]
+</code></pre><h4 id="401-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="525" sourceendlinenumber="525">401</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="527" sourceendlinenumber="527">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="529" sourceendlinenumber="529">403</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="531" sourceendlinenumber="531">Forbidden</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="533" sourceendlinenumber="533">404</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="535" sourceendlinenumber="535">Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="537" sourceendlinenumber="537">500</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="539" sourceendlinenumber="539">Internal server error</p>
+<hr>
+<h2 id="delete-implicit-client" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="542" sourceendlinenumber="542"><code>Delete Implicit Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="544" sourceendlinenumber="544">Delete an Implicit Client</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="546" sourceendlinenumber="546">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="548" sourceendlinenumber="548"><code>DELETE api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="550" sourceendlinenumber="550">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="552" sourceendlinenumber="555"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="557" sourceendlinenumber="557">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="559" sourceendlinenumber="562"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="564" sourceendlinenumber="564">Id of client</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="566" sourceendlinenumber="566">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="568" sourceendlinenumber="568">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="570" sourceendlinenumber="570">
+<li sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="570" sourceendlinenumber="570"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="572" sourceendlinenumber="572">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="574" sourceendlinenumber="574">204</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="576" sourceendlinenumber="576">Deleted</p>
+<h4 id="401-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="578" sourceendlinenumber="578">401</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="580" sourceendlinenumber="580">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="582" sourceendlinenumber="582">403</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="584" sourceendlinenumber="584">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="586" sourceendlinenumber="586">404</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="588" sourceendlinenumber="588">Client or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="590" sourceendlinenumber="590">500</h4>
+<p sourcefile="Documentation/Identity/Identity_ImplicitClient.md" sourcestartlinenumber="592" sourceendlinenumber="592">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_ImplicitClient.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

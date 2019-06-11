@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Secret </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Secret ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identitySecret">
+<h1 id="secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="5" sourceendlinenumber="5">Secret</h1>
+
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting Hybrid Client Secrets</p>
+<hr>
+<h2 id="get-hybrid-client-secrets" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="12" sourceendlinenumber="12"><code>Get Hybrid Client Secrets</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="14" sourceendlinenumber="14">Get all secrets for a Hybrid Client</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="16" sourceendlinenumber="16">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="18" sourceendlinenumber="18"><code>GET api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="20" sourceendlinenumber="20">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="22" sourceendlinenumber="25"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="27" sourceendlinenumber="27">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="29" sourceendlinenumber="32"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="34" sourceendlinenumber="34">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="36" sourceendlinenumber="41"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="43" sourceendlinenumber="43">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="45" sourceendlinenumber="50"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="52" sourceendlinenumber="52">Number of secrets to skip. From query.</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="54" sourceendlinenumber="59"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="61" sourceendlinenumber="61">Max number of secrets to return</p>
+<h3 id="security" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="63" sourceendlinenumber="63">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="65" sourceendlinenumber="65">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="67" sourceendlinenumber="67">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="67" sourceendlinenumber="67"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="69" sourceendlinenumber="69">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="71" sourceendlinenumber="71">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="73" sourceendlinenumber="73">Success</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="75" sourceendlinenumber="75">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="77" sourceendlinenumber="77"> <code>List[ClientSecret]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="79" sourceendlinenumber="94"><code class="lang-json">[
+  {
+    &quot;Id&quot;: 0,
+    &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5721303-07:00&quot;,
+    &quot;Expires&quot;: false,
+    &quot;Description&quot;: &quot;description&quot;
+  },
+  {
+    &quot;Id&quot;: 0,
+    &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5724552-07:00&quot;,
+    &quot;Expires&quot;: false,
+    &quot;Description&quot;: &quot;description&quot;
+  }
+]
+</code></pre><h4 id="401" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="96" sourceendlinenumber="96">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="98" sourceendlinenumber="98">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="100" sourceendlinenumber="100">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="102" sourceendlinenumber="102">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="104" sourceendlinenumber="104">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="106" sourceendlinenumber="106">Client or Tenant not found</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="108" sourceendlinenumber="108">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="110" sourceendlinenumber="110">Internal server error</p>
+<hr>
+<h2 id="get-hybrid-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="113" sourceendlinenumber="113"><code>Get Hybrid Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="115" sourceendlinenumber="115">Get a specific Hybrid Client Secret</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="117" sourceendlinenumber="117">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="119" sourceendlinenumber="119"><code>GET api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="121" sourceendlinenumber="121">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="123" sourceendlinenumber="126"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="128" sourceendlinenumber="128">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="130" sourceendlinenumber="133"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="135" sourceendlinenumber="135">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="137" sourceendlinenumber="140"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="142" sourceendlinenumber="142">Id of secret</p>
+<h3 id="security-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="144" sourceendlinenumber="144">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="146" sourceendlinenumber="146">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="148" sourceendlinenumber="148">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="148" sourceendlinenumber="148"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="150" sourceendlinenumber="150">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="152" sourceendlinenumber="152">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="154" sourceendlinenumber="154">Success</p>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="156" sourceendlinenumber="156">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="158" sourceendlinenumber="158"> <code>ClientSecret</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="160" sourceendlinenumber="167"><code class="lang-json">{
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5763045-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="401-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="169" sourceendlinenumber="169">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="171" sourceendlinenumber="171">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="173" sourceendlinenumber="173">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="175" sourceendlinenumber="175">Forbidden</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="177" sourceendlinenumber="177">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="179" sourceendlinenumber="179">Secret, Client, or Tenant not found</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="181" sourceendlinenumber="181">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="183" sourceendlinenumber="183">Internal server error</p>
+<hr>
+<h2 id="add-hybrid-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="186" sourceendlinenumber="186"><code>Add Hybrid Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="188" sourceendlinenumber="188">Add a new secret for a Hybrid Client</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="190" sourceendlinenumber="190">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="192" sourceendlinenumber="192"><code>POST api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="194" sourceendlinenumber="194">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="196" sourceendlinenumber="199"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="201" sourceendlinenumber="201">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="203" sourceendlinenumber="206"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="208" sourceendlinenumber="208">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="210" sourceendlinenumber="214"><code class="lang-csharp">[FromBody]
+[Required]
+ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
+</code></pre><table sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="218" sourceendlinenumber="222">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expiration</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Expiration date for the client secret. If not provided the secret will never expire.</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>bool</td>
+<td>No</td>
+<td>Determines if the secret expires. If this value is set, non null Expiration will be ignored. Defaults to true.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>No</td>
+<td>Description for the client secret</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="226" sourceendlinenumber="232"><code class="lang-json">{
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.577856-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h3 id="security-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="234" sourceendlinenumber="234">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="236" sourceendlinenumber="236">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="238" sourceendlinenumber="238">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="238" sourceendlinenumber="238"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="240" sourceendlinenumber="240">Returns</h3>
+<h4 id="201" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="242" sourceendlinenumber="242">201</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="244" sourceendlinenumber="244">Created</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="246" sourceendlinenumber="246">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="248" sourceendlinenumber="248"> <code>ClientSecretResponse</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="250" sourceendlinenumber="258"><code class="lang-json">{
+  &quot;Secret&quot;: &quot;Secret&quot;,
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5795202-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="401-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="260" sourceendlinenumber="260">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="262" sourceendlinenumber="262">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="264" sourceendlinenumber="264">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="266" sourceendlinenumber="266">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="268" sourceendlinenumber="268">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="270" sourceendlinenumber="270">Client or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="272" sourceendlinenumber="272">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="274" sourceendlinenumber="274">Internal server error</p>
+<hr>
+<h2 id="update-hybrid-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="277" sourceendlinenumber="277"><code>Update Hybrid Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="279" sourceendlinenumber="279">Update a Hybrid Client Secret</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="281" sourceendlinenumber="281">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="283" sourceendlinenumber="283"><code>PUT api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="285" sourceendlinenumber="285">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="287" sourceendlinenumber="290"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="292" sourceendlinenumber="292">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="294" sourceendlinenumber="297"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="299" sourceendlinenumber="299">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="301" sourceendlinenumber="304"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="306" sourceendlinenumber="306">secretId</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="308" sourceendlinenumber="312"><code class="lang-csharp">[FromBody]
+[Required]
+ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="314" sourceendlinenumber="314">secretId</p>
+<table sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="316" sourceendlinenumber="320">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expiration</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Expiration date for the client secret. If not provided the secret will never expire.</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>bool</td>
+<td>No</td>
+<td>Determines if the secret expires. If this value is set, non null Expiration will be ignored. Defaults to true.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>No</td>
+<td>Description for the client secret</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="324" sourceendlinenumber="330"><code class="lang-json">{
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5829853-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h3 id="security-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="332" sourceendlinenumber="332">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="334" sourceendlinenumber="334">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="336" sourceendlinenumber="336">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="336" sourceendlinenumber="336"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="338" sourceendlinenumber="338">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="340" sourceendlinenumber="340">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="342" sourceendlinenumber="342">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="344" sourceendlinenumber="344">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="346" sourceendlinenumber="346"> <code>ClientSecret</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="348" sourceendlinenumber="355"><code class="lang-json">{
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.5830795-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="400" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="357" sourceendlinenumber="357">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="359" sourceendlinenumber="359">Missing or invalid inputs</p>
+<h4 id="401-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="361" sourceendlinenumber="361">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="363" sourceendlinenumber="363">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="365" sourceendlinenumber="365">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="367" sourceendlinenumber="367">Forbidden</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="369" sourceendlinenumber="369">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="371" sourceendlinenumber="371">Secret, Client, or Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="373" sourceendlinenumber="373">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="375" sourceendlinenumber="375">Internal server error</p>
+<hr>
+<h2 id="delete-hybrid-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="378" sourceendlinenumber="378"><code>Delete Hybrid Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="380" sourceendlinenumber="380">Delete a secret from a Hybrid Client</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="382" sourceendlinenumber="382">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="384" sourceendlinenumber="384"><code>DELETE api/v1/Tenants/{tenantId}/HybridClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="386" sourceendlinenumber="386">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="388" sourceendlinenumber="391"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="393" sourceendlinenumber="393">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="395" sourceendlinenumber="398"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="400" sourceendlinenumber="400">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="402" sourceendlinenumber="405"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="407" sourceendlinenumber="407">Id of secret</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="409" sourceendlinenumber="409">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="411" sourceendlinenumber="411">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="413" sourceendlinenumber="413">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="413" sourceendlinenumber="413"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="415" sourceendlinenumber="415">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="417" sourceendlinenumber="417">204</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="419" sourceendlinenumber="419">Success</p>
+<h4 id="401-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="421" sourceendlinenumber="421">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="423" sourceendlinenumber="423">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="425" sourceendlinenumber="425">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="427" sourceendlinenumber="427">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="429" sourceendlinenumber="429">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="431" sourceendlinenumber="431">Secret, Client, or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="433" sourceendlinenumber="433">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="435" sourceendlinenumber="435">Internal server error</p>
+<hr>
+<h2 id="get-client-credential-client-secrets" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="438" sourceendlinenumber="438"><code>Get Client Credential Client Secrets</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="440" sourceendlinenumber="440">Get all secrets for a Client Credential Client</p>
+<h3 id="request-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="442" sourceendlinenumber="442">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="444" sourceendlinenumber="444"><code>GET api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets</code></p>
+<h3 id="parameters-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="446" sourceendlinenumber="446">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="448" sourceendlinenumber="451"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="453" sourceendlinenumber="453">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="455" sourceendlinenumber="458"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="460" sourceendlinenumber="460">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="462" sourceendlinenumber="467"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="469" sourceendlinenumber="469">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="471" sourceendlinenumber="476"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="478" sourceendlinenumber="478">Number of secrets to skip. From query.</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="480" sourceendlinenumber="485"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="487" sourceendlinenumber="487">Max number of secrets to return</p>
+<h3 id="security-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="489" sourceendlinenumber="489">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="491" sourceendlinenumber="491">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="493" sourceendlinenumber="493">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="493" sourceendlinenumber="493"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="495" sourceendlinenumber="495">Returns</h3>
+<h4 id="200-3" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="497" sourceendlinenumber="497">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="499" sourceendlinenumber="499">Success</p>
+<h5 id="type-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="501" sourceendlinenumber="501">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="503" sourceendlinenumber="503"> <code>List[ClientSecret]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="505" sourceendlinenumber="520"><code class="lang-json">[
+  {
+    &quot;Id&quot;: 0,
+    &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6890608-07:00&quot;,
+    &quot;Expires&quot;: false,
+    &quot;Description&quot;: &quot;description&quot;
+  },
+  {
+    &quot;Id&quot;: 0,
+    &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6890792-07:00&quot;,
+    &quot;Expires&quot;: false,
+    &quot;Description&quot;: &quot;description&quot;
+  }
+]
+</code></pre><h4 id="401-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="522" sourceendlinenumber="522">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="524" sourceendlinenumber="524">Unauthorized</p>
+<h4 id="403-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="526" sourceendlinenumber="526">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="528" sourceendlinenumber="528">Forbidden</p>
+<h4 id="404-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="530" sourceendlinenumber="530">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="532" sourceendlinenumber="532">Client or Tenant not found</p>
+<h4 id="500-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="534" sourceendlinenumber="534">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="536" sourceendlinenumber="536">Internal server error</p>
+<hr>
+<h2 id="get-client-credential-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="539" sourceendlinenumber="539"><code>Get Client Credential Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="541" sourceendlinenumber="541">Get a specific Client Credential Client Secret</p>
+<h3 id="request-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="543" sourceendlinenumber="543">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="545" sourceendlinenumber="545"><code>GET api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="547" sourceendlinenumber="547">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="549" sourceendlinenumber="552"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="554" sourceendlinenumber="554">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="556" sourceendlinenumber="559"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="561" sourceendlinenumber="561">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="563" sourceendlinenumber="566"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="568" sourceendlinenumber="568">Id of secret</p>
+<h3 id="security-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="570" sourceendlinenumber="570">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="572" sourceendlinenumber="572">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="574" sourceendlinenumber="574">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="574" sourceendlinenumber="574"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="576" sourceendlinenumber="576">Returns</h3>
+<h4 id="200-4" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="578" sourceendlinenumber="578">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="580" sourceendlinenumber="580">Success</p>
+<h5 id="type-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="582" sourceendlinenumber="582">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="584" sourceendlinenumber="584"> <code>ClientSecret</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="586" sourceendlinenumber="593"><code class="lang-json">{
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6906466-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="401-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="595" sourceendlinenumber="595">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="597" sourceendlinenumber="597">Unauthorized</p>
+<h4 id="403-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="599" sourceendlinenumber="599">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="601" sourceendlinenumber="601">Forbidden</p>
+<h4 id="404-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="603" sourceendlinenumber="603">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="605" sourceendlinenumber="605">Secret, Client, or Tenant not found</p>
+<h4 id="500-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="607" sourceendlinenumber="607">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="609" sourceendlinenumber="609">Internal server error</p>
+<hr>
+<h2 id="add-client-credential-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="612" sourceendlinenumber="612"><code>Add Client Credential Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="614" sourceendlinenumber="614">Add a new secret for a Client Credential Client</p>
+<h3 id="request-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="616" sourceendlinenumber="616">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="618" sourceendlinenumber="618"><code>POST api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets</code></p>
+<h3 id="parameters-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="620" sourceendlinenumber="620">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="622" sourceendlinenumber="625"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="627" sourceendlinenumber="627">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="629" sourceendlinenumber="632"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="634" sourceendlinenumber="634">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="636" sourceendlinenumber="640"><code class="lang-csharp">[FromBody]
+[Required]
+ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
+</code></pre><table sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="644" sourceendlinenumber="648">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expiration</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Expiration date for the client secret.  If not provided the secret will never expire.</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>bool</td>
+<td>No</td>
+<td>Determines if the secret expires. If this value is set, non null Expiration will be ignored. Defaults to true.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>No</td>
+<td>Description for the client secret</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="652" sourceendlinenumber="658"><code class="lang-json">{
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6923968-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h3 id="security-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="660" sourceendlinenumber="660">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="662" sourceendlinenumber="662">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="664" sourceendlinenumber="664">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="664" sourceendlinenumber="664"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="666" sourceendlinenumber="666">Returns</h3>
+<h4 id="201-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="668" sourceendlinenumber="668">201</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="670" sourceendlinenumber="670">Created</p>
+<h5 id="type-6" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="672" sourceendlinenumber="672">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="674" sourceendlinenumber="674"> <code>ClientSecretResponse</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="676" sourceendlinenumber="684"><code class="lang-json">{
+  &quot;Secret&quot;: &quot;Secret&quot;,
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.692539-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="401-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="686" sourceendlinenumber="686">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="688" sourceendlinenumber="688">Unauthorized</p>
+<h4 id="403-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="690" sourceendlinenumber="690">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="692" sourceendlinenumber="692">Forbidden</p>
+<h4 id="404-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="694" sourceendlinenumber="694">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="696" sourceendlinenumber="696">Client or Tenant not found</p>
+<h4 id="500-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="698" sourceendlinenumber="698">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="700" sourceendlinenumber="700">Internal server error</p>
+<hr>
+<h2 id="update-client-credential-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="703" sourceendlinenumber="703"><code>Update Client Credential Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="705" sourceendlinenumber="705">Update a Client Credential Client Secret</p>
+<h3 id="request-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="707" sourceendlinenumber="707">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="709" sourceendlinenumber="709"><code>PUT api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="711" sourceendlinenumber="711">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="713" sourceendlinenumber="716"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="718" sourceendlinenumber="718">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="720" sourceendlinenumber="723"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="725" sourceendlinenumber="725">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="727" sourceendlinenumber="730"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="732" sourceendlinenumber="732">secretId</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="734" sourceendlinenumber="738"><code class="lang-csharp">[FromBody]
+[Required]
+ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="740" sourceendlinenumber="740">secretId</p>
+<table sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="742" sourceendlinenumber="746">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Expiration</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Expiration date for the client secret. If not provided the secret will never expire.</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>bool</td>
+<td>No</td>
+<td>Determines if the secret expires. If this value is set, non null Expiration will be ignored. Defaults to true.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>string</td>
+<td>No</td>
+<td>Description for the client secret</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="750" sourceendlinenumber="756"><code class="lang-json">{
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6970108-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h3 id="security-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="758" sourceendlinenumber="758">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="760" sourceendlinenumber="760">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="762" sourceendlinenumber="762">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="762" sourceendlinenumber="762"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="764" sourceendlinenumber="764">Returns</h3>
+<h4 id="200-5" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="766" sourceendlinenumber="766">200</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="768" sourceendlinenumber="768">Success</p>
+<h5 id="type-7" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="770" sourceendlinenumber="770">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="772" sourceendlinenumber="772"> <code>ClientSecret</code></p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="774" sourceendlinenumber="781"><code class="lang-json">{
+  &quot;Id&quot;: 0,
+  &quot;Expiration&quot;: &quot;2019-05-31T14:57:08.6971447-07:00&quot;,
+  &quot;Expires&quot;: false,
+  &quot;Description&quot;: &quot;description&quot;
+}
+</code></pre><h4 id="400-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="783" sourceendlinenumber="783">400</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="785" sourceendlinenumber="785">Missing or invalid inputs</p>
+<h4 id="401-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="787" sourceendlinenumber="787">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="789" sourceendlinenumber="789">Unauthorized</p>
+<h4 id="403-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="791" sourceendlinenumber="791">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="793" sourceendlinenumber="793">Forbidden</p>
+<h4 id="404-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="795" sourceendlinenumber="795">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="797" sourceendlinenumber="797">Secret, Client, or Tenant not found</p>
+<h4 id="500-8" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="799" sourceendlinenumber="799">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="801" sourceendlinenumber="801">Internal server error</p>
+<hr>
+<h2 id="delete-client-credential-client-secret" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="804" sourceendlinenumber="804"><code>Delete Client Credential Client Secret</code></h2>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="806" sourceendlinenumber="806">Delete a secret from a Client Credential Client</p>
+<h3 id="request-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="808" sourceendlinenumber="808">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="810" sourceendlinenumber="810"><code>DELETE api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Secrets/{secretId}</code></p>
+<h3 id="parameters-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="812" sourceendlinenumber="812">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="814" sourceendlinenumber="817"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="819" sourceendlinenumber="819">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="821" sourceendlinenumber="824"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="826" sourceendlinenumber="826">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="828" sourceendlinenumber="831"><code class="lang-csharp">[Required]
+int32 secretId
+</code></pre><p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="833" sourceendlinenumber="833">Id of secret</p>
+<h3 id="security-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="835" sourceendlinenumber="835">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="837" sourceendlinenumber="837">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="839" sourceendlinenumber="839">
+<li sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="839" sourceendlinenumber="839"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="841" sourceendlinenumber="841">Returns</h3>
+<h4 id="204-1" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="843" sourceendlinenumber="843">204</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="845" sourceendlinenumber="845">Success</p>
+<h4 id="401-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="847" sourceendlinenumber="847">401</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="849" sourceendlinenumber="849">Unauthorized</p>
+<h4 id="403-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="851" sourceendlinenumber="851">403</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="853" sourceendlinenumber="853">Forbidden</p>
+<h4 id="404-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="855" sourceendlinenumber="855">404</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="857" sourceendlinenumber="857">Secret, Client, or Tenant not found</p>
+<h4 id="500-9" sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="859" sourceendlinenumber="859">500</h4>
+<p sourcefile="Documentation/Identity/Identity_Secret.md" sourcestartlinenumber="861" sourceendlinenumber="861">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_Secret.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

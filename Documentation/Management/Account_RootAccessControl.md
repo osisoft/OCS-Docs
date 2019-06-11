@@ -16,6 +16,7 @@ Retrieves the [AccessControlList](xref:accessControl) that is used to authorize 
 
 `GET api/v1-preview/Tenants/{tenantId}/AccessControl/Namespaces`
 
+`GET api/v1/Tenants/{tenantId}/AccessControl/Namespaces`
 
 ### Parameters
 
@@ -51,6 +52,7 @@ Modifies the [AccessControlList](xref:accessControl) that is used to authorize a
 
 `PUT api/v1-preview/Tenants/{tenantId}/AccessControl/Namespaces`
 
+`PUT api/v1/Tenants/{tenantId}/AccessControl/Namespaces`
 
 ### Parameters
 

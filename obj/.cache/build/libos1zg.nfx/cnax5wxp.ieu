@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>User </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="User ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identityUser">
+<h1 id="user" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="5" sourceendlinenumber="5">User</h1>
+
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting Users</p>
+<h2 id="properties" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the User object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="13" sourceendlinenumber="25">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>Guid</td>
+<td>Unique User ID.</td>
+</tr>
+<tr>
+<td>GivenName</td>
+<td>string</td>
+<td>Given name of user.</td>
+</tr>
+<tr>
+<td>Surname</td>
+<td>string</td>
+<td>Surname of user.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Name of user.</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>string</td>
+<td>Email of user.</td>
+</tr>
+<tr>
+<td>ContactEmail</td>
+<td>string</td>
+<td>Preferred contact email for user.</td>
+</tr>
+<tr>
+<td>ContactGivenName</td>
+<td>string</td>
+<td>Preferred contact name for user.</td>
+</tr>
+<tr>
+<td>ContactSurname</td>
+<td>string</td>
+<td>Preferred contact surname for user.</td>
+</tr>
+<tr>
+<td>ExternalUserId</td>
+<td>string</td>
+<td>Provider id for user.</td>
+</tr>
+<tr>
+<td>IdentityProviderId</td>
+<td>Guid</td>
+<td>Identity Provider Id used to authenticate user.</td>
+</tr>
+<tr>
+<td>RoleIds</td>
+<td>Guid[]</td>
+<td>List of strings of RoleIds.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serialized-model" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="27" sourceendlinenumber="27">Serialized Model</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="29" sourceendlinenumber="46"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;GivenName&quot;: &quot;Name&quot;,
+  &quot;Surname&quot;: &quot;Surname&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Email&quot;: &quot;user@company.com&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><hr>
+<h2 id="get-users" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="50" sourceendlinenumber="50"><code>Get Users</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="52" sourceendlinenumber="52">Returns a list of User objects for a given tenant</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="54" sourceendlinenumber="54">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="56" sourceendlinenumber="56"><code>GET api/v1/Tenants/{tenantId}/Users</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="58" sourceendlinenumber="58">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="60" sourceendlinenumber="63"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="65" sourceendlinenumber="65">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="67" sourceendlinenumber="72"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="74" sourceendlinenumber="74">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="76" sourceendlinenumber="81"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="83" sourceendlinenumber="83">Number of users to skip</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="85" sourceendlinenumber="90"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="92" sourceendlinenumber="92">Max number of users to return</p>
+<h3 id="security" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="94" sourceendlinenumber="94">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="96" sourceendlinenumber="96">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="98" sourceendlinenumber="99">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="98" sourceendlinenumber="98"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="99" sourceendlinenumber="99"><code>Account Member</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="101" sourceendlinenumber="101">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="103" sourceendlinenumber="103">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="105" sourceendlinenumber="105">Success.</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="107" sourceendlinenumber="107">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="109" sourceendlinenumber="109"> <code>List[User]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="111" sourceendlinenumber="146"><code class="lang-json">[
+  {
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;GivenName&quot;: &quot;Name&quot;,
+    &quot;Surname&quot;: &quot;Surname&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Email&quot;: &quot;user@company.com&quot;,
+    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+    &quot;ContactGivenName&quot;: &quot;Name&quot;,
+    &quot;ContactSurname&quot;: &quot;Surname&quot;,
+    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
+  },
+  {
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;GivenName&quot;: &quot;Name&quot;,
+    &quot;Surname&quot;: &quot;Surname&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Email&quot;: &quot;user@company.com&quot;,
+    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+    &quot;ContactGivenName&quot;: &quot;Name&quot;,
+    &quot;ContactSurname&quot;: &quot;Surname&quot;,
+    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
+  }
+]
+</code></pre><h4 id="207" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="148" sourceendlinenumber="148">207</h4>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="152" sourceendlinenumber="152">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="154" sourceendlinenumber="154"> <code>MultiStatusResponse[User]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="156" sourceendlinenumber="214"><code class="lang-json">{
+  &quot;OperationId&quot;: &quot;OperationId&quot;,
+  &quot;Error&quot;: &quot;Error&quot;,
+  &quot;Reason&quot;: &quot;Reason&quot;,
+  &quot;ChildErrors&quot;: [
+    {
+      &quot;StatusCode&quot;: 0,
+      &quot;ModelId&quot;: &quot;ModelId&quot;,
+      &quot;OperationId&quot;: &quot;OperationId&quot;,
+      &quot;Error&quot;: &quot;Error&quot;,
+      &quot;Reason&quot;: &quot;Reason&quot;,
+      &quot;Resolution&quot;: &quot;Resolution&quot;
+    },
+    {
+      &quot;StatusCode&quot;: 0,
+      &quot;ModelId&quot;: &quot;ModelId&quot;,
+      &quot;OperationId&quot;: &quot;OperationId&quot;,
+      &quot;Error&quot;: &quot;Error&quot;,
+      &quot;Reason&quot;: &quot;Reason&quot;,
+      &quot;Resolution&quot;: &quot;Resolution&quot;
+    }
+  ],
+  &quot;Data&quot;: [
+    {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
+    },
+    {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
+    }
+  ]
+}
+</code></pre><h4 id="400" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="216" sourceendlinenumber="216">400</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="218" sourceendlinenumber="218">Missing or invalid inputs</p>
+<h4 id="401" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="220" sourceendlinenumber="220">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="222" sourceendlinenumber="222">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="224" sourceendlinenumber="224">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="226" sourceendlinenumber="226">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="228" sourceendlinenumber="228">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="230" sourceendlinenumber="230">Tenant not found</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="232" sourceendlinenumber="232">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="234" sourceendlinenumber="234">Internal server error</p>
+<hr>
+<h2 id="get-users-status" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="237" sourceendlinenumber="237"><code>Get Users&#39; Status</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="239" sourceendlinenumber="239">Get User status for multiple users, optionally restrict it to only Users of a specific status.</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="241" sourceendlinenumber="241">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="243" sourceendlinenumber="243"><code>GET api/v1/Tenants/{tenantId}/Users/Status</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="245" sourceendlinenumber="245">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="247" sourceendlinenumber="250"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="252" sourceendlinenumber="252">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="254" sourceendlinenumber="259"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="261" sourceendlinenumber="261">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="263" sourceendlinenumber="268"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="270" sourceendlinenumber="270">Number of users to skip</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="272" sourceendlinenumber="277"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="279" sourceendlinenumber="279">Max number of users to return</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="281" sourceendlinenumber="286"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string status
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="288" sourceendlinenumber="288">Only return statuses that match this value</p>
+<h3 id="security-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="290" sourceendlinenumber="290">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="292" sourceendlinenumber="292">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="294" sourceendlinenumber="294">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="294" sourceendlinenumber="294"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="296" sourceendlinenumber="296">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="298" sourceendlinenumber="298">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="300" sourceendlinenumber="300">Success.</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="302" sourceendlinenumber="302">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="304" sourceendlinenumber="304"> <code>List[User]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="306" sourceendlinenumber="347"><code class="lang-json">[
+  {
+    &quot;InvitationStatus&quot;: 0,
+    &quot;User&quot;: {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
+    }
+  },
+  {
+    &quot;InvitationStatus&quot;: 0,
+    &quot;User&quot;: {
+      &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;GivenName&quot;: &quot;Name&quot;,
+      &quot;Surname&quot;: &quot;Surname&quot;,
+      &quot;Name&quot;: &quot;Name&quot;,
+      &quot;Email&quot;: &quot;user@company.com&quot;,
+      &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+      &quot;ContactGivenName&quot;: &quot;Name&quot;,
+      &quot;ContactSurname&quot;: &quot;Surname&quot;,
+      &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+      &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;RoleIds&quot;: [
+        &quot;00000000-0000-0000-0000-000000000000&quot;,
+        &quot;00000000-0000-0000-0000-000000000000&quot;
+      ]
+    }
+  }
+]
+</code></pre><h4 id="400-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="349" sourceendlinenumber="349">400</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="351" sourceendlinenumber="351">Missing or invalid inputs</p>
+<h4 id="401-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="353" sourceendlinenumber="353">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="355" sourceendlinenumber="355">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="357" sourceendlinenumber="357">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="359" sourceendlinenumber="359">Forbidden</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="361" sourceendlinenumber="361">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="363" sourceendlinenumber="363">Internal server error</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="365" sourceendlinenumber="365">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="367" sourceendlinenumber="367">Tenant not found</p>
+<hr>
+<h2 id="get-user" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="370" sourceendlinenumber="370"><code>Get User</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="372" sourceendlinenumber="372">Returns a User</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="374" sourceendlinenumber="374">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="376" sourceendlinenumber="376"><code>GET api/v1/Tenants/{tenantId}/Users/{userId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="378" sourceendlinenumber="378">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="380" sourceendlinenumber="383"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="385" sourceendlinenumber="385">Id of Tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="387" sourceendlinenumber="390"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="392" sourceendlinenumber="392">Id of User</p>
+<h3 id="security-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="394" sourceendlinenumber="394">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="396" sourceendlinenumber="396">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="398" sourceendlinenumber="399">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="398" sourceendlinenumber="398"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="399" sourceendlinenumber="399"><code>Account Member</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="401" sourceendlinenumber="401">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="403" sourceendlinenumber="403">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="405" sourceendlinenumber="405">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="407" sourceendlinenumber="407">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="409" sourceendlinenumber="409"> <code>User</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="411" sourceendlinenumber="428"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;GivenName&quot;: &quot;Name&quot;,
+  &quot;Surname&quot;: &quot;Surname&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Email&quot;: &quot;user@company.com&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h4 id="401-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="430" sourceendlinenumber="430">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="432" sourceendlinenumber="432">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="434" sourceendlinenumber="434">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="436" sourceendlinenumber="436">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="438" sourceendlinenumber="438">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="440" sourceendlinenumber="440">User or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="442" sourceendlinenumber="442">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="444" sourceendlinenumber="444">Internal server error</p>
+<hr>
+<h2 id="get-users-status-1" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="447" sourceendlinenumber="447"><code>Get User&#39;s Status</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="449" sourceendlinenumber="449">Returns user invitation status</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="451" sourceendlinenumber="451">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="453" sourceendlinenumber="453"><code>GET api/v1/Tenants/{tenantId}/Users/{userId}/Status</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="455" sourceendlinenumber="455">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="457" sourceendlinenumber="460"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="462" sourceendlinenumber="462">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="464" sourceendlinenumber="467"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="469" sourceendlinenumber="469">Id of user</p>
+<h3 id="security-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="471" sourceendlinenumber="471">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="473" sourceendlinenumber="473">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="475" sourceendlinenumber="476">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="475" sourceendlinenumber="475"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="476" sourceendlinenumber="476"><code>Account Member</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="478" sourceendlinenumber="478">Returns</h3>
+<h4 id="200-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="480" sourceendlinenumber="480">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="482" sourceendlinenumber="482">Success</p>
+<h5 id="type-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="484" sourceendlinenumber="484">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="486" sourceendlinenumber="486"> <code>UserStatus</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="488" sourceendlinenumber="508"><code class="lang-json">{
+  &quot;InvitationStatus&quot;: 0,
+  &quot;User&quot;: {
+    &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;GivenName&quot;: &quot;Name&quot;,
+    &quot;Surname&quot;: &quot;Surname&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Email&quot;: &quot;user@company.com&quot;,
+    &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+    &quot;ContactGivenName&quot;: &quot;Name&quot;,
+    &quot;ContactSurname&quot;: &quot;Surname&quot;,
+    &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+    &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;RoleIds&quot;: [
+      &quot;00000000-0000-0000-0000-000000000000&quot;,
+      &quot;00000000-0000-0000-0000-000000000000&quot;
+    ]
+  }
+}
+</code></pre><h4 id="401-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="510" sourceendlinenumber="510">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="512" sourceendlinenumber="512">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="514" sourceendlinenumber="514">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="516" sourceendlinenumber="516">Forbidden</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="518" sourceendlinenumber="518">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="520" sourceendlinenumber="520">User or Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="522" sourceendlinenumber="522">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="524" sourceendlinenumber="524">Internal server error</p>
+<hr>
+<h2 id="get-users-preferences" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="527" sourceendlinenumber="527"><code>Get User&#39;s Preferences</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="529" sourceendlinenumber="529">Returns a user&#39;s preferences</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="531" sourceendlinenumber="531">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="533" sourceendlinenumber="533"><code>GET api/v1/Tenants/{tenantId}/Users/{userId}/Preferences</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="535" sourceendlinenumber="535">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="537" sourceendlinenumber="540"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="542" sourceendlinenumber="542">Id of Tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="544" sourceendlinenumber="547"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="549" sourceendlinenumber="549">Id of User</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="551" sourceendlinenumber="551">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="553" sourceendlinenumber="553">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="555" sourceendlinenumber="556">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="555" sourceendlinenumber="555"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="556" sourceendlinenumber="556"><code>Account Member</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="558" sourceendlinenumber="558">Returns</h3>
+<h4 id="200-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="560" sourceendlinenumber="560">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="562" sourceendlinenumber="562">Success</p>
+<h5 id="type-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="564" sourceendlinenumber="564">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="566" sourceendlinenumber="566"> <code>JObject</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="568" sourceendlinenumber="570"><code class="lang-json">{}
+</code></pre><h4 id="401-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="572" sourceendlinenumber="572">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="574" sourceendlinenumber="574">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="576" sourceendlinenumber="576">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="578" sourceendlinenumber="578">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="580" sourceendlinenumber="580">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="582" sourceendlinenumber="582">User or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="584" sourceendlinenumber="584">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="586" sourceendlinenumber="586">Internal server error</p>
+<hr>
+<h2 id="update-users-preferences" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="589" sourceendlinenumber="589"><code>Update User&#39;s Preferences</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="591" sourceendlinenumber="591">Put a user&#39;s preferences</p>
+<h3 id="request-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="593" sourceendlinenumber="593">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="595" sourceendlinenumber="595"><code>PUT api/v1/Tenants/{tenantId}/Users/{userId}/Preferences</code></p>
+<h3 id="parameters-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="597" sourceendlinenumber="597">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="599" sourceendlinenumber="602"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="604" sourceendlinenumber="604">Id of Tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="606" sourceendlinenumber="609"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="611" sourceendlinenumber="611">Id of User</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="613" sourceendlinenumber="617"><code class="lang-csharp">[FromBody]
+[Required]
+JObject preferences
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="619" sourceendlinenumber="619">JSON Preferences</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="621" sourceendlinenumber="623"><code class="lang-json">{}
+</code></pre><h3 id="security-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="625" sourceendlinenumber="625">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="627" sourceendlinenumber="627">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="629" sourceendlinenumber="630">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="629" sourceendlinenumber="629"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="630" sourceendlinenumber="630"><code>Account Member</code></li>
+</ul>
+<h3 id="returns-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="632" sourceendlinenumber="632">Returns</h3>
+<h4 id="200-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="634" sourceendlinenumber="634">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="636" sourceendlinenumber="636">Success</p>
+<h5 id="type-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="638" sourceendlinenumber="638">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="640" sourceendlinenumber="640"> <code>JObject</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="642" sourceendlinenumber="644"><code class="lang-json">{}
+</code></pre><h4 id="400-2" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="646" sourceendlinenumber="646">400</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="648" sourceendlinenumber="648">Missing preferences</p>
+<h4 id="401-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="650" sourceendlinenumber="650">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="652" sourceendlinenumber="652">Unauthorized</p>
+<h4 id="403-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="654" sourceendlinenumber="654">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="656" sourceendlinenumber="656">Forbidden</p>
+<h4 id="404-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="658" sourceendlinenumber="658">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="660" sourceendlinenumber="660">User or Tenant not found</p>
+<h4 id="500-5" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="662" sourceendlinenumber="662">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="664" sourceendlinenumber="664">Internal server error</p>
+<hr>
+<h2 id="create-user" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="667" sourceendlinenumber="667"><code>Create User</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="669" sourceendlinenumber="669">Creates a User</p>
+<h3 id="request-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="671" sourceendlinenumber="671">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="673" sourceendlinenumber="673"><code>POST api/v1/Tenants/{tenantId}/Users</code></p>
+<h3 id="parameters-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="675" sourceendlinenumber="675">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="677" sourceendlinenumber="680"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="682" sourceendlinenumber="682">Id of Tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="684" sourceendlinenumber="688"><code class="lang-csharp">[FromBody]
+[Required]
+UserCreateOrUpdate userCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="690" sourceendlinenumber="690">User values to use during creating</p>
+<table sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="692" sourceendlinenumber="698">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>Guid</td>
+<td>No</td>
+<td>User Id for the user. When creating a user, if User ID is not specified, one will be generated.</td>
+</tr>
+<tr>
+<td>ContactGivenName</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred name to be used when contacting user.</td>
+</tr>
+<tr>
+<td>ContactSurname</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred surname to be used when contacting user.</td>
+</tr>
+<tr>
+<td>ContactEmail</td>
+<td>string</td>
+<td>Yes</td>
+<td>Preferred contact email to be used.</td>
+</tr>
+<tr>
+<td>RoleIds</td>
+<td>Guid[]</td>
+<td>Yes</td>
+<td>List of strings of RoleIds. At least one role must be provided.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="702" sourceendlinenumber="713"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h3 id="security-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="715" sourceendlinenumber="715">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="717" sourceendlinenumber="717">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="719" sourceendlinenumber="719">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="719" sourceendlinenumber="719"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="721" sourceendlinenumber="721">Returns</h3>
+<h4 id="201" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="723" sourceendlinenumber="723">201</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="725" sourceendlinenumber="725">Created</p>
+<h5 id="type-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="727" sourceendlinenumber="727">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="729" sourceendlinenumber="729"> <code>User</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="731" sourceendlinenumber="748"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;GivenName&quot;: &quot;Name&quot;,
+  &quot;Surname&quot;: &quot;Surname&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Email&quot;: &quot;user@company.com&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h4 id="400-3" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="750" sourceendlinenumber="750">400</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="752" sourceendlinenumber="752">Missing or invalid inputs, or User limit exceeded</p>
+<h4 id="401-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="754" sourceendlinenumber="754">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="756" sourceendlinenumber="756">Unauthorized</p>
+<h4 id="403-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="758" sourceendlinenumber="758">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="760" sourceendlinenumber="760">Forbidden</p>
+<h4 id="404-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="762" sourceendlinenumber="762">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="764" sourceendlinenumber="764">Tenant not found</p>
+<h4 id="500-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="766" sourceendlinenumber="766">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="768" sourceendlinenumber="768">Internal server error</p>
+<hr>
+<h2 id="update-user" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="771" sourceendlinenumber="771"><code>Update User</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="773" sourceendlinenumber="773">Create or Update a User</p>
+<h3 id="request-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="775" sourceendlinenumber="775">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="777" sourceendlinenumber="777"><code>PUT api/v1/Tenants/{tenantId}/Users/{userId}</code></p>
+<h3 id="parameters-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="779" sourceendlinenumber="779">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="781" sourceendlinenumber="784"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="786" sourceendlinenumber="786">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="788" sourceendlinenumber="791"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="793" sourceendlinenumber="793">Id of user</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="795" sourceendlinenumber="799"><code class="lang-csharp">[FromBody]
+[Required]
+UserCreateOrUpdate userCreateOrUpdate
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="801" sourceendlinenumber="801">A UserStatus object</p>
+<table sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="803" sourceendlinenumber="809">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Id</td>
+<td>Guid</td>
+<td>No</td>
+<td>User Id for the user. When creating a user. Must be the same as the one in the route.</td>
+</tr>
+<tr>
+<td>ContactGivenName</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred name to be used when contacting user.</td>
+</tr>
+<tr>
+<td>ContactSurname</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred surname to be used when contacting user.</td>
+</tr>
+<tr>
+<td>ContactEmail</td>
+<td>string</td>
+<td>No</td>
+<td>Preferred contact email to be used.</td>
+</tr>
+<tr>
+<td>RoleIds</td>
+<td>Guid[]</td>
+<td>No</td>
+<td>List of strings of RoleIds.</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="813" sourceendlinenumber="824"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h3 id="security-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="826" sourceendlinenumber="826">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="828" sourceendlinenumber="828">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="830" sourceendlinenumber="831">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="830" sourceendlinenumber="830"><code>Account Administrator</code></li>
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="831" sourceendlinenumber="831"><code>Account Member</code></li>
+</ul>
+<h3 id="returns-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="833" sourceendlinenumber="833">Returns</h3>
+<h4 id="200-6" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="835" sourceendlinenumber="835">200</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="837" sourceendlinenumber="837">Updated</p>
+<h5 id="type-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="839" sourceendlinenumber="839">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="841" sourceendlinenumber="841"> <code>User</code></p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="843" sourceendlinenumber="860"><code class="lang-json">{
+  &quot;Id&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;GivenName&quot;: &quot;Name&quot;,
+  &quot;Surname&quot;: &quot;Surname&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Email&quot;: &quot;user@company.com&quot;,
+  &quot;ContactEmail&quot;: &quot;user@company.com&quot;,
+  &quot;ContactGivenName&quot;: &quot;Name&quot;,
+  &quot;ContactSurname&quot;: &quot;Surname&quot;,
+  &quot;ExternalUserId&quot;: &quot;ExternalUserId&quot;,
+  &quot;IdentityProviderId&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+  &quot;RoleIds&quot;: [
+    &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;00000000-0000-0000-0000-000000000000&quot;
+  ]
+}
+</code></pre><h4 id="400-4" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="862" sourceendlinenumber="862">400</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="864" sourceendlinenumber="864">Missing or invalid inputs</p>
+<h4 id="401-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="866" sourceendlinenumber="866">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="868" sourceendlinenumber="868">Unauthorized</p>
+<h4 id="403-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="870" sourceendlinenumber="870">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="872" sourceendlinenumber="872">Forbidden</p>
+<h4 id="404-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="874" sourceendlinenumber="874">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="876" sourceendlinenumber="876">User or Tenant not found</p>
+<h4 id="500-7" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="878" sourceendlinenumber="878">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="880" sourceendlinenumber="880">Internal server error</p>
+<hr>
+<h2 id="delete-user" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="883" sourceendlinenumber="883"><code>Delete User</code></h2>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="885" sourceendlinenumber="885">Delete a user</p>
+<h3 id="request-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="887" sourceendlinenumber="887">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="889" sourceendlinenumber="889"><code>DELETE api/v1/Tenants/{tenantId}/Users/{userId}</code></p>
+<h3 id="parameters-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="891" sourceendlinenumber="891">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="893" sourceendlinenumber="896"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="898" sourceendlinenumber="898">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="900" sourceendlinenumber="903"><code class="lang-csharp">[Required]
+Guid userId
+</code></pre><p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="905" sourceendlinenumber="905">Id of user</p>
+<h3 id="security-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="907" sourceendlinenumber="907">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="909" sourceendlinenumber="909">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="911" sourceendlinenumber="911">
+<li sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="911" sourceendlinenumber="911"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="913" sourceendlinenumber="913">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="915" sourceendlinenumber="915">204</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="917" sourceendlinenumber="917">Deleted</p>
+<h4 id="401-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="919" sourceendlinenumber="919">401</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="921" sourceendlinenumber="921">Unauthorized</p>
+<h4 id="403-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="923" sourceendlinenumber="923">403</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="925" sourceendlinenumber="925">Forbidden</p>
+<h4 id="404-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="927" sourceendlinenumber="927">404</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="929" sourceendlinenumber="929">User or Tenant not found</p>
+<h4 id="500-8" sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="931" sourceendlinenumber="931">500</h4>
+<p sourcefile="Documentation/Identity/Identity_User.md" sourcestartlinenumber="933" sourceendlinenumber="933">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_User.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

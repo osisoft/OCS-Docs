@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HybridClient </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="HybridClient ">
+    <meta name="generator" content="docfx 2.39.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../../index.html" width="46">
+                <img id="logo" src="../../Documentation/images/atlas_icon.png" height="46" width="46" alt="OSIsoft Cloud Serices"> 
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="identityHybridClient">
+<h1 id="hybridclient" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="5" sourceendlinenumber="5">HybridClient</h1>
+
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="7" sourceendlinenumber="7">APIs for creating, getting, updating, and deleting Hybrid Clients</p>
+<h2 id="properties" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="9" sourceendlinenumber="9">Properties</h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="11" sourceendlinenumber="11">For HTTP requests and responses, the HybridClient object has the following properties and JSON-serialized body: </p>
+<table sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="13" sourceendlinenumber="24">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllowOfflineAccess</td>
+<td>bool</td>
+<td>Specifies whether this client can request refresh tokens, by providing the <em>offline_access</em> scopes.</td>
+</tr>
+<tr>
+<td>AllowAccessTokensViaBrowser</td>
+<td>bool</td>
+<td>Specifies whether this HybridClient is allowed to receive access tokens via the browser. This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow client that is supposed to use code <em>id_token</em> to add the <em>token</em> response type, thus leaking the token to the browser).</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>Client ID for this Client</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<h3 id="serialized-model" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="26" sourceendlinenumber="26">Serialized Model</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="28" sourceendlinenumber="50"><code class="lang-json">{
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><hr>
+<h2 id="create-hybrid-client" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="54" sourceendlinenumber="54"><code>Create Hybrid Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="56" sourceendlinenumber="56">Create a Hybrid flow Client</p>
+<h3 id="request" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="58" sourceendlinenumber="58">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="60" sourceendlinenumber="60"><code>POST api/v1/Tenants/{tenantId}/HybridClients</code></p>
+<h3 id="parameters" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="62" sourceendlinenumber="62">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="64" sourceendlinenumber="67"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="69" sourceendlinenumber="69">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="71" sourceendlinenumber="75"><code class="lang-csharp">[FromBody]
+[Required]
+HybridClientCreate hybridClientCreate
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="77" sourceendlinenumber="77">New HybridClientCreate object</p>
+<table sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="79" sourceendlinenumber="92">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SecretDescription</td>
+<td>string</td>
+<td>No</td>
+<td>Description for the initial secret for the client.</td>
+</tr>
+<tr>
+<td>SecretExpirationDate</td>
+<td>DateTime</td>
+<td>No</td>
+<td>Expiration date for the initial secret for the client.</td>
+</tr>
+<tr>
+<td>AllowOfflineAccess</td>
+<td>bool</td>
+<td>No</td>
+<td>Specifies whether this client can request refresh tokens, by providing the <em>offline_access</em> scopes.</td>
+</tr>
+<tr>
+<td>AllowAccessTokensViaBrowser</td>
+<td>bool</td>
+<td>No</td>
+<td>Specifies whether this HybridClient is allowed to receive access tokens via the browser.            This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow            client that is supposed to use code <em>id_token</em> to add the <em>token</em> response type, thus            leaking the token to the browser).</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>No</td>
+<td>Client ID for this Client</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>No</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>No</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="96" sourceendlinenumber="120"><code class="lang-json">{
+  &quot;SecretDescription&quot;: &quot;description&quot;,
+  &quot;SecretExpirationDate&quot;: &quot;2019-05-31T14:57:08.5227228-07:00&quot;,
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h3 id="security" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="122" sourceendlinenumber="122">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="124" sourceendlinenumber="124">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="126" sourceendlinenumber="126">
+<li sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="126" sourceendlinenumber="126"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="128" sourceendlinenumber="128">Returns</h3>
+<h4 id="201" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="130" sourceendlinenumber="130">201</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="132" sourceendlinenumber="132">Created</p>
+<h5 id="type" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="134" sourceendlinenumber="134">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="136" sourceendlinenumber="136"> <code>ClientResponse</code></p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="138" sourceendlinenumber="166"><code class="lang-json">{
+  &quot;Secret&quot;: &quot;Secret&quot;,
+  &quot;Id&quot;: 0,
+  &quot;Description&quot;: &quot;description&quot;,
+  &quot;ExpirationDate&quot;: &quot;2019-05-31T14:57:08.533641-07:00&quot;,
+  &quot;Client&quot;: {
+    &quot;AllowOfflineAccess&quot;: false,
+    &quot;AllowAccessTokensViaBrowser&quot;: false,
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Enabled&quot;: false,
+    &quot;Tags&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ]
+  }
+}
+</code></pre><h4 id="400" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="168" sourceendlinenumber="168">400</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="170" sourceendlinenumber="170">Client Limit exceeded</p>
+<h4 id="401" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="172" sourceendlinenumber="172">401</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="174" sourceendlinenumber="174">Unauthorized</p>
+<h4 id="403" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="176" sourceendlinenumber="176">403</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="178" sourceendlinenumber="178">Forbidden</p>
+<h4 id="404" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="180" sourceendlinenumber="180">404</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="182" sourceendlinenumber="182">Tenant not found</p>
+<h4 id="409" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="184" sourceendlinenumber="184">409</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="186" sourceendlinenumber="186">Client Id already exists</p>
+<h4 id="500" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="188" sourceendlinenumber="188">500</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="190" sourceendlinenumber="190">Internal server error</p>
+<hr>
+<h2 id="update-hybrid-client" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="193" sourceendlinenumber="193"><code>Update Hybrid Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="195" sourceendlinenumber="195">Update a Hybrid Client</p>
+<h3 id="request-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="197" sourceendlinenumber="197">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="199" sourceendlinenumber="199"><code>PUT api/v1/Tenants/{tenantId}/HybridClients/{clientId}</code></p>
+<h3 id="parameters-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="201" sourceendlinenumber="201">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="203" sourceendlinenumber="206"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="208" sourceendlinenumber="208">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="210" sourceendlinenumber="213"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="215" sourceendlinenumber="215">Id of client</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="217" sourceendlinenumber="221"><code class="lang-csharp">[FromBody]
+[Required]
+HybridClient hybridClient
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="223" sourceendlinenumber="223">Updated Hybrid Client values</p>
+<table sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="225" sourceendlinenumber="236">
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AllowOfflineAccess</td>
+<td>bool</td>
+<td>No</td>
+<td>Specifies whether this client can request refresh tokens, by providing the <em>offline_access</em> scopes.</td>
+</tr>
+<tr>
+<td>AllowAccessTokensViaBrowser</td>
+<td>bool</td>
+<td>No</td>
+<td>Specifies whether this HybridClient is allowed to receive access tokens via the browser.            This is useful to harden flows that allow multiple response types (e.g. by disallowing a hybrid flow            client that is supposed to use code <em>id_token</em> to add the <em>token</em> response type, thus            leaking the token to the browser).</td>
+</tr>
+<tr>
+<td>RedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies the allowed URIs to return tokens or authorization codes to.</td>
+</tr>
+<tr>
+<td>PostLogoutRedirectUris</td>
+<td>string[]</td>
+<td>No</td>
+<td>Specifies allowed URIs to redirect to after logout.</td>
+</tr>
+<tr>
+<td>ClientUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to a page with information about client (used on consent screen).</td>
+</tr>
+<tr>
+<td>LogoUri</td>
+<td>string</td>
+<td>No</td>
+<td>URI to client logo (used on consent screen).</td>
+</tr>
+<tr>
+<td>Id</td>
+<td>string</td>
+<td>No</td>
+<td>Client ID for this Client. Must be same as the one in the route. Must be the same as the Id in the route.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>Yes</td>
+<td>Name of Client.</td>
+</tr>
+<tr>
+<td>Enabled</td>
+<td>bool</td>
+<td>No</td>
+<td>Is Client Enabled</td>
+</tr>
+<tr>
+<td>Tags</td>
+<td>string[]</td>
+<td>No</td>
+<td>For OSIsoft internal use only</td>
+</tr>
+</tbody>
+</table>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="240" sourceendlinenumber="262"><code class="lang-json">{
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h3 id="security-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="264" sourceendlinenumber="264">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="266" sourceendlinenumber="266">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="268" sourceendlinenumber="268">
+<li sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="268" sourceendlinenumber="268"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="270" sourceendlinenumber="270">Returns</h3>
+<h4 id="200" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="272" sourceendlinenumber="272">200</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="274" sourceendlinenumber="274">Success</p>
+<h5 id="type-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="276" sourceendlinenumber="276">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="278" sourceendlinenumber="278"> <code>HybridClient</code></p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="280" sourceendlinenumber="302"><code class="lang-json">{
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h4 id="401-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="304" sourceendlinenumber="304">401</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="306" sourceendlinenumber="306">Unauthorized</p>
+<h4 id="403-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="308" sourceendlinenumber="308">403</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="310" sourceendlinenumber="310">Forbidden</p>
+<h4 id="400-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="312" sourceendlinenumber="312">400</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="314" sourceendlinenumber="314">Missing or invalid inputs</p>
+<h4 id="404-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="316" sourceendlinenumber="316">404</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="318" sourceendlinenumber="318">Client or Tenant not found</p>
+<h4 id="500-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="320" sourceendlinenumber="320">500</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="322" sourceendlinenumber="322">Internal server error</p>
+<hr>
+<h2 id="get-hybrid-client" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="325" sourceendlinenumber="325"><code>Get Hybrid Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="327" sourceendlinenumber="327">Get a Hybrid Client</p>
+<h3 id="request-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="329" sourceendlinenumber="329">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="331" sourceendlinenumber="331"><code>GET api/v1/Tenants/{tenantId}/HybridClients/{clientId}</code></p>
+<h3 id="parameters-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="333" sourceendlinenumber="333">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="335" sourceendlinenumber="338"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="340" sourceendlinenumber="340">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="342" sourceendlinenumber="345"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="347" sourceendlinenumber="347">Id of client</p>
+<h3 id="security-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="349" sourceendlinenumber="349">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="351" sourceendlinenumber="351">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="353" sourceendlinenumber="353">
+<li sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="353" sourceendlinenumber="353"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="355" sourceendlinenumber="355">Returns</h3>
+<h4 id="200-1" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="357" sourceendlinenumber="357">200</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="359" sourceendlinenumber="359">Success</p>
+<h5 id="type-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="361" sourceendlinenumber="361">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="363" sourceendlinenumber="363"> <code>HybridClient</code></p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="365" sourceendlinenumber="387"><code class="lang-json">{
+  &quot;AllowOfflineAccess&quot;: false,
+  &quot;AllowAccessTokensViaBrowser&quot;: false,
+  &quot;RedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;PostLogoutRedirectUris&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ],
+  &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+  &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+  &quot;Id&quot;: &quot;Id&quot;,
+  &quot;Name&quot;: &quot;Name&quot;,
+  &quot;Enabled&quot;: false,
+  &quot;Tags&quot;: [
+    &quot;String&quot;,
+    &quot;String&quot;
+  ]
+}
+</code></pre><h4 id="401-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="389" sourceendlinenumber="389">401</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="391" sourceendlinenumber="391">Unauthorized</p>
+<h4 id="403-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="393" sourceendlinenumber="393">403</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="395" sourceendlinenumber="395">Forbidden</p>
+<h4 id="404-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="397" sourceendlinenumber="397">404</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="399" sourceendlinenumber="399">Client or Tenant not found</p>
+<h4 id="500-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="401" sourceendlinenumber="401">500</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="403" sourceendlinenumber="403">Internal server error</p>
+<hr>
+<h2 id="get-all-hybrid-clients" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="406" sourceendlinenumber="406"><code>Get All Hybrid Clients</code></h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="408" sourceendlinenumber="408">Get all Hybrid Clients</p>
+<h3 id="request-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="410" sourceendlinenumber="410">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="412" sourceendlinenumber="412"><code>GET api/v1/Tenants/{tenantId}/HybridClients</code></p>
+<h3 id="parameters-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="414" sourceendlinenumber="414">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="416" sourceendlinenumber="419"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="421" sourceendlinenumber="421">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="423" sourceendlinenumber="428"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string[] tag
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="430" sourceendlinenumber="430">Only return Clients that have these tags.</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="432" sourceendlinenumber="437"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = &quot;&quot;]
+string query
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="439" sourceendlinenumber="439">Query to execute. Currently not supported</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="441" sourceendlinenumber="446"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 0]
+int32 skip
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="448" sourceendlinenumber="448">Number of clients to skip. From query.</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="450" sourceendlinenumber="455"><code class="lang-csharp">[FromQuery]
+[Optional]
+[Default = 100]
+int32 count
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="457" sourceendlinenumber="457">Max number of clients to return</p>
+<h3 id="security-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="459" sourceendlinenumber="459">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="461" sourceendlinenumber="461">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="463" sourceendlinenumber="463">
+<li sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="463" sourceendlinenumber="463"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="465" sourceendlinenumber="465">Returns</h3>
+<h4 id="200-2" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="467" sourceendlinenumber="467">200</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="469" sourceendlinenumber="469">Success</p>
+<h5 id="type-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="471" sourceendlinenumber="471">Type:</h5>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="473" sourceendlinenumber="473"> <code>List[HybridClient]</code></p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="475" sourceendlinenumber="520"><code class="lang-json">[
+  {
+    &quot;AllowOfflineAccess&quot;: false,
+    &quot;AllowAccessTokensViaBrowser&quot;: false,
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Enabled&quot;: false,
+    &quot;Tags&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ]
+  },
+  {
+    &quot;AllowOfflineAccess&quot;: false,
+    &quot;AllowAccessTokensViaBrowser&quot;: false,
+    &quot;RedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;PostLogoutRedirectUris&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ],
+    &quot;ClientUri&quot;: &quot;ClientUri&quot;,
+    &quot;LogoUri&quot;: &quot;LogoUri&quot;,
+    &quot;Id&quot;: &quot;Id&quot;,
+    &quot;Name&quot;: &quot;Name&quot;,
+    &quot;Enabled&quot;: false,
+    &quot;Tags&quot;: [
+      &quot;String&quot;,
+      &quot;String&quot;
+    ]
+  }
+]
+</code></pre><h4 id="401-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="522" sourceendlinenumber="522">401</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="524" sourceendlinenumber="524">Unauthorized</p>
+<h4 id="403-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="526" sourceendlinenumber="526">403</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="528" sourceendlinenumber="528">Forbidden</p>
+<h4 id="404-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="530" sourceendlinenumber="530">404</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="532" sourceendlinenumber="532">Tenant not found</p>
+<h4 id="500-3" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="534" sourceendlinenumber="534">500</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="536" sourceendlinenumber="536">Internal server error</p>
+<hr>
+<h2 id="delete-hybrid-client" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="539" sourceendlinenumber="539"><code>Delete Hybrid Client</code></h2>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="541" sourceendlinenumber="541">Delete an Hybrid Client</p>
+<h3 id="request-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="543" sourceendlinenumber="543">Request</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="545" sourceendlinenumber="545"><code>DELETE api/v1/Tenants/{tenantId}/HybridClients/{clientId}</code></p>
+<h3 id="parameters-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="547" sourceendlinenumber="547">Parameters</h3>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="549" sourceendlinenumber="552"><code class="lang-csharp">[Required]
+string tenantId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="554" sourceendlinenumber="554">Id of tenant</p>
+<pre sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="556" sourceendlinenumber="559"><code class="lang-csharp">[Required]
+string clientId
+</code></pre><p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="561" sourceendlinenumber="561">Id of client</p>
+<h3 id="security-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="563" sourceendlinenumber="563">Security</h3>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="565" sourceendlinenumber="565">Allowed for these roles:</p>
+<ul sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="567" sourceendlinenumber="567">
+<li sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="567" sourceendlinenumber="567"><code>Account Administrator</code></li>
+</ul>
+<h3 id="returns-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="569" sourceendlinenumber="569">Returns</h3>
+<h4 id="204" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="571" sourceendlinenumber="571">204</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="573" sourceendlinenumber="573">Deleted</p>
+<h4 id="401-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="575" sourceendlinenumber="575">401</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="577" sourceendlinenumber="577">Unauthorized</p>
+<h4 id="403-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="579" sourceendlinenumber="579">403</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="581" sourceendlinenumber="581">Forbidden</p>
+<h4 id="404-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="583" sourceendlinenumber="583">404</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="585" sourceendlinenumber="585">Client or Tenant not found</p>
+<h4 id="500-4" sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="587" sourceendlinenumber="587">500</h4>
+<p sourcefile="Documentation/Identity/Identity_HybridClient.md" sourcestartlinenumber="589" sourceendlinenumber="589">Internal server error</p>
+<hr>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/osisoft/OCS-Docs/blob/master/Documentation/Identity/Identity_HybridClient.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+            <span id='copyright-text'>© 2019 - OSIsoft, LLC.<span>
+        </span></span></div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

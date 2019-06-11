@@ -6,16 +6,20 @@ uid: AccountNamespaceTier
 
 An attribute that specifies `Namespace` performance.
 
+## Note
+
+Namespace tiers are only applicatble for version 1-preview. Namespace tiers are removed in version 1. Please remove references to it.
+
 ## Properties
 
 For HTTP requests and responses, the NamespaceTier object has the following properties and JSON-serialized body: 
 
 | Property | Type | Description | 
  | --- | --- | ---  | 
-| Id | string | GUID for this Namespace Tier. | 
-| Description | string | Description of this Tier. | 
-| ThroughputUnits | int32 | The number of throughput units associated with this Tier. | 
-| StorageUnits | int32 | The number of Storage units associated with this Tier. | 
+| Id | string | Gets or sets unique identifier for this Namespace Tier. | 
+| Description | string | Gets or sets description of this Tier. | 
+| ThroughputUnits | int32 | Gets or sets the number of throughput units associated with this Tier. | 
+| StorageUnits | int32 | Gets or sets the number of Storage units associated with this Tier. | 
 
 
 ```json

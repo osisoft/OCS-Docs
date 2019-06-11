@@ -16,19 +16,19 @@ A `Namespace` is a collection of SDS types, streams, and stream views. Namespace
 
 For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: 
 
+### Version 1-Preview
+
 | Property | Type | Description | 
  | --- | --- | ---  | 
-| Id | string | Name of this Namespace. Unique within a Tenant's Namespaces. | 
-| TenantId | string | GUID of the Tenant that this Namespace corresponds to | 
-| Region | string | The region that the namespace is provisioned in | 
-| Self | string | The namespace's URI | 
-| Description | string | Description of this Namespace. | 
-| TierId | string | Id of the Tier that this Namespace is associated with. | 
-| ThroughputUnits | int32 | Number of Throughput units for this Namespace. | 
-| StorageUnits | int32 | Number of Storage units for this Namespace. | 
-| State | NamespaceProvisioningState | Current state of this Namespace. | 
-| Owner | Trustee | Owner [Trustee](xref:accessControl) of this Namespace. | 
-| AccessControl | AccessControlList | The [AccessControlList](xref:accessControl) that defines Access Control for this `Namespace` | 
+| Id | string | Gets or sets name of this Namespace; unique within a Tenant's Namespaces. | 
+| TenantId | string | Gets or sets unique identifier of the Tenant that this Namespace corresponds to. **Note:** TenantId will be removed in the next version. Please remove references to it. | 
+| Region | string | Gets or sets the region that the namespace is provisioned in. | 
+| Self | string | Gets or sets the namespace's URI. | 
+| Description | string | Gets or sets description of this Namespace. | 
+| TierId | string | Gets or sets id of the Tier that this Namespace is associated with. **Note:** TierId will be removed in the next version. Please remove references to it. | 
+| ThroughputUnits | int32 | Gets or sets number of Throughput units for this Namespace. **Note:** ThroughputUnits will be removed in the next version. Please remove references to it. | 
+| StorageUnits | int32 | Gets or sets number of Storage units for this Namespace. **Note:** StorageUnits will be removed in the next version. Please remove references to it. | 
+| State | NamespaceProvisioningState | Gets or sets current state of this Namespace. | 
 
 
 ```json
@@ -41,15 +41,42 @@ For HTTP requests and responses, the Namespace object has the following properti
 	"TierId": "tierid",
 	"ThroughputUnits": 0,
 	"StorageUnits": 0,
-	"State": 0,
-	"Owner": {
-		"Type": 0
-	},
-	"AccessControl": {
-		"RoleTrusteeAccessControlEntries": []
-	}
+	"State": 0
 }
 ```
+***
+
+### Version 1
+| Property | Type | Description | 
+ | --- | --- | ---  | 
+| Id | string | Gets or sets name of this Namespace; unique within a Tenant's Namespaces. | 
+| Region | string | Gets or sets the region that the namespace is provisioned in. | 
+| Self | string | Gets or sets the namespace's URI. | 
+| Description | string | Gets or sets description of this Namespace. | 
+| State | NamespaceProvisioningState | Gets or sets current state of this Namespace. | 
+
+
+```json
+{
+	"Id": "id",
+	"Region": "region",
+	"Self": "self",
+	"Description": "description",
+	"State": 0
+}
+```
+***
+
+# NamespaceProvisioningState
+
+A `NamespaceProvisioningState` is a status code describing a Namespace's current Provisioning State.
+
+| Value | Description | Meaning |
+| --- | --- | ---  |
+| 0 | Creating | A Namespace cannot be used until all resources are provisioned successfully.  In this state, the Namespace cannot be used until it transitions to Active. |
+| 1 | Active | The required resources for the Namespace have been created. The Namespace is ready for use. |
+| 2 | Deleting | The Namespace has been marked for deletion. The Namespace and its resources will be removed and unavailable while in this state. |
+| 3 | Deleted | The Namespace has been deleted, along with any resources (e.g. Types and Streams) associated with the Namespace. |
 ***
 
 ## `Get All Namespaces`
@@ -60,6 +87,7 @@ Returns all `Namespaces` owned by the specified `Tenant` that the caller has acc
 
 `GET api/v1-preview/Tenants/{tenantId}/Namespaces`
 
+`GET api/v1/Tenants/{tenantId}/Namespaces`
 
 ### Parameters
 
@@ -95,6 +123,7 @@ Returns a `Namespace` with the specified Id.
 
 `GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
+`GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
 ### Parameters
 
@@ -132,11 +161,13 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 ## `Create New Namespace`
 
-Creates a new `Namespace` in the specified `Tenant`.
+Creates a new `Namespace` in the specified `Tenant`. Currently, there is a limit of five Namespaces per tenant.
 
 ### Http
 
 `POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId?}`
+
+`POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId?}`
 
 
 ### Parameters
@@ -162,7 +193,7 @@ The new `Namespace` to be created.
 string namespaceId
 ```
 
-The Id of the new `Namespace`. The Id can also be specified in the namespaceObj. If it is omitted in both, the Id will be generated.
+The Id of the new `Namespace`. The Id can also be specified in the namespace object. If it is omitted in both, the Id will be generated.
 
 
 ### Security
@@ -184,13 +215,13 @@ A `Namespace` can only be created if the current principal has Write access.
 
 ## `Update Namespace`
 
-Updates `Namespace` information: Description and TierId.
-            The [AccessControlList](xref:accessControl) and Owner's [Trustee](xref:accessControl) can only be updated through their own routes.
+Updates `Namespace` information: Description and TierId. The [AccessControlList](xref:accessControl) and Owner's [Trustee](xref:accessControl) can only be updated through their own routes.
 
 ### Http
 
 `PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
+`PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
 ### Parameters
 
@@ -240,6 +271,7 @@ Deletes a `Namespace` in the specified `Tenant`.
 
 `DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
+`DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
 ### Parameters
 
@@ -282,6 +314,7 @@ Returns the [AccessControlList](xref:accessControl) that is used to authorize ac
 
 `GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
+`GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
 ### Parameters
 
@@ -324,6 +357,7 @@ Updates the [AccessControlList](xref:accessControl) that is used to authorize ac
 
 `PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
+`PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
 ### Parameters
 
@@ -373,6 +407,7 @@ Returns the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 `GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
+`GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
 ### Parameters
 
@@ -415,6 +450,7 @@ Changes the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
 `PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
+`PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
 ### Parameters
 
