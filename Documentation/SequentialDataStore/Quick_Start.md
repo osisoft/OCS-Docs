@@ -5,10 +5,8 @@ uid: sdsQuickStart
 # Quick Start
 
 SDS is a sophisticated data store. The information in this section describes a very simple interaction with SDS.
-To follow along with the steps in this section, you will first need a Tenant and associated security credentials. 
-If you have not already acquired a tenant, email OCS support at: [OSIsoft Cloud Services](mailto://cloudservices@osisoft.com).
-
-The Preview is limited; contacting OSIsoft does not assure participation. 
+To follow along with the steps in this section, you will first need an account, Tenant and associated security credentials. 
+If you have not already acquired an account, email OCS support at: [OSIsoft Cloud Services](mailto://cloudservices@osisoft.com).
 
 Throughout this guide, you will be instructed to interact with the Portal. To access the section 
 identified, you must sign into the Portal using the credentials associated with the Tenant.
@@ -18,7 +16,7 @@ You will also need a Namespace and administrative client keys.
 
 #### Step 1: Acquire a Namespace
 
-Navigate to the OSIsoft Cloud Services page. Then, select the **Manage** tab and select **Namespaces**. For the 
+In the API Console, navigate to the OSIsoft Cloud Services page. Then, select the **Manage** tab and select **Namespaces**. For the 
 steps in this section, you can use either an existing Namespace or you can create a new Namespace.
 
 
@@ -29,25 +27,18 @@ of securely maintaining a secret. In Azure Active Directory, the confidential cl
 flow is accomplished using an *Application Identity*. OSIsoft Cloud Services supports this authentication 
 with a Client Key and a Secret.
 
-To acquire the Client Key from the portal, select **Client Keys** under **Manage**, as shown in the following image:
-
-![images/Acquire_Client_Key.png](../images/Acquire_Client_Key.png)
+To acquire the Client Key from the portal, select **Client Keys** under **Manage**.
 
 You can either select an existing key or create a new key. Click the eye icon next to the desired key 
 to see configuration information. You will need the Tenant Identity, Client Identity, and Client Secret to proceed.  
 The Tenant Identity, Client Identity, and Client Secret are used to acquire a security Token from an identity 
-provider (Azure Active Directory).
-
+provider, Azure Active Directory.
 
 #### Step 3: Acquire authentication token
 
 You use the Tenant Identity, Client Identity, and Client Secret to acquire an access token 
 from Azure Active Directory. Click on the eye icon next to the desired key to see the values 
 and code samples for various languages.
-
-![images/Acquire_Token.png](../images/Acquire_Token.png)
-
-
 
 #### Step 4: Create data types
 
