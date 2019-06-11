@@ -16,20 +16,13 @@ The information in the sections that follow document the APIs and usage for each
 
 ## Access to OCS
 
-You must acquire a Tenant, security credentials, and a Namespace before interacting with the Data Store. If you do not 
-have a Tenant, you can request access to the OCS Preview at [OSIsoft Cloud Services](mailto://cloudservices@osisoft.com).
-
-The OCS Preview program is limited; contacting OSIsoft does not assure participation.
-
-If you are selected to participate in the preview, you will receive an email notifying you of the name of your Tenant. 
-Use the credentials you were provided to sign into the portal. Signing in grants you access 
-to additional functionality.
+You must acquire an account before interacting with the OCS. If you do not 
+have an account, you can request access to OCS at https://cloud.osisoft.com/?signup.
 
 
 ## Architecture
 
-A Tenant represents a client or organization that owns and manages a collection of OSIsoft Cloud Services, including 
-the Sequential Data Store. 
+A Tenant represents a client or organization that owns and manages a collection of OSIsoft Cloud Services.
 
 Tenants are divided into one or more logical units called Namespaces. Each Namespace is distinct and separate from 
 other Namespaces, with its own instances of the various OSIsoft Cloud Services and data stores. 
