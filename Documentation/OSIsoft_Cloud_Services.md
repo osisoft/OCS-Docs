@@ -32,7 +32,7 @@ Isolation provided by Tenants and Namespaces prevents accidental or malicious da
 
 ## OCS API Versioning
 
-New versions of the API are released when major changes occur in the OCS API. When a newer version of the API is released 
+New versions of the API are released when major changes occur in the OCS API. When a newer version of the API is released, 
 the legacy version of the API will only be supported for a period of time. We encourage all users to switch the 
 newer version as soon as possible. Versions are inline in the routes, following the host:
 
