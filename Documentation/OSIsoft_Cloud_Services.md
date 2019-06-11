@@ -16,7 +16,7 @@ The information in the sections that follow document the APIs and usage for each
 
 ## Access to OCS
 
-You must acquire an account before interacting with the OCS. If you do not 
+You must acquire an account before interacting with OCS. If you do not 
 have an account, you can request access to OCS at https://cloud.osisoft.com/?signup.
 
 
@@ -33,7 +33,7 @@ Isolation provided by Tenants and Namespaces prevents accidental or malicious da
 ## OCS API Versioning
 
 New versions of the API are released when major changes occur in the OCS API. When a newer version of the API is released, 
-the legacy version of the API will only be supported for a period of time. We encourage all users to switch the 
+the legacy version of the API will only be supported for a period of time. We encourage all users to switch to the 
 newer version as soon as possible. Versions are inline in the routes, following the host:
 
     api/v{version}/Tenants/{tenantId}/Namespaces/{namespaceId}/...  
