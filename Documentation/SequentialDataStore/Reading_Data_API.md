@@ -1279,7 +1279,7 @@ information see [Interpolation.](xref:sdsTypes#interpolation)
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
         Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&sampleBy={sampleBy}
         &boundaryType={boundaryType}&startBoundaryType={startBoundaryType}
-        &endBoundaryType={endBoundaryType}&filter={filter}&streamViewId={streamViewId}
+        &endBoundaryType={endBoundaryType}&filter={filter}
  ```
 
 **Parameters**  
