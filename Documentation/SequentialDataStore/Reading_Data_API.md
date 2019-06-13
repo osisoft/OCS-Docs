@@ -1278,8 +1278,8 @@ information see [Interpolation.](xref:sdsTypes#interpolation)
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/
         Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&sampleBy={sampleBy}
-        &boundaryType={boundaryType}&startBoundaryType={startBoundaryType}
-        &endBoundaryType={endBoundaryType}&filter={filter}
+        [&sampleBy={sampleBy}&...&boundaryType={boundaryType}&startBoundaryType={startBoundaryType}
+        &endBoundaryType={endBoundaryType}&filter={filter}]
  ```
 
 **Parameters**  

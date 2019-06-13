@@ -20,7 +20,7 @@ interact with SDS. The code samples can be found in the [OSI-Samples](https://gi
 REST API access keys from https://cloud.osisoft.com before running the sample code.
 
 Each sample includes a readme file which describes the steps required to run the sample and a brief description 
-that highlights some of the sample’s functionality. Be sure to read the readme file to understand 
+that highlights some of the sample's functionality. Be sure to read the readme file to understand 
 how the sample works.
 
 After you have finished this introduction and worked with one of the samples, refer to 

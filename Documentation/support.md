@@ -10,7 +10,7 @@ will be entitled to contact the OSIsoft Technical Support twenty-four (24) hours
 seven (7) days a week to ask questions or seek advice regarding the use of OCS. OSIsoft 
 will assist end users in using this offering and in identifying and providing workarounds, 
 if possible, for problems or limitations with the service. Such assistance may include 
-remote computer communications to end users’ facilities. OSIsoft will use its best efforts 
+remote computer communications to end users' facilities. OSIsoft will use its best efforts 
 to respond to all Technical Support queries within four (4) hours.
 
 
