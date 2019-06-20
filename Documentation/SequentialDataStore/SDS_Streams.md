@@ -430,7 +430,7 @@ The response includes a status code.
 
 ## `Get Streams Access Control List`
 
-Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -459,7 +459,7 @@ The default ACL for Streams
 
 ## `Update Streams Access Control List`
 
-Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -489,7 +489,7 @@ The response includes a status code.
 
 ## `Get Stream Access Control List`
 
-Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -521,7 +521,7 @@ The ACL for the specified stream
 
 ## `Update Stream Access Control List`
 
-Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -553,7 +553,7 @@ The response includes a status code.
 
 ## `Get Stream Owner`
 
-Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -585,7 +585,7 @@ The Owner for the specified stream
 
 ## `Update Stream Owner`
 
-Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text

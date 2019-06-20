@@ -768,7 +768,7 @@ The response includes a status code.
 ***********************
 ## `Get Stream Views Access Control List`
 
-Get the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -797,7 +797,7 @@ The default ACL for Stream Views
 
 ## `Update Stream Views Access Control List`
 
-Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -827,7 +827,7 @@ The response includes a status code.
 
 ## `Get Stream View Access Control List`
 
-Get the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -859,7 +859,7 @@ The ACL for the specified stream view
 
 ## `Update Stream View Access Control List`
 
-Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -891,7 +891,7 @@ The response includes a status code.
 
 ## `Get Stream View Owner`
 
-Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -923,7 +923,7 @@ The Owner for the specified stream view
 
 ## `Update Stream View Owner`
 
-Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text

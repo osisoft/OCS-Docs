@@ -538,7 +538,7 @@ Content-Type: application/json
 
 ## `Get Quantities Access Control List`
 
-Get the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -567,7 +567,7 @@ The default ACL for Quantities
 
 ## `Update Quantities Access Control List`
 
-Update the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the default ACL for the Quantities collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -597,7 +597,7 @@ The response includes a status code.
 
 ## `Get Quantity Access Control List`
 
-Get the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -629,7 +629,7 @@ The ACL for the specified quantity
 
 ## `Update Quantity Access Control List`
 
-Update the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the ACL of the specified quantity. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -661,7 +661,7 @@ The response includes a status code.
 
 ## `Get Quantity Owner`
 
-Get the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -693,7 +693,7 @@ The Owner for the specified quantity
 
 ## `Update Quantity Owner`
 
-Update the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified quantity. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -840,7 +840,7 @@ Content-Type: application/json
 
 ## `Get Uom Access Control List`
 
-Get the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -875,7 +875,7 @@ The ACL for the specified Uom
 
 ## `Update Uom Access Control List`
 
-Update the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -910,7 +910,7 @@ The response includes a status code.
 
 ## `Get Uom Owner`
 
-Get the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
@@ -945,7 +945,7 @@ The Owner for the specified Uom
 
 ## `Update Uom Owner`
 
-Update the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
