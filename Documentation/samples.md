@@ -24,5 +24,5 @@ Currently, the samples are available in these languages:
 * [Angular](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/SDS/JavaScript/Angular)
 
 Because the examples are intended for demonstration purposes, they represent some example
-practices. The patterns may change as the OCS continues to develop. Be sure
+practices. The patterns may change as OCS continues to develop. Be sure
 to follow the [OSI-Samples](https://github.com/osisoft/OSI-Samples) repository on GitHub for updates.
