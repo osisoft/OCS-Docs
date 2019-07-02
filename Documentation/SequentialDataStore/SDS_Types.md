@@ -194,9 +194,9 @@ below lists InterpolationModes:
 |StepwiseContinuousTrailing |2                 |Returns the data from the next index |
 |Discrete                   |3                 |No event is returned |
 |ContinuousNullableLeading  |4                 |Returns interpolated data or data from the previous index if either of the surrounding indexes has a null value|
-|ContinuousNullableTrailing |5                 |Returns interpolated data or data from the trialing index if either of the surrounding indexes has a null value|
+|ContinuousNullableTrailing |5                 |Returns interpolated data or data from the trailing index if either of the surrounding indexes has a null value|
 
-Note that `Continuous` cannot return events for type properties that cannot be interpolated, such as when the type property is not numeric. 
+Note that `Continuous` cannot return values for type properties that cannot be interpolated, such as when the type property is not numeric. 
 
 The table below describes how the **Continuous InterpolationMode** affects
 properties that occur between data in a stream:
