@@ -1075,7 +1075,7 @@ Summary values supported by `SdsSummaryType` enum:
 | Kurtosis                           | 512               |
 | WeightedMean                       | 1024              |
 | WeightedStandardDeviation          | 2048              |
-| WeightedPopulationStandardDeviatio | 4096              |
+| WeightedPopulationStandardDeviation | 4096              |
 
 **Request**  
  ```text
