@@ -980,6 +980,14 @@ The response includes a status code and a response body.
 **Response Body**  
 The Access Rights of the specified stream view for the requesting identity.
 
+Example response body:
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
+
 **.NET Library**
 ```csharp
    Task<string[]> GetStreamViewAccessRightsAsync(string streamViewId);

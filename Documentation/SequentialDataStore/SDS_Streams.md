@@ -642,6 +642,14 @@ The response includes a status code and a response body.
 **Response Body**  
 The access rights associated with specified stream for the requesting identity.
 
+Example response body:
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
+
 **.NET Library**
 ```csharp
    Task<string[]> GetStreamAccessRightsAsync(string streamId);
