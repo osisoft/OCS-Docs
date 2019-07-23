@@ -1614,3 +1614,36 @@ The response includes a status code.
 ```csharp
    Task UpdateTypeOwnerAsync(string typeId, Trustee typeOwner);
 ```
+***
+
+## `Get Type Access Rights`
+
+Gets the AccessRights associated with the specified type for the requesting identity.
+
+**Request**
+ ```text
+	GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessRights
+ ```
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+**Response**  
+The response includes a status code and a response body.
+
+**Response Body**  
+The Access Rights of the specified type for the requesting identity.
+
+**.NET Library**
+```csharp
+   Task<string[]> GetTypeAccessRightsAsync(string typeId);
+```
+***********************

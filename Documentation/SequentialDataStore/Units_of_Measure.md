@@ -721,7 +721,39 @@ The response includes a status code.
 ```csharp
    Task UpdateQuantityOwnerAsync(string quantityId, Trustee quantityOwner);
 ```
-****
+***
+
+## `Get Quantity Owner`
+
+Gets the AccessRights associated with the specified quantity for the requesting identity.
+
+**Request**
+ ```text
+    GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessRights
+ ```
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+**Response**  
+The response includes a status code and a response body.
+
+**Response body**
+The Access Rights of the specified quantity for the requesting identity.
+
+**.NET Library**
+```csharp
+   Task<string[]> GetQuantityAccessRightsAsync(string quantityId);
+```
+***********************
 
 # SdsUom API
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact with SdsUoms. When working in .NET, convenient SDS Client Libraries are available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, defines the available functions. See [Units of Measure](#units-of-measure) for general [SdsUom](#sdsuom) information.
@@ -976,7 +1008,42 @@ The response includes a status code.
 ```csharp
    Task UpdateQuantityUomOwnerAsync(string quantityId, string uomId, Trustee uomOwner);
 ```
-****
+***
+
+## `Get Uom Access Rights`
+
+Gets the AccessRights associated with the specified unit of measure for the requesting identity.
+
+**Request**
+ ```text
+    GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessRights
+ ```
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+`string uomId`  
+The unit of measure identifier
+
+**Response**  
+The response includes a status code and a response body.
+
+**Response Body**  
+The Access Rights of the specified unit of measure for the requesting identity.
+
+**.NET Library**
+```csharp
+   Task<string[]> GetQuantityUomAccessRightsAsync(string quantityId, string uomId);
+```
+***********************
 
 
 ## Associating a unit of measure with a SdsType

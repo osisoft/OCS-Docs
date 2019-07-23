@@ -951,3 +951,36 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
 ```
+***
+
+## `Get Stream View Access Rights`
+
+Gets the AccessRights associated with the specified stream view for the requesting identity.
+
+**Request**
+ ```text
+    GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessRights
+ ```
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+**Response**  
+The response includes a status code and a response body.
+
+**Response Body**  
+The Access Rights of the specified stream view for the requesting identity.
+
+**.NET Library**
+```csharp
+   Task<string[]> GetStreamViewAccessRightsAsync(string streamViewId);
+```
+***********************
