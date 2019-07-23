@@ -723,9 +723,10 @@ The response includes a status code.
 ```
 ***
 
-## `Get Quantity Owner`
+## `Get Quantity Access Rights`
 
-Gets the AccessRights associated with the specified quantity for the requesting identity.
+Gets the AccessRights associated with the specified quantity for the requesting identity.  For 
+more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
  ```text
@@ -1012,7 +1013,8 @@ The response includes a status code.
 
 ## `Get Uom Access Rights`
 
-Gets the AccessRights associated with the specified unit of measure for the requesting identity.
+Gets the AccessRights associated with the specified unit of measure for the requesting identity. For 
+more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
  ```text

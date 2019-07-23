@@ -1618,7 +1618,8 @@ The response includes a status code.
 
 ## `Get Type Access Rights`
 
-Gets the AccessRights associated with the specified type for the requesting identity.
+Gets the AccessRights associated with the specified type for the requesting identity. For 
+more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
  ```text

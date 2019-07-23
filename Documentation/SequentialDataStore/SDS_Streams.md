@@ -617,7 +617,8 @@ The response includes a status code.
 
 ## `Get Stream Access Rights`
 
-Gets the AccessRights associated with the specified stream for the requesting identity.
+Gets the AccessRights associated with the specified stream for the requesting identity. For 
+more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
  ```text
