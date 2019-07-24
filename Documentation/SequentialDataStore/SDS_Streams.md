@@ -617,7 +617,7 @@ The response includes a status code.
 
 ## `Get Stream Access Rights`
 
-Gets the AccessRights associated with the specified stream for the requesting identity. For 
+Gets the Access Rights associated with the specified stream for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
@@ -640,7 +640,7 @@ The stream identifier
 The response includes a status code and a response body.
 
 **Response Body**  
-The access rights associated with specified stream for the requesting identity.
+The Access Rights associated with specified stream for the requesting identity.
 
 Example response body:
 ```json

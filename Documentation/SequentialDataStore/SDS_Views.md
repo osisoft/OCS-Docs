@@ -955,7 +955,7 @@ The response includes a status code.
 
 ## `Get Stream View Access Rights`
 
-Gets the AccessRights associated with the specified stream view for the requesting identity. For 
+Gets the Access Rights associated with the specified stream view for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 **Request**
