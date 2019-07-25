@@ -542,7 +542,7 @@ Get the default ACL for the Quantities collection. For more information on ACLs,
 
 **Request**
  ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/AccessControl
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Quantities
  ```
 
 **Parameters**
@@ -571,7 +571,7 @@ Update the default ACL for the Quantities collection. For more information on AC
 
 **Request**
  ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Quantities
  ```
 
 **Parameters**
