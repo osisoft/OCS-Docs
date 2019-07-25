@@ -1431,7 +1431,7 @@ Get the default ACL for the Types collection. For more information on ACLs, see 
 
 **Request**
  ```text
-	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
  ```
 
 **Parameters**
@@ -1460,7 +1460,7 @@ Update the default ACL for the Types collection. For more information on ACLs, s
 
 **Request**
  ```text
-	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/AccessControl
+	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
  ```
 
 **Parameters**
