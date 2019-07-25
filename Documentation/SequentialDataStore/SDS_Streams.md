@@ -613,3 +613,46 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
+*** 
+
+## `Get Stream Access Rights`
+
+Gets the Access Rights associated with the specified stream for the requesting identity. For 
+more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
+
+**Request**
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessRights
+ ```
+
+**Parameters**
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+**Response**  
+The response includes a status code and a response body.
+
+**Response Body**  
+The Access Rights associated with specified stream for the requesting identity.
+
+Example response body:
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
+
+**.NET Library**
+```csharp
+   Task<string[]> GetStreamAccessRightsAsync(string streamId);
+```
+***********************
+
