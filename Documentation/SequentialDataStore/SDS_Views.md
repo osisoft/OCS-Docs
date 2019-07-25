@@ -772,7 +772,7 @@ Get the default ACL for the Stream Views collection. For more information on ACL
 
 **Request**
  ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
  ```
 
 **Parameters**
@@ -801,7 +801,7 @@ Update the default ACL for the Stream Views collection. For more information on 
 
 **Request**
  ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
  ```
 
 **Parameters**
