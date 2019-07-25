@@ -434,7 +434,7 @@ Get the default ACL for the Streams collection. For more information on ACLs, se
 
 **Request**
  ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
 **Parameters**
@@ -463,7 +463,7 @@ Update the default ACL for the Streams collection. For more information on ACLs,
 
 **Request**
  ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
 **Parameters**
