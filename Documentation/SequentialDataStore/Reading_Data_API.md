@@ -1410,6 +1410,7 @@ SDS supports the following types of joins:
 | MergeLeft    | 3                 | Results include events for each index across all streams selecting events at the indexes based on left to right order of the streams. |
 | MergeRight   | 4                 | Results include events for each index across all streams selecting events at the indexes based on right to left order of the streams. |
 
+Note that the Interpolated SdsJoinMode currently does not support ContinuousNullableTrailing or ContinuousNullableLeading SdsInterpolationModes. All join requests with interpolations involving a Null value will return an interpolated Null result at the index where calculation was required.
 
 SDS supports two types of join requests:
 * [GET](#getjoin): The stream, joinMode, start index, and end index are specified in the request URI path.
