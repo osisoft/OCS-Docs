@@ -1410,8 +1410,6 @@ SDS supports the following types of joins:
 | MergeLeft    | 3                 | Results include events for each index across all streams selecting events at the indexes based on left to right order of the streams. |
 | MergeRight   | 4                 | Results include events for each index across all streams selecting events at the indexes based on right to left order of the streams. |
 
-**Note:** The Interpolated SdsJoinMode currently does not support ContinuousNullableTrailing or ContinuousNullableLeading SdsInterpolationModes. All join requests with interpolations involving a Null value will return an interpolated Null result at the index where calculation was required. More information regarding Interpolation can be found [here.](https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Types.md#interpolation)
-
 SDS supports two types of join requests:
 * [GET](#getjoin): The stream, joinMode, start index, and end index are specified in the request URI path.
 * [POST](#postjoin): Only the SdsJoinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
@@ -1630,6 +1628,8 @@ Content-Type: application/json
 
 **Response**  
 All Measurements from both Streams with missing values interpolated. If the missing values are between valid Measurements within a Stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
+
+**Note:** The Interpolated SdsJoinMode currently does not support ContinuousNullableTrailing or ContinuousNullableLeading SdsInterpolationModes. All join requests with interpolations involving a Null value will return an interpolated Null result at the index where calculation was required. More information regarding Interpolation can be found [here.](https://github.com/osisoft/OCS-Docs/blob/master/Documentation/SequentialDataStore/SDS_Types.md#interpolation)
 
 **Response body**
 
