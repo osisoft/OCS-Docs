@@ -1410,6 +1410,7 @@ SDS supports the following types of joins:
 | MergeLeft    | 3                 | Results include events for each index across all streams selecting events at the indexes based on left to right order of the streams. |
 | MergeRight   | 4                 | Results include events for each index across all streams selecting events at the indexes based on right to left order of the streams. |
 
+
 SDS supports two types of join requests:
 * [GET](#getjoin): The stream, joinMode, start index, and end index are specified in the request URI path.
 * [POST](#postjoin): Only the SdsJoinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
