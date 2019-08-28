@@ -1243,9 +1243,11 @@ Content-Type: application/json
 
 ## ``Get Summaries for Nullable Types``
 
-OCS also support summary requests for nullable SdsTypes. It means a SdsType has at least a nullable sdstypeproperty.
+OCS also support summary requests for nullable SdsTypes. It means a SdsType has at least a nullable SdsTypeProperty.
 
 **Example** 
+The following example contains a nullable double property.
+
 ###### .NET
 ```csharp
 
