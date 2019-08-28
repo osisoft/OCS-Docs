@@ -1186,7 +1186,7 @@ Content-Type: application/json
         }
     },
     {
-        "Start": {
+        "Start": {   
             "Time": "2017-11-23T14:00:00Z",
             "State": 0,
             "Measurement": 20
@@ -1235,6 +1235,113 @@ Content-Type: application/json
             },
             "Kurtosis": {
                 "Measurement": -2
+            }
+        }
+    }
+]
+```
+
+**Get Summaries for Nullable Types**
+OCS also support summary requests for nullable SdsTypes. It means a SdsType has at least a nullable sdstypeproperty.
+
+**Example** 
+###### .NET
+```csharp
+
+public class SimpleType
+{
+   [SdsMember(IsKey = true, Order = 0) ]
+   public DateTime Time { get; set; }
+   [SdsMember(Uom = "meter")]
+   public double? Measurement { get; set; }
+}
+
+``Measurement`` has stored values as follows:
+
+      11/23/2017 12:00:01 PM: Measurement 2
+      11/23/2017 12:00:02 PM: Measurement 2
+      11/23/2017 12:00:03 PM: Measurement null
+      11/23/2017 12:00:04 PM: Measurement 1
+      11/23/2017 12:00:05 PM: Measurement 2
+	  11/23/2017 12:00:06 PM: Measurement null
+	  11/23/2017 12:00:07 PM: Measurement null
+	  11/23/2017 12:00:08 PM: Measurement 3
+
+	  It's graphical represenation is as below
+
+				4d+
+                  |
+                3d+                               3
+                  |   2   2   x   1   2   x   x   +
+                2d+   +   +           +           |
+                  |   |   |           |           |
+                1d+   |   |       +   |           |
+                  |   |   |       |   |           |
+                  +---+---+---+---+---+---+---+---+
+                      1s  2s  3s  4s  5s  6s  7s  8s
+
+                    **x represents null, s represents seconds, and d represents double**		
+
+The following request calculates one summary intervals between the `startIndex` and `endIndex`: 
+ ```text
+    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
+        Summaries?startIndex=2017-11-23T12:00:01Z&endIndex=2017-11-23T12:00:08Z&count=1
+ ```                
+
+**Response body**
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+[
+    {
+        "Start": {
+            "Time": "2017-11-23T12:00:01Z",
+            "Measurement": 2
+        },
+        "End": {
+            "Time": "2017-11-23T12:00:08Z",
+            "Measurement": 3
+        },
+        "Summaries": {
+            "Count": {
+                "Measurement": 4
+            },
+            "Minimum": {
+                "Measurement": 1
+            },
+            "Maximum": {
+                "Measurement": 3
+            },
+            "Range": {
+                "Measurement": 2
+            },
+            "Total": {
+                "Measurement": 7.5
+            },
+            "Mean": {
+                "Measurement": 1.875
+            },
+            "StandardDeviation": {
+                "Measurement": 0.478713553878169
+            },
+            "PopulationStandardDeviation": {
+                "Measurement": 0.41457809879442492
+            },
+            "WeightedMean": {
+                "Measurement": 1.75
+            },
+            "WeightedStandardDeviation": {
+                "Measurement": 0.28867513459481287
+            },
+            "WeightedPopulationStandardDeviation": {
+                "Measurement": 0.25
+            },
+            "Skewness": {
+                "Measurement": 0.49338220021815865
+            },
+            "Kurtosis": {
+                "Measurement": -1.3719008264462809
             }
         }
     }
