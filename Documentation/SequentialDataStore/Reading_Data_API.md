@@ -1241,7 +1241,8 @@ Content-Type: application/json
 ]
 ```
 
-**Get Summaries for Nullable Types**
+## ``Get Summaries for Nullable Types``
+
 OCS also support summary requests for nullable SdsTypes. It means a SdsType has at least a nullable sdstypeproperty.
 
 **Example** 
@@ -1255,6 +1256,7 @@ public class SimpleType
    [SdsMember(Uom = "meter")]
    public double? Measurement { get; set; }
 }
+```
 
 ``Measurement`` has stored values as follows:
 
@@ -1266,21 +1268,7 @@ public class SimpleType
 	  11/23/2017 12:00:06 PM: Measurement null
 	  11/23/2017 12:00:07 PM: Measurement null
 	  11/23/2017 12:00:08 PM: Measurement 3
-
-	  It's graphical represenation is as below
-
-				4d+
-                  |
-                3d+                               3
-                  |   2   2   x   1   2   x   x   +
-                2d+   +   +           +           |
-                  |   |   |           |           |
-                1d+   |   |       +   |           |
-                  |   |   |       |   |           |
-                  +---+---+---+---+---+---+---+---+
-                      1s  2s  3s  4s  5s  6s  7s  8s
-
-                    **x represents null, s represents seconds, and d represents double**		
+			
 
 The following request calculates one summary intervals between the `startIndex` and `endIndex`: 
  ```text
