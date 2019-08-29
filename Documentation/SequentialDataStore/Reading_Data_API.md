@@ -1186,7 +1186,7 @@ Content-Type: application/json
         }
     },
     {
-        "Start": {   
+        "Start": {
             "Time": "2017-11-23T14:00:00Z",
             "State": 0,
             "Measurement": 20
@@ -1322,7 +1322,7 @@ Content-Type: application/json
                 "Measurement": 1.75
             },
             "WeightedStandardDeviation": {
-                "Measurement": 0.28867513459481287
+                "Measurement": 0.35355339059327379
             },
             "WeightedPopulationStandardDeviation": {
                 "Measurement": 0.25
@@ -1346,10 +1346,6 @@ Content-Type: application/json
    Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1>(string streamId, T1 
       startIndex, T1 endIndex, int count, string streamViewId = null);
 
-   Task<IEnumerable<SdsInterval<T>>> GetIntervalsAsync<T, T1, T2>(string streamId, 
-      Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-      string streamViewId = null);
-
    Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T>(string streamId, 
       string startIndex, string endIndex, int count, string filter, 
       string streamViewId = null);
@@ -1357,10 +1353,6 @@ Content-Type: application/json
    Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1>(string streamId, 
       T1 startIndex, T1 endIndex, int count, string filter, 
       string streamViewId = null);
-
-   Task<IEnumerable<SdsInterval<T>>> GetFilteredIntervalsAsync<T, T1, T2>(string 
-      streamId, Tuple<T1, T2> startIndex, Tuple<T1, T2> endIndex, int count, 
-      string filter, string streamViewId = null);
 ```
 ****
 
