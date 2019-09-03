@@ -1243,7 +1243,7 @@ Content-Type: application/json
 
 ## ``Get Summaries for Nullable Types``
 
-OCS also support summary requests for nullable SdsTypes. It means a SdsType has at least a nullable SdsTypeProperty.
+SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
 **Example** 
 The following example contains a nullable double property.
@@ -1272,7 +1272,7 @@ public class SimpleType
 	  11/23/2017 12:00:08 PM: Measurement 3
 			
 
-The following request calculates one summary intervals between the `startIndex` and `endIndex`: 
+The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:01Z&endIndex=2017-11-23T12:00:08Z&count=1
