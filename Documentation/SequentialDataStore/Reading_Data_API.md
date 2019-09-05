@@ -1145,6 +1145,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
+				"Time": 3,
                 "Measurement": 2
             },
             "Minimum": {
@@ -1198,6 +1199,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
+				"Time": 3,
                 "Measurement": 2
             },
             "Minimum": {
@@ -1295,6 +1297,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
+				"Time": 8,
                 "Measurement": 4
             },
             "Minimum": {
