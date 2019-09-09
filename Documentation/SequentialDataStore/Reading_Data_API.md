@@ -1097,6 +1097,22 @@ Currently, these values can only be calculated for properties of the following t
 | Double         | 14          |
 | DateTimeOffset | 20          |
 | TimeSpan       | 21          |
+| NullableBoolean        | 103           |
+| NullableByte           | 106           |
+| NullableChar           | 104           |
+| NullableDecimal        | 115           |
+| NullableInt16          | 107           |
+| NullableInt32          | 109           |
+| NullableInt64          | 111           |
+| NullableSByte          | 105           |
+| NullableSingle         | 113           |
+| NullableUInt16         | 108           |
+| NullableUInt32         | 110           |
+| NullableUInt64         | 112           |
+| NullableDateTime       | 116           |
+| NullableDouble         | 114           |
+| NullableDateTimeOffset | 120           |
+| NullableTimeSpan       | 121           |
 
 **Note:** Properties marked with an ``InterpolationMode`` of ``Discrete`` do not support summaries.
 Unsupported properties will be excluded from the summaries returned.
