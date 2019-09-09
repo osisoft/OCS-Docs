@@ -4,19 +4,28 @@ uid: identityClientCredentialClient
 
 # ClientCredentialClient
 
-APIs for creating, getting, updating, and deleting Client Credential Clients
+Client Credential clients are used for machine-to-machine communication without
+            the presence of a User. These clients are issued an Id and Secret upon creation,
+            which are later used for authentication against OCS. More than one Secret can be
+            created for a Client. You can read more about these clients
+            [here](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/Authentication#client-credential-flow).
+            Because they access resources on OCS, and are not associated to users, these
+            clients can be assigned any of the roles in the Tenant. We suggest following a
+            least privilege strategy when assigning roles to these clients, as they are more
+            likely to operate in remote machines with a wider attack surface.
 
 ## Properties
 
-For HTTP requests and responses, the ClientCredentialClientDto object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the ClientCredentialClient object has the following properties and JSON-serialized body: 
 
 Property | Type | Descriptions
- --- | --- | ---
-RoleIds | Guid[] | List of Roles to be assigned to this client.
-ClientId | string | Client ID for this Client
-Name | string | Name of ClientDto.
-Enabled | optional: bool | Is ClientDto Enabled
-Tags | string[] | For OSIsoft internal use only
+ --- | --- | --- | ---
+RoleIds | Guid[] | List of Roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning Admin roles to a client.
+Id | string | Client ID for this client. This ID should be a GUID.
+Name | string | Name of Client.
+Enabled | bool | Determine if client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.
+AccessTokenLifetime | int32 | Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
+Tags | string[] | For OSIsoft internal use only.
 
 ### Serialized Model
 
@@ -26,9 +35,10 @@ Tags | string[] | For OSIsoft internal use only
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
   ],
-  "ClientId": "ClientId",
+  "Id": "Id",
   "Name": "Name",
   "Enabled": false,
+  "AccessTokenLifetime": 0,
   "Tags": [
     "String",
     "String"
@@ -38,13 +48,48 @@ Tags | string[] | For OSIsoft internal use only
 
 ***
 
+## Base URL
+
+All URLs referenced in this section have the following base:
+
+`https://dat-b.osisoft.com/`
+
+## Authentication
+
+All endpoints referenced in this documentation require authenticated access. Authorization header must be set to the access token you retrieve after a successful authentication request.
+
+`Authorization: Bearer <token>`
+
+Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
+Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
+Read [here](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+
+## Error Handling
+
+All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
+
+```json
+{
+    "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c", 
+    "Error": "Error message.", 
+    "Reason": "Reason that caused error.", 
+    "Resolution": "Possible solution for the error." 
+}
+```
+
+If and when contacting OSIsoft support about this error, please provide the OperationId.
+
 ## `Create Client Credential Client`
 
-Create a Client Credential flow Client
+Create a Client Credential Client. A Client Id and Client Secret will be generated to perform
+            authentication. Make sure to store the Secret somewhere safe as we do not store the
+            actual value after the creation step. If you do not have access to the Secret value, we suggest
+            deleting the Secret and adding a new one for this Client. Clients have unique Ids in a Tenant.
+            Currently there is a limit of 50000 clients (of all types) per Tenant.
 
 ### Request
 
-`POST api/v1-preview/Tenants/{tenantId}/ClientCredentialClients`
+`POST api/v1/Tenants/{tenantId}/ClientCredentialClients`
 
 ### Parameters
 
@@ -53,27 +98,41 @@ Create a Client Credential flow Client
 string tenantId
 ```
 
-Id of tenant
+Id of Tenant.
 
 ```csharp
 [FromBody]
 [Required]
-ClientCredentialClientCreateDto clientCredentialClientCreateDto
+ClientCredentialClientCreate clientCredentialClientCreate
 ```
 
-New ClientCredentialClientCreateDto object
+ClientCredentialClientCreate object.
+
+Property | Type | Required | Description 
+ --- | --- | --- | ---
+SecretDescription | string | No | Description for the initial secret for the client. Ensure that this is descriptive enough,            as it will be the only way to distinguish between multiple secrets and their usage for a            client.
+SecretExpirationDate | DateTime | No | Expiration date for the initial secret for the client. If set to null the secret will            never expire. We advise against such practice.
+RoleIds | Guid[] | No | List of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
+Id | string | No | Client ID for this client. This ID should be a GUID.
+Name | string | Yes | Name of Client.
+Enabled | bool | No | Determine if client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
+AccessTokenLifetime | int32 | No | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
+Tags | string[] | No | For OSIsoft internal use only.
+
+
 
 ```json
 {
   "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-30T11:35:12.3647771-07:00",
+  "SecretExpirationDate": "2019-07-19T13:56:29.4733602-07:00",
   "RoleIds": [
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
   ],
-  "ClientId": "ClientId",
+  "Id": "Id",
   "Name": "Name",
   "Enabled": false,
+  "AccessTokenLifetime": 0,
   "Tags": [
     "String",
     "String"
@@ -91,29 +150,32 @@ Allowed for these roles:
 
 #### 201
 
-Created
+Created.
 
 ##### Type:
 
- `ClientCredentialClientResponseDto`
+ `ClientResponse`
 
 ```json
 {
-  "ClientSecret": "ClientSecret",
-  "SecretId": "SecretId",
-  "SecretDescription": "description",
-  "SecretExpirationDate": "2019-04-30T11:35:12.3673783-07:00",
-  "RoleIds": [
-    "00000000-0000-0000-0000-000000000000",
-    "00000000-0000-0000-0000-000000000000"
-  ],
-  "ClientId": "ClientId",
-  "Name": "Name",
-  "Enabled": false,
-  "Tags": [
-    "String",
-    "String"
-  ]
+  "Secret": "Secret",
+  "Id": 0,
+  "Description": "description",
+  "ExpirationDate": "2019-07-19T13:56:29.4757641-07:00",
+  "Client": {
+    "RoleIds": [
+      "00000000-0000-0000-0000-000000000000",
+      "00000000-0000-0000-0000-000000000000"
+    ],
+    "Id": "Id",
+    "Name": "Name",
+    "Enabled": false,
+    "AccessTokenLifetime": 0,
+    "Tags": [
+      "String",
+      "String"
+    ]
+  }
 }
 ```
 
@@ -123,32 +185,33 @@ Missing or invalid inputs, or Client limit exceeded.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+Tenant not found.
 
 #### 409
 
-Client Id already exists
+Client Id already exists.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
 ## `Update Client Credential Client`
 
-Update a Client Credential Client
+Update a Client Credential Client. It can take up to one hour
+            for these values to manifest in the authentication process.
 
 ### Request
 
-`PUT api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
+`PUT api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
 
 ### Parameters
 
@@ -157,22 +220,33 @@ Update a Client Credential Client
 string tenantId
 ```
 
-Id of tenant
+Id of Tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of client
+Id of Client.
 
 ```csharp
 [FromBody]
 [Required]
-ClientCredentialClientDto updatedClientCredentialClientDto
+ClientCredentialClient updatedClientCredentialClient
 ```
 
-Updated Client Credential Client values
+ClientCredentialClient object. Properties that are not set or are null will not be changed.
+
+Property | Type | Required | Description 
+ --- | --- | --- | ---
+RoleIds | Guid[] | No | List of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
+Id | string | No | Client ID for this client. This ID should be a GUID.
+Name | string | Yes | Name of Client.
+Enabled | bool | No | Determine if client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
+AccessTokenLifetime | int32 | No | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
+Tags | string[] | No | For OSIsoft internal use only.
+
+
 
 ```json
 {
@@ -180,9 +254,10 @@ Updated Client Credential Client values
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
   ],
-  "ClientId": "ClientId",
+  "Id": "Id",
   "Name": "Name",
   "Enabled": false,
+  "AccessTokenLifetime": 0,
   "Tags": [
     "String",
     "String"
@@ -200,11 +275,11 @@ Allowed for these roles:
 
 #### 200
 
-Success
+Success.
 
 ##### Type:
 
- `ClientCredentialClientDto`
+ `ClientCredentialClient`
 
 ```json
 {
@@ -212,9 +287,10 @@ Success
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
   ],
-  "ClientId": "ClientId",
+  "Id": "Id",
   "Name": "Name",
   "Enabled": false,
+  "AccessTokenLifetime": 0,
   "Tags": [
     "String",
     "String"
@@ -224,32 +300,32 @@ Success
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs.
 
 #### 404
 
-Client or Tenant not found
+Client or Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
 ## `Get Client Credential Client`
 
-Get a Client Credential Client
+Get a Client Credential Client.
 
 ### Request
 
-`GET api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
+`GET api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
 
 ### Parameters
 
@@ -258,14 +334,14 @@ Get a Client Credential Client
 string tenantId
 ```
 
-Id of tenant
+Id of Tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of client
+Id of Client.
 
 ### Security
 
@@ -278,11 +354,11 @@ Allowed for these roles:
 
 #### 200
 
-Success
+Success.
 
 ##### Type:
 
- `ClientCredentialClientDto`
+ `ClientCredentialClient`
 
 ```json
 {
@@ -290,9 +366,10 @@ Success
     "00000000-0000-0000-0000-000000000000",
     "00000000-0000-0000-0000-000000000000"
   ],
-  "ClientId": "ClientId",
+  "Id": "Id",
   "Name": "Name",
   "Enabled": false,
+  "AccessTokenLifetime": 0,
   "Tags": [
     "String",
     "String"
@@ -302,28 +379,30 @@ Success
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Client or Tenant not found
+Client or Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
 ## `Get All Client Credential Clients`
 
-Get all Client Credential Clients
+Get a list of Client Credential clients from a Tenant.
+            Optionally, get a list of requested clients. Total number
+            of clients in the Tenant set in the Total-Count header.
 
 ### Request
 
-`GET api/v1-preview/Tenants/{tenantId}/ClientCredentialClients`
+`GET api/v1/Tenants/{tenantId}/ClientCredentialClients`
 
 ### Parameters
 
@@ -332,13 +411,22 @@ Get all Client Credential Clients
 string tenantId
 ```
 
-Id of tenant
+Id of Tenant.
 
 ```csharp
 [FromQuery]
 [Optional]
 [Default = ""]
-string[] tags
+string[] id
+```
+
+Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids will be ignored.
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] tag
 ```
 
 Only return Clients that have these tags.
@@ -350,7 +438,7 @@ Only return Clients that have these tags.
 string query
 ```
 
-Query to execute. Currently not supported
+Query to execute. Currently not supported.
 
 ```csharp
 [FromQuery]
@@ -359,7 +447,7 @@ Query to execute. Currently not supported
 int32 skip
 ```
 
-Number of clients to skip. From query.
+Number of clients to skip. Will be ignored if a list of Ids is passed.
 
 ```csharp
 [FromQuery]
@@ -368,7 +456,7 @@ Number of clients to skip. From query.
 int32 count
 ```
 
-Max number of clients to return
+Maximum number of clients to return. Will be ignored if a list of Ids is passed.
 
 ### Security
 
@@ -381,11 +469,11 @@ Allowed for these roles:
 
 #### 200
 
-Success
+Success.
 
 ##### Type:
 
- `List[ClientCredentialClientDto]`
+ `List`
 
 ```json
 [
@@ -394,9 +482,10 @@ Success
       "00000000-0000-0000-0000-000000000000",
       "00000000-0000-0000-0000-000000000000"
     ],
-    "ClientId": "ClientId",
+    "Id": "Id",
     "Name": "Name",
     "Enabled": false,
+    "AccessTokenLifetime": 0,
     "Tags": [
       "String",
       "String"
@@ -407,9 +496,10 @@ Success
       "00000000-0000-0000-0000-000000000000",
       "00000000-0000-0000-0000-000000000000"
     ],
-    "ClientId": "ClientId",
+    "Id": "Id",
     "Name": "Name",
     "Enabled": false,
+    "AccessTokenLifetime": 0,
     "Tags": [
       "String",
       "String"
@@ -424,7 +514,7 @@ Partial success.
 
 ##### Type:
 
- `MultiStatusResponseDto[List[ClientCredentialClientDto]]`
+ `MultiStatusResponse`
 
 ```json
 {
@@ -433,26 +523,20 @@ Partial success.
   "Reason": "Reason",
   "ChildErrors": [
     {
+      "StatusCode": 0,
+      "ModelId": "ModelId",
       "OperationId": "OperationId",
       "Error": "Error",
       "Reason": "Reason",
-      "Resolution": "Resolution",
-      "StatusCode": 0,
-      "ModelId": {
-        "String": "String"
-      },
-      "TenantId": "00000000-0000-0000-0000-000000000000"
+      "Resolution": "Resolution"
     },
     {
+      "StatusCode": 0,
+      "ModelId": "ModelId",
       "OperationId": "OperationId",
       "Error": "Error",
       "Reason": "Reason",
-      "Resolution": "Resolution",
-      "StatusCode": 0,
-      "ModelId": {
-        "String": "String"
-      },
-      "TenantId": "00000000-0000-0000-0000-000000000000"
+      "Resolution": "Resolution"
     }
   ],
   "Data": [
@@ -461,9 +545,10 @@ Partial success.
         "00000000-0000-0000-0000-000000000000",
         "00000000-0000-0000-0000-000000000000"
       ],
-      "ClientId": "ClientId",
+      "Id": "Id",
       "Name": "Name",
       "Enabled": false,
+      "AccessTokenLifetime": 0,
       "Tags": [
         "String",
         "String"
@@ -474,9 +559,10 @@ Partial success.
         "00000000-0000-0000-0000-000000000000",
         "00000000-0000-0000-0000-000000000000"
       ],
-      "ClientId": "ClientId",
+      "Id": "Id",
       "Name": "Name",
       "Enabled": false,
+      "AccessTokenLifetime": 0,
       "Tags": [
         "String",
         "String"
@@ -488,28 +574,30 @@ Partial success.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
 ## `Delete Client Credential Client`
 
-Delete a Client Credential Client
+Delete a Client Credential Client. It can take up to one hour
+            for deletion to manifest in the authentication process. Access
+            tokens issued to this Client will be valid until their expiration.
 
 ### Request
 
-`DELETE api/v1-preview/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
+`DELETE api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
 
 ### Parameters
 
@@ -518,14 +606,14 @@ Delete a Client Credential Client
 string tenantId
 ```
 
-Id of tenant
+Id of Tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of client
+Id of Client
 
 ### Security
 
@@ -537,22 +625,155 @@ Allowed for these roles:
 
 #### 204
 
-Deleted
+Deleted.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Client or Tenant not found
+Client or Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
+***
+
+## `Validate Client Exists`
+
+Validate that a Client Credential Client exists.
+            This endpoint is identical to the GET one but
+            it does not return any objects in the body.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[Required]
+string clientId
+```
+
+Id of Client
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+- `Account Member`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+Client or Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
+## `Get Total Count of Clients`
+
+Return total number of Client Credential clients in a Tenant.
+            Optionally, check based on a list of requested clients. The
+            value will be set in the Total-Count header. This endpoint
+            is identical to the GET one but it does not return any objects
+            in the body.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/ClientCredentialClients`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] id
+```
+
+Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids will be ignored.
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] tag
+```
+
+Only count Clients that have these tags.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+- `Account Member`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+Client or Tenant not found.
+
+#### 500
+
+Internal server error.
 ***
 

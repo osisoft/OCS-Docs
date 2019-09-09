@@ -2,14 +2,16 @@
   href: Identity_Overview.md
 - name: AAD Tenant
   href: Identity_AzureActiveDirectoryTenant.md
-- name: Client
-  href: Identity_Client.md
+- name: Authorization Code Client
+  href: Identity_AuthorizationCodeClient.md
 - name: Implicit Client
   href: Identity_ImplicitClient.md
 - name: Hybrid Client
   href: Identity_HybridClient.md
 - name: Client Credential Client
   href: Identity_ClientCredentialClient.md
+- name: Persisted Grant
+  href: Identity_PersistedGrant.md
 - name: User
   href: Identity_User.md
 - name: Invitation

@@ -1,5 +1,3 @@
-- name: Introducing the Sequential Data Store
-  href: Introducing_SDS.md
 - name: Quick start
   href: Quick_Start.md
 - name: Types
@@ -28,7 +26,5 @@
   href: Searching.md
 - name: Filter Expressions - Data
   href: Filter_Expressions.md
-- name: Filter Expressions - SDS Objects
-  href: Filter_Expressions_Metadata.md
 - name: Table Format
   href: table_format.md

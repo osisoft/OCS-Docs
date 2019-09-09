@@ -53,7 +53,7 @@
     "template": [
       "default"
     ],
-    "postProcessors": [],
+    "postProcessors": ["OcsVariableProcessor"],
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,

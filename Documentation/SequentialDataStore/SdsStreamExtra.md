@@ -23,7 +23,7 @@ Returns the metadata dictionary for the specified stream.
 
 **Request**
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
 **Parameters**
@@ -77,7 +77,7 @@ Returns the value for the specified key in the metadata dictionary of the specif
 
 **Request**
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
  ```
 
 **Parameters**
@@ -134,7 +134,7 @@ Overwrites any existing metadata; does not merge.
 
 **Request**
  ```text
-      PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+      PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
 **Parameters**
@@ -175,7 +175,7 @@ Deletes the metadata for the specified stream.
 
 **Request**
  ```text
-      DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
+      DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
 **Parameters**
@@ -220,7 +220,7 @@ Returns the tag list for the specified stream.
 
 **Request**
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
 **Parameters**
@@ -274,7 +274,7 @@ Overwrites any existing tags; does not merge.
 
 **Request**
  ```text
-      PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+      PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
 **Parameters**
@@ -316,7 +316,7 @@ Deletes the tag list for the specified stream.
 
 **Request**
  ```text
-      DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
+      DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
 **Parameters**

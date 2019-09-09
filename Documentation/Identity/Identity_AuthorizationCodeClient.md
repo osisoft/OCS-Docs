@@ -1,23 +1,22 @@
 ---
-uid: identityImplicitClient
+uid: identityAuthorizationCodeClient
 ---
 
-# ImplicitClient
+# AuthorizationCodeClient
 
-We suggest using a Authorization Code Client instead of an Implicit Client.
-            Implicit clients are used in Javascript/Browser (SPA) based applications or native
+Authorization Code clients are used in Javascript/Browser (SPA) based applications or native
             mobile applications with the presence of a User.
-            You can read more about these clients
-            [here](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/Authentication#implicit-flow-deprecated).
-            These clients are not issued secrets or refresh tokens.
+            These clients are issued an ID. You can read more about these clients
+            [here](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/Authentication#authorization-code-flow-with-pkce).
+            Authorization Code clients are not issued secrets or refresh tokens.
 
 ## Properties
 
-For HTTP requests and responses, the ImplicitClient object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the AuthorizationCodeClient object has the following properties and JSON-serialized body:
 
 Property | Type | Descriptions
  --- | --- | --- | ---
-AllowedCorsOrigins | string[] | If specified, will be used by the default CORS policy service implementations to build a CORS policy for JavaScript clients. Maximum 10 for client.
+AllowedCorsOrigins | string[] | If specified, will be used by the default CORS policy service implementations to build a CORS policy for JavaScript clients.
 RedirectUris | string[] | Specifies the allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match,, the authentication process will fail with a bad_client error. Maximum 10 per client.
 PostLogoutRedirectUris | string[] | Specifies allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting after logout. Maximum 10 for client.
 ClientUri | string | URI to a page with information about client (used on consent screen).
@@ -90,14 +89,14 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create an Implicit Client`
+## `Create an Authorization Code Client`
 
-Create an Implicit Client in a Tenant. No Secret will be generated for this
+Create an Authorization Code flow Client. No Secret will be generated for this
             Client.
 
 ### Request
 
-`POST api/v1/Tenants/{tenantId}/ImplicitClients`
+`POST api/v1/Tenants/{tenantId}/AuthorizationCodeClients`
 
 ### Parameters
 
@@ -111,14 +110,14 @@ Id of Tenant.
 ```csharp
 [FromBody]
 [Required]
-ImplicitClient implicitClient
+AuthorizationCodeClient authorizationCodeClient
 ```
 
-New ImplicitClient object.
+New AuthorizationCodeClient object.
 
 Property | Type | Required | Description 
  --- | --- | --- | ---
-AllowedCorsOrigins | string[] | No | If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.            Maximum 10 for client.
+AllowedCorsOrigins | string[] | No | If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.
 RedirectUris | string[] | No | Specifies the allowed URIs to which return tokens or authorization codes can be returned.            Wildcards are ignored. URIs must match exactly what you are redirecting            to after login. If URIs do not match, the authentication process will fail            with a bad_client error.            Maximum 10 per client.
 PostLogoutRedirectUris | string[] | No | Specifies allowed URIs to redirect to after logout. Wildcards are ignored.            URIs must match exactly what you are redirecting after logout.            Maximum 10 for client.
 ClientUri | string | No | URI to a page with information about client (used on consent screen).
@@ -172,7 +171,7 @@ Created.
 
 ##### Type:
 
- `ImplicitClient`
+ `AuthorizationCodeClient`
 
 ```json
 {
@@ -226,14 +225,14 @@ Client Id already exists.
 Internal server error.
 ***
 
-## `Update an Implicit Client`
+## `Update an Authorization Code Client`
 
-Update an Implicit Client. It can take up to one hour
+Update an Authorization Code Client. It can take up to one hour
             for update to manifest in the authentication process.
 
 ### Request
 
-`PUT api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}`
+`PUT api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}`
 
 ### Parameters
 
@@ -249,19 +248,19 @@ Id of Tenant.
 string clientId
 ```
 
-Id of Client.
+Id of Client
 
 ```csharp
 [FromBody]
 [Required]
-ImplicitClient implicitClient
+AuthorizationCodeClient authorizationCodeClient
 ```
 
-Updated Implicit Client values. Properties that are not set or are null will not be changed.
+Updated Authorization Code Client values. Properties that are not set or are null will not be changed.
 
 Property | Type | Required | Description 
  --- | --- | --- | ---
-AllowedCorsOrigins | string[] | No | If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.            Maximum 10 for client.
+AllowedCorsOrigins | string[] | No | If specified, will be used by the default CORS policy service implementations to build a            CORS policy for JavaScript clients.
 RedirectUris | string[] | No | Specifies the allowed URIs to which return tokens or authorization codes can be returned.            Wildcards are ignored. URIs must match exactly what you are redirecting            to after login. If URIs do not match, the authentication process will fail            with a bad_client error.            Maximum 10 per client.
 PostLogoutRedirectUris | string[] | No | Specifies allowed URIs to redirect to after logout. Wildcards are ignored.            URIs must match exactly what you are redirecting after logout.            Maximum 10 for client.
 ClientUri | string | No | URI to a page with information about client (used on consent screen).
@@ -315,7 +314,7 @@ Success.
 
 ##### Type:
 
- `ImplicitClient`
+ `AuthorizationCodeClient`
 
 ```json
 {
@@ -365,13 +364,13 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Get an Implicit Client`
+## `Get an Authorization Code Client from Tenant`
 
-Get an Implicit Client from a Tenant.
+Get an Authorization Code Client from Tenant.
 
 ### Request
 
-`GET api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}`
+`GET api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}`
 
 ### Parameters
 
@@ -403,7 +402,7 @@ Success.
 
 ##### Type:
 
- `ImplicitClient`
+ `AuthorizationCodeClient`
 
 ```json
 {
@@ -449,15 +448,15 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Get All Implicit Clients from Tenant`
+## `Get All Authorization Code Clients from Tenant`
 
-Get all Implicit clients from a Tenant.
+Get all Authorization Code clients from a Tenant.
             Optionally, get a list of requested clients. Total number
             of clients in the Tenant set in the Total-Count header.
 
 ### Request
 
-`GET api/v1/Tenants/{tenantId}/ImplicitClients`
+`GET api/v1/Tenants/{tenantId}/AuthorizationCodeClients`
 
 ### Parameters
 
@@ -502,7 +501,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of clients to skip. Will be ignored if a list of Ids is passed.
+Number of clients to skip. From query.
 
 ```csharp
 [FromQuery]
@@ -511,7 +510,7 @@ Number of clients to skip. Will be ignored if a list of Ids is passed.
 int32 count
 ```
 
-Maximum number of clients to return. Will be ignored if a list of Ids is passed.
+Maximum number of clients to return.
 
 ### Security
 
@@ -599,15 +598,87 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Delete an Implicit Client`
+## `Get Total Count Authorization Code Clients from Tenant`
 
-Delete an Implicit Client. It can take up to one hour
+Return total number of Authorization Code clients in a Tenant.
+            Optionally, check based on a list of requested clients. The
+            value will be set in the Total-Count header. This endpoint
+            is identical to the GET one but it does not return any objects
+            in the body.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/AuthorizationCodeClients`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] id
+```
+
+Unordered list of ids for all clients to get. Empty or whitespace Ids will be ignored.
+
+```csharp
+[FromQuery]
+[Optional]
+[Default = ""]
+string[] tag
+```
+
+Only count Clients that have these tags.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+Client or Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
+## `Delete an Authorization Code Client`
+
+Delete an Authorization Code Client. It can take up to one hour
             for deletion to manifest in the authentication process. Access
             tokens issued to this client will be valid until their expiration.
 
 ### Request
 
-`DELETE api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}`
+`DELETE api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}`
 
 ### Parameters
 
@@ -654,74 +725,13 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Validate Implicit Client Exists`
+## `Validate that Authorization Code Client Exists`
 
-Validate that an Implicit Client exists.
-
-### Request
-
-`HEAD api/v1/Tenants/{tenantId}/ImplicitClients/{clientId}`
-
-### Parameters
-
-```csharp
-[Required]
-string tenantId
-```
-
-Id of tenant.
-
-```csharp
-[Required]
-string clientId
-```
-
-Id of client.
-
-### Security
-
-Allowed for these roles:
-
-- `Account Administrator`
-
-### Returns
-
-#### 200
-
-Success.
-
-##### Type:
-
- `Void`
-
-#### 401
-
-Unauthorized.
-
-#### 403
-
-Forbidden.
-
-#### 404
-
-Client or Tenant not found.
-
-#### 500
-
-Internal server error.
-***
-
-## `Get Total Count of Implicit Clients`
-
-Return total number of Implicit clients in a Tenant.
-            Optionally, check based on a list of requested clients. The
-            value will be set in the Total-Count header. This endpoint
-            is identical to the GET one but it does not return any objects
-            in the body.
+Validate that an Authorization Code Client exists in Tenant.
 
 ### Request
 
-`HEAD api/v1/Tenants/{tenantId}/ImplicitClients`
+`HEAD api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}`
 
 ### Parameters
 
@@ -733,22 +743,11 @@ string tenantId
 Id of Tenant.
 
 ```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-string[] id
+[Required]
+string clientId
 ```
 
-Unordered list of ids for all clients to get. Empty or whitespace Ids will be ignored.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-string[] tag
-```
-
-Only count Clients that have these tags.
+Id of Client.
 
 ### Security
 
@@ -764,7 +763,7 @@ Success.
 
 ##### Type:
 
- `Void`
+ `ClientCredentialClient`
 
 #### 401
 

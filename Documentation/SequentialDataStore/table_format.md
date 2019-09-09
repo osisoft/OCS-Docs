@@ -84,7 +84,7 @@ Table format can be applied to any read that returns multiple values and summari
 
 The following is a request to retrieve values using the window parameters:
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
       ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
  ```
 
@@ -146,7 +146,7 @@ The following response would be returned from the above code:
 
 To retrieve the results in table format, add the form variable and specify table.
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
       ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
       &form=table
  ```
@@ -228,7 +228,7 @@ Response
 
 To retrieve the results in table format with column headers, add the form variable and specify ``tableh``.
  ```text
-      GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
+      GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data
       ?startIndex=2017-04-01T07:00:00Z&endIndex=2017-04-01T07:10:00Z
       &form=tableh
  ```

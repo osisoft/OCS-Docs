@@ -4,14 +4,17 @@ uid: identityAzureActiveDirectoryTenant
 
 # AzureActiveDirectoryTenant
 
-APIs for creating, getting, updating, and deleting Azure Active Directory Tenant for a Tenant
+An Azure Active Directory (AAD) Tenant is used to map an existing
+            [AAD](https://azure.microsoft.com/en-us/services/active-directory/)
+            tenant from Azure to OSIsoft Cloud Services (OCS). We only allow one AAD Tenant
+            per OCS Tenant.
 
 ## Properties
 
 For HTTP requests and responses, the AzureActiveDirectoryTenant object has the following properties and JSON-serialized body: 
 
 Property | Type | Descriptions
- --- | --- | ---
+ --- | --- | --- | ---
 Id | string | Id of an Azure Active Directory Tenant
 ConsentState | ConsentState | Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1)
 
@@ -26,13 +29,44 @@ ConsentState | ConsentState | Consent State of Azure Active Directory Tenant. Ca
 
 ***
 
-## `Add Azure Active Directory Tenant`
+## Base URL
 
-Add Azure Active Directory Tenant to a Tenant
+All URLs referenced in this section have the following base:
+
+`https://dat-b.osisoft.com/`
+
+## Authentication
+
+All endpoints referenced in this documentation require authenticated access. Authorization header must be set to the access token you retrieve after a successful authentication request.
+
+`Authorization: Bearer <token>`
+
+Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
+Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
+Read [here](https://github.com/osisoft/OSI-Samples/tree/master/ocs_samples/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+
+## Error Handling
+
+All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
+
+```json
+{
+    "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c", 
+    "Error": "Error message.", 
+    "Reason": "Reason that caused error.", 
+    "Resolution": "Possible solution for the error." 
+}
+```
+
+If and when contacting OSIsoft support about this error, please provide the OperationId.
+
+## `Add AAD Tenant to OCS Tenant`
+
+Add an AAD Tenant to the OCS Tenant.
 
 ### Request
 
-`POST api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants`
+`POST api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
 
 ### Parameters
 
@@ -41,14 +75,14 @@ Add Azure Active Directory Tenant to a Tenant
 string tenantId
 ```
 
-Id of tenant
+Id of OCS Tenant.
 
 ```csharp
 [Required]
 string azureActiveDirectoryTenantId
 ```
 
-Azure Active Directory Tenant Id or Domain Name to add
+Id or Domain Name of AAD Tenant.
 
 ### Security
 
@@ -60,7 +94,7 @@ Allowed for these roles:
 
 #### 201
 
-Created
+Created.
 
 ##### Type:
 
@@ -75,36 +109,36 @@ Created
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+OCS Tenant not found.
 
 #### 409
 
-Azure Active Directory Tenant Id is already in use on the specified Tenant
+Id of AAD Tenant. is already in use on the specified Tenant.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
-## `Get All Azure Active Directory Tenants`
+## `Get All AAD Tenants from OCS Tenant`
 
-Get all Azure Active Directory Tenants for a Tenant
+Get all AAD Tenants from an OCS Tenant.
 
 ### Request
 
-`GET api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants`
+`GET api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants`
 
 ### Parameters
 
@@ -113,7 +147,7 @@ Get all Azure Active Directory Tenants for a Tenant
 string tenantId
 ```
 
-Id of tenant
+Id of OCS Tenant.
 
 ```csharp
 [FromQuery]
@@ -122,7 +156,7 @@ Id of tenant
 string query
 ```
 
-Query to execute. Currently not supported
+Query to execute. Currently not supported.
 
 ```csharp
 [FromQuery]
@@ -131,7 +165,7 @@ Query to execute. Currently not supported
 int32 skip
 ```
 
-Number of providers to skip.
+Number of AAD tenants to skip.
 
 ```csharp
 [FromQuery]
@@ -140,7 +174,7 @@ Number of providers to skip.
 int32 count
 ```
 
-Max number of providers to return
+Maximum number of AAD tenants to return.
 
 ### Security
 
@@ -152,11 +186,11 @@ Allowed for these roles:
 
 #### 200
 
-Success
+Success.
 
 ##### Type:
 
- `List[AzureActiveDirectoryTenant]`
+ `List`
 
 ```json
 [
@@ -173,28 +207,28 @@ Success
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
-## `Get Azure Active Directory Tenant`
+## `Get AAD Tenant from OCS Tenant`
 
-Get Azure Active Directory Tenant from a tenant
+Get AAD Tenant from an OCS Tenant.
 
 ### Request
 
-`GET api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
+`GET api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
 
 ### Parameters
 
@@ -203,14 +237,14 @@ Get Azure Active Directory Tenant from a tenant
 string tenantId
 ```
 
-Id of tenant
+Id of OCS Tenant.
 
 ```csharp
 [Required]
 string azureActiveDirectoryTenantId
 ```
 
-Azure Active Directory Tenant Id to remove
+Id of AAD Tenant.
 
 ### Security
 
@@ -222,7 +256,7 @@ Allowed for these roles:
 
 #### 200
 
-Success
+Success.
 
 ##### Type:
 
@@ -237,32 +271,32 @@ Success
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+OCS Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
-## `Remove Azure Active Directory Tenant From Tenant`
+## `Remove AAD Tenant from OCS Tenant`
 
-Remove Azure Active Directory Tenant from a tenant
+Remove AAD Tenant from an OCS Tenant.
 
 ### Request
 
-`DELETE api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
+`DELETE api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
 
 ### Parameters
 
@@ -271,14 +305,14 @@ Remove Azure Active Directory Tenant from a tenant
 string tenantId
 ```
 
-Id of tenant
+Id of OCS Tenant.
 
 ```csharp
 [Required]
 string azureActiveDirectoryTenantId
 ```
 
-Azure Active Directory Tenant Id to remove
+Id of AAD Tenant to remove.
 
 ### Security
 
@@ -290,36 +324,39 @@ Allowed for these roles:
 
 #### 204
 
-Removed
+Removed.
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+OCS Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
 ***
 
-## `Send Consent for Azure Active Directory Tenant`
+## `Send Consent Email for AAD Tenant`
 
-Send consent for an Azure Active Directory Tenant
+Send consent for an AAD Tenant. OCS needs to be granted
+            permission to interact with the AAD tenant. Otherwise, users from this AAD Tenant
+            cannot accept invitations from OCS and log in. You can read more about this
+            [here](https://pisquare.osisoft.com/docs/DOC-3986-msa-consent-for-azure-active-directory)
 
 ### Request
 
-`POST api/v1-preview/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}/SendConsent`
+`POST api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}/SendConsent`
 
 ### Parameters
 
@@ -328,28 +365,38 @@ Send consent for an Azure Active Directory Tenant
 string tenantId
 ```
 
-Id of tenant
+Id of OCS Tenant.
 
 ```csharp
 [Required]
 string azureActiveDirectoryTenantId
 ```
 
-Azure Active Directory Tenant Id to remove
+Id of AAD Tenant.
 
 ```csharp
 [FromBody]
 [Required]
-ConsentInformationDto consentInformationDto
+ConsentInformation consentInformation
 ```
 
-Consent information used to send
+ConsentInformation object.
+
+Property | Type | Required | Description 
+ --- | --- | --- | ---
+AzureActiveDirectoryConsentEmail | string | Yes | Address to email consent.            Only AAD Admins have permission to consent to OCS            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
+AzureActiveDirectoryConsentGivenName | string | Yes | Preferred name to use in the consent email.
+AzureActiveDirectoryConsentSurname | string | Yes | Preferred surname to use in the email.
+AzureActiveDirectoryTenant | string | Yes | AAD Domain Name (e.g. mydomain.onmicrosoft.com)
+
+
 
 ```json
 {
   "AzureActiveDirectoryConsentEmail": "user@company.com",
   "AzureActiveDirectoryConsentGivenName": "Name",
-  "AzureActiveDirectoryConsentSurname": "Surname"
+  "AzureActiveDirectoryConsentSurname": "Surname",
+  "AzureActiveDirectoryTenant": "AzureActiveDirectoryTenant"
 }
 ```
 
@@ -363,26 +410,145 @@ Allowed for these roles:
 
 #### 204
 
-Removed
+Removed.
 
 #### 400
 
-Missing or invalid inputs
+Missing or invalid inputs.
 
 #### 401
 
-Unauthorized
+Unauthorized.
 
 #### 403
 
-Forbidden
+Forbidden.
 
 #### 404
 
-Tenant not found
+OCS Tenant not found.
 
 #### 500
 
-Internal server error
+Internal server error.
+***
+
+## `Validate AAD Tenant in OCS Tenant`
+
+Validate that AAD Tenant exists in this OCS Tenant.
+            This endpoint is identical to the GET one but
+            it does not return any objects in the body.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants/{azureActiveDirectoryTenantId}`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of OCS Tenant.
+
+```csharp
+[Required]
+string azureActiveDirectoryTenantId
+```
+
+Id of AAD Tenant.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 400
+
+Missing or invalid inputs.
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+OCS Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
+## `Get Total Count of AAD Tenant in OCS Tenant`
+
+Return total number of AAD tenants in a OCS Tenant. This endpoint
+            is identical to the GET one but it does not return any objects
+            in the body.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/AzureActiveDirectoryTenants`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of OCS Tenant.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 400
+
+Missing or invalid inputs.
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+OCS Tenant not found.
+
+#### 500
+
+Internal server error.
 ***
 

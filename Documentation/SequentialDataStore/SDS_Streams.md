@@ -105,7 +105,7 @@ Returns the specified stream.
 
 **Request**
  ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
 **Parameters**
@@ -149,16 +149,15 @@ Content-Type: application/json
 
 Returns a list of streams.
 
-If specifying the optional search parameter or optional filter parameter, the list of streams returned are filtered to match 
-the search/filter criteria. If neither parameter is specified, the list includes all streams 
-in the Namespace. See [Searching](xref:sdsSearching) 
-and [Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects)  
+If specifying the optional search query parameter, the list of streams returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all streams in the Namespace. See [Searching](xref:sdsSearching) 
 for information about specifying those respective parameters.
 
 
 **Request**
  ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&filter={filter}&skip={skip}&count={count}&orderby={orderby}
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}&orderby={orderby}
  ```
 
 **Parameters**
@@ -173,11 +172,6 @@ The namespace identifier
 An optional parameter representing a string search. 
 See [Searching](xref:sdsSearching)
 for information about specifying the search parameter.
-
-`string filter`  
-An optional filter string to match which SdsStreams will be returned.  See the 
-[Filter Expressions: SDS Objects](xref:sdsFilterExpressionsObjects) 
-topic for information about specifying the filter parameter.
 
 `int skip`  
 An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
@@ -237,7 +231,7 @@ Returns the type definition that is associated with a given stream.
 
 **Request**
  ```text
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
  ```
 
 **Parameters**
@@ -282,7 +276,7 @@ redirect with the authorization header, you should disable automatic redirect.
 
 **Request**
  ```text
-	POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+	POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
 **Parameters**
@@ -337,7 +331,7 @@ Unpermitted changes result in an error.
 
 **Request**
  ```text
-	PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
 **Parameters**
@@ -371,7 +365,7 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 **Request**
  ```text
-    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
  ```
 
 **Parameters**
@@ -410,7 +404,7 @@ Deletes a stream.
 
 **Request**
  ```text
-    DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+    DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
 **Parameters**
@@ -436,11 +430,11 @@ The response includes a status code.
 
 ## `Get Streams Access Control List`
 
-Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
 **Parameters**
@@ -465,11 +459,11 @@ The default ACL for Streams
 
 ## `Update Streams Access Control List`
 
-Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
 **Parameters**
@@ -495,11 +489,11 @@ The response includes a status code.
 
 ## `Get Stream Access Control List`
 
-Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
 **Parameters**
@@ -527,11 +521,11 @@ The ACL for the specified stream
 
 ## `Update Stream Access Control List`
 
-Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accesscontrol).
+Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
 **Parameters**
@@ -559,11 +553,11 @@ The response includes a status code.
 
 ## `Get Stream Owner`
 
-Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
+Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 
 **Parameters**
@@ -591,11 +585,11 @@ The Owner for the specified stream
 
 ## `Update Stream Owner`
 
-Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accesscontrol).
+Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
 **Request**
  ```text
-    PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 
 **Parameters**

@@ -1,28 +1,25 @@
 ---
-uid: ManagementOverview
+uid: AccountManagementOverview
 ---
 
 # Account Management
 
 The Account Management API allows users to create, manage, and administer OSIsoft Cloud Services (OCS) accounts by assigning users, roles, and namespaces to their tenants. Through the API, users can manage access control used the OCS infrastructure. Generally, only administrators access the Account Management features. Administration functionality is also available from the OCS portal.
 
-Below is an index of the Account Management API:
+---
 
-### [ClientRole](xref:AccountClientRole)
+### [ClientRole](xref:AccountClientRole_1)
 
-### [Namespace](xref:AccountNamespace)
+### [Namespace](xref:AccountNamespace_1)
 
-### [NamespaceTier](xref:AccountNamespaceTier)
+### [Role](xref:AccountRole_1)
 
-### [Role](xref:AccountRole)
+### [RootAccessControl](xref:AccountRootAccessControl_1)
 
-### [RootAccessControl](xref:AccountRootAccessControl)
+### [ServiceBlog](xref:AccountServiceBlog)
 
 ### [Tenant](xref:AccountTenant)
 
 ### [TenantFeatureState](xref:AccountTenantFeatureState)
 
-### [UserRole](xref:AccountUserRole)
-
-### [ServiceBlog](xref:AccountServiceBlog)
-
+### [UserRole](xref:AccountUserRole_1)

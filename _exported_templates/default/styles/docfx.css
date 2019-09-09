@@ -596,7 +596,8 @@ body .toc{
   margin-top: 50px;
   font-size: 12px;
   max-height: 100%;
-  overflow: hidden;
+  max-width: 20%;
+  overflow-wrap: break-word;
   top: 100px;
   bottom: 10px;
   position: fixed;

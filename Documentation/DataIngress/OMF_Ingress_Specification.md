@@ -16,7 +16,7 @@ A description of each of the headers can be found in the [OMF spec](http://omf-d
 the sender and to authorize the sender for use with a particular Tenant. The client Id associated with this token is used to route messages to a particular [Topic](xref:omfIngressTopics) that it is mapped to.
 
 The ``omfversion`` header must match the version of the OMF spec used to construct the message.
-Version 1.1 of the spec is currently supported. 
+Versions 1.0 and 1.1 of the spec are currently supported. 
 
 Message Types
 -------------
@@ -25,7 +25,7 @@ OMF message types fall into three categories: Type, Container, and Data, which a
 
 * **Type messages**
 
-  A Type message is interpreted by OSIsoft Cloud Services as an SdsType in the OCS Data Store. 
+  A Type message is interpreted by OSIsoft Cloud Services as an SdsType in the Sequential Data Store. 
   Because SdsTypes are immutable, update operations are not supported. The keywords in the 
   Type definition are interpreted as follows:
 
@@ -39,7 +39,7 @@ OMF message types fall into three categories: Type, Container, and Data, which a
   + ``tags``: Currently unsupported.
   + ``metadata``: Currently unsupported.
 
-  The ``isindex`` keyword corresponds to the ``iskey`` attribute of a SdsTypeProperty. 
+  The ``isindex`` keyword corresponds to the ``iskey`` attribute of an SdsTypeProperty. 
   SdsTypes support clustered indexes which can be specified with multiple properties marked 
   with the ``isindex`` keyword with a value of ``true``. For compound indexes, the 
   index property order within the message corresponds to the ``Order`` field of 
@@ -47,17 +47,17 @@ OMF message types fall into three categories: Type, Container, and Data, which a
 
 * **Link Type**
 
-  Link Types are not supported in OCS Data Store.
+  Link Types are not supported in Sequential Data Store.
 
 * **Span Type**
 
-  Span Types are not supported in OCS Data Store.
+  Span Types are not supported in Sequential Data Store.
 
 * **Property Types and Formats**
 
   OMF supports setting the ``format`` keyword to specify how a particular JSON type should 
-  be interpreted. The following is a mapping for the OCS Data Store supported 
-  types (see [Types](xref:sdsTypes))
+  be interpreted. The following is a mapping for the Sequential Data Store supported 
+  types (see [Types](xref:sdsTypes)):
 
 
 Type     | Format   | SdsTypeCode
@@ -81,7 +81,7 @@ string   | date-time | DateTime
 Container messages
 ------------------
 
-A Container message is interpreted as a SdsStream in the OCS Data Store. The keywords 
+A Container message is interpreted as an SdsStream in the Sequential Data Store. The keywords 
 in the Container definition are interpreted as follows:
 
 * ``id``: Corresponds to the SdsStream Id field. It must conform to the rules defined for
@@ -91,13 +91,13 @@ in the Container definition are interpreted as follows:
 * ``name``: Corresponds to the SdsStream Name field. This is a friendly name for the stream.
 * ``description``: Corresponds to the SdsStream Description field.
 * ``tags``: Corresponds to the SdsStream Tag field. 
-* ``metadata``: Corresponds to the SdsStream Metadata field        
+* ``metadata``: Corresponds to the SdsStream Metadata field.        
 
 
 Data messages
 -------------
 
-A Data message is mapped to generic Sds values in the OCS Data Store. The keywords in the 
+A Data message is mapped to generic Sds values in the Sequential Data Store. The keywords in the 
 Data definitions are interpreted as follows:
 
 * ``typeid``: Data that is not grouped by containerId is not supported.

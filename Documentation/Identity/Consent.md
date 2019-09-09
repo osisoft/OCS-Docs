@@ -2,16 +2,20 @@
 uid: identityConsent
 ---
 
-# Consent to OSIsoft Applications
+# AAD Consent to OSIsoft Applications
 
-You have chosen to use your organization’s existing Azure Active Directory (Azure AD) to log in to OSIsoft Cloud Services (OCS). In order to proceed, you will need to complete the consent workflow. In this step, you will grant permissions for OSIsoft Cloud Services Identity to do the following:
+You have chosen to use your organization’s existing Azure Active Directory (AAD) to sign in to your
+OSIsoft Cloud Services (OCS) account. In order to proceed, you first need to complete a consent workflow. In
+this step, your AAD administrator will grant permissions for OCS Identity to do the following:
 
-- Sign in and read user profile (delegated permission)
+- Sign in and read user profile basic information (delegated permission).
 
 Below are the next steps required to complete your OCS account provisioning:
 
-- Click on the link provided in the email. Note that you will need to log in as a user with the Global Administrator role on your Azure AD.
-- Upon login, you’ll be prompted to grant consent for one application: OSIsoft Cloud Services Identity.
-- Select the box "Consent on behalf of the organization" before clicking the consent button.
-
-OCS will notify the initial signup user via email once the account is ready.
+- An email will be sent to your AAD administrator who has the privileges to grant OCS access to your AAD.
+- Your administrator will click on the link provided in the email. Note that your administrator will need to log in as a user with the Global Administrator role on your AAD.
+- Upon login, your administrator will be prompted to grant consent for a single application: OCS Identity.
+- Your administrator should select the box "Consent on behalf of the organization" before clicking the consent button.
+- OSIsoft will get a confirmation that the consent process has been completed.
+- Then, a second email will be sent to the initial user who signed up for the account.
+- At that point, this initial user will be able to use the link provided to activate his profile and sign in your OCS account.

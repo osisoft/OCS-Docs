@@ -349,10 +349,9 @@ The following discusses the types defined in the [Python](<https://github.com/os
 and [Java Script](<https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript>)
 samples. Samples in other languages can be found [here](<https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS>).
 
-To build a SdsType representation of the following sample class, see code_example_1_:
+To build a SdsType representation of the following sample class, see [Sample](#sample):
 
 *Python*
-
 
       class State(Enum):
         Ok = 0
@@ -386,7 +385,7 @@ To build a SdsType representation of the following sample class, see code_exampl
       {
         Ok: 0,
         Warning: 1,
-        Aalrm: 2,
+        Alarm: 2
       }
 
       var Simple = function () {
@@ -395,7 +394,7 @@ To build a SdsType representation of the following sample class, see code_exampl
         this.Value = null;
       }
 
-#### code_example_1
+#### Sample
 
 The following code is used to build an SdsType representation of the sample class above:
 

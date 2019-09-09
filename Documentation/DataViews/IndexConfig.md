@@ -11,7 +11,7 @@ Property | Type | Required | Descriptions
  --- | --- | --- | ---
 StartIndex | string | True | The start index of data retrieval in ISO 8601 format
 EndIndex | string | True | The end index of data retrieval in ISO 8601 format
-Mode | string | True | The data retrieval mode
+Mode | DataRetrievalMode | True | The data retrieval mode
 Interval | string | True | The data retrieval interval
 
 ## `Example` 
