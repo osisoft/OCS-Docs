@@ -1285,7 +1285,7 @@ Content-Type: application/json
 SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
 **Example** 
-The following example contains a nullable double property with continous interpplation mode.
+The following example contains a nullable double property with interpolation mode as continous.
 
 ###### .NET
 ```csharp
