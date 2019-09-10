@@ -1182,7 +1182,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
-			    "Time": 3,
+                "Time": 3,
                 "Measurement": 2
             },
             "Minimum": {
@@ -1236,7 +1236,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
-			    "Time": 3,
+                "Time": 3,
                 "Measurement": 2
             },
             "Minimum": {
@@ -1284,11 +1284,8 @@ Content-Type: application/json
 
 SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
-**Note:** Non-weighted summaries disregard null values and treat them as non-existent. Weighted summaries consider null values for its calculation. 
-While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. This interval would start at the previous index and end at the current index at which null value occurred. 
-
 **Example** 
-The following example contains a nullable double property.
+The following example contains a nullable double property with continous interpplation mode.
 
 ###### .NET
 ```csharp
@@ -1312,7 +1309,10 @@ public class SimpleType
 	  11/23/2017 12:00:06 PM: Measurement null
 	  11/23/2017 12:00:07 PM: Measurement null
 	  11/23/2017 12:00:08 PM: Measurement 3
-			
+
+**Note:** Non-weighted summaries disregard null values and treat them as non-existent. Weighted summaries consider null values for its calculation. 
+While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. This interval would start at the previous index and end at the current index at which null value occurred. 
+In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) non-nullable values.			
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
@@ -1337,7 +1337,7 @@ Content-Type: application/json
         },
         "Summaries": {
             "Count": {
-			    "Time": 8,
+                "Time": 8,
                 "Measurement": 4
             },
             "Minimum": {
