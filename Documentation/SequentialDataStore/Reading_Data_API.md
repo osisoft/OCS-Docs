@@ -1285,7 +1285,7 @@ Content-Type: application/json
 SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
 **Example** 
-The following example contains a nullable double property with interpolation mode as continous.
+The following example contains a nullable double property with interpolation mode as continuous.
 
 ###### .NET
 ```csharp
@@ -1554,8 +1554,9 @@ SDS supports two types of join requests:
 ### `GET Request`
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
-        ?streams={streams}&joinMode={joinMode}
-        &startIndex={startIndex}&endIndex={endIndex}
+        ?streams={streams}&joinMode={joinMode}&startIndex={startIndex}&endIndex={endIndex}
+		[&boundaryType={boundaryType}&startBoundaryType={startBoundaryType}
+        &endBoundaryType={endBoundaryType}&filter={filter}&count={count}]
  ```
 
 **Parameters**  
@@ -1576,6 +1577,21 @@ Index identifying the beginning of the series of events to return
 
 ``string endIndex``  
 Index identifying the end of the series of events to return
+
+``int count``  
+Optional maximum number of events to return.
+
+``SdsBoundaryType boundaryType``  
+Optional SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
+
+``SdsBoundaryType startBoundaryType``  
+Optional SdsBoundaryType specifies the handling of events at or near the startIndex
+
+``SdsBoundaryType endBoundaryType``  
+Optional SdsBoundaryType specifies the handling of events at or near the endIndex
+
+``string filter``  
+Optional filter expression
 
 **Response**  
 The response includes a status code and a response body containing multiple serialized events. See examples for specifics.
