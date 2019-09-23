@@ -1319,8 +1319,8 @@ Similarly, for weighted summaries, if an interpolation mode of Measurement is St
 | Interpolation Mode | Weight Seconds | Value |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading/StepwiseContinuousLeading | 1 | 2 | 
-| ContinuousNullableLeading/StepwiseContinuousLeading | 0 | 0 |
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 |
 
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
