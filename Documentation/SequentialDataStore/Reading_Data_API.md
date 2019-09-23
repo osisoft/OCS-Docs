@@ -1315,11 +1315,12 @@ While calculating weighted summaries, if we encounter a null value at a given in
 In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) non-nullable values.
 
 Similarly, for weighted summaries, if an interpolation mode of Measurement is StepwiseContinuousLeading/ContinuousNullableLeading during [12:00:02 PM, 12:00:03 PM] interval, then value 2 will be considered for calculation during that interval.
-| Interpolation Mode | Weight (Seconds) | Value |
-| --------- | ----------------------- | ------------- |
+
+| Interpolation Mode | Weight Seconds | Value |
+| ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading </br> StepwiseContinuousLeading | 1 | 2 | 
-| ContinuousNullableLeading </br> StepwiseContinuousLeading | 0 | 0 |
+| ContinuousNullableLeading/StepwiseContinuousLeading | 1 | 2 | 
+| ContinuousNullableLeading/StepwiseContinuousLeading | 0 | 0 |
 
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
