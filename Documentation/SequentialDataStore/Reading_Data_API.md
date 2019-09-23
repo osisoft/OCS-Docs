@@ -1310,18 +1310,32 @@ public class SimpleType
 	  11/23/2017 12:00:07 PM: Measurement null
 	  11/23/2017 12:00:08 PM: Measurement 3
 
-**Note:** Non-weighted summaries disregard null values and treat them as non-existent. Weighted summaries consider null values for its calculation. 
-While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. This interval would start at the previous index and end at the current index at which null value occurred. 
-In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) non-nullable values.
+**Note:** Non-weighted summaries disregard null values and treat them as non-existent. In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3). 
 
-Similarly, for weighted summaries, if an interpolation mode of Measurement is StepwiseContinuousLeading/ContinuousNullableLeading during [12:00:02 PM, 12:00:03 PM] interval, then value 2 will be considered for calculation during that interval.
+Weighted summaries consider null values for its calculation. 
+While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. Please see the below table for [12:00:02 PM, 12:00:03 PM] interval. The values are 2 at 12:00:02 PM and null at 12:00:03 PM. 
 
-| Interpolation Mode | Weight Seconds | Value |
+| Interpolation Mode | Weight in Seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
 | ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 |
+| ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 0 | 0 |
 
+Similarly, for intervals [12:00:03 PM, 12:00:04 PM], and [12:00:04 PM, 12:00:05 PM] the table would look like below respectively:
+
+| Interpolation Mode | Weight in seconds | Value in meter |
+| ---------- | ----------------------- | ------------- |
+| Continuous | 0 | 0 |
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 | 
+| ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 1 |
+
+| Interpolation Mode | Weight in seconds | Value in meter |
+| ---------- | ----------------------- | ------------- |
+| Continuous | 1 | 1.5 |
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 | 
+| ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 2 |
+
+For more information see [Interpolation.](xref:sdsTypes#interpolation)
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
