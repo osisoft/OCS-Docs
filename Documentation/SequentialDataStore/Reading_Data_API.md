@@ -1312,7 +1312,15 @@ public class SimpleType
 
 **Note:** Non-weighted summaries disregard null values and treat them as non-existent. Weighted summaries consider null values for its calculation. 
 While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. This interval would start at the previous index and end at the current index at which null value occurred. 
-In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) non-nullable values.			
+In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) non-nullable values.
+
+Similarly, for weighted summaries, if an interpolation mode of Measurement is StepwiseContinuousLeading/ContinuousNullableLeading during [12:00:02 PM, 12:00:03 PM] interval, then value 2 will be considered for calculation during that interval.
+| Interpolation Mode | Weight (Seconds) | Value |
+| --------- | ----------------------- | ------------- |
+| Continuous | 0 | 0 |
+| ContinuousNullableLeading </br> StepwiseContinuousLeading | 1 | 2 | 
+| ContinuousNullableLeading </br> StepwiseContinuousLeading | 0 | 0 |
+
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
