@@ -1183,7 +1183,7 @@ Content-Type: application/json
         "Summaries": {
             "Count": {
                 "Time": 3,
-                "Measurement": 2
+                "Measurement": 3
             },
             "Minimum": {
                 "Measurement": 0
@@ -1237,7 +1237,7 @@ Content-Type: application/json
         "Summaries": {
             "Count": {
                 "Time": 3,
-                "Measurement": 2
+                "Measurement": 3
             },
             "Minimum": {
                 "Measurement": 20
@@ -1285,6 +1285,7 @@ Content-Type: application/json
 SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
 **Example** 
+
 The following example contains a nullable double property with interpolation mode set to continuous:
 
 ###### .NET
@@ -1313,9 +1314,9 @@ public class SimpleType
 **Note:** Non-weighted summaries disregard null values and treat them as non-existent. In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3). 
 
 Weighted summaries consider null values for its calculation. 
-While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. Please see the below table for [12:00:02 PM, 12:00:03 PM] interval. The values are 2 at 12:00:02 PM and null at 12:00:03 PM. 
+While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. Please see the below table for [12:00:02 PM, 12:00:03 PM] interval. The values are 2 and null at 12:00:02 and 12:00:03 PM respectively. 
 
-| Interpolation Mode | Weight in Seconds | Value in meter |
+| Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
 | ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
@@ -1361,7 +1362,7 @@ Content-Type: application/json
         "Summaries": {
             "Count": {
                 "Time": 8,
-                "Measurement": 4
+                "Measurement": 5
             },
             "Minimum": {
                 "Measurement": 1
