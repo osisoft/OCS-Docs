@@ -7,10 +7,9 @@ uid: osisoftCloudServices
 The information in the sections that follow document the APIs and usage for each of the following:
 
 * Management - Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
+* Identity - Use the information in this section to create, manage and administer Users and Clients.
 * Sequential Data Store (SDS) - Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
 * Data ingress and OSIsoft Message Format - You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
-* Data ingress and OSIsoft Message Format - You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
-* Identity - Use the information in this section to create, manage and administer Users and Clients.
 * Data Views - Use the information in this section to create user-selected subsets of data stored in OSIsoft Cloud Services which are mapped into customizable table formats.
 
 
