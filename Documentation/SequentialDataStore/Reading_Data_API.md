@@ -1280,11 +1280,9 @@ Content-Type: application/json
 ]
 ```
 
-**Get Summaries for Nullable Types**
-
 SDS also supports summary requests for nullable SdsTypes. It means an SdsType has at least a nullable SdsTypeProperty.
 
-**Example** 
+**Example**
 
 The following example contains a nullable double property with interpolation mode set to continuous:
 
@@ -1307,14 +1305,11 @@ public class SimpleType
       11/23/2017 12:00:03 PM: Measurement null
       11/23/2017 12:00:04 PM: Measurement 1
       11/23/2017 12:00:05 PM: Measurement 2
-	  11/23/2017 12:00:06 PM: Measurement null
-	  11/23/2017 12:00:07 PM: Measurement null
-	  11/23/2017 12:00:08 PM: Measurement 3
+      11/23/2017 12:00:06 PM: Measurement null
+      11/23/2017 12:00:07 PM: Measurement null
+      11/23/2017 12:00:08 PM: Measurement 3
 
-**Note:** Non-weighted summaries disregard null values and treat them as non-existent. In above example, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3). 
-
-Weighted summaries consider null values for its calculation. 
-While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. Please see the below table for [12:00:02 PM, 12:00:03 PM] interval. The values are 2 and null at 12:00:02 and 12:00:03 PM respectively. 
+While calculating weighted summaries, if we encounter a null value at a given index then we would consider interpolation mode of property to find the interpolated value of the given interval. See the table below for [12:00:02 PM, 12:00:03 PM] interval. The values are 2 and null at 12:00:02 and 12:00:03 PM respectively. 
 
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
@@ -1322,7 +1317,7 @@ While calculating weighted summaries, if we encounter a null value at a given in
 | ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 0 | 0 |
 
-Similarly, for intervals [12:00:03 PM, 12:00:04 PM], and [12:00:04 PM, 12:00:05 PM] the table would look like below respectively:
+Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 PM] respectively, the table would look like below:
 
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
@@ -1336,7 +1331,10 @@ Similarly, for intervals [12:00:03 PM, 12:00:04 PM], and [12:00:04 PM, 12:00:05 
 | ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 | 
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 2 |
 
-For more information see [Interpolation.](xref:sdsTypes#interpolation)
+**Note:** Non-weighted summaries disregard null values and treat them as non-existent. 
+In the example above, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) whereas weighted summaries for Measurement consider null values for its calculation. 
+
+For more information see [Interpolation](xref:sdsTypes#interpolation)
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
