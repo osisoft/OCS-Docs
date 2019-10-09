@@ -1334,7 +1334,7 @@ Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 P
 **Note:** Non-weighted summaries disregard null values and treat them as non-existent. 
 In the example above, non-weighted summaries for Measurement would be calculated based on (2,2,1,2,3) whereas weighted summaries for Measurement consider null values for its calculation. 
 
-For more information see [Interpolation](xref:sdsTypes#interpolation)
+For more information see [Interpolation](xref:sdsTypes#interpolation).
 
 The following request calculates one summary interval between the `startIndex` and `endIndex`: 
  ```text
