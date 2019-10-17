@@ -325,3 +325,65 @@ Internal server error
 
 ***
 
+## `Get Access Rights to Data View`
+
+Get the calling user or client's access rights for Data View with specified Id
+
+### Request
+`GET api/tenants/{tenantId}/namespaces/{namespaceId}/dataviews/{id}/accessrights`
+
+### Parameters
+
+Id of tenant
+```csharp
+string tenantId  [Required] [No Default Value]
+```
+
+
+Id of namespace
+```csharp
+string namespaceId  [Required] [No Default Value]
+```
+
+
+Id of Data View
+```csharp
+string id  [Required] [No Default Value]
+```
+
+
+### Returns
+
+#### 200
+
+OK - retrieved access rights for the Data View.
+                 See [CommonAccessRightsEnum](..\Access_Control.md#commonaccessrightsenum) for more information about access rights.
+
+```json
+{
+  "Length": "Int32",
+  "LongLength": "Int64",
+  "Rank": "Int32",
+  "SyncRoot": "Object",
+  "IsReadOnly": "Boolean",
+  "IsFixedSize": "Boolean",
+  "IsSynchronized": "Boolean"
+}
+```
+
+#### 403
+
+Unauthorized
+
+
+#### 404
+
+Specified Data View not found
+
+
+#### 500
+
+Internal server error
+
+***
+
