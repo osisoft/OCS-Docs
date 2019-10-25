@@ -17,7 +17,7 @@ An SdsType used to define an SdsStream must have a Key. A Key is a Property, or 
 that constitute an ordered, unique identity. The Key is ordered, so it functions as an index; it is 
 known as the Primary Index. While a timestamp (DateTime) is a very common type of Key, any type that 
 can be ordered is permitted. Other indexes (secondary indexes), are defined in the SdsStream. 
-Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
+For more information, see [Indexes](xref:sdsIndexes).
 
 When defining a type, consider how the events will be represented in a stream. The SdsType defines 
 each event in the stream. An event is a single unit whose properties have values that relate to the 
@@ -26,7 +26,7 @@ index; that is, each property of an SdsType event is related to the event's inde
 An SdsType is referenced by its identifier or Id field. SdsType identifiers must be unique within a Namespace.
 
 An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
-Nested types and base types are automatically created as separate types. For further information, see [Type Reusability](#type-reusability)
+Nested types and base types are automatically created as separate types. For more information, see [Type Reusability](#type-reusability).
 
 SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
