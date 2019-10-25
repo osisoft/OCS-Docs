@@ -9,7 +9,7 @@ OSIsoft Cloud Services (OCS) is a highly flexible cloud-based platform that prov
 centralized environment to aggregate data for reporting, advanced analytics, and third-party applications.
 
    - [OSIsoft Cloud Services](xref:osisoftCloudServices)
-   - [Management](xref:AccountManagementOverview)
+   - [Account Management](xref:AccountManagementOverview)
      - [Client Roles](xref:AccountClientRole_1)
      - [Namespace](xref:AccountNamespace_1)
      - [Roles](xref:AccountRole_1)
