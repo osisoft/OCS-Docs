@@ -31,7 +31,7 @@ Nested types and base types are automatically created as separate types. For fur
 SdsTypes define how events are associated and read within a collection of events, or SdsStream. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
-information about read characteristics see [Interpolation](#interpolation) and [Extrapolation](#extrapolation).
+information about read characteristics see [Interpolation](xref:sdsReadingData#interpolation) and [Extrapolation](xref:sdsReadingData#extrapolation).
 
 SdsTypes are immutable. After an SdsType is created, its definition cannot change. An SdsType must be deleted and recreated if the definition is incorrect.
 In addition, the SdsType may be deleted only if no streams, stream views, or types reference it.
@@ -50,8 +50,8 @@ See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 | Name              | String                 | Optional    | Yes | Friendly name |
 | Description       | String                 | Optional    | Yes | Description text |
 | SdsTypeCode       | SdsTypeCode            | Required    | No | Numeric code identifying the base SdsType |
-| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. For more information, see [Interpolation](xref:sdsReadingData)|
-| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. For more information, see [Extrapolation](xref:sdsReadingData) |
+| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. For more information, see [Interpolation](xref:sdsReadingData#interpolation)|
+| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. For more information, see [Extrapolation](xref:sdsReadingData#extrapolation) |
 | Properties        | IList\<SdsTypeProperty\> | Required    | Yes, with limitations | List of SdsTypeProperty items |
 
 
@@ -178,108 +178,6 @@ UInt64Enum              | 612
 Version                 | 22
 VersionArray            | 222
 
-
-## Interpolation
-
-Interpolation determines how a stream behaves when asked to return an event at an index between 
-two existing events. InterpolationMode determines how the returned event is constructed. SDS provides 
-multiple ways to set the interpolation mode to get the desired behavior. The table 
-below lists InterpolationModes:
-
-|Mode                       |Enumeration value |Operation |
-|---------------------------|------------------|----------|
-|Default                    |0                 |The default InterpolationMode is Continuous |
-|Continuous                 |0                 |Returns interpolated data using previous and next index values | 
-|StepwiseContinuousLeading  |1                 |Returns the data from the previous index  |
-|StepwiseContinuousTrailing |2                 |Returns the data from the next index |
-|Discrete                   |3                 |No event is returned |
-|ContinuousNullableLeading  |4                 |Returns interpolated data or data from the previous index if either of the surrounding indexes has a null value|
-|ContinuousNullableTrailing |5                 |Returns interpolated data or data from the trailing index if either of the surrounding indexes has a null value|
-
-Note that `Continuous` cannot return values for type properties that cannot be interpolated, such as when the type property is not numeric. 
-
-The table below describes how the **Continuous InterpolationMode** affects
-properties that occur between data in a stream:
-**InterpolationMode = Continuous or Default**
-
-| Property Type             | Result for a property for an index between data in a stream  | Comment |
-|---------------------------|--------------------------------------------------------------|---------|
-|Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types |
-|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
-|Nullable Types             |Interpolated**                  |Limited support for nullable numeric types |
-|Array and List Types       |Default value                   |         |
-|String Type                |Default value                   |         |
-|Boolean Type               |Returns value of nearest index  |         |
-|Enumeration Types          |Returns Enum value at 0         |This may have a value for the enumeration |
-|GUID                       |Default value                   |         |
-|Version                    |Default value                   |         |
-|IDictionary or IEnumerable |Default value                   |Dictionary, Array, List, and so on. |
-
-*When extreme values are involved in an interpolation (for example
-Decimal.MaxValue) the call might result in a BadRequest exception.
-
-\**For the `Continuous` interpolation mode, Nullable types are interpolated in the same manner as their non-nulllable equivalents as long as the values surrounding the desired interpolation index are non-null. If either of the values are null, the interpolated value will be null.
-
-If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
-mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
-on a specific type property see [SdsTypeProperty](#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
-
-
-## Extrapolation
-
-Extrapolation defines how a stream responds to requests with indexes that precede or follow all 
-data in the steam. ExtrapolationMode acts as a master switch to determine whether extrapolation 
-occurs and at which end of the data. 
-
-ExtrapolationMode works with the InterpolationMode to determine how a stream responds. The following tables 
-show how ExtrapolationMode affects returned values for each InterpolationMode value:
-
-**ExtrapolationMode with InterpolationMode = Default (or Continuous), StepwiseContinuousLeading, and StepwiseContinuousTrailing**
-
-| ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
-|---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns first data value   | Returns last data value   |
-| None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns last data value   |
-| Backward            | 3                   | Returns first data value   | No event is returned      |
-
-**Default ExtrapolationMode based on InterpolationMode = StepwiseContinuousLeading and StepwiseContinuousTrailing**
-
-| Default ExtrapolationMode   | Enumeration value (extrapolation)   | InterpolationMode   | Enumeration value (interpolation)    |
-|---------------------|---------------------|---------------------|---------------------|
-| All                 | 0                   | Continuous| 0|
-| Forward                | 2                   | StepwiseContinuousLeading| 1|
-| Backward             | 3                   | StepwiseContinuousTrailing| 2|
-| All            | 0                   | Discrete| 3|
-| Forward                | 2                   | ContinuousNullableLeading| 4|
-| Backward            | 3                   | ContinuousNullableTrailing| 5|
-
-**ExtrapolationMode with InterpolationMode = Discrete**
-
-| ExtrapolationMode   | Enumeration value   | Index before data   | Index after data    |
-|---------------------|---------------------|---------------------|---------------------|
-| All                 | 0                   | No event is returned| No event is returned|
-| None                | 1                   | No event is returned| No event is returned|
-| Forward             | 2                   | No event is returned| No event is returned|
-| Backward            | 3                   | No event is returned| No event is returned|
-
-**ExtrapolationMode with InterpolationMode = ContinuousNullableLeading and ContinuousNullableTrailing**
-
-| ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
-|---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns null/ the default value         | Returns null/ the default value   |
-| None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns null/ the default value value   |
-| Backward            | 3                   | Returns null/ the default value         | No event is returned      |
-
-For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
-
-If the ExtrapolationMode is not assigned, the events are extrapolated in the default manner, unless the extrapolation mode is overridden on the SdsStream. For more information on overriding the extrapolation mode on a specific stream see [Sds Streams](xref:sdsStreams).
-
-For additional information about the effect of read characteristics, see the
-documentation on the [read method](xref:sdsReadingDataApi)
-you are using.
-
 ## SdsTypeProperty
 
 The Properties collection define the fields in an SdsType. 
@@ -319,7 +217,7 @@ that is not part of the Index. If the InterpolationMode is not set, the Property
 in the manner defined by the SdsType's IntepolationMode.
 
 An SdsType with the InterpolationMode set to `Discrete` cannot have a Property with an InteroplationMode. 
-For more information on interpolation of events see [Interpolation](#interpolation).
+For more information on interpolation of events see [Interpolation](xref:sdsReadingData#interpolation).
 
 Uom is the unit of measure for the Property. The Uom of a Property may be specified by the name or the 
 abbreviation. The names and abbreviations of Uoms are case sensitive. 
