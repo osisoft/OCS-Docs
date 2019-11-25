@@ -50,8 +50,8 @@ See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 | Name              | String                 | Optional    | Yes | Friendly name |
 | Description       | String                 | Optional    | Yes | Description text |
 | SdsTypeCode       | SdsTypeCode            | Required    | No | Numeric code identifying the base SdsType |
-| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. |
-| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. Default is All. |
+| InterpolationMode | SdsInterpolationMode   | Optional    | No | Interpolation setting of the type. Default is Continuous. For more information, see [Interpolation](xref:sdsReadingData)|
+| ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. For more information, see [Extrapolation](xref:sdsReadingData) |
 | Properties        | IList\<SdsTypeProperty\> | Required    | Yes, with limitations | List of SdsTypeProperty items |
 
 
@@ -234,7 +234,7 @@ occurs and at which end of the data.
 ExtrapolationMode works with the InterpolationMode to determine how a stream responds. The following tables 
 show how ExtrapolationMode affects returned values for each InterpolationMode value:
 
-**ExtrapolationMode with InterpolationMode = Default or Continuous**
+**ExtrapolationMode with InterpolationMode = Default (or Continuous), StepwiseContinuousLeading, and StepwiseContinuousTrailing**
 
 | ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
 |---------------------|---------------------|----------------------------|---------------------------|
@@ -242,6 +242,17 @@ show how ExtrapolationMode affects returned values for each InterpolationMode va
 | None                | 1                   | No event is returned       | No event is returned      |
 | Forward             | 2                   | No event is returned       | Returns last data value   |
 | Backward            | 3                   | Returns first data value   | No event is returned      |
+
+**Default ExtrapolationMode based on InterpolationMode = StepwiseContinuousLeading and StepwiseContinuousTrailing**
+
+| Default ExtrapolationMode   | Enumeration value (extrapolation)   | InterpolationMode   | Enumeration value (interpolation)    |
+|---------------------|---------------------|---------------------|---------------------|
+| All                 | 0                   | Continuous| 0|
+| Forward                | 2                   | StepwiseContinuousLeading| 1|
+| Backward             | 3                   | StepwiseContinuousTrailing| 2|
+| All            | 0                   | Discrete| 3|
+| Forward                | 2                   | ContinuousNullableLeading| 4|
+| Backward            | 3                   | ContinuousNullableTrailing| 5|
 
 **ExtrapolationMode with InterpolationMode = Discrete**
 
@@ -252,42 +263,16 @@ show how ExtrapolationMode affects returned values for each InterpolationMode va
 | Forward             | 2                   | No event is returned| No event is returned|
 | Backward            | 3                   | No event is returned| No event is returned|
 
-**ExtrapolationMode with InterpolationMode = StepwiseContinuousLeading**
+**ExtrapolationMode with InterpolationMode = ContinuousNullableLeading and ContinuousNullableTrailing**
 
 | ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
 |---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns first data value   | Returns last data value   |
+| All                 | 0                   | Returns null/ the default value         | Returns null/ the default value   |
 | None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns last data value   |
-| Backward            | 3                   | Returns first data value   | No event is returned      |
+| Forward             | 2                   | No event is returned       | Returns null/ the default value value   |
+| Backward            | 3                   | Returns null/ the default value         | No event is returned      |
 
-**ExtrapolationMode with InterpolationMode = StepwiseContinuousTrailing**
-
-| ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
-|---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns first data value   | Returns last data value   |
-| None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns last data value   |
-| Backward            | 3                   | Returns first data value   | No event is returned      |
-
-**ExtrapolationMode with InterpolationMode = ContinuousNullableLeading**
-
-| ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
-|---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns null value         | Returns null value   |
-| None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns null value   |
-| Backward            | 3                   | Returns null value         | No event is returned      |
-
-**ExtrapolationMode with InterpolationMode = ContinuousNullableTrailing**
-
-| ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
-|---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns null value         | Returns null value   |
-| None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns null value   |
-| Backward            | 3                   | Returns null value         | No event is returned      |
-
+For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
 
 If the ExtrapolationMode is not assigned, the events are extrapolated in the default manner, unless the extrapolation mode is overridden on the SdsStream. For more information on overriding the extrapolation mode on a specific stream see [Sds Streams](xref:sdsStreams).
 
