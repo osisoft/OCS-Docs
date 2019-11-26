@@ -128,7 +128,7 @@ Decimal.MaxValue) the call might result in a BadRequest exception.
 
 If the InterpolationMode is not assigned, the events are interpolated in the default manner, unless the interpolation 
 mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
-on a specific type property see [SdsTypeProperty](xref:sdsTypes). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
+on a specific type property see [SdsTypeProperty](xref:sdsTypes#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
 ### Extrapolation
 
