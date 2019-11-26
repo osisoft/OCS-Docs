@@ -177,7 +177,7 @@ show how ExtrapolationMode affects returned values for each InterpolationMode va
 | Forward             | 2                   | No event is returned       | Returns null/ the default value value   |
 | Backward            | 3                   | Returns null/ the default value         | No event is returned      |
 
-For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
+*For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
 
 If the ExtrapolationMode is not assigned, the events are extrapolated in the default manner, unless the extrapolation mode is overridden on the SdsStream. For more information on overriding the extrapolation mode on a specific stream see [Sds Streams](xref:sdsStreams).
 
