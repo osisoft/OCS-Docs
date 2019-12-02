@@ -8,15 +8,15 @@ SDS is a sophisticated data store. The information in this section describes a v
 To follow along with the steps in this section, you will first need an account, Tenant and associated security credentials. 
 If you have not already acquired an account, email OCS support at: [OSIsoft Cloud Services](mailto://cloudservices@osisoft.com).
 
-Throughout this guide, you will be instructed to interact with the Portal. To access the section 
-identified, you must sign into the Portal using the credentials associated with the Tenant.
+Throughout this guide, you will be instructed to interact with the OSIsoft Cloud Services portal. To access the section 
+identified, you must sign into the portal using the credentials associated with the Tenant.
 
 You will also need a Namespace and administrative client keys. 
 
 
 #### Step 1: Acquire a Namespace
 
-In the OSIsoft Cloud Services portal, open the navigation menu and select **Namespaces** under **Data Services**. For the 
+In the portal, open the navigation menu and select **Namespaces** under **Data Services**. For the 
 steps in this section, you can use either an existing Namespace or you can create a new Namespace.
 
 
