@@ -160,12 +160,10 @@ show how ExtrapolationMode affects returned values for each InterpolationMode va
 
 | ExtrapolationMode   | Enumeration value   | Index before data          | Index after data          |
 |---------------------|---------------------|----------------------------|---------------------------|
-| All                 | 0                   | Returns the default value*         | Returns the default value*   |
+| All                 | 0                   | Returns the default value         | Returns the default value   |
 | None                | 1                   | No event is returned       | No event is returned      |
-| Forward             | 2                   | No event is returned       | Returns the default value value*   |
-| Backward            | 3                   | Returns the default value*         | No event is returned      |
-
-*For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
+| Forward             | 2                   | No event is returned       | Returns the default value value   |
+| Backward            | 3                   | Returns the default value         | No event is returned      |
 
 For additional information about the effect of read characteristics, see the
 documentation on the [read method](xref:sdsReadingDataApi)
