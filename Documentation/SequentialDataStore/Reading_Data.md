@@ -82,8 +82,7 @@ type as a generic argument. Additional details about working with indexes can be
 When data is requested at an index for which no stored event exists, the read characterisitics determine 
 whether the result is an error, no event, interpolated event, or extrapolated event. The combination of 
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
-determine the read characteristics. For more information on read characteristics, 
-see [Types](xref:sdsTypes) and [Streams](xref:sdsStreams).
+determine the read characteristics.
 
 ### Interpolation
 
@@ -167,19 +166,6 @@ show how ExtrapolationMode affects returned values for each InterpolationMode va
 | Backward            | 3                   | Returns the default value*         | No event is returned      |
 
 *For nullable types, the default value is null. For non-nullable types, the system returns the default value of the type.  
-
-**Default ExtrapolationMode based on InterpolationMode**
-
-| InterpolationMode   | Enumeration value (Interpolation)   | Default ExtrapolationMode   | Enumeration value (Extrapolation)    |
-|---------------------|---------------------|---------------------|---------------------|
-| Continuous		  | 0               | All| 0|
-| StepwiseContinuousLeading | 1             | Forward| 2|
-| StepwiseContinuousTrailing| 2             | Backward| 3|
-| Discrete	            | 3             | All| 0|
-| ContinuousNullableLeading | 4             | Forward| 2|
-| ContinuousNullableTrailing| 5             | Backward| 3|
-
-If the ExtrapolationMode is not assigned, the events are extrapolated in the default manner, unless the extrapolation mode is overridden on the SdsStream. For more information on overriding the extrapolation mode on a specific stream see [Sds Streams](xref:sdsStreams).
 
 For additional information about the effect of read characteristics, see the
 documentation on the [read method](xref:sdsReadingDataApi)
