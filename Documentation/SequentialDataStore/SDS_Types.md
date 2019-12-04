@@ -145,18 +145,6 @@ NullableUInt32Enum      | 710
 NullableUInt64          | 112
 NullableUInt64Enum      | 712
 Object                  | 1
-SdsColumn               | 510
-SdsObject               | 512
-SdsStream               | 507
-SdsStreamIndex          | 508
-SdsTable                | 509
-SdsType                 | 501
-SdsTypeProperty         | 502
-SdsValues               | 511
-SdsStreamView           | 503
-SdsStreamViewMap        | 505
-SdsStreamViewMapProperty| 506
-SdsStreamViewProperty   | 504
 SByte                   | 5
 SByteArray              | 205
 SByteEnum               | 605
