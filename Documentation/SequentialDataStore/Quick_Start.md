@@ -4,64 +4,64 @@ uid: sdsQuickStart
 
 # Quick Start
 
-SDS is a sophisticated data store. The information in this section describes a very simple interaction with SDS.
-To follow along with the steps in this section, you will first need an account, Tenant and associated security credentials. 
-If you have not already acquired an account, email OCS support at: [OSIsoft Cloud Services](mailto://cloudservices@osisoft.com).
+Sequential Data Store (SDS) is a sophisticated data store. The information in this section describes a very simple interaction with SDS.
+To follow along with the steps in this section, you will first need an account, tenant and associated security credentials. 
+If you have not already acquired an account, email [OCS support](mailto://cloudservices@osisoft.com) at OSIsoft Cloud Services.
 
-Throughout this guide, you will be instructed to interact with the OSIsoft Cloud Services portal. To access the section 
-identified, you must sign into the portal using the credentials associated with the Tenant.
+Throughout this guide, you will be instructed to interact with the [OSIsoft Cloud Services portal](https://cloud.osisoft.com/). To access the section 
+identified, you must sign into the portal using the credentials associated with the tenant.
 
-You will also need a Namespace and administrative client keys. 
+You will also need a namespace and administrative client keys. 
 
 
 #### Step 1: Acquire a Namespace
 
-In the portal, open the navigation menu and select **Namespaces** under **Data Services**. For the 
-steps in this section, you can use either an existing Namespace or you can create a new Namespace.
+In the portal, open the navigation menu![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**. For the 
+steps in this section, you can use either an existing namespace or create a new one.
 
 
 #### Step 2: Acquire a Client Identity and Secret
 
-For this example, the application acts as a confidential client – an application that is capable 
+The application acts as a confidential client – an application that is capable 
 of securely maintaining a secret. In Azure Active Directory, the confidential client authentication 
 flow is accomplished using an *Application Identity*. OSIsoft Cloud Services supports this authentication 
-with a Client Identity and a Client Secret.
+with a Client Identity (Client Id) and a Client Secret.
 
-To acquire the Client Identity from the portal, open the navigation menu and select **Clients** under **Security**.
+To acquire a client identity from the portal, open the navigation menu and select **Security** > **Clients**.
 
-You can either select an existing Client or create a new Client. For a new Client, select **Add Client** and follow the 
-prompts for creating a Client Identity and Client Secret. Be sure to record the Client Secret.
-For an exisiting Client, highlight the desired Client and select *Client Details** to see configuration information. 
+You can either select an existing client or create a new client. For a new client, select **Add Client** and follow the 
+prompts for creating a client identity and client secret. Be sure to keep a record of the client secret.
+For an exisiting client, highlight the desired client and select **Client Details** to see configuration information. 
 
 You will need the Tenant Identity, Client Identity, and Client Secret to proceed. 
 
-The Tenant Identity, Client Identity, and Client Secret are used to acquire a security Token from an identity 
-provider, Azure Active Directory in this example.
+The Tenant Identity, Client Identity, and Client Secret are used to acquire a security token from an identity 
+provider, Azure Active Directory in this case.
 
 #### Step 3: Acquire authentication token
 
 You use the Tenant Identity, Client Identity, and Client Secret to acquire an access token 
-from Azure Active Directory. Select **Client Details** for the desired Client to see configuration information 
-and code samples for various languages.
+from Azure Active Directory. Select one of the clients from the list to see configuration information 
+and code samples in various languages displayed on tabs in the right panel.
 
 #### Step 4: Create data types
 
-An SdsType describes the structure of a single measured event or object. An SdsStream has an associated 
+An SdsType (or type) describes the structure of a single measured event or object. An SdsStream (or stream) has an associated 
 SdsType and stores a stream of events or objects that take the shape of that type.
 
-An SdsType consists of one or more data properties, one of which must represent an index. Indexes can be 
-simple, such as a single integer property, or compound, represented by multiple properties. 
+A type consists of one or more data properties, one of which must represent an index. Indexes can be 
+simple (a single integer property, for example) or compound (represented by multiple properties). 
 DateTime is a common index for time-series stores. 
 
-SDS supports a wide variety of property types, including simple types like integers, strings and floats 
-and complex types like lists, arrays and enumerations. Properties can be of any complex SdsType. 
-For additional information, including a detailed list of supported data types, refer to [Types](xref:sdsTypes).
+SDS supports a wide variety of property types, both simple (integers, strings and floats, for example) 
+and complex (lists, arrays and enumerations, for example). Properties can be of any complex SdsType. 
+See [Types](xref:sdsTypes#sdstypecode) for a detailed list of supported data types.
 
-To help users develop .NET client applications, OSIsoft provides OCS client libraries through NuGet packages, 
+To help users develop .NET SDS client applications, OSIsoft provides OCS client libraries through NuGet packages, 
 [OCSClients](https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients contains the libraries necessary 
 to connect to OCS and manage data.
 
-To create an SdsType in .NET, use the .NET SDS client libraries SdsTypeBuilder.
+Use the .NET client libraries method SdsTypeBuilder to create a type.
 
 ```csharp
 public enum State
@@ -86,7 +86,7 @@ simpleType.Description = "Basic sample type";
 await config.CreateTypeAsync(simpleType);
 ```
 
-When working outside of .NET, SDS client libraries are unavailable. The SdsType is defined using JSON and is posted to the OSIsoft Cloud Services endpoint.
+Note that client libraries are not available outside of .NET. The SdsType is defined using JSON and is posted on OSIsoft Cloud Services endpoint.
 
 ```json
 POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  
@@ -226,10 +226,10 @@ Host: dat-b.osisoft.com
 
 #### Step 5: Create a stream
 
-An SdsStream has an associated SdsType and stores a stream of events or objects that take the shape of that type. 
-Detailed information about streams can be found in SdsStreams.
+An SdsStream (or stream) has an associated SdsType and stores a stream of events or objects that take the shape of that type. 
+For more information, see [Streams](xref:sdsStreams).
 
-Create an SdsStream of Simple events using the .NET SDS libraries as follows:
+To create a stream for simple events using the .NET client libraries, do the following:
 
 ```csharp
 SdsStream simpleStream = new SdsStream() 
@@ -300,7 +300,7 @@ Host: dat-b.osisoft.com
 ]
 ```
 
-Additional information about writing data can be found in [Writing data](xref:sdsWritingData#writing-data).
+For more information, see [Write data](xref:sdsWritingData).
 
 #### Step 7: Read data
 
@@ -311,7 +311,7 @@ Reads typically require an index or indexes. The index in the example is the `Ti
 Retrieving the distinct value just written requires `index` `timestamp`` of that value.
 
 Most read calls also require one or more indexes to determine which data to read. 
-The simplest way to supply an index is as a string. In .NET a `DateTime` index could be supplied as follows:
+The simplest way to supply an index is as a string. In .NET, a `DateTime` index could be supplied as follows:
 
 ```csharp
 string index = DateTime.Parse("2017-08-17T17:21:36.3494129Z")
@@ -337,7 +337,7 @@ Content-Type: application/json
     }
 ]
 ```
-Additional information about reading data can be found in [Reading data](xref:sdsReadingData).
+For more information, see [Read data](xref:sdsReadingData).
 
 
 ## Handling transient service interruptions
@@ -352,7 +352,7 @@ If you access the SDS API directly from the OSIsoft Cloud Services endpoint, you
 consider creating your own retry logic to automatically retry when encountering errors 
 identified as transient.
 
-For SDS, the only error you should retry is Http response code 503: service unavailable. 
+For SDS, the only error you should retry is HTTP response code 503: service unavailable. 
 An immediate first retry is recommended, followed by an exponential backoff.
 
 
