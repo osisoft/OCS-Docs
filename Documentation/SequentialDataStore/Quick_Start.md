@@ -345,7 +345,7 @@ For more information, see [Read data](xref:sdsReadingData).
 All applications that communicate with remote systems must manage transient faults. 
 Temporary service interruptions are a fact of life in real-world cloud applications. 
 
-If you access SDs using the SDS .NET libraries, transient fault handling is built in; 
+If you access SDS using the SDS .NET libraries, transient fault handling is built in; 
 the SDS client automatically retries error codes identified as transient.
 
 If you access the SDS API directly from the OSIsoft Cloud Services endpoint, you should 

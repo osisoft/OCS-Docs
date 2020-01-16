@@ -12,7 +12,7 @@ APIs to manage default access to entities governed by an [AccessControlList](xre
 
 Retrieves the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
-### Http
+### HTTP
 
 `GET api/v1/Tenants/{tenantId}/AccessControl/Namespaces`
 
