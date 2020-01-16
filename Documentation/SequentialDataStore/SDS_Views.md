@@ -17,8 +17,7 @@ a target property that it cannot map to, the property is added and configured wi
 To map a property that is beyond the ability of SDS to map on its own, you should define an SdsStreamViewProperty 
 and add it to the SdsStreamView’s Properties collection.
 
-The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use.
-See the [Searching](xref:sdsSearching) topic regarding limitations on search.
+The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use. See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 
 | Property     | Type                   | Optionality | Searchable | Details |
 |--------------|------------------------|-------------|------------|---------|
@@ -38,7 +37,7 @@ See the [Searching](xref:sdsSearching) topic regarding limitations on search.
 4. Can contain a maximum of 100 characters
 
 
-## Properties / SdsStreamViewProperty
+## Properties/ SdsStreamViewProperty
 
 The SdsStreamView Properties collection provides detailed instructions for specifying the mapping of 
 event properties. Each SdsStreamViewProperty in the Properties collection defines the mapping of an 
@@ -70,9 +69,9 @@ so required and optional have no meaning.
 | TargetTypeId | String                   | Required     | Identifier of the SdsType to convert events to |
 | Properties   | IList\<SdsStreamViewMapProperty\>| Optional     | Property level mapping |
 
-### Properties / SdsStreamViewMapProperty
+### Properties/ SdsStreamViewMapProperty
 
-The SdsStreamViewMapProperty is similar an SdsStreamViewProperty but adds a Mode detailing one or more actions taken on 
+The SdsStreamViewMapProperty is similar to SdsStreamViewProperty but adds a Mode detailing one or more actions taken on 
 the Property.
 
 The following table shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
@@ -111,7 +110,7 @@ For details, see [Update Stream Type](xref:sdsStreams#update-stream-type).
 
 ## Working with Stream Views when using .NET
 
-**Using .Net**
+**Using .NET**
 
 When working in .NET, use the SDS Client libraries’ ISdsMetadataService.
 

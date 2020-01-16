@@ -79,7 +79,7 @@ This returns the data view data results. Data is interpolated on the index data 
 
 #### Paging
 
-Since each data view can contain a large amount of data, the get data call can easily be paged to get the entire data collection. Each get data call to retrieve data view data results in two links stored in the http response headers that can be used to navigate to the first page or the next page of data.
+Since each data view can contain a large amount of data, the get data call can easily be paged to get the entire data collection. Each get data call to retrieve data view data results in two links stored in the HTTP response headers that can be used to navigate to the first page or the next page of data.
 
 * FirstPage: .../DataViews/DataViewId/Data/Interpolated?count=100&cache=Preserve
 * NextPage: ...DataViews/DataViewId/Data/Interpolated?count=100&continuationToken=MjAxOC0wMS0wMVQwMDowMDoxMVo_MD90Yk1OblE_QUxXcEZBP1VEdGxIMWJROG9z

@@ -181,7 +181,7 @@ When performing a search, the user specified query is tokenized into search term
 The rules around how the query string is tokenized can affect the search results. 
 Terms are delimited by spaces or by one or more punctuation characters followed by a space. 
 
-Punctuation follwed by other characters without space does not trigger tokenization and is treated
+Punctuation followed by other characters without space does not trigger tokenization and is treated
 as part of the term. 
 
 If your query has a wildcard after trailing punctuation, neither is tokenized. To specifically search on a term that has trailing punctuation, enclose it in quotation marks 
@@ -192,7 +192,7 @@ to ensure the punctuation is part of the query. See examples below:
 ``Device.1`` | ``Device.1``
 ``Device!!1`` | ``Device!!1``
 ``Device. ``  | ``Device``
-``Device!!`` | ``Device``
+``Device!! `` | ``Device``
 ``Device!*`` | ``Device``
 ``"Device!"*`` | ``Device!``
 
@@ -274,7 +274,7 @@ Also, wildcards can be used on the *outside* of the quote operators, but if an a
 
  **Request**	
  ```text	
-	GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”	
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=”pump pressure”	
  ```	
 
  **.NET Library**	

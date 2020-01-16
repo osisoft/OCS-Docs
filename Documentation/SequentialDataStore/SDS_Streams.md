@@ -59,7 +59,7 @@ Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
 
 ## Interpolation and Extrapolation
 
-The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level. For more information about type read characteristics and how these characteristics dictate how events are read see [Types](xref:sdsTypes).
+The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level.
 
 
 ## PropertyOverrides
