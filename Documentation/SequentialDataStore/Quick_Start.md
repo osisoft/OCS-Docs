@@ -16,7 +16,7 @@ You will also need a namespace and administrative client keys.
 
 #### Step 1: Acquire a Namespace
 
-In the portal, open the navigation menu![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**. For the 
+In the portal, open the navigation menu ![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**. For the 
 steps in this section, you can use either an existing namespace or create a new one.
 
 
