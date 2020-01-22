@@ -8,8 +8,7 @@ Sequential Data Store (SDS) is a sophisticated data store. The steps described h
 To follow along with the steps in this section, you will first need an account, tenant and associated security credentials. 
 If you have not already acquired an account, email [OCS support](mailto://cloudservices@osisoft.com) at OSIsoft Cloud Services.
 
-You will be mainly working on [OSIsoft Cloud Services portal](https://cloud.osisoft.com/).
-Sign into the portal using the credentials associated with the tenant. You will also need a namespace and administrative client keys. 
+You will be mainly working on the [OSIsoft Cloud Services portal](https://cloud.osisoft.com/). Sign into the portal using the credentials associated with the tenant. You will also need a namespace and administrative client keys. 
 
 
 #### Step 1: Acquire a Namespace
@@ -303,7 +302,7 @@ For more information, see [Read data](xref:sdsReadingData).
 The examples below are of reading value that was recently written.
 You need an index or indexes in a read data call, a timestamp of that value in this case.
 
-Read a value from SDS  at a distnct index by making a REST API call to OCS:
+Read a value from SDS at a distinct index by making a REST API call to OCS:
 
 ```json
 GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?index=2017-08-17T17:21:36.3494129Z 
@@ -339,12 +338,11 @@ value = await client.GetDistinctValueAsync<Simple>(simpleStream.Id, index);
 All applications that communicate with remote systems must manage transient faults. 
 Temporary service interruptions are a fact of life in real-world cloud applications. 
 
-If you access SDS with .NET client libraries method, transient fault handling is built in; 
+If you access SDS with .NET client libraries methods, transient fault handling is built in; 
 the SDS client automatically retries error codes identified as transient.
 
-If you are directly calling into the OCS enpoint through SDS APIs (not using .NET), you should 
-consider creating your own retry logic to handle errors 
-identified as transient.
+If you are directly calling into the OCS endpoint through SDS APIs (not using .NET), you should 
+consider creating your own retry logic to handle errors identified as transient.
 In this case, we recommend a logic which returns HTTP status code ``503: Service Unavailable``:
 an immediate first retry followed by an exponential backoff.
 
@@ -371,7 +369,7 @@ Dictionary<string, object> Errors
 ### SDS Timeout Request Header
 
 Handling timeout issues can be difficult and confusing in a distributed programming environment. When a client 
-times out for example, the request is terminated before a response is received from the server, resulting in the application being
+times out, for example, the request is terminated before the server receives the response. Meanshile, the application is
 unaware of the state of the server.
 
 One solution is to use the ``Request-Timeout`` header, which is recognized by many services in OCS. Using the 
