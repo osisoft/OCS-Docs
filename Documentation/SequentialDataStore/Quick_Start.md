@@ -369,7 +369,7 @@ Dictionary<string, object> Errors
 ### SDS Timeout Request Header
 
 Handling timeout issues can be difficult and confusing in a distributed programming environment. When a client 
-times out, for example, the request is terminated before the server receives the response. Meanshile, the application is
+times out, for example, the request is terminated before the client receives a response from the server. Meanwhile, the application is
 unaware of the state of the server.
 
 One solution is to use the ``Request-Timeout`` header, which is recognized by many services in OCS. Using the 
