@@ -4,6 +4,8 @@ uid: DataView
 
 # Data View
 
+A data view is a user selected subset of data from one or more streams. Within a target namespace, you specify the source stream or streams, and desired data fields.  Data views can also display selected data by specific time period and interpolation interval. The ability to create data views in the portal will mesh directly with OSIsoft's Data Science Enablement efforts, whereby users will be able to programmatically access Data View content via an API for the purposes of advanced analytics.
+
 The `DataView` object is a declarative query and shape for stream data. This section describes the `DataView` object. For the corresponding API routes, see [API documentation](xref:DataViewAPI).  
 
 At times, this section makes reference to ways the view *resolves* into further resources, such as the collection of data items found by each data item query. See the documentation of [resolved resources](xref:ResolvedDataView) for details.
