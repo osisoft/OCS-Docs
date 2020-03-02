@@ -32,9 +32,10 @@ they are associated with SdsStream objects and can be used as search criteria.
 
 **Rules for the Stream Identifier (SdsStream.Id)**
 1. Is not case sensitive
-2. Is not blank and cannot contain leading or trailing whitespace
-3. Cannot contain forward slash ("/")
-4. Can contain a maximum of 100 characters
+2. Cannot just be whitespace
+3. Cannot contain leading or trailing whitespace
+4. Cannot contain forward slash ("/")
+5. Can contain a maximum of 100 characters
 
 ## Indexes
 
