@@ -9,7 +9,7 @@ events. Events are stored in SdsStreams (or streams). An SdsType (or type) defin
 event and how to associate events within the stream.
 
 
-You can define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
+Define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
 complex or nested types using the [Properties collection of types](#sdstypeproperty). 
 
 An SdsType used to define an SdsStream must have a key. A key is a [Property, or a combination of Properties](#sdstypeproperty) 
@@ -18,8 +18,8 @@ known as the *primary index*. While a timestamp (``DateTime``) is a very common 
 can be ordered is permitted. Other indexes (secondary indexes) are defined in the stream. 
 For more information, see [Indexes](xref:sdsIndexes).
 
-When defining a type, consider how the events will be represented in a stream. The SdsType defines 
-each event in the stream. An event is a single unit whose properties have values that relate to the 
+When defining an SdsType, consider how the events will be represented in a stream as the type defines 
+each event in a stream. An event is a single unit whose properties have values that relate to the 
 index; that is, each property of a type event is related to the event's index. Each event is a single unit.
 
 An SdsType is referenced by its identifier or ``Id`` field. SdsType identifiers must be unique within a namespace.
@@ -32,7 +32,7 @@ characteristics when attempting to read non-existent indexes, indexes that fall 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
 information about read characteristics, see [Interpolation](xref:sdsReadingData#interpolation) and [Extrapolation](xref:sdsReadingData#extrapolation).
 
-SdsTypes are immutable. After a type is created, its definition cannot change. A type must be deleted and recreated if the definition is incorrect.
+SdsTypes are immutable. After a type is created, its definition cannot be updated. A type must be deleted and recreated if the definition is incorrect.
 In addition, a type may be deleted only if no streams, stream views, or other types reference it.
 
 Only the SdsTypes that are used to define SdsStreams or SdsStreamViews are required to be added to the SDS. 
@@ -54,9 +54,10 @@ For limitations on search, see [Search in SDS](xref:sdsSearching).
 
 ### Rules for the Type Identifier (SdsType.Id)
 1. Is not case sensitive
-2. Is not blank and cannot contain leading or trailing whitespace
-3. Cannot contain forward slash ("/")
-4. Can contain a maximum of 100 characters  
+2. Cannot just be whitespace
+3. Cannot contain leading or trailing whitespace
+4. Cannot contain forward slash ("/")
+5. Can contain a maximum of 100 characters  
 
 Type management using the .NET SDS client libraries methods is performed through ``ISdsMetadataService``. 
 You can create ``ISdsMetadataService`` using one of the ``SdsService.GetMetadataService()`` factory methods.
@@ -585,7 +586,7 @@ var simpleType = new SdsObjects.SdsType({
 });
 ```
 
-You can also work with a derived class easily. This is a derived class:
+Working with a derived class is easy. For example, this is a derived class:
 
 ```javascript
 class Derived(Simple):
@@ -597,7 +598,7 @@ class Derived(Simple):
         self.__observation = observation
 ```
 
-You can then extend the above SdsType by doing this:
+Extend the above SdsType as follows:
 
 **Python**
 ```python
