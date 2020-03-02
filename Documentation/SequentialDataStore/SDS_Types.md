@@ -817,7 +817,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The requested SdsType
 
-###### Example response body 
+##### Example response body 
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -906,7 +906,7 @@ The response includes a status code and a response body.
 ##### Response body  
 A dictionary mapping object name to number of references.
 
-###### Example response body 
+##### Example response body 
 ```json
     {
         "SdsStream": 3,
@@ -967,7 +967,7 @@ The response includes a status code and a response body.
 ##### Response body  
 A collection of zero or more SdsTypes
 
-###### Example response body 
+##### Example response body 
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -1131,7 +1131,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The request content is the serialized SdsType. If you are not using the SDS Client Libraries, it is recommended that you use JSON.
 
-###### Example response body 
+##### Example response body 
 ```json
 HTTP/1.1 201
 Content-Type: application/json
@@ -1526,7 +1526,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The Access Rights of the specified type for the requesting identity.
 
-###### Example response body 
+##### Example response body 
 ```json
 HTTP/1.1 200
 Content-Type: application/json
