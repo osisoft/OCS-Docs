@@ -193,13 +193,13 @@ Content-Type: application/json
 }
 ```
 
-## `Get Sections`
-Gets the collection of `Section`s that resolved for a data view.
+## `Get Groups`
+Gets the collection of `Group`s that resolved for a data view.
 
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Sections?cache={cache}&skip={skip}&count={count}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Groups?cache={cache}&skip={skip}&count={count}
 ```
 
 ### Request path parameters
@@ -229,7 +229,7 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `ResolvedItems<Section>` | An object with a "TimeOfResolution" and a collection of "Items", the `Section`s that resolved. |
+| 200 OK | `ResolvedItems<Group>` | An object with a "TimeOfResolution" and a collection of "Items", the `Groups`s that resolved. |
 | 403 Forbidden | error | You are not authorized for this operation
 | 404 Not Found | error | The data view does not exist
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
@@ -344,7 +344,7 @@ HTTP 200 OK
                 {
                     "Source": "Id",
                     "Keys": [],
-                    "Label": "{DistinguisherValue} Id"
+                    "Label": "{IdentifyingValue} Id"
                 },
                 {
                     "Source": "Tags",
@@ -355,28 +355,28 @@ HTTP 200 OK
                         "Gen1",
                         "Gen2",
                     ],
-                    "Label": "{DistinguisherValue} Tags"
+                    "Label": "{IdentifyingValue} Tags"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{DistinguisherValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {FirstKey}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Timestamp"
                     ],
-                    "Label": "{DistinguisherValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {FirstKey}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{DistinguisherValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {FirstKey}"
                 },
             ]
         }
@@ -385,7 +385,7 @@ HTTP 200 OK
 ```
 
 ## `Get Field Mappings`
-Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each section.
+Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
 
 ### Request
 
@@ -530,7 +530,7 @@ HTTP 200 OK
 {
     "TimeOfResolution": "2019-12-13T01:23:45Z",
     "DataItemCount": 24,
-    "SectionCount": 2,
+    "GroupCount": 2,
     "FieldCount": 12
 }
 ```
