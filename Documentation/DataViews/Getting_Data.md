@@ -9,7 +9,7 @@ Data view data is retrieved by using the [Data API](xref:DataViewsDataAPI). The 
 
 ## Index
 All data in a data view is associated with an index value, i.e. a timestamp.
-If there are multiple sections in the data view, the index and sectioner values together form a unique identifier for each data record.
+If there are multiple groups in the data view, the index and grouping field values together form a unique identifier for each data record.
 
 ### Index type
 The supported index type is `DateTime`, as noted in the documentation on creating [Data Views](xref:DataView).
@@ -52,8 +52,8 @@ If there is no value in an SDS stream for a requested index, the value of the co
 
 ## Ordering
 Data records are ordered
-- first by section, in the order that the sections resolved
-- then by index, ascending, within each section
+- first by group, in the order that the groups resolved
+- then by index, ascending, within each group
 
 ## Format
 The view data is available in several formats.
