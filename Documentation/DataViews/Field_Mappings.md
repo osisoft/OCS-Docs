@@ -4,7 +4,7 @@ uid: DataViewsFieldMappings
 
 # Field Mappings
 
-A `FieldMapping` contains information on the source on every field of data in the data view. For each field in the data view, there is a corresponding `FieldMapping`. Within each field mapping, the list of `DataMapping`s shows the source of data for each section. There is one `DataMapping` per section, since the number of distinct data source for each field equals to the number of sections in the resolved data view. Inspecting the field mapping resource after defining the data view is a good way to confirm that the output data view does contain the data-of-interest prior to data generation.
+A `FieldMapping` contains information on the source on every field of data in the data view. For each field in the data view, there is a corresponding `FieldMapping`. Within each field mapping, the list of `DataMapping`s shows the source of data for each group. There is one `DataMapping` per group, since the number of distinct data source for each field equals to the number of groups in the resolved data view. Inspecting the field mapping resource after defining the data view is a good way to confirm that the output data view does contain the data-of-interest prior to data generation.
 
 
 ## Interpreting Field Mapping
@@ -17,13 +17,13 @@ The field mapping id represents the json property name (or column name in table 
 The field set index and field index represents the zero-based positioning of the corresponding field set and field within the field set, respectively.
 
 ### Data Mapping
-Data mappings represent the data source for each section.  
+Data mappings represent the data source for each group.  
 
 #### Index
 `TargetId` and `TargetFieldKey` are not used for index fields. `TypeCode` is equivalent to the `IndexTypeCode` of the data view. 
 
-#### Sectioner Value
-`TargetId` is the zero-based index of the corresponding sectioner. `TypeCode` is always `string`.
+#### Grouping Value
+`TargetId` is the zero-based index of the corresponding grouping field. `TypeCode` is always `string`.
 
 #### Data Item
 `TargetId` represents the data item id. 
