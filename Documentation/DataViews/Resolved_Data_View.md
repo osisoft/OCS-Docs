@@ -9,12 +9,12 @@ Various information is available about how each data view _resolves_. This infor
 ## General concepts
 
 ### What does resolving mean?
-A data view specifies `.Queries` to find data items, `.Sectioners` (optionally) to group those data items into sections, and `.FieldSets` to include fields of data into the data view. *Resolving* the data view means the data views engine executes those queries and computes how the resulting data items will form a data view.
+A data view specifies `.Queries` to find data items, `.GroupingFields` (optionally) to group those data items into groups, and `.FieldSets` to include fields of data into the data view. *Resolving* the data view means the data views engine executes those queries and computes how the resulting data items will form a data view.
 
 ### What resolved information is available?
-- [Data items, ineligible data items, and the sections they form](xref:DataViewsDataItemsandSections) - currently, SDS streams are the supported type of data item.
+- [Data items, ineligible data items, and the groups they form](xref:DataViewsDataItemsandGroups) - currently, SDS streams are the supported type of data item.
 - [Available field sets](xref:DataViewsAvailableFieldSets) - fields which are present on the data items but not included in the data view
-- [Field mappings](xref:DataViewsFieldMappings) - details of the data behind each section of each field
+- [Field mappings](xref:DataViewsFieldMappings) - details of the data behind each group of each field
 - [Statistics](xref:ResolvedDataView#statistics) about how the view resolved
 
 These are available via the [Resolved Data View API](xref:ResolvedDataViewAPI). The relevant [object types](xref:ResolvedDataView#object-types) are described below.
@@ -101,13 +101,13 @@ Within a data item of resource kind `.Stream`, this corresponds to a stream prop
 | TypeCode | SdsTypeCode| The name of the field's data type
 | IsKey | bool | True if the field is the primary index of the data item. False otherwise.
 
-### Section
-A section of the data view. The overall collection of data items is divided into sections as a result of the `.Sectioners` fields defined on the `DataView`.
+### Group
+A group of the data view. The overall collection of data items is divided into groups as a result of the `.GroupingFields` defined on the `DataView`.
 
 |Property | Type | Details |
 |--|--|--|--|--|
-| Values | IReadOnlyList<string> | This section's value of each `.Sectioners` field defined on the `DataView`
-| DataItems | IReadOnlyDictionary<string, IReadOnlyList<DataItem>> | The data items in this section
+| Values | IReadOnlyList<string> | This groups's value of each `.GroupingFields` defined on the `DataView`
+| DataItems | IReadOnlyDictionary<string, IReadOnlyList<DataItem>> | The data items in this group
 
 ### FieldMapping
 Details on the provenance on every field of data:
@@ -118,10 +118,10 @@ Details on the provenance on every field of data:
 | Label | string | Friendly name
 | FieldSetIndex | int | The position of the corresponding field set within the data view
 | FieldIndex | int | The position of the corresponding field within its field set
-| DataMappings | IReadOnlyList<DataMapping> | Per-section details of what this field resolved to
+| DataMappings | IReadOnlyList<DataMapping> | Per-group details of what this field resolved to
 
 ### DataMapping
-Per-section details of the data that a `FieldMapping` targets:
+Per-group details of the data that a `FieldMapping` targets:
 
 |Property | Type | Details |
 |--|--|--|--|--|
@@ -135,5 +135,5 @@ General statistics about how the data view resolved:
 |Property | Type | Details |
 |--|--|--|--|--|
 | DataItemCount | int | The total count of data items resolved in the data view
-| SectionCount | int | The total count of sections resolved in the data view
+| GroupCount | int | The total count of groups resolved in the data view
 | FieldCount | int | The total count of fields resolved in the data view
