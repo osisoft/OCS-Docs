@@ -54,7 +54,7 @@ Content-Type: application/json
     }
   ],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
@@ -135,7 +135,7 @@ A `DataView` object whose `Id` is `null` or unspecified.
   "Description": "demonstration",
   "Queries": [],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
@@ -161,7 +161,7 @@ Content-Type: application/json
   "Description": "demonstration",
   "Queries": [],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
@@ -195,7 +195,7 @@ A `DataView` object whose `Id` matches the `dataViewId` in the URL.
   "Description": "demonstration 2",
   "Queries": [],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
@@ -224,7 +224,7 @@ Content-Type: application/json
   "Description": "demonstration 2",
   "Queries": [],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
@@ -258,7 +258,7 @@ A `DataView` object whose `Id` matches the `dataViewId` in the URL.
   "Description": "demonstration",
   "Queries": [],
   "FieldSets": [],
-  "Sectioners": [],
+  "GroupingFields": [],
   "Shape": "Standard",
   "IndexTypeCode": "DateTime"
 }
