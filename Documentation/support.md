@@ -2,7 +2,7 @@
 uid: support
 ---
 
-# Technical support
+# Technical support and other resources
 
 To get help using OSIsoft Cloud Services (OCS), open a case at [OSIsoft Customer Portal](https://my.osisoft.com/).
 If you do not have a portal account, see [How to Get a Login to OSIsoft Customer Portal](https://explore.osisoft.com/myosisoft-customer-portal/how-to-get-a-login) to obtain one. 
