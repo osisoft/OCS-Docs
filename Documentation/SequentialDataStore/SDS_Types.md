@@ -873,7 +873,7 @@ Content-Type: application/json
 }
 ```
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task<SdsType> GetTypeAsync(string typeId);
 ```
@@ -915,7 +915,7 @@ A dictionary mapping object name to number of references.
     }
 ```
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task<IDictionary<string, int>> GetTypeReferenceCountAsync(string typeId);
 ```
@@ -1027,7 +1027,7 @@ Content-Type: application/json
 ```
 
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task<IEnumerable<SdsType>> GetTypesAsync(string query = "", int skip = 0, int count = 100);
 ```
@@ -1265,7 +1265,7 @@ Content-Type: application/json
 }
 ```
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task<SdsType> GetOrCreateTypeAsync(SdsType sdsType)
 ```
@@ -1301,7 +1301,7 @@ The type identifier
 #### Response  
 The response includes a status code.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task DeleteTypeAsync(string typeId);
 ```
@@ -1331,7 +1331,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The default ACL for Types
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task<AccessControlList> GetTypesAccessControlListAsync();
 ```
@@ -1360,7 +1360,7 @@ Serialized ACL
 #### Response  
 The response includes a status code.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task UpdateTypesAccessControlListAsync(AccessControlList typesAcl);
 ```
@@ -1393,7 +1393,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The ACL for the specified type
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task<AccessControlList> GetTypeAccessControlListAsync(string typeId);
 ```
@@ -1427,7 +1427,7 @@ Serialized ACL
 #### Response  
 The response includes a status code.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
 ```
@@ -1459,7 +1459,7 @@ The response includes a status code and a response body.
 ##### Response body  
 The Owner for the specified type 
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task<Trustee> GetTypeOwnerAsync(string typeId);
 ```
@@ -1493,7 +1493,7 @@ Serialized Owner
 #### Response  
 The response includes a status code.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task UpdateTypeOwnerAsync(string typeId, Trustee typeOwner);
 ```
@@ -1534,7 +1534,7 @@ Content-Type: application/json
 ["Read", "Write"]
 ```
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
    Task<string[]> GetTypeAccessRightsAsync(string typeId);
 ```
