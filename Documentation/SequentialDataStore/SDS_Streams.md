@@ -131,7 +131,7 @@ Content-Type: application/json
 }
 ```
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<SdsStream> GetStreamAsync(string streamId);
 ```
@@ -210,7 +210,7 @@ Content-Type: application/json
 ]
 ```
 
-**.NET Library**  
+**.NET client libraries method**  
 ```csharp
    Task<IEnumerable<SdsStream>> GetStreamsAsync(string query = "", int skip = 0, 
       int count = 100);
@@ -244,7 +244,7 @@ The response includes a status code and a response body.
 **Response body**  
 The requested SdsType.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<SdsType> GetStreamTypeAsync(string streamId);
 ```
@@ -293,7 +293,7 @@ The response includes a status code and a response body.
 The newly created SdsStream.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task<SdsStream> GetOrCreateStreamAsync(SdsStream SdsStream);
 ```
@@ -345,7 +345,7 @@ The request content is the serialized SdsStream.
 The response includes a status code.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
 ```
@@ -384,7 +384,7 @@ The response includes a status code.
 **Response body**  
 On failure, the content contains a message describing the issue.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 ```
@@ -414,7 +414,7 @@ The stream identifier
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task DeleteStreamAsync(string streamId);
 ```
@@ -444,7 +444,7 @@ The response includes a status code and a response body.
 **Response body**  
 The default ACL for Streams
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<AccessControlList> GetStreamsAccessControlListAsync();
 ```
@@ -473,7 +473,7 @@ Serialized ACL
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamsAccessControlListAsync(AccessControlList streamsAcl);
 ```
@@ -506,7 +506,7 @@ The response includes a status code and a response body.
 **Response Body**  
 The ACL for the specified stream 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<AccessControlList> GetStreamAccessControlListAsync(string streamId);
 ```
@@ -538,7 +538,7 @@ Serialized ACL
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamAccessControlListAsync(string streamId, AccessControlList streamAcl);
 ```
@@ -570,7 +570,7 @@ The response includes a status code and a response body.
 **Response Body**  
 The Owner for the specified stream 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<Trustee> GetStreamOwnerAsync(string streamId);
 ```
@@ -602,7 +602,7 @@ Serialized Owner
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
@@ -643,7 +643,7 @@ Content-Type: application/json
 ["Read", "Write"]
 ```
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<string[]> GetStreamAccessRightsAsync(string streamId);
 ```
