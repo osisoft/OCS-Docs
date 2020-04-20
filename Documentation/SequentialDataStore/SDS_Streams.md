@@ -96,12 +96,12 @@ SdsStream information.
 
 Returns the specified stream.
 
-**Request**
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier
@@ -113,10 +113,10 @@ The namespace identifier
 The stream identifier
 
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+#### Response body 
 The requested SdsStream.
 
 Example response body:
@@ -131,7 +131,7 @@ Content-Type: application/json
 }
 ```
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<SdsStream> GetStreamAsync(string streamId);
 ```
@@ -148,12 +148,12 @@ all streams in the Namespace. See [Searching](xref:sdsSearching)
 for information about specifying those respective parameters.
 
 
-**Request**
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}&orderby={orderby}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier
@@ -177,10 +177,10 @@ If not specified, a default value of 100 is used.
 `string orderby`  
 An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+#### Response body 
 A collection of zero or more SdsStreams.
 
 Example response body:
@@ -210,7 +210,7 @@ Content-Type: application/json
 ]
 ```
 
-**.NET client libraries method**  
+### .NET client libraries method  
 ```csharp
    Task<IEnumerable<SdsStream>> GetStreamsAsync(string query = "", int skip = 0, 
       int count = 100);
@@ -222,12 +222,12 @@ Content-Type: application/json
 
 Returns the type definition that is associated with a given stream.
 
-**Request**
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -238,13 +238,13 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+#### Response body 
 The requested SdsType.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<SdsType> GetStreamTypeAsync(string streamId);
 ```
@@ -267,12 +267,12 @@ returns ``Unauthorized`` (401). For this reason, it is recommended that when usi
 redirect with the authorization header, you should disable automatic redirect.
 
 
-**Request**
+### Request
  ```text
 	POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -283,17 +283,17 @@ The namespace identifier
 `string streamId`  
 The stream identifier. The stream identifier must match the identifier in content. 
 
-**Request body**  
+#### Request body  
 The request content is the serialized SdsStream.
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+#### Response body 
 The newly created SdsStream.
 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
       Task<SdsStream> GetOrCreateStreamAsync(SdsStream SdsStream);
 ```
@@ -322,12 +322,12 @@ For more information on secondary indexes, see [Indexes](#indexes).
 
 Unpermitted changes result in an error.
 
-**Request**
+### Request
  ```text
 	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -338,14 +338,14 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Request body**  
+#### Request body  
 The request content is the serialized SdsStream.
 
-**Response**  
+### Response
 The response includes a status code.
 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task CreateOrUpdateStreamAsync(SdsStream SdsStream);
 ```
@@ -356,12 +356,12 @@ The response includes a status code.
 Updates a stream’s type. The type is modified to match the specified stream view. 
 Defined Indexes and PropertyOverrides are removed when updating a stream type. 
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type?streamViewId={streamViewId}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -375,16 +375,16 @@ The stream identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**  
+#### Request body  
 The request content is the serialized SdsStream.
 
-**Response**  
+### Response
 The response includes a status code.
 
-**Response body**  
+#### Response body 
 On failure, the content contains a message describing the issue.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamTypeAsync(string streamId, string streamViewId);
 ```
@@ -395,12 +395,12 @@ On failure, the content contains a message describing the issue.
 
 Deletes a stream. 
 
-**Request**
+### Request
  ```text
     DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -411,10 +411,10 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task DeleteStreamAsync(string streamId);
 ```
@@ -425,12 +425,12 @@ The response includes a status code.
 
 Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -438,13 +438,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+#### Response body 
 The default ACL for Streams
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamsAccessControlListAsync();
 ```
@@ -454,12 +454,12 @@ The default ACL for Streams
 
 Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -467,13 +467,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-**Request body**  
+#### Request body  
 Serialized ACL
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamsAccessControlListAsync(AccessControlList streamsAcl);
 ```
@@ -484,12 +484,12 @@ The response includes a status code.
 
 Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -500,13 +500,13 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body 
 The ACL for the specified stream 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamAccessControlListAsync(string streamId);
 ```
@@ -516,12 +516,12 @@ The ACL for the specified stream
 
 Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -532,13 +532,13 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Request body**  
+#### Request body  
 Serialized ACL
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamAccessControlListAsync(string streamId, AccessControlList streamAcl);
 ```
@@ -548,12 +548,12 @@ The response includes a status code.
 
 Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -564,13 +564,13 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body 
 The Owner for the specified stream 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<Trustee> GetStreamOwnerAsync(string streamId);
 ```
@@ -580,12 +580,12 @@ The Owner for the specified stream
 
 Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -596,13 +596,13 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Request body**  
+#### Request body  
 Serialized Owner
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
@@ -613,12 +613,12 @@ The response includes a status code.
 Gets the Access Rights associated with the specified stream for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessRights
  ```
 
-**Parameters**
+### Parameters
 
 `string tenantId`  
 The tenant identifier  
@@ -629,10 +629,10 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body 
 The Access Rights associated with specified stream for the requesting identity.
 
 Example response body:
@@ -643,7 +643,7 @@ Content-Type: application/json
 ["Read", "Write"]
 ```
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<string[]> GetStreamAccessRightsAsync(string streamId);
 ```
