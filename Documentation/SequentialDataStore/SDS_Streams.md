@@ -219,7 +219,7 @@ Content-Type: application/json
 ***********************
 
 ## `Get Stream Type`
-
+******
 Returns the type definition that is associated with a given stream.
 
 ### Request
