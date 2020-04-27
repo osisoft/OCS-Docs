@@ -325,7 +325,7 @@ string index = DateTime.Parse("2017-08-17T17:21:36.3494129Z")
                .ToUniversalTime().ToString("o"); 
 ```
 
-To read a value at a distinct index, you can use the .NET SDS libraries method.
+To read a value at a distinct index, you can use the SDS .NET client libraries method.
 `Time` is the index here, which is a property of a type named `Simple`: 
 
 ```csharp
@@ -349,7 +349,7 @@ an immediate first retry followed by an exponential backoff.
 
 ### SDS client error
 
-If you access SDS using the .NET client libraries, note that any non-success
+If you access SDS using the .NET client libraries methods, note that any non-success
 responses returned to the client are packaged in an ``SdsHttpClientException``,
 which is an exception with the following additional properties:
 

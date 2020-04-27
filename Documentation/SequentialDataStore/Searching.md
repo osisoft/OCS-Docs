@@ -46,7 +46,7 @@ An optional parameter representing the maximum number of SdsStreams to retrieve.
 `string orderby`  
 An optional parameter representing the sorted order in which SdsStreams are returned. Requires a field name (``orderby=name``, for example). Default order is ascending (``asc``). Add ``desc`` for descending order (``orderby=name desc``, for example). If unspecified, there is no sorting of results.
 
-#### .NET client libraries method
+#### .NET client libraries methods
 If there are 175 streams that match the search criteria "temperature" in a single call for example, below will return the first 100 matches:
 
 ```csharp

@@ -260,7 +260,7 @@ SDS supports assigning [Units of Measure](xref:unitsOfMeasure) (UOM) to stream d
 | Uom               | String               | Required    | Target unit of measure                                |
 | InterpolationMode | SdsInterpolationMode | N/A         | Currently not supported in context of data reads      |
 
-This is supported in the .NET API via overloads that accept a collection of `SdsStreamPropertyOverride` objects, and in the REST API via HTTP POST calls with a request body containing a collection of `SdsStreamPropertyOverride` objects.  
+This is supported in the .NET client libraries methods via overloads that accept a collection of `SdsStreamPropertyOverride` objects, and in the REST API via HTTP POST calls with a request body containing a collection of `SdsStreamPropertyOverride` objects.  
 
 All unit conversions are POST HTTP requests. The unit conversion transformation URI is as follows:
  ```text

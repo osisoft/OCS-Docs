@@ -218,7 +218,7 @@ Content-Type: application/json
     }
 ]
 ```
-#### .NET client libraries method
+#### .NET client libraries methods
 ```csharp
    Task<T> FindDistinctValueAsync<T>(string streamId, string index, 
       SdsSearchMode searchMode = SdsSearchMode.Exact, string streamViewId = null);

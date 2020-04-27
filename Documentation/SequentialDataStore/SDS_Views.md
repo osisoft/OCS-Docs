@@ -509,7 +509,7 @@ Content-Type: application/json
 }
 ```
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<SdsStreamView> GetStreamViewAsync(string streamViewId);
 ```
@@ -574,7 +574,7 @@ Content-Type: application/json
 ```
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<SdsStreamViewMap> GetStreamViewMapAsync(string streamViewId);
 ```
@@ -661,7 +661,7 @@ Content-Type: application/json
 ]
 ```
                 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
 ```
@@ -700,7 +700,7 @@ The response includes a status code and a response body.
 **Response body**  
 The newly created or matching SdsStreamView.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<SdsStreamView> GetOrCreateStreamViewAsync(SdsStreamView sdsStreamView);
 ```
@@ -736,7 +736,7 @@ The response includes a status code and a response body.
 **Response body**  
 The newly created or updated SdsStreamView.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
 ```
@@ -766,7 +766,7 @@ The stream view identifier
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task DeleteStreamViewAsync(string streamViewId);
 ```
@@ -795,7 +795,7 @@ The response includes a status code and a response body.
 **Response body**  
 The default ACL for Stream Views
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<AccessControlList> GetStreamViewsAccessControlListAsync();
 ```
@@ -824,7 +824,7 @@ Serialized ACL
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
 ```
@@ -857,7 +857,7 @@ The response includes a status code and a response body.
 **Response Body**  
 The ACL for the specified stream view
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<AccessControlList> GetStreamViewAccessControlListAsync(string streamViewId);
 ```
@@ -889,7 +889,7 @@ Serialized ACL
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
 ```
@@ -921,7 +921,7 @@ The response includes a status code and a response body.
 **Response Body**  
 The Owner for the specified stream view
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<Trustee> GetStreamViewOwnerAsync(string streamViewId);
 ```
@@ -953,7 +953,7 @@ Serialized Owner
 **Response**  
 The response includes a status code.
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
 ```
@@ -994,7 +994,7 @@ Content-Type: application/json
 ["Read", "Write"]
 ```
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
    Task<string[]> GetStreamViewAccessRightsAsync(string streamViewId);
 ```

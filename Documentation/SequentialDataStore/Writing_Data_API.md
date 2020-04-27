@@ -137,7 +137,7 @@ The request body specifies the values to insert.
 ]
 ```
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task InsertValueAsync<T>(string streamId, T item);
     Task InsertValuesAsync<T>(string streamId, IList<T> items);
@@ -197,7 +197,7 @@ Patching is used to patch the events of the selected fields for one or more even
 
 If there is a problem patching any individual event, the entire operation is rolled back and the error will indicate the `streamId` and `index` of the problem.  
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task PatchValueAsync(string streamId, string selectExpression, T item);
     Task PatchValuesAsync(string streamId, string selectExpression, IList<T> items);
@@ -243,7 +243,7 @@ If any individual event fails to be removed, the entire operation is rolled back
 
 If you attempt to remove events at indexes that have no events, an error is returned. If this occurs, you can use [Window](#removewindow) request format to remove any events from a specified ‘window’ of indexes, which will not return an error if no data is found.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task RemoveValueAsync(string streamId, string index);
     Task RemoveValueAsync<T1>(string streamId, T1 index);
@@ -287,7 +287,7 @@ The response includes a status code
 #### Notes  
 If any individual event fails to be removed, the entire operation is rolled back and no removes are done.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task RemoveWindowValuesAsync(string streamId, string startIndex, string endIndex);
     Task RemoveWindowValuesAsync<T1>(string streamId, T1 startIndex, T1 endIndex);
@@ -325,7 +325,7 @@ The response includes a status code
 #### Notes  
 This request returns an error if the stream does not have an event to be replaced at the specified index. If any individual event fails to be replaced, the entire operation is rolled back and no replaces are performed. The index that caused the issue and the streamId are included in the error response.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task ReplaceValueAsync<T>(string streamId, T item);
     Task ReplaceValuesAsync<T>(string streamId, IList<T> items);
@@ -362,7 +362,7 @@ The response includes a status code
 This request performs an insert or a replace depending on whether an event already exists at the event indexes. If any item fails to write, the entire operation is rolled back and
 no events are written to the stream. The index that caused the issue is included in the error response.
 
-#### .NET libraries client methods
+#### .NET client libraries methods
 ```csharp
     Task UpdateValueAsync<T>(string streamId, T item);
     Task UpdateValuesAsync<T>(string streamId, IList<T> items);

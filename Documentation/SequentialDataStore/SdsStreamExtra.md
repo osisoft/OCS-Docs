@@ -56,7 +56,7 @@ Returns the metadata dictionary for the specified stream.
       } 
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task<IDictionary<string, string>> GetStreamMetadataAsync(string streamId); 
 ```
@@ -113,7 +113,7 @@ Returns the value for the specified key in the metadata dictionary of the specif
       } 
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task<string> GetStreamMetadataValueAsync(string streamId, string key); 
 ```
@@ -154,7 +154,7 @@ Overwrites any existing metadata; does not merge.
   The response includes a status code.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task UpdateStreamMetadataAsync(string streamId, IDictionary<string, string> metadata); 
 ```
@@ -196,7 +196,7 @@ Modifies the metadata based on operations specified in the request body. The req
 
 A collection of operations to be applied to the metadata collection as specified by the [JSON Patch format](http://jsonpatch.com/).
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task<IDictionary<string, string>> PatchStreamMetadataAsync(string streamId, MetadataPatchDocument patchDoc);
 ```
@@ -234,7 +234,7 @@ Deletes the metadata for the specified stream.
   The response includes a status code.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task DeleteStreamMetadataAsync(string streamId); 
 ```
@@ -292,7 +292,7 @@ Returns the tag list for the specified stream.
       ] 
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task<IList<string>> GetStreamTagsAsync(string streamId); 
 ```
@@ -334,7 +334,7 @@ Overwrites any existing tags; does not merge.
   The response includes a status code.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task UpdateStreamTagsAsync(string streamId, IList<string> tags); 
 ```
@@ -375,7 +375,7 @@ Deletes the tag list for the specified stream.
   The response includes a status code.
 
 
-**.NET Library**
+**.NET client libraries method**
 ```csharp
       Task DeleteStreamTagsAsync(string streamId); 
 ```
