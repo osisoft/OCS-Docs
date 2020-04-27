@@ -24,4 +24,4 @@ Compressed responses can be requested from the REST API by specifying one of the
 
 Compressed responses from the REST API will include a ``Content-Encoding`` HTTP header indicating the compression scheme used to compress the response content.
 
-*Note that specifying a compression scheme through the use of the* ``Accept-Encoding`` *HTTP header does not guarantee a compressed response. Always refer to presence and value of the* ``Content-Encoding`` *HTTP header of the response to properly decode the response content.* 
+**Note:** Specifying a compression scheme through the use of the ``Accept-Encoding`` HTTP header does not guarantee a compressed response. Always refer to the presence and value of the ``Content-Encoding`` HTTP header of the response to properly decode the response content. 

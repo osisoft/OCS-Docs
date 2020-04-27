@@ -2,9 +2,7 @@
 uid: sdsIndexes
 ---
 
-Indexes
-=======
-
+# Indexes
 Indexes speed up and order the results of searches. A key uniquely identifies a record within 
 a collection of records. Keys are unique within the collection.
 
@@ -47,9 +45,7 @@ UInt16                   | 8
 UInt32                   | 10
 UInt64                   | 12
 
-Compound Indexes
-----------------
-
+## Compound Indexes
 Often, a single property (such as a DateTime), is adequate for defining an index; however, for more complex 
 scenarios, Sds allows you to define multiple properties. Indexes defined by multiple properties are known as *compound indexes*.
 
@@ -68,15 +64,9 @@ You can specify a maximum of three Properties to define a compound index.
 The Sds REST API methods that use tuples were created to assist you when using compound indexes.
 
 
-Working with Indexes
---------------------
-
-Using .NET
-----------
-
-
-Simple Indexes
---------------
+## Indexes at work
+### Indexes in .NET framework
+#### Simple Indexes
 
 When working in .NET, use the SdsTypeBuilder together with either the ``OSIsoft.Sds.SdsMemberAttribute`` or the
 ``System.ComponentModel.DataAnnotations.KeyAttribute`` to identify the Property that defines the simple Key. 
@@ -199,10 +189,7 @@ To read data indexed by a secondary Index, use a filtered Get, as in the followi
       // 1/20/2017 12:00:00 PM: 5
 
 
-
-Compound Indexes
-----------------
-
+#### Compound Indexes
 Compound indexes are defined using the SdsMemberAttribute as follows:
 
       public class Simple
@@ -333,15 +320,8 @@ If the Order parameters were swapped, Recorded set to zero, and Time set to one,
 
 Note that the ``GetWindowValuesAsync()`` call specifies an expected return type and the index types as generic parameters.
 
-
-Not Using .NET
---------------
-
-
-Simple Indexes
---------------
-
-
+### Indexes outside of .NET framework
+#### Simple Indexes
 When the .NET SdsTypeBuilder is unavailable, indexes must be built manually.
 
 
@@ -394,8 +374,8 @@ To build a SdsType representation of the following sample class, see [Sample](#s
         this.Value = null;
       }
 
-#### Sample
-
+##### Sample
+-----
 The following code is used to build an SdsType representation of the sample class above:
 
 *Python*
@@ -588,9 +568,7 @@ Measurement as a Secondary Index as shown in the following example:
       });
 
 
-Compound Indexes
-----------------
-
+#### Compound Indexes
 Consider the following Python and JavaScript types:
 
 *Python*

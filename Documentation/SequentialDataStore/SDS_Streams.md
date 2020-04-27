@@ -117,9 +117,9 @@ The stream identifier
 The response includes a status code and a response body.
 
 #### Response body 
-The requested SdsStream.
+The requested SdsStream
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -139,12 +139,12 @@ Content-Type: application/json
 ***********************
 
 ## `Get Streams` 
-
+*****
 Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
 the search criteria. If the search query parameter is not specified, the list will include 
-all streams in the Namespace. See [Searching](xref:sdsSearching) 
+all streams in the namespace. See [Search in SDS](xref:sdsSearching) 
 for information about specifying those respective parameters.
 
 
@@ -163,7 +163,7 @@ The namespace identifier
 
 `string query`  
 An optional parameter representing a string search. 
-See [Searching](xref:sdsSearching)
+See [Search in SDS](xref:sdsSearching)
 for information about specifying the search parameter.
 
 `int skip`  

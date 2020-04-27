@@ -1,8 +1,8 @@
-- name: Data Ingress to Cloud Services Using OMF
+- name: Data Ingress to OCS in OMF
   href: OMF_Ingress_to_OCS.md
-- name: Using OMF with Cloud Services
+- name: OMF with OCS
   href: OMF_Ingress_Specification.md
-- name: Topics
+- name: Topics in OMF
   href: OMF_Ingress_Topics.md
-- name: Subscriptions
+- name: Subscriptions in OMF
   href: OMF_Ingress_Subscriptions.md
