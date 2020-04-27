@@ -6,11 +6,11 @@ uid: sdsIndexes
 Indexes speed up and order the results of searches. A key uniquely identifies a record within 
 a collection of records. Keys are unique within the collection.
 
-In Sds, the key of an SdsType is also an index. The key is often referred to as the *primary index,* 
+In SDS, the key of an SdsType is also an index. The key is often referred to as the *primary index,* 
 while all other indexes are referred to as *secondary indexes* or *secondaries*.
 
 An SdsType that is used to define an SdsStream must specify a key. When inserting data into an SdsStream, every 
-key value must be unique. Sds will not store more than a single event for a given key; an event with 
+key value must be unique. SDS will not store more than a single event for a given key; an event with 
 a particular key may be deleted or updated, but two events with the same key cannot exist.
 
 In .NET, the SdsType properties that define the key are identified using an ``OSIsoft.Sds.SdsMemberAttribute`` 
@@ -47,7 +47,7 @@ UInt64                   | 12
 
 ## Compound Indexes
 Often, a single property (such as a DateTime), is adequate for defining an index; however, for more complex 
-scenarios, Sds allows you to define multiple properties. Indexes defined by multiple properties are known as *compound indexes*.
+scenarios, SDS allows you to define multiple properties. Indexes defined by multiple properties are known as *compound indexes*.
 
 When defining a compound index in .NET, you should apply the ``OSIsoft.Sds.SdsMemberAttribute`` on each of the type’s 
 properties that are combined to define the index. Set the ``IsKey`` property to ``true`` and give ``Orderfield`` a 
@@ -61,7 +61,7 @@ Only the primary index (or key) supports compound indexes.
 
 You can specify a maximum of three Properties to define a compound index.
 
-The Sds REST API methods that use tuples were created to assist you when using compound indexes.
+The SDS REST API methods that use tuples were created to assist you when using compound indexes.
 
 
 ## Indexes at work
