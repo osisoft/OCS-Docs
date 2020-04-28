@@ -139,7 +139,7 @@ Content-Type: application/json
 ***********************
 
 ## `Get Streams` 
-*****
+***********************
 Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
