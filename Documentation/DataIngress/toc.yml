@@ -1,6 +1,6 @@
 - name: Data Ingress to OCS in OMF
   href: OMF_Ingress_to_OCS.md
-- name: OMF with OCS
+- name: Use OMF with OCS
   href: OMF_Ingress_Specification.md
 - name: Topics in OMF
   href: OMF_Ingress_Topics.md
