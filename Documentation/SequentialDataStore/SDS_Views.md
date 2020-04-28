@@ -460,12 +460,12 @@ See [Stream Views](#stream-views) for general SdsStreamView information.
 
 Returns the stream view corresponding to the specified streamViewId within a given namespace.
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -476,14 +476,14 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
 
-**Response body**  
+### Response body  
 The requested SdsStreamView.
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -509,7 +509,7 @@ Content-Type: application/json
 }
 ```
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<SdsStreamView> GetStreamViewAsync(string streamViewId);
 ```
@@ -520,12 +520,12 @@ Content-Type: application/json
 
 Returns the stream view map corresponding to the specified streamViewId within a given namespace.
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Map
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -536,14 +536,14 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
  The response includes a status code and a response body.
 
 
-**Response body**  
+### Response body  
 The requested SdsStreamView.
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -574,7 +574,7 @@ Content-Type: application/json
 ```
 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<SdsStreamViewMap> GetStreamViewMapAsync(string streamViewId);
 ```
@@ -587,15 +587,15 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional search query parameter, the list of stream views returned will match 
 the search criteria. If the search query parameter is not specified, the list will include 
-all stream views in the Namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
+all stream views in the namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
 
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}&orderby={orderby}
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier
@@ -605,7 +605,7 @@ The namespace identifier
 
 `string query`  
 An optional parameter representing a string search. 
-See [Searching](xref:sdsSearching)
+See [Search in SDS](xref:sdsSearching)
 for information about specifying the search parameter.
 
 `int skip`  
@@ -620,14 +620,14 @@ If not specified, a default value of 100 is used.
 An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the      ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned   results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
 
-**Response body**  
+### Response body  
 A collection of zero or more SdsStreamViews.
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -661,7 +661,7 @@ Content-Type: application/json
 ]
 ```
                 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
 ```
@@ -675,12 +675,12 @@ If the stream views are identical, a Found (302) status is returned and the stre
 
 If no matching identifier is found, the specified stream view is created.  
 
-**Request**
+### Request
  ```text
     POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -691,16 +691,16 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier. The identifier must match the ``SdsStreamView.Id`` field.   
 
-**Request body**  
+#### Request body  
 The request content is the serialized SdsStreamView. If you are not using the SDS client libraries, using JSON is recommended.
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+### Response body  
 The newly created or matching SdsStreamView.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<SdsStreamView> GetOrCreateStreamViewAsync(SdsStreamView sdsStreamView);
 ```
@@ -711,12 +711,12 @@ The newly created or matching SdsStreamView.
 
 Creates or updates the definition of a stream view. 
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`
 The tenant identifier  
@@ -727,16 +727,16 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**  
+#### Request body  
 The request content is the serialized SdsStreamView.
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+### Response body  
 The newly created or updated SdsStreamView.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task CreateOrUpdateStreamViewAsync(SdsStreamView SdsStreamView);
 ```
@@ -747,12 +747,12 @@ The newly created or updated SdsStreamView.
 
 Deletes a stream view from the specified tenant and namespace.
 
-**Request**
+### Request
  ```text
     DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -763,10 +763,10 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task DeleteStreamViewAsync(string streamViewId);
 ```
@@ -776,12 +776,12 @@ The response includes a status code.
 
 Get the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -789,13 +789,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response body**  
+### Response body  
 The default ACL for Stream Views
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamViewsAccessControlListAsync();
 ```
@@ -805,12 +805,12 @@ The default ACL for Stream Views
 
 Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -818,13 +818,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-**Request body**  
+#### Request body  
 Serialized ACL
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
 ```
@@ -835,12 +835,12 @@ The response includes a status code.
 
 Get the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -851,13 +851,13 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body  
 The ACL for the specified stream view
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamViewAccessControlListAsync(string streamViewId);
 ```
@@ -867,12 +867,12 @@ The ACL for the specified stream view
 
 Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -883,13 +883,13 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**  
+#### Request body  
 Serialized ACL
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
 ```
@@ -899,12 +899,12 @@ The response includes a status code.
 
 Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -915,13 +915,13 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body  
 The Owner for the specified stream view
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<Trustee> GetStreamViewOwnerAsync(string streamViewId);
 ```
@@ -931,12 +931,12 @@ The Owner for the specified stream view
 
 Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
-**Request**
+### Request
  ```text
     PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/Owner
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -947,13 +947,13 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Request body**  
+#### Request body  
 Serialized Owner
 
-**Response**  
+### Response
 The response includes a status code.
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task UpdateStreamViewOwnerAsync(string streamViewId, Trustee viewOwner);
 ```
@@ -964,12 +964,12 @@ The response includes a status code.
 Gets the Access Rights associated with the specified stream view for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
-**Request**
+### Request
  ```text
     GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessRights
  ```
 
-**Parameters**
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -980,13 +980,13 @@ The namespace identifier
 `string streamViewId`  
 The stream view identifier  
 
-**Response**  
+### Response
 The response includes a status code and a response body.
 
-**Response Body**  
+#### Response body  
 The Access Rights of the specified stream view for the requesting identity.
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -994,7 +994,7 @@ Content-Type: application/json
 ["Read", "Write"]
 ```
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
    Task<string[]> GetStreamViewAccessRightsAsync(string streamViewId);
 ```
