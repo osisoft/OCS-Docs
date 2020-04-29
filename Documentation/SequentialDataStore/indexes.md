@@ -331,7 +331,7 @@ samples. Samples in other languages can be found [here](<https://github.com/osis
 
 To build a SdsType representation of the following sample class, see [Sample](#sample):
 
-*Python*
+**Python**
 
       class State(Enum):
         Ok = 0
@@ -358,7 +358,7 @@ To build a SdsType representation of the following sample class, see [Sample](#s
           self.__measurement = measurement
 
 
-*JavaScript*
+**JavaScript**
 
 
       var State =
@@ -378,7 +378,7 @@ To build a SdsType representation of the following sample class, see [Sample](#s
 -----
 The following code is used to build an SdsType representation of the sample class above:
 
-*Python*
+**Python**
 
 
       # Create the properties
@@ -431,7 +431,7 @@ The following code is used to build an SdsType representation of the sample clas
       simple.Properties = [ time, state, measurement ]
 
 
-*JavaScript*
+**JavaScript**
 
 
       // Time is the primary key
@@ -487,9 +487,9 @@ The following code is used to build an SdsType representation of the sample clas
       });
 
 
-The Time property is identified as the Key by define its SdsTypeProperty as follows:
+The Time property is identified as the key by defining its SdsTypeProperty as follows:
 
-*Python*
+**Python**
 
 
       # Time is the primary key
@@ -502,7 +502,7 @@ The Time property is identified as the Key by define its SdsTypeProperty as foll
       time.SdsType.Name = "DateTime"
       time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
 
-*JavaScript*
+**JavaScript**
 
 
       // Time is the primary key
@@ -535,7 +535,7 @@ specifying the measurement property and define a SdsStream identifying the
 Measurement as a Secondary Index as shown in the following example:
 
 
-*Python*
+**Python**
 
 
       # Create the properties
@@ -552,7 +552,7 @@ Measurement as a Secondary Index as shown in the following example:
 
 
 
-*JavaScript*
+**JavaScript**
 
 
       var measurementIndex = new SdsObjects.SdsStreamIndex({
@@ -571,7 +571,7 @@ Measurement as a Secondary Index as shown in the following example:
 #### Compound Indexes
 Consider the following Python and JavaScript types:
 
-*Python*
+**Python**
 
 
       class Simple(object):
@@ -604,7 +604,7 @@ Consider the following Python and JavaScript types:
         self.__recorded = recorded
 
 
-*JavaScript*
+**JavaScript**
 
 
       var Simple = function () {
@@ -623,7 +623,7 @@ To turn the simple SdsType shown in the example into a type supporting the Deriv
 type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundIndex.Recorded``, 
 extend the type as follows:
 
-*Python*
+**Python**
 
 
       # We set the Order for this property. The order of the first property defaulted to 0
@@ -648,7 +648,7 @@ extend the type as follows:
 
 
 
-*JavaScript*
+**JavaScript**
 
 
       // We set the Order for this property. The order of the first property defaulted to 0
