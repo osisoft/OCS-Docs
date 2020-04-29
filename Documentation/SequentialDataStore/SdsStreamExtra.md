@@ -294,7 +294,7 @@ Returns the tag list for the specified stream.
 ***********************
 
 ## ``Update stream tags``
-Replaces the tag list for the specified stream with the tags listed in the request body.  
+Replaces the tag list for the specified stream with the tags listed in the request body.
 Overwrites any existing tags; does not merge. 
 
 
@@ -314,7 +314,8 @@ Overwrites any existing tags; does not merge.
 ``string streamId``  
   The stream identifier  
 
-  The request content is the serialized list of tags. 
+**Request body**  
+The request content is the serialized list of tags. 
 
 **Response**
 
