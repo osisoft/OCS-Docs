@@ -2,8 +2,8 @@
 uid: sdsStreamExtra
 ---
 
-Stream Metadata and Tags
-========================
+# Stream Metadata and Tags
+
 
 SdsStream metadata is represented as a dictionary of string keys and associated string values. 
 It can be used to associate additional information with a stream. SdsStream tags are represented 
@@ -12,10 +12,10 @@ The SdsStream Metadata API And SdsStream Tags API do not accept the search query
 Get calls. However, stream tags and metadata can be used as criteria in search query strings to return 
 SdsStream results with the [Stream](xref:sdsStreams) API.
 
-SdsStream Metadata API 
----------------------
+# SdsStream Metadata API 
 
-``Get stream metadata``
+
+## ``Get stream metadata``
 ----------------------
 
 Returns the metadata dictionary for the specified stream. 
@@ -69,9 +69,7 @@ Returns the metadata dictionary for the specified stream.
 ***********************
 
 
-``Get stream metadata value``
-----------------------
-
+## ``Get stream metadata value``
 Returns the value for the specified key in the metadata dictionary of the specified stream. 
 
 
@@ -125,9 +123,7 @@ Returns the value for the specified key in the metadata dictionary of the specif
 
 ***********************
 
-``Update stream metadata``
-------------------------
-
+## ``Update stream metadata``
 Replaces the metadata for the specified stream with the metadata in the request body. 
 Overwrites any existing metadata; does not merge. 
 
@@ -166,9 +162,7 @@ Overwrites any existing metadata; does not merge.
 
 ***********************
 
-``Patch stream metadata``
-------------------------
-
+## ``Patch stream metadata``
 Modifies the metadata based on operations specified in the request body. The request body follows
 [JSON Patch format](http://jsonpatch.com/).
 
@@ -207,9 +201,7 @@ A collection of operations to be applied to the metadata collection as specified
 
 ***********************
 
-``Delete stream metadata``
-------------------------
-
+## ``Delete stream metadata``
 Deletes the metadata for the specified stream.  
 
 **Request**
@@ -247,12 +239,9 @@ Deletes the metadata for the specified stream.
 ***********************
 
 
-SdsStream Tags API 
------------------
+# SdsStream Tags API 
+## ``Get stream tags``
 
-
-``Get stream tags``
-----------------------
 
 Returns the tag list for the specified stream. 
 
@@ -304,9 +293,7 @@ Returns the tag list for the specified stream.
 
 ***********************
 
-``Update stream tags``
----------------------
-
+## ``Update stream tags``
 Replaces the tag list for the specified stream with the tags listed in the request body.  
 Overwrites any existing tags; does not merge. 
 
@@ -347,9 +334,7 @@ Overwrites any existing tags; does not merge.
 ***********************
 
 
-``Delete stream tags``
-------------------------
-
+## ``Delete stream tags``
 Deletes the tag list for the specified stream. 
 
 
