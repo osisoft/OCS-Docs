@@ -2,63 +2,40 @@
 uid: sdsFilterExpressions
 ---
 
-Filter Expressions: Values
-==================
+# Filter expressions for SDS values
+Filter expressions can be applied to read operations such as
+[`Get Values`](xref:sdsReadingDataApi#get-values) and [`Get Summaries`](xref:sdsReadingDataApi#get-summaries)
+that return Sequential Data Store (SDS) values.
 
-Filter expressions can be applied to certain read operations that return Sequential Data Store values, including: 
-`Get Values` and `Get Summaries`.
 
-
-SdsTypeCodes
-------------
-
-**Supported**
-
+## SdsTypeCodes
+The table below lists supported and unsupported types within a filter expression:
+| Supports  | Does not support        |
+|------------|------------------------|
+|``Boolean``    |   ``Array``       |
+| ``Byte``    |     ``IEnumerable``       |
+| ``Char``    |              ``IDictionary``     |
+| ``DateTime``  |             ``IList``         |
+|``DateTimeOffset``  |``SdsType``              |
+| ``Decimal``   |``SdsTypeProperty``           |
+|  ``Double``| ``Nullable Types`` |
+| ``Guid`` |                              |
+| ``Int16``  |                             |
+| ``Int32``   |                                |
+| ``Int64``  |                             |
+|  ``Sbyte`` |                                |
+| ``String``   |                                 |
+| ``Timespan`` |                                |                             
+| ``UInt16``  |                                 |
+| ``UInt32``   |                                 |
+| ``UInt64``  |                                       |
 The following types are supported for use within a filter expression:
 
--  ``Boolean``
--  ``Byte``
--  ``Char``
--  ``DateTime``
--  ``DateTimeOffset``
--  ``Decimal``
--  ``Double``
--  ``Guid``
--  ``Int16``
--  ``Int32``
--  ``Int64``
--  ``Sbyte``
--  ``Single``
--  ``String``
--  ``Timespan``
--  ``UInt16``
--  ``UInt32``
--  ``Uint64``
-
-
-**Types that are not supported**
-
-The following types are not supported for use within a filter
-expression:
-
--  ``Array``
--  ``IEnumerable``
--  ``IDictionary``
--  ``IList``
--  ``SdsType``
--  ``SdsTypeProperty``
--  ``Nullable Types``
-
-
-Logical operators
-------------
-
-**Supported**
-
+## Logical operators
 The following logical operators are supported for use within a filter
 expression:
 
-| Operator   | Comment                                             |
+| Operator   | Description                                             |
 |------------|-----------------------------------------------------|
 | ``eq``     | Equal to                                            |
 | ``ne``     | Not equal                                           |
@@ -72,10 +49,8 @@ expression:
 | ``not``    | Not logical operator                                |
 | ``-``      | Negation                                            |
 
-**Logical Operator Examples**
-
-For the following examples, assume that the SDS Type event includes a field named ``Value`` of type **double**: 
-
+### Examples of logical operators
+The examples below assume that the SdsType event includes a field named ``Value`` of type *double*: 
 - ``Value eq 1.0``
 - ``Value ne 15.6``
 - ``Value ge 5.0``
@@ -86,15 +61,11 @@ For the following examples, assume that the SDS Type event includes a field name
 - ``Value gt 6.0 or Value lt 2.0``
 - ``not (Value eq 1.0)``
 
-Math functions
-------------
-
-**Supported**
-
+## Math functions
 The following math functions are supported for use within a filter
 expression:
 
-| Function  | Comment                 |
+| Function  | Description                 |
 |-----------|-------------------------|
 | ``add``   | Addition                |
 | ``sub``   | Subtraction             |
@@ -105,10 +76,8 @@ expression:
 | ``floor`` | Rounds down to the nearest numeric component without a decimal |
 |``ceiling``| Rounds up to the nearest numeric component without a decimal |
 
-**Math Function Examples**
-
-For the following examples, assume that the SDS Type event includes a field named ``Value`` of type **double**: 
-
+### Examples of math functions
+The examples below assume that the SdsType event includes a field named ``Value`` of type *double*: 
 - ``Value eq (6.0 add 3.0)``
 - ``Value eq (6.0 sub 3.0)``
 - ``Value eq (6.0 mul 3.0)``
@@ -118,20 +87,11 @@ For the following examples, assume that the SDS Type event includes a field name
 - ``floor(Value) eq 15``
 - ``ceiling(Value) eq 16``
 
-
-
-
-
-String functions
-------------
-
-**Supported**
-
+## String functions
 String operations are case sensitive. The character index in a string is
-0-based. The following string functions are supported for use within a
+zero-based. The following string functions are supported for use within a
 filter expression:
-
-| function       | Comment                                                         |
+| Function       | Description                                                         |
 |----------------|-----------------------------------------------------------------|
 | ``endswith``   | Compare the character at the end of the input string            |
 | ``startswith`` | Compare the character at the start of the input string          |
@@ -145,11 +105,8 @@ filter expression:
 | ``concat``     | Concatenate strings together                                    |
 | ``replace``    | Replace one set of characters with another                      |
 
-**String function examples**
-
-The following examples assume that the SDS Type event includes a field named
-``sValue`` of type **string**:
-
+### Examples of string functions
+The examples below assume that the SdsType event includes a field named ``sValue`` of type *string*: 
 |Example                                      |Result                                                           |
 |---------------------------------------------|-----------------------------------------------------------------|
 |``endswith(sValue, 'XYZ')``                  |True if ``sValue`` ends with the characters ‘XYZ’                |
@@ -164,15 +121,10 @@ The following examples assume that the SDS Type event includes a field named
 |``concat(sValue,'xyz') eq 'dataValue_7xyz'`` |Add characters to ``sValue`` and compare to ‘dataValue_7xyz’     |
 |``replace(sValue,'L','D') eq 'Dog1'``        |Replace any ‘L’ in ``sValue`` with ‘D’ and compare to ‘Dog1’     |
 
-DateTime functions
-------------
-
-**Supported**
-
+## DateTime functions
 The following DateTime functions are supported for use within a filter
 expression:
-
-| Function   | Comment                          |
+| Function   | Description                          |
 |------------|----------------------------------|
 | ``year``   | Get year value from DateTime     |
 | ``month``  | Get month value from DateTime    |
@@ -181,11 +133,9 @@ expression:
 | ``minute`` | Get minute value from DateTime   |
 | ``second`` | Get second value from DateTime   |
 
-**DateTime Function Examples**
-
-The following examples assume that the SDS Type event includes a field named
-``TimeId`` of type **DateTime**:
-
+### Examples of DateTime functions
+The examples below assume that the SdsType event includes a field named
+``TimeId`` of type *DateTime*:
 -  ``year(TimeId) eq 2015``
 -  ``month(TimeId) eq 11``
 -  ``day(TimeId) eq 3``
@@ -193,15 +143,10 @@ The following examples assume that the SDS Type event includes a field named
 -  ``minute(TimeId) eq 5``
 -  ``second(TimeId) eq 3``
 
-TimeSpan functions
-------------
-
-**Supported**
-
+## TimeSpan functions
 The following TimeSpan functions are supported for use within a filter
 expression:
-
-| function   | Comment                          |
+| Function   | Description                          |
 |------------|----------------------------------|
 | ``years``  | Get year value from TimeSpan     |
 | ``days``   | Get day value from TimeSpan      |
@@ -209,11 +154,9 @@ expression:
 | ``minutes``| Get minute value from TimeSpan   |
 | ``seconds``| Get second value from TimeSpan   |
 
-**TimeSpan Function Examples**
-
-For the following examples, assume that the SDS Type event includes a field named
-``TimeSpanValue`` of type **TimeSpan**:
-
+### Examples of TimeSpan functions
+The examples below assume that the SdsType event includes a field named
+``TimeSpanValue`` of type *TimeSpan*:
 -  ``years(TimeSpanValue) eq 1``
 -  ``days(TimeSpanValue) eq 22``
 -  ``hours(TimeSpanValue) eq 1``

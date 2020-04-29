@@ -1,12 +1,12 @@
 - name: Quick start
   href: Quick_Start.md
-- name: Types
+- name: SdsTypes
   href: SDS_Types.md
-- name: Streams
+- name: SdsStreams
   href: SDS_Streams.md
-- name: Stream Metadata and Tags
+- name: Stream metadata and tags
   href: SdsStreamExtra.md
-- name: Stream Views
+- name: SdsStreamViews
   href: SDS_Views.md
 - name: Indexes
   href: indexes.md
@@ -14,17 +14,17 @@
   href: Units_of_Measure.md
 - name: Read Data
   href: Reading_Data.md
-- name: API calls for reading data
+- name: Read data API
   href: Reading_Data_API.md
 - name: Write data
   href: Writing_Data.md
-- name: API calls for writing data
+- name: Write data API
   href: Writing_Data_API.md
 - name: Compression
   href: Compression.md
 - name: Search in SDS
   href: Searching.md
-- name: Filter Expressions - Data
+- name: Data filter expressions
   href: Filter_Expressions.md
-- name: Table Format
+- name: Table format
   href: table_format.md
