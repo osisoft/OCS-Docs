@@ -136,10 +136,8 @@ Content-Type: application/json
    Task<SdsStream> GetStreamAsync(string streamId);
 ```
 
-***********************
-
+-------
 ## `Get Streams` 
-***********************
 Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
@@ -219,7 +217,6 @@ Content-Type: application/json
 ***********************
 
 ## `Get Stream Type`
-******
 Returns the type definition that is associated with a given stream.
 
 ### Request

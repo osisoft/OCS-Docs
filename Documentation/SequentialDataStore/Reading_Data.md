@@ -5,7 +5,7 @@ uid: sdsReadingData
 # Read data
 
 The .NET and REST APIs provide programmatic access to read and write data. This section identifies and describes 
-the APIs used to read [Streams](xref:sdsStreams) data. Results are influenced by [Types](xref:sdsTypes), [Stream Views](xref:sdsStreamViews), [Filter expressions](xref:sdsFilterExpressions), and [Table format](xref:sdsTableFormat).
+the APIs used to read [SdsStreams](xref:sdsStreams) data. Results are influenced by [SdsTypes](xref:sdsTypes), [SdsStreamViews](xref:sdsStreamViews), [filter expressions](xref:sdsFilterExpressions), and [table format](xref:sdsTableFormat).
 
 If you are working in a .NET environment, convenient SDS Client Libraries are available. 
 The `ISdsDataService` interface, which is accessed using the ``SdsService.GetDataService()`` helper, 
@@ -83,6 +83,9 @@ When data is requested at an index for which no stored event exists, the read ch
 whether the result is an error, no event, interpolated event, or extrapolated event. The combination of 
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
 determine the read characteristics.
+
+**\*Notes:** Use the ISO 8601 representation for DateTime in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
+SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time zone if it is of `DateTimeOffset`. 
 
 ### Interpolation
 
