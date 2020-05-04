@@ -27,8 +27,8 @@ for internal SDS use.
 | [Tags](xref:sdsStreamExtra)*		| IList\<String\>					| Optional    | Yes		  | A list of tags denoting special attributes or categories.|
 | [Metadata](xref:sdsStreamExtra)*	| IDictionary\<String, String\>	| Optional    | Yes		  | A dictionary of string keys and associated string values.  |
 
-**\* Notes regarding Tags and Metadata:** Stream Tags and Metadata are accessed via the Tags API And Metadata API respectively. However, 
-they are associated with SdsStream objects and can be used as search criteria.
+**\* Notes regarding SdsStream metadata and tags:** Stream metadata and tags are accessed via the Metadata and Tags API respectively.
+However, they are associated with SdsStream objects and can be used as search criteria.
 
 **Rules for the Stream Identifier (SdsStream.Id)**
 1. Is not case sensitive
@@ -39,26 +39,26 @@ they are associated with SdsStream objects and can be used as search criteria.
 
 ## Indexes
 
-The Key or Primary Index is defined at the SdsType. Secondary
-Indexes are defined at the SdsStream.
+While the key (or primary index) is defined at the SdsType, secondary
+indexes are defined at the SdsStream.
 
-Secondary Indexes are applied to a single property; there are no
+Secondary indexes are applied to a single property; there are no
 compound secondary indexes. Only SdsTypeCodes
 that can be ordered are supported for use in a secondary index.
 
-
-Indexes are discussed in greater detail here: [Indexes](xref:sdsIndexes)
+For more information on indexes, see [Indexes](xref:sdsIndexes).
 
 
 ## Interpolation and Extrapolation
 
-The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific stream reads data. These read characteristics are inherited from the type if they are not defined at the stream level.
+The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific SdsStream reads data.
+These read characteristics are inherited from the SdsType if they are not defined at the SdsStream level.
 
 
 ## PropertyOverrides
 
 PropertyOverrides provide a way to override interpolation behavior and unit of measure for individual 
-SdsType Properties for a specific stream.
+SdsType Properties for a specific SdsStream.
 
 The ``SdsStreamPropertyOverride`` object has the following structure:
 
@@ -70,23 +70,23 @@ The ``SdsStreamPropertyOverride`` object has the following structure:
 | Uom               | String               | Optional    | Unit of measure |
 
 
-The unit of measure can be overridden for any type property defined by the stream type, including primary keys 
-and secondary indexes. For more information about type property units of measure see [Types](xref:sdsTypes). 
+The unit of measure can be overridden for any SdsTypeProperty defined by the stream type, including primary 
+and secondary indexes. For more information on SdsTypeProperty `Uom`, see [Types](xref:sdsTypes#SdsTypeProperty). 
 
-Read characteristics of the stream are determined by the type and the PropertyOverrides of the stream. The 
-interpolation mode for non-index properties can be defined and overridden at the stream level. For more 
-information about type read characteristics see [Types](xref:sdsTypes).
+Read characteristics of the SdsStream are determined by the SdsType and the `PropertyOverride` of the SdsStream. The 
+interpolation mode for non-index properties can be defined and overridden at the SdsStream level. For more 
+information about type read characteristics see [Types](xref:sdsTypes#SdsTypeProperty).
 
-When specifying property interpolation overrides, if the SdsType InterpolationMode is ``Discrete``, it cannot be overridden 
-at any level. When InterpolationMode is set to ``Discrete`` and an event it not defined for that index, a null 
-value is returned for the entire event.
+If `InterpolationMode` of the SdsType is set to ``Discrete``, it cannot be overridden 
+at any level. When `InterpolationMode` is set to ``Discrete`` and an event is not defined for the index,
+a null value is returned for the entire event.
 
 # SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
 section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
-defines the available functions. See [Streams](#streams) for general 
+defines the available functions. See [Streams](#streams) above for general 
 SdsStream information. 
 
 
