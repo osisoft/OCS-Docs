@@ -72,7 +72,7 @@ Two things are clearly undesirable here:
 To fix this, we will add a `.IdentifyingField` to the field set.
 
 #### Identifying field
-If the field set resolves to multiple data items in any group (or if grouping is not used), then a field should be designated as the field set's `.IdentifyingField`. If one lone criterion is not a sufficient or useful way of disambiguating the fields, then [grouping](xref:DataViewsGrouping) by additional criteria may be necessary.
+If the field set resolves to multiple data items in any group (or if grouping is not used), then a field should be designated as the `.IdentifyingField` of the field set. If one lone criterion is not a sufficient or useful way of disambiguating the fields, then [grouping](xref:DataViewsGrouping) by additional criteria may be necessary. Field from field sources `FieldSource.Id`, `FieldSource.Name`, `FieldSource.Metadata`, `FieldSource.Tags` can be used as an identifying field. Keys are required for identifying fields with the source type of `FieldSource.Metadata` and `FieldSource.Tags`. Keys are not applicable for identifying fields with the source type of `FieldSource.Id` and `FieldSource.Name`.
 
 #### Example: Adding an identifying field
 To the data view from the previous example, we will add a `Field` as the `.IdentifyingField` of its field set. In this example, it makes sense to identify each data item by its _Measurement_.
@@ -128,7 +128,7 @@ The result is much more consumable. The data field identifiers are no longer amb
 Each data field represents a particular source of information, such as a data item's `.Id` or the values from one of its properties.
 
 ### Label
-A data field's label is a friendly name. 
+A data field's label is a friendly name. Null, empty or whitespace is not allowed for a data field label.
 
 When the data view is resolved and data fields produce field mappings, labels are trimmed of whitespace and used as the field mappings' identifier. For example:
 | Timestamp | Power In Value | Power Out Value |
@@ -147,7 +147,7 @@ There are three special parameters available for use in field labels:
 If a special parameter fails to resolve, it becomes an empty string, `""`.
 
 ### Source
-A field's [`.Source`](xref:DataView#fieldsource-enumeration) indicates where the field's values will come from, if applicable.
+A field's [`.Source`](xref:DataView#fieldsource-enumeration) indicates where the field's values will come from, if applicable. A field of source type `FieldSource.NotApplicable` cannot be used as a data field.
 
 ### Keys
 In certain cases, a field may need to address data _within_ its data source, such as a particular Metadata value of a data item. This applies to the sources `Metadata`, `PropertyId`, and `PropertyName`.

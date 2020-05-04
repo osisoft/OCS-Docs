@@ -87,7 +87,6 @@ You can serialize your data using one of many available JSON serializers availab
 
 
 ### Response Format
-
 Supported response formats include JSON, verbose JSON, and SDS. 
 
 The default response format for SDS is JSON, which is used in all examples in this document. 
@@ -101,7 +100,6 @@ Verbose has no impact on writes; writes return only error messages.
 To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
 
 ### Indexes
-
 SDS writes rely on the primary index for positioning within streams and locating existing events. 
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the SDS Client Libraries, the index may be 

@@ -72,7 +72,8 @@ Success
   "StreamCount": 0,
   "EntitledStreamCount": 0,
   "NamespaceCount": 0,
-  "EntitledNamespaceCount": 0
+  "EntitledNamespaceCount": 0,
+  "EntitledStreamAccessCount": 0
 }
 ```
 

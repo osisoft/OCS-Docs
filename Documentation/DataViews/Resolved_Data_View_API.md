@@ -531,6 +531,35 @@ HTTP 200 OK
     "TimeOfResolution": "2019-12-13T01:23:45Z",
     "DataItemCount": 24,
     "GroupCount": 2,
-    "FieldCount": 12
+    "FieldMappingCount": 10,
+    "DataFieldSets": [
+        {
+            "DataItemCount": 18,
+            "UnmappedDataItemCount": 3,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 3,
+                    "EmptyFieldMappingCount": 0,
+                    "UnmappedGroupCount": 0
+                },
+                {
+                    "FieldMappingCount": 3,
+                    "EmptyFieldMappingCount": 1,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        },
+        {
+            "DataItemCount": 6,
+            "UnmappedDataItemCount": 0,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 2,
+                    "EmptyFieldMappingCount": 0,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        }
+    ]
 }
 ```
