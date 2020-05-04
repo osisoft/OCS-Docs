@@ -32,7 +32,6 @@ All single stream reads are HTTP GET actions. Reading data involves getting even
  ```
 
 **Parameters**
-
 ``string tenantId``  
 The tenant identifier
 

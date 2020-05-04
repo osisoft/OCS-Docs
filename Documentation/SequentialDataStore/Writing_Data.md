@@ -30,7 +30,6 @@ The base URI for writing SDS data to a single stream is:
  ```
  
 ### Parameters
-
 ``string tenantId``  
 The tenant identifier  
   
@@ -106,8 +105,8 @@ To specify SDS format, set the ``Accept`` header in the request to ``application
 SDS writes rely on the primary index for positioning within streams and locating existing events. 
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the SDS Client Libraries, the index may be 
-passed as-is to delete methods that take the index type as a generic argument. More details about working 
-with indexes can be found on the [Indexes](xref:sdsIndexes) page. 
+passed as-is to delete methods that take the index type as a generic argument. For more information on working 
+with indexes, see [Indexes](xref:sdsIndexes). 
 
 To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
 separated by the pipe character, ‘|’.

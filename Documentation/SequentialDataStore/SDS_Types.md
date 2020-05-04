@@ -10,16 +10,16 @@ event and how to associate events within the stream.
 
 
 Define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
-complex or nested types using the [Properties collection of types](#sdstypeproperty). 
+complex or nested types using the [Properties collection of SdsTypes](#sdstypeproperty). 
 
 An SdsType used to define an SdsStream must have a key. A key is a [Property, or a combination of Properties](#sdstypeproperty) 
 that constitutes an ordered, unique identity. If the key is ordered so it functions as an index, it is 
 known as the *primary index*. While a timestamp (``DateTime``) is a very common type of key, any type that 
-can be ordered is permitted. Other indexes (secondary indexes) are defined in the stream. 
+can be ordered is permitted. Secondary and other indexes are defined in the stream. 
 For more information, see [Indexes](xref:sdsIndexes).
 
-When defining an SdsType, consider how the events will be represented in a stream as the type defines 
-each event in a stream. An event is a single unit whose properties have values that relate to the 
+When defining an SdsType, consider how the events will be represented in an SdsStream as the SdsType defines 
+each event in a SdsStream. An event is a single unit whose properties have values that relate to the 
 index; that is, each property of a type event is related to the event's index. Each event is a single unit.
 
 An SdsType is referenced by its identifier or ``Id`` field. SdsType identifiers must be unique within a namespace.
@@ -27,21 +27,21 @@ An SdsType is referenced by its identifier or ``Id`` field. SdsType identifiers 
 An SdsType can also refer other SdsTypes by using their identifiers. This enables type re-usability.
 Nested types and base types are automatically created as separate types. For more information, see [Type Reusability](#type-reusability).
 
-SdsTypes define how events are associated and read within a collection of events (SdsStream, that is). The read 
+SdsTypes define how events are read and associated within a collection of SdsStreams. The read 
 characteristics when attempting to read non-existent indexes, indexes that fall between, before or after 
 existing indexes, are determined by the interpolation and extrapolation settings of the SdsType. For more 
 information about read characteristics, see [Interpolation](xref:sdsReadingData#interpolation) and [Extrapolation](xref:sdsReadingData#extrapolation).
 
-SdsTypes are immutable. After a type is created, its definition cannot be updated. A type must be deleted and recreated if the definition is incorrect.
-In addition, a type may be deleted only if no streams, stream views, or other types reference it.
+SdsTypes are immutable. After an SdsType is created, its definition cannot be updated. An SdsType must be deleted and recreated if the definition is incorrect.
+In addition, an SdsType may be deleted only if no SdsStreams, SdsStreamViews, or other SdsTypes reference it.
 
 Only the SdsTypes that are used to define SdsStreams or SdsStreamViews are required to be added to the SDS. 
 SdsTypes that define [Properties](#sdstypeproperty) or base types are contained within the parent type so they don't need to be added to the SDS independently.
 
 ## SdsType fields and properties table
-The table below lists required and optional fields in an SdsType. Fields that are not included are reserved for internal SDS use.
-For limitations on search, see [Search in SDS](xref:sdsSearching).
 <a name="typepropertiestable"></a>
+The table below lists required and optional fields in an SdsType. Fields that are not included are reserved for internal SDS use.
+For more information on search including limitations, see [Search in SDS](xref:sdsSearching).
 | Property          | Type                   | Optionality | Searchable | Details |
 |-------------------|------------------------|-------------|---------|---------|
 | Id                | String                 | Required    | Yes | Identifier for referencing the type |
@@ -52,32 +52,28 @@ For limitations on search, see [Search in SDS](xref:sdsSearching).
 | ExtrapolationMode | SdsExtrapolationMode   | Optional    | No | Extrapolation setting of the type. For more information, see [Extrapolation](xref:sdsReadingData#extrapolation). |
 | Properties        | IList\<SdsTypeProperty\> | Required    | Yes, with limitations | List of SdsTypeProperty items. See [SdsTypeProperty](#sdstypeproperty) below.  |
 
-### Rules for the Type Identifier (SdsType.Id)
+### Rules for the SdsType Identifier (SdsType.Id)
 1. Is not case sensitive
 2. Cannot just be whitespace
 3. Cannot contain leading or trailing whitespace
 4. Cannot contain forward slash ("/")
 5. Can contain a maximum of 100 characters  
 
-Type management using the .NET SDS client libraries methods is performed through ``ISdsMetadataService``. 
+Type management using the SDS .NET client libraries methods is performed through ``ISdsMetadataService``. 
 You can create ``ISdsMetadataService`` using one of the ``SdsService.GetMetadataService()`` factory methods.
-
 .NET libraries provide SdsTypeBuilder to help build SdsTypes from .NET types. SdsTypeBuilder is 
 discussed in greater detail below.
 
-
 ## SdsTypeCode
-The SdsTypeCode is a numeric identifier used by the SDS to identify types.
+The SdsTypeCode is a numeric identifier used by the SDS to identify SdsTypes.
 A SdsTypeCode exists for every supported type.
 
-Atomic types, such as strings, floats and arrays, are defined entirely by the SdsTypeCode.
-Atomic types do not need other fields to define the type.
+Atomic types, such as strings, floats and arrays, are defined entirely by the SdsTypeCode and do not need other fields to define the type.
 
 Types that require additional definition, such as enums and objects, are identified using a generic 
 SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus additional SdsTypeProperty fields.
 
 **Supported Types**
-
 The following types are supported and defined by the SdsTypeCode:
 
 Type                    | SdsTypeCode
@@ -162,7 +158,7 @@ Version                 | 22
 VersionArray            | 222
 
 ## SdsTypeProperty
-The Properties collection defines the fields in a type. 
+The Properties collection defines the fields in an SdsType. 
 
 The following table shows the required and optional SdsTypeProperty fields. Fields that 
 are not included are reserved for internal SDS use.
@@ -173,19 +169,18 @@ are not included are reserved for internal SDS use.
 | Name                      | String                  | Optional    | Friendly name |
 | Description               | String                  | Optional    | Description text |
 | SdsType                   | SdsType                 | Required    | Field defining the property's SdsType |
-| IsKey                     | Boolean                 | Required    | Identifies the property as the key (Primary Index) |
+| IsKey                     | Boolean                 | Required    | Identifies the property as the key |
 | Value                     | Object                  | Optional    | Value of the property |
 | Order                     | Int                     | Optional    | Order of comparison within a compound index |
 | InterpolationMode         | SdsInterpolationMode    | Optional    | Interpolation setting of the property. Default is null. |
-| Uom                       | String                  | Optional    | Unit of Measure of the property |
+| Uom                       | String                  | Optional    | Unit of measure of the property |
 
 The SdsTypeProperty's identifier follows the same [rules](#typepropertiestable) as the SdsType's identifier.
 
-``IsKey`` is a Boolean value used to identify the SdsType's key. A key defined by more than one 
+Boolean value ``IsKey`` identifies the primary index of an SdsType in a single index. A key that is defined by more than one 
 SdsTypeProperty is called a compound key. The maximum number of properties that can define a compound key is three. 
-
-In a compound key, each SdsTypeProperty that is included in the 
-key is specified as ``IsKey``. The ``Order`` field defines the precedence of fields applied to the index.
+In a compound key, each SdsTypeProperty that is included in the key is specified as ``IsKey``.
+The ``Order`` field marks the order of comparison within a compound index.
 
 The ``Value`` field is used for properties that represent a value. An example of a property with a 
 value is an enum's named constant. When representing an enum in an SdsType, the type's 
@@ -210,11 +205,10 @@ For a list of units of measures that are supported for an SdsTypeProperty, see [
 
 ## Working with SdsTypes using .NET
 
-When working in .NET, use the SdsTypeBuilder to create types. The SdsTypeBuilder eliminates 
-potential errors that can occur when working with types manually.
+When working in .NET, use the `SdsTypeBuilder` to create SdsTypes. The `SdsTypeBuilder` eliminates 
+potential errors that can occur when working with SdsTypes manually.
 
-There are several ways to work with the builder. The most convenient is to use the static 
-methods, as shown here:
+There are several ways to work with the `SdsTypeBuilder`. Use the static methods for convenience:
 ```csharp
 public enum State
 {
@@ -300,11 +294,11 @@ unique identifiers. Note that the following table contains only a partial list o
 |                  | Value                   | null                                               |
 
 
-The SdsTypeBuilder also supports derived types. Note that you need not add the base types to 
-the SDS before using SdsTypeBuilder. Base types are maintained within the type.
+The `SdsTypeBuilder` also supports derived types. Note that you need not add the base types to 
+the SDS before using `SdsTypeBuilder`. Base types are maintained within the type.
 
 ## Working with SdsTypes when not using .NET
-SdsTypes must be built manually when .NET SdsTypeBuilder is unavailable. Below, you'll see how types are built and defined in
+SdsTypes must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
 [Python](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/Python/SDSPy) and 
 [JavaScript](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples/SDS/JavaScript) samples. 
 Samples in other languages can also be found on [GitHub](https://github.com/osisoft/OCS-Samples/tree/master/basic_samples).
