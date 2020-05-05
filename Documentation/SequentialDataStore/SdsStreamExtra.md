@@ -26,7 +26,7 @@ Returns the metadata dictionary for the specified stream.
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -78,7 +78,7 @@ Returns the value for the specified key in the metadata dictionary of the specif
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -133,7 +133,7 @@ Overwrites any existing metadata; does not merge.
       PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -171,7 +171,7 @@ Modifies the metadata based on operations specified in the request body. The req
       PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -209,7 +209,7 @@ Deletes the metadata for the specified stream.
       DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -251,7 +251,7 @@ Returns the tag list for the specified stream.
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -303,7 +303,7 @@ Overwrites any existing tags; does not merge.
       PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  
@@ -344,7 +344,7 @@ Deletes the tag list for the specified stream.
       DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-**Parameters**
+### Parameters
 
 ``string tenantId``  
   The tenant identifier  

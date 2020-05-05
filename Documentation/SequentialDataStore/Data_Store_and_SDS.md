@@ -10,7 +10,7 @@ Programming Interface*). The streams you create can be used to store simple or c
 your application needs. You can define simple or complex [indexes](xref:sdsIndexes) to arrange and relate your data. An assortment 
 of methods with customizable behaviors are available to read data and easily obtain needed information.
 
-   ## Samples
+## Samples
 The best way to get started with SDS is to run one or more of the code samples. Code samples are 
 provided in a number of different programming languages to illustrate how to easily and effectively 
 interact with SDS. The code samples can be found in the [OSI-Samples](https://github.com/osisoft/OSI-Samples) repository on GitHub. Obtain SDS 
