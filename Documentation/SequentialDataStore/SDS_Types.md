@@ -74,6 +74,7 @@ Types that require additional definition, such as enums and objects, are identif
 SdsTypeCode, such as ByteEnum, Int32Enum, NullableInt32Enum, or Object, plus additional SdsTypeProperty fields.
 
 **Supported Types**  
+
 The following types are supported and defined by the SdsTypeCode:
 
 Type                    | SdsTypeCode
