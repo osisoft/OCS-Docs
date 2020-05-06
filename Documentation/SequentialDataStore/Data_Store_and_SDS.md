@@ -9,10 +9,6 @@ Programming Interface*). The streams you create can be used to store simple or c
 your application needs. You can define simple or complex [indexes](xref:sdsIndexes) to arrange and relate your data. An assortment 
 of methods with customizable behaviors are available to read data and easily obtain needed information.
 
-### Timestamps in SDS
-Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
-SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in a local time zone if it is of `DateTimeOffset`.
-
 ## Samples
 The best way to get started with SDS is to run one or more of the code samples. Code samples are 
 provided in a number of different programming languages to illustrate how to easily and effectively 
