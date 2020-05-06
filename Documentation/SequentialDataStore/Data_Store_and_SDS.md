@@ -3,7 +3,7 @@ uid: sds
 ---
 
 # Sequential Data Store
-
+Test
 The Sequential Data Store (SDS) is a cloud-based streaming data storage that is optimized for storing sequential data, usually time-series, but anything that is indexed by an ordered sequence. You use SDS to store, retrieve, and analyze data. An [SdsType](xref:sdsTypes) (used interchangeably with *type* throughout documentation) defines the shape of a single measured event or object. A type gives structure to your data. For example, if you're measuring three things (longitute, latitude, speed) from a device at the same time, then you want those three properties to be included in your type. An [SdsStream](xref:sdsStreams) (used interchangeably with *stream* throughout documentation) is a collection of ordered events, or a series of events, where each event is an instance of the type you have defined. You 
 create and write data to streams using a simple REST (*REpresentational State Transfer*) API (*Application 
 Programming Interface*). The streams you create can be used to store simple or complex data types to suit 
