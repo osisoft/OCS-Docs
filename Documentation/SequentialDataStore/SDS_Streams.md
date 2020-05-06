@@ -4,7 +4,7 @@ uid: sdsStreams
 
 # Streams
 
-Streams are collections of sequentially occurring values indexed by a single property, typically time series data. You define streams to organize incoming data from another system into OCS.  To define a stream, you must first define a type, which defines the structure of the data you want to stream into a selected namespace. 
+SdsStreams are collections of sequentially occurring values indexed by a single property, typically time series data. You define streams to organize incoming data from another system into OCS.  To define a stream, you must first define a type, which defines the structure of the data you want to stream into a selected namespace. 
 
 SDS stores collections of events and provides convenient ways to find and associate events. Events of consistent structure are stored in streams, called SdsStreams.  SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique within a Namespace.
 

@@ -14,7 +14,7 @@ complex or nested types using the [Properties collection of SdsTypes](#sdstypepr
 
 An SdsType used to define an SdsStream must have a key. A key is a [Property, or a combination of Properties](#sdstypeproperty) 
 that constitutes an ordered, unique identity. If the key is ordered so it functions as an index, it is 
-known as the *primary index*. While a timestamp (``DateTime``) is a very common type of key, any type that 
+known as the *primary index*. While a timestamp (``DateTime``) is a very common type of index, any type that 
 can be ordered is permitted. Secondary and other indexes are defined in the stream. 
 For more information, see [Indexes](xref:sdsIndexes).
 

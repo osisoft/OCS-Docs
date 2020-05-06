@@ -3,20 +3,18 @@ uid: sdsIndexes
 ---
 
 # Indexes
-Indexes speed up and order the results of searches. A key uniquely identifies a record within 
-a collection of records. Keys are unique within the collection.
+Indexes speed up and order the results of searches. An key uniquely identifies a record within 
+a collection of records. In SDS, the key of an SdsType is also an index, referred to as the *primary index*.
+For consistency, index will be used in place of key throughout the documentation.
 
-In SDS, the key of an SdsType is also an index. The key is often referred to as the *primary index,* 
-while all other indexes are referred to as *secondary indexes* or *secondaries*.
-
-An SdsType that is used to define an SdsStream must specify a key. When inserting data into an SdsStream, every 
+An SdsType that is used to define an SdsStream must specify SdsProperty `IsKey`. When inserting data into an SdsStream, every 
 key value must be unique. SDS will not store more than a single event for a given key; an event with 
 a particular key may be deleted or updated, but two events with the same key cannot exist.
 
-In .NET, the SdsType properties that define the key are identified using an ``OSIsoft.Sds.SdsMemberAttribute`` 
-and setting its ``IsKey`` field to true. If the key consists of only a single property it is permissible to 
+In .NET, the SdsType properties that define the index are identified using an ``OSIsoft.Sds.SdsMemberAttribute`` 
+and setting its ``IsKey`` field to true. If the index consists of only a single property it is permissible to 
 use the ``System.ComponentModel.DataAnnotations.KeyAttribute``. In the SdsType, the Property or Properties 
-representing the key have their ``SdsTypeProperty.IsKey`` field set to true.
+representing the index have their ``SdsTypeProperty.IsKey`` field set to true.
 
 Secondary indexes are defined on SdsStreams and are applied to a single property. You can define many 
 secondary indexes. Secondary index values need not be unique.
