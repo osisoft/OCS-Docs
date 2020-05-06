@@ -83,7 +83,7 @@ whether the result is an error, no event, interpolated event, or extrapolated ev
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
 determine the read characteristics.
 
-**\*Notes:** Use the ISO 8601 representation dates and times in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
+**\*Notes:** Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
 SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time zone if it is of `DateTimeOffset`. 
 
 ### Interpolation

@@ -13,8 +13,9 @@ When working in .NET, convenient SDS Client libraries are available. The `ISdsDa
 All writes rely on a stream’s key or primary index. The primary index determines the order of events in the stream. Secondary indexes are updated, but they do not contribute 
 to the request. All references to indexes are to the primary index.
 
-**\*Notes:** Use the ISO 8601 representation for dates and times in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
+**\*Notes:** Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:00:00.000Z` for February 20, 2020, for example.
 SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time zone if it is of `DateTimeOffset`. 
+
 ### Single Stream Writes   
 
 The following support writing multiple values:
