@@ -3,7 +3,6 @@ uid: sdsCompression
 ---
 
 # Compression
-Test
 To use network bandwidth efficiently, the OCS Sequential Data Store supports compression for [reading](xref:sdsReadingDataApi) and
 [writing data](xref:sdsWritingDataApi) through the REST API.
 
