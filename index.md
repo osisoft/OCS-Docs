@@ -36,7 +36,7 @@ centralized environment to aggregate data for reporting, advanced analytics, and
      - [Stream metadata and tags](xref:sdsStreamExtra)
      - [Stream views](xref:sdsStreamViews)
      - [Indexes](xref:sdsIndexes)
-     - [Units of Measure](xref:unitsOfMeasure)
+     - [Units of measure](xref:unitsOfMeasure)
      - [Read data](xref:sdsReadingData)
      - [Read data API](xref:sdsReadingDataApi)
      - [Write data](xref:sdsWritingData)
