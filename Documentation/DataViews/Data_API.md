@@ -211,3 +211,16 @@ Time,Temperature,Flowrate,Volume
 2018-01-01T00:00:01Z,24,44,245
 2018-01-01T00:00:02Z,24,44,245
 ```
+
+### .NET client libraries method
+```csharp
+   IAsyncEnumerable<string> GetDataInterpolatedAsync(
+            string id,
+            OutputFormat format = OutputFormat.Default,
+            object startIndex = null,
+            object endIndex = null,
+            object interval = null,
+            int? backingPageSize = null,
+            CacheBehavior cache = CacheBehavior.Refresh,
+            CancellationToken cancellationToken = default);
+```

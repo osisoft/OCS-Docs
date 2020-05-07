@@ -61,6 +61,11 @@ Content-Type: application/json
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<DataView> GetDataViewAsync(string id);
+```
+
 ## `Get Data Views`
 Returns a list of data views.
 
@@ -96,6 +101,8 @@ Successful (200 OK) responses include:
 | Header | Description |
 |--|--|
 | Total-Count | The total count of data views visible to the current user |
+| FirstPage | Hyperlink to the first page of results |
+| NextPage | Hyperlink to the next page of results, if the results span into an additional page. Absence of this header indicates that there are no additional pages to be retrieved. |
 
 #### Example response body
 ```json
@@ -111,6 +118,11 @@ Content-Type: application/json
     ... etc.
   }
 ]
+```
+
+### .NET client libraries method
+```csharp
+   Task<IEnumerable<DataView>> GetDataViewsAsync(int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT);
 ```
 
 ## `Create Data View`
@@ -168,6 +180,11 @@ Content-Type: application/json
   "IndexField": { "Label": "Timestamp" },
   "IndexTypeCode": "DateTime"
 }
+```
+
+### .NET client libraries method
+```csharp
+   Task<IEnumerable<DataView>> GetDataViewsAsync(int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT);
 ```
 
 ## `Get or Create Data View`
@@ -235,6 +252,11 @@ Content-Type: application/json
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<DataView> GetOrCreateDataViewAsync(DataView dataView);
+```
+
 ## `Create or Update Data View`
 If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
 
@@ -281,6 +303,11 @@ The response includes a status code and, in some cases, a body.
 | 403 Forbidden | error | You are not authorized for this operation |
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
+### .NET client libraries method
+```csharp
+   Task<DataView> CreateOrUpdateDataViewAsync(DataView dataView);
+```
+
 ## `Delete Data View`
 Delete the data view with the specified id.
 
@@ -308,3 +335,8 @@ The response includes a status code and, in some cases, a body.
 | 403 Forbidden | error | You are not authorized for this operation |
 | 404 Not Found | error | The specified data view identifier is not found |
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+
+### .NET client libraries method
+```csharp
+   Task DeleteDataViewAsync(string id);
+```

@@ -64,6 +64,11 @@ HTTP 200 OK
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<AccessControlList> GetAccessControlListAsync();
+```
+
 ## `Update Data Views Access Control List`
 Update the default [`AccessControlList`](xref:accessControl#access-control-lists) for the DataViews collection.
 
@@ -124,6 +129,11 @@ The response includes a status code and, in some cases, a body.
 | 403 Forbidden | error | You are not authorized to update the data views collection's default access control list |
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
+### .NET client libraries method
+```csharp
+   Task UpdateAccessControlListAsync(AccessControlList acl);
+```
+
 ## `Get Data View Access Control List`
 Get the [`AccessControlList`](xref:accessControl#access-control-lists) of the specified data view.
 
@@ -183,6 +193,11 @@ HTTP 200 OK
     }
   ]
 }
+```
+
+### .NET client libraries method
+```csharp
+   Task<AccessControlList> GetDataViewAccessControlAsync(string id);
 ```
 
 ## `Update Data View Access Control List`
@@ -249,6 +264,11 @@ The response includes a status code and, in some cases, a body.
 | 404 Not Found | error | The requested data view was not found
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
+### .NET client libraries method
+```csharp
+   Task UpdateDataViewAccessControlAsync(string id, AccessControlList acl);
+```
+
 ## `Get Data View Access Rights`
 Get the calling user or client's access rights to the requested data view
 
@@ -288,6 +308,12 @@ HTTP 200 OK
 ]
 ```
 
+### .NET client libraries method
+```csharp
+   Task<string[]> GetDataViewAccessRightsAsync(string id);
+```
+
+
 ## `Get Data View Owner`
 Get the owner [`Trustee`](xref:accessControl#owner) of the specified data view.
 
@@ -324,6 +350,11 @@ Content-Type: application/json
     "TenantId": "55555555-5555-5555-5555-555555555555",
     "ObjectId": "44444444-4444-4444-4444-444444444444"
 }
+```
+
+### .NET client libraries method
+```csharp
+   Task<Trustee> GetDataViewOwnerAsync(string id);
 ```
 
 ## `Update Data View Owner`
@@ -365,3 +396,8 @@ The response includes a status code and, in some cases, a body.
 | 403 Forbidden | error | You are not authorized to update the requested data view's owner |
 | 404 Not Found | error | The requested data view was not found
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+
+### .NET client libraries method
+```csharp
+   Task UpdateDataViewOwnerAsync(string id, Trustee owner);
+```

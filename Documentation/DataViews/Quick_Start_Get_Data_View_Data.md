@@ -173,6 +173,7 @@ An array of field mappings:
             "Id": "Timestamp.0",
             "Label": "Timestamp",
             "FieldKind": "IndexField",
+            "TypeCode": "DateTime",
             "DataMappings": [
                 {
                     "TypeCode": "DateTime"
@@ -183,13 +184,14 @@ An array of field mappings:
             "Id": "Id.1",
             "Label": "Id",
             "FieldKind": "DataField",
-            "FieldSetIndex": 0,
-            "FieldIndex": 0,
+            "TypeCode": "String",
             "DataMappings": [
                 {
                     "TargetId": "WS_BILT",
                     "TargetFieldKey": "WS_BILT",
-                    "TypeCode": "String"
+                    "TypeCode": "String",
+                    "FieldSetIndex": 0,
+                    "FieldIndex": 0
                 }
             ]
         },

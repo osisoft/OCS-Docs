@@ -106,6 +106,11 @@ Content-Type: application/json
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<ResolvedItems<DataItem>> GetDataItemsAsync(string id, string queryId, int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT, CacheBehavior cache = CacheBehavior.Preserve);
+```
+
 ## `Get Ineligible Data Items by Query`
 Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
@@ -191,6 +196,11 @@ Content-Type: application/json
     }
   ]
 }
+```
+
+### .NET client libraries method
+```csharp
+   Task<ResolvedItems<DataItem>> GetIneligibleDataItemsAsync(string id, string queryId, int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT, CacheBehavior cache = CacheBehavior.Preserve);
 ```
 
 ## `Get Groups`
@@ -295,6 +305,11 @@ Content-Type: application/json
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<ResolvedItems<Group>> GetGroupsAsync(string id, int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT, CacheBehavior cache = CacheBehavior.Preserve);
+```
+
 ## `Get Available Field Sets`
 Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.
 
@@ -384,6 +399,11 @@ HTTP 200 OK
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<ResolvedItems<FieldSet>> GetAvailableFieldSetsAsync(string id, CacheBehavior cache = CacheBehavior.Preserve);
+```
+
 ## `Get Field Mappings`
 Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
 
@@ -438,22 +458,16 @@ HTTP 200 OK
       {
         "Id": "Timestamp",
         "Label": "Timestamp",
-        "FieldSetIndex": 0,
-        "FieldIndex": 0,
+        "FieldKind": "IndexField",
+        "TypeCode": "DateTime",
         "DataMappings": [
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           },
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           },
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           }
         ]
@@ -461,23 +475,28 @@ HTTP 200 OK
       {
         "Id": "Temperature",
         "Label": "Temperature",
-        "FieldSetIndex": 1,
-        "FieldIndex": 0,
+        "TypeCode": "Double",
         "DataMappings": [
           {
             "TargetId": "WS_BILT",
             "TargetFieldKey": "Temperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
           },
           {
             "TargetId": "WS_ROSE",
             "TargetFieldKey": "Temperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
           },
           {
             "TargetId": "WS_WINT",
             "TargetFieldKey": "AmbientTemperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldSetIndex": 1,
+            "FieldIndex": 0
           }
         ]
       },
@@ -485,6 +504,10 @@ HTTP 200 OK
 }
 ```
 
+### .NET client libraries method
+```csharp
+   Task<ResolvedItems<FieldMapping>> GetFieldMappingsAsync(string id, int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT, CacheBehavior cache = CacheBehavior.Preserve);
+```
 
 ## `Get Statistics`
 Gets statistics about the size and shape on how the data view resolved. 
@@ -539,12 +562,14 @@ HTTP 200 OK
             "DataFields": [
                 {
                     "FieldMappingCount": 3,
-                    "EmptyFieldMappingCount": 0,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 0,
                     "UnmappedGroupCount": 0
                 },
                 {
                     "FieldMappingCount": 3,
-                    "EmptyFieldMappingCount": 1,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 2,
                     "UnmappedGroupCount": 1
                 }
             ]
@@ -555,11 +580,17 @@ HTTP 200 OK
             "DataFields": [
                 {
                     "FieldMappingCount": 2,
-                    "EmptyFieldMappingCount": 0,
+                    "DataMappingCount": 4,
+                    "EmptyDataMappingCount": 2,
                     "UnmappedGroupCount": 1
                 }
             ]
         }
     ]
 }
+```
+
+### .NET client libraries method
+```csharp
+   Task<ResolvedItem<Statistics>> GetStatisticsAsync(string id, CacheBehavior cache = CacheBehavior.Preserve);
 ```

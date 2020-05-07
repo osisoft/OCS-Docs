@@ -13,20 +13,23 @@ The number and order of field mappings is identical to the number and order of t
 ### Id and label
 The field mapping id represents the json property name (or column name in table or csv format) in the output data view data. The field mapping label represents the data view field label with tokens resolved. If all field mapping labels in a data view are unique, the field mapping id is identical to the label; if not, the id is generated from the label by adding an index number postfix. 
 
-### Field set index and field index
-The field set index and field index represents the zero-based positioning of the corresponding field set and field within the field set, respectively. If not necessary the values of field set index and field index are null and not used.
-
 ### Field kind
-The `FieldKind` specifies whether the field maps to an index field, grouping field or data field. 
+The `FieldKind` specifies whether the field maps to an index field, grouping field, data field, or field id field.
 
 #### Index field
 `TargetId`, `TargetFieldKey`, `FieldSetIndex` and `FieldIndex` are not used for index fields. `TypeCode` is equivalent to the `IndexTypeCode` of the data view. 
 
 #### Grouping field
-`FieldSetIndex` and `TargetFieldKey` are not used. `FieldIndex` is the zero-based positioning of field within the grouping field. `TargetId` represents the value of the item in the grouping field.
+`FieldSetIndex` and `TargetFieldKey` are not used. `FieldIndex` is the zero-based positioning of the field within the grouping field. `TargetId` represents the value of the item in the grouping field.
 
-### Data field
-`FieldSetIndex` is the zero-based positioning of data field set. `FieldIndex` is the zero-based positioning of data field within the appropriate data field set. `TargetId` represents the data item id.
+#### Data field
+`FieldSetIndex` is the zero-based positioning of the data field set. `FieldIndex` is the zero-based positioning of the data field within the appropriate data field set. `TargetId` represents the data item id.
   * Id, name and tags: `TargetFieldKey` is empty
   * Metadata: `TargetFieldKey` shows the metadata key
   * Properties: `TargetFieldKey` shows the property id or property name path
+
+#### Field id field
+`TargetFieldKey` is not used. `TargetId` represents the data item id, `FieldSetIndex` is the zero-based positioning of the data field set, and `FieldIndex` is the zero-based positioning of the data field within the appropriate data field set.
+
+### Type code
+The `TypeCode` is the primary data type of the field mapping. This value comes from the field mapping's first populated `DataMapping`. The field mapping `TypeCode` is informational; it is not enforced.
