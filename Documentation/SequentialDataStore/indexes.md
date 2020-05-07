@@ -64,7 +64,7 @@ You can specify a maximum of three Properties to define a compound index.
 The SDS REST API methods that use tuples were created to assist you when using compound indexes.
 
 
-## Indexes at work
+## Work with indexes
 ### Indexes in .NET framework
 #### Simple Indexes
 
@@ -104,9 +104,8 @@ and query as follows.
 More information about querying data can be found in [Reading data](xref:sdsReadingData).
 
 
-**Secondary Indexes**
-
-Secondary indexes are defined at the SdsStream. To add indexes to an SdsStream, you add them to the SdsStream’s Indexes field.
+#### Secondary indexes
+Secondary indexes are defined at the SdsStream. To add indexes to an SdsStream, you add them to the SdsStream’s `Indexes` field.
 
 For example, to add a second index on Measurement, use the following code:
 
@@ -517,7 +516,7 @@ The Time property is identified as the key by defining its SdsTypeProperty as fo
 
 
 
-Note that the time.IsKey field is set to true.
+Note that the `time.IsKey` field is set to true.
 
 To read data using the key, you define a start index and an end index. For DateTime, use 
 ISO 8601 representation of dates and times. To query for a window of values between January 1, 
@@ -526,7 +525,7 @@ ISO 8601 representation of dates and times. To query for a window of values betw
 
 Additional information can be found in [Reading data](xref:sdsReadingData).
 
-**Secondary Indexes**
+#### Simple Indexes
 
 Secondary Indexes are defined at the SdsStream. To create an SdsStream 
 using the Simple class and add a Secondary index on the Measurement, 

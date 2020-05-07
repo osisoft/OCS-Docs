@@ -136,9 +136,10 @@ Content-Type: application/json
    Task<SdsStream> GetStreamAsync(string streamId);
 ```
 
+***********************
 
 ## `Get Streams` 
-------
+
 Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
@@ -180,9 +181,9 @@ An optional parameter representing sorted order which SdsStreams will be returne
 The response includes a status code and a response body.
 
 #### Response body 
-A collection of zero or more SdsStreams.
+A collection of zero or more SdsStreams
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -633,7 +634,7 @@ The response includes a status code and a response body.
 #### Response body 
 The Access Rights associated with specified stream for the requesting identity.
 
-Example response body:
+#### Example response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json

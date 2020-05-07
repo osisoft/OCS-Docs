@@ -788,13 +788,13 @@ defines the available functions. See [Types](#types) for general type-related in
 
 Returns the type corresponding to the specified typeId within a given namespace.
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier
@@ -806,7 +806,7 @@ The namespace identifier
 The type identifier
 
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
 #### Response body  
@@ -868,7 +868,7 @@ Content-Type: application/json
 }
 ```
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
     Task<SdsType> GetTypeAsync(string typeId);
 ```
@@ -879,12 +879,12 @@ Content-Type: application/json
 
 Returns a dictionary mapping the object name to the number of references held by streams, stream views and parent types for the specified type. See [Streams](xref:sdsStreams) and [Steam Views](xref:sdsStreamViews) for more information on the use of types to define streams and stream views. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/ReferenceCount
  ```
 
-##### Parameters   
+### Parameters   
 
 `string tenantId`  
 The tenant identifier
@@ -910,7 +910,7 @@ A dictionary mapping object name to number of references.
     }
 ```
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
     Task<IDictionary<string, int>> GetTypeReferenceCountAsync(string typeId);
 ```
@@ -928,12 +928,12 @@ for information about specifying those respective parameters.
 
 Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}&orderby={orderby}
  ```
 
-##### Parameters   
+### Parameters   
 
 `string tenantId`  
 The tenant identifier
@@ -1022,7 +1022,7 @@ Content-Type: application/json
 ```
 
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
     Task<IEnumerable<SdsType>> GetTypesAsync(string query = "", int skip = 0, int count = 100);
 ```
@@ -1048,12 +1048,12 @@ When a client performs a redirect and strips the authorization header, SDS canno
 returns ``Unauthorized`` (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect and perform the redirect manually.
 
-#### Request
+### Request
  ```text
 	POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier
@@ -1064,10 +1064,10 @@ The namespace identifier
 `string typeId`  
 The type identifier. The identifier must match the `SdsType.Id` field in the request body. 
 
-##### Request Body 
+#### Request body 
 The request content is the serialized SdsType.
 
-Example SdsType content:
+#### Example request body
 ```json
 {
     "Id": "Simple",
@@ -1120,7 +1120,7 @@ Example SdsType content:
 }
 ```
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
 #### Response body  
@@ -1260,7 +1260,7 @@ Content-Type: application/json
 }
 ```
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
     Task<SdsType> GetOrCreateTypeAsync(SdsType sdsType)
 ```
@@ -1277,12 +1277,12 @@ The .NET SDS Client Libraries manage redirects.
 
 Deletes a type from the specified tenant and namespace. Note that a type cannot be deleted if any streams, stream views, or other types reference it.
 
-#### Request
+### Request
  ```text
 	DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier
@@ -1293,10 +1293,10 @@ The namespace identifier
 `string typeId`  
 The type identifier
 
-#### Response  
+### Response  
 The response includes a status code.
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
     Task DeleteTypeAsync(string typeId);
 ```
@@ -1307,12 +1307,12 @@ The response includes a status code.
 
 Get the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1320,13 +1320,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
 #### Response body  
 The default ACL for Types
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetTypesAccessControlListAsync();
 ```
@@ -1336,12 +1336,12 @@ The default ACL for Types
 
 Update the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
-#### Request
+### Request
  ```text
 	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1349,13 +1349,13 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-#### Request Body 
+#### Request body 
 Serialized ACL
 
-#### Response  
+### Response  
 The response includes a status code.
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
    Task UpdateTypesAccessControlListAsync(AccessControlList typesAcl);
 ```
@@ -1366,12 +1366,12 @@ The response includes a status code.
 
 Get the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1382,13 +1382,13 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
-##### Response body  
+#### Response body  
 The ACL for the specified type
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetTypeAccessControlListAsync(string typeId);
 ```
@@ -1400,12 +1400,12 @@ Update the ACL of the specified type. For more information on ACLs, see [Access 
 
 Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
-#### Request
+### Request
  ```text
 	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1416,13 +1416,13 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-#### Request Body 
+#### Request body 
 Serialized ACL
 
-#### Response  
+### Response  
 The response includes a status code.
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
    Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
 ```
@@ -1432,12 +1432,12 @@ The response includes a status code.
 
 Get the Owner of the specified type. For more information on Owners, see [Access Control](xref:accessControl).
 
-#### Request
+### Request
  ```text
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1448,13 +1448,13 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
 #### Response body  
 The Owner for the specified type 
 
-#### .NET client libraries method
+### .NET client libraries method
 ```csharp
    Task<Trustee> GetTypeOwnerAsync(string typeId);
 ```
@@ -1466,12 +1466,12 @@ Update the Owner of the specified type. For more information on Owners, see [Acc
 
 Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
-#### Request
+### Request
  ```text
 	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/Owner
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1482,10 +1482,10 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-#### Request Body 
+#### Request body 
 Serialized Owner
 
-#### Response  
+### Response  
 The response includes a status code.
 
 #### .NET client libraries methods
@@ -1499,12 +1499,12 @@ The response includes a status code.
 Gets the Access Rights associated with the specified type for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
-#### Request
+### Request
  ```text
 	GET api/v1//Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessRights
  ```
 
-##### Parameters 
+### Parameters 
 
 `string tenantId`  
 The tenant identifier  
@@ -1515,7 +1515,7 @@ The namespace identifier
 `string typeId`  
 The type identifier  
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
 #### Response body  
