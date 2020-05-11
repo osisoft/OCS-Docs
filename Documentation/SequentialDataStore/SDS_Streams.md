@@ -4,11 +4,17 @@ uid: sdsStreams
 
 # Streams
 
-Streams are collections of sequentially occurring values indexed by a single property, typically time series data. You define streams to organize incoming data from another system into OCS.  To define a stream, you must first define a type, which defines the structure of the data you want to stream into a selected namespace. 
+SdsStreams are collections of sequentially occurring values indexed by a single property, typically time series data.
+You define SdsStreams to organize incoming data from another system into the OCS.
+To define an SdsStream, you must first define an SdsType, which defines the structure of the data you want to stream into a selected namespace.
 
-SDS stores collections of events and provides convenient ways to find and associate events. Events of consistent structure are stored in streams, called SdsStreams.  SdsStreams are referenced by their identifier or Id field. SdsStream identifiers must be unique within a Namespace.
+SDS stores collections of events and provides convenient ways to find and associate events.
+Events of consistent structure are stored in SdsStreams. SdsStreams are referenced by their identifier or `Id` field.
+SdsStream identifiers must be unique within a namespace.
 
-An SdsStream must include a TypeId that references the identifier of an existing SdsType. SdsStream management using the .NET SDS Client Libraries is performed through ISdsMetadataService. Create the ISdsMetadataService, using one of the ``SdsService.GetMetadataService()`` factory methods.
+An SdsStream must include a `TypeId` that references the identifier of an existing SdsType.
+SdsStream management using the .NET SDS client libraries is performed through `ISdsMetadataService`.
+Create the `ISdsMetadataService`, using one of the ``SdsService.GetMetadataService()`` factory methods.
 
 The following table shows the required and optional SdsStream fields. Fields not listed are reserved
 for internal SDS use.
@@ -38,7 +44,6 @@ However, they are associated with SdsStream objects and can be used as search cr
 5. Can contain a maximum of 100 characters
 
 ## Indexes
-
 While the key (or primary index) is defined at the SdsType, secondary
 indexes are defined at the SdsStream.
 
@@ -48,20 +53,16 @@ that can be ordered are supported for use in a secondary index.
 
 For more information on indexes, see [Indexes](xref:sdsIndexes).
 
-
 ## Interpolation and Extrapolation
-
 The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific SdsStream reads data.
 These read characteristics are inherited from the SdsType if they are not defined at the SdsStream level.
 
 
 ## PropertyOverrides
-
 PropertyOverrides provide a way to override interpolation behavior and unit of measure for individual 
 SdsType Properties for a specific SdsStream.
 
 The ``SdsStreamPropertyOverride`` object has the following structure:
-
 
 | Property          | Type                 | Optionality | Details |
 |-------------------|----------------------|-------------|---------|
@@ -84,16 +85,13 @@ a null value is returned for the entire event.
 # SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
-section interact with SdsStreams. When working in .NET convenient SDS Client libraries are 
+section interact with SdsStreams. When working in .NET framework, convenient SDS client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
 defines the available functions. See [Streams](#streams) above for general 
-SdsStream information. 
+information related to SdsStream. 
 
-
-***********************
-
+**********************
 ## `Get Stream`
-
 Returns the specified stream.
 
 ### Request
@@ -102,7 +100,6 @@ Returns the specified stream.
  ```
 
 ### Parameters
-
 `string tenantId`  
 The tenant identifier
 
@@ -137,9 +134,7 @@ Content-Type: application/json
 ```
 
 ***********************
-
 ## `Get Streams` 
-
 Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
@@ -251,8 +246,7 @@ The requested SdsType.
 ***********************
 
 ## `Get or Create Stream`
-
-Creates the specified stream. If a stream with a matching identifier already exists, SDS compares the 
+Creates the specified stream. If an SdsStream with a matching identifier already exists, SDS compares the 
 existing stream with the stream that was sent. If the streams are identical, a ``Found`` (302) error 
 is returned with the Location header set to the URI where the stream may be retrieved using a Get function. 
 If the streams do not match, a ``Conflict`` (409) error is returned.
@@ -264,7 +258,6 @@ including the .NET HttpClient, consider redirecting with the authorization token
 When a client performs a redirect and strips the authorization header, SDS cannot authorize the request and 
 returns ``Unauthorized`` (401). For this reason, it is recommended that when using clients that do not 
 redirect with the authorization header, you should disable automatic redirect.
-
 
 ### Request
  ```text
@@ -305,7 +298,7 @@ in the request body, a Conflict error response is returned and the client librar
 
 ## `Create or Update Stream`
 
-Creates the specified stream. If a stream with the same Id already exists, the definition of the stream is updated. 
+Creates the specified stream. If a stream with the same `Id` already exists, the definition of the stream is updated. 
 The following changes are permitted:  
 
 - Name  
@@ -315,11 +308,11 @@ The following changes are permitted:
 - ExtrapolationMode  
 - PropertyOverrides  
 
-Note that modifying Indexes will result in re-indexing all of the stream's data for each additional secondary index.
+Note that modifying indexes will result in re-indexing all of the stream's data for each additional secondary index.
 
 For more information on secondary indexes, see [Indexes](#indexes).
 
-Unpermitted changes result in an error.
+Changes that are not permitted result in an error.
 
 ### Request
  ```text
@@ -422,7 +415,7 @@ The response includes a status code.
 
 ## `Get Streams Access Control List`
 
-Get the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Get the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -577,7 +570,7 @@ The Owner for the specified stream
 
 ## `Update Stream Owner`
 
-Update the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
+Update the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -609,8 +602,8 @@ The response includes a status code.
 
 ## `Get Stream Access Rights`
 
-Gets the Access Rights associated with the specified stream for the requesting identity. For 
-more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
+Gets the access rights associated with the specified stream for the requesting identity. For 
+more information on access rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
 
 ### Request
  ```text

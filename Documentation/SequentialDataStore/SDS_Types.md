@@ -8,7 +8,6 @@ The Sequential Data Store (SDS) stores streams of events and provides convenient
 events. Events are stored in SdsStreams (or streams). An SdsType (or type) defines the shape or structure of the 
 event and how to associate events within the stream.
 
-
 Define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
 complex or nested types using the [Properties collection of SdsTypes](#sdstypeproperty). 
 
