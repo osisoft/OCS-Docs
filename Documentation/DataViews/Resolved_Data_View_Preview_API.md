@@ -13,7 +13,7 @@ Gets the paged collection of data items that are the results of an individual qu
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/DataItems/{queryId}?skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/DataItems/{queryId}?skip={skip}&count={count}
 ```
 ### Request path parameters
 
@@ -112,7 +112,7 @@ Gets the paged collection of data items that are the results of an individual qu
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/IneligibleDataItems/{queryId}?skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/IneligibleDataItems/{queryId}?skip={skip}&count={count}
 ```
 
 ### Request path parameters
@@ -200,7 +200,7 @@ Gets the collection of `Group`s that resolved for the provided data view.
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/Groups?skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/Groups?skip={skip}&count={count}
 ```
 
 ### Request path parameters
@@ -303,7 +303,7 @@ Gets the collection of field sets that are available for use in the provided dat
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/AvailableFieldSets
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/AvailableFieldSets
 ```
 
 ### Request path parameters
@@ -392,7 +392,7 @@ Gets the collection of field mappings resolved for the provided data view. These
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/FieldMappings
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/FieldMappings
 ```
 
 ### Request path parameters
@@ -492,7 +492,7 @@ Gets statistics about the size and shape on how the data view resolved.
 ### Request
 
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/Statistics
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Preview/DataViews/Resolved/Statistics
 ```
 
 ### Request path parameters
