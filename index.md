@@ -50,7 +50,7 @@ centralized environment to aggregate data for reporting, advanced analytics, and
      - [Using OMF with Cloud Services](xref:omfIngressSpecification)
      - [Topics](xref:omfIngressTopics)
      - [Subscriptions](xref:omfIngressSubsctriptions)
-   - [Data Views (Preview)](xref:DataViewsOverview)
+   - [Data Views](xref:DataViewsOverview)
      - [Data Views API Overview](xref:DataViewsAPIOverview)
      - [Introduction - Define a Data View](xref:DataViewsIntroductionDefine)
      - [Quick Start - Define a Data View](xref:DataViewsQuickStartDefine)

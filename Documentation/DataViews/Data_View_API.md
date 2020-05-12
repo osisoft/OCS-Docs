@@ -16,7 +16,7 @@ Returns the specified data view.
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
 ```
 ### Parameters
 `string tenantId`  
@@ -71,7 +71,7 @@ Returns a list of data views.
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews?skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews?skip={skip}&count={count}
 ```
 ### Parameters
 `string tenantId`  
@@ -129,7 +129,7 @@ Content-Type: application/json
 Create a new data view with a system-generated identifier.
 ### Request
 ```text
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews
+POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews
 ```
 ### Parameters
 `string tenantId`  
@@ -192,7 +192,7 @@ This call creates the specified data view. If a data view with the same id alrea
 
 ### Request
 ```text
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
+POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
 ```
 ### Parameters
 `string tenantId`  
@@ -262,7 +262,7 @@ If a data view with the same id already exists, it is updated to the specified v
 
 ### Request
 ```text
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
+PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
 ```
 ### Parameters
 `string tenantId`  
@@ -313,7 +313,7 @@ Delete the data view with the specified id.
 
 ### Request
 ```text
-DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
+DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}
 ```
 ### Parameters
 `string tenantId`  

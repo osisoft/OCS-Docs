@@ -13,7 +13,7 @@ Gets the paged collection of data items that are the results of an individual qu
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/DataItems/{queryId}?cache={cache}&skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/DataItems/{queryId}?cache={cache}&skip={skip}&count={count}
 ```
 ### Request path parameters
 
@@ -117,7 +117,7 @@ Gets the paged collection of data items that are the results of an individual qu
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/IneligibleDataItems/{queryId}?cache={cache}&skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/IneligibleDataItems/{queryId}?cache={cache}&skip={skip}&count={count}
 ```
 
 ### Request path parameters
@@ -209,7 +209,7 @@ Gets the collection of `Group`s that resolved for a data view.
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Groups?cache={cache}&skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Groups?cache={cache}&skip={skip}&count={count}
 ```
 
 ### Request path parameters
@@ -316,7 +316,7 @@ Gets the collection of field sets that are available for use in the data view, a
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/AvailableFieldSets?cache={cache}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/AvailableFieldSets?cache={cache}
 ```
 
 ### Request path parameters
@@ -410,7 +410,7 @@ Gets the collection of field mappings resolved for the data view. These show the
 ### Request
 
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/FieldMappings?cache={cache}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/FieldMappings?cache={cache}
 ```
 
 ### Request path parameters
@@ -516,7 +516,7 @@ Gets statistics about the size and shape on how the data view resolved.
 ### Request
 
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Statistics?cache={cache}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/Resolved/Statistics?cache={cache}
 ```
 
 ### Request path parameters

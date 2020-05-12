@@ -12,7 +12,7 @@ Get the default [`AccessControlList`](xref:accessControl#access-control-lists) f
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/DataViews
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/DataViews
 ```
 ### Parameters
 `string tenantId`  
@@ -74,7 +74,7 @@ Update the default [`AccessControlList`](xref:accessControl#access-control-lists
 
 ### Request
 ```text
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/DataViews
+PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/DataViews
 ```
 ### Parameters
 `string tenantId`  
@@ -139,7 +139,7 @@ Get the [`AccessControlList`](xref:accessControl#access-control-lists) of the sp
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessControl
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessControl
 ```
 ### Parameters
 `string tenantId`  
@@ -205,7 +205,7 @@ Update the [`AccessControlList`](xref:accessControl#access-control-lists) of the
 
 ### Request
 ```text
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessControl
+PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessControl
 ```
 ### Parameters
 `string tenantId`  
@@ -274,7 +274,7 @@ Get the calling user or client's access rights to the requested data view
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessRights
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/AccessRights
 ```
 ### Parameters
 `string tenantId`  
@@ -319,7 +319,7 @@ Get the owner [`Trustee`](xref:accessControl#owner) of the specified data view.
 
 ### Request
 ```text
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/owner
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/owner
 ```
 ### Parameters
 `string tenantId`  
@@ -362,7 +362,7 @@ Update the owner [`Trustee`](xref:accessControl#owner) of the specified data vie
 
 ### Request
 ```text
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/owner
+PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/{dataViewId}/owner
 ```
 ### Parameters
 `string tenantId`  

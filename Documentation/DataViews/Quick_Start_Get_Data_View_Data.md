@@ -13,7 +13,7 @@ It is assumed that you are working with streams as described in the [Example Sce
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ```
 
 ### Expected result
@@ -54,7 +54,7 @@ An array of json values similar to:
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}
 ```
 
@@ -98,7 +98,7 @@ By default, data is returned in object-style json. Other formats are available: 
 ### Action
 Resubmit the data query with an additional query parameter, `&form=csvh` for csv-formatted data with a header row.
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}&form=csvh
 ```
 
@@ -118,7 +118,7 @@ By default, each page includes 1000 records. If the requested data spans into an
 ### Action
 Use the hyperlink in the NextPage header to request the next page.
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}&form=csvh&continuationToken=MjAxOC0wMS0wMVQwMDowMDoxMVo_MD90Yk1OblE_QUxXcEZBP1VEdGxIMWJROG9z&cache=preserve
 ```
 
@@ -139,7 +139,7 @@ It is possible, though unlikely, for the continuation token to become invalid du
 Use the hyperlink in the FirstPage header to request the first page.
 
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}&form=csvh&cache=preserve
 ```
 
@@ -159,7 +159,7 @@ Timestamp.0,Id.1,Name.2,Tags.3,Site.4,SolarRadiation.5,AmbientTemperature.6,Clou
 ### Action
 
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/FieldMappings
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/FieldMappings
 ```
 
 ### Expected result

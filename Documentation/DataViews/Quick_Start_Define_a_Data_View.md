@@ -15,7 +15,7 @@ Creating a data view requires only an identifier, `.Id`. The data view does not 
 
 ### Action
 ```json
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 { 
   "Id": "quickstart" 
 }
@@ -46,7 +46,7 @@ To access the data view again, it is available via the `GET` verb:
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 ```
 
 ### Expected result
@@ -74,7 +74,7 @@ Use the result of the previous step as the starting point. All following steps w
 
 Add an item to the array of `.Queries`: `{ "Id": "weather", "Value":"*weather*" }`
 ```json
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
   "Id": "quickstart",
   "Name": "quickstart",
@@ -104,7 +104,7 @@ Data views resolve on a per user basis, executing the queries you defined. The r
 
 ### Action – Page through the data items found by the query
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/DataItems/weather
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/DataItems/weather
 ```
 
 ### Expected result
@@ -229,7 +229,7 @@ HTTP 200 OK
 
 ### Action – Page through the ineligible data items found by the query
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/IneligibleDataItems/weather
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/IneligibleDataItems/weather
 ```
 
 ### Expected result
@@ -248,7 +248,7 @@ HTTP 200 OK
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/AvailableFieldSets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/AvailableFieldSets
 ```
 
 ### Expected result
@@ -340,7 +340,7 @@ For ease, grab all of the field sets that are available.
 
 Set the data view’s `DataFieldSets` property as the contents of the `AvailableFieldSets` response.
 ```json
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
   "Id": "quickstart",
   "Name": "quickstart",
@@ -430,7 +430,7 @@ Now, if we return to the available field sets, all data fields are used so none 
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/AvailableFieldSets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Resolved/AvailableFieldSets
 ```
 
 ### Expected result
@@ -444,7 +444,7 @@ No available data fields.
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}
 ```
 
@@ -489,7 +489,7 @@ The suffixing (to ensure uniqueness) is done for the sake of client behavior, as
 ### Action – Want csv?
 Resubmit the data query with an additional query parameter, `&form=csvh`
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}&form=csvh
 ```
 
@@ -511,7 +511,7 @@ Grouping fields are a property of the data view, and are an array of `Field` obj
 ### Action
 Grouping by metadata is likely to be most satisfying, but here, start with grouping by data item id. In the `DataView` object, copy the field with `{ Source: “Metadata”, Keys: [ "Site" ] }`, and add it to the array of `.GroupingFields`.
 ```json
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
   "Id": "quickstart",
   "Name": "quickstart",
@@ -601,7 +601,7 @@ HTTP 204 No Content
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}
 ```
 
@@ -674,7 +674,7 @@ The data views engine must be told how the streams align across sites. Here, it 
 ### Action
 Move the field used as `GroupingField` over to being the “.IdentifyingField” of the weather data items `FieldSet`.
 ```json
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
   "Id": "quickstart",
   "Name": "quickstart",
@@ -757,7 +757,7 @@ HTTP 204 No Content
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}
 ```
 
@@ -816,7 +816,7 @@ Remove the `Field` associated only with "Temperature".
 You can also remove the `Fields` associated with data item Id and Name. These are not providing any additional useful information.
 
 ```json
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
   "Id": "quickstart",
   "Name": "quickstart",
@@ -882,7 +882,7 @@ HTTP 204 No Content
 
 ### Action
 ```text
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Data/Interpolated
 ?startIndex={your_val_here}&endIndex={your_val_here}&interval={your_val_here}
 ```
 
