@@ -33,7 +33,7 @@ for internal SDS use.
 | [Tags](xref:sdsStreamExtra)*		| IList\<String\>					| Optional    | Yes		  | A list of tags denoting special attributes or categories.|
 | [Metadata](xref:sdsStreamExtra)*	| IDictionary\<String, String\>	| Optional    | Yes		  | A dictionary of string keys and associated string values.  |
 
-**\* Notes regarding SdsStream metadata and tags:** Stream metadata and tags are accessed via the Metadata and Tags API respectively.
+**\* Notes on SdsStream metadata and tags:** Stream metadata and tags are accessed via the Metadata and Tags API respectively.
 However, they are associated with SdsStream objects and can be used as search criteria.
 
 **Rules for the Stream Identifier (SdsStream.Id)**
@@ -44,7 +44,7 @@ However, they are associated with SdsStream objects and can be used as search cr
 5. Can contain a maximum of 100 characters
 
 ## Indexes
-While the key (or primary index) is defined at the SdsType, secondary
+While the primary index is defined at the SdsType, secondary
 indexes are defined at the SdsStream.
 
 Secondary indexes are applied to a single property; there are no
@@ -53,13 +53,13 @@ that can be ordered are supported for use in a secondary index.
 
 For more information on indexes, see [Indexes](xref:sdsIndexes).
 
-## Interpolation and Extrapolation
+## Interpolation and extrapolation
 The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific SdsStream reads data.
 These read characteristics are inherited from the SdsType if they are not defined at the SdsStream level.
 
 
-## PropertyOverrides
-PropertyOverrides provide a way to override interpolation behavior and unit of measure for individual 
+## ``SdsStreamPropertyOverride`` object
+PropertyOverride provides a way to override interpolation behavior and unit of measure for individual 
 SdsType Properties for a specific SdsStream.
 
 The ``SdsStreamPropertyOverride`` object has the following structure:
@@ -84,8 +84,8 @@ a null value is returned for the entire event.
 
 # SdsStream API
 
-The REST APIs provide programmatic access to read and write SDS data. The APIs in this 
-section interact with SdsStreams. When working in .NET framework, convenient SDS client libraries are 
+The REST APIs provide programmatic access to read and write SDS data. The API in this 
+section interacts with SdsStreams. When working in .NET framework, convenient SDS client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
 defines the available functions. See [Streams](#streams) above for general 
 information related to SdsStream. 
@@ -139,7 +139,7 @@ Returns a list of streams.
 
 If specifying the optional search query parameter, the list of streams returned will match 
 the search criteria. If the search query parameter is not specified, the list will include 
-all streams in the namespace. See [Search in SDS](xref:sdsSearching) 
+all streams in the namespace. See [Search in SDS](xref:sdsSearching#search-for-streams) 
 for information about specifying those respective parameters.
 
 
@@ -157,20 +157,19 @@ The tenant identifier
 The namespace identifier
 
 `string query`  
-An optional parameter representing a string search. 
-See [Search in SDS](xref:sdsSearching)
-for information about specifying the search parameter.
+[Optional] Parameter representing a string search. 
+See [Search in SDS](xref:sdsSearching) for information about specifying the search parameter.
 
 `int skip`  
-An optional parameter representing the zero-based offset of the first SdsStream to retrieve. 
+[Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. 
 If not specified, a default value of 0 is used.
 
 `int count`  
-An optional parameter representing the maximum number of SdsStreams to retrieve. 
+[Optional] Parameter representing the maximum number of SdsStreams to retrieve. 
 If not specified, a default value of 100 is used.
 
 `string orderby`  
-An optional parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
+[Optional] Parameter representing sorted order which SdsStreams will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
 
 ### Response
 The response includes a status code and a response body.
@@ -444,7 +443,7 @@ The default ACL for Streams
 
 ## `Update Streams Access Control List`
 
-Update the default ACL for the Streams collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Update the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -474,7 +473,7 @@ The response includes a status code.
 
 ## `Get Stream Access Control List`
 
-Get the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
+Get the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -506,7 +505,7 @@ The ACL for the specified stream
 
 ## `Update Stream Access Control List`
 
-Update the ACL of the specified stream. For more information on ACLs, see [Access Control](xref:accessControl).
+Update the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -538,7 +537,7 @@ The response includes a status code.
 
 ## `Get Stream Owner`
 
-Get the Owner of the specified stream. For more information on Owners, see [Access Control](xref:accessControl).
+Get the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -560,7 +559,7 @@ The stream identifier
 The response includes a status code and a response body.
 
 #### Response body 
-The Owner for the specified stream 
+The `Owner` for the specified stream 
 
 ### .NET client libraries method
 ```csharp
@@ -592,7 +591,7 @@ The stream identifier
 Serialized Owner
 
 ### Response
-The response includes a status code.
+The response includes a status code
 
 ### .NET client libraries method
 ```csharp
@@ -622,7 +621,7 @@ The namespace identifier
 The stream identifier  
 
 ### Response
-The response includes a status code and a response body.
+The response includes a status code and a response body
 
 #### Response body 
 The Access Rights associated with specified stream for the requesting identity.

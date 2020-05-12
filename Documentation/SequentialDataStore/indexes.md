@@ -21,9 +21,7 @@ representing the primary index have their ``SdsTypeProperty.IsKey`` field set to
 Secondary indexes are defined on SdsStreams and are applied to a single property. You can define several 
 secondary indexes. Secondary index values need not be unique.
 
-The following table contains supported types for an index:
-
-
+## Supported types for an index
 Type                     | SdsTypeCode
 -----------------------  | -----
 Boolean                  | 3
@@ -49,7 +47,7 @@ UInt64                   | 12
 Often, a single property (such as a `DateTime`), is adequate for defining an index; however, for more complex 
 scenarios, SDS allows you to define multiple properties. Indexes defined by multiple properties are known as *compound indexes*.
 
-When defining a compound index in .NET framework, you should apply the ``OSIsoft.Sds.SdsMemberAttribute`` on each Property of the  type
+When defining a compound index in .NET framework, you should apply the ``OSIsoft.Sds.SdsMemberAttribute`` on each Property of the SdsType
 that is combined to define the index. Set the Property ``IsKey`` to ``true`` and give the ``Order`` field a 
 zero-based index value. The ``Order`` field defines the precedence of the Property when sorting. A Property with 
 an order of 0 has highest precedence.
@@ -91,7 +89,7 @@ Using the `SdsTypeBuilder` eliminates potential errors that might occur when wor
 
 
 To read data that is located between two indexes, define both a start index and 
-an end index. For `DateTime`, use ISO 8601 representation of dates and times. For example, to query 
+an end index. For `DateTime`, use the ISO 8601 representation of dates and times. For example, to query 
 for a window of simple values between January 1, 2010 and February 1, 2010, you can define indexes 
 and query as follows:
 
@@ -100,7 +98,7 @@ and query as follows:
       "2010-01-01T08:00:00.000Z","2010-02-01T08:00:00.000Z");
 
 
-More information about querying data can be found in [Reading data](xref:sdsReadingData).
+For more information about querying data, see [Read data](xref:sdsReadingData).
 
 
 #### Secondary indexes
@@ -205,7 +203,8 @@ Compound indexes are defined using the `SdsMemberAttribute` as follows:
       }
 
 
-Events of type DerivedCompoundIndex are sorted first by the `Time` parameter and then by the `Recorded` parameter. A collection of times would be sorted as follows:
+Events of type `DerivedCompoundIndex` are sorted first by the `Time` parameter and then by the `Recorded` parameter.
+A collection of times would be sorted as follows:
 
 
 | **Time**   | **Recorded**   | **Measurement**   |
@@ -218,7 +217,7 @@ Events of type DerivedCompoundIndex are sorted first by the `Time` parameter and
 | 02:00      | 02:00          | 4                 |
 | 02:00      | 14:00          | 6                 |
 
-If the `Order` parameters were reversed with `Recorded` set to 0 and `Time` set to 1, the results would be sorted as follows:
+If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set to 1, the results would be sorted as follows:
 
 | **Time**   | **Recorded**   | **Measurement**   |
 |------------|----------------|-------------------|
@@ -379,7 +378,7 @@ The following code is used to build an SdsType representation of the sample clas
 
       # Create the properties
 
-      # Time is the primary key
+      # Time is the primary index
       time = SdsTypeProperty()
       time.Id = "Time"
       time.Name = "Time"
@@ -524,9 +523,9 @@ For additional information, see [Read data](xref:sdsReadingData).
 
 #### Secondary indexes
 
-Secondary Indexes are defined at the SdsStream. To create an SdsStream 
-using the `Simple` class and add a secondary index on the `Measurement`, 
-you use the previously defined SdsType. Then you create a `SdsStreamIndex` 
+Secondary indexes are defined at the SdsStream. To create an SdsStream 
+using the `Simple` class and adding a secondary index on the `Measurement`, 
+you use the previously defined SdsType. Then you create `SdsStreamIndex` 
 specifying the `Measurement` property and define an SdsStream identifying the 
 `Measurement` as the secondary index as shown below:
 
@@ -571,7 +570,7 @@ Consider the following Python and JavaScript types:
 
 
       class Simple(object):
-      # First-order Key property
+      # First-order index property
       Time = property(getTime, setTime)
       def getTime(self):
         return self.__time
@@ -591,7 +590,7 @@ Consider the following Python and JavaScript types:
         self.__measurement = measurement
 
       class DerivedCompoundIndex(Simple):
-      # Second-order Key property
+      # Second-order index property
       @property
       def Recorded(self):
         return self.__recorded
@@ -622,7 +621,7 @@ extend the SdsType as follows:
 **Python**
 
 
-      # We set the Order for this property. The order of the first property defaulted to 0
+      # We set the order for this property. The order of the first property defaulted to 0
       recorded = SdsTypeProperty()
       recorded.Id = "Recorded"
       recorded.Name = "Recorded"
@@ -646,7 +645,7 @@ extend the SdsType as follows:
 
 **JavaScript**  
 
-      // We set the Order for this property. The order of the first property defaulted to 0
+      // We set the order for this property. The order of the first property defaulted to 0
       var recordedProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Recorded",
         "Name": "Recorded",
