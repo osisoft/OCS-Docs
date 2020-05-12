@@ -6,7 +6,7 @@ uid: DataViewsPreviewDataAPI
 The Preview Data API allows users to [retrieve data](xref:DataViewsGettingData) for a specified data view.  This API is one portion of the [data views API](xref:DataViewsAPIOverview).
 
 ## `Get Data View Data`
-Get data for the provided index parameters with paging. See [documentation on paging](xref:DataViewsGettingData#paging) for further information.
+Get data for the provided data view and index parameters with paging. See [documentation on paging](xref:DataViewsGettingData#paging) for further information.
 
 ### Request
 ```text
@@ -30,7 +30,7 @@ The requested end index, inclusive. The default value is the `.DefaultEndIndex` 
 The requested interval between index values. The default value is the `.DefaultInterval` of the data view. Optional if a default is specified.
 
 `[optional] int countPerGroup`  
-The requested items per each group. 
+The number of rows per group. It overrides the endIndex.
 
 `[optional] int groupCount`  
 The requested number of groups.
@@ -44,6 +44,51 @@ Used only when [paging](xref:DataViewsGettingData#paging). Not specified when re
 `[optional] int count`  
 The requested page size. The default value is 1000. The maximum is 250,000.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Time" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [
+        {
+            "QueryId": "weather",
+            "DataFields": [
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "Temperature"
+                    ],
+                    "Label": "{IdentifyingValue} {FirstKey}"
+                },
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "Flowrate"
+                    ],
+                    "Label": "{IdentifyingValue} {FirstKey}"
+                },
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "Volume"
+                    ],
+                    "Label": "{IdentifyingValue} {FirstKey}"
+                },
+            ],
+       },
+  ],
+  "GroupingFields": [],
+  "IndexTypeCode": "Date Time",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
@@ -51,8 +96,7 @@ The response includes a status code and, in most cases, a body.
 |--|--|--|
 | 200 OK                    | data in the requested format  | Successfully retrieved data.  |
 | 400 Bad Request           | error | The request could not be understood by the server due to malformed syntax.
-| 403 Forbidden             | error | User is not authorized for this operation.
-| 404 Not Found             | error | The specified data view identifier is not found.
+| 403 Forbidden             | error | User is not authorized to create a data view.
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers

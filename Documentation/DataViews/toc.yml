@@ -32,6 +32,8 @@
   href: Field_Mappings.md
 - name: Resolved Data View API
   href: Resolved_Data_View_API.md
+- name: Preview Data View
+  href: Preview_Data_View.md
 - name: Resolved Data View Preview API
   href: Resolved_Data_View_Preview_API.md
 - name: Getting Data

@@ -4,11 +4,11 @@ uid: ResolvedDataViewPreviewAPI
 
 # Resolved Data View Preview API
 
-This portion of the overall [data views API](xref:DataViewsAPIOverview) is the resources that resolve per-user for an input data view. 
-The preview API require a data view to be passed in the request body for each request, which provides the user with a flexibility to change the data view without saving/updating it.
+This portion of the overall [data views API](xref:DataViewsAPIOverview) specifies the resources that resolve per-user for an input data view. 
+The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.
 
 ## `Get Data Items by Query`
-Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the provided data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+Gets the paged collection of data items returned by an individual query, and which are eligible for use in the provided data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
 ### Request
 
@@ -37,15 +37,34 @@ An optional parameter representing the maximum number of data items to retrieve.
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*WS_BILT*" 
+    }
+  ],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved. |
-| 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The data view or query does not exist
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details | 
 
 #### Response headers
 Successful (200 OK) responses include one or more header values related to paging.
@@ -65,10 +84,10 @@ Content-Type: application/json
   "TimeOfResolution": "2019-12-13T01:23:45Z",
   "Items": [
     {
-      "ResourceType": "Stream",
       "Id": "WS_BILT",
       "Name": "WS_BILT",
       "TypeId": "quickstart-omf-weather-gen1",
+      "ResourceType": "Stream",
       "Tags": [
         "Weather",
         "High Resolution",
@@ -107,7 +126,7 @@ Content-Type: application/json
    Task<ResolvedItems<DataItem>> GetPreviewDataItemsAsync(string queryId, DataView dataView, int skip = DEFAULT_SKIP, int count = DEFAULT_COUNT);
 ```
 ## `Get Ineligible Data Items by Query`
-Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the provided data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+Gets the paged collection of data items returned by an individual query, but which are not eligible for use in the provided data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
 ### Request
 
@@ -137,14 +156,33 @@ An optional parameter representing the maximum number of data items to retrieve.
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved. |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The data view or query does not exist
+| 404 Not Found | error | The query does not exist
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers
@@ -164,13 +202,13 @@ Content-Type: application/json
   "TimeOfResolution": "2019-12-13T01:23:45Z",
   "Items": [
     {
-      "ResourceType": "Stream",
       "Id": "SOME_INELIGIBLE_STREAM",
       "Name": "Some Ineligible Stream",
       "TypeId": "type-with-different-index",
+      "ResourceType": "Stream",
       "Tags": [],
-       "Metadata": { },
-       "DataItemFields": [
+      "Metadata": { },
+      "DataItemFields": [
          {
            "Id": "Depth",
            "Name": "Depth",
@@ -221,14 +259,40 @@ An optional parameter representing the maximum number of data items to retrieve.
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*WS_BILT*" 
+    }
+  ],
+  "DataFieldSets": [],
+  "GroupingFields": [
+    {
+      "Source": "Metadata",
+      "Keys": [
+        "Site" 
+      ],
+      "Label": "{IdentifyingValue} {FirstKey}"
+    }
+  ],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<Group>` | An object with a "TimeOfResolution" and a collection of "Items", the `Groups`s that resolved. |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The data view does not exist
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers
@@ -248,14 +312,16 @@ Content-Type: application/json
   "TimeOfResolution": "2019-12-13T01:23:45Z",
   "Items": [
     {
-      "Values": [ "Biltmore" ],
+      "GroupingValues": [ 
+        "Biltmore"
+      ],
       "DataItems": {
         "Query1": [
           {
-            "ResourceType": "Stream",
             "Id": "WS_BILT",
             "Name": "WS_BILT",
             "TypeId": "quickstart-omf-weather-gen1",
+            "ResourceType": "Stream",
             "Tags": [
                 "Weather",
                 "High Resolution",
@@ -316,14 +382,32 @@ The namespace identifier
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [],
+  "GroupingFields": [],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<FieldSet>` | An object with a "TimeOfResolution" and a collection of "Items", the `FieldSets`s that resolved and which are still available |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The data view does not exist
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
@@ -334,9 +418,8 @@ HTTP 200 OK
     "TimeOfResolution": "2019-12-13T01:23:45Z",
     "Items": [
         {
-            "SourceType": "DataItem",
             "QueryId": "weather",
-            "Fields": [
+            "DataFields": [
                 {
                     "Source": "Id",
                     "Keys": [],
@@ -385,7 +468,6 @@ HTTP 200 OK
    Task<ResolvedItems<FieldSet>> GetPreviewAvailableFieldSetsAsync(DataView dataView);
 ```
 
-
 ## `Get Field Mappings`
 Gets the collection of field mappings resolved for the provided data view. These show the exact data behind every field, for each data item, for each group.
 
@@ -406,14 +488,54 @@ The namespace identifier
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [
+        {
+            "QueryId": "weather",
+            "DataFields": [
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "Temperature",
+                        "AmbientTemperature"
+                    ],
+                    "Label": "{IdentifyingValue} {FirstKey}"
+                }
+            ],
+       },
+  ],
+  "GroupingFields": [
+    {
+      "Source": "Metadata",
+      "Keys": [
+        "Site" 
+      ],
+      "Label": "{IdentifyingValue} {FirstKey}"
+    }
+  ],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+```
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<FieldMapping>` | An object with a "TimeOfResolution" and a collection of "Items", the `FieldMapping`s resolved |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The data view does not exist
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers
@@ -434,22 +556,16 @@ HTTP 200 OK
       {
         "Id": "Timestamp",
         "Label": "Timestamp",
-        "FieldSetIndex": 0,
-        "FieldIndex": 0,
+        "FieldKind": "IndexField",
+        "TypeCode": "DateTime",
         "DataMappings": [
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           },
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           },
           {
-            "TargetId": "",
-            "TargetFieldKey": "",
             "TypeCode": "DateTime"
           }
         ]
@@ -457,23 +573,23 @@ HTTP 200 OK
       {
         "Id": "Temperature",
         "Label": "Temperature",
-        "FieldSetIndex": 1,
-        "FieldIndex": 0,
+        "FieldKind": "DataField",
+        "TypeCode": "Double",
         "DataMappings": [
           {
             "TargetId": "WS_BILT",
-            "TargetFieldKey": "Temperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldIndex": 0,
           },
           {
             "TargetId": "WS_ROSE",
-            "TargetFieldKey": "Temperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldIndex": 0,
           },
           {
             "TargetId": "WS_WINT",
-            "TargetFieldKey": "AmbientTemperature",
-            "TypeCode": "Double"
+            "TypeCode": "Double",
+            "FieldIndex": 0,
           }
         ]
       },
@@ -506,14 +622,54 @@ The namespace identifier
 ### Request body
 A `DataView` object to get the results for.
 
+#### Example request body
+```json
+{
+  "IndexField": { "Label": "Timestamp" },
+  "Queries": [
+    { 
+      "Id": "weather",
+      "Kind": "Stream",
+      "Value":"*weather*" 
+    }
+  ],
+  "DataFieldSets": [
+        {
+            "QueryId": "weather",
+            "DataFields": [
+                {
+                    "Source": "PropertyId",
+                    "Keys": [
+                        "Temperature",
+                        "AmbientTemperature"
+                    ],
+                    "Label": "{IdentifyingValue} {FirstKey}"
+                }
+            ],
+       },
+  ],
+  "GroupingFields": [
+    {
+      "Source": "Metadata",
+      "Keys": [
+        "Site" 
+      ],
+      "Label": "{IdentifyingValue} {FirstKey}"
+    }
+  ],
+  "IndexTypeCode": "DateTime",
+  "Shape": "Standard"
+}
+````
+
 ### Response
 The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItem<Statistics>` | Successfully retrieved data. |
+| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | User is not authorized for this operation.
-| 404 Not Found | error | The specified data view identifier is not found.
 | 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
@@ -522,9 +678,43 @@ The response includes a status code and, in most cases, a body.
 HTTP 200 OK
 {
     "TimeOfResolution": "2019-12-13T01:23:45Z",
+    "Item": {
     "DataItemCount": 24,
     "GroupCount": 2,
-    "FieldCount": 12
+    "FieldMappingCount": 10,
+    "DataFieldSets": [
+        {
+            "DataItemCount": 18,
+            "UnmappedDataItemCount": 3,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 3,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 0,
+                    "UnmappedGroupCount": 0
+                },
+                {
+                    "FieldMappingCount": 3,
+                    "DataMappingCount": 6,
+                    "EmptyDataMappingCount": 2,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        },
+        {
+            "DataItemCount": 6,
+            "UnmappedDataItemCount": 0,
+            "DataFields": [
+                {
+                    "FieldMappingCount": 2,
+                    "DataMappingCount": 4,
+                    "EmptyDataMappingCount": 2,
+                    "UnmappedGroupCount": 1
+                }
+            ]
+        }
+    ]
+  }
 }
 ```
 

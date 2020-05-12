@@ -64,6 +64,7 @@ centralized environment to aggregate data for reporting, advanced analytics, and
      - [Grouping](xref:DataViewsGrouping)
      - [Data View API](xref:DataViewAPI)
      - [Resolved Data View](xref:ResolvedDataView)
+     - [Preview Data View](xref:PreviewDataView)
      - [Data Items and Groups](xref:DataViewsDataItemsandGroups)
      - [Available Field Sets](xref:DataViewsAvailableFieldSets)
      - [Field Mappings](xref:DataViewsFieldMappings)
