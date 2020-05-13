@@ -202,7 +202,7 @@ The ``InterpolationMode`` and ``Uom`` of the SdsTypeProperty can be overridden o
 ### Supported Units of Measure
 For a list of units of measures that are supported for an SdsTypeProperty, see [Units of measure](xref:unitsOfMeasure#supported-units-of-measure).
 
-## Working with SdsTypes in .NET framework
+## Work with SdsTypes in .NET framework
 
 When working in .NET, use the `SdsTypeBuilder` to create SdsTypes. The `SdsTypeBuilder` eliminates 
 potential errors that can occur when working with SdsTypes manually.
@@ -296,7 +296,7 @@ unique identifiers. Note that the following table contains only a partial list o
 The `SdsTypeBuilder` also supports derived types. Note that you need not add the base types to 
 the SDS before using `SdsTypeBuilder`. Base types are maintained within the SdsType.
 
-## Working with SdsTypes outside of .NET framework
+## Work with SdsTypes outside of .NET framework
 SdsTypes must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
 [Python](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Python) and 
 [JavaScript](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript) samples. 
@@ -476,7 +476,7 @@ These are the SdsTypes defined in Python and JavaScript:
 ```python
 # Create the properties
 
-# Time is the primary key
+# Time is the primary index
 time = SdsTypeProperty()
 time.Id = "Time"
 time.Name = "Time"
@@ -527,7 +527,7 @@ simpleType.Properties = [ time ]
 
 **JavaScript**
 ```javascript
-// Time is the primary key
+// Time is the primary index
 var timeProperty = new SdsObjects.SdsTypeProperty({
     "Id": "Time",
     "IsKey": true,
@@ -604,7 +604,7 @@ observation.SdsType.Id = "String"
 observation.SdsType.Name = "String"
 observation.SdsType.SdsTypeCode = SdsTypeCode.String
 
-# Create the Derived SdsType
+# Create the derived SdsType
 derived = SdsType()
 derived.Id = "Derived"
 derived.Name = "Derived"

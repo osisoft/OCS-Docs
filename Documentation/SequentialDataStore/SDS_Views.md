@@ -3,7 +3,6 @@ uid: sdsStreamViews
 ---
 
 # Stream Views
-
 SdsStreamViews (or stream views) provide flexibility in the use of SdsTypes.
 While you cannot actually change the properties of SdsTypes themselves,
 the stream views feature enables you to create a view of a selected SdsStream that appears as if you had changed the SdsType on which it is based.
@@ -12,25 +11,25 @@ Using a stream view to leverage existing SdsType properties is preferable to cre
 
 You can either see the impact of the stream view on a stream in an ad hoc manner through a GET method or assign the stream view to a stream with a PUT method.
 
-To see how SdsStreamView impacts a stream, you can apply a stream view to any read or GET operation. For more information, see [API Calls for Reading Data](xref:sdsReadingDataApi).
+To see how SdsStreamView impacts a stream, you can apply a stream view to any read or GET operation. For more information, see [Read data API](xref:sdsReadingDataApi).
 SdsStreamView is used to specify the mapping between the source and target types.
 
 To assign an SdsStreamView to an  SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view id in the call, you can effectively assign the target type of the stream view to a specified stream. 
 
-SDS attempts to determine how to map `properties` from the source to the destination. When the mapping 
-is straightforward, such as when the `properties` are in the same position and of the same data type, 
-or when the `properties` have the same name, SDS will map the `properties` automatically.
+SDS attempts to determine how to map properties from the source to the destination. When the mapping 
+is straightforward, such as when the properties are in the same position and of the same data type, 
+or when the properties have the same name, SDS will map the properties automatically.
 
 When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
 a target property that it cannot map to, the property is added and configured with a default value.
 
 To map a property that is beyond the ability of SDS to map on its own, you should define an `SdsStreamViewProperty` 
-and add it to the SdsStreamView’s Properties collection.
+and add it to the SdsStreamView’s [`Properties` collection](xref:sdsstreamviewproperty).
 
 ## SdsStreamView fields and properties table
 <a name="streamviewpropertiestable"></a>
 The following table shows the required and optional SdsStreamView fields. Fields that are not included are reserved for internal SDS use. 
-See the [Search in SDS](xref:sdsSearching) topic for limitations on search.
+See [Search in SDS](xref:sdsSearching#search-for-stream-views) for limitations on search.
 | Property     | Type                   | Optionality | Searchable | Details |
 |--------------|------------------------|-------------|------------|---------|
 | Id           | String                 | Required    | Yes		   |Identifier for referencing the stream view |
@@ -40,7 +39,7 @@ See the [Search in SDS](xref:sdsSearching) topic for limitations on search.
 | TargetTypeId | String                 | Required    | Yes		   |Identifier of the SdsType to convert events to |
 | Properties   | IList\<SdsStreamViewProperty\> | Optional    | Yes, with limitations*	  |Property level mapping |
 **\*Notes on `Properties` field**: SdsStreamViewProperty objects are not searchable.
-Only the SdsStreamViewProperty's SdsStreamView is searchable by its Id, SourceTypeId, and TargetTypeId, which are used to return the top level SdsStreamView object when searching.
+Only the SdsStreamViewProperty's SdsStreamView is searchable by its `Id`, `SourceTypeId`, and `TargetTypeId`, which are used to return the top level SdsStreamView object when searching.
 The same is true for nested SdsStreamViewProperties. For more information, see [search for stream views](xref:sdsSearching#search-for-stream-views).
 
 **Rules for the Stream View Identifier (SdsStreamView.Id)**
@@ -54,7 +53,7 @@ The same is true for nested SdsStreamViewProperties. For more information, see [
 
 ## SdsStreamViewProperty
 The SdsStreamView Properties collection provides detailed instructions for specifying the mapping of 
-event `properties`. Each SdsStreamViewProperty in the Properties collection defines the mapping of an 
+event properties. Each SdsStreamViewProperty in the Properties collection defines the mapping of an 
 event’s `property`. SdsStreamView Properties are required only when property mapping is not straightforward. 
 Additionally, if you do not want a SdsType property mapped, it is not necessary to create an SdsStreamView 
 property for it.
@@ -67,7 +66,7 @@ The following table shows the required and optional SdsStreamViewProperty fields
 | TargetId | String  | Required    | Identifier of the SdsTypeProperty from the target SdsType Properties list |
 | SdsStreamView  | SdsStreamView | Optional    | Additional mapping instructions for derived types |
 
-The SdsStreamView field supports nested `properties`.
+The SdsStreamView field supports nested properties.
 
 ## SdsStreamViewMap
 When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
@@ -120,7 +119,7 @@ To update an SdsType of an SdsStream, define an SdsStreamView and do the followi
 
 For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type). 
 
-## Working with Stream Views when using .NET
+## Work with SdsStreamViews in .NET framework
 
 **Using .NET**
 
@@ -243,7 +242,7 @@ foreach (Simple1 value in simple1Values)
 A quick look at the SdsStreamViewMap shows that SDS was able to determine that mapping from `Measurement` 
 to `Value` resulted in renaming.
 
-SDS can also determine mapping of `properties` of the same name but different type. Note that the 
+SDS can also determine mapping of properties of the same name but different type. Note that the 
 location of the `Measurement` property is also different yet it is still mapped.
 ```csharp
 public class Simple2
@@ -412,12 +411,12 @@ foreach (Simple3 value in simple3Values)
 //    4 / 1 / 2017 7:09:00 AM: Warning, 9
 ```
 
-## Working with SdsStreamViews when not using .NET
+## Work with SdsStreamViews outside of .NET framework
 
-When working with Stream Views and not using .NET, either invoke HTTP directly or use some of 
+When working with SdsStreamViews and not using .NET, either invoke HTTP methods directly or use some of 
 the sample codes. Both Python and JavaScript samples have SdsStreamView definitions.
 
-The JSON for a simple mapping between a source type with identifier `Simple` and a target 
+JSON representation for a simple mapping between a source type with identifier `Simple` and a target 
 type with identifier `Simple1` would appear as follows:
 ```json
 {  
@@ -453,7 +452,6 @@ The SdsStreamViewMap would appear as follows:
 ```
 
 # SdsStreamView API
-
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact 
 with SdsStreamViews. When working in .NET, convenient SDS .NET client libraries methods are available. The `ISdsMetadataService` 
 interface, accessed using the ``SdsService.GetMetadataService()`` helper, defines the available functions. 
@@ -462,7 +460,6 @@ See [Stream Views](#stream-views) for general SdsStreamView information.
 ***********************
 
 ## `Get Stream View`
-
 Returns the stream view corresponding to the specified streamViewId within a given namespace.
 
 ### Request
