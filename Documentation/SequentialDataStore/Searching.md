@@ -6,7 +6,7 @@ uid: sdsSearching
 
 You can search for objects using texts, phrases and fields in Sequential Data Store (SDS). The REST APIs (or .NET client libraries methods ``GetStreamsAsync``, ``GetTypesAsync``, and ``GetStreamViewsAsync``) return items that match the search criteria within a given namespace. By default, the ``query`` parameter applies to all searchable object fields.
 
-Let's say a namespace contains the following streams:
+For example, a namespace contains the following SdsStreams:
 
 **streamId** | **Name**  | **Description**
 ------------ | --------- | ----------------
@@ -33,21 +33,21 @@ A ``GetStreamsAsync`` call with different queries will return below:
 
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query=name:pump name:pressure&orderby=name desc&skip=10&count=20
  ```
-##### Parameters
+#### Parameters
 `string query`  
-An optional parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`.
+[Optional] Parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`.
 
 `int skip`  
-An optional parameter representing the zero-based offset of the first SdsStream to retrieve. The number of matched items to skip over before returning. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
+[Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. The number of matched items to skip over before returning. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-An optional parameter representing the maximum number of SdsStreams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of SdsStreams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
 
 `string orderby`  
-An optional parameter representing the sorted order in which SdsStreams are returned. Requires a field name (``orderby=name``, for example). Default order is ascending (``asc``). Add ``desc`` for descending order (``orderby=name desc``, for example). If unspecified, there is no sorting of results.
+[Optional] Parameter representing the sorted order in which SdsStreams are returned. Requires a field name (``orderby=name``, for example). Default order is ascending (``asc``). Add ``desc`` for descending order (``orderby=name desc``, for example). If unspecified, there is no sorting of results.
 
 #### .NET client libraries methods
-If there are 175 streams that match the search criteria "temperature" in a single call for example, below will return the first 100 matches:
+If there are 175 SdsStreams that match the search criteria "temperature" in a single call for example, the following call will return the first 100 matches:
 
 ```csharp
     _metadataService.GetStreamsAsync(query:"temperature", skip:0, count:100)
@@ -60,9 +60,9 @@ If ``skip`` is set to 100, the following call will return the remaining 75 match
 
 ## Search for streams
 
-Streams search is exposed through the REST API and the client libraries method ``GetStreamsAsync``.
+SdsStreams search is exposed through the REST API and the client libraries method ``GetStreamsAsync``.
 
-For more information on stream properties, see [Streams](xref:sdsStreams#streampropertiestable).
+For more information on SdsStream properties, see [Streams](xref:sdsStreams#streampropertiestable).
 
 **Searcheable Properties**
 | Property          | Searchable  |
@@ -83,37 +83,36 @@ For more information on stream properties, see [Streams](xref:sdsStreams#streamp
 | [Tags](xref:sdsStreamExtra)*	| Yes		  |
 | ACL | No		  |
 | Owner | No		  |
-**\*Notes on metadata and tags:** You can access stream metadata and tags through Metadata and Tags API respectively. Metadata and tags are associated with SdsStream objects and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
+**\*Notes on metadata and tags:** You can access SdsStream metadata and tags through Metadata and Tags API respectively. Metadata and tags are associated with SdsStream objects and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
 
 #### Request
-Search for streams using the REST API and specifying the optional `query` parameter:
+Search for SdsStreams using the REST API and specifying the optional `query` parameter:
  ```text
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query={query}&skip={skip}&count={count}
  ```
-##### Parameters
+#### Parameters
 `string query`  
-An optional parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
+[Optional] Parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
 
 `int skip`  
-An optional parameter representing the zero-based offset of the first SdsStream to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
+[Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-An optional parameter representing the maximum number of SdsStreams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of SdsStreams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
 
 #### .NET client libraries method
-``GetStreamsAsync`` is used to search for and return streams. 
+``GetStreamsAsync`` is used to search for and return SdsStreams. 
 ```csharp
       _metadataService.GetStreamsAsync(query:"QueryString", skip:0, count:100);
 ```
 
-The Stream fields valid for search are identified in the fields table located on the [Streams](xref:sdsStreams) page.
-Note that Stream Metadata has unique syntax rules.
-See [How Searching Works: Stream Metadata](#Stream_Metadata_search_topic).
+The SdsStream fields valid for search are identified in the fields table located on the [Streams](xref:sdsStreams#streampropertiestable) page.
+Note that SdsStream metadata has unique syntax rules.
+See [How search works with stream metadata](#Stream_Metadata_search_topic).
 
 ## Search for types
 
-Types search is exposed through the REST API and the client libraries method ``GetTypesAsync``. 
-
+SdsType search is exposed through the REST API and the client libraries method ``GetTypesAsync``. 
 For more information on type properties, see [Types](xref:sdsTypes#typepropertiestable).
 
 **Searcheable Properties**
@@ -126,22 +125,22 @@ For more information on type properties, see [Types](xref:sdsTypes#typepropertie
 | InterpolationMode | No         |
 | ExtrapolationMode | No         |
 | Properties        | Yes, with limitations* |
-**\*Notes on Properties field:** Name and Id of a type are included in its Properties field. Similarly, Name and Id of a nested type are included in its Properties. If there are two types with the same Properties, Name or ID, the search will return both types in the result.
+**\*Notes on `Properties` field:** `Name` and `Id` of an SdsType are included in its `Properties` field. Similarly, `Name` and `Id` of a nested type are included in its `Properties`. If there are two types with the same `Properties`, `Name` or `Id`, the search will return both types in the result.
 
 #### Request
-Search for types using the REST API and specifying the optional `query` parameter:
+Search for SdsTypes using the REST API and specifying the optional `query` parameter:
  ```text
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}
  ```
-##### Parameters
+#### Parameters
 `string query`  
-An optional parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
+[Optional] Parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
 
 `int skip`  
-An optional parameter representing the zero-based offset of the first SdsType to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
+[Optional] Parameter representing the zero-based offset of the first SdsType to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-An optional parameter representing the maximum number of SdsTypes to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameterr representing the maximum number of SdsTypes to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
 
 #### .NET client libraries method
 ``GetTypesAsync`` is used to search for and return types. 
@@ -149,9 +148,8 @@ An optional parameter representing the maximum number of SdsTypes to retrieve. I
       _metadataService.GetTypesAsync(query:"QueryString", skip:0, count:100);
 ```
 ## Search for stream views
-
-Stream views search is exposed through the REST API and the client libraries method ``GetStreamViewsAsync``. 
-For more information on stream view properties, see [Stream Views](xref:sdsStreamViews#streamviewpropertiestable).
+SdsStreamView search is exposed through the REST API and the client libraries method ``GetStreamViewsAsync``. 
+For more information on SdsStreamView properties, see [Stream Views](xref:sdsStreamViews#streamviewpropertiestable).
 
 **Searcheable Properties**
 | Property     | Searchable |
@@ -162,9 +160,9 @@ For more information on stream view properties, see [Stream Views](xref:sdsStrea
 | SourceTypeId | Yes		|
 | TargetTypeId | Yes		|
 | Properties   | Yes, with limitations* |
-**\*Notes on `Properties` field:** The Properties collection contains a list of SdsStreamViewProperty objects. The query will attempt to find a match on the SdsStreamViewProperty's Id, SourceTypeId, and TargetTypeId fields. The Properties collection of nested views will also be searched. See example below.  
+**\*Notes on `Properties` field:** The `Properties` collection contains a list of SdsStreamViewProperty objects. The query will attempt to find a match on the SdsStreamViewProperty's `Id`, `SourceTypeId`, and `TargetTypeId` fields. The `Properties` collection of nested views will also be searched. See example below.  
 
-##### Example
+#### Example
 You can search for ``ComplexView`` using the `Id`("NestedView"), `SourceTypeId`, and `TargetTypeId` of ``NestedView`` but not its `Description`("An example of a nested view").  
 ```json
 { 
@@ -198,15 +196,15 @@ Search for stream views using the REST API and specifying the optional `query` p
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}
  ```
-##### Parameters
+#### Parameters
 `string query`  
-An optional parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
+[Optional] Parameter representing the search criteria. If unspecified, returns all values. Can be used with `skip`, `count` and `orderby`. 
 
 `int skip`  
-An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve.If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
+[Optional] Parameter representing the zero-based offset of the first SdsStreamView to retrieve.If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-An optional parameter representing the maximum number of SdsStreamViews to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of SdsStreamViews to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
 
 #### .NET client libraries method
 ``GetStreamViewsAsync`` is used to search for and return stream views. 
@@ -319,7 +317,9 @@ Note that while wildcard (``*``) can be used either in or outside of quotes, it 
 ```	
 
 ## <a name="Stream_Metadata_search_topic">How search works with stream metadata</a>
-[Stream metadata](xref:sdsStreamExtra) behaves differently with search syntax rules described in the previous sections. Let's say that there's a namespace that has streams below with respective metadata key-value pairs:
+[Stream metadata](xref:sdsStreamExtra) behaves differently with search syntax rules described in the previous sections. 
+
+**A namespace with SdsStreams with respective metadata key-value pairs**
 
 **streamId** | **Metadata**
 ------------ | --------- 
@@ -329,11 +329,11 @@ stream3      | { status, active }<br>{ second key, second value }
  
 
 ### Field-scoping (``:``) Operator
-A stream metadata key is only searchable in association with its value. This pairing is defined using the field-scoping (``:``) operator. 
+SdsStream metadata key is only searchable in association with its value. This pairing is defined using the field-scoping (``:``) operator. 
 
 	myStreamMetadataKey:myStreamMetadataValue
 
-Metadata key is not searched if the operator (``:``) is missing in the query string: the search is then limited to metadata values along with other searchable fields in the stream.
+Metadata key is not searched if the operator (``:``) is missing in the query string: the search is then limited to metadata values along with other searchable fields in the SdsStream.
 
 **Query string**            | **Returns** | **Description**
 ------------------------   | ------------- |-------------
@@ -352,7 +352,7 @@ Metadata key is not searched if the operator (``:``) is missing in the query str
 ```
 
 ### Wildcard (``*``) Operator  
-Wildcard (``*``) character can be used both in metadata keys and values with one caveat: wildcard (``*``) used in the field (left of field-scoped operator (``:``)) will only search within stream metadata.
+Wildcard (``*``) character can be used both in metadata keys and values with one caveat: wildcard (``*``) used in the field (left of field-scoped operator (``:``)) will only search within SdsStream metadata.
 
 **Query string**     | **Returns** | **Description**
 ------------------  | ---------------- | ------------------------
