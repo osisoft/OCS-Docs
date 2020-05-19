@@ -106,7 +106,7 @@ Property | Type | Required | Description
  --- | --- | --- | ---
 SecretDescription | string | No | Gets or sets description for the initial secret for the client. Ensure that this is descriptive enough,            as it will be the only way to distinguish between multiple secrets and their usage for a            client.
 SecretExpirationDate | DateTime | No | Gets or sets expiration date for the initial secret for the client. If set to null the secret will            never expire. We advise against such practice.
-RoleIds | Guid[] | No | Gets or sets list of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
+RoleIds | Guid[] | Yes | Gets or sets list of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
 Id | string | No | Gets or sets client ID for this client. This ID should be a GUID.
 Name | string | Yes | Gets or sets name of Client.
 Enabled | bool | No | Gets or sets whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.

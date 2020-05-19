@@ -32,10 +32,16 @@
   href: Field_Mappings.md
 - name: Resolved Data View API
   href: Resolved_Data_View_API.md
+- name: Preview Data View
+  href: Preview_Data_View.md
+- name: Resolved Data View Preview API
+  href: Resolved_Data_View_Preview_API.md
 - name: Getting Data
   href: Getting_Data.md
 - name: Data API
   href: Data_API.md
+- name: Preview Data API
+  href: Preview_Data_API.md
 - name: Securing Data Views
   href: Securing_Data_Views.md
 - name: Access Control API

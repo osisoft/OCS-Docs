@@ -100,7 +100,6 @@ and query as follows:
 
 For more information about querying data, see [Read data](xref:sdsReadingData).
 
-
 #### Secondary indexes
 Secondary indexes are defined at the SdsStream. To add indexes to an SdsStream, you add them to the SdsStream’s `Indexes` field.
 
@@ -522,7 +521,6 @@ the ISO 8601 representation of dates and times. To query for a window of values 
 For additional information, see [Read data](xref:sdsReadingData).
 
 #### Secondary indexes
-
 Secondary indexes are defined at the SdsStream. To create an SdsStream 
 using the `Simple` class and adding a secondary index on the `Measurement`, 
 you use the previously defined SdsType. Then you create `SdsStreamIndex` 
