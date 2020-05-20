@@ -11,7 +11,7 @@ If you are working in a .NET environment, convenient SDS Client Libraries are av
 The `ISdsDataService` interface, which is accessed using the ``SdsService.GetDataService()`` helper, 
 defines the functions that are available.
 
-### Single Stream Reads  
+### Single stream reads  
 The following methods for reading a single value are available:
 
 * [Get First Value](xref:sdsReadingDataApi#get-first-value) returns the first value in the stream.
@@ -42,7 +42,7 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-### Bulk Reads   
+### Bulk reads   
  
 SDS supports reading from multiple streams in one request. The following method for reading data from multiple streams is available:
 * [Join Values](xref:sdsReadingDataApi#join-values) retrieves a collection of events across multiple streams and joins the results based on the request parameters.
@@ -60,7 +60,7 @@ The tenant identifier
 The namespace identifier
 
 
-### Response Format
+### Response format
 
 Supported response formats include JSON, verbose JSON, and SDS. 
 
@@ -76,7 +76,7 @@ Most read operations take at least one index as a parameter. Indexes may be spec
 when using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
 type as a generic argument. Additional details about working with indexes can be found on the [Indexes](xref:sdsIndexes) page.
 
-### Read Characteristics
+### Read characteristics
 
 When data is requested at an index for which no stored event exists, the read characterisitics determine 
 whether the result is an error, no event, interpolated event, or extrapolated event. The combination of 
@@ -107,6 +107,7 @@ Note that `Continuous` cannot return values for type properties that cannot be i
 
 The table below describes how the **Continuous InterpolationMode** affects
 properties that occur between data in a stream:
+
 **InterpolationMode = Continuous or Default**
 
 | Property Type             | Result for a property for an index between data in a stream  | Comment |
@@ -172,7 +173,7 @@ documentation on the [read method](xref:sdsReadingDataApi)
 you are using.
 
 
-### Filter Expressions
+### Filter expressions
 
 Filter expressions can be applied to any read that returns multiple values, including Get Values, Get Range Values, 
 Get Window Values, and Get Intervals. The filter expression is applied to the collection events conditionally 
@@ -180,7 +181,7 @@ filtering events that do not meet the filter conditions.
 
 Filter expressions are covered in detail in the [Filter expressions](xref:sdsFilterExpressions) section.
 
-### Table Format
+### Table format
 
 Results of a query can be organized into tables by directing the form parameter to return a table. 
 Two forms of table are available: table and header table.
@@ -221,7 +222,7 @@ The `SdsSearchMode` enum defines search behavior when seeking a stored event nea
 
 *****
 
-## Transforming Data
+## Transforming data
 
 SDS provides the ability to transform data upon reads. The supported data transformations are:
 * [Reading with SdsStreamViews](#reading-with-sdsstreamviews): Changing the shape of the returned data
