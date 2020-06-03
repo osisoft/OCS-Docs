@@ -12,361 +12,308 @@ SdsStream results with the [Stream](xref:sdsStreams) API.
 
 # SdsStream Metadata API 
 
+***********************
 
-## ``Get stream metadata``
-----------------------
+## `Get stream metadata`
+Returns the metadata dictionary for the specified stream.   
 
-Returns the metadata dictionary for the specified stream. 
-
-
-**Request**
+### Request  
  ```text
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
   
+### Response  
+The response includes a status code and a response body  
 
-**Response**
+#### Response body  
+The metadata for the specified SdsStream
 
-  The response includes a status code and a response body.
+#### Sample response body
+```json
+HTTP/1.1 200 
+Content-Type: application/json 
 
-**Response body**
+{ 
+   "a metadata key":"a metadata value", 
+   "another key":"another value" 
+} 
+```
 
-  The metadata for the specified SdsStream. 
-
-**Sample response body**
-
-      HTTP/1.1 200 
-      Content-Type: application/json 
-      { 
-          "a metadata key":"a metadata value", 
-          "another key":"another value" 
-      } 
-
-
-**.NET client libraries method**
+#### .NET client libraries method
 ```csharp
       Task<IDictionary<string, string>> GetStreamMetadataAsync(string streamId); 
 ```
 
-**Security**
-
-  Allowed for administrator and user accounts
-
+### Security
+Allowed for administrator and user accounts  
 
 ***********************
 
+## `Get stream metadata value`
+Returns the value for the specified key in the metadata dictionary of the specified stream.  
 
-## ``Get stream metadata value``
-Returns the value for the specified key in the metadata dictionary of the specified stream. 
-
-
-**Request**
+### Request
  ```text
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata/{key} 
  ```
 
 ### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`   
+The namespace identifier   
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier   
   
-``string key``  
-  The key specifying the metadata value of interest  
+`string key`  
+The key specifying the metadata value of interest  
 
+### Response  
+The response includes a status code and a response body  
 
+#### Response body  
+The metadata for the specified SdsStream 
 
-**Response**
+#### Sample response body
+```json
+HTTP/1.1 200 
+Content-Type: application/json 
 
-  The response includes a status code and a response body.
+{ 
+   "a metadata value"
+} 
+```
 
-**Response body**
-
-  The metadata for the specified SdsStream. 
-
-**Sample response body**
-
-      HTTP/1.1 200 
-      Content-Type: application/json 
-      { 
-          "a metadata value"
-      } 
-
-
-**.NET client libraries method**
+### .NET client libraries method  
 ```csharp
       Task<string> GetStreamMetadataValueAsync(string streamId, string key); 
 ```
 
-**Security**
-
-  Allowed for administrator and user accounts
-
+### Security  
+Allowed for administrator and user accounts  
 
 ***********************
 
-## ``Update stream metadata``
+## `Update stream metadata`
 Replaces the metadata for the specified stream with the metadata in the request body. 
-Overwrites any existing metadata; does not merge. 
+Overwrites any existing metadata; does not merge.  
 
-
-**Request**
+### Request
  ```text
       PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
+### Response  
+The response includes a status code  
 
-**Response**
-
-  The response includes a status code.
-
-
-**.NET client libraries method**
+### .NET client libraries method  
 ```csharp
       Task UpdateStreamMetadataAsync(string streamId, IDictionary<string, string> metadata); 
 ```
 
-**Security**
-
-  Allowed for administrator accounts
-
+### Security  
+Allowed for administrator accounts  
 
 ***********************
 
-## ``Patch stream metadata``
+## `Patch stream metadata`
 Modifies the metadata based on operations specified in the request body. The request body follows
 [JSON Patch format](http://jsonpatch.com/).
 
-**Request**
+### Request  
  ```text
       PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier    
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
-**Response**
+### Response
+The response includes a status code and a response body  
 
-  The response includes a status code and a response body.
+#### Response body  
+A collection of operations to be applied to the metadata collection as specified by the [JSON Patch format](http://jsonpatch.com/)  
 
-**Response body**  
-
-A collection of operations to be applied to the metadata collection as specified by the [JSON Patch format](http://jsonpatch.com/).
-
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
       Task<IDictionary<string, string>> PatchStreamMetadataAsync(string streamId, MetadataPatchDocument patchDoc);
 ```
 
-**Security**
-
-  Allowed for administrator accounts
+### Security  
+Allowed for administrator accounts  
 
 ***********************
 
-## ``Delete stream metadata``
+## `Delete stream metadata`
 Deletes the metadata for the specified stream.  
 
-**Request**
+### Request
  ```text
       DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Metadata 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
   
-
-**Response**
-
-  The response includes a status code.
+### Response  
+The response includes a status code  
 
 
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
       Task DeleteStreamMetadataAsync(string streamId); 
 ```
 
-**Security**
-
-  Allowed for administrator accounts
-
+### Security  
+Allowed for administrator accounts  
 
 ***********************
 
-
 # SdsStream Tags API 
-## ``Get stream tags``
 
-
+## `Get stream tags`  
 Returns the tag list for the specified stream. 
 
-
-**Request**
+### Request
  ```text
       GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier   
 
+### Response  
+The response includes a status code and a response body
 
-**Response**
+#### Response body  
+The tags for the specified SdsStream   
 
-  The response includes a status code and a response body.
+#### Sample response body
+```json
+HTTP/1.1 200 
+Content-Type: application/json
 
-**Response body**
+[ 
+    "a tag", 
+    "another tag" 
+] 
+```  
 
-  The tags for the specified SdsStream. 
-
-**Sample response body**
-
-      HTTP/1.1 200 
-      Content-Type: application/json 
-      [ 
-          "a tag", 
-          "another tag" 
-      ] 
-
-
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
       Task<IList<string>> GetStreamTagsAsync(string streamId); 
 ```
 
-**Security**
-
-  Allowed for administrator and user accounts
-
+### Security  
+Allowed for administrator and user accounts  
 
 ***********************
 
-## ``Update stream tags``
+## `Update stream tags`
 Replaces the tag list for the specified stream with the tags listed in the request body.
 Overwrites any existing tags; does not merge. 
 
-
-**Request**
+### Request
  ```text
       PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier    
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
-**Request body**  
-The request content is the serialized list of tags. 
+#### Request body  
+The request content is the serialized list of tags 
 
-**Response**
+### Response  
+The response includes a status code  
 
-  The response includes a status code.
-
-
-**.NET client libraries method**
+### .NET client libraries method
 ```csharp
       Task UpdateStreamTagsAsync(string streamId, IList<string> tags); 
 ```
 
-**Security**
-
-  Allowed by administrator accounts.
-
+### Security  
+Allowed by administrator accounts  
 
 ***********************
 
-
-## ``Delete stream tags``
+## `Delete stream tags`
 Deletes the tag list for the specified stream. 
 
-
-**Request**
+### Request
  ```text
       DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Tags 
  ```
 
-### Parameters
-
-``string tenantId``  
-  The tenant identifier  
+### Parameters  
+`string tenantId`  
+The tenant identifier  
   
-``string namespaceId``  
-  The namespace identifier  
+`string namespaceId`  
+The namespace identifier  
   
-``string streamId``  
-  The stream identifier  
+`string streamId`  
+The stream identifier  
 
+### Response  
+The response includes a status code  
 
-**Response**
-
-  The response includes a status code.
-
-
-**.NET client libraries method**
+### .NET client libraries method  
 ```csharp
       Task DeleteStreamTagsAsync(string streamId); 
 ```
 
-**Security**
-
-  Allowed for administrator accounts.
-
+### Security  
+Allowed for administrator accounts  
 
 ***********************
