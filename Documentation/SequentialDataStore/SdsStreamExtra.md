@@ -31,6 +31,9 @@ The namespace identifier
   
 `string streamId`  
 The stream identifier  
+
+### Authorization
+Allowed for administrator and user accounts
   
 ### Response  
 The response includes a status code and a response body  
@@ -38,7 +41,7 @@ The response includes a status code and a response body
 #### Response body  
 The metadata for the specified SdsStream
 
-#### Sample response body
+#### Example response body
 ```json
 HTTP/1.1 200 
 Content-Type: application/json 
@@ -53,10 +56,7 @@ Content-Type: application/json
 ```csharp
       Task<IDictionary<string, string>> GetStreamMetadataAsync(string streamId); 
 ```
-
-### Security
-Allowed for administrator and user accounts  
-
+  
 ***********************
 
 ## `Get stream metadata value`
@@ -80,13 +80,16 @@ The stream identifier
 `string key`  
 The key specifying the metadata value of interest  
 
+### Authorization  
+Allowed for administrator and user accounts  
+
 ### Response  
 The response includes a status code and a response body  
 
 #### Response body  
 The metadata for the specified SdsStream 
 
-#### Sample response body
+#### Example response body
 ```json
 HTTP/1.1 200 
 Content-Type: application/json 
@@ -100,9 +103,6 @@ Content-Type: application/json
 ```csharp
       Task<string> GetStreamMetadataValueAsync(string streamId, string key); 
 ```
-
-### Security  
-Allowed for administrator and user accounts  
 
 ***********************
 
@@ -125,6 +125,9 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
+### Authorization  
+Allowed for administrator accounts  
+
 ### Response  
 The response includes a status code  
 
@@ -133,8 +136,7 @@ The response includes a status code
       Task UpdateStreamMetadataAsync(string streamId, IDictionary<string, string> metadata); 
 ```
 
-### Security  
-Allowed for administrator accounts  
+
 
 ***********************
 
@@ -157,6 +159,9 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
+### Authorization  
+Allowed for administrator accounts
+
 ### Response
 The response includes a status code and a response body  
 
@@ -167,9 +172,6 @@ A collection of operations to be applied to the metadata collection as specified
 ```csharp
       Task<IDictionary<string, string>> PatchStreamMetadataAsync(string streamId, MetadataPatchDocument patchDoc);
 ```
-
-### Security  
-Allowed for administrator accounts  
 
 ***********************
 
@@ -191,6 +193,9 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
   
+### Authorization  
+Allowed for administrator accounts  
+
 ### Response  
 The response includes a status code  
 
@@ -199,9 +204,6 @@ The response includes a status code
 ```csharp
       Task DeleteStreamMetadataAsync(string streamId); 
 ```
-
-### Security  
-Allowed for administrator accounts  
 
 ***********************
 
@@ -225,13 +227,16 @@ The namespace identifier
 `string streamId`  
 The stream identifier   
 
+### Authorization  
+Allowed for administrator and user accounts  
+
 ### Response  
 The response includes a status code and a response body
 
 #### Response body  
 The tags for the specified SdsStream   
 
-#### Sample response body
+#### Example response body
 ```json
 HTTP/1.1 200 
 Content-Type: application/json
@@ -247,11 +252,7 @@ Content-Type: application/json
       Task<IList<string>> GetStreamTagsAsync(string streamId); 
 ```
 
-### Security  
-Allowed for administrator and user accounts  
-
 ***********************
-
 ## `Update stream tags`
 Replaces the tag list for the specified stream with the tags listed in the request body.
 Overwrites any existing tags; does not merge. 
@@ -274,6 +275,9 @@ The stream identifier
 #### Request body  
 The request content is the serialized list of tags 
 
+### Authorization  
+Allowed by administrator accounts  
+
 ### Response  
 The response includes a status code  
 
@@ -282,11 +286,7 @@ The response includes a status code
       Task UpdateStreamTagsAsync(string streamId, IList<string> tags); 
 ```
 
-### Security  
-Allowed by administrator accounts  
-
 ***********************
-
 ## `Delete stream tags`
 Deletes the tag list for the specified stream. 
 
@@ -305,6 +305,9 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
+### Authorization  
+Allowed for administrator accounts  
+
 ### Response  
 The response includes a status code  
 
@@ -312,8 +315,5 @@ The response includes a status code
 ```csharp
       Task DeleteStreamTagsAsync(string streamId); 
 ```
-
-### Security  
-Allowed for administrator accounts  
 
 ***********************
