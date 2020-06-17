@@ -6,9 +6,9 @@ refer to the API documentation.
 ## Status codes table
 |   Status Code |    Description                            |
 |-------------- |------------------------------------------ |
-|200            |   OK.                                     |
-|201            |   Created                                 |
-|202            |   Accepted                                |
+|200            |   OK. The request was successful.         |
+|201            |   Created. A resource was created as a result of a successful request.                      |
+|202            |   Accepted.                                |
 |204            |   No content                              |
 |207            |   Multi-status                            |
 |302            |   Found                                   |
