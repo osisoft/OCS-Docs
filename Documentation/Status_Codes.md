@@ -20,3 +20,4 @@ refer to the API documentation.
 |408            |   Operation timed out                     |
 |409            |   Conflict                                |
 |500            |   Internal server error                   |
+|503            |   Service unavailable                   |
