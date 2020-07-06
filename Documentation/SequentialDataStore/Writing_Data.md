@@ -5,7 +5,7 @@ uid: sdsWritingData
 # Write data
 
 The SDS REST APIs provide programmatic access to read and write SDS data. This section describes 
-the APIs used to write SdsStream data.
+things to note when writing to an SdsStream data.
 
 When working in .NET, convenient SDS Client libraries are available. The `ISdsDataService` interface, accessed using the
 ``SdsService.GetDataService()`` helper, defines the available functions.
@@ -101,10 +101,10 @@ Verbose has no impact on writes; writes return only error messages.
 To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
 
 ### Indexes
-SDS writes rely on the primary index for positioning within streams and locating existing events. 
+Writing to the SDS relies on the primary index for positioning within the streams and locating existing events. 
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the SDS Client Libraries, the index may be 
-passed as-is to delete methods that take the index type as a generic argument. For more information on working 
+passed as-is to DELETE methods that take the index type as a generic argument. For more information on working 
 with indexes, see [Indexes](xref:sdsIndexes). 
 
 ***********************

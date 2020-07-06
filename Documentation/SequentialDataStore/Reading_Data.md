@@ -72,22 +72,18 @@ To specify SDS format, set the ``Accept`` header in the request to ``application
 
 ### Indexes and reading data
 
-Most read operations take at least one index as a parameter. Indexes may be specified as strings, or, 
-when using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
-type as a generic argument. Additional details about working with indexes can be found on the [Indexes](xref:sdsIndexes) page.
+Most read operations take at least one index as a parameter. Indexes may be specified as strings, or 
+using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
+type as a generic argument. For more information, see [Indexes](xref:sdsIndexes).
 
 To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
 separated by the pipe character, ‘|’.
-//3 indexes
 
-`GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}`
-
- 
-
-//2 indexes
-
-  `GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}`
-Note that you can do this for compound indexes but not secondary. For more information on indexes, see [Indexes](xref:sdsIndexes) page.
+```text
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}`
+```
+You can specify each field for the compound index (on the SdsType) but not secondary indexes (on the SdsStream) . For more information, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 ### Read Characteristics
 
 When data is requested at an index for which no stored event exists, the read characterisitics determine 
