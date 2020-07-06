@@ -107,8 +107,5 @@ indexes are specified as strings in the URI, or, when using the SDS Client Libra
 passed as-is to delete methods that take the index type as a generic argument. For more information on working 
 with indexes, see [Indexes](xref:sdsIndexes). 
 
-To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
-separated by the pipe character, ‘|’.
-
 ***********************
 
