@@ -83,7 +83,7 @@ For more information, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 **Examples**
 ```text
 GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
-GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}`
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}
 ```
  
 ### Read Characteristics
