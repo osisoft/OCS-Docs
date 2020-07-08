@@ -5,7 +5,7 @@ uid: sdsWritingData
 # Write data
 
 The SDS REST APIs provide programmatic access to read and write SDS data. This section describes 
-things to note when writing to an SdsStream data.
+things to note when writing to an SdsStream.
 
 When working in .NET, convenient SDS Client libraries are available. The `ISdsDataService` interface, accessed using the
 ``SdsService.GetDataService()`` helper, defines the available functions.

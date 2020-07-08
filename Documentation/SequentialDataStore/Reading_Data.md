@@ -76,9 +76,8 @@ Most read operations take at least one index as a parameter. Indexes may be spec
 using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
 type as a generic argument. For more information, see [Indexes](xref:sdsIndexes).
 
-To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
-separated by the pipe character, ‘|’.  
-**Notes:** You can this for the compound index (on the SdsType) but not the secondary (on the SdsStream).  
+Specify compound indexes in the URI by ordering each property that composes the index separated by the pipe character, ‘|’.  
+**Notes:** The examples are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams. 
 For more information, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
 **Examples**
