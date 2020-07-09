@@ -74,18 +74,9 @@ To specify SDS format, set the ``Accept`` header in the request to ``application
 
 Most read operations take at least one index as a parameter. Indexes may be specified as strings, or 
 using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
-type as a generic argument. For more information, see [Indexes](xref:sdsIndexes).
+type as a generic argument. For more information, see [Indexes](xref:sdsIndexes). For information on compound indexes, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
-Specify compound indexes in the URI by ordering each property that composes the index separated by the pipe character, ‘|’.  
-**Notes:** The examples are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams. 
-For more information, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
-**Examples**
-```text
-GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
-GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}
-```
- 
 ### Read Characteristics
 
 When data is requested at an index for which no stored event exists, the read characterisitics determine 

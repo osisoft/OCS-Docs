@@ -105,17 +105,7 @@ Writing to the SDS relies on the primary index for positioning within the stream
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the SDS Client Libraries, the index may be 
 passed as-is to DELETE methods that take the index type as a generic argument. For more information on working 
-with indexes, see [Indexes](xref:sdsIndexes). 
-
-Specify compound indexes in the URI by ordering each property that composes the index separated by the pipe character, ‘|’.  
-**Notes:** The examples are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams. 
-For more information, see [Compound indexes](xref:sdsIndexes#compound-indexes).
-
-**Examples**
-```text
-DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?index={primaryIndexId|secondIndexId}
-DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
-```
+with indexes, see [Indexes](xref:sdsIndexes). For information on compound indexes, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
 ***********************
 
