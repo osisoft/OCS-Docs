@@ -55,8 +55,11 @@ Set the Property ``IsKey`` to ``true`` and give the ``Order`` field a zero-based
 The ``Order`` field defines the precedence of the Property when sorting.
 A Property with an order of 0 has highest precedence.
 
-When defining compound indexes outside of .NET framework, specify the ``IsKey`` and ``Order`` fields on the ``SdsTypeProperty`` of
-in properties.The SDS REST API that uses tuples were created to assist you when using compound indexes.
+When defining compound indexes outside of .NET framework, specify the ``IsKey`` and ``Order`` fields
+on the ``SdsTypeProperty`` object.
+
+// Commented out per reviewer suggestion:
+// The SDS REST API that uses tuples were created to assist you when using compound indexes.
 
 You can specify a maximum of three properties to define a compound index.
 In read and write operations, specify compound indexes in the URI by ordering each property that composes the index
@@ -66,10 +69,13 @@ In read and write operations, specify compound indexes in the URI by ordering ea
 
 **REST API**
 ```text
-GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
-GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId}&endIndex={primaryIndexId|secondIndexId}
-DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?index={primaryIndexId|secondIndexId}
-DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={primaryIndexId|secondIndexId|thirdIndexId}&endIndex={primaryIndexId|secondIndexId|thirdIndexId}
+// Read data located between two compound indexes:
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={firstIndex|secondIndex|thirdIndex}&endIndex={firstIndex|secondIndex|thirdIndex}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={firstIndex|secondIndex}&endIndex={firstIndex|secondIndex}
+
+// Delete data with a compound index:
+DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?index={firstIndex|secondIndex}
+DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data?startIndex={firstIndex|secondIndex|thirdIndex}&endIndex={firstIndex|secondIndex|thirdIndex}
 ```
 **.NET examples**
 ```csharp
