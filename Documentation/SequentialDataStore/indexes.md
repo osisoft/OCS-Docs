@@ -58,12 +58,10 @@ A Property with an order of 0 has highest precedence.
 When defining compound indexes outside of .NET framework, specify the ``IsKey`` and ``Order`` fields
 on the ``SdsTypeProperty`` object.
 
-// Commented out per reviewer suggestion:
-// The SDS REST API that uses tuples were created to assist you when using compound indexes.
-
 You can specify a maximum of three properties to define a compound index.
 In read and write operations, specify compound indexes in the URI by ordering each property that composes the index
- separated by the pipe character, ‘|’.  
+ separated by the pipe character, ‘|’. 
+To help those using compound indexes, .NET client libraries methods also allow the use of tuples for indexes.
 
 **Notes:** The examples below are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams.
 
