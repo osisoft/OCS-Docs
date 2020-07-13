@@ -3,17 +3,17 @@ uid: ocsStatusCodes
 ---
 
 # HTTP response status codes
-HTTP response status codes are issued by a server when the client makes a HTTP request.
-The table below lists common status codes in OSIsoft Cloud Services.
-Refer to the API documentation for what specific response code means in context.   
+HTTP response status codes are issued by the server when a client makes a request over HTTP.
+In response to the requests made in OSIsoft Cloud Services, the system returns the code listed in the table below.
+To see what each code means in context, refer to the API documentation.   
 
 ## Status codes table
 |   Status Code |    Description                            |
 |-------------- |------------------------------------------ |
 |200            |   OK. The request was successful.         |
 |201            |   Created. A resource was created as a result of a successful request.   |
-|202            |   Accepted. The request was accepted but has not yet been processed. |
-|204            |   No content. The request was successful but there is no change in the content the user sees. |
+|202            |   Accepted. The request was accepted and has been queued for processing. |
+|204            |   No content. The request was successful with no changes to the content the user is seeing. |
 |207            |   Multi-status. The request was partially successful. |
 |302            |   Found. Requested resource will be redirected.   |
 |400            |   Bad request. The server does not understand the request because of the client error. |
