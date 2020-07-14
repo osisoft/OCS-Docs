@@ -2,3 +2,4 @@ _site/
 obj/
 /.vs/OCS-Docs/v16/TestStore/0
 /.vs
+/Documentation/Properties_table_template.md
