@@ -45,7 +45,8 @@ However, they are associated with SdsStream objects and can be used as search cr
 
 ## Indexes
 While the primary index is defined at the SdsType, secondary
-indexes are defined at the SdsStream.
+indexes are defined at the SdsStream. If the primary index is a compound index,
+secondary indexes will only be valid if the compound index has a maximum of 2 properties.
 
 Secondary indexes are applied to a single property; there are no
 compound secondary indexes. Only SdsTypeCodes
