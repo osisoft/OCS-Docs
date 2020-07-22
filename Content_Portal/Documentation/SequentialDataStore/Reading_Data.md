@@ -113,7 +113,7 @@ properties that occur between data in a stream:
 | Property Type             | Result for a property for an index between data in a stream  | Comment |
 |---------------------------|--------------------------------------------------------------|---------|
 |Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types |
-|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
+|Time-related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
 |Nullable Types             |Interpolated**                  |Limited support for nullable numeric types |
 |Array and List Types       |Default value                   |         |
 |String Type                |Default value                   |         |
@@ -122,6 +122,9 @@ properties that occur between data in a stream:
 |GUID                       |Default value                   |         |
 |Version                    |Default value                   |         |
 |IDictionary or IEnumerable |Default value                   |Dictionary, Array, List, and so on. |
+|Empty Type		|Default value                  	 | |
+|Object Type 		|Not supported                   	| |
+
 
 *When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.
