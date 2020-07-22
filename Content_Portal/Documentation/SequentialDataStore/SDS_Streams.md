@@ -44,15 +44,12 @@ However, they are associated with SdsStream objects and can be used as search cr
 5. Can contain a maximum of 100 characters
 
 ## Indexes
-While the primary index is defined at the SdsType, secondary
-indexes are defined at the SdsStream. If the primary index is a compound index,
-secondary indexes will only be valid if the compound index has a maximum of 2 properties.
-
-Secondary indexes are applied to a single property; there are no
-compound secondary indexes. Only SdsTypeCodes
-that can be ordered are supported for use in a secondary index.
-
-For more information on indexes, see [Indexes](xref:sdsIndexes).
+Secondary indexes are defined on the SdsStream while the primary index is defined on the SdsType.
+Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.
+Secondary index is allowed as long as the primary index that is a compound index has up to 2 properties.   
+  
+Note that only the SdsTypeCodes that can be ordered are supported for use in a secondary index.
+For more information, see [Indexes](xref:sdsIndexes).
 
 ## Interpolation and extrapolation
 The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific SdsStream reads data.
