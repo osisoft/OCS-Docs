@@ -63,7 +63,10 @@ In read and write operations, specify compound indexes in the URI by ordering ea
  separated by the pipe character, ‘|’. 
 To help those using compound indexes, .NET client libraries methods also allow the use of tuples for indexes.
 
-**Notes:** The examples below are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams.
+**Notes:** 
+- Compound indexing only applies to SdsTypes. There is no compound indexing for SdsStreams. 
+- The examples below are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams.
+
 
 **REST API**
 ```text
