@@ -122,7 +122,7 @@ properties that occur between data in a stream:
 |GUID                       |Default value                   |         |
 |Version                    |Default value                   |         |
 |IDictionary or IEnumerable |Default value                   |Dictionary, Array, List, and so on. |
-|Empty Type		|Default value                  	 | |
+|Empty Type		|Not supported                  	 | |
 |Object Type 		|Not supported                   	| |
 
 
