@@ -45,8 +45,7 @@ However, they are associated with SdsStream objects and can be used as search cr
 
 ## Indexes
 Secondary indexes are defined on the SdsStream while the primary index is defined on the SdsType.
-Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.
-Secondary index is allowed as long as the primary index that is a compound index has up to 2 properties.   
+If the primary index defined on the SdsType is a compound index, secondary indexes on the SdsStream are allowed as long as that compound index does not have more than 2 properties. Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.
   
 Note that only the SdsTypeCodes that can be ordered are supported for use in a secondary index.
 For more information, see [Indexes](xref:sdsIndexes).
