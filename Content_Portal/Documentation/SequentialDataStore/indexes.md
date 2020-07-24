@@ -64,7 +64,7 @@ In read and write operations, specify compound indexes in the URI by ordering ea
 To help those using compound indexes, .NET client libraries methods also allow the use of tuples for indexes.
 
 **Notes:** 
-- Compound indexing only applies to SdsTypes. In other words, there is no compound indexing for secondary indexes which are on SdsStreams. For more information see [SdsStreams](xref:sdsStreams#indexes).  
+- Compound indexing only applies to SdsTypes. In other words, there is no compound indexing for secondary indexes that are on SdsStreams. For more information see [SdsStreams](xref:sdsStreams#indexes).  
 - The examples below are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams.
 
 
