@@ -44,7 +44,7 @@ However, they are associated with SdsStream objects and can be used as search cr
 5. Can contain a maximum of 100 characters
 
 ## Indexes
-You define secondary indexes on the SdsStream and primary index on the SdsType.
+You define secondary indexes on the SdsStream and the primary index on the SdsType.
 If the primary index defined on the SdsType is a compound index, secondary indexes on the SdsStream are allowed as long as that compound index does not have more than two properties. For more information on compound indexes, see [Indexes](xref:sdsIndexes#compound-indexes). 
 <!-- Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.-->
   
