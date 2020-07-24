@@ -48,7 +48,7 @@ You define secondary indexes on the SdsStream and the primary index on the SdsTy
 If the primary index defined on the SdsType is a compound index, secondary indexes on the SdsStream are allowed as long as that compound index does not have more than two properties. For more information on compound indexes, see [Indexes](xref:sdsIndexes#compound-indexes). 
 <!-- Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.-->
   
-Note that you can only use the SdsTypeCodes of SdsType properties that can be ordered (DateTime or numbers, for example) as a secondary index.
+Note that you can only use the SdsTypeCodes of SdsType properties that can be ordered (``DateTime`` or numbers, for example) as a secondary index.
 
 ## Interpolation and extrapolation
 The InterpolationMode, ExtrapolationMode, and [PropertyOverrides](#propertyoverrides) can be used to determine how a specific SdsStream reads data.
