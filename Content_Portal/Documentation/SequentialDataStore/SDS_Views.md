@@ -24,7 +24,7 @@ When SDS is unable to determine how to map a source property, the property is re
 a target property that it cannot map to, the property is added and configured with a default value.
 
 To map a property that is beyond the ability of SDS to map on its own, you should define an `SdsStreamViewProperty` 
-and add it to the SdsStreamView’s [`Properties` collection](xref:sdsstreamviewproperty).
+and add it to the SdsStreamView’s [`Properties` collection](#sdsstreamviewproperty).
 
 ## SdsStreamView fields and properties table
 <a name="streamviewpropertiestable"></a>
