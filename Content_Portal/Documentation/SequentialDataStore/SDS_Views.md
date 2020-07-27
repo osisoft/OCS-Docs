@@ -589,7 +589,7 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional search query parameter, the list of stream views returned will match 
 the search criteria. If the search query parameter is not specified, the list will include 
-all stream views in the namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
+all stream views in the namespace. See [Search in SDS](xref:sdsSearching) for information about specifying those respective parameters.
 
 
 ### Request
