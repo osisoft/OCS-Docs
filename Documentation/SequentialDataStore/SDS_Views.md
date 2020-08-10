@@ -14,7 +14,7 @@ You can either see the impact of the stream view on a stream in an ad hoc manner
 You can view the impact of the stream view on a stream with a GET method or assign the stream view to a stream with a PUT method. For more information, see [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews).
 SdsStreamView is used to specify the mapping between the source and target types.
 
-To assign an SdsStreamView to an  SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view id in the call, you can effectively assign the target type of the stream view to a specified stream. 
+To assign an SdsStreamView to an  SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view ID in the call, you can effectively assign the target type of the stream view to a specified stream. 
 
 SDS attempts to determine how to map properties from the source to the destination. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
