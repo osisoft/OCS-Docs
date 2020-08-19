@@ -72,13 +72,14 @@ To specify SDS format, set the ``Accept`` header in the request to ``application
 
 ### Indexes and reading data
 
-Most read operations take at least one index as a parameter. Indexes may be specified as strings, or, 
-when using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
-type as a generic argument. Additional details about working with indexes can be found on the [Indexes](xref:sdsIndexes) page.
+Most read operations take at least one index as a parameter. Indexes may be specified as strings, or 
+using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
+type as a generic argument. For more information, see [Indexes](xref:sdsIndexes). For information on compound indexes, see [Compound indexes](xref:sdsIndexes#compound-indexes).
+
 
 ### Read Characteristics
 
-When data is requested at an index for which no stored event exists, the read characterisitics determine 
+When data is requested at an index for which no stored event exists, the read characteristics determine 
 whether the result is an error, no event, interpolated event, or extrapolated event. The combination of 
 the type of the index and the interpolation and extrapolation modes of the SdsType and the SdsStream 
 determine the read characteristics.
@@ -112,7 +113,7 @@ properties that occur between data in a stream:
 | Property Type             | Result for a property for an index between data in a stream  | Comment |
 |---------------------------|--------------------------------------------------------------|---------|
 |Numeric Types              |Interpolated*                   |Rounding is done as needed for integer types |
-|Time related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
+|Time-related Types         |Interpolated                    |DateTime, DateTimeOffset, TimeSpan |
 |Nullable Types             |Interpolated**                  |Limited support for nullable numeric types |
 |Array and List Types       |Default value                   |         |
 |String Type                |Default value                   |         |
@@ -121,6 +122,9 @@ properties that occur between data in a stream:
 |GUID                       |Default value                   |         |
 |Version                    |Default value                   |         |
 |IDictionary or IEnumerable |Default value                   |Dictionary, Array, List, and so on. |
+|Empty Type		|Not supported                  	 | |
+|Object Type 		|Not supported                   	| |
+
 
 *When extreme values are involved in an interpolation (for example
 Decimal.MaxValue) the call might result in a BadRequest exception.

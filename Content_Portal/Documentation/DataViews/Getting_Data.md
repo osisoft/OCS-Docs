@@ -72,9 +72,11 @@ The view data is available in several formats.
 Data retrieval operations are paged. Data for a requested index range may span multiple pages.
 
 ### Page size
-By default, each page includes 1000 records. The maximum page size is 250,000. 
-
 Optimal page size is dependent both on the client and on the shape of the data view. The size of each individual record is proportional to the "width" of the data view, i.e. how many field mappings are resolved. Clients retrieving data views that resolve into few field mappings may wish to use a page size close to the maximum.
+
+By default, data views will be returned with an optimized page size based on the size and layout of the data view. Users can see the calculated page size as a `count` query parameter in the `Link` response header (described below). The calculated page size will be included in both the first and the next page links. This default page size can be overridden, however, by providing a `count` query parameter.
+
+The maximum page size is 250,000.
 
 ### Hyperlinks
 When paging through data view data via the REST API, hyperlinks to the first page and next page of data are provided in the `Link` header. The first page header is signified by relation type of first, `rel="first"`. The next page header is signified by `rel="next"`. Proper use of the hyperlinks is recommended.

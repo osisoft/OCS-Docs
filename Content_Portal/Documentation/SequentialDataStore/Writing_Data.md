@@ -5,7 +5,7 @@ uid: sdsWritingData
 # Write data
 
 The SDS REST APIs provide programmatic access to read and write SDS data. This section describes 
-the APIs used to write SdsStream data.
+things to note when writing to an SdsStream.
 
 When working in .NET, convenient SDS Client libraries are available. The `ISdsDataService` interface, accessed using the
 ``SdsService.GetDataService()`` helper, defines the available functions.
@@ -18,7 +18,7 @@ SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in 
 
 ### Single Stream Writes   
 
-The following support writing multiple values:
+The following methods support writing a single or multiple values:
 * [Insert Values](xref:sdsWritingDataApi#insert-values) inserts a collection of events.
 * [Patch Values](xref:sdsWritingDataApi#patch-values) updates specific fields for a collection of events.
 * [Replace Values](xref:sdsWritingDataApi#remove-values) replaces a collection of events.
@@ -101,14 +101,11 @@ Verbose has no impact on writes; writes return only error messages.
 To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
 
 ### Indexes
-SDS writes rely on the primary index for positioning within streams and locating existing events. 
+Writing to the SDS relies on the primary index for positioning within the streams and locating existing events. 
 Most writes use the index as specified by the value. Deletes are the exception to this rule. When deleting, 
 indexes are specified as strings in the URI, or, when using the SDS Client Libraries, the index may be 
-passed as-is to delete methods that take the index type as a generic argument. For more information on working 
-with indexes, see [Indexes](xref:sdsIndexes). 
-
-To specify compound indexes in the URI, specify each field that composes the index, in the specified order, 
-separated by the pipe character, ‘|’.
+passed as-is to DELETE methods that take the index type as a generic argument. For more information on working 
+with indexes, see [Indexes](xref:sdsIndexes). For information on compound indexes, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
 ***********************
 

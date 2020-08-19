@@ -47,7 +47,7 @@ Controls when the data view backing resources are to be refreshed. Used only whe
 | `Preserve`| Use cached information, if available.   
 
 `[optional] int count`  
-The requested page size. The default value is 1000. The maximum is 250,000.
+The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsGettingData#page-size).
 
 ### Response
 The response includes a status code and, in most cases, a body.

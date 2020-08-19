@@ -23,7 +23,7 @@ When SDS is unable to determine how to map a source property, the property is re
 a target property that it cannot map to, the property is added and configured with a default value.
 
 To map a property that is beyond the ability of SDS to map on its own, you should define an `SdsStreamViewProperty` 
-and add it to the SdsStreamView’s [`Properties` collection](xref:sdsstreamviewproperty).
+and add it to the SdsStreamView’s [`Properties` collection](#sdsstreamviewproperty).
 
 ## SdsStreamView fields and properties table
 <a name="streamviewpropertiestable"></a>
@@ -588,7 +588,7 @@ Returns a list of stream views within a given namespace.
 
 If specifying the optional search query parameter, the list of stream views returned will match 
 the search criteria. If the search query parameter is not specified, the list will include 
-all stream views in the namespace. See [Searching](xref:sdsSearching) for information about specifying those respective parameters.
+all stream views in the namespace. See [Search in SDS](xref:sdsSearching) for information about specifying those respective parameters.
 
 
 ### Request
