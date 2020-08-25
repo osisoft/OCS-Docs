@@ -879,3 +879,260 @@ Tenant not found.
 Internal server error.
 ***
 
+## `Get Identity Provider Consent State from Tenant`
+
+Get the advanced integration consent state for an Identity Provider for a Tenant. This determines whether an Identity Provider consents to sharing access to its directory with the OCS tenant.
+
+### Request
+
+`GET api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[Required]
+Guid identityProviderId
+```
+
+Id of Identity Provider to check for consent.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Member`
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `IdentityProviderConfig`
+
+```json
+{
+  “Scheme”: “aad”,
+  “Properties”: {
+    “AadTenantId”: “{AadTenantId}”,
+    “AadDomain”: “{AadDomain}”,
+    “ConsentState”: “{ConsentState}”,
+    “AadApplications”: {
+      “{AadApplicationId1}”: {
+        “ConsentType”: “{ConsentType1}”,
+        “IsConsented”: “{IsConsented1}”
+      },
+      “{AadApplicationId2}”: {
+        “ConsentType”: “{ConsentType2}”,
+        “IsConsented”: “{IsConsented2}”
+      },
+    }
+  }
+}
+```
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+IdentityProvider or Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
+## `Check if the Consent State information exists based for an Identity Provider`
+
+Get header for an identity provider's consent state to check if the consent state exists.
+
+### Request
+
+`HEAD api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[Required]
+Guid identityProviderId
+```
+
+Id of Identity Provider to check for consent.
+
+### Security
+
+Allowed for these roles:
+
+- `Account Member`
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+##### Type:
+
+ `Void`
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+IdentityProvider or Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
+## `Send Consent for an Identity Provider to Tenant`
+
+Sends a consent for an existing Identity Provider to share its directory with a Tenant. 
+
+### Request
+
+`POST api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Consent`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+Id of Tenant.
+
+```csharp
+[Required]
+Guid identityProviderId
+```
+
+Id of Identity Provider to activate consent
+
+```csharp
+[FromBody]
+[Required]
+IdentityProviderConfig identityProviderConfig
+```
+
+IdentityProviderConfig object.
+
+Property | Type | Required | Description 
+ --- | --- | --- | ---
+Scheme | Guid | Yes | 
+Properties | bool | Yes | 
+AadTenantId | string | Yes | 
+AadDomain | string | Yes | 
+ConsentState | string | Yes | 
+AadApplications | string | Yes | G
+ConsentType | string | Yes | 
+IsConsented | string | Yes | 
+
+
+
+```json
+{
+  “Scheme”: “aad”,
+  “Properties”: {
+    “SendConsent”: {
+      “ConsentType”: “{ConsentType}”,
+      “ConsentFirstName”: “{FirstName}”,
+      “ConsentEmail”: “{Email}”,
+      “ConsentOverride”: “{OverrideBool}”
+    }
+  }
+}
+```
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+
+### Returns
+
+#### 201
+
+Created.
+
+##### Type:
+
+ `IdentityProvider`
+
+```json
+{
+  “Scheme”: “aad”,
+  “Properties”: {
+    “SendConsent”: {
+      “ConsentType”: “{ConsentType}”,
+      “ConsentFirstName”: “{FirstName}”,
+      “ConsentEmail”: “{Email}”,
+      “ConsentOverride”: “{OverrideBool}”
+    }
+  }
+}
+```
+
+#### 400
+
+Missing or invalid inputs.
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+Tenant not found.
+
+#### 405
+
+Method not allowed at this base URL. Try the request again at the Global base URL.
+
+#### 408
+
+Operation timed out.
+
+#### 409
+
+Identity Provider already exists in Tenant.
+
+#### 500
+
+Internal server error.
+***
