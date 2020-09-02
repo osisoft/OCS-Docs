@@ -9,13 +9,13 @@ the stream views feature enables you to create a view of a selected SdsStream th
 You create a stream view by choosing a source and target type then a set of mappings between properties of those two types. 
 Using a stream view to leverage existing SdsType properties is preferable to creating a new SdsType, because the SdsStream that is based on the SdsType continues to function with its previously archived stream data intact.
 
+SdsStreamView is used to specify the mapping between the source and target types.
 Use a PUT method to assign a stream view to a stream, and display the stream data specified for the selected stream view with a GET method.
 For more information, see [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews).
-SdsStreamView is used to specify the mapping between the source and target types.
 
-To assign an SdsStreamView to an  SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view ID in the call, you can effectively assign the target type of the stream view to a specified stream. 
+To assign an SdsStreamView to an SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view ID, you can effectively assign the target type of the stream view to a specified stream. 
 
-SDS attempts to determine how to map properties from the source to the destination. When the mapping 
+SDS attempts to determine how to map properties from the source to the target. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
 or when the properties have the same name, SDS will map the properties automatically.
 
@@ -69,7 +69,7 @@ The SdsStreamView field supports nested properties.
 
 ## SdsStreamViewMap
 When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
-The SdsStreamViewMap provides a detailed Property-by-Property definition of the mapping. 
+The SdsStreamViewMap provides a detailed property-by-property definition of the mapping. 
 
 The table below shows the SdsStreamViewMap fields. The SdsStreamViewMap cannot be written to SDS, 
 so required and optional have no meaning.
@@ -78,11 +78,11 @@ so required and optional have no meaning.
 |--------------|--------------------------|--------------|---------|
 | SourceTypeId | String                   | Required     | Identifier of the SdsType of the SdsStream |
 | TargetTypeId | String                   | Required     | Identifier of the SdsType to convert events to |
-| Properties   | IList\<SdsStreamViewMapProperty\>| Optional     | Property level mapping |
+| Properties   | IList\<SdsStreamViewMapProperty\>| Optional     | Property-level mapping |
 
 ### SdsStreamViewMapProperty
 The SdsStreamViewMapProperty is similar to SdsStreamViewProperty but adds a `mode` detailing one or more actions taken on 
-the Property.
+the property.
 
 The table below shows the SdsStreamViewMapProperty fields. The SdsStreamViewMap cannot be written; it can only be 
 retrieved from SDS, so required and optional have no meaning.
@@ -94,8 +94,7 @@ retrieved from SDS, so required and optional have no meaning.
 | Mode         | SdsStreamViewMode | Aggregate of actions applied to the properties. SdsStreamViewModes are combined via binary arithmetic |
 | SdsStreamViewMap   | SdsStreamViewMap  | Mapping for derived types |
 
-The available SdsStreamViewModes are shown in the table below:
-
+**SdsStreamViewModes**
 | Name                   | Value  | Description |
 |------------------------|--------|-------------|
 | None                   | 0x0000 | No action   |
@@ -103,13 +102,13 @@ The available SdsStreamViewModes are shown in the table below:
 | FieldRemove            | 0x0002 | Remove the property matching the specified SdsTypeProperty |
 | FieldRename            | 0x0004 | Rename the property matching the source SdsTypeProperty to the target SdsTypeProperty |
 | FieldMove              | 0x0008 | Move the property from the location in the source to the location in the target|
-| FieldConversion        | 0x0016 | Converts the source property to the target type |
+| FieldConversion        | 0x0016 | Convert the source property to the target type |
 | InvalidFieldConversion | 0x0032 | Cannot perform the specified mapping |
 
 ## Changing Stream Type
 
-SdsStreamViews are used to change the SdsType defining a SdsStream. You cannot modify the SdsType itself as types are immutable. 
-But you can map an SdsStream from its current SdsType to a new SdsType.
+You use SdsStreamViews to change the SdsType that defines an SdsStream. You cannot modify the SdsType itself as types are immutable. 
+But you can map an SdsStream from its current SdsType to a different SdsType by way of stream view.
 
 To update an SdsType of an SdsStream, define an SdsStreamView and do the following:
 ```text
