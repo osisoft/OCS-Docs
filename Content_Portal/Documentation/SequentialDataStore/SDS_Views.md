@@ -10,8 +10,7 @@ You create a stream view by choosing a source and target type then a set of mapp
 Using a stream view to leverage existing SdsType properties is preferable to creating a new SdsType, because the SdsStream that is based on the SdsType continues to function with its previously archived stream data intact.
 
 SdsStreamView is used to specify the mapping between the source and target types.
-Use a PUT method to assign a stream view to a stream, and display the stream data specified for the selected stream view with a GET method.
-For more information, see [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews).
+Use a PUT method to assign a stream view to a stream, and display the stream data specified for the selected stream view with a GET method. For more information, see [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews).
 
 To assign an SdsStreamView to an SdsStream, execute an [Update Stream Type](xref:sdsStreams#update-stream-type) call.  By specifying the stream view ID, you can effectively assign the target type of the stream view to a specified stream. 
 
@@ -183,7 +182,7 @@ foreach (Simple value in simpleValues)
 //  4 / 1 / 2017 7:09:00 AM: Warning, 9
 ```
 
-To map the Measurement property to a property in the same location of the same type, allow SDS to 
+To map the ``Measurement`` property to a property in the same location of the same type, allow SDS to 
 automatically determine mapping.
 ```csharp
 public class Simple1
