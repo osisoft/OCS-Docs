@@ -410,8 +410,7 @@ foreach (Simple3 value in simple3Values)
 
 ## Work with SdsStreamViews outside of .NET framework
 
-When working with SdsStreamViews and not using .NET, either invoke HTTP methods directly or use some of 
-the sample codes. Both Python and JavaScript samples have SdsStreamView definitions.
+When working with SdsStreamViews and not using .NET, either invoke HTTP methods directly or use the code samples. Both Python and JavaScript samples have SdsStreamView definitions.
 
 JSON representation for a simple mapping between a source type with identifier `Simple` and a target 
 type with identifier `Simple1` would appear as follows:
