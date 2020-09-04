@@ -295,8 +295,8 @@ foreach (Simple2 value in simple2Values)
 
 The SdsStreamViewMap shows that the source `Measurement` floating point is converted to integer in the target.
 
-When neither the field name nor the field type or location matches, SDS does not determine mapping. 
-The source is eliminated and target is added and assigned the default value.
+When neither the field name, the field type or location matches, SDS does not determine mapping. 
+The source is eliminated, target is added and assigned the default value.
 ```csharp
 public class Simple3
 {
