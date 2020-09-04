@@ -350,7 +350,7 @@ foreach (Simple3 value in simple3Values)
 // 4 / 1 / 2017 7:09:00 AM: Warning, 0
 ```
 
-To map when SDS cannot determine mapping, use SdsStreamView Properties.
+To map when SDS cannot determine mapping, use SdsStreamView `Properties`.
 ```csharp
 SdsStreamView view = new SdsStreamView()
 {
