@@ -16,10 +16,9 @@ To assign an SdsStreamView to an SdsStream, execute an [Update Stream Type](xref
 
 SDS attempts to determine how to map properties from the source to the target. When the mapping 
 is straightforward, such as when the properties are in the same position and of the same data type, 
-or when the properties have the same name, SDS will map the properties automatically.
-
-When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
+or when the properties have the same name, SDS will map the properties automatically. When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
 a target property that it cannot map to, the property is added and configured with a default value.
+For more information, see [Stream views mapping](#stream-views-mapping) below.
 
 To map a property that is beyond the ability of SDS to map on its own, you should define an `SdsStreamViewProperty` 
 and add it to the SdsStreamView’s [`Properties` collection](#sdsstreamviewproperty).
@@ -104,7 +103,7 @@ retrieved from SDS, so required and optional have no meaning.
 | FieldConversion        | 0x0016 | Convert the source property to the target type |
 | InvalidFieldConversion | 0x0032 | Cannot perform the specified mapping |
 
-## Changing Stream Type
+## "Changing" the stream type
 
 You use SdsStreamViews to change the SdsType that defines an SdsStream. You cannot modify the SdsType itself as types are immutable. 
 But you can map an SdsStream from its current SdsType to a different SdsType by way of stream view.
@@ -115,6 +114,19 @@ To update an SdsType of an SdsStream, define an SdsStreamView and do the followi
 ```
 
 For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type). 
+
+### Stream views mapping
+
+SDS attempts to determine how to map properties from the source to the target. When the mapping 
+is straightforward, such as when the properties are in the same position and of the same data type, 
+or when the properties have the same name, SDS will map the properties automatically. When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
+a target property that it cannot map to, the property is added and configured with a default value.
+Convertible Types:
+Time-related Types (DateTime, DateTimeOffset, TimeSpan)?? -might apply only if it's index property (need to double check)
+Numeric Types and Nullable Numeric Types
+Enumeration Types and Nullable Enumeration Types
+Object Type Only if typeIds match between mapped properties
+
 
 ## Work with SdsStreamViews in .NET framework
 
