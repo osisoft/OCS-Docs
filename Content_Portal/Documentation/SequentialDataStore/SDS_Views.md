@@ -117,16 +117,28 @@ For more information, see [Update Stream Type](xref:sdsStreams#update-stream-typ
 
 ### Stream views mapping
 
-SDS attempts to determine how to map properties from the source to the target. When the mapping 
-is straightforward, such as when the properties are in the same position and of the same data type, 
-or when the properties have the same name, SDS will map the properties automatically. When SDS is unable to determine how to map a source property, the property is removed. If SDS encounters 
-a target property that it cannot map to, the property is added and configured with a default value.
-Convertible Types:
-Time-related Types (DateTime, DateTimeOffset, TimeSpan)?? -might apply only if it's index property (need to double check)
-Numeric Types and Nullable Numeric Types
-Enumeration Types and Nullable Enumeration Types
-Object Type Only if typeIds match between mapped properties
+SDS automatically maps properties from the source to the target type when it is straightforward:
+ - The properties are in the same position
+ - The properties are of the same data type
+ - The properties are of the same name
 
+See [Work with SdsStreamViews in .NET framework](#work-with-sdsstreamviews-in-net-framework) below for how automatic mapping works.  
+
+If needed, you can specify mapping. SDS largely supports mapping within the same data type. 
+
+**Mapping compatibility chart**
+ 
+| Source type\ Target type    	| Numeric types 	| Nullable numeric types 	| Enumeration types 	| Nullable enumeration types 	| Object types             	| Time-related types                       	|
+|----------------------------	|---------------	|------------------------	|-------------------	|----------------------------	|--------------------------	|------------------------------------------	|
+| Numeric types              	| Yes           	| Yes                    	| No                	| No                         	| No                       	| No                                       	|
+| Nullable numeric types     	| Yes           	| Yes                    	| No                	| No                         	| No                       	| No                                       	|
+| Enumeration types          	| No            	| No                     	| Yes               	| Yes                        	| No                       	| No                                       	|
+| Nullable enumeration types 	| No            	| No                     	| Yes               	| Yes                        	| No                       	| No                                       	|
+| Object types               	| No            	| No                     	| No                	| No                         	| Yes*                     	| No                                       	|
+| Time-related types         	| No            	| No                     	| No                	| No                         	| No                       	| Yes**  	|
+
+\*: Mappable if `typeId` matches between the source and the target type  
+\**: Examples include `DateTime`, `DateTimeOffset` and `TimeSpan`
 
 ## Work with SdsStreamViews in .NET framework
 
