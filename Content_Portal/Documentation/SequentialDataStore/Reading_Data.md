@@ -244,7 +244,7 @@ Data transformations are supported for all single stream reads, but transformati
 ### Reading with SdsStreamViews
 When transforming data with an SdsStreamView, the data read is converted to the *target type* specified in the SdsStreamView. Working with stream views is covered in detail in the [Stream Views](xref:sdsStreamViews) section.
 
-All stream view transformations are HTTP GET requests. Specify the stream view ID at the end of the transformation endpoint in requests. For example, the following request returns the first event of the stream *transformed* to the target type (per stream view definition specified by `streamViewId`):
+All stream view transformations are HTTP GET requests. Specify the stream view ID (`streamViewId={streamViewId}`) at the end of the transformation endpoint in the request as shown below. For example, the following request returns the first event of the stream *transformed* to the target type (per stream view definition specified by `streamViewId`):
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data/Transform/First?streamViewId={streamViewId}
  ```
