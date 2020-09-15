@@ -128,17 +128,15 @@ If needed, you can specify mapping. SDS largely supports mapping within the same
 
 **Mapping compatibility chart**
  
-| Source type\ Target type    	| Numeric types 	| Nullable numeric types 	| Enumeration types 	| Nullable enumeration types 	| Object types             	| Time-related types                       	|
-|----------------------------	|---------------	|------------------------	|-------------------	|----------------------------	|--------------------------	|------------------------------------------	|
-| Numeric types              	| Yes           	| Yes                    	| No                	| No                         	| No                       	| No                                       	|
-| Nullable numeric types     	| Yes           	| Yes                    	| No                	| No                         	| No                       	| No                                       	|
-| Enumeration types          	| No            	| No                     	| Yes               	| Yes                        	| No                       	| No                                       	|
-| Nullable enumeration types 	| No            	| No                     	| Yes               	| Yes                        	| No                       	| No                                       	|
-| Object types               	| No            	| No                     	| No                	| No                         	| Yes*                     	| No                                       	|
-| Time-related types         	| No            	| No                     	| No                	| No                         	| No                       	| Yes**  	|
+| Source type\ Target type    | Numeric types 	| Nullable numeric types 	| Enumeration types 	| Nullable enumeration types 	| Object types    	| 
+|----------------------------	|---------------	|------------------------	|-------------------	|----------------------------	|--------------------|
+| Numeric types              	| Yes           	| Yes                    	| No                	| No                         	| No                 |
+| Nullable numeric types     	| Yes           	| Yes                    	| No                	| No                         	| No                 |
+| Enumeration types          	| No            	| No                     	| Yes               	| Yes                        	| No                 |
+| Nullable enumeration types 	| No            	| No                     	| Yes               	| Yes                        	| No                 | 
+| Object types               	| No            	| No                     	| No                	| No                         	| Yes*               |
 
 \*: Mappable if `typeId` matches between the source and the target type  
-\**: Examples include `DateTime`, `DateTimeOffset` and `TimeSpan`
 
 ## Work with SdsStreamViews in .NET framework
 
