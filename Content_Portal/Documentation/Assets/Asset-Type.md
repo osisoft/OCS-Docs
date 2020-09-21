@@ -105,7 +105,7 @@ The response includes a status code and a body.
 | 200 OK                  | `AssetType[]` | A page of asset types. A response header, `Total-Count`,  indicates the total size of the collection. |
 | 204 No Content          | none          | No asset types found or the user does not have permissions to view  the asset types. |
 | 400 Bad Request         | error         | The request is not valid. See the response body for additional details. |
-| 503 Service Unavailable | error         | An error occurred while processing the request. See the response body for additional details. |
+| 503 Service Unavailable | error         | An error occurred while processing the request. See the response body for additional details.  |
 ***
 
 ## `Create AssetType` 
