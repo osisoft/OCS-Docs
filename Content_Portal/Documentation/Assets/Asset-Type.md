@@ -70,7 +70,7 @@ Content-Type: application/json
 
 ***
 
-## Get AssetTypes 
+## Get AssetTypes  
 
 Returns a list of asset types
 
