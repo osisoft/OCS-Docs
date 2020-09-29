@@ -1091,6 +1091,76 @@ IdentityProvider or Tenant not found.
 Internal server error.
 ***
 
+## `Get a List of all Groups IDs on an Identity Provider`
+
+Get a list of all group IDs on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
+
+### Request
+
+`POST api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/{IdpId}/Groups`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
+```
+
+Id of Tenant.
+
+```csharp
+[Required]
+Guid identityProviderId
+```
+
+Id of Identity Provider.
+
+IdentityProviderGroup object.
+
+Property | Type | Required | Description 
+ --- | --- | --- | ---
+Scheme | string | Yes | Gets or sets the scheme of the Identity Provider.
+GroupId | string | No | Gets or sets Group Id.
+
+
+
+```json
+{
+  "Scheme": "aad",
+  "GroupId": "00000000-0000-0000-0000-000000000000",
+}
+```
+
+
+### Security
+
+Allowed for these roles:
+
+- `Account Administrator`
+
+### Returns
+
+#### 200
+
+Success.
+
+#### 401
+
+Unauthorized.
+
+#### 403
+
+Forbidden.
+
+#### 404
+
+IdentityProvider or Tenant not found.
+
+#### 500
+
+Internal server error.
+***
+
 ## `Get a List of all Groups that a User belongs to on an Identity Provider`
 
 Get a list of all groups that the specified user belongs to on an Identity Provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
