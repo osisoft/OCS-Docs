@@ -36,7 +36,7 @@ The same is true for nested SdsStreamViewProperties. For more information, see [
 4. Cannot contain forward slash ("/")
 5. Can contain a maximum of 100 characters
 
-## Stream views mapping
+## SdsStreamView mapping
 
 SDS automatically maps properties from the source to the target type when it is straightforward. For example:
  - The properties are in the same position
