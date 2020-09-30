@@ -12,12 +12,12 @@ For HTTP requests and responses, the AutomationIdentity object has the following
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Id | Guid | | | Automation Identity id.
-Name | string | | | The Automation Identity name.
-TenantId | string | | | The Automation Identity Tenant id.
-RoleIds | Guid[] | | | Role ids associated with this Automation Identity.
-RoleTypeIds | Guid[] | | | Role type ids associated with this Automation Identity.
-Tags | string[] | | | Tags associated with this Automation Identity.
+Id | Guid | | | | Automation Identity id.
+Name | string | | | | The Automation Identity name.
+TenantId | string | | | | The Automation Identity Tenant id.
+RoleIds | Guid[] | | | | Role ids associated with this Automation Identity.
+RoleTypeIds | Guid[] | | | | Role type ids associated with this Automation Identity.
+Tags | string[] | | | | Tags associated with this Automation Identity.
 
 ### Serialized Model
 
