@@ -102,16 +102,16 @@ ClientCredentialClientCreate clientCredentialClientCreate
 
 ClientCredentialClientCreate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-SecretDescription | string | No | Gets or sets description for the initial secret for the client. Ensure that this is descriptive enough,            as it will be the only way to distinguish between multiple secrets and their usage for a            client.
-SecretExpirationDate | DateTime | No | Gets or sets expiration date for the initial secret for the client. If set to null the secret will            never expire. We advise against such practice.
-RoleIds | Guid[] | Yes | Gets or sets list of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
-Id | string | No | Gets or sets client ID for this client. This ID should be a GUID.
-Name | string | Yes | Gets or sets name of Client.
-Enabled | bool | No | Gets or sets whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
-AccessTokenLifetime | int32 | No | Gets or sets lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
-Tags | string[] | No | Gets or sets for OSIsoft internal use only.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+SecretDescription | string | No | | Description for the initial secret for the client. Ensure that this is descriptive enough,            as it will be the only way to distinguish between multiple secrets and their usage for a            client.
+SecretExpirationDate | DateTime | No | | Expiration date for the initial secret for the client. If set to null the secret will            never expire. We advise against such practice.
+RoleIds | Guid[] | Yes | | List of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
+Id | string | No | | Client ID for this client. This ID should be a GUID.
+Name | string | Yes | | Name of Client.
+Enabled | bool | No | | Whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
+AccessTokenLifetime | int32 | No | | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
+Tags | string[] | No | | For OSIsoft internal use only.
 
 
 
@@ -245,7 +245,7 @@ RoleIds | Guid[] | No | | | List of Roles to be assigned to this client. Member 
 Id | string | No | | | Client ID for this client. This ID should be a GUID.
 Name | string | Yes | | | Name of Client.
 Enabled | bool | No | | | Whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
-AccessTokenLifetime | | | int32 | No | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
+AccessTokenLifetime | int32 | No | | | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | No | | | For OSIsoft internal use only.
 
 
