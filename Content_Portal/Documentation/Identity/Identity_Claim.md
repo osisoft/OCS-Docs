@@ -11,14 +11,14 @@ An Identity Provider Claim provides a mechanism to map a Claim
 
 For HTTP requests and responses, the Claim object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Issuer | string | Gets or sets the issuer of the claim.
-OriginalIssuer | string | Gets or sets the original issuer of the claim.
-Subject | ClaimsIdentity | Gets or sets the subject of the claim.
-Type | string | Gets or sets the type of the claim.
-Value | string | Gets or sets the value of the claim.
-ValueType | string | Gets or sets the value type of the claim.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Issuer | string | | | | Gets or sets the issuer of the claim.
+OriginalIssuer | string | | | | Gets or sets the original issuer of the claim.
+Subject | ClaimsIdentity | | | | Gets or sets the subject of the claim.
+Type | string | | | | Gets or sets the type of the claim.
+Value | string | | | | Gets or sets the value of the claim.
+ValueType | string | | | | Gets or sets the value type of the claim.
 
 ### Serialized Model
 
