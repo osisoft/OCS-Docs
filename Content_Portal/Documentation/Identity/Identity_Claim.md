@@ -397,11 +397,11 @@ IdentityProviderClaimCreate identityProviderClaimCreate
 
 Identity Provider Claim to create.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Value | string | Yes | The value for this IdentityProvider Claim.
-IdentityProviderClaimTypeNameId | Guid | Yes | The Identity Provider Claim Type Name Id for this IdentityProvider Claim.
-RoleIds | Guid[] | Yes | The list of Role Ids associated with this IdentityProviderClaim.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Value | string | Yes | | | The value for this IdentityProvider Claim.
+IdentityProviderClaimTypeNameId | Guid | Yes | | | The Identity Provider Claim Type Name Id for this IdentityProvider Claim.
+RoleIds | Guid[] | Yes | | | The list of Role Ids associated with this IdentityProviderClaim.
 
 
 
