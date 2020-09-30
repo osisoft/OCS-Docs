@@ -36,15 +36,15 @@ The same is true for nested SdsStreamViewProperties. For more information, see [
 4. Cannot contain forward slash ("/")
 5. Can contain a maximum of 100 characters
 
-### Stream views mapping
+## Stream views mapping
 
 SDS automatically maps properties from the source to the target type when it is straightforward. For example:
  - The properties are in the same position
  - The properties are of the same data type
  - The properties are of the same name
 
-When SDS is unable to determine how to map a property in the source type, the property is removed. 
-If a property in the target type cannot map to the source property, SDS adds a property that is configured with a default value.
+When SDS is unable to determine how to map a property of the source type, the property is removed. 
+If a property of the target type cannot map to the source property, SDS adds a property that is configured with a default value.
 To map a property that is beyond the ability of SDS to map on its own, you should define an [SdsStreamViewProperty](#sdsstreamviewproperty) 
 and add it to the SdsStreamView’s properties collection.
 SDS largely supports mapping within the same data type. 
@@ -61,13 +61,12 @@ SDS largely supports mapping within the same data type.
 
 \* Mappable if `typeId` matches between the source and the target type  
 
-## SdsStreamViewProperty
+### SdsStreamViewProperty
 
 The SdsStreamView properties collection provides detailed instructions for specifying the mapping of 
 event properties. Each SdsStreamViewProperty in the properties collection defines the mapping of an 
 event’s property. SdsStreamView properties are required only when property mapping is not straightforward. 
 If you do not want a particular SdsType property in the source type to be mapped, there is no need to create a property for it.
-<!-- Jules, can you make sure that the last sentence here didn't change the meaning of the original? -->
 
 The following table shows the required and optional SdsStreamViewProperty fields.
 
@@ -79,7 +78,7 @@ The following table shows the required and optional SdsStreamViewProperty fields
 
 The SdsStreamView field supports nested properties.
 
-## SdsStreamViewMap
+### SdsStreamViewMap
 When an SdsStreamView is added, SDS defines a plan mapping. Plan details are retrieved as an SdsStreamViewMap. 
 The SdsStreamViewMap provides a detailed property-by-property definition of the mapping. 
 
@@ -122,7 +121,7 @@ retrieved from the SDS, so required and optional have no meaning.
 
 To work with stream views, you first need to have types, streams and streams data defined. 
 Here's a simplified procedure for working with the stream view. 
-For more information with code, see [Work with SdsStreamViews in .NET framework](#work-with-sdsstreamviews-in-net-framework)
+For code examples, see [Work with SdsStreamViews in .NET framework](#work-with-sdsstreamviews-in-net-framework)
  and [Work with SdsStreamViews outside of .NET framework](#work-with-sdsstreamviews-outside-of-net-framework) below. 
 
 1. Create a type that will be the source type. 
