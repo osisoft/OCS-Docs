@@ -15,8 +15,8 @@ For HTTP requests and responses, the AzureActiveDirectoryTenant object has the f
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Id | string | | | | Gets or sets id of an Azure Active Directory Tenant.
-ConsentState | ConsentState | | | | Gets or sets Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).
+Id | string | | | | Id of an Azure Active Directory Tenant.
+ConsentState | ConsentState | | | | Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).
 
 ### Serialized Model
 
@@ -392,12 +392,12 @@ ConsentInformation consentInformation
 
 ConsentInformation object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-AzureActiveDirectoryConsentEmail | string | Yes | Gets or sets address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
-AzureActiveDirectoryConsentGivenName | string | Yes | Gets or sets preferred name to use in the consent email.
-AzureActiveDirectoryConsentSurname | string | Yes | Gets or sets preferred surname to use in the consent email.
-AzureActiveDirectoryTenant | string | Yes | Gets or sets Azure Active Directory Domain Name (e.g. mydomain.onmicrosoft.com).
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+AzureActiveDirectoryConsentEmail | string | Yes | | | Address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
+AzureActiveDirectoryConsentGivenName | string | Yes | | | Preferred name to use in the consent email.
+AzureActiveDirectoryConsentSurname | string | Yes | | | Preferred surname to use in the consent email.
+AzureActiveDirectoryTenant | string | Yes | | | Azure Active Directory Domain Name (e.g. mydomain.onmicrosoft.com).
 
 
 
