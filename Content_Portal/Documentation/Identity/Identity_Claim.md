@@ -13,12 +13,12 @@ For HTTP requests and responses, the Claim object has the following properties a
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Issuer | string | | | | Gets or sets the issuer of the claim.
-OriginalIssuer | string | | | | Gets or sets the original issuer of the claim.
-Subject | ClaimsIdentity | | | | Gets or sets the subject of the claim.
-Type | string | | | | Gets or sets the type of the claim.
-Value | string | | | | Gets or sets the value of the claim.
-ValueType | string | | | | Gets or sets the value type of the claim.
+Issuer | string | | | | The issuer of the claim.
+OriginalIssuer | string | | | | The original issuer of the claim.
+Subject | ClaimsIdentity | | | | The subject of the claim.
+Type | string | | | | The type of the claim.
+Value | string | | | | The value of the claim.
+ValueType | string | | | | The value type of the claim.
 
 ### Serialized Model
 
@@ -399,9 +399,9 @@ Identity Provider Claim to create.
 
 Property | Type | Required | Description 
  --- | --- | --- | ---
-Value | string | Yes | Gets or sets the value for this IdentityProvider Claim.
-IdentityProviderClaimTypeNameId | Guid | Yes | Gets or sets the Identity Provider Claim Type Name Id for this IdentityProvider Claim.
-RoleIds | Guid[] | Yes | Gets or sets the list of Role Ids associated with this IdentityProviderClaim.
+Value | string | Yes | The value for this IdentityProvider Claim.
+IdentityProviderClaimTypeNameId | Guid | Yes | The Identity Provider Claim Type Name Id for this IdentityProvider Claim.
+RoleIds | Guid[] | Yes | The list of Role Ids associated with this IdentityProviderClaim.
 
 
 
@@ -518,8 +518,8 @@ Updated Identity Provider Claim values.
 
 Property | Type | Required | Description 
  --- | --- | --- | ---
-Value | string | No | Gets or sets the value for this IdentityProvider Claim.
-RoleIds | Guid[] | No | Gets or sets the list of Role Ids associated with this IdentityProviderClaim.
+Value | string | No | The value for this IdentityProvider Claim.
+RoleIds | Guid[] | No | The list of Role Ids associated with this IdentityProviderClaim.
 
 
 
