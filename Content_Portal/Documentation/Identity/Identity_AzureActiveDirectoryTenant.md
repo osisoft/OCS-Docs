@@ -13,10 +13,10 @@ An Azure Active Directory Tenant is used to map an existing
 
 For HTTP requests and responses, the AzureActiveDirectoryTenant object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Id | string | Gets or sets id of an Azure Active Directory Tenant.
-ConsentState | ConsentState | Gets or sets Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | string | | | | Gets or sets id of an Azure Active Directory Tenant.
+ConsentState | ConsentState | | | Gets or sets Consent State of Azure Active Directory Tenant. Can be: NotConsented (0), Consented (1).
 
 ### Serialized Model
 
