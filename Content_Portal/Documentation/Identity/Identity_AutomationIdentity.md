@@ -95,9 +95,9 @@ New Automation Identity object.
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Name | string | Yes | | Gets or sets the Automation Identity name.
-RoleIds | Guid[] | Yes | | Gets or sets role ids associated with this Automation Identity.
-Tags | string[] | No | | Gets or sets tags associated with this Automation Identity.
+Name | string | Yes | | | Gets or sets the Automation Identity name.
+RoleIds | Guid[] | Yes | | | Gets or sets role ids associated with this Automation Identity.
+Tags | string[] | No | | | Gets or sets tags associated with this Automation Identity.
 
 
 
@@ -603,9 +603,9 @@ Automation Identity object. Properties that are not set or are null will not be 
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Name | string | No | | Gets or sets the Automation Identity name.
-RoleIds | Guid[] | No | | Gets or sets role ids associated with this Automation Identity.
-Tags | string[] | No | | Gets or sets tags associated with this Automation Identity.
+Name | string | No | | | Gets or sets the Automation Identity name.
+RoleIds | Guid[] | No | | | Gets or sets role ids associated with this Automation Identity.
+Tags | string[] | No | | | Gets or sets tags associated with this Automation Identity.
 
 
 
