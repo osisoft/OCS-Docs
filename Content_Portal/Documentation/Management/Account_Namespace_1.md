@@ -18,13 +18,13 @@ In practice, namespaces may correspond to a specific set of infrastructure asset
 
 For HTTP requests and responses, the Namespace object has the following properties and JSON-serialized body: 
 
-| Property | Type | Description | 
- | --- | --- | ---  | 
-| Id | string | Gets or sets name of this Namespace; unique within a Tenant's Namespaces. | 
-| Region | string | Gets or sets the region that the namespace is provisioned in. | 
-| Self | string | Gets or sets the namespace's URI. | 
-| Description | string | Gets or sets description of this Namespace. | 
-| State | NamespaceProvisioningState | Gets or sets current state of this Namespace. | 
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+| Id | string | | | Name of this Namespace; unique within a Tenant's Namespaces. | 
+| Region | string | | | The region that the namespace is provisioned in. | 
+| Self | string | | | The namespace's URI. | 
+| Description | string | | | Description of this Namespace. | 
+| State | NamespaceProvisioningState | | | Current state of this Namespace. | 
 
 ```json
 {
