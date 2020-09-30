@@ -20,11 +20,11 @@ For HTTP requests and responses, the Namespace object has the following properti
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-| Id | string | | | Name of this Namespace; unique within a Tenant's Namespaces. | 
-| Region | string | | | The region that the namespace is provisioned in. | 
-| Self | string | | | The namespace's URI. | 
-| Description | string | | | Description of this Namespace. | 
-| State | NamespaceProvisioningState | | | Current state of this Namespace. | 
+| Id | string | | | | Name of this Namespace; unique within a Tenant's Namespaces. | 
+| Region | string | | | | The region that the namespace is provisioned in. | 
+| Self | string | | | | The namespace's URI. | 
+| Description | string | | | | Description of this Namespace. | 
+| State | NamespaceProvisioningState | | | | Current state of this Namespace. | 
 
 ```json
 {
