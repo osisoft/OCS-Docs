@@ -10,14 +10,14 @@ APIs for Automation Identities.
 
 For HTTP requests and responses, the AutomationIdentity object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Id | Guid | Gets or sets Automation Identity id.
-Name | string | Gets or sets the Automation Identity name.
-TenantId | string | Gets or sets the Automation Identity Tenant id.
-RoleIds | Guid[] | Gets or sets role ids associated with this Automation Identity.
-RoleTypeIds | Guid[] | Gets or sets role type ids associated with this Automation Identity.
-Tags | string[] | Gets or sets tags associated with this Automation Identity.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | Guid | | | Automation Identity id.
+Name | string | | | The Automation Identity name.
+TenantId | string | | | The Automation Identity Tenant id.
+RoleIds | Guid[] | | | Role ids associated with this Automation Identity.
+RoleTypeIds | Guid[] | | | Role type ids associated with this Automation Identity.
+Tags | string[] | | | Tags associated with this Automation Identity.
 
 ### Serialized Model
 
@@ -93,11 +93,11 @@ AutomationIdentityCreate automationIdentityCreate
 
 New Automation Identity object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Name | string | Yes | Gets or sets the Automation Identity name.
-RoleIds | Guid[] | Yes | Gets or sets role ids associated with this Automation Identity.
-Tags | string[] | No | Gets or sets tags associated with this Automation Identity.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Name | string | Yes | | Gets or sets the Automation Identity name.
+RoleIds | Guid[] | Yes | | Gets or sets role ids associated with this Automation Identity.
+Tags | string[] | No | | Gets or sets tags associated with this Automation Identity.
 
 
 
@@ -601,11 +601,11 @@ AutomationIdentityUpdate automationIdentityUpdate
 
 Automation Identity object. Properties that are not set or are null will not be changed.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Name | string | No | Gets or sets the Automation Identity name.
-RoleIds | Guid[] | No | Gets or sets role ids associated with this Automation Identity.
-Tags | string[] | No | Gets or sets tags associated with this Automation Identity.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Name | string | No | | Gets or sets the Automation Identity name.
+RoleIds | Guid[] | No | | Gets or sets role ids associated with this Automation Identity.
+Tags | string[] | No | | Gets or sets tags associated with this Automation Identity.
 
 
 
