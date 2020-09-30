@@ -516,10 +516,10 @@ IdentityProviderClaimUpdate identityProviderClaimUpdate
 
 Updated Identity Provider Claim values.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Value | string | No | The value for this IdentityProvider Claim.
-RoleIds | Guid[] | No | The list of Role Ids associated with this IdentityProviderClaim.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Value | string | No | | | The value for this IdentityProvider Claim.
+RoleIds | Guid[] | No | | | The list of Role Ids associated with this IdentityProviderClaim.
 
 
 
