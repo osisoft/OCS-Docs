@@ -21,8 +21,8 @@ For HTTP requests and responses, the Secret object has the following properties 
 Id | int32 | | | | Id for the secret. Note: This is currently an auto-incremented integer.
 Description | string | | | | Description for the secret.
 Value | string | | | | Value for the secret.
-Expiration | DateTime | | | | Expiration for the secret.
-Type | string | | | | Type of the client secret.
+Expiration | DateTime | | | | Expiration date for the secret.
+Type | string | | | | Type of client secret.
 
 ### Serialized Model
 
