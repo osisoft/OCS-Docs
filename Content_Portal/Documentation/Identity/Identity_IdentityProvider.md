@@ -520,6 +520,7 @@ Success.
         "Authorize": false, 
         "Search": false 
       } 
+    }
   },
   {
     "Id": "00000000-0000-0000-0000-000000000000",
