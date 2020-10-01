@@ -888,7 +888,7 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Id | Guid | No | Gets or sets user Id for the user. When creating a user, if User ID is not specified, one will be generated.
+Id | Guid | No | | | Id for the user. When creating a user, if User ID is not specified, one will be generated.
 ExternalUserId | string | No | | | User ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
 ContactGivenName | string | No | | | Preferred name to be used when contacting user.
 ContactSurname | string | No | | | Preferred surname to be used when contacting user.
