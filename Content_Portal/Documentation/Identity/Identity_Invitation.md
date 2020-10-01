@@ -21,16 +21,16 @@ Invitations are issued after the creation of a User object in OCS,
 
 For HTTP requests and responses, the Invitation object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Id | string | Gets or sets unique Invitation Id.
-Issued | DateTime | Gets or sets invitation issuing timestamp.
-Expires | DateTime | Gets or sets invitation expiration timestamp.
-Accepted | DateTime | Gets or sets invitation accepted timestamp.
-State | InvitationStates | Gets or sets invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2).
-TenantId | string | Gets or sets ID of the Tenant the invitation belongs to.
-UserId | Guid | Gets or sets ID of the User whom the invitation was issued to.
-IdentityProviderId | Guid | Gets or sets ID of the Identity Provider that must be used to accept the invitation.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | string | | | | Unique Invitation Id.
+Issued | DateTime | | | | Invitation issuing timestamp.
+Expires | DateTime | | | | Invitation expiration timestamp.
+Accepted | DateTime | | | | Invitation accepted timestamp.
+State | InvitationStates | | | | Invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2).
+TenantId | string | | | | ID of the Tenant the invitation belongs to.
+UserId | Guid | | | | ID of the User whom the invitation was issued to.
+IdentityProviderId | Guid | | | | ID of the Identity Provider that must be used to accept the invitation.
 
 ### Serialized Model
 
@@ -292,12 +292,12 @@ InvitationCreateOrUpdate invitationCreateOrUpdate
 
 New InvitationCreateOrUpdate object. Properties that are not set or are null will not be changed.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-ExpiresDateTime | DateTime | No | Gets or sets invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
-State | InvitationStates | No | Gets or sets set the state of invitation. For OSISoft internal use only.
-SendInvitation | bool | No | Gets or sets send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Gets or sets Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+ExpiresDateTime | DateTime | No | | | | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
+State | InvitationStates | No | | | | The state of invitation. For OSISoft internal use only.
+SendInvitation | bool | No | | | | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
+IdentityProviderId | Guid | No | | | | Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
 
 
 
@@ -660,12 +660,12 @@ InvitationCreateOrUpdate invitationCreateOrUpdate
 
 InvitationCreateOrUpdate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-ExpiresDateTime | DateTime | No | Gets or sets invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
-State | InvitationStates | No | Gets or sets set the state of invitation. For OSISoft internal use only.
-SendInvitation | bool | No | Gets or sets send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Gets or sets Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+ExpiresDateTime | DateTime | No | | | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
+State | InvitationStates | No | | | The state of invitation. For OSISoft internal use only.
+SendInvitation | bool | No | | | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
+IdentityProviderId | Guid | No | | | Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
 
 
 
@@ -772,11 +772,11 @@ InvitationCreateOrUpdate invitationCreateOrUpdate
 
 InvitationCreateOrUpdate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-ExpiresDateTime | DateTime | No | Gets or sets invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
-State | InvitationStates | No | Gets or sets set the state of invitation. For OSISoft internal use only.
-SendInvitation | bool | No | Gets or sets send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+ExpiresDateTime | DateTime | No | | | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
+State | InvitationStates | No | | | The state of invitation. For OSISoft internal use only.
+SendInvitation | bool | No | | | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
 IdentityProviderId | Guid | No | Gets or sets Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
 
 
