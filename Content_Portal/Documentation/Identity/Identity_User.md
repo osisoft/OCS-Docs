@@ -22,19 +22,19 @@ Users consume resources in a Tenant. They are invited by the Admin of the
 
 For HTTP requests and responses, the User object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Id | Guid | Gets or sets unique User ID.
-GivenName | string | Gets or sets given name of user.
-Surname | string | Gets or sets surname of user.
-Name | string | Gets or sets name of user.
-Email | string | Gets or sets email of user.
-ContactEmail | string | Gets or sets contact email for user. User will only be contacted through this email.
-ContactGivenName | string | Gets or sets preferred contact name for user.
-ContactSurname | string | Gets or sets preferred contact surname for user.
-ExternalUserId | string | Gets or sets provider id for user. This is the unique ID we get from the Identity Provider.
-IdentityProviderId | Guid | Gets or sets Identity Provider Id used to authenticate User. Will be set once the User accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this Tenant.
-RoleIds | Guid[] | Gets or sets list of strings of RoleIds.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | Guid | | | | Unique User ID.
+GivenName | string | | | | Given name of user.
+Surname | string | | | | Surname of user.
+Name | string | | | | Name of user.
+Email | string | | | | Email of user.
+ContactEmail | string | | | | Contact email for user. User will only be contacted through this email.
+ContactGivenName | string | | | | Preferred contact name for user.
+ContactSurname | string | | | | Preferred contact surname for user.
+ExternalUserId | string | | | | Provider id for user. This is the unique ID we get from the Identity Provider.
+IdentityProviderId | Guid | | | | Identity Provider Id used to authenticate User. Will be set once the User accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this Tenant.
+RoleIds | Guid[] | | | | List of strings of RoleIds.
 
 ### Serialized Model
 
@@ -763,15 +763,15 @@ UserCreateOrUpdate userCreateOrUpdate
 
 UserCreateOrUpdate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Id | Guid | No | Gets or sets user Id for the user. When creating a user, if User ID is not specified, one will be generated.
-ExternalUserId | string | No | Gets or sets user ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
-ContactGivenName | string | No | Gets or sets preferred name to be used when contacting user.
-ContactSurname | string | No | Gets or sets preferred surname to be used when contacting user.
-ContactEmail | string | No | Gets or sets preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
-IdentityProviderId | Guid | No | Gets or sets Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
-RoleIds | Guid[] | No | Gets or sets list of strings of RoleIds.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | Guid | No | | | User Id for the user. When creating a user, if User ID is not specified, one will be generated.
+ExternalUserId | string | No | | | User ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
+ContactGivenName | string | No | | | Preferred name to be used when contacting user.
+ContactSurname | string | No | | | Preferred surname to be used when contacting user.
+ContactEmail | string | No | | | Preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
+IdentityProviderId | Guid | No | | | Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
+RoleIds | Guid[] | No | | | List of strings of RoleIds.
 
 
 
@@ -886,15 +886,15 @@ UserCreateOrUpdate userCreateOrUpdate
 
 UserCreateOrUpdate object. Properties that are not set or are null will not be changed.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
 Id | Guid | No | Gets or sets user Id for the user. When creating a user, if User ID is not specified, one will be generated.
-ExternalUserId | string | No | Gets or sets user ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
-ContactGivenName | string | No | Gets or sets preferred name to be used when contacting user.
-ContactSurname | string | No | Gets or sets preferred surname to be used when contacting user.
-ContactEmail | string | No | Gets or sets preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
-IdentityProviderId | Guid | No | Gets or sets Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
-RoleIds | Guid[] | No | Gets or sets list of strings of RoleIds.
+ExternalUserId | string | No | | | User ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
+ContactGivenName | string | No | | | Preferred name to be used when contacting user.
+ContactSurname | string | No | | | Preferred surname to be used when contacting user.
+ContactEmail | string | No | | | Preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
+IdentityProviderId | Guid | No | | | Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
+RoleIds | Guid[] | No | | | List of strings of RoleIds.
 
 
 
