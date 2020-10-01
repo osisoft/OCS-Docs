@@ -670,7 +670,7 @@ IdentityProviderAdd object.
 |-------|------|----------|---------|------------|---------| 
 IdentityProviderId | Guid | Yes | | | Identity Provider Id to Add.
 AzureActiveDirectorySendConsent | bool | No | | | A value indicating whether send consent email for Azure Active Directory.
-AzureActiveDirectoryConsentEmail | string | Yes | | | Address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
+AzureActiveDirectoryConsentEmail | string | Yes | | | Address to email consent. Only Azure Active Directory Admins have permission to consent to being allowed to interact with the tenant. The email does not have to be sent to an Admin.
 AzureActiveDirectoryConsentGivenName | string | Yes | | | Preferred name to use in the consent email.
 AzureActiveDirectoryConsentSurname | string | Yes | | | Preferred surname to use in the consent email.
 AzureActiveDirectoryTenant | string | Yes | | | Azure Active Directory Domain Name (e.g., mydomain.onmicrosoft.com).
