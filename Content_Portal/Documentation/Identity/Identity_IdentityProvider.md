@@ -667,13 +667,13 @@ IdentityProviderAdd object.
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-IdentityProviderId | Guid | Yes | | | | Identity Provider Id to Add.
-AzureActiveDirectorySendConsent | bool | No | | | | A value indicating whether send consent email for Azure Active Directory.
-AzureActiveDirectoryConsentEmail | string | Yes | | | | Address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
-AzureActiveDirectoryConsentGivenName | string | Yes | | | | Preferred name to use in the consent email.
-AzureActiveDirectoryConsentSurname | string | Yes | | | | Preferred surname to use in the consent email.
-AzureActiveDirectoryTenant | string | Yes | | | | Azure Active Directory Domain Name (e.g., mydomain.onmicrosoft.com).
-AzureActiveDirectoryConsentTypes | string | No | | | | Azure Active Directory Consent Types (e.g., SignIn or SignIn;ReadAllUsersGroups).
+IdentityProviderId | Guid | Yes | | | Identity Provider Id to Add.
+AzureActiveDirectorySendConsent | bool | No | | | A value indicating whether send consent email for Azure Active Directory.
+AzureActiveDirectoryConsentEmail | string | Yes | | | Address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
+AzureActiveDirectoryConsentGivenName | string | Yes | | | Preferred name to use in the consent email.
+AzureActiveDirectoryConsentSurname | string | Yes | | | Preferred surname to use in the consent email.
+AzureActiveDirectoryTenant | string | Yes | | | Azure Active Directory Domain Name (e.g., mydomain.onmicrosoft.com).
+AzureActiveDirectoryConsentTypes | string | No | | | Azure Active Directory Consent Types (e.g., SignIn or SignIn;ReadAllUsersGroups).
 
 
 
@@ -1119,8 +1119,8 @@ IdentityProviderGroup object.
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Scheme | string | Yes | | | | The scheme of the Identity Provider.
-GroupId | string | No | | | | Group Id.
+Scheme | string | Yes | | | The scheme of the Identity Provider.
+GroupId | string | No | | | Group Id.
 
 
 
@@ -1511,13 +1511,13 @@ IdentityProviderConsent object.
 
 | Property Name | Data Type |  Required | Default Value | Searchable | Description |
 |-------|------|----------|---------|------------|---------| 
-Scheme | string | Yes | | | | The scheme of the Identity Provider.
-AadTenantId | string | No | | | | Azure Active Directory Tenant Id.
-AadDomain | string | No | | | | Azure Active Directory Domain Name (e.g., mydomain.onmicrosoft.com).
-AadConsentTypes | string | Yes | | | | Azure Active Directory Consent Types (e.g., SignIn or SignIn;ReadAllUsersGroups).
-ConsentEmail | string | Yes | | | | Address to email consent. Only Azure Active Directory Admins have permission to consent to being allowed to interact with the tenant. The email does not have to be sent to an Admin.
-ConsentFirstName | string | Yes | | | | Preferred name to use in the consent email.
-ConsentOverride | bool | No | | | | A value indicating whether force a consent email to be sent for the specified ConsentTypes.
+Scheme | string | Yes | | | The scheme of the Identity Provider.
+AadTenantId | string | No | | | Azure Active Directory Tenant Id.
+AadDomain | string | No | | | Azure Active Directory Domain Name (e.g., mydomain.onmicrosoft.com).
+AadConsentTypes | string | Yes | | | Azure Active Directory Consent Types (e.g., SignIn or SignIn;ReadAllUsersGroups).
+ConsentEmail | string | Yes | | | Address to email consent. Only Azure Active Directory Admins have permission to consent to being allowed to interact with the tenant. The email does not have to be sent to an Admin.
+ConsentFirstName | string | Yes | | | Preferred name to use in the consent email.
+ConsentOverride | bool | No | | | A value indicating whether force a consent email to be sent for the specified ConsentTypes.
 
 
 
