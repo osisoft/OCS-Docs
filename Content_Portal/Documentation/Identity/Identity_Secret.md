@@ -16,13 +16,13 @@ Secrets are used to authenticate both Client Credential clients and Hybrid clien
 
 For HTTP requests and responses, the Secret object has the following properties and JSON-serialized body: 
 
-Property | Type | Description
- --- | --- | ---
-Id | int32 | Gets or sets the Id for the secret. Note: This is currently an auto-incremented integer.
-Description | string | Gets or sets the description.
-Value | string | Gets or sets the value.
-Expiration | DateTime | Gets or sets the expiration.
-Type | string | Gets or sets the type of the client secret.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Id | int32 | | | | Id for the secret. Note: This is currently an auto-incremented integer.
+Description | string | | | | Description for the secret.
+Value | string | | | | Value for the secret.
+Expiration | DateTime | | | | Expiration for the secret.
+Type | string | | | | Type of the client secret.
 
 ### Serialized Model
 
@@ -273,11 +273,11 @@ ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
 
 ClientSecretCreateOrUpdate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Expiration | DateTime | No | Gets or sets expiration date for the client secret. Will be null if the secret does not expire.
-Expires | bool | No | Gets or sets determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
-Description | string | No | Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Expiration | DateTime | No | | | Expiration date for the client secret. Will be null if the secret does not expire.
+Expires | bool | No | | | Determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
+Description | string | No | | | Description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
 
 
 
@@ -380,11 +380,11 @@ ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
 
 ClientSecretCreateOrUpdate object. Properties that are not set or are null will not be changed.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Expiration | DateTime | No | Gets or sets expiration date for the client secret. Will be null if the secret does not expire.
-Expires | bool | No | Gets or sets determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
-Description | string | No | Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Expiration | DateTime | No | | | Expiration date for the client secret. Will be null if the secret does not expire.
+Expires | bool | No | | | Determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
+Description | string | No | | | Description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
 
 
 
@@ -856,11 +856,11 @@ ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
 
 ClientSecretCreateOrUpdate object.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Expiration | DateTime | No | Gets or sets expiration date for the client secret. Will be null if the secret does not expire.
-Expires | bool | No | Gets or sets determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
-Description | string | No | Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Expiration | DateTime | No | | | Expiration date for the client secret. Will be null if the secret does not expire.
+Expires | bool | No | | | Determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
+Description | string | No | | | Description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
 
 
 
@@ -968,11 +968,11 @@ ClientSecretCreateOrUpdate clientSecretCreateOrUpdate
 
 ClientSecretCreateOrUpdate object. Properties that are not set or are null will not be changed.
 
-Property | Type | Required | Description 
- --- | --- | --- | ---
-Expiration | DateTime | No | Gets or sets expiration date for the client secret. Will be null if the secret does not expire.
-Expires | bool | No | Gets or sets determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
-Description | string | No | Gets or sets description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
+| Property Name | Data Type |  Required | Default Value | Searchable | Description |
+|-------|------|----------|---------|------------|---------| 
+Expiration | DateTime | No | | | Expiration date for the client secret. Will be null if the secret does not expire.
+Expires | bool | No | | | Determines if the secret expires. Defaults to true.            If Expires is set to true (or null) and Expiration is not null, expiration of this secret will be enforced.            If Expires is set to true (or null) and Expiration is null, a 400 error will be returned.            If Expires is set to false and Expiration is not null, a 400 error will be returned.            If Expires is set to false and Expiration is null, there will be no expiration of this secret.
+Description | string | No | | | Description for the client secret. We suggest being as descriptive as possible. This field will make identifying            secrets easier.
 
 
 
