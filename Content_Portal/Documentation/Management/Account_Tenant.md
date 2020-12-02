@@ -4,7 +4,7 @@ uid: AccountTenant
 
 # Tenants
 
-APIs to manage an OCS Customer Tenant Account. Unlike Namespaces, Tenants are not scoped to a region. Account level information, such as Users and Clients, is stored in all supported regions for read-only purposes. Write operations for account management and identity management are only supported through the global base URL. Unsupported requests return a status of ``Method Not Allowed`` (405). The resolution is to utilize the global base URL (https://dat-b.osisoft.com/) for write operations that are not scoped to a namespace.
+APIs to manage an OCS Customer Tenant. Unlike Namespaces, Tenants are not scoped to a region. Tenant level information, such as Users and Clients, is stored in all supported regions for read-only purposes. Write operations for tenant management and identity and access management are only supported through the global base URL. Unsupported requests return a status of ``Method Not Allowed`` (405). The resolution is to utilize the global base URL (https://dat-b.osisoft.com/) for write operations that are not scoped to a namespace.
 
 ## Properties
 
