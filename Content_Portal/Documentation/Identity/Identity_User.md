@@ -5,7 +5,7 @@ uid: identityUser
 # User
 
 Users consume resources in a Tenant. They are invited by the Admin of the
-            Tenant and should already have an account in one of the configured Identity
+            Tenant and should already have a tenant in one of the configured Identity
             Providers for this Tenant. A User is fully provisioned in OSIsoft Cloud Services
             only after they have accepted the invitation and successfully logged with
             an Identity Provider. OSIsoft Cloud Services does not maintain User credentials, but it delegates
