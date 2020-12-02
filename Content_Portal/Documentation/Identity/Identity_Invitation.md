@@ -9,7 +9,7 @@ Invitations are issued after the creation of a User object in OCS,
             Providers in a Tenant.
             There can only be one Invitation for a User at a time. An invitation
             can expire, at which time the Admin can either delete it, or extend it.
-            When creating an Invitation an account Admin has the option to resend the
+            When creating an Invitation an tenant administrator has the option to resend the
             Invitation email to the ContactEmail configured for the User the Invitation
             is attached to. The email can be re-sent by updating the Invitation.
             When an Invitation expires the User cannot accept it. If the expiration
