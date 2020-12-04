@@ -36,7 +36,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get Tenant Billing Cycles`
 
-Gets the billing cycles for an account inferred from the account's subscription.
+Gets the billing cycles for a tenant inferred from the subscription of the tenant.
 
 ### Request
 
