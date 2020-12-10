@@ -3,6 +3,12 @@
 <footer>
   <div class="grad-bottom"></div>
   <div class="footer">
-      <span id='copyright-text'>© $COPYRIGHT_YEAR - OSIsoft, LLC.<span>
+    <div class="container">
+      <span class="pull-right">
+        <a href="#top">Back to top</a>
+      </span>
+      {{{_appFooter}}}
+      {{^_appFooter}}<span><a href="https://www.osisoft.com/copyright/">© 1995 - 2020 OSIsoft, LLC. All rights reserved.</span>{{/_appFooter}}
+    </div>
   </div>
 </footer>

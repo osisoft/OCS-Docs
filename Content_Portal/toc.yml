@@ -1,0 +1,11 @@
+- name: OSIsoft Cloud Services
+  href: OCS_Content_Portal_Overview.md
+- name: Quickstarts
+  href: Quickstarts/toc.yml
+- name: How-To Guides
+  href: How_To_Guides/toc.yml
+- name: API Reference
+  href: Documentation/toc.yml
+  topicHref: Documentation/OSIsoft_Cloud_Services.md
+- name: Concepts
+  href: Concepts/toc.yml

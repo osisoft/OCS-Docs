@@ -193,9 +193,9 @@ article h1, article h2, article h3, article h4{
   margin-top: 25px;
 }
 
-article h4{
+/*article h4{
   border-bottom: 1px solid #ccc;
-}
+} */
 
 article span.small.pull-right{
   margin-top: 20px;
@@ -596,8 +596,7 @@ body .toc{
   margin-top: 50px;
   font-size: 12px;
   max-height: 100%;
-  max-width: 20%;
-  overflow-wrap: break-word;
+  overflow: hidden;
   top: 100px;
   bottom: 10px;
   position: fixed;
@@ -633,7 +632,6 @@ body .toc{
   overflow: hidden;
   padding-bottom: 10px;
   height: calc(100% - 100px);
-  margin-right: -20px;
 }
 .affix ul > li > a:before {
   color: #cccccc;

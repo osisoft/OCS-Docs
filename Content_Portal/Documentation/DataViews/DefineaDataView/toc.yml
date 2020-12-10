@@ -1,0 +1,23 @@
+- name: Recommended workflow
+  topicHref: Rec_Workflow.md
+- name: Define queries
+  topicHref: Queries.md
+- name: Identify data items
+  topicHref: Data_Items_and_Groups.md
+- name: Retrieve available field sets
+  topicHref: Available_Field_Sets.md
+- name: Define data field sets
+  topicHref: Field_Sets.md
+- name: Data view shape
+  topicHref: Data_View_Shape.md
+- name: Group data items
+  topicHref: Grouping.md
+- name: Add identifying field
+  topicHref: Add_Identifying_Field.md
+- name: Consolidate data fields
+  topicHref: Consolidate_Data_Fields.md
+- name: View field mappings
+  topicHref: Field_Mappings.md
+- name: Display units of measure
+  topicHref: Units_of_Measure.md
+

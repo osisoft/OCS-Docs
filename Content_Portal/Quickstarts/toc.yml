@@ -1,0 +1,6 @@
+- name: Getting Started with Trend Data 
+  topicHref: Getting-Started-Trend.md
+- name: Trend User Interface
+  topicHref: Trend-UI.md
+- name: Getting Started with Remote Operations Monitoring
+  topicHref: getting-started-rom.md

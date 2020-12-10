@@ -1,0 +1,17 @@
+- name: Define a data view
+  href: DefineaDataView/toc.yml
+  topicHref: DefineaDataView/Quick_Start_Define_a_Data_View.md
+- name: Get data view data
+  href: GetDataViewData/toc.yml
+  topicHref: GetDataViewData/Quick_Start_Get_Data_View_Data.md
+- name: Get resolved data view
+  topicHref: GetResolvedDataView/Resolved_Data_View.md
+- name: Preview data view API
+  topicHref: PreviewDataViewAPI/Preview_Data_View_API.md
+- name: Secure data views
+  topicHref: SecureDataViews/Securing_Data_Views.md
+- name: Data views API reference
+  href: DataViewsAPIOverview/toc.yml
+  topicHref: DataViewsAPIOverview/Data_Views_API_Overview.md
+- name: Stream examples
+  topicHref: Reference/Example_Scenario.md

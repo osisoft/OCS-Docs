@@ -10,7 +10,7 @@
       ],
       "dest": "api",
       "disableGitFeatures": false,
-      "_appLogoPath": "./Documentation/images/atlas_icon.png",
+      "_appLogoPath": "./Content_Portal/Documentation/images/atlas_icon.png",
       "_appName": "OSIsoft Cloud Services Documentation"
     }
   ],
@@ -21,9 +21,8 @@
     "content": [
       {
         "files": [
-          "Documentation/**/toc.yml",
-          "Documentation/**/**.md",
-          "Documentation/toc.yml",
+	  "Content_Portal/**/**.md",
+	  "Content_Portal/**/toc.yml",
           "toc.yml",
           "**.md"
         ]
@@ -32,7 +31,9 @@
     "resource": [
       {
         "files": [
-          "Documentation/images/**"
+            "Content_Portal/Quickstarts/images/**",
+            "Content_Portal/Documentation/images/**",
+            "Content_Portal/How_To_Guides/images/**"
         ]
       }
     ],
@@ -51,7 +52,8 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "_exported_templates/default"
     ],
     "postProcessors": ["OcsVariableProcessor"],
     "noLangKeyword": false,

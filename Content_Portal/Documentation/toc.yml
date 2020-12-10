@@ -1,0 +1,33 @@
+- name: OSIsoft Cloud Services 
+  topicHref: OSIsoft_Cloud_Services.md
+- name: Account Management
+  href: Management/toc.yml
+  topicHref: Management/Management_Overview.md
+- name: Identity
+  href: Identity/toc.yml
+  topicHref: Identity/Identity_and_Access_Management.md
+- name: Sequential Data Store
+  href: SequentialDataStore/toc.yml
+  topicHref: SequentialDataStore/Data_Store_and_SDS.md
+- name: Data Ingress and OMF
+  href: DataIngress/toc.yml
+  topicHref: DataIngress/Data_Ingress.md
+- name: Metadata Rules
+  topicHref: Metadata/Metadata_Rules_Overview.md
+- name: Assets (Preview)
+  href: Assets/toc.yml
+  topicHref: Assets/assets.md
+- name: Data Views
+  href: DataViews/toc.yml
+  topicHref: DataViews/Data_Views_Overview.md
+- name: Operations
+  href: Operations/toc.yml
+  topicHref: Operations/Operations_Overview.md
+- name: Role-Based Access Control
+  topicHref: Access_Control.md
+- name: HTTP Status Codes
+  topicHref: http-status-codes.md
+- name: Samples
+  topicHref: samples.md
+- name: Technical Support
+  topicHref: support.md

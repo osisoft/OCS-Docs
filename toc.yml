@@ -1,6 +1,3 @@
-- name: Home
-  href: index.md
-  homepage: index.md
-- name: Docs
-  href: Documentation/
-  topicHref: Documentation/OSIsoft_Cloud_Services.md
+- name: OCS Content Portal
+  href: Content_Portal/
+  homepage: Content_Portal/OCS_Content_Portal_Overview.md

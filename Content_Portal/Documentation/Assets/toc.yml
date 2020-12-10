@@ -1,0 +1,16 @@
+- name: Assets API
+  href: assets-api.md
+- name: Asset Types API
+  href: asset-type.md
+- name: Asset Measurement Mappings
+  href: asset-measurements.md
+- name: Asset Default Shape
+  href: asset-default-shape.md
+- name: Asset Centric Data API
+  href: asset-centric-data-api.md
+- name: Asset Status Mapping
+  href: asset-status-mapping.md
+- name: Assets Search API
+  href: asset-search-api.md
+- name: Asset and AssetType Access Control API
+  href: access-control-api.md

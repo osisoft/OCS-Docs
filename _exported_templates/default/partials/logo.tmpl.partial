@@ -1,5 +1,4 @@
 {{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
 
-<a class="navbar-brand" href="{{_rel}}index.html">
-  <img id="logo" src="{{_rel}}images/atlas_icon.png" alt="{{_appName}}" >
-</a>
+<a class="navbar-brand" href="{​​{​​_rel}​​}​​index.html">
+ <img id="logo" src="{​​{​​_rel}​​}​​images/atlas_icon.png" alt="{​​{​​_appName}​​}​​" ></a>

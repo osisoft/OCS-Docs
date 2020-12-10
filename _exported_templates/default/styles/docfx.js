@@ -1,7 +1,4 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
-
-const MINIMUM_QUERY_LENGTH = 2;
-
 $(function () {
   var active = 'active';
   var expanded = 'in';
@@ -226,7 +223,7 @@ $(function () {
         $("body").bind("queryReady", function () {
           worker.postMessage({ q: query });
         });
-        if (query && (query.length >= MINIMUM_QUERY_LENGTH)) {
+        if (query && (query.length >= 3)) {
           worker.postMessage({ q: query });
         }
       });
@@ -254,7 +251,7 @@ $(function () {
 
         $('#search-query').keyup(function () {
           query = $(this).val();
-          if (query.length < MINIMUM_QUERY_LENGTH) {
+          if (query.length < 3) {
             flipContents("show");
           } else {
             flipContents("hide");
@@ -350,6 +347,14 @@ $(function () {
     } else {
       $('#navbar ul a.active').parents('li').addClass(active);
       renderBreadcrumb();
+      showSearch();
+    }
+    
+    function showSearch() {
+      if ($('#search-results').length !== 0) {
+          $('#search').show();
+          $('body').trigger("searchEvent");
+      }
     }
 
     function loadNavbar() {
@@ -362,10 +367,7 @@ $(function () {
       if (tocPath) tocPath = tocPath.replace(/\\/g, '/');
       $.get(navbarPath, function (data) {
         $(data).find("#toc>ul").appendTo("#navbar");
-        if ($('#search-results').length !== 0) {
-          $('#search').show();
-          $('body').trigger("searchEvent");
-        }
+        showSearch();
         var index = navbarPath.lastIndexOf('/');
         var navrel = '';
         if (index > -1) {
@@ -380,7 +382,6 @@ $(function () {
             href = navrel + href;
             $(e).attr("href", href);
 
-            // TODO: currently only support one level navbar
             var isActive = false;
             var originalHref = e.name;
             if (originalHref) {
@@ -390,7 +391,10 @@ $(function () {
               }
             } else {
               if (util.getAbsolutePath(href) === currentAbsPath) {
-                isActive = true;
+                var dropdown = $(e).attr('data-toggle') == "dropdown"
+                if (!dropdown) {
+                  isActive = true;
+                }
               }
             }
             if (isActive) {
@@ -547,7 +551,7 @@ $(function () {
       if ($('footer').is(':visible')) {
         $(".sideaffix").css("bottom", "70px");
       }
-      $('#affix a').click(function() {
+      $('#affix a').click(function(e) {
         var scrollspy = $('[data-spy="scroll"]').data()['bs.scrollspy'];
         var target = e.target.hash;
         if (scrollspy && target) {
@@ -1132,8 +1136,15 @@ $(function () {
     }
 
     $(window).on('hashchange', scrollToCurrent);
-    // Exclude tabbed content case
-    $('a:not([data-tab])').click(delegateAnchors);
-    scrollToCurrent();
+
+    $(window).load(function () {
+        // scroll to the anchor if present, offset by the header
+        scrollToCurrent();
+    });
+
+    $(document).ready(function () {
+        // Exclude tabbed content case
+        $('a:not([data-tab])').click(function (e) { delegateAnchors(e); });
+    });
   }
 });
