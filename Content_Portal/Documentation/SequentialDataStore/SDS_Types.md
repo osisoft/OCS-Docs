@@ -1342,6 +1342,37 @@ Successful (200 OK) responses include an additional response header.
    Task<AccessControlList> GetTypesAccessControlListAsync();
    Task<SdsETagResult<AccessControlList>> GetTypesAccessControlListWithETagAsync();
 ```
+
+***********************
+
+## `Update Types Access Control List`
+
+Update the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+#### Request body 
+Serialized ACL
+
+### Response  
+The response includes a status code.
+
+### .NET client libraries method
+```csharp
+   Task UpdateTypesAccessControlListAsync(AccessControlList typesAcl);
+```
+
 ***********************
 
 ## `Patch Types Access Control List`
@@ -1407,35 +1438,7 @@ The response includes a status code.
    Task PatchTypesAccessControlListWithETagAsync(string etag, JsonPatchDocument<AccessControlList> typesAclPatch);
 ```
 
-***********************
 
-## `Update Types Access Control List`
-
-Update the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
-
-### Request
- ```text
-	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
- ```
-
-### Parameters 
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-
-#### Request body 
-Serialized ACL
-
-### Response  
-The response includes a status code.
-
-### .NET client libraries method
-```csharp
-   Task UpdateTypesAccessControlListAsync(AccessControlList typesAcl);
-```
 
 ***********************
 
@@ -1487,6 +1490,43 @@ Successful (200 OK) responses include an additional response header.
 ```
 
 ***********************
+
+
+## `Update Type Access Control List`
+
+Update the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
+
+Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
+
+### Request
+ ```text
+	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+#### Request body 
+Serialized ACL
+
+### Response  
+The response includes a status code.
+
+### .NET client libraries method
+```csharp
+   Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
+```
+
+***********************
+
 
 ## `Patch Type Access Control List`
 
@@ -1557,41 +1597,9 @@ The response includes a status code.
    Task PatchTypeAccessControlListWithETagAsync(string typeId, string etag, JsonPatchDocument<AccessControlList> typeAclPatch);
 ```
 
-***********************
 
-## `Update Type Access Control List`
-
-Update the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
-
-Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
-
-### Request
- ```text
-	PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
- ```
-
-### Parameters 
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-  
-`string typeId`  
-The type identifier  
-
-#### Request body 
-Serialized ACL
-
-### Response  
-The response includes a status code.
-
-### .NET client libraries method
-```csharp
-   Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
-```
 ***
+
 
 ## `Get Type Owner`
 

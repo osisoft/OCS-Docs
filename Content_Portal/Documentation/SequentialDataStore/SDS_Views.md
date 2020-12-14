@@ -835,6 +835,36 @@ Successful (200 OK) responses include an additional response header.
 
 ***********************
 
+## `Update Stream Views Access Control List`
+
+Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+#### Request body  
+Serialized ACL
+
+### Response
+The response includes a status code.
+
+### .NET client libraries method
+```csharp
+   Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
+```
+
+***********************
+
 ## `Patch Stream Views Access Control List`
 
 Update the default ACL for the Stream Views collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
@@ -898,35 +928,6 @@ The response includes a status code.
    Task PatchStreamViewsAccessControlListWithETagAsync(string etag, JsonPatchDocument<AccessControlList> streamViewAclPatch);
 ```
 
-***********************
-
-## `Update Stream Views Access Control List`
-
-Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
-
-### Request
- ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/StreamViews
- ```
-
-### Parameters 
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-
-#### Request body  
-Serialized ACL
-
-### Response
-The response includes a status code.
-
-### .NET client libraries method
-```csharp
-   Task UpdateStreamViewsAccessControlListAsync(AccessControlList viewsAcl);
-```
 
 ***********************
 
@@ -975,6 +976,40 @@ Successful (200 OK) responses include an additional response header.
 ```csharp
    Task<AccessControlList> GetStreamViewAccessControlListAsync(string streamViewId);
    Task<SdsETagResult<AccessControlList>> GetStreamViewAccessControlListWithETagAsync(string streamViewId);
+```
+
+
+***********************
+
+## `Update Stream View Access Control List`
+
+Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamViewId`  
+The stream view identifier  
+
+#### Request body  
+Serialized ACL
+
+### Response
+The response includes a status code.
+
+### .NET client libraries method
+```csharp
+   Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
 ```
 
 ***********************
@@ -1045,39 +1080,6 @@ The response includes a status code.
    Task PatchStreamViewAccessControlListWithETagAsync(string streamViewId, string etag, JsonPatchDocument<AccessControlList> streamViewAclPatch);
 ```
 
-
-***********************
-
-## `Update Stream View Access Control List`
-
-Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
-
-### Request
- ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewId}/AccessControl
- ```
-
-### Parameters 
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-  
-`string streamViewId`  
-The stream view identifier  
-
-#### Request body  
-Serialized ACL
-
-### Response
-The response includes a status code.
-
-### .NET client libraries method
-```csharp
-   Task UpdateStreamViewAccessControlListAsync(string streamViewId, AccessControlList viewAcl);
-```
 
 ***
 
