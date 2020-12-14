@@ -83,7 +83,6 @@ Authorized for Account Administrators of the specified tenant.
 ## `Delete Tenant Role`
 
 Deletes any tenant scoped, non built-in `Role` by its Role Id.
-
 ### Http
 
 `DELETE api/v1/Tenants/{tenantId}/Roles/{roleId}`

@@ -3,15 +3,15 @@ uid: AssetsProperties
 ---
 # Assets
 
-The Assets API allows you to programmatically model your on-premises assets in OSIsoft Cloud Services (OCS). A single stream with its metadata can be used to model very simple assets. However, in most instances, an asset relates to dynamic data from several streams and to static information that describe the asset. This is better structured as an asset instead of any single stream. the assets feature is well suited to model these aspects of an asset. It allows users to create an asset, add static metadata, and reference streams in a standard, structured way. The asset API includes search capabilities and features to directly retrieve the values of dynamic data associated with a given asset. It also provides methods to configure determining the asset status and to configure different user views of an asset.
+The asset API allows you to programmatically model your on-premises assets in OSIsoft Cloud Services (OCS). A single stream with its metadata can be used to model very simple assets. However, in most instances, an asset relates to dynamic data from several streams and to static information that describe the asset. This is better structured as an asset instead of any single stream. The assets feature is well suited to model these aspects of an asset. It allows users to create an asset, add static metadata, and reference streams in a standard, structured way. The asset API includes search capabilities and features to directly retrieve the values of dynamic data associated with a given asset. It also provides methods to configure determining the asset status and to configure different user views of an asset.
 
-## Asset Types
+## Asset types
 
 In many instances, you will have multiple assets of the same type. 
 
 In this situation, an asset type can be used to create multiple similar assets. A change to the asset type is reflected in all assets that are derived from the asset type.
 
-### Asset and Asset Type Properties
+### Asset and asset type properties
 
 | Property      | Type              | Required? | Searchable? | Description                                                  | Asset Property? | Asset Type Property? |
 | ------------- | ----------------- | --------- | ----------- | ------------------------------------------------------------ | ----- | --------------- |
@@ -25,7 +25,7 @@ In this situation, an asset type can be used to create multiple similar assets. 
 
 For more information on search syntax, see [Assets Search API](xref:AssetsSearchAPI).
 
-## Asset and Asset Type Metadata Properties
+## Asset and asset type metadata properties
 
 An asset or asset type metadata is static information associated with a given asset. A given metadata contains a list of individual metadata values. <!-- I wonder if it's correct to call this a list? "A given metadata contains any number of metadata values." -->There is no limit on the number of metadata values defined by an asset. An asset or asset type metadata does not stand alone. It must be specified within an asset or asset type object and, therefore, there are no direct API routes to asset or asset type metadata.
 
@@ -38,7 +38,7 @@ An asset or asset type metadata is static information associated with a given as
 | Uom         | String | Optional  | Asset metadata unit of measurement. Select from the list of supported Uom types. |
 | Value       | String | Optional  | String representation of the metadata.                       |
 
-## Asset Stream Reference Properties
+## Asset stream reference properties
 
 An asset stream reference represents dynamic stream data associated with an asset. The references must either be an SDS stream or an SDS stream view. Asset-centric data routes provide direct access to dynamic data for a given asset. There are no limitations on the number of references an asset may contain. However, an asset cannot contain multiple references to the same SDS stream. An asset stream reference does not stand alone. It must be specified within an asset object and, therefore, asset references do not have direct API routes. 
 
@@ -49,7 +49,7 @@ An asset stream reference represents dynamic stream data associated with an asse
 | Description   | String | Optional  | No          | Description text.                                            |
 | StreamId      | String | Required  | No          | The SDS stream `Id` of this stream reference. This SDS stream must exist at the time the asset is created. |
 
-## AssetType Type Reference Properties
+## AssetType type reference properties
 
 An asset type type reference represents dynamic stream data associated with an asset. The references must either be an SDS stream or an SDS stream view. Asset-centric data routes provide direct access to dynamic data for a given asset. There are no limitations on the number of references an asset may contain. However, an asset cannot contain multiple references to the same SDS stream. An asset reference does not stand alone. It must be specified within an asset object and, therefore, asset references do not have direct API routes. 
 
@@ -62,7 +62,7 @@ An asset type type reference represents dynamic stream data associated with an a
 
 The following is an example of an asset derived from an asset type.
 
-Asset Type Example
+Asset type example
 
 ```
 Content-Type: application/json
@@ -84,7 +84,7 @@ Content-Type: application/json
 }
 ```
 
-Asset Example
+Asset example
 ```
 { 
   "Id": "ChargingStation1", 

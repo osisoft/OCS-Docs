@@ -5,7 +5,7 @@
   topicHref: Management/Management_Overview.md
 - name: Identity and Access Management
   href: Identity/toc.yml
-  topicHref: Identity/Identity_Overview.md
+  topicHref: Identity/Identity_and_Access_Management.md
 - name: Sequential Data Store
   href: SequentialDataStore/toc.yml
   topicHref: SequentialDataStore/Data_Store_and_SDS.md

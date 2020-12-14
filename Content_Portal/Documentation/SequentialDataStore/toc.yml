@@ -1,12 +1,12 @@
 - name: Quick start
   href: Quick_Start.md
-- name: SdsTypes
+- name: Types
   href: SDS_Types.md
-- name: SdsStreams
+- name: Streams
   href: SDS_Streams.md
 - name: Stream metadata and tags
   href: SdsStreamExtra.md
-- name: SdsStreamViews
+- name: Stream views
   href: SDS_Views.md
 - name: Indexes
   href: indexes.md
