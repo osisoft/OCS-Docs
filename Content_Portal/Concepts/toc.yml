@@ -8,7 +8,7 @@
   topicHref: Least_Privilege.md
 - name: Roles
   topicHref: Roles.md
-- name: Account Management 
+- name: Tenant Management 
   topicHref: Account_Management_Concepts.md
 - name: Token Management
   topicHref: Token_Management.md
