@@ -290,66 +290,6 @@ A list of the supported units of measure is below. Supported units of measure ar
 # SdsUomQuantity API
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact with SdsUomQuantitys. When working in .NET, convenient SDS client libraries methods are available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, defines the available functions. See [Units of Measure](#units-of-measure) for general [SdsUomQuantity](#sdsuomquantity) information.
 ***
-## `Get Quantity`
-Returns the quantity corresponding to the specified quantityId within a given namespace.
-
-#### Request
- ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
-```
-
-##### Parameters
-
-`string tenantId`  
-The tenant identifier  
-
-`string namespaceId`  
-The namespace identifier  
-
-`string quantityId`  
-The quantity identifier
-
-#### Response
-The response includes a status code and a response body.
-
-##### Response body
-The requested SdsUomQuantity.
-
-##### Example response body when `quantityId = "Length"` is passed
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-{
-    "Id": "Length",
-    "Name": "Length",
-    "BaseUom": {
-        "Id": "meter",
-        "Abbreviation": "m",
-        "Name": "meter",
-        "DisplayName": "meter",
-        "QuantityId": "Length",
-        "ConversionFactor": 1
-    },
-    "Dimensions": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ]
-}
-```
-
-#### .NET client libraries method
-```csharp
-   Task<SdsUomQuantity> GetQuantityAsync(string quantityId);
-```
-
-***
-
 ## `Get Quantities`
 
 Returns a list of all quantities available within a given namespace.
@@ -434,15 +374,16 @@ Content-Type: application/json
 ```
 ***
 
-## `Get Quantity Uom`
-
-Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.
+## `Get Quantity`
+Returns the quantity corresponding to the specified quantityId within a given namespace.
 
 #### Request
  ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
- ```
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
+```
+
 ##### Parameters
+
 `string tenantId`  
 The tenant identifier  
 
@@ -452,34 +393,48 @@ The namespace identifier
 `string quantityId`  
 The quantity identifier
 
-`string uomId`  
-The unit of measure identifier
-
-#### Response 
+#### Response
 The response includes a status code and a response body.
 
 ##### Response body
-The requested SdsUom
+The requested SdsUomQuantity.
 
-##### Example response body when `quantityId = "Length"` and `uomId ="mile"` are passed
+##### Example response body when `quantityId = "Length"` is passed
 ```json
 HTTP/1.1 200
 Content-Type: application/json
 
 {
-    "Id": "mile",
-    "Abbreviation": "mi",
-    "Name": "mile",
-    "DisplayName": "mile",
-    "QuantityId": "Length",
-    "ConversionFactor": 1609.344
+    "Id": "Length",
+    "Name": "Length",
+    "BaseUom": {
+        "Id": "meter",
+        "Abbreviation": "m",
+        "Name": "meter",
+        "DisplayName": "meter",
+        "QuantityId": "Length",
+        "ConversionFactor": 1
+    },
+    "Dimensions": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
 }
 ```
+
 #### .NET client libraries method
 ```csharp
-   Task<SdsUom> GetQuantityUomAsync(string quantityId, string uomId);
+   Task<SdsUomQuantity> GetQuantityAsync(string quantityId);
 ```
+
 ***
+
+
 
 ## `Get Quantity Uoms`
 
@@ -535,10 +490,56 @@ Content-Type: application/json
    Task<IEnumerable<SdsUom>> GetQuantityUomsAsync(string quantityId);
 ```
 ***
+## `Get Quantity Uom`
+
+Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.
+
+#### Request
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
+ ```
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+
+`string namespaceId`  
+The namespace identifier  
+
+`string quantityId`  
+The quantity identifier
+
+`string uomId`  
+The unit of measure identifier
+
+#### Response 
+The response includes a status code and a response body.
+
+##### Response body
+The requested SdsUom
+
+##### Example response body when `quantityId = "Length"` and `uomId ="mile"` are passed
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+    "Id": "mile",
+    "Abbreviation": "mi",
+    "Name": "mile",
+    "DisplayName": "mile",
+    "QuantityId": "Length",
+    "ConversionFactor": 1609.344
+}
+```
+#### .NET client libraries method
+```csharp
+   Task<SdsUom> GetQuantityUomAsync(string quantityId, string uomId);
+```
+***
 
 ## `Get Quantities Access Control List`
 
-Get the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Gets the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -581,10 +582,38 @@ Successful (200 OK) responses include an additional response header.
 ```
 
 ***
+## `Update Quantities Access Control List`
+
+Updates the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
+
+#### Request
+ ```text
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Quantities
+ ```
+
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+##### Request body
+Serialized ACL
+
+#### Response
+The response includes a status code.
+
+#### .NET client libraries method
+```csharp
+   Task UpdateQuantitiesAccessControlListAsync(AccessControlList quantitiesAcl);
+```
+
+***********************
 
 ## `Patch Quantities Access Control List`
 
-Update the default ACL for the Quantities collection  using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Updates the default ACL for the Quantities collection  using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -646,38 +675,9 @@ The response includes a status code.
 
 ***
 
-## `Update Quantities Access Control List`
-
-Update the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
-
-#### Request
- ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Quantities
- ```
-
-##### Parameters
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-
-##### Request body
-Serialized ACL
-
-#### Response
-The response includes a status code.
-
-#### .NET client libraries method
-```csharp
-   Task UpdateQuantitiesAccessControlListAsync(AccessControlList quantitiesAcl);
-```
-
-***********************
-
 ## `Get Quantity Access Control List`
 
-Get the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Gets the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -727,7 +727,7 @@ Successful (200 OK) responses include an additional response header.
 
 ## `Update Quantity Access Control List`
 
-Update the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Updates the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -760,7 +760,7 @@ The response includes a status code.
 
 ## `Patch Quantity Access Control List`
 
-Update the ACL of the specified quantity using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Updates the ACL of the specified quantity using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -828,7 +828,7 @@ The response includes a status code.
 
 ## `Get Quantity Owner`
 
-Get the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
+Gets the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -860,7 +860,7 @@ The Owner for the specified quantity
 
 ## `Update Quantity Owner`
 
-Update the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
+Updates the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -936,50 +936,6 @@ The REST APIs provide programmatic access to read and write SDS data. The APIs i
 
 ***
 
-## ``Get Uom``
-
-Returns the unit of measure corresponding to the specified uomId within a given namespace.
-
-#### Request
- ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
- ```
-##### Parameters
-`string tenantId`  
-The tenant identifier  
-
-`string namespaceId`  
-The namespace identifier  
-
-`string uomId`  
-The unit of measure identifier
-
-#### Response   
-The response includes a status code and a response body.
-
-##### Response body   
-The requested SdsUom
-
-##### Example response body when `uomId = "ounce"` is passed
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-{
-    "Id": "ounce",
-    "Abbreviation": "oz",
-    "Name": "ounce",
-    "DisplayName": "ounce",
-    "QuantityId": "Mass",
-    "ConversionFactor": 0.028349523
-}
-```
-#### .NET client libraries method
-```csharp
-   Task<SdsUom> GetUomAsync(string uomId);
-```
-***
-
 ## ``Get Uoms``
 
 Returns a list of all available units of measure in the system.
@@ -1044,11 +1000,53 @@ Content-Type: application/json
    Task<IEnumerable<SdsUom>> GetUomsAsync(int skip = 0, int count = 100);
 ```
 ***
+## ``Get Uom``
 
+Returns the unit of measure corresponding to the specified uomId within a given namespace.
+
+#### Request
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
+ ```
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+
+`string namespaceId`  
+The namespace identifier  
+
+`string uomId`  
+The unit of measure identifier
+
+#### Response   
+The response includes a status code and a response body.
+
+##### Response body   
+The requested SdsUom
+
+##### Example response body when `uomId = "ounce"` is passed
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+    "Id": "ounce",
+    "Abbreviation": "oz",
+    "Name": "ounce",
+    "DisplayName": "ounce",
+    "QuantityId": "Mass",
+    "ConversionFactor": 0.028349523
+}
+```
+#### .NET client libraries method
+```csharp
+   Task<SdsUom> GetUomAsync(string uomId);
+```
+***
 
 ## `Get Uom Access Control List`
 
-Get the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -1098,9 +1096,43 @@ Successful (200 OK) responses include an additional response header.
 
 ***********************
 
+## `Update Uom Access Control List`
+
+Updates the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
+
+#### Request
+ ```text
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
+ ```
+
+##### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+`string uomId`  
+The unit of measure identifier
+
+##### Request body  
+Serialized ACL
+
+#### Response   
+The response includes a status code.
+
+#### .NET client libraries method
+```csharp
+   Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
+```
+***
 ## `Patch Uom Access Control List`
 
-Update the ACL of the specified unit of measure using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the ACL of the specified unit of measure using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -1169,44 +1201,9 @@ The response includes a status code.
 
 ***********************
 
-## `Update Uom Access Control List`
-
-Update the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
-
-#### Request
- ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
- ```
-
-##### Parameters
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-  
-`string quantityId`  
-The quantity identifier  
-
-`string uomId`  
-The unit of measure identifier
-
-##### Request body  
-Serialized ACL
-
-#### Response   
-The response includes a status code.
-
-#### .NET client libraries method
-```csharp
-   Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
-```
-***
-
 ## `Get Uom Owner`
 
-Get the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
+Gets the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -1241,7 +1238,7 @@ The Owner for the specified Uom
 
 ## `Update Uom Owner`
 
-Update the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
+Updates the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 #### Request
  ```text

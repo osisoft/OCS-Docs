@@ -473,6 +473,92 @@ interface, accessed using the ``SdsService.GetMetadataService()`` helper, define
 See [Stream Views](#stream-views) for general SdsStreamView information.
 
 ***********************
+## `Get Stream Views`
+
+Returns a list of stream views within a given namespace.
+
+If specifying the optional search query parameter, the list of stream views returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all stream views in the namespace. See [Search in SDS](xref:sdsSearching) for information about specifying those respective parameters.
+
+
+### Request
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}&orderby={orderby}
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier
+
+`string namespaceId`  
+The namespace identifier
+
+`string query`  
+An optional parameter representing a string search. 
+See [Search in SDS](xref:sdsSearching)
+for information about specifying the search parameter.
+
+`int skip`  
+An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
+If not specified, a default value of 0 is used.
+
+`int count`  
+An optional parameter representing the maximum number of SdsStreamViews to retrieve. 
+If not specified, a default value of 100 is used.
+
+`string orderby`  
+An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the      ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned   results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
+
+
+### Response
+The response includes a status code and a response body.
+
+
+### Response body  
+A collection of zero or more SdsStreamViews.
+
+#### Example response body
+```json
+HTTP/1.1 200
+Content-Type: application/json
+[  
+  {  
+     "Id":"StreamView",
+     "Name":"StreamView",
+     "SourceTypeId":"Simple",
+     "TargetTypeId":"Simple3"
+  },
+  {  
+     "Id":"StreamViewWithProperties",
+     "Name":"StreamViewWithProperties",
+     "SourceTypeId":"Simple",
+     "TargetTypeId":"Simple3",
+     "Properties":[  
+        {  
+           "SourceId":"Time",
+           "TargetId":"Time"
+        },
+        {
+           "SourceId":"State",
+           "TargetId":"State"
+        },
+        {
+           "SourceId":"Measurement",
+           "TargetId":"Value"
+        }				 
+     ]
+  }
+]
+```
+                
+### .NET client libraries method
+```csharp
+   Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
+```
+
+***********************
 
 ## `Get Stream View`
 Returns the stream view corresponding to the specified streamViewId within a given namespace.
@@ -598,93 +684,6 @@ Content-Type: application/json
 
 ***********************
 
-## `Get Stream Views`
-
-Returns a list of stream views within a given namespace.
-
-If specifying the optional search query parameter, the list of stream views returned will match 
-the search criteria. If the search query parameter is not specified, the list will include 
-all stream views in the namespace. See [Search in SDS](xref:sdsSearching) for information about specifying those respective parameters.
-
-
-### Request
- ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews?query={query}&skip={skip}&count={count}&orderby={orderby}
- ```
-
-### Parameters 
-
-`string tenantId`  
-The tenant identifier
-
-`string namespaceId`  
-The namespace identifier
-
-`string query`  
-An optional parameter representing a string search. 
-See [Search in SDS](xref:sdsSearching)
-for information about specifying the search parameter.
-
-`int skip`  
-An optional parameter representing the zero-based offset of the first SdsStreamView to retrieve. 
-If not specified, a default value of 0 is used.
-
-`int count`  
-An optional parameter representing the maximum number of SdsStreamViews to retrieve. 
-If not specified, a default value of 100 is used.
-
-`string orderby`  
-An optional parameter representing sorted order which SdsStreamViews will be returned. A field name is required. The sorting is based   on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the      ``name`` values (ascending by default). Additionally, a value can be provided along with the field name to identify whether to sort       ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned   results by the ``name`` values, descending. If no value is specified, there is no sorting of results.
-
-
-### Response
-The response includes a status code and a response body.
-
-
-### Response body  
-A collection of zero or more SdsStreamViews.
-
-#### Example response body
-```json
-HTTP/1.1 200
-Content-Type: application/json
-[  
-  {  
-     "Id":"StreamView",
-     "Name":"StreamView",
-     "SourceTypeId":"Simple",
-     "TargetTypeId":"Simple3"
-  },
-  {  
-     "Id":"StreamViewWithProperties",
-     "Name":"StreamViewWithProperties",
-     "SourceTypeId":"Simple",
-     "TargetTypeId":"Simple3",
-     "Properties":[  
-        {  
-           "SourceId":"Time",
-           "TargetId":"Time"
-        },
-        {
-           "SourceId":"State",
-           "TargetId":"State"
-        },
-        {
-           "SourceId":"Measurement",
-           "TargetId":"Value"
-        }				 
-     ]
-  }
-]
-```
-                
-### .NET client libraries method
-```csharp
-   Task<IEnumerable<SdsStreamView>> GetStreamViewsAsync(int skip = 0, int count = 100);
-```
-
-***********************
-
 ## `Get or Create Stream View`
 
 If a stream view with a matching identifier already exists, the stream view passed in is compared with the existing stream view.
@@ -791,7 +790,7 @@ The response includes a status code.
 ***********************
 ## `Get Stream Views Access Control List`
 
-Get the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -837,7 +836,7 @@ Successful (200 OK) responses include an additional response header.
 
 ## `Update Stream Views Access Control List`
 
-Update the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the default ACL for the Stream Views collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -867,7 +866,7 @@ The response includes a status code.
 
 ## `Patch Stream Views Access Control List`
 
-Update the default ACL for the Stream Views collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the default ACL for the Stream Views collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -933,7 +932,7 @@ The response includes a status code.
 
 ## `Get Stream View Access Control List`
 
-Get the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -983,7 +982,7 @@ Successful (200 OK) responses include an additional response header.
 
 ## `Update Stream View Access Control List`
 
-Update the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the ACL of the specified stream view. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1016,7 +1015,7 @@ The response includes a status code.
 
 ## `Patch Stream View Access Control List`
 
-Update the ACL of the specified stream view using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the ACL of the specified stream view using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1085,7 +1084,7 @@ The response includes a status code.
 
 ## `Get Stream View Owner`
 
-Get the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
+Gets the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1117,7 +1116,7 @@ The Owner for the specified stream view
 
 ## `Update Stream View Owner`
 
-Update the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
+Updates the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
