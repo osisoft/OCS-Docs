@@ -723,6 +723,41 @@ Successful (200 OK) responses include an additional response header.
 
 ***********************
 
+
+
+## `Update Quantity Access Control List`
+
+Update the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
+
+#### Request
+ ```text
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessControl
+ ```
+
+##### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+##### Request body
+Serialized ACL
+
+#### Response 
+The response includes a status code.
+
+#### .NET client libraries method
+```csharp
+   Task UpdateQuantityAccessControlListAsync(string quantityId, AccessControlList quantityAcl);
+```
+
+***
+
 ## `Patch Quantity Access Control List`
 
 Update the ACL of the specified quantity using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
@@ -790,39 +825,6 @@ The response includes a status code.
 ```
 
 ***********************
-
-## `Update Quantity Access Control List`
-
-Update the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
-
-#### Request
- ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessControl
- ```
-
-##### Parameters
-
-`string tenantId`  
-The tenant identifier  
-  
-`string namespaceId`  
-The namespace identifier  
-  
-`string quantityId`  
-The quantity identifier  
-
-##### Request body
-Serialized ACL
-
-#### Response 
-The response includes a status code.
-
-#### .NET client libraries method
-```csharp
-   Task UpdateQuantityAccessControlListAsync(string quantityId, AccessControlList quantityAcl);
-```
-
-***
 
 ## `Get Quantity Owner`
 
