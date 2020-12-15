@@ -1,15 +1,15 @@
 - name: Credential Management 
-  topicHref: Credential_Management.md
+  topicHref: credential-management.md
 - name: Consent 
   topicHref: Consent.md
 - name: Data Storage
   topicHref: Data_Storage_Concepts.md
 - name: Least Privilege
-  topicHref: Least_Privilege.md
+  topicHref: least-privilege.md
 - name: Roles
   topicHref: Roles.md
 - name: Tenant Management 
   topicHref: Account_Management_Concepts.md
 - name: Token Management
-  topicHref: Token_Management.md
+  topicHref: token-management.md
 
