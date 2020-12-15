@@ -23,7 +23,7 @@ To see what each code means in context, refer to the API documentation.
 |``405 Method not allowed``     |   The resource does not support the method in the request. For example, a ``PUT`` request on a ready-only resource will return this code.                         |
 |``408 Operation timed out``    |   The server timed out while waiting for a client request.                        |
 |``409 Conflict``               |   The request conflicts with the current state of the server.                     |
-|``412 Precondition Failed``    |   A precondition within the header or body was not met, so the operation could not be completed.  |
+|``412 Precondition Failed``    |   A precondition specified in the request was not met so the operation could not be completed.  |
 |``500 Internal server error``  |   The server ran into an unexpected condition and failed to complete the request. |
 |``503 Service unavailable``    |   The server cannot handle the request (due to maintenance, being overloaded, or for other reasons). As it is often a temporary state, try again later.                 |
 
