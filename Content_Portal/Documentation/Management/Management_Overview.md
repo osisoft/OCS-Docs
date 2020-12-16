@@ -1,5 +1,5 @@
 ---
-uid: TenantManagementOverview
+uid: AccountManagementOverview
 ---
 
 # Tenant Management
