@@ -6,10 +6,10 @@ uid: identityInvitation
 
 Invitations are issued after the creation of a User object in OCS,
             to begin the provisioning process for a user with one of the Identity
-            Providers in a Tenant.
+            Providers in a tenant.
             There can only be one Invitation for a User at a time. An invitation
             can expire, at which time the Admin can either delete it, or extend it.
-            When creating an Invitation an tenant administrator has the option to resend the
+            When creating an Invitation an Account Administrator has the option to resend the
             Invitation email to the ContactEmail configured for the User the Invitation
             is attached to. The email can be re-sent by updating the Invitation.
             When an Invitation expires the User cannot accept it. If the expiration
