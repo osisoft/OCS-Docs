@@ -1,5 +1,5 @@
 ---
-uid: TenantManagementConcepts
+uid: AccountManagementConcepts
 ---
 
 # Tenant Management Concepts
