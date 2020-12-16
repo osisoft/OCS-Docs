@@ -123,7 +123,7 @@ Authorized for Account Administrators of the specified tenant.
 
 ## `Get Tenant Role`
 
-Retrieves an tenant `Role` based on the specified tenant Id and role Id.
+Retrieves a tenant `Role` based on the specified tenant Id and role Id.
 
 ### Http
 
