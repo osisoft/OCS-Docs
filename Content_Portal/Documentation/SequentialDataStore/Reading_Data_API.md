@@ -1611,20 +1611,20 @@ Index identifying the beginning of the series of events to return
 ``string endIndex``  
 Index identifying the end of the series of events to return
 
-``int count``  
-Optional maximum number of events to return.
+[Optional] ``int count``  
+[Optional] maximum number of events to return.
 
-``SdsBoundaryType boundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
+[Optional] ``SdsBoundaryType boundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
 
-``SdsBoundaryType startBoundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the startIndex
+[Optional] ``SdsBoundaryType startBoundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the startIndex
 
-``SdsBoundaryType endBoundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the endIndex
+[Optional] ``SdsBoundaryType endBoundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the endIndex
 
-``string filter``  
-Optional filter expression
+[Optional] ``string filter``  
+[Optional] Filter expression
 
 #### Response
 The response includes a status code and a response body containing multiple serialized events. See examples for specifics.
