@@ -1566,7 +1566,7 @@ Note that `State` is not included in the JSON when its value is the default valu
 
 ## ``Join Values``
 
-Returns data from multiple streams, which are joined based on the request specifications. The streams must be of the same SdsType.
+Returns data from multiple streams, which are joined based on the request specifications. The streams must be of the same type.
 
 SDS supports the following types of joins:
 
@@ -1575,13 +1575,13 @@ SDS supports the following types of joins:
 | Inner        | 0                 | Results include the stored events with common indexes across specified streams. |
 | Outer        | 1                 | Results include the stored events for all indexes across all streams. |
 | Interpolated | 2                 | Results include events for each index across all streams for the request index boundaries. Some events may be interpolated. |
-| MergeLeft    | 3                 | Results include events for each index across all streams selecting events at the indexes based on left to right order of the streams. |
-| MergeRight   | 4                 | Results include events for each index across all streams selecting events at the indexes based on right to left order of the streams. |
+| MergeLeft    | 3                 | Results include one event for each index across all streams selecting events at the indexes based on left to right order of the streams. |
+| MergeRight   | 4                 | Results include one event for each index across all streams selecting events at the indexes based on right to left order of the streams. |
 
 
-SDS supports two types of join requests:
+SDS supports GET and POST join requests:
 * [GET](#getjoin): The stream, joinMode, start index, and end index are specified in the request URI path.
-* [POST](#postjoin): Only the SdsJoinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
+* [POST](#postjoin): Only the joinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
 
 <a name="getjoin"></a>
 ### `GET Request`
@@ -1603,7 +1603,7 @@ The namespace identifier
 Commas separated list of stream identifiers
   
 ``SdsJoinMode joinMode``  
-Type of join, i.e. inner, outer, etc.
+Type of join, inner, outer, or interpolated, for example
 
 ``string startIndex``  
 Index identifying the beginning of the series of events to return
@@ -1627,7 +1627,7 @@ Index identifying the end of the series of events to return
 [Optional] Filter expression
 
 ##### Response
-The response includes a status code and a response body containing multiple serialized events. See examples for specifics.
+The response includes a status code and a response body containing multiple serialized events. 
 
 ##### Example data
 
@@ -1731,7 +1731,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-All Measurements from both Streams, with default values at indexes where a Stream does not have a value.
+All Measurements from both Streams, with default values at indexes where a stream does not have a value.
 
 ##### Example response body
 ```json
@@ -1810,7 +1810,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-All Measurements from both Streams with missing values interpolated. If the missing values are between valid Measurements within a Stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
+All Measurements from both streams with missing values interpolated. If the missing values are between valid Measurements within a stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
 
 **Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. For more information, see [Interpolation](xref:sdsReadingData#interpolation).
 
@@ -2129,7 +2129,7 @@ Content-Type: application/json
 ]
 ```
 
-Notice that not all the values from Streams were included since they are restricted by individual queries for each Stream.
+Notice that not all the values from streams were included since they are restricted by individual queries for each stream.
 
 #### .NET client libraries methods
 ```csharp
