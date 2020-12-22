@@ -1626,12 +1626,12 @@ Index identifying the end of the series of events to return
 [Optional] ``string filter``  
 [Optional] Filter expression
 
-#### Response
+##### Response
 The response includes a status code and a response body containing multiple serialized events. See examples for specifics.
 
-##### Examples
+##### Example data
 
-To join multiple streams, for example `Simple1` and `Simple2`, assume that `Simple1` presents the following data:
+###### Stream `Simple1` 
 
 ```json  
 HTTP/1.1 200
@@ -1661,7 +1661,7 @@ Content-Type: application/json
 ]
 ```
 
-And assume that `Simple2` presents the following data:
+###### Stream `Simple2`
 
 ```json
 HTTP/1.1 200
@@ -1691,16 +1691,14 @@ Content-Type: application/json
 ]
 ```
 
-The following are responses for various Joins request options:
-
-##### `Inner Join` example request
+#### `Inner Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=inner
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 Measurements from both streams with common indexes.
 
 ##### Example response body 
@@ -1725,14 +1723,14 @@ Content-Type: application/json
 ]
 ```
 <a name="outer"></a>
-##### `Outer Join` example request
+#### `Outer Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=outer
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 All Measurements from both Streams, with default values at indexes where a Stream does not have a value.
 
 ##### Example response body
@@ -1804,14 +1802,14 @@ Content-Type: application/json
 ]
 ```
 
-##### `Interpolated Join` example request
+#### `Interpolated Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=interpolated
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 All Measurements from both Streams with missing values interpolated. If the missing values are between valid Measurements within a Stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
 
 **Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. For more information, see [Interpolation](xref:sdsReadingData#interpolation).
@@ -1910,14 +1908,14 @@ Content-Type: application/json
 ]
 ```
 
-##### `MergeLeft Join` example request
+#### `MergeLeft Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeleft
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from left to right.
 
 ##### Example response body
@@ -1964,14 +1962,14 @@ Content-Type: application/json
 ]
 ```
 
-##### `MergeRight Join` example request
+#### `MergeRight Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeright
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from right to left.
 
 ##### Example response body
@@ -2040,7 +2038,7 @@ Type of join, i.e. inner, outer, etc.
 ##### Request body  
 Read options specific to each stream.
 
-#### Response
+##### Response
  The response includes a status code and a response body containing multiple serialized events.
 
 Consider the following outer join request,
