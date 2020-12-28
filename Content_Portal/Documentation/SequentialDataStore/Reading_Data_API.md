@@ -2024,7 +2024,7 @@ Content-Type: application/json
         joinMode={joinMode}
  ```
 
-##### Parameters
+#### Parameters
 
 ``string tenantId``  
 The tenant identifier
@@ -2035,10 +2035,10 @@ The namespace identifier
 ``SdsJoinMode joinMode``  
 Type of join, i.e. inner, outer, etc.
 
-##### Request body  
+#### Request body  
 Read options specific to each stream.
 
-##### Response
+#### Response
  The response includes a status code and a response body containing multiple serialized events.
 
 Consider the following outer join request,
@@ -2080,7 +2080,7 @@ where in the request body, different start indexes and end indexes are specified
 
 Only events within the stream's specified index boundaries are considered for the outer join operation
 
-#### Response body
+##### Response body
 ```json
 HTTP/1.1 200
 Content-Type: application/json
