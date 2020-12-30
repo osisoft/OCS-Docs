@@ -1656,6 +1656,12 @@ Content-Type: application/json
     }
 ]
 ```
+| Time                	| Measurement 	|
+|----------------------	|-------------	|
+| 2017-11-23T11:00:00Z 	| 10          	|
+| 2017-11-23T13:00:00Z 	| 20          	|
+| 2017-11-23T14:00:00Z 	| 30          	|
+| 2017-11-23T16:00:00Z 	| 40          	|
 
 ###### Stream `Simple2`
 
@@ -1682,6 +1688,12 @@ Content-Type: application/json
     }
 ]
 ```
+| Time                	| Measurement 	|
+|----------------------	|-------------	|
+| 2017-11-23T12:00:00Z 	| 50          	|
+| 2017-11-23T14:00:00Z 	| 60          	|
+| 2017-11-23T15:00:00Z 	| 70          	|
+| 2017-11-23T17:00:00Z 	| 80          	|
 
 #### `Inner Join` example request
  ```text
@@ -1712,6 +1724,10 @@ Content-Type: application/json
     ]
 ]
 ```
+| Time                	| `Simple 1` Measurement 	| `Simple 2` Measurement 	|
+|----------------------	|-------------	|-------------	|
+| 2017-11-23T14:00:00Z 	| 30          	| 60          	|
+
 <a name="outer"></a>
 #### `Outer Join` example request
  ```text
@@ -1721,7 +1737,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-All Measurements from both Streams, with default values at indexes where a stream does not have a value.
+All Measurements from both streams, with default values at indexes where a stream does not have a value.
 
 ##### Example response body
 ```json
@@ -1783,6 +1799,17 @@ Content-Type: application/json
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| null                    	|
+| 2017-11-23T12:00:00Z 	| null                   	| 50                      	|
+| 2017-11-23T13:00:00Z 	| 20                     	| null                    	|
+| 2017-11-23T14:00:00Z 	| 30                     	| 60                      	|
+| 2017-11-23T15:00:00Z 	| null                   	| 70                      	|
+| 2017-11-23T16:00:00Z 	| 40                     	| null                    	|
+| 2017-11-23T17:00:00Z 	| null                   	| 80                      	|
+
+Default value is `null` for timestamp-value pair types. 
 
 #### `Interpolated Join` example request
  ```text
@@ -1792,7 +1819,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-All Measurements from both streams with missing values interpolated. If the missing values are between valid Measurements within a stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
+All Measurements from both streams with missing values interpolated. If the missing values are between valid measurements within a stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
 
 **Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. For more information, see [Interpolation](xref:sdsReadingData#interpolation).
 
@@ -1875,6 +1902,17 @@ Content-Type: application/json
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| 50                      	|
+| 2017-11-23T12:00:00Z 	| 15                     	| 50                      	|
+| 2017-11-23T13:00:00Z 	| 20                     	| 55                      	|
+| 2017-11-23T14:00:00Z 	| 30                     	| 60                      	|
+| 2017-11-23T15:00:00Z 	| 35                     	| 70                      	|
+| 2017-11-23T16:00:00Z 	| 40                     	| 75                      	|
+| 2017-11-23T17:00:00Z 	| 40                     	| 80                      	|
+
+Missing values are interpolated. 
 
 #### `MergeLeft Join` example request
  ```text
@@ -1884,7 +1922,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from left to right.
+Similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from left to right.
 
 ##### Example response body
 ```json
@@ -1923,6 +1961,18 @@ Content-Type: application/json
 ]
 ```
 
+| Index                	|  Measurement 	|
+|----------------------	|--------------	|
+| 2017-11-23T11:00:00Z 	| 10           	|
+| 2017-11-23T12:00:00Z 	| 50           	|
+| 2017-11-23T13:00:00Z 	| 20           	|
+| 2017-11-23T14:00:00Z 	| 30           	|
+| 2017-11-23T15:00:00Z 	| 70           	|
+| 2017-11-23T16:00:00Z 	| 40           	|
+| 2017-11-23T17:00:00Z 	| 80           	|
+
+Takes the value from the stream on the left (`Simple1`) at "2017-11-23T14:00:00Z". 
+
 #### `MergeRight Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
@@ -1931,7 +1981,7 @@ Content-Type: application/json
  ```
 
 ##### Response
-This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from right to left.
+Similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from right to left.
 
 ##### Example response body
 ```json
@@ -1969,7 +2019,17 @@ Content-Type: application/json
     }
 ]
 ```
+| Index                	|  Measurement 	|
+|----------------------	|--------------	|
+| 2017-11-23T11:00:00Z 	| 10           	|
+| 2017-11-23T12:00:00Z 	| 50           	|
+| 2017-11-23T13:00:00Z 	| 20           	|
+| 2017-11-23T14:00:00Z 	| 60           	|
+| 2017-11-23T15:00:00Z 	| 70           	|
+| 2017-11-23T16:00:00Z 	| 40           	|
+| 2017-11-23T17:00:00Z 	| 80           	|
 
+Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00Z". 
 
 <a name="postjoin"></a>
 ### `POST Request`
