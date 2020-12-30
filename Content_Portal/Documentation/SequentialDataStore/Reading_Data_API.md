@@ -1640,22 +1640,18 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 30
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     }
 ]
@@ -1670,22 +1666,18 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 60
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
@@ -1711,12 +1703,10 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ]
@@ -1742,7 +1732,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         null
@@ -1751,14 +1740,12 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         null
@@ -1766,12 +1753,10 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ],
@@ -1779,14 +1764,12 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
     [
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         null
@@ -1795,7 +1778,6 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
@@ -1824,84 +1806,70 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 15
         },
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 55
         }
     ],
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ],
     [
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 35
         },
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
     [
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 75
         }
     ],
     [
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
@@ -1926,37 +1894,30 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 30
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
@@ -1980,37 +1941,30 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 60
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
@@ -2089,7 +2043,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         null
@@ -2097,7 +2050,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         null
@@ -2105,7 +2057,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         null
@@ -2114,7 +2065,6 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
@@ -2122,7 +2072,6 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
