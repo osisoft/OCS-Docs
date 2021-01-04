@@ -2038,7 +2038,7 @@ Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00
         joinMode={joinMode}
  ```
 
-#### Parameters
+##### Parameters
 
 ``string tenantId``  
 The tenant identifier
@@ -2047,21 +2047,22 @@ The tenant identifier
 The namespace identifier
   
 ``SdsJoinMode joinMode``  
-Type of join, i.e. inner, outer, etc.
+Type of join, inner, outer, or interpolated, for example
 
-#### Request body  
-Read options specific to each stream.
+##### Request body  
+Read option specific to each stream
 
-#### Response
- The response includes a status code and a response body containing multiple serialized events.
+##### Response
+The response includes a status code and a response body containing multiple serialized events.
 
-Consider the following outer join request,
+#### `Outer Join` example request 
  ```text
     POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode=outer
  ```
 
-where in the request body, different start indexes and end indexes are specified per stream,
+##### `Outer Join` example request body
+Different start indexes and end indexes are specified per stream.
 
 ```json
 [  
@@ -2092,9 +2093,11 @@ where in the request body, different start indexes and end indexes are specified
 ] 
 ```
 
-Only events within the stream's specified index boundaries are considered for the outer join operation
 
-##### Response body
+
+##### `Outer Join` example response body
+Only events within the two streams' specified index boundaries are considered for the outer join operation.
+
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -2137,10 +2140,18 @@ Content-Type: application/json
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| null                    	|
+| 2017-11-23T13:00:00Z 	| 20                     	| null                    	|
+| 2017-11-23T14:00:00Z 	| 30                     	| null                      |
+| 2017-11-23T15:00:00Z 	| null                   	| 70                      	|
+| 2017-11-23T17:00:00Z 	| null                   	| 80                      	|
 
-Notice that not all the values from streams were included since they are restricted by individual queries for each stream.
+Not all values from both streams are included because the query restricts each stream.
+See `Outer Join` [GET request](#outer-join-example-request) above to compare.   
 
-#### .NET client libraries methods
+### .NET client libraries methods
 ```csharp
    Task<IEnumerable<IList<T>>> GetJoinValuesAsync<T>(IEnumerable<string> streams, 
       SdsJoinType joinMode, string startIndex, string endIndex);
