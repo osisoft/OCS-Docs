@@ -1603,7 +1603,7 @@ The namespace identifier
 Commas separated list of stream identifiers
   
 ``SdsJoinMode joinMode``  
-Type of join, inner, outer, or interpolated, for example
+Type of join: inner, outer, interpolated, merge left or merge right
 
 ``string startIndex``  
 Index identifying the beginning of the series of events to return
@@ -1612,7 +1612,7 @@ Index identifying the beginning of the series of events to return
 Index identifying the end of the series of events to return
 
 [Optional] ``int count``  
-[Optional] maximum number of events to return.
+[Optional] Maximum number of events to return.
 
 [Optional] ``SdsBoundaryType boundaryType``  
 [Optional] SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
@@ -1629,9 +1629,10 @@ Index identifying the end of the series of events to return
 ##### Response
 The response includes a status code and a response body containing multiple serialized events. 
 
-##### Example data
-
-###### Stream `Simple1` 
+##### Examples
+Data from streams `Simple1` and `Simple2` will be used to illustrate how each join operation works.
+ 
+###### Stream data `Simple1` 
 
 ```json  
 HTTP/1.1 200
@@ -1663,7 +1664,7 @@ Content-Type: application/json
 | 2017-11-23T14:00:00Z 	| 30          	|
 | 2017-11-23T16:00:00Z 	| 40          	|
 
-###### Stream `Simple2`
+###### Stream data `Simple2`
 
 ```json
 HTTP/1.1 200
@@ -1809,7 +1810,7 @@ Content-Type: application/json
 | 2017-11-23T16:00:00Z 	| 40                     	| null                    	|
 | 2017-11-23T17:00:00Z 	| null                   	| 80                      	|
 
-Default value is `null` for timestamp-value pair types. 
+Default value is `null` for SdsTypes. 
 
 #### `Interpolated Join` example request
  ```text
@@ -1819,9 +1820,13 @@ Default value is `null` for timestamp-value pair types.
  ```
 
 ##### Response
-All Measurements from both streams with missing values interpolated. If the missing values are between valid measurements within a stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
+All Measurements from both streams with missing values interpolated. 
+If the missing values are between valid measurements within a stream, they are interpolated.
+For more information, see [Interpolation](xref:sdsReadingData#interpolation).
+If the missing values are outside of the boundary values, they are extrapolated.
+For more information, see [Extrapolation](xref:sdsReadingData#extrapolation).
 
-**Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. For more information, see [Interpolation](xref:sdsReadingData#interpolation).
+**Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. 
 
 ##### Example response body
 
@@ -1904,15 +1909,15 @@ Content-Type: application/json
 ```
 | Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
 |----------------------	|------------------------	|-------------------------	|
-| 2017-11-23T11:00:00Z 	| 10                     	| 50                      	|
-| 2017-11-23T12:00:00Z 	| 15                     	| 50                      	|
-| 2017-11-23T13:00:00Z 	| 20                     	| 55                      	|
+| 2017-11-23T11:00:00Z 	| 10                     	| _50_                     	|
+| 2017-11-23T12:00:00Z 	| **15**                     	| 50                      	|
+| 2017-11-23T13:00:00Z 	| 20                     	| **55**                      	|
 | 2017-11-23T14:00:00Z 	| 30                     	| 60                      	|
-| 2017-11-23T15:00:00Z 	| 35                     	| 70                      	|
-| 2017-11-23T16:00:00Z 	| 40                     	| 75                      	|
-| 2017-11-23T17:00:00Z 	| 40                     	| 80                      	|
+| 2017-11-23T15:00:00Z 	| **35**                    | 70                      	|
+| 2017-11-23T16:00:00Z 	| 40                     	| **75**                      	|
+| 2017-11-23T17:00:00Z 	| _40_                     	| 80                      	|
 
-Missing values are interpolated. 
+Interpolated values are in bold. Extrapolated values are in italics. 
 
 #### `MergeLeft Join` example request
  ```text
@@ -1961,15 +1966,15 @@ Content-Type: application/json
 ]
 ```
 
-| Index                	|  Measurement 	|
-|----------------------	|--------------	|
-| 2017-11-23T11:00:00Z 	| 10           	|
-| 2017-11-23T12:00:00Z 	| 50           	|
-| 2017-11-23T13:00:00Z 	| 20           	|
-| 2017-11-23T14:00:00Z 	| 30           	|
-| 2017-11-23T15:00:00Z 	| 70           	|
-| 2017-11-23T16:00:00Z 	| 40           	|
-| 2017-11-23T17:00:00Z 	| 80           	|
+| Index                	| `Simple1`  	| `Simple2` 	| Returned `MergeLeft Join` Values    	|
+|----------------------	|------------	|-----------	|----	|
+| 2017-11-23T11:00:00Z 	| 10         	|           	| 10 	|
+| 2017-11-23T12:00:00Z 	|            	| 50        	| 50 	|
+| 2017-11-23T13:00:00Z 	| 20         	|           	| 20 	|
+| 2017-11-23T14:00:00Z 	| *30*         	| 60        	| 30 	|
+| 2017-11-23T15:00:00Z 	|            	| 70        	| 70 	|
+| 2017-11-23T16:00:00Z 	| 40         	|           	| 40 	|
+| 2017-11-23T17:00:00Z 	|            	| 80        	| 80 	|
 
 Takes the value from the stream on the left (`Simple1`) at "2017-11-23T14:00:00Z". 
 
@@ -2019,15 +2024,15 @@ Content-Type: application/json
     }
 ]
 ```
-| Index                	|  Measurement 	|
-|----------------------	|--------------	|
-| 2017-11-23T11:00:00Z 	| 10           	|
-| 2017-11-23T12:00:00Z 	| 50           	|
-| 2017-11-23T13:00:00Z 	| 20           	|
-| 2017-11-23T14:00:00Z 	| 60           	|
-| 2017-11-23T15:00:00Z 	| 70           	|
-| 2017-11-23T16:00:00Z 	| 40           	|
-| 2017-11-23T17:00:00Z 	| 80           	|
+| Index                	| `Simple1`  	| `Simple2` 	| Returned `MergeRight Join` Values    	|
+|----------------------	|------------	|-----------	|----	|
+| 2017-11-23T11:00:00Z 	| 10         	|           	| 10 	|
+| 2017-11-23T12:00:00Z 	|            	| 50        	| 50 	|
+| 2017-11-23T13:00:00Z 	| 20         	|           	| 20 	|
+| 2017-11-23T14:00:00Z 	| 30         	| *60*        	| 60 	|
+| 2017-11-23T15:00:00Z 	|            	| 70        	| 70 	|
+| 2017-11-23T16:00:00Z 	| 40         	|           	| 40 	|
+| 2017-11-23T17:00:00Z 	|            	| 80        	| 80 	|
 
 Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00Z". 
 
@@ -2047,7 +2052,7 @@ The tenant identifier
 The namespace identifier
   
 ``SdsJoinMode joinMode``  
-Type of join, inner, outer, or interpolated, for example
+Type of join: inner, outer, interpolated, merge left or merge right
 
 ##### Request body  
 Read option specific to each stream
