@@ -4,7 +4,7 @@ uid: AssetTypes
 
 # Asset types
 
-Asset Types define a template for building assets. Asset types contain:
+Asset types are a template that is used to create multiple assets with similar properties. Assets created from asset types have the following characteristics:
 
 * Metadata - A collection of properties that asset instances of this asset type are expected to provide. The type and units of measure for the value can be defined.
 
