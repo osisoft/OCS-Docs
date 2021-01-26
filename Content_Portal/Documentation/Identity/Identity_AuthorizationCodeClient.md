@@ -4,12 +4,12 @@ uid: identityAuthorizationCodeClient
 
 # AuthorizationCodeClient
 
-Authorization Code clients are used in Javascript/Browser (SPA) based applications or native
+Authorization code clients are used in Javascript/Browser (SPA) based applications or native
             mobile applications with the presence of a User. You can read more about these clients
             [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#authorization-code-flow-with-pkce).
             Authorization code clients are not issued secrets or refresh tokens.
-            For some guidelines on use of secrets, refer to the [Credential Management](xref:CredentialManagement) topic.
-            For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
+            For some guidelines on use of secrets, refer to the [Credential management](xref:CredentialManagement) topic.
+            For some recommendations on least privilege for users and clients, refer to the [Least privilege](xref:LeastPrivilege) topic.
 
 ## Properties
 
@@ -675,7 +675,7 @@ Internal server error.
 
 ## `Delete an authorization code client`
 
-Delete an Authorization Code Client. It can take up to one hour for deletion to manifest in the authentication process. Access  tokens issued to this client will be valid until their expiration.
+Delete an Authorization Code Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
 ### Request
 
