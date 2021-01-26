@@ -18,10 +18,11 @@ In this situation, an asset type can be used to create multiple similar assets. 
 | Id            | String            | Required  | Yes         | `Id` for referencing this asset. If you do not provide an `Id`, OCS copies the name as the identifier`Id`. If you do not provide a name, OCS assigns a random GUID for the `Id`.| Yes  | Yes            |
 | Name          | String            | Required only if `Id` is not specified  | Yes         | User-friendly name. Required if `Id` is not provided. If Name is used as the `Id`, it must be unique within a given namespace. | Yes  | Yes            |
 | Description   | String            | Optional  | Yes         | User-provided description.                                   | Yes  | Yes            |
-| AssetTypeId   | String            | Optional  | No          | `Id` for the asset type that this asset is derived from. To get the merged view of the asset, get the default shape through the /Assets/{assetId}/Shape route. | Yes  | No            |
-| Metadata      | Metadata List     | Optional  | Yes*       | Asset and AssetType Metadata                               | Yes  | Yes            |
-| StreamReferences   | Stream Reference List | Optional  | No *       | Asset Stream References                                             | Yes  | No            |
-| TypeReferences | Type Reference List | Optional  | No*        | Asset Type Type References                                     | No | Yes            |
+| AssetTypeId   | String            | Optional  | No          | `Id` for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
+| Metadata      | Metadata List     | Optional  | Yes*       | Asset and asset type metadata                               | Yes  | Yes            |
+| StreamReferences   | Stream Reference List | Optional  | No *       | Asset stream references                                             | Yes  | No            |
+| TypeReferences | Type Reference List | Optional  | No*        | Asset type type references                                     | No | Yes            |
+| StatusMapping | Status Mapping | Optional  | No*        | Asset and asset type status mapping | Yes | Yes            |
 
 For more information on search syntax, see [Assets Search API](xref:AssetsSearchAPI).
 
@@ -49,7 +50,7 @@ An asset stream reference represents dynamic stream data associated with an asse
 | Description   | String | Optional  | No          | Description text.                                            |
 | StreamId      | String | Required  | No          | The SDS stream `Id` of this stream reference. This SDS stream must exist at the time the asset is created. |
 
-## AssetType type reference properties
+## Asset type type reference properties
 
 An asset type type reference represents dynamic stream data associated with an asset. The references must either be an SDS stream or an SDS stream view. Asset-centric data routes provide direct access to dynamic data for a given asset. There are no limitations on the number of references an asset may contain. However, an asset cannot contain multiple references to the same SDS stream. An asset reference does not stand alone. It must be specified within an asset object and, therefore, asset references do not have direct API routes. 
 
@@ -59,6 +60,9 @@ An asset type type reference represents dynamic stream data associated with an a
 | StreamReferenceName  | String | Required  | No          | The user friendly name for this type reference. If not null, must be unique within an asset type.|
 | Description | String | Optional  | No          | Description text                                             |
 | TypeId    | String | Required  | No          | This string must be an SDS stream type `Id` in the referenced SDS stream. |
+
+## Asset and asset type status mapping properties
+For information about asset and asset type status mapping, please refer to [Asset Status](xref:AssetStatusMapping) for more details.  
 
 The following is an example of an asset derived from an asset type.
 
@@ -75,7 +79,7 @@ Content-Type: application/json
      "SdsTypeCode": 18, 
      "Value": null 
      "Uom": null 
-   }], 
+  }], 
   "TypeReferences": [{ 
      "StreamReferenceId": "Reference1", 
      "StreamReferenceName": "ReferenceName", 
@@ -96,6 +100,29 @@ Asset example
       "Name": null,   
       "Value": "Houston",  
       "SdsTypeCode": 18,  
-    }] 
+   }],
+   "StreamReferences": [
+        {
+            "Id": "Reference1",
+            "Name": "ReferenceName",
+            "StreamId": "PI_StreamReference_1010"
+   }],
+   "Status": {
+        "Name": "ChargingStationStatus",
+        "StreamReferenceId": "Reference1",
+        "StreamPropertyId": "Value",
+        "ValueStatusMappings": [
+            {
+                "Value": 0,
+                "Status": 0,
+                "DisplayName": "Bad"
+            }
+            {
+                "Value": 1,
+                "Status": 1,
+                "DisplayName": "Good"
+            }
+        ]
+    }
 } 
 ```

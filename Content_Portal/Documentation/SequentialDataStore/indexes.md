@@ -346,9 +346,8 @@ Note that the ``GetWindowValuesAsync()`` call specifies an expected return type 
 #### Simple indexes
 When the .NET `SdsTypeBuilder` is unavailable, indexes must be built manually.
 
-Below, SdsTypes defined in the [Python](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Python)
-and [Java Script](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript)
-samples are shown. For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS).
+Below, SdsTypes defined in the [Python](https://github.com/osisoft/sample-ocs-waveform-python)
+and [Java Script](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples are shown. For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
 To build an SdsType representation of sample classes in Python and Java Script, see [Sample](#sample) below:
 

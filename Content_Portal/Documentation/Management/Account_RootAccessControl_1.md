@@ -25,7 +25,7 @@ Retrieves the [AccessControlList](xref:accessControl) that is used to authorize 
 string tenantId
 ```
 
-The identifier of the account to access.
+The identifier of the tenant to access.
 
 
 ### Security
@@ -60,7 +60,7 @@ Modifies the [AccessControlList](xref:accessControl) that is used to authorize a
 string tenantId
 ```
 
-The identifier of the account to modify.
+The identifier of the tenant to modify.
 ```csharp
 [Required]
 [FromBody]

@@ -5,7 +5,7 @@ uid: identityUser
 # User
 
 Users consume resources in a Tenant. They are invited by the Admin of the
-            Tenant and should already have an account in one of the configured Identity
+            Tenant and should already have a tenant in one of the configured Identity
             Providers for this Tenant. A User is fully provisioned in OSIsoft Cloud Services
             only after they have accepted the invitation and successfully logged with
             an Identity Provider. OSIsoft Cloud Services does not maintain User credentials, but it delegates
@@ -17,6 +17,7 @@ Users consume resources in a Tenant. They are invited by the Admin of the
             determine what a User is authorized to do in the Tenant. Roles are assigned to a User
             upon creation and can be modified by an Admin. We allow the change of some User fields
             and the complete deletion of a User.
+            For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
 
 ## Properties
 
@@ -67,7 +68,7 @@ All endpoints referenced in this documentation require authenticated access. Aut
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
 ## Error Handling
 

@@ -30,7 +30,7 @@ Data views will soon support `assets` in addition to `streams`. `Assets` have th
 * Asset id
 * Asset name
 * Asset metadata
-* Data from each asset measurement property
+* Data from each asset property
 
 ### Adding or Removing Data Items
 When requesting for [resolved data items](xref:ResolvedDataViewAPI) or when [getting the data view data](xref:DataViewsDataAPI), the list of data items reflects the list of OCS resources that match one or more queries when the data view was last resolved. This means that if new data items, such as new SDS streams, were added or existing data items were removed, the list of data items will only reflect the latest changes if the data view is re-resolved. For more information, refer to the caching section in the resolved data view resource [page](xref:ResolvedDataView).

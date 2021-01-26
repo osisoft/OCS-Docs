@@ -106,7 +106,7 @@ The namespace identifier
 An optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
 
 [optional] `int count`   
-An optional parameter representing the maximum number of assets to retrieve. If not specified, a default value of 100 is used. 
+An optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of retrieved assets. If not specified, the default is 100.
 
 ### Response 
 The response includes a status code and a body. 
@@ -212,9 +212,10 @@ The response includes a status code and a body.
 | Status Code               | Body Type | Description                                     |
 | ------------------------- | --------- | ----------------------------------------------- |
 | 200 OK                    | `Asset[]`  | An array of assets as persisted, including values for optional parameters that were omitted in the request.                               |
-| 400 Bad Request             | error     | The request is not valid. The response includes which asset failed validation checks. See the response body for additional details.     |
-| 403 Forbidden            | error     | You are not authorized to create assets.           |
-| 409 Conflict | error     | The asset create has a conflict. See the response body for additional details.  |
+| 207 Multi-Status          | partial success | Array of errors. Assets that did not encounter errors are created. |
+| 400 Bad Request           | error     | The request is not valid. The response includes which asset failed validation checks. See the response body for additional details.     |
+| 403 Forbidden             | error     | You are not authorized to create assets.           |
+| 409 Conflict              | error      | The asset create has a conflict. See the response body for additional details.  |
 
 ***
 
@@ -226,7 +227,6 @@ Create or update an asset with a specified `Id`. If the asset already exists, yo
 
 ```text 
 PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId} 
-
 ```
 
 ### Parameters  
@@ -273,7 +273,6 @@ Delete an asset with a specified `Id`. You can include an If-Match property in t
 
 ```text 
 DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}   
-
 ```
 
 ### Parameters  
@@ -302,3 +301,36 @@ The response includes a status code and a body.
 | 403 Forbidden             | error     | You are not authorized to delete this asset.       |
 | 404 Not Found             | error     | The asset with the specified `Id` could not be found.  |
 | 412 Pre-Condition Failed  | error     | The asset failed to update because the If-Match condition failed.  |
+
+## `Delete Asset (bulk)`
+
+Delete all assets with the specified Ids. Use this API to delete up to a maximum of 1000 assets in one API call.
+
+### Request 
+
+```text 
+DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/bulk/assets/delete
+```
+
+### Parameters  
+
+`string tenantId`   
+The tenant identifier
+
+`string namespaceId`   
+The namespace identifier
+
+#### Request body 
+
+A list of asset `Id`s.
+
+### Response 
+
+The response includes a status code and a body.
+
+| Status Code               | Body Type | Description                                     |
+| ------------------------- | --------- | ----------------------------------------------- |
+| 204 No Content            | none  | The assets with the specified `Id`s are deleted.                              |
+| 207 Multi-Status | partial success | Array of errors. Assets that did not encounter errors are deleted. |
+| 209 Conflict | error | See response body for additional details. |
+| 400 Bad Request | error | The request is not valid. See the response body for additional details. |

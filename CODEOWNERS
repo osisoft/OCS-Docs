@@ -9,6 +9,8 @@ Content_Portal/Documentation/Management @digitaljoshua
 Content_Portal/Documentation/DataViews @osimarkrogers
 Content_Portal/Documentation/Metadata @osimarkrogers
 Content_Portal/Documentation/Operations @osimarkrogers
+Content_Portal/Documentation/DataIngress @osimarkrogers
+Content_Portal/Documentation/Assets @lassato-OSI
 
 # Order is important. The last matching pattern has the most precedence.
 # So if a pull request only touches javascript files, only these owners

@@ -10,4 +10,4 @@ Data views can overcome property naming differences by consolidating these simil
 ### Consolidate asset data fields (Coming Soon)
 *Note: This section covers features that are not yet generally available. If you are interested in trialing these pre-release features, contact your account team for more details.*
 
-Asset properties can also be consolidated. Asset metadata (`FieldSource.Metadata`) and measurement property ids (`FieldSource.PropertyId`) can be consolidated using the `Keys` collection. Asset measurement names can be consolidated using the `MeasurementKeys` collection.
+Asset properties can also be consolidated. Asset metadata (`FieldSource.Metadata`) and property ids (`FieldSource.PropertyId`) can be consolidated using the `Keys` collection. Asset stream reference names can be consolidated using the `StreamReferenceNames` collection.

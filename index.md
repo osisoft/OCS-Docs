@@ -4,6 +4,12 @@ uid: index
 
 # OCS Content Portal
 
-## [API Documentation](xref:osisoftCloudServices)
+## [Overview](xref:WhatIsOCS)
 
-## [Concepts](xref:ConceptsOverview)
+## [Quickstarts](xref:GettingStartedWithTrendData)
+
+## [How-To Guides](xref:CreateConfigureAsset)
+
+## [API Reference](xref:osisoftCloudServices)
+
+## [Concepts](xref:AccountManagementConcepts)

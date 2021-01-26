@@ -145,7 +145,7 @@ There are four special parameters available for use in field labels:
 - `{IdentifyingValue}` - the value of the identifying field
 - `{FirstKey}` - the value of the first of the `"Keys"` specified on the field
 - `{QueryId}` - the id of the query that produced the field
-- `{MeasurementFirstKey}` *(Coming Soon)* - the value of the first of the `"MeasurementKeys"` specified on the field
+- `{FirstStreamReferenceName}` *(Coming Soon)* - the value of the first of the `"StreamReferenceNames"` specified on the field
 
 If a special parameter fails to resolve, it becomes an empty string, `""`.
 
@@ -171,11 +171,11 @@ A field of source `FieldSource.Tags` and `.Keys` `[ "Low Resolution", "High Reso
 
 The field's value when resolved will be `[ "Low Resolution", "Gen2" ]`
 
-#### Special Case: Asset measurements (Coming Soon)
+#### Special Case: Asset properties (Coming Soon)
 *Note: This section covers features that are not yet generally available. If you are interested in trialing these pre-release features, contact your account team for more details.*
 
-Asset measurements are a special case because they require two pieces of information in order to address the data within the measurement: the measurement name and the measurement property id. In order to reference an asset measurement, a field must contain at least one measurement name in the `.MeasurementKeys` collection and at least one property id in the `.Keys` collection.
+Asset properties are a special case because they require two pieces of information in order to address the data within the asset property: the stream reference name and the property id. In order to reference an asset property, a field must contain at least one stream reference name in the `.StreamReferenceNames` collection and at least one property id in the `.Keys` collection.
 
-`.MeasurementKeys` only applies to fields with source `FieldSource.PropertyId`. For all other field sources, `.MeasurementKeys` are ignored. 
+`.StreamReferenceNames` only applies to fields with source `FieldSource.PropertyId`. For all other field sources, `.StreamReferenceNames` are ignored. 
 
-Similar to `.Keys`, `.MeasurementKeys` are evaluated in order specified until a match is found, i.e. first-match-wins.
+Similar to `.Keys`, `.StreamReferenceNames` are evaluated in order specified until a match is found, i.e. first-match-wins.

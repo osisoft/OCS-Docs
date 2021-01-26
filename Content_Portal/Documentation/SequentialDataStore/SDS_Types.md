@@ -298,9 +298,8 @@ the SDS before using `SdsTypeBuilder`. Base types are maintained within the SdsT
 
 ## Work with SdsTypes outside of .NET framework
 SdsTypes must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
-[Python](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Python) and 
-[JavaScript](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript) samples. 
-For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS).
+[Python](https://github.com/osisoft/sample-ocs-waveform-python) and [JavaScript](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples. 
+For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
 SdsType, SdsTypeProperty, and SdsTypeCode are defined below:
 
@@ -782,6 +781,118 @@ defines the available functions. See [Types](#types) for general type-related in
 
 ***********************
 
+## `Get Types`
+Returns a list of types within a given namespace.
+
+If specifying the optional search query parameter, the list of types returned will match 
+the search criteria. If the search query parameter is not specified, the list will include 
+all types in the Namespace. See [Search in SDS](xref:sdsSearching) 
+for information about specifying those respective parameters.
+
+Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
+
+### Request
+ ```text
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}&orderby={orderby}
+ ```
+
+### Parameters   
+
+`string tenantId`  
+The tenant identifier
+
+`string namespaceId`  
+The namespace identifier
+
+`string query`  
+[Optional] Parameter representing a string search. See the [Search in SDS](xref:sdsSearching) topic for information about specifying the query parameter.
+
+`int skip`  
+[Optional] Parameter representing the zero-based offset of the first SdsType to retrieve.  If not specified, 
+a default value of 0 is used.
+
+`int count`  
+[Optional] Parameter representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
+
+`string orderby`  
+[Optional] Parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
+Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
+If no value is specified, there is no sorting of results.
+
+#### Response  
+The response includes a status code and a response body.
+
+#### Response body  
+A collection of zero or more SdsTypes
+
+#### Example response body 
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+[    
+    {
+        "Id": "Simple",
+        "Name": "Simple",
+        "SdsTypeCode": 1,
+        "Properties": [
+            {
+                "Id": "Time",
+                "Name": "Time",
+                "IsKey": true,
+                "SdsType": {
+                    "Id": "19a87a76-614a-385b-ba48-6f8b30ff6ab2",
+                    "Name": "DateTime",
+                    "SdsTypeCode": 16
+                }
+            },
+            {
+                "Id": "State",
+                "Name": "State",
+                "SdsType": {
+                    "Id": "e20bdd7e-590b-3372-ab39-ff61950fb4f3",
+                    "Name": "State",
+                    "SdsTypeCode": 609,
+                    "Properties": [
+                        {
+                            "Id": "Ok",
+                            "Value": 0
+                        },
+                        {
+                            "Id": "Warning",
+                            "Value": 1
+                        },
+                        {
+                            "Id": "Alarm",
+                            "Value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "Id": "Measurement",
+                "Name": "Measurement",
+                "SdsType": {
+                    "Id": "6fecef77-20b1-37ae-aa3b-e6bb838d5a86",
+                    "Name": "Double",
+                    "SdsTypeCode": 14
+                }
+            }
+        ]
+    },
+    …
+]
+```
+
+
+### .NET client libraries method
+```csharp
+    Task<IEnumerable<SdsType>> GetTypesAsync(string query = "", int skip = 0, int count = 100);
+```
+
+
+***********************
+
 ## `Get Type`
 Returns the type corresponding to the specified typeId within a given namespace.
 
@@ -914,116 +1025,6 @@ A dictionary mapping object name to number of references.
 
 ***********************
 
-## `Get Types`
-Returns a list of types within a given namespace.
-
-If specifying the optional search query parameter, the list of types returned will match 
-the search criteria. If the search query parameter is not specified, the list will include 
-all types in the Namespace. See [Search in SDS](xref:sdsSearching) 
-for information about specifying those respective parameters.
-
-Note that the results will also include types that were automatically created by SDS as a result of type referencing. For further details about type referencing please see: [Type Reusability](#type-reusability)
-
-### Request
- ```text
-	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types?query={query}&skip={skip}&count={count}&orderby={orderby}
- ```
-
-### Parameters   
-
-`string tenantId`  
-The tenant identifier
-
-`string namespaceId`  
-The namespace identifier
-
-`string query`  
-[Optional] Parameter representing a string search. See the [Search in SDS](xref:sdsSearching) topic for information about specifying the query parameter.
-
-`int skip`  
-[Optional] Parameter representing the zero-based offset of the first SdsType to retrieve.  If not specified, 
-a default value of 0 is used.
-
-`int count`  
-[Optional] Parameter representing the maximum number of SdsTypes to retrieve. If not specified, a default value of 100 is used.
-
-`string orderby`  
-[Optional] Parameter representing sorted order which SdsTypes will be returned. A field name is required. The sorting is based on the stored values for the given field (of type string). For example, ``orderby=name`` would sort the returned results by the ``name`` values (ascending by default). 
-Additionally, a value can be provided along with the field name to identify whether to sort ascending or descending, by using values ``asc`` or ``desc``, respectively. For example, ``orderby=name desc`` would sort the returned results by the ``name`` values, descending.
-If no value is specified, there is no sorting of results.
-
-#### Response  
-The response includes a status code and a response body.
-
-#### Response body  
-A collection of zero or more SdsTypes
-
-#### Example response body 
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-[    
-    {
-        "Id": "Simple",
-        "Name": "Simple",
-        "SdsTypeCode": 1,
-        "Properties": [
-            {
-                "Id": "Time",
-                "Name": "Time",
-                "IsKey": true,
-                "SdsType": {
-                    "Id": "19a87a76-614a-385b-ba48-6f8b30ff6ab2",
-                    "Name": "DateTime",
-                    "SdsTypeCode": 16
-                }
-            },
-            {
-                "Id": "State",
-                "Name": "State",
-                "SdsType": {
-                    "Id": "e20bdd7e-590b-3372-ab39-ff61950fb4f3",
-                    "Name": "State",
-                    "SdsTypeCode": 609,
-                    "Properties": [
-                        {
-                            "Id": "Ok",
-                            "Value": 0
-                        },
-                        {
-                            "Id": "Warning",
-                            "Value": 1
-                        },
-                        {
-                            "Id": "Alarm",
-                            "Value": 2
-                        }
-                    ]
-                }
-            },
-            {
-                "Id": "Measurement",
-                "Name": "Measurement",
-                "SdsType": {
-                    "Id": "6fecef77-20b1-37ae-aa3b-e6bb838d5a86",
-                    "Name": "Double",
-                    "SdsTypeCode": 14
-                }
-            }
-        ]
-    },
-    …
-]
-```
-
-
-### .NET client libraries method
-```csharp
-    Task<IEnumerable<SdsType>> GetTypesAsync(string query = "", int skip = 0, int count = 100);
-```
-
-***********************
 
 ## `Get or Create Type`
 
@@ -1301,7 +1302,7 @@ The response includes a status code.
 
 ## `Get Types Access Control List`
 
-Get the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1319,18 +1320,35 @@ The namespace identifier
 ### Response  
 The response includes a status code and a response body.
 
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
 #### Response body  
 The default ACL for Types
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
 
 ### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetTypesAccessControlListAsync();
+   Task<SdsETagResult<AccessControlList>> GetTypesAccessControlListWithETagAsync();
 ```
+
 ***********************
 
 ## `Update Types Access Control List`
 
-Update the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the default ACL for the Types collection. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1358,9 +1376,76 @@ The response includes a status code.
 
 ***********************
 
+## `Patch Types Access Control List`
+
+Updates the default ACL for the Types collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+	PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Types
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+### .NET client libraries method
+```csharp
+   Task PatchTypesAccessControlListAsync(JsonPatchDocument<AccessControlList> typesAclPatch);
+   Task PatchTypesAccessControlListWithETagAsync(string etag, JsonPatchDocument<AccessControlList> typesAclPatch);
+```
+
+
+
+***********************
+
 ## `Get Type Access Control List`
 
-Get the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1381,18 +1466,36 @@ The type identifier
 ### Response  
 The response includes a status code and a response body.
 
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
 #### Response body  
 The ACL for the specified type
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
 
 ### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetTypeAccessControlListAsync(string typeId);
+   Task<SdsETagResult<AccessControlList>> GetTypeAccessControlListWithETagAsync(string typeId);   
 ```
+
 ***********************
+
 
 ## `Update Type Access Control List`
 
-Update the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the ACL of the specified type. For more information on ACLs, see [Access Control](xref:accessControl).
 
 Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 
@@ -1422,11 +1525,86 @@ The response includes a status code.
 ```csharp
    Task UpdateTypeAccessControlListAsync(string typeId, AccessControlList typeAcl);
 ```
+
+***********************
+
+
+## `Patch Type Access Control List`
+
+Updates the ACL of the specified type using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+
+Note that this does not update the ACL for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
+
+### Request
+ ```text
+	PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessControl
+ ```
+
+### Parameters 
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string typeId`  
+The type identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+
+### .NET client libraries method
+```csharp
+   Task PatchTypeAccessControlListAsync(string typeId, JsonPatchDocument<AccessControlList> typeAclPatch);
+   Task PatchTypeAccessControlListWithETagAsync(string typeId, string etag, JsonPatchDocument<AccessControlList> typeAclPatch);
+```
+
+
 ***
+
 
 ## `Get Type Owner`
 
-Get the Owner of the specified type. For more information on Owners, see [Access Control](xref:accessControl).
+Gets the Owner of the specified type. For more information on Owners, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -1458,7 +1636,7 @@ The Owner for the specified type
 
 ## `Update Type Owner`
 
-Update the Owner of the specified type. For more information on Owners, see [Access Control](xref:accessControl).
+Updates the Owner of the specified type. For more information on Owners, see [Access Control](xref:accessControl).
 
 Note that this does not update the Owner for the associated types. For further details about type referencing please see: [Type Reusability](#type-reusability).
 

@@ -57,8 +57,8 @@ Sample  body:
 HTTP/1.1 200
 Content-Type: application/json
 
-"AccessControlList": {
-	"RoleTrusteeAccessControlEntries": [
+{
+  "RoleTrusteeAccessControlEntries": [
     {
     	"Trustee": {
     		"Type": 3,

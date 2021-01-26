@@ -88,49 +88,6 @@ defines the available functions. See [Streams](#streams) above for general
 information related to SdsStream. 
 
 **********************
-## `Get Stream`
-Returns the specified stream.
-
-### Request
- ```text
-	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
- ```
-
-### Parameters
-`string tenantId`  
-The tenant identifier
-
-`string namespaceId`  
-The namespace identifier  
-  
-`string streamId`  
-The stream identifier
-
-
-### Response
-The response includes a status code and a response body.
-
-#### Response body 
-The requested SdsStream
-
-#### Example response body
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-{  
-   "Id":"Simple",
-   "Name":"Simple",
-   "TypeId":"Simple",
-}
-```
-
-### .NET client libraries method
-```csharp
-   Task<SdsStream> GetStreamAsync(string streamId);
-```
-
-***********************
 ## `Get Streams` 
 Returns a list of streams.
 
@@ -205,6 +162,50 @@ Content-Type: application/json
 ```csharp
    Task<IEnumerable<SdsStream>> GetStreamsAsync(string query = "", int skip = 0, 
       int count = 100);
+```
+
+***********************
+
+## `Get Stream`
+Returns the specified stream.
+
+### Request
+ ```text
+	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}
+ ```
+
+### Parameters
+`string tenantId`  
+The tenant identifier
+
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier
+
+
+### Response
+The response includes a status code and a response body.
+
+#### Response body 
+The requested SdsStream
+
+#### Example response body
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+{  
+   "Id":"Simple",
+   "Name":"Simple",
+   "TypeId":"Simple",
+}
+```
+
+### .NET client libraries method
+```csharp
+   Task<SdsStream> GetStreamAsync(string streamId);
 ```
 
 ***********************
@@ -411,7 +412,7 @@ The response includes a status code.
 
 ## `Get Streams Access Control List`
 
-Get the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
+Gets the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -426,21 +427,38 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-### Response
+### Response  
 The response includes a status code and a response body.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body 
 The default ACL for Streams
 
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
+
 ### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamsAccessControlListAsync();
+   Task<SdsETagResult<AccessControlList>> GetStreamsAccessControlListWithETagAsync();
 ```
+
 ***********************
 
 ## `Update Streams Access Control List`
 
-Update the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
+Updates the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -466,11 +484,78 @@ The response includes a status code.
    Task UpdateStreamsAccessControlListAsync(AccessControlList streamsAcl);
 ```
 
+
+***********************
+
+## `Patch Streams Access Control List`
+
+Updates the default ACL for the Streams collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+    PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Streams
+ ```
+
+### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+### .NET client libraries method
+```csharp
+   Task PatchStreamsAccessControlListAsync(JsonPatchDocument<AccessControlList> streamsAclPatch);
+   Task PatchStreamsAccessControlListWithETagAsync(string etag, JsonPatchDocument<AccessControlList> streamsAclPatch);
+```
+
+
 ***********************
 
 ## `Get Stream Access Control List`
 
-Get the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
+Gets the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -488,21 +573,39 @@ The namespace identifier
 `string streamId`  
 The stream identifier  
 
-### Response
+### Response  
 The response includes a status code and a response body.
 
-#### Response body 
-The ACL for the specified stream 
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### Response body  
+The ACL for the specified stream.
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
+
 
 ### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetStreamAccessControlListAsync(string streamId);
+   Task<SdsETagResult<AccessControlList>> GetStreamAccessControlListWithETagAsync(string streamId);   
 ```
+
 ***********************
 
 ## `Update Stream Access Control List`
 
-Update the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
+Updates the ACL of the specified stream. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -530,11 +633,82 @@ The response includes a status code.
 ```csharp
    Task UpdateStreamAccessControlListAsync(string streamId, AccessControlList streamAcl);
 ```
+
+***********************
+
+## `Patch Stream Access Control List`
+
+Updates the ACL of the specified stream using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+
+### Request
+ ```text
+    PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/AccessControl
+ ```
+
+### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string streamId`  
+The stream identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+### .NET client libraries method
+```csharp
+   Task PatchStreamAccessControlListAsync(string streamId, JsonPatchDocument<AccessControlList> streamAclPatch);
+   Task PatchStreamAccessControlListWithETagAsync(string streamId, string etag, JsonPatchDocument<AccessControlList> streamAclPatch);
+```
+
+
+
 *** 
 
 ## `Get Stream Owner`
 
-Get the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
+Gets the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -566,7 +740,7 @@ The `Owner` for the specified stream
 
 ## `Update Stream Owner`
 
-Update the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
+Updates the `Owner` of the specified stream. For more information, see [Access Control](xref:accessControl).
 
 ### Request
  ```text

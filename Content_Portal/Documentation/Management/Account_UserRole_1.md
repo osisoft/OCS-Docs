@@ -45,7 +45,7 @@ Retrieves all `Roles` for the specified user.
 string tenantId
 ```
 
-The identifier of the account in which the user belongs.
+The identifier of the tenant in which the user belongs.
 ```csharp
 [Required]
 [FromRoute]
@@ -81,7 +81,7 @@ Unsupported parameter.
 
 ### Security
 
-Authorized for Account Administrators of the specified account and an Account Member's own `Roles` within the specified account.
+Authorized for Account Administrators of the specified tenant and an Account Member's own `Roles` within the specified tenant.
 
 ### Returns
 
@@ -112,7 +112,7 @@ Replaces the `Roles` of a user with a new list of roles.
 string tenantId
 ```
 
-The identifier for the account in which the user belongs.
+The identifier for the tenant in which the user belongs.
 ```csharp
 [Required]
 [FromRoute]
@@ -131,7 +131,7 @@ A list of `Role` objects to set as the Roles for the specified user.
 
 ### Security
 
-Authorized for Account Administrators of the specified account.
+Authorized for Account Administrators of the specified tenant.
 
 ### Returns
 
