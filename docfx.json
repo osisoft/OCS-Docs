@@ -15,14 +15,14 @@
     }
   ],
   "build": {
-	"globalMetadata": {
-		"_enableSearch": true
-	},
+    "globalMetadata": {
+      "_enableSearch": true
+    },
     "content": [
       {
         "files": [
-	  "Content_Portal/**/**.md",
-	  "Content_Portal/**/toc.yml",
+          "Content_Portal/**/**.md",
+          "Content_Portal/**/toc.yml",
           "toc.yml",
           "**.md"
         ]
@@ -31,13 +31,10 @@
     "resource": [
       {
         "files": [
-            "Content_Portal/Quickstarts/images/**",
-            "Content_Portal/Documentation/images/**",
-            "Content_Portal/How_To_Guides/images/**",
-            "Content_Portal/Getting_Started/images/**",
-            "Content_Portal/Data Egress/images/**",
-            "Content_Portal/Visualization/images/**",
-            "Content_Portal/Data_Ingress/PI-to-OCS/images/**",
+          "Content_Portal/Quickstarts/images/**",
+          "Content_Portal/Documentation/images/**",
+          "Content_Portal/How_To_Guides/images/**",
+          "Content_Portal/Overview/images/**"
         ]
       }
     ],
@@ -59,7 +56,7 @@
       "default",
       "_exported_templates/default"
     ],
-    "postProcessors": ["OcsVariableProcessor"],
+    "postProcessors": [ "OcsVariableProcessor" ],
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false,

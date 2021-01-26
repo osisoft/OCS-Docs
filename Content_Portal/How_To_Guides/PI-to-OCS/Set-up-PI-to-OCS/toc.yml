@@ -1,8 +1,0 @@
-- name: Get started with PI to OCS
-  href: Access the OCS customer portal.md
-- name: Create a PI to OCS connection
-  href: create-a-pi-to-ocs-connection.md
-- name: Install the PI to OCS Agent
-  href: install-agent.md
-- name: Confirm the Agent is running
-  href: set-up-agent.md
