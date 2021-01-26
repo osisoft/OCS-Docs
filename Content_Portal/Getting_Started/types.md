@@ -58,6 +58,8 @@ For more information about best practices to consider when creating your types, 
    - Type &ndash; Select **DateTime**. 
    - Key &ndash; Select the checkbox.
    
+   Note: The Key field identifies the Timestamp property as the index.
+   
 1. Click the ![Properties icon](Images\PropertiesPlusIcon.png)icon to add a second property and complete the fields:
    - Id &ndash; Enter **Temperature**
    - Type &ndash; Select **Double**.
