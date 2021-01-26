@@ -20,7 +20,7 @@ You must acquire an account before interacting with OCS. If you do not have an a
 
 ## Architecture
 
-A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS) . Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
+A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
 
 Tenants are divided into one or more logical units called Namespaces. Each Namespace is distinct and separate from 
 other Namespaces with its own instances of the various OSIsoft Cloud Services and data stores. Namespaces provide isolation of resources. 
