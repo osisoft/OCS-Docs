@@ -8,7 +8,7 @@ uid: AccountManagementConcepts
 
 ## Tenant
 
-A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
+A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured Identity Provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
 
 Before a customer can use OCS, a tenant must be provisioned for them. A customer will have at least one tenant and could have more than one tenant. Tenants also span regions within OCS. For example, OCS currently has services hosted in two regions, West US, and West Europe. If the tenant is authorized to use multiple regions, they can create resources (for example, namespaces) in each region.
 
@@ -22,9 +22,9 @@ Any data stored within a namespace is tied to that namespace along with the regi
 
 ## User
 
-Authentication of individuals using OCS is performed by the identity provider associated with the tenant. When a user logs in to OCS, they authenticate themselves with an identity provider such as Google or Azure Active Directory. The identity provider authenticates the user against the credentials in its database. Upon successful authentication, it passes a token back to OCS granting the user access.
+Authentication of individuals using OCS is performed by the Identity Provider associated with the tenant. When a user logs in to OCS, they authenticate themselves with an Identity Provider such as Google or Azure Active Directory. The Identity Provider authenticates the user against the credentials in its database. Upon successful authentication, it passes a token back to OCS granting the user access.
 
-A user’s access to an OCS object is determined by the roles they are assigned and the corresponding Access Control Lists.  See [Roles](#roles) for more information.
+A user’s access to an OCS object is determined by the roles they are assigned and the corresponding access control lists.  See [Roles](#roles) for more information.
 
 ## Client
 
@@ -38,7 +38,7 @@ Clients are assigned roles that define their access to OCS objects. See [Roles](
 
 ## <a name="roles"></a> Roles
 
-Roles, in combination with Access Control Lists (ACL), determine the level of access to OCS objects. The tenant administrator creates roles for the users and clients that will access OCS and assigns the appropriate roles to them. Additionally, the administrator creates an ACL for each OCS object (namespaces, streams, and so on) that defines access permissions for each type of role. Users and clients are granted access permissions to OCS objects based on their assigned roles and the corresponding ACLs. 
+Roles, in combination with access control lists (ACL), determine the level of access to OCS objects. The tenant administrator creates roles for the users and clients that will access OCS and assigns the appropriate roles to them. Additionally, the administrator creates an ACL for each OCS object (namespaces, streams, and so on) that defines access permissions for each type of role. Users and clients are granted access permissions to OCS objects based on their assigned roles and the corresponding ACLs. 
 
 OCS provides two built-in roles:
 
