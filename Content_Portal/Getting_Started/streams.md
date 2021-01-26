@@ -34,8 +34,8 @@ Find the Streams page in the OSIsoft Cloud Services portal [here](https://cloud.
 1. Click the **Manage Default Stream Permissions** icon above the tree on the left.  
     This opens the Manage Default Permissions for New Streams window where default permissions for streams created in the selected namespace are configured. 
    
-    Note: Permissions to change the defaults are restricted to Account Administrators. Any changes that are made here do not change the permissions on already existing types.  
-    When you are done, click **Cancel** to continue.
+    Note: Permissions to change the defaults are restricted to Account Administrators. Any changes that are made here do not change the permissions on already existing streams.  
+    When you are done reviewing the permissions, click **Cancel** to continue.
    
 1. Click **Add Stream**.
 
