@@ -313,7 +313,7 @@ HTTP 200 OK
 ```
 
 
-## `Get data view owner`
+## `Get Data View Owner`
 Get the owner [`Trustee`](xref:accessControl#owner) of the specified data view.
 
 ### Request

@@ -11,7 +11,7 @@ For a description of the `DataView` object type, see the [DataView documentation
 Other sections of documentation describe how to [secure data views](xref:DataViewsSecuringDataViews) by setting their ownership and permissions, and the corresponding [API](xref:DataViewsAccessControlAPI).
 
 
-## `Get Fata View`
+## `Get Data View`
 Returns the specified data view.
 
 ### Request
