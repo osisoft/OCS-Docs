@@ -86,7 +86,7 @@ Returns an IdentityProvider object.
 Guid identityProviderId
 ```
 
-Id of provider.
+Id of identity provider.
 
 ### Security
 
@@ -221,7 +221,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of providers to skip.
+Number of identity providers to skip.
 
 ```csharp
 [FromQuery]
@@ -230,7 +230,7 @@ Number of providers to skip.
 int32 count
 ```
 
-Maximum number of providers to return.
+Maximum number of identity providers to return.
 
 ### Security
 
@@ -353,7 +353,7 @@ Get header for an identity provider to check if the identity provider exists.
 Guid identityProviderId
 ```
 
-Id of provider.
+Id of identity provider.
 
 ### Security
 
@@ -381,7 +381,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -631,7 +631,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -867,7 +867,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1084,7 +1084,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1177,7 +1177,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1267,7 +1267,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1343,7 +1343,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1352,7 +1352,7 @@ Internal server error.
 
 ## `Get header for identity provider consent`
 
-Validate that a identity provider Consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validate that a identity provider consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -1401,7 +1401,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 

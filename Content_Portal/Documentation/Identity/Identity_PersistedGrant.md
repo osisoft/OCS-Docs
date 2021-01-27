@@ -4,7 +4,7 @@ uid: identityPersistedGrant
 
 # PersistedGrant
 
-Persisted grants, such as refresh tokens or authorization codes, are used by OSIsoft Cloud Services to maintain some state about User authentication with regards to a client. For instance, refresh tokens, which are issued to hybrid clients, make it possible to determine when the client can be issued a new access token on behalf of the User without the users themselves being present.
+Persisted grants, such as refresh tokens or authorization codes, are used by OSIsoft Cloud Services to maintain some state about User authentication with regards to a client. For instance, refresh tokens, which are issued to hybrid clients, make it possible to determine when the client can be issued a new access token on behalf of the user without the users themselves being present.
 
 
 ***
@@ -37,8 +37,8 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 ## `Get client Ids of persisted grants for user`
 
 Get enumerable of client IDs that have been issued an
-            Authorization Codes (not the same as the client type)
-            on behalf of a User.
+            authorization code (not the same as the client type)
+            on behalf of a user.
 
 ### Request
 
@@ -51,14 +51,14 @@ Get enumerable of client IDs that have been issued an
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -103,7 +103,7 @@ Internal server error.
 
 ## `Get total count of persisted grants for a user`
 
-Validate whether there are any Authorization Code Persisted Grants for User.
+Validate whether there are any authorization code persisted grants for user.
 
 ### Request
 
@@ -116,14 +116,14 @@ Validate whether there are any Authorization Code Persisted Grants for User.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -161,8 +161,8 @@ Internal server error.
 
 ## `Remove persisted grants`
 
-Remove Authorization Code Persisted Grants
-            for the User with the specified User Id in the Tenant.
+Remove authorization code persisted grants 
+            for the user with the specified User Id in the tenant.
 
 ### Request
 
@@ -175,14 +175,14 @@ Remove Authorization Code Persisted Grants
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
