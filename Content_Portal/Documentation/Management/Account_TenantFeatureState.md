@@ -26,7 +26,7 @@ For HTTP requests and responses, the TenantFeatureState object has the following
 ```
 ***
 
-## `Get all tenant feature states`
+## `Get All Tenant Feature States`
 
 Retrieves all instances of `FeatureState` for the specified `Tenant`.
 
@@ -60,7 +60,7 @@ Authorized for Account Members of the specified tenant.
 
 ***
 
-## `Get tenant feature state`
+## `Get Tenant Feature State`
 
 Retrieves a `FeatureState` with the specified ID from a `Tenant`.
 

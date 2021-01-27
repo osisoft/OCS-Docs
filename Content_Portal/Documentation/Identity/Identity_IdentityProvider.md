@@ -71,7 +71,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get identity providers`
+## `Get Identity Providers`
 
 Returns an IdentityProvider object.
 
@@ -133,7 +133,7 @@ Identity provider not found.
 Internal server error.
 ***
 
-## `Get identity providers by scheme`
+## `Get Identity Providers by Scheme`
 
 Returns a list of IdentityProvider objects that follow a scheme.
 
@@ -195,7 +195,7 @@ Identity provider not found.
 Internal server error.
 ***
 
-## `Get identity providers`
+## `Get Identity Providers`
 
 Returns a list of IdentityProvider objects.
 
@@ -288,7 +288,7 @@ Forbidden.
 Internal server error.
 ***
 
-## `Get identity providers based on scheme`
+## `Get Identity Providers Based on Scheme`
 
 Get header for a scheme to check its validity.
 
@@ -338,7 +338,7 @@ Identity provider not found.
 Internal server error.
 ***
 
-## `Get identity providers based on Id`
+## `Get Identity Providers Based on Id`
 
 Get header for an identity provider to check if the identity provider exists.
 
@@ -388,7 +388,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get header for identity providers`
+## `Get Header for Identity Providers`
 
 Get header for identity providers to get the total number of identity providers.
 
@@ -431,7 +431,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get all identity providers from tenant`
+## `Get all Identity Providers from Tenant`
 
 Get all identity providers from a tenant.
 
@@ -559,7 +559,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get identity provider from tenant`
+## `Get Identity Provider from Tenant`
 
 Get an identity provider from a tenant.
 
@@ -638,7 +638,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Add identity provider to tenant`
+## `Add Identity Provider to Tenant`
 
 Add an existing identity provider to a tenant. This identity provider
             will be available in the Home Realm Discovery Page
@@ -750,7 +750,7 @@ Identity provider already exists in tenant.
 Internal server error.
 ***
 
-## `Remove identity provider from tenant`
+## `Remove Identity Provider from Tenant`
 
 Remove an identity provider from a tenant. Users provisioned
             with this identity provider will remain in the tenant, but will
@@ -814,7 +814,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for identity provider`
+## `Get Header for Identity Provider`
 
 Validate that a identity provider exists in the tenant.
             This endpoint is identical to the GET one but
@@ -874,7 +874,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get total count of identity providers`
+## `Get Total Count of Identity Providers`
 
 Return total number of identity providers in a tenant. The
             value will be set in the Total-Count header. This endpoint
@@ -928,7 +928,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get a list of all users on an identity provider`
+## `Get a List of All Users on an Identity Provider`
 
 Get a list of users that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
@@ -1003,7 +1003,7 @@ Success.
 "SkipToken": SkipToken
 ```
 
-## `Get a list of all groups on an identity provider`
+## `Get a List of All Groups on an Identity Provider`
 
 Get a list of groups that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
@@ -1091,7 +1091,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get a list of all groups that a user belongs to on an identity provider`
+## `Get a List of All Groups that a User Belongs to on an Identity Provider`
 
 Get a list of all groups that the specified user belongs to on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
@@ -1184,7 +1184,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get a list of all users belongs a group on an identity provider`
+## `Get a List of All Users Belonging to Group on an Identity Provider`
 
 Get a list of all users belonging to a specific group on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
@@ -1274,7 +1274,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get an identity provider consent from a tenant`
+## `Get an Identity Provider Consent from a Tenant`
 
 Get the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for Azure Active Directory (AAD) include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
 
@@ -1350,7 +1350,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Get header for identity provider consent`
+## `Get Header for Identity Provider Consent`
 
 Validate that a identity provider consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -1408,7 +1408,7 @@ Identity provider or tenant not found.
 Internal server error.
 ***
 
-## `Update identity provider consent of a tenant`
+## `Update Identity Provider Consent of a Tenant`
 
 Update the identity provider Consent of a tenant. Currently only support Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 

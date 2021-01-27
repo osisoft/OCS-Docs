@@ -68,7 +68,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create an automation identity`
+## `Create an Automation Identity`
 
 Create an automation identity. A non-Administrator caller must have all roles being assigned to the new automation adentity.
 
@@ -185,7 +185,7 @@ Already exists.
 Internal server error.
 ***
 
-## `Get an automation identity`
+## `Get an Automation Identity`
 
 Returns automation identity object.
 
@@ -263,7 +263,7 @@ Not found.
 Internal server error.
 ***
 
-## `Get header for automation identity`
+## `Get Header for Automation Identity`
 
 Validate that an automation identity exists in tenant.
 
@@ -321,7 +321,7 @@ Automation identity or tenant not found.
 Internal server error.
 ***
 
-## `Get automation identities from a tenant`
+## `Get Automation Identities from a Tenant`
 
 Returns automation identity objects.
 
@@ -447,7 +447,7 @@ Not found.
 Internal server error.
 ***
 
-## `Get total count of automation identities from tenant`
+## `Get Total Count of Automation Identities from Tenant`
 
 Return total number of automation identities in tenant in the Total-Count header.
 
@@ -507,7 +507,7 @@ Automation identity or tenant not found.
 Internal server error.
 ***
 
-## `Delete an automation identity`
+## `Delete an Automation Identity`
 
 Delete an automation identity. A non-Administrator caller must have all roles belonging to the automation identity being deleted.
 
@@ -569,7 +569,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Update automation identity`
+## `Update Automation Identity`
 
 Update a automation identity. A non-Administrator caller must have all roles belonging to the existing automation identity, as well as any roles being added.
 

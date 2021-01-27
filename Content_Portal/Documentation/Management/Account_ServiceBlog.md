@@ -8,7 +8,7 @@ API's for reading entries posted on the Service Blog.
 
 ***
 
-## `Get service blog entries`
+## `Get Service Blog Entries`
 
 Returns blog entries ordered by time posted.
 
@@ -48,7 +48,7 @@ Any identity, including anonymous, can retrieve service blog entries.
 
 ***
 
-## `Get service blog entry`
+## `Get Service Blog Entry`
 
 Returns a blog entry specified by ID.
 

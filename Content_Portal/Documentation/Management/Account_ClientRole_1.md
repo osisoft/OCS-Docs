@@ -29,7 +29,7 @@ For HTTP requests and responses, the ClientRole object has the following propert
 ```
 ***
 
-## `Replace client roles`
+## `Replace Client Roles`
 
 Replaces the `Roles` of a client with a new list of roles.
 
@@ -80,7 +80,7 @@ List of `Role` objects to set as the Roles for the specified client.
 
 ***
 
-## `Find client roles`
+## `Find Client Roles`
 
 Retrieves all `Roles` from a client.
 

@@ -4,7 +4,7 @@ uid: AccountTenant
 
 # Tenants
 
-APIs to manage an OCS Customer tenant account. A tenant represents the set of services, applications, data, and configuration state available to a customer. Users are associated with a tenant via at least one configured identity provider and access to resources can be managed for those users via the assignment of roles. Data and services provided by a tenant may also span geographical regions. A tenant has:
+APIs to manage an OCS Customer tenant account. A tenant represents the set of services, applications, data, and configuration state available to a customer. Users are associated with a tenant via at least one configured identity provider and access to resources can be managed for those users via the assignment of roles. Data and services provided by a tenant may also span geographical regions. A tenant has 
 APIs to manage an OCS customer tenant. Unlike namespaces, tenants are not scoped to a region. Tenant level information, such as users and clients, is stored in all supported regions for read-only purposes. Write operations for tenant management and identity and access management are only supported through the global base URL. Unsupported requests return a status of ``Method Not Allowed`` (405). The resolution is to utilize the global base URL (https://dat-b.osisoft.com/) for write operations that are not scoped to a namespace.
 
 * Name (was Company Name) – official customer name. May not be unique.
@@ -41,7 +41,7 @@ For HTTP requests and responses, the Tenant object has the following properties 
 ```
 ***
 
-## `Get tenant`
+## `Get Tenant`
 
 Retrieves a specific `Tenant` by ID.
 
@@ -75,7 +75,7 @@ Authorized for Account Members of the specified `Tenant`.
 
 ***
 
-## `Tenant exists`
+## `Tenant Exists`
 
 Checks if a `Tenant` with a specific ID exists.
 
@@ -109,7 +109,7 @@ Authorized for Account Members of the specified `Tenant`.
 
 ***
 
-## `Update tenant`
+## `Update Tenant`
 
 Updates a specified `Tenant` object.
 
@@ -151,7 +151,7 @@ Authorized for Account Administrators of the specified `Tenant`.
 
 ***
 
-## `Get tenant icon`
+## `Get Tenant Icon`
 
 Returns an icon specified by its `Tenant` ID.
 
@@ -185,7 +185,7 @@ Authorized for Account Members of the specified `Tenant`.
 
 ***
 
-## `Create or update tenant icon`
+## `Create or Update Tenant Icon`
 
 Creates or updates the icon for a `Tenant`. Note that the icon size must be less than 65536 bytes.
 
@@ -227,7 +227,7 @@ Authorized for Account Administrators of the specified `Tenant`.
 
 ***
 
-## `Delete tenant icon`
+## `Delete Tenant Icon`
 
 Deletes the icon for a `Tenant`.
 

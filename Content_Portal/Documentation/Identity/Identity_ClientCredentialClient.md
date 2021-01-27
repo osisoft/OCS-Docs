@@ -76,7 +76,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create client credential client`
+## `Create Client Credential Client`
 
 Create a Client credential client. A Client Id and Client Secret will be generated to perform
             authentication. Make sure to store the secret somewhere safe as we do not store the
@@ -209,7 +209,7 @@ Client Id already exists.
 Internal server error.
 ***
 
-## `Update client credential client`
+## `Update Client Credential Client`
 
 Update a client credential client. It can take up to one hour
             for these values to manifest in the authentication process.
@@ -332,7 +332,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get client credential client`
+## `Get Client Credential Client`
 
 Get a client credential client.
 
@@ -407,7 +407,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get all client credential clients`
+## `Get all Client Credential Clients`
 
 Get a list of client credential clients from a tenant.
             Optionally, get a list of requested clients. Total number
@@ -602,7 +602,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Delete client credential client`
+## `Delete Client Credential Client`
 
 Delete a client credential client. It can take up to one hour
             for deletion to manifest in the authentication process. Access
@@ -665,7 +665,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for client credential client`
+## `Get Header for Client Credential Client`
 
 Validate that a client credential client exists.
             This endpoint is identical to the GET one but
@@ -725,7 +725,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get total count of clients`
+## `Get Total Count of Clients`
 
 Return total number of client credential clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 

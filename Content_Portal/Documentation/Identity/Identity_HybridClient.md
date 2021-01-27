@@ -89,7 +89,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create hybrid client`
+## `Create Hybrid Client`
 
 Create a Hybrid Client. A Client Id and Client Secret will be generated to perform
             authentication. Make sure to store the secret somewhere safe as we do not store the
@@ -243,7 +243,7 @@ Client Id already exists.
 Internal server error.
 ***
 
-## `Update hybrid client`
+## `Update Hybrid Client`
 
 Update a hybrid client. It can take up to one hour
             for these values to manifest in the authentication process.
@@ -387,7 +387,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get hybrid client`
+## `Get Hybrid Client`
 
 Get a Hybrid Client from a tenant.
 
@@ -469,7 +469,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get all hybrid clients`
+## `Get All Hybrid Client`
 
 Get a list of Hybrid clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
@@ -613,7 +613,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Delete hybrid client`
+## `Delete Hybrid Client`
 
 Delete a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration. Refresh tokens issued to this will be valid up to one hour after deletion.
 
@@ -674,7 +674,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for hybrid client`
+## `Get Header for Hybrid Client`
 
 Validate that a hybrid client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -731,7 +731,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get total count of hybrid clients`
+## `Get Total Count of Hybrid Client`
 
 Return total number of hybrid clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 

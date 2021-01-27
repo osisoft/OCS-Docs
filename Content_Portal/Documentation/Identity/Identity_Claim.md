@@ -60,7 +60,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get all identity provider claims`
+## `Get all Identity Provider Claims`
 
 Get all identity provider claims for an identity provider on a tenant.
 
@@ -167,7 +167,7 @@ Tenant or identity provider not found.
 Internal server error.
 ***
 
-## `Get all identity provider claims header`
+## `Get all Identity Provider Claims Header`
 
 Get Header for all identity provider claims for an identity provider on a tenant.
 
@@ -224,7 +224,7 @@ Tenant or identity provider not found.
 Internal server error.
 ***
 
-## `Get identity provider claim`
+## `Get Identity Provider Claim`
 
 Get an identity provider claim from an identity provider on a tenant.
 
@@ -300,7 +300,7 @@ Tenant, identity provider, or identity provider claim not found.
 Internal server error.
 ***
 
-## `Get identity provider claim header`
+## `Get Identity Provider Claim Header`
 
 Get an identity provider claim Header from an identity provider on a tenant.
 
@@ -364,7 +364,7 @@ Tenant, identity provider, or identity provider claim not found.
 Internal server error.
 ***
 
-## `Create new identity provider claim`
+## `Create New Identity Provider Claim`
 
 Create a new identity provider claim for an identity provider on a tenant.
 
@@ -476,7 +476,7 @@ Identity provider claim configuration already exists.
 Internal server error.
 ***
 
-## `Update an existing identity provider claim`
+## `Update an Existing Identity Provider Claim`
 
 Create a new identity provider claim for an identity provider on a tenant.
 
@@ -589,7 +589,7 @@ identity provider claim configuration already exists.
 Internal server error.
 ***
 
-## `Delete an existing identity provider claim`
+## `Delete an Existing Identity Provider Claim`
 
 Delete an identity provider claim for an identity provider on a tenant.
 

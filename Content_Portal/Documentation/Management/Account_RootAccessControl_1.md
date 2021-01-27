@@ -8,7 +8,7 @@ APIs to manage default access to entities governed by an [AccessControlList](xre
 
 ***
 
-## `Get root namespace AccessControlList`
+## `Get Root Namespace AccessControlList`
 
 Retrieves the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
@@ -43,7 +43,7 @@ A root [AccessControlList](xref:accessControl) can only be retrieved if the curr
 
 ***
 
-## `Set root AccessControlList`
+## `Set Root AccessControlList`
 
 Modifies the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 

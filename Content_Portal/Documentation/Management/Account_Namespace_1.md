@@ -42,7 +42,7 @@ When a namespace is created, all resources are created in the namespace's region
 
 ***
 
-## `Get all namespaces`
+## `Get All Namespaces`
 
 Returns all `Namespaces` owned by the specified `Tenant` that the caller has access to.
 
@@ -77,7 +77,7 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 ***
 
-## `Get namespace by Id`
+## `Get Namespace by Id`
 
 Returns a `Namespace` with the specified Id.
 
@@ -120,7 +120,7 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 ***
 
-## `Create new namespace`
+## `Create New Namespace`
 
 Creates a new `Namespace` in the specified `Tenant`.
 
@@ -174,7 +174,7 @@ A `Namespace` can only be created if the current principal has Write access.
 
 ***
 
-## `Update namespace`
+## `Update Namespace`
 
 Updates `Namespace` information: Description and TierId. The [AccessControlList](xref:accessControl) and Owner's [Trustee](xref:accessControl) can
             only be updated through their own routes.
@@ -224,7 +224,7 @@ A `Namespace` can only be updated if the current principal has Write access.
 
 ***
 
-## `Delete namespace`
+## `Delete Namespace`
 
 Deletes a `Namespace` in the specified `Tenant`.
 
@@ -267,7 +267,7 @@ A `Namespace` can only be deleted if the current principal has Delete access.
 
 ***
 
-## `Get namespace AccessControlList`
+## `Get Namespace AccessControlList`
 
 Returns the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
@@ -309,7 +309,7 @@ An [AccessControlList](xref:accessControl) can only be retrieved if the current 
 
 ***
 
-## `Set namespace AccessControlList`
+## `Set Namespace AccessControlList`
 
 Updates the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
@@ -360,7 +360,7 @@ An [AccessControlList](xref:accessControl) can only be updated if the current pr
 
 ***
 
-## `Get namespace owner`
+## `Get Namespace Owner`
 
 Returns the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
@@ -402,7 +402,7 @@ An Owner's [Trustee](xref:accessControl) can only be retrieved if the current pr
 
 ***
 
-## `Set namespace owner`
+## `Set Namespace Owner`
 
 Changes the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 

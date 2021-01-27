@@ -51,7 +51,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Add Azure Active Directory tenant to OCS tenant`
+## `Add Azure Active Directory Tenant to OCS Tenant`
 
 Add an Azure Active Directory tenant to the OSIsoft Cloud Services tenant.
 
@@ -131,7 +131,7 @@ Id of Azure Active Directory tenant. is already in use on the specified tenant.
 Internal server error.
 ***
 
-## `Get all Azure Active Directory tenants from OCS tenant`
+## `Get all Azure Active Directory Tenants from OCS Tenant`
 
 Get all Azure Active Directory tenants from an OSIsoft Cloud Services tenant.
 
@@ -221,7 +221,7 @@ Forbidden.
 Internal server error.
 ***
 
-## `Get Azure Active Directory tenant from OCS tenant`
+## `Get Azure Active Directory Tenant from OCS Tenant`
 
 Get Azure Active Directory tenant from an OSIsoft Cloud Services tenant.
 
@@ -289,7 +289,7 @@ OSIsoft Cloud Services tenant not found.
 Internal server error.
 ***
 
-## `Remove Azure Active Directory tenant from OCS tenant`
+## `Remove Azure Active Directory Tenant from OCS Tenant`
 
 Remove Azure Active Directory tenant from an OSIsoft Cloud Services tenant.
 
@@ -354,7 +354,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Send consent email for Azure Active Directory tenant`
+## `Send Consent Email for Azure Active Directory Tenant`
 
 Send consent for an Azure Active Directory tenant. OSIsoft Cloud Services needs to be granted
             permission to interact with the Azure Active Directory tenant. Otherwise, users from this Azure Active Directory tenant
@@ -444,7 +444,7 @@ Method not allowed at this base URL. Try the request again at the Global base UR
 Internal server error.
 ***
 
-## `Get Azure Active Directory tenant in tenant`
+## `Get Azure Active Directory Tenant in Tenant`
 
 Validate that Azure Active Directory tenant exists in this OSIsoft Cloud Services tenant.
             This endpoint is identical to the GET one but
@@ -507,7 +507,7 @@ OSIsoft Cloud Services tenant not found.
 Internal server error.
 ***
 
-## `Get total count of Azure Active Directory tenant in tenant`
+## `Get Total Count of Azure Active Directory Tenant in Tenant`
 
 Return total number of Azure Active Directory tenants in a OSIsoft Cloud Services tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 

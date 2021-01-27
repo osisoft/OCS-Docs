@@ -66,7 +66,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get hybrid client secrets`
+## `Get Hybrid Client Secrets`
 
 Get all secrets for a Hybrid Client. Total number of secrets in the client set in the Total-Count header.
 
@@ -167,7 +167,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get hybrid client secret`
+## `Get Hybrid Client Secret`
 
 Get a hybrid client secret.
 
@@ -240,9 +240,9 @@ Secret, client, or tenant not found.
 Internal server error.
 ***
 
-## `Add hybrid client secret`
+## `Add Hybrid Client Secret`
 
-Add a new secret to a client credential client.
+Add a new secret to a hybrid client.
             A client can have a maximum of 10 secrets.
             We advise against creating secrets that do not expire.
 
@@ -341,7 +341,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Update hybrid client secret`
+## `Update Hybrid Client Secret`
 
 Update a hybrid client secret. It can take up to one hour for
             the update to manifest in the authentication process.
@@ -451,7 +451,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Delete hybrid client secret`
+## `Delete Hybrid Client Secret`
 
 Delete a secret from a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this secret will be valid until their expiration.
 
@@ -519,7 +519,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for hybrid client secret`
+## `Get Header for Hybrid Client Secret`
 
 Validate that a secret with given Id exists in the client.
             This endpoint is identical to the GET one but it does not
@@ -585,7 +585,7 @@ Secret, client, or tenant not found.
 Internal server error.
 ***
 
-## `Get total count of hybrid client secrets`
+## `Get Total Count of Hybrid Client Secrets`
 
 Return total number of secrets in a hybrid client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return  any objects in the body.
 
@@ -642,7 +642,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get client credential client secrets`
+## `Get Client Credential Client Secrets`
 
 Get all secrets for a client credential client.
             Total number of secrets in the client set in the
@@ -745,7 +745,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get client credential client secret`
+## `Get Client Credential Client Secret`
 
 Get a client credential client secret.
 
@@ -818,7 +818,7 @@ Secret, client, or tenant not found.
 Internal server error.
 ***
 
-## `Add client credential client secret`
+## `Add Client Credential Client Secret`
 
 Add a new secret to a client credential client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
@@ -921,7 +921,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Update client credential client secret`
+## `Update Client Credential Client Secret`
 
 Update a client credential client secret.
             It can take up to one hour for the update
@@ -1032,7 +1032,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Delete client credential client secret`
+## `Delete Client Credential Client Secret`
 
 Delete a Secret from a client credential client.
             It can take up to one hour for deletion to manifest
@@ -1103,7 +1103,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for client credential client secret`
+## `Get Header for Client Credential Client Secret`
 
 Validate that a secret with given Id exists in the client.
             This endpoint is identical to the GET one but it does not
@@ -1169,7 +1169,7 @@ Secret, client, or tenant not found.
 Internal server error.
 ***
 
-## `Get total count of client credential client secrets`
+## `Get Total Count of Client Credential Client Secrets`
 
 Return total number of secrets in a client. The value
             will be set in the Total-Count header. This endpoint

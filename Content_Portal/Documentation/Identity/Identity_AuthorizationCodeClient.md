@@ -84,7 +84,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create an authorization code client`
+## `Create an Authorization Code Client`
 
 Create an authorization code client. No secret will be generated for this client.
 
@@ -227,7 +227,7 @@ Client Id already exists.
 Internal server error.
 ***
 
-## `Update an authorization code client`
+## `Update an Authorization Code Client`
 
 Update an authorization code client. It can take up to one hour for update to manifest in the authentication process.
 
@@ -373,7 +373,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get an authorization code client from tenant`
+## `Get an Authorization Code Client from Tenant`
 
 Get an authorization code client from tenant.
 
@@ -457,7 +457,7 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Get all authorization code clients from tenant`
+## `Get All Authorization Code Clients from Tenant`
 
 Get all authorization code clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the Tenant set in the Total-Count header.
 
@@ -605,7 +605,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get total count authorization code clients from tenant`
+## `Get Total Count Authorization Code Clients from Tenant`
 
 Return total number of authorization code clients in a Tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -673,7 +673,7 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Delete an authorization code client`
+## `Delete an Authorization Code Client`
 
 Delete an Authorization Code Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
@@ -734,7 +734,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for authorization code client`
+## `Get Header for Authorization Code Client`
 
 Validate that an authorization code client exists in Tenant.
 

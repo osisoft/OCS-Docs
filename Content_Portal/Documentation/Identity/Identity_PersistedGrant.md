@@ -34,7 +34,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get client Ids of persisted grants for user`
+## `Get Client Ids of Persisted Grants for User`
 
 Get enumerable of client IDs that have been issued an
             authorization code (not the same as the client type)
@@ -101,7 +101,7 @@ User not found.
 Internal server error.
 ***
 
-## `Get total count of persisted grants for a user`
+## `Get Total Count of Persisted Grants for a User`
 
 Validate whether there are any authorization code persisted grants for user.
 
@@ -159,7 +159,7 @@ User not found.
 Internal server error.
 ***
 
-## `Remove persisted grants`
+## `Remove Persisted Grants`
 
 Remove authorization code persisted grants 
             for the user with the specified User Id in the tenant.

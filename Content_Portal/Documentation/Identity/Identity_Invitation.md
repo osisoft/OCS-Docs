@@ -75,7 +75,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get invitation`
+## `Get Invitation`
 
 Get an Invitation from tenant.
 
@@ -145,7 +145,7 @@ Invitation or tenant not found.
 Internal server error.
 ***
 
-## `Get invitations`
+## `Get Invitations`
 
 Get all non-expired invitations from a Tenant. Optionally include expired invitations.
 
@@ -260,7 +260,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Update invitation`
+## `Update Invitation`
 
 Update an Invitation. Expired invitations will not be extended.
             automatically upon updates.
@@ -369,7 +369,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Delete invitation`
+## `Delete Invitation`
 
 Delete an Invitation. Users who already have an invitation email
             will not be able to sign-up once the invitation is deleted.
@@ -435,7 +435,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for an invitation`
+## `Get Header for an Invitation`
 
 Validate that an invitation exists. This endpoint is identical to the GET
             one, but it does not return an object in the body.
@@ -493,7 +493,7 @@ Invitation or tenant not found.
 Internal server error.
 ***
 
-## `Get header for invitations`
+## `Get Header for Invitations`
 
 Return total number of non-expired Invitations in a tenant. Optionally include expired invitations.
             The value will be set in the Total-Count header. This endpoint is identical to the GET one but
@@ -558,7 +558,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get user's invitation`
+## `Get User's Invitation`
 
 Get Invitation for a user.
 
@@ -629,7 +629,7 @@ Invitation, user, or tenant not found.
 Internal server error.
 ***
 
-## `Create invitation`
+## `Create Invitation`
 
 Create an invitation for a User. Should use when no other invitation exists for the user.
 
@@ -741,7 +741,7 @@ Invitation already exists.
 Internal server error.
 ***
 
-## `Create or update invitation`
+## `Create or Update Invitation`
 
 Create or update an invitation for a User.
 
@@ -874,7 +874,7 @@ Invitation already exists.
 Internal server error.
 ***
 
-## `Delete invitation`
+## `Delete Invitation`
 
 Delete an invitation for a user.
 
@@ -935,7 +935,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for user's invitation`
+## `Get Header for User's Invitation`
 
 Validate that Invitation exist for a user. This endpoint
             is identical to the GET one but it does not return any

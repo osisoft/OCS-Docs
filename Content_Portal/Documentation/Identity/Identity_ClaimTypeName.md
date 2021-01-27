@@ -34,7 +34,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get all identity provider claim type names`
+## `Get All Identity Provider Claim Type Names`
 
 Get all Identity Provider Claim Type Names for an identity provider on a tenant.
 
@@ -133,7 +133,7 @@ Tenant or identity provider not found.
 Internal server error.
 ***
 
-## `Get all identity provider claim type names header`
+## `Get All Identity Provider Claim Type Names Header`
 
 Get Header for all Identity Provider Claims Type Names for an identity provider on a tenant.
 
@@ -190,7 +190,7 @@ Tenant or identity provider not found.
 Internal server error.
 ***
 
-## `Get identity provider claim type name`
+## `Get Identity Provider Claim Type Name`
 
 Get an Identity Provider Claim Type Name from an identity provider on a tenant.
 
@@ -266,7 +266,7 @@ Tenant, identity provider, or Identity Provider Claim Type Name not found.
 Internal server error.
 ***
 
-## `Get identity provider claim type name header`
+## `Get Identity Provider Claim Type Name Header`
 
 Get an Identity Provider Claim Type Name Header from an identity provider on a tenant.
 

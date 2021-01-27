@@ -87,7 +87,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get users from a tenant`
+## `Get Users from a Tenant`
 
 Get a list of users from a tenant. Optionally, get a list of requested users.
             Total number of users in the Tenant set in the Total-Count header.
@@ -284,7 +284,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get users' invitation status`
+## `Get Users' Invitation Status`
 
 Get invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0),  NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
@@ -427,7 +427,7 @@ Internal server error.
 Tenant not found.
 ***
 
-## `Get user from a fenant`
+## `Get User from a Tenant`
 
 Get a User from tenant.
 
@@ -504,7 +504,7 @@ User or tenant not found.
 Internal server error.
 ***
 
-## `Get user's invitation status`
+## `Get User's Invitation Status`
 
 Get invitation status for a User. It can be: InvitationAccepted (0),
             NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
@@ -585,7 +585,7 @@ User or tenant not found.
 Internal server error.
 ***
 
-## `Get user's preferences`
+## `Get User's Preferences`
 
 Get preferences from a user. User preferences can be any valid
             JSON object. A common use case is to store UI preferences for the user.
@@ -648,7 +648,7 @@ User or tenant not found.
 Internal server error.
 ***
 
-## `Update user's preferences`
+## `Update User's Preferences`
 
 Update preferences for a user.
 
@@ -734,7 +734,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Create user`
+## `Create User`
 
 Create a User in the tenant. This endpoint does not create an invitation for the user.
             You will need to create an invitation in the respective endpoint for this user, otherwise
@@ -854,7 +854,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Update user in a tenant`
+## `Update User in a Tenant`
 
 Update a user in a tenant. The Id of a user cannot be changed.
 
@@ -977,7 +977,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Delete user in a tenant`
+## `Delete User in a Tenant`
 
 Delete a user. Admins cannot delete themselves.
             Deleting a user does not invalidate any of the
@@ -1045,7 +1045,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for user`
+## `Get Header for User`
 
 Validate that a user exists. This endpoint is identical to the GET
             one, but it does not return an object in the body.
@@ -1104,7 +1104,7 @@ User does not exist.
 Internal server error.
 ***
 
-## `Get total count of users`
+## `Get Total Count of Users`
 
 Return total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
@@ -1164,7 +1164,7 @@ User not found.
 Internal server error.
 ***
 
-## `Get header for user's preferences`
+## `Get Header for User's Preferences`
 
 Validate that there are preferences for a user. This endpoint is identical
             to the GET one but it does not return any objects in the body.
