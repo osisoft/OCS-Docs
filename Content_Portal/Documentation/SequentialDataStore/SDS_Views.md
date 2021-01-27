@@ -1109,7 +1109,7 @@ The Owner for the specified stream view
 ```
 ***********************
 
-## `Update stream view owner`
+## `Update Stream View Owner`
 
 Updates the Owner of the specified stream view. For more information on Owners, see [Access Control](xref:accessControl).
 

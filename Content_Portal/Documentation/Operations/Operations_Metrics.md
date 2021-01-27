@@ -132,7 +132,7 @@ Forbidden
 Internal server error
 ***
 
-## `Get OMF ingress connection metrics`
+## `Get OMF Ingress Connection Metrics`
 
 Retrieves metrics related to OMF Ingress connections for a given namespace.
 
