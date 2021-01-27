@@ -4,7 +4,7 @@ uid: identityIdentityProvider
 
 # IdentityProvider
 
-APIs for getting a list of all supported identity providerss.
+APIs for getting a list of all supported identity providers.
 
 ## Properties
 
@@ -71,7 +71,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get Identity Providers`
+## `Get Identity Provider`
 
 Returns an IdentityProvider object.
 
@@ -288,7 +288,7 @@ Forbidden.
 Internal server error.
 ***
 
-## `Get Identity Providers Based on Scheme`
+## `Get Identity Provider Based on Scheme`
 
 Get header for a scheme to check its validity.
 
@@ -338,7 +338,7 @@ Identity provider not found.
 Internal server error.
 ***
 
-## `Get Identity Providers Based on Id`
+## `Get Identity Provider Based on Id`
 
 Get header for an identity provider to check if the identity provider exists.
 
@@ -1410,7 +1410,7 @@ Internal server error.
 
 ## `Update Identity Provider Consent of a Tenant`
 
-Update the identity provider Consent of a tenant. Currently only support Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
+Update the identity provider consent of a tenant. Currently only support Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
 ### Request
 
@@ -1441,7 +1441,7 @@ IdentityProviderConsent object.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Scheme | string | Yes | The scheme of the Identity Provider.
+Scheme | string | Yes | The scheme of the identity provider.
 AadTenantId | string | No | Azure Active Directory Tenant Id.
 AadDomain | string | No | Azure Active Directory Domain Name (for example, mydomain.onmicrosoft.com).
 AadConsentTypes | string | Yes | Azure Active Directory Consent Types (for example, SignIn or SignIn;ReadAllUsersGroups).

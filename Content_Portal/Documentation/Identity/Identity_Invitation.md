@@ -31,7 +31,7 @@ Accepted | DateTime | Invitation accepted timestamp.
 State | InvitationStates | Invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2).
 TenantId | string | ID of the Tenant the invitation belongs to.
 UserId | Guid | ID of the User whom the invitation was issued to.
-IdentityProviderId | Guid | ID of the Identity Provider that must be used to accept the invitation.
+IdentityProviderId | Guid | ID of the identity provider that must be used to accept the invitation.
 
 ### Serialized model
 
@@ -298,7 +298,7 @@ Property Name | Data Type | Required | Description
 ExpiresDateTime | DateTime | No | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
 State | InvitationStates | No | Set the state of invitation. For OSISoft internal use only.
 SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Identity Provider to use for accepting this invitation.            Required when creating an invitation.
+IdentityProviderId | Guid | No | Identity provider to use for accepting this invitation.            Required when creating an invitation.
 
 
 
@@ -666,7 +666,7 @@ Property Name | Data Type | Required | Description
 ExpiresDateTime | DateTime | No | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
 State | InvitationStates | No | Set the state of invitation. For OSISoft internal use only.
 SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the user this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Identity Provider to use for accepting this invitation.            Required when creating an invitation.
+IdentityProviderId | Guid | No | Identity provider to use for accepting this invitation.            Required when creating an invitation.
 
 
 

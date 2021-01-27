@@ -731,7 +731,7 @@ Client or tenant not found.
 Internal server error.
 ***
 
-## `Get Total Count of Hybrid Client`
+## `Get Total Count of Hybrid Clients`
 
 Return total number of hybrid clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 

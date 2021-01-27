@@ -28,7 +28,7 @@ For HTTP requests and responses, the UserRole object has the following propertie
 ```
 ***
 
-## `Get roles for user`
+## `Get Roles for User`
 
 Retrieves all `Roles` for the specified user.
 
@@ -95,7 +95,7 @@ Authorized for Account Administrators of the specified tenant and an Account Mem
 
 ***
 
-## `Replace user roles`
+## `Replace User Roles`
 
 Replaces the `Roles` of a user with a new list of roles.
 
