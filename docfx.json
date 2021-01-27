@@ -33,7 +33,8 @@
         "files": [
             "Content_Portal/Quickstarts/images/**",
             "Content_Portal/Documentation/images/**",
-            "Content_Portal/How_To_Guides/images/**"
+            "Content_Portal/How_To_Guides/images/**",
+	    "Content_Portal/Overview/images/**"	
         ]
       }
     ],

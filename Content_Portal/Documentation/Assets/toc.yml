@@ -2,13 +2,11 @@
   href: assets-api.md
 - name: Asset Types API
   href: asset-type.md
-- name: Asset Measurement Mappings
-  href: asset-measurements.md
-- name: Asset Default Shape
-  href: asset-default-shape.md
+- name: Resolved Asset
+  href: asset-resolved-asset.md
 - name: Asset Centric Data API
   href: asset-centric-data-api.md
-- name: Asset Status Mapping
+- name: Asset Status
   href: asset-status-mapping.md
 - name: Assets Search API
   href: asset-search-api.md

@@ -290,66 +290,6 @@ A list of the supported units of measure is below. Supported units of measure ar
 # SdsUomQuantity API
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section interact with SdsUomQuantitys. When working in .NET, convenient SDS client libraries methods are available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, defines the available functions. See [Units of Measure](#units-of-measure) for general [SdsUomQuantity](#sdsuomquantity) information.
 ***
-## `Get Quantity`
-Returns the quantity corresponding to the specified quantityId within a given namespace.
-
-#### Request
- ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
-```
-
-##### Parameters
-
-`string tenantId`  
-The tenant identifier  
-
-`string namespaceId`  
-The namespace identifier  
-
-`string quantityId`  
-The quantity identifier
-
-#### Response
-The response includes a status code and a response body.
-
-##### Response body
-The requested SdsUomQuantity.
-
-##### Example response body when `quantityId = "Length"` is passed
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-{
-    "Id": "Length",
-    "Name": "Length",
-    "BaseUom": {
-        "Id": "meter",
-        "Abbreviation": "m",
-        "Name": "meter",
-        "DisplayName": "meter",
-        "QuantityId": "Length",
-        "ConversionFactor": 1
-    },
-    "Dimensions": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-    ]
-}
-```
-
-#### .NET client libraries method
-```csharp
-   Task<SdsUomQuantity> GetQuantityAsync(string quantityId);
-```
-
-***
-
 ## `Get Quantities`
 
 Returns a list of all quantities available within a given namespace.
@@ -434,15 +374,16 @@ Content-Type: application/json
 ```
 ***
 
-## `Get Quantity Uom`
-
-Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.
+## `Get Quantity`
+Returns the quantity corresponding to the specified quantityId within a given namespace.
 
 #### Request
  ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
- ```
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}
+```
+
 ##### Parameters
+
 `string tenantId`  
 The tenant identifier  
 
@@ -452,34 +393,48 @@ The namespace identifier
 `string quantityId`  
 The quantity identifier
 
-`string uomId`  
-The unit of measure identifier
-
-#### Response 
+#### Response
 The response includes a status code and a response body.
 
 ##### Response body
-The requested SdsUom
+The requested SdsUomQuantity.
 
-##### Example response body when `quantityId = "Length"` and `uomId ="mile"` are passed
+##### Example response body when `quantityId = "Length"` is passed
 ```json
 HTTP/1.1 200
 Content-Type: application/json
 
 {
-    "Id": "mile",
-    "Abbreviation": "mi",
-    "Name": "mile",
-    "DisplayName": "mile",
-    "QuantityId": "Length",
-    "ConversionFactor": 1609.344
+    "Id": "Length",
+    "Name": "Length",
+    "BaseUom": {
+        "Id": "meter",
+        "Abbreviation": "m",
+        "Name": "meter",
+        "DisplayName": "meter",
+        "QuantityId": "Length",
+        "ConversionFactor": 1
+    },
+    "Dimensions": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
 }
 ```
+
 #### .NET client libraries method
 ```csharp
-   Task<SdsUom> GetQuantityUomAsync(string quantityId, string uomId);
+   Task<SdsUomQuantity> GetQuantityAsync(string quantityId);
 ```
+
 ***
+
+
 
 ## `Get Quantity Uoms`
 
@@ -535,10 +490,56 @@ Content-Type: application/json
    Task<IEnumerable<SdsUom>> GetQuantityUomsAsync(string quantityId);
 ```
 ***
+## `Get Quantity Uom`
+
+Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.
+
+#### Request
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}
+ ```
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+
+`string namespaceId`  
+The namespace identifier  
+
+`string quantityId`  
+The quantity identifier
+
+`string uomId`  
+The unit of measure identifier
+
+#### Response 
+The response includes a status code and a response body.
+
+##### Response body
+The requested SdsUom
+
+##### Example response body when `quantityId = "Length"` and `uomId ="mile"` are passed
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+    "Id": "mile",
+    "Abbreviation": "mi",
+    "Name": "mile",
+    "DisplayName": "mile",
+    "QuantityId": "Length",
+    "ConversionFactor": 1609.344
+}
+```
+#### .NET client libraries method
+```csharp
+   Task<SdsUom> GetQuantityUomAsync(string quantityId, string uomId);
+```
+***
 
 ## `Get Quantities Access Control List`
 
-Get the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Gets the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -553,21 +554,37 @@ The tenant identifier
 `string namespaceId`  
 The namespace identifier  
 
-#### Response
+### Response  
 The response includes a status code and a response body.
 
-##### Response body  
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### Response body  
 The default ACL for Quantities
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
 
 #### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetQuantitiesAccessControlListAsync();
+   Task<SdsETagResult<AccessControlList>> GetQuantitiesAccessControlListWithETagAsync();
 ```
-***
 
+***
 ## `Update Quantities Access Control List`
 
-Update the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Updates the default ACL for the Quantities collection. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -594,9 +611,73 @@ The response includes a status code.
 
 ***********************
 
+## `Patch Quantities Access Control List`
+
+Updates the default ACL for the Quantities collection  using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
+
+#### Request
+ ```text
+    PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Quantities
+ ```
+
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### .NET client libraries method
+```csharp
+   Task PatchQuantitiesAccessControlListAsync(JsonPatchDocument<AccessControlList> quantitiesAclPatch);
+   Task PatchQuantitiesAccessControlListWithETagAsync(string etag, JsonPatchDocument<AccessControlList> quantitiesAclPatch);
+```
+
+***
+
 ## `Get Quantity Access Control List`
 
-Get the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Gets the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -613,21 +694,40 @@ The namespace identifier
 `string quantityId`  
 The quantity identifier  
 
-#### Response  
+### Response  
 The response includes a status code and a response body.
 
-##### Response body
-The ACL for the specified quantity
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### Response body  
+The ACL for the specified quantity.
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
 
 #### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetQuantityAccessControlListAsync(string quantityId);
+   Task<SdsETagResult<AccessControlList>> GetQuantityAccessControlListWithETagAsync(string quantityId);
 ```
+
 ***********************
+
+
 
 ## `Update Quantity Access Control List`
 
-Update the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
+Updates the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -655,11 +755,80 @@ The response includes a status code.
 ```csharp
    Task UpdateQuantityAccessControlListAsync(string quantityId, AccessControlList quantityAcl);
 ```
+
 ***
+
+## `Patch Quantity Access Control List`
+
+Updates the ACL of the specified quantity using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Role-based access control](xref:accessControl).
+
+#### Request
+ ```text
+    PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/AccessControl
+ ```
+
+##### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### .NET client libraries method
+```csharp
+   Task PatchQuantityAccessControlListAsync(string quantityId, JsonPatchDocument<AccessControlList> quantityAclPatch);
+   Task PatchQuantityAccessControlListWithETagAsync(string quantityId, string etag, JsonPatchDocument<AccessControlList> quantityAclPatch);
+```
+
+***********************
 
 ## `Get Quantity Owner`
 
-Get the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
+Gets the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -691,7 +860,7 @@ The Owner for the specified quantity
 
 ## `Update Quantity Owner`
 
-Update the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
+Updates the Owner of the specified quantity. For more information on Owners, see [Role-based access control](xref:accessControl).
 
 #### Request
  ```text
@@ -767,50 +936,6 @@ The REST APIs provide programmatic access to read and write SDS data. The APIs i
 
 ***
 
-## ``Get Uom``
-
-Returns the unit of measure corresponding to the specified uomId within a given namespace.
-
-#### Request
- ```text
-    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
- ```
-##### Parameters
-`string tenantId`  
-The tenant identifier  
-
-`string namespaceId`  
-The namespace identifier  
-
-`string uomId`  
-The unit of measure identifier
-
-#### Response   
-The response includes a status code and a response body.
-
-##### Response body   
-The requested SdsUom
-
-##### Example response body when `uomId = "ounce"` is passed
-```json
-HTTP/1.1 200
-Content-Type: application/json
-
-{
-    "Id": "ounce",
-    "Abbreviation": "oz",
-    "Name": "ounce",
-    "DisplayName": "ounce",
-    "QuantityId": "Mass",
-    "ConversionFactor": 0.028349523
-}
-```
-#### .NET client libraries method
-```csharp
-   Task<SdsUom> GetUomAsync(string uomId);
-```
-***
-
 ## ``Get Uoms``
 
 Returns a list of all available units of measure in the system.
@@ -875,11 +1000,53 @@ Content-Type: application/json
    Task<IEnumerable<SdsUom>> GetUomsAsync(int skip = 0, int count = 100);
 ```
 ***
+## ``Get Uom``
 
+Returns the unit of measure corresponding to the specified uomId within a given namespace.
+
+#### Request
+ ```text
+    GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Units/{uomId}
+ ```
+##### Parameters
+`string tenantId`  
+The tenant identifier  
+
+`string namespaceId`  
+The namespace identifier  
+
+`string uomId`  
+The unit of measure identifier
+
+#### Response   
+The response includes a status code and a response body.
+
+##### Response body   
+The requested SdsUom
+
+##### Example response body when `uomId = "ounce"` is passed
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+{
+    "Id": "ounce",
+    "Abbreviation": "oz",
+    "Name": "ounce",
+    "DisplayName": "ounce",
+    "QuantityId": "Mass",
+    "ConversionFactor": 0.028349523
+}
+```
+#### .NET client libraries method
+```csharp
+   Task<SdsUom> GetUomAsync(string uomId);
+```
+***
 
 ## `Get Uom Access Control List`
 
-Get the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
+Gets the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -900,21 +1067,38 @@ The quantity identifier
 `string uomId`  
 The unit of measure identifier
 
-#### Response   
+### Response  
 The response includes a status code and a response body.
 
-##### Response body  
-The ACL for the specified Uom
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### Response body  
+The ACL for the specified UOM.
+
+#### Response headers
+
+Successful (200 OK) responses include an additional response header.
+
+| Header | Description |
+|--|--|
+| ETag | An entity tag, which can be used to prevent modification of the ACL, during a later call to modify the ACL, if the object has already been modified. |
 
 #### .NET client libraries method
 ```csharp
    Task<AccessControlList> GetQuantityUomAccessControlListAsync(string quantityId, string uomId);
+   Task<SdsETagResult<AccessControlList>> GetQuantityUomAccessControlListWithETagAsync(string quantityId, string uomId);
 ```
+
 ***********************
 
 ## `Update Uom Access Control List`
 
-Update the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -946,10 +1130,80 @@ The response includes a status code.
    Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
 ```
 ***
+## `Patch Uom Access Control List`
+
+Updates the ACL of the specified unit of measure using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+
+#### Request
+ ```text
+    PATCH api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
+ ```
+
+##### Parameters
+
+`string tenantId`  
+The tenant identifier  
+  
+`string namespaceId`  
+The namespace identifier  
+  
+`string quantityId`  
+The quantity identifier  
+
+`string uomId`  
+The unit of measure identifier
+
+#### Request body 
+An [RFC 6902](https://tools.ietf.org/html/rfc6902) JSON Patch document that will be applied to the ACL.
+
+The example below inserts a new **Access Control Entry** into the **Access Control List** giving **Read** and **Write** access to the role with the Id `11111111-1111-1111-1111-111111111111`. The remainder of the existing ACL remains unmodified.
+```json
+[
+    {
+        "op": "add",
+        "path": "/RoleTrusteeAccessControlEntries",
+        "value": {
+            "Trustee": {
+                "Type": 3,
+                "ObjectId": "11111111-1111-1111-1111-111111111111"
+            },
+            "AccessType": 0,
+            "AccessRights": 3
+        }
+    }
+]
+```
+
+#### Request headers
+
+The **If-Match** header can be used to prevent modification of an ACL since it was last read using the `ETag` header from the response.
+
+| Header | Description |
+|--|--|
+| If-Match | The entity tag header from a previous read of the ACL. If provided, the ACL will not be patched unless the current `ETag` of the ACL, on the server, matches the value passed into the `If-Match` header. |
+
+### Response  
+The response includes a status code.
+
+| Status Code | Response Type | Description |
+|--|--|--|
+| 204 No Content || The ACL was successfully patched. |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
+| 500 Internal Server Error | error | An error occurred while processing the request. |
+
+#### .NET client libraries method
+```csharp
+   Task PatchQuantityUomAccessControlListAsync(string quantityId, string uomId, JsonPatchDocument<AccessControlList> uomAclPatch);
+   Task PatchQuantityUomAccessControlListWithETagAsync(string quantityId, string uomId, string etag, JsonPatchDocument<AccessControlList> uomAclPatch);
+```
+
+***********************
 
 ## `Get Uom Owner`
 
-Get the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
+Gets the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
@@ -984,7 +1238,7 @@ The Owner for the specified Uom
 
 ## `Update Uom Owner`
 
-Update the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
+Updates the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
 #### Request
  ```text

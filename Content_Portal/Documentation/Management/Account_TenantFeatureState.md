@@ -42,12 +42,12 @@ Retrieves all instances of `FeatureState` for the specified `Tenant`.
 string tenantId
 ```
 
-The identifier of the account to access.
+The identifier of the tenant to access.
 
 
 ### Security
 
-Authorized for Account Members of the specified account.
+Authorized for Account Members of the specified tenant.
 
 ### Returns
 
@@ -76,7 +76,7 @@ Retrieves a `FeatureState` with the specified ID from a `Tenant`.
 string tenantId
 ```
 
-The identifier of the account to access.
+The identifier of the tenant to access.
 ```csharp
 [Required]
 [FromRoute]
@@ -88,15 +88,15 @@ The identifier of the `FeatureState` to retrieve.
 
 ### Security
 
-Authorized for Account Members of the specified account.
+Authorized for Account Members of the specified tenant.
 
 ### Returns
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
-| 200 | FeatureState | Returns the `FeatureState` of the specified account. | 
+| 200 | FeatureState | Returns the `FeatureState` of the specified tenant. | 
 | 400 | Nothing is returned | Unable to retrieve the `FeatureState` due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to retrieve the `FeatureState` of the specified account. | 
+| 403 | Nothing is returned | Unauthorized to retrieve the `FeatureState` of the specified tenant. | 
 
 
 ***
