@@ -812,7 +812,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
