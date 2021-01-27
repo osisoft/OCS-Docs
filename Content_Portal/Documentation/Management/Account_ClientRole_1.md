@@ -5,7 +5,7 @@ uid: AccountClientRole_1
 # Client roles
 
 Client `roles` authorize API requests made by clients to various OCS features. Clients can be assigned more than one
-`role`, but all clients have the Account Member role. The following are currently available Client `Roles`:
+`role`, but all clients have the Account Member role. The following are currently available client `Roles`:
 
 - Account Administrator: Can add, edit, and remove data using APIs.
 - Account Member: Can read data using most APIs.

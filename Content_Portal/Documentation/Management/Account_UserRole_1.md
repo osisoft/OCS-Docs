@@ -126,7 +126,7 @@ The identifier of the user whose roles will be replaced.
 [Role] roleList
 ```
 
-A list of `Role` objects to set as the Roles for the specified user.
+A list of `Role` objects to set as the roles for the specified user.
 
 
 ### Security

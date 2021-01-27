@@ -12,7 +12,7 @@ For HTTP requests and responses, the TenantFeatureState object has the following
 
 | Property Name | Data Type | Description |
 | --- | --- | ---  |
-| TenantId | string | The identifier of the Tenant that the TenantFeatureState corresponds to. |
+| TenantId | string | The identifier of the tenant that the TenantFeatureState corresponds to. |
 | FeatureId | string | The identifier of the Service that the TenantFeatureState corresponds to. |
 | State | int32 | Current state of this TenantFeatureState. |
 
