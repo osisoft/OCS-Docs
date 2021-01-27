@@ -398,8 +398,8 @@ Identity provider claim to create.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Value | string | Yes | The value for this IdentityProvider Claim.
-IdentityProviderClaimTypeNameId | Guid | Yes | The Identity Provider Claim Type Name Id for this IdentityProvider Claim.
+Value | string | Yes | The value for this identity provider claim.
+IdentityProviderClaimTypeNameId | Guid | Yes | The identity provider Claim Type Name Id for this IdentityProvider claim.
 RoleIds | Guid[] | Yes | The list of Role Ids associated with this IdentityProviderClaim.
 
 
@@ -517,7 +517,7 @@ Updated identity provider claim values.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Value | string | No | The value for this IdentityProvider Claim.
+Value | string | No | The value for this IdentityProvider claim.
 RoleIds | Guid[] | No | The list of Role Ids associated with this IdentityProviderClaim.
 
 
