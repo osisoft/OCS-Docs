@@ -5,8 +5,8 @@ uid: sdsTypes
 # Types
 
 The Sequential Data Store (SDS) stores streams of events and provides convenient ways to find and associate 
-events. Events are stored in SdsStreams (or streams). An SdsType (or type) defines the shape or structure of the 
-event and how to associate events within the stream.
+events. Events are stored in SdsStreams (or streams).
+An SdsType is a primitive type available in OCS used within the API and REST definitions to identify a stream type.
 
 Define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
 complex or nested types using the [Properties collection of SdsTypes](#sdstypeproperty). 
@@ -157,7 +157,7 @@ Version                 | 22
 VersionArray            | 222
 
 ## SdsTypeProperty
-The Properties collection defines the fields in an SdsType. 
+The Properties collection defines the fields in an SdsType. Stream properties are a field expected to appear in every stream created from a given type.
 
 The following table shows the required and optional SdsTypeProperty fields. Fields that 
 are not included are reserved for internal SDS use.
@@ -633,7 +633,7 @@ var derivedType = new SdsObjects.SdsType({
 });
 ```
 
-## Type Reusability
+## Type reusability
 SdsTypes can also refer other types by using their identifiers. This enables type re-usability.
 For example, if there is a common index and value property for a group of types that may have additional properties,
 a base type can be created with those properties.
@@ -1313,7 +1313,7 @@ Gets the default ACL for the Types collection. For more information on ACLs, see
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -1324,7 +1324,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -1359,7 +1359,7 @@ Updates the default ACL for the Types collection. For more information on ACLs, 
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -1429,7 +1429,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -1456,10 +1456,10 @@ Gets the ACL of the specified type. For more information on ACLs, see [Access Co
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string typeId`  
 The type identifier  
 
@@ -1470,7 +1470,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -1508,10 +1508,10 @@ Note that this does not update the ACL for the associated types. For further det
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string typeId`  
 The type identifier  
 
@@ -1587,7 +1587,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -1615,10 +1615,10 @@ Gets the Owner of the specified type. For more information on Owners, see [Acces
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string typeId`  
 The type identifier  
 
@@ -1649,10 +1649,10 @@ Note that this does not update the Owner for the associated types. For further d
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string typeId`  
 The type identifier  
 
@@ -1682,10 +1682,10 @@ more information on Access Rights, see [Access Control](xref:accessControl#commo
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string typeId`  
 The type identifier  
 

@@ -4,12 +4,12 @@ uid: identityAuthorizationCodeClient
 
 # AuthorizationCodeClient
 
-Authorization Code clients are used in Javascript/Browser (SPA) based applications or native
+Authorization code clients are used in Javascript/Browser (SPA) based applications or native
             mobile applications with the presence of a User. You can read more about these clients
             [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#authorization-code-flow-with-pkce).
-            Authorization Code clients are not issued secrets or refresh tokens.
-            For some guidelines on use of secrets, refer to the [Credential Management](xref:CredentialManagement) topic.
-            For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
+            Authorization code clients are not issued secrets or refresh tokens.
+            For some guidelines on use of secrets, refer to the [Credential management](xref:CredentialManagement) topic.
+            For some recommendations on least privilege for users and clients, refer to the [Least privilege](xref:LeastPrivilege) topic.
 
 ## Properties
 
@@ -86,8 +86,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Create an Authorization Code Client`
 
-Create an Authorization Code flow Client. No Secret will be generated for this
-            Client.
+Create an authorization code client. No secret will be generated for this client.
 
 ### Request
 
@@ -100,7 +99,7 @@ Create an Authorization Code flow Client. No Secret will be generated for this
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -197,7 +196,7 @@ Created.
 
 #### 400
 
-Missing or invalid inputs, or Client limit exceeded.
+Missing or invalid inputs or client limit exceeded.
 
 #### 401
 
@@ -230,8 +229,7 @@ Internal server error.
 
 ## `Update an Authorization Code Client`
 
-Update an Authorization Code Client. It can take up to one hour
-            for update to manifest in the authentication process.
+Update an authorization code client. It can take up to one hour for update to manifest in the authentication process.
 
 ### Request
 
@@ -259,7 +257,7 @@ Id of Client.
 AuthorizationCodeClient authorizationCodeClient
 ```
 
-Updated Authorization Code Client values. Properties that are not set or are null will not be changed.
+Updated authorization code client values. Properties that are not set or are null will not be changed.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
@@ -377,7 +375,7 @@ Internal server error.
 
 ## `Get an Authorization Code Client from Tenant`
 
-Get an Authorization Code Client from Tenant.
+Get an authorization code client from tenant.
 
 ### Request
 
@@ -390,7 +388,7 @@ Get an Authorization Code Client from Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
@@ -461,9 +459,7 @@ Internal server error.
 
 ## `Get All Authorization Code Clients from Tenant`
 
-Get all Authorization Code clients from a Tenant.
-            Optionally, get a list of requested clients. Total number
-            of clients in the Tenant set in the Total-Count header.
+Get all authorization code clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the Tenant set in the Total-Count header.
 
 ### Request
 
@@ -476,7 +472,7 @@ Get all Authorization Code clients from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -494,7 +490,7 @@ Unordered list of ids for all clients to get. Empty or whitespace Ids will be ig
 string[] tag
 ```
 
-Only return Clients that have these tags.
+Only return clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -611,11 +607,7 @@ Internal server error.
 
 ## `Get Total Count Authorization Code Clients from Tenant`
 
-Return total number of Authorization Code clients in a Tenant.
-            Optionally, check based on a list of requested clients. The
-            value will be set in the Total-Count header. This endpoint
-            is identical to the GET one but it does not return any objects
-            in the body.
+Return total number of authorization code clients in a Tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -628,7 +620,7 @@ Return total number of Authorization Code clients in a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -646,7 +638,7 @@ Unordered list of ids for all clients to get. Empty or whitespace Ids will be ig
 string[] tag
 ```
 
-Only count Clients that have these tags.
+Only count clients that have these tags.
 
 ### Security
 
@@ -683,9 +675,7 @@ Internal server error.
 
 ## `Delete an Authorization Code Client`
 
-Delete an Authorization Code Client. It can take up to one hour
-            for deletion to manifest in the authentication process. Access
-            tokens issued to this client will be valid until their expiration.
+Delete an Authorization Code Client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration.
 
 ### Request
 
@@ -698,14 +688,14 @@ Delete an Authorization Code Client. It can take up to one hour
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -746,7 +736,7 @@ Internal server error.
 
 ## `Get Header for Authorization Code Client`
 
-Validate that an Authorization Code Client exists in Tenant.
+Validate that an authorization code client exists in Tenant.
 
 ### Request
 
@@ -759,14 +749,14 @@ Validate that an Authorization Code Client exists in Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 

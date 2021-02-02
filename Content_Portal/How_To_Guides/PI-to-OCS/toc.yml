@@ -1,0 +1,15 @@
+- name: PI to OCS Introduction
+  href: Overview-PI-to-OCS/toc.yml
+  topicHref: Overview-PI-to-OCS/landing-page1.md
+- name: Set up PI to OCS
+  href: Set-up-PI-to-OCS/toc.yml
+  topicHref: Set-up-PI-to-OCS/landing-page2.md
+- name: Transfer PI System data to OCS
+  href: PI-to-OCS-Data-Transfers/toc.yml
+  topicHref: PI-to-OCS-Data-Transfers/landing-page3.md
+- name: PI to OCS Agent
+  href: PI-to-OCS-Agent/toc.yml
+  topicHref: PI-to-OCS-Agent/landing-page4.md
+- name: View PI to OCS logs 
+  href: PI-to-OCS-log-messages/toc.yml
+  topicHref: PI-to-OCS-log-messages/landing-page5.md

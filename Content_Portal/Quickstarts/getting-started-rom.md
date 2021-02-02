@@ -1,17 +1,9 @@
-Getting Started with Remote Operations Monitoring
+Getting started with remote operations monitoring
 =================================================
 
-OSIsoft Cloud Services (OCS) makes it possible to monitor remote assets in real
-time. The immediate access to data about the status of assets gives you the
-ability to anticipate problems and proactively perform preventative maintenance.
+OSIsoft Cloud Services (OCS) makes it possible to monitor remote assets in real time. The immediate access to data about the status of assets gives you the ability to anticipate problems and proactively perform preventative maintenance.
 
-For example, a fleet manager of a mining truck dealer sells trucks to companies
-worldwide. His company provides monitoring and maintenance services to their
-customers. With remote monitoring, he reviews the status of the trucks each day,
-identifies trucks with problems, uses the data collected on different
-measurements to identify possible causes, reviews the history of these
-measurements over time, and shares the information with colleagues in the field
-who can follow up on the problem.
+For example, a fleet manager of a mining truck dealer sells trucks to companies worldwide. His company provides monitoring and maintenance services to their customers. With remote monitoring, he reviews the status of the trucks each day, identifies trucks with problems, uses the data collected on different measurements to identify possible causes, reviews the history of these measurements over time, and shares the information with colleagues in the field who can follow up on the problem.
 
 The following procedure describes how to use the OCS Portal to monitor your assets and quickly identify problems. The screen captures are taken from the scenario described in the example above.
 

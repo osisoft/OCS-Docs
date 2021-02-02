@@ -4,20 +4,22 @@ uid: identityUser
 
 # User
 
-Users consume resources in a Tenant. They are invited by the Admin of the
-            Tenant and should already have a tenant in one of the configured Identity
-            Providers for this Tenant. A User is fully provisioned in OSIsoft Cloud Services
+Users consume resources in a tenant. They are invited by the Admin of the
+            tenant and should already have a tenant in one of the configured identity
+            providers for this tenant. A User is fully provisioned in OSIsoft Cloud Services
             only after they have accepted the invitation and successfully logged with
-            an Identity Provider. OSIsoft Cloud Services does not maintain User credentials, but it delegates
-            authentication to the Identity Provider the User logged in with at first. Once
-            logged in the User cannot change the Identity Provider it signed up with. A Tenant
-            can only have one User with a given email to an Identity Provider. If a User has
-            multiple aliases in the same Identity Provider, they will not be able to create
+            an identity provider. OSIsoft Cloud Services does not maintain user credentials, but it delegates
+            authentication to the identity provider the user logged in with at first. Once
+            logged in the user cannot change the identity provider it signed up with. A tenant
+            can only have one user with a given email to an identity provider. If a user has
+            multiple aliases in the same identity provider, they will not be able to create
             multiple corresponding OSIsoft Cloud Services users. Users have roles associated with them. These roles
-            determine what a User is authorized to do in the Tenant. Roles are assigned to a User
+            determine what a user is authorized to do in the tenant. Roles are assigned to a user
             upon creation and can be modified by an Admin. We allow the change of some User fields
-            and the complete deletion of a User.
+            and the complete deletion of a user.
             For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
+Users consume resources in a tenant. They are invited by the admin of the tenant and should already have an account in one of the configured identity providers for this tenant. A user is fully provisioned in OSIsoft Cloud Services only after they have accepted the invitation and successfully logged with an identity provider. OSIsoft Cloud Services does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once
+logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OSIsoft Cloud Services users. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an Admin. We allow the change of some User fields and the complete deletion of a user.
 
 ## Properties
 
@@ -33,11 +35,11 @@ Email | string | Email of user.
 ContactEmail | string | Contact email for user. User will only be contacted through this email.
 ContactGivenName | string | Preferred contact name for user.
 ContactSurname | string | Preferred contact surname for user.
-ExternalUserId | string | Provider id for user. This is the unique ID we get from the Identity Provider.
-IdentityProviderId | Guid | Identity Provider Id used to authenticate User. Will be set once the User accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this Tenant.
+ExternalUserId | string | Provider id for user. This is the unique ID we get from the identity provider.
+IdentityProviderId | Guid | Identity Provider Id used to authenticate user. Will be set once the user accepts an invitation. If not specified when sending the invitation to the User, it can be any of the Identity Provider Ids configured for this tenant.
 RoleIds | Guid[] | List of strings of RoleIds.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -70,7 +72,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -87,7 +89,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get Users from a Tenant`
 
-Get a list of users from a Tenant. Optionally, get a list of requested users.
+Get a list of users from a tenant. Optionally, get a list of requested users.
             Total number of users in the Tenant set in the Total-Count header.
 
 ### Request
@@ -101,7 +103,7 @@ Get a list of users from a Tenant. Optionally, get a list of requested users.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -284,10 +286,7 @@ Internal server error.
 
 ## `Get Users' Invitation Status`
 
-Get invitation statuses for multiple users. Optionally
-            restrict it only to users of a specific invitation status.
-            The User status can be: InvitationAccepted (0),  NoInvitation (1),
-            InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+Get invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0),  NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
 ### Request
 
@@ -300,7 +299,7 @@ Get invitation statuses for multiple users. Optionally
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -430,7 +429,7 @@ Tenant not found.
 
 ## `Get User from a Tenant`
 
-Get a User from Tenant.
+Get a User from tenant.
 
 ### Request
 
@@ -443,7 +442,7 @@ Get a User from Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
@@ -498,7 +497,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 500
 
@@ -521,14 +520,14 @@ Get invitation status for a User. It can be: InvitationAccepted (0),
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -579,7 +578,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 500
 
@@ -588,8 +587,8 @@ Internal server error.
 
 ## `Get User's Preferences`
 
-Get preferences from a User. User preferences can be any valid
-            JSON object. A common use case is to store UI preferences for the User.
+Get preferences from a user. User preferences can be any valid
+            JSON object. A common use case is to store UI preferences for the user.
 
 ### Request
 
@@ -602,14 +601,14 @@ Get preferences from a User. User preferences can be any valid
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -642,7 +641,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 500
 
@@ -651,7 +650,7 @@ Internal server error.
 
 ## `Update User's Preferences`
 
-Update preferences for a User.
+Update preferences for a user.
 
 ### Request
 
@@ -664,14 +663,14 @@ Update preferences for a User.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ```csharp
 [FromBody]
@@ -720,7 +719,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 405
 
@@ -737,10 +736,10 @@ Internal server error.
 
 ## `Create User`
 
-Create a User in the Tenant. This endpoint does not create an invitation for the User.
-            You will need to create an invitation in the respective endpoint for this User, otherwise
-            they will not be able to finish the sign-up process. Users have unique Ids in a Tenant.
-            Currently there is a limit of 50000 users per Tenant.
+Create a User in the tenant. This endpoint does not create an invitation for the user.
+            You will need to create an invitation in the respective endpoint for this user, otherwise
+            they will not be able to finish the sign-up process. Users have unique Ids in a tenant.
+            Currently there is a limit of 50000 users per tenant.
             For Windows Active Directory users, the externalUserId must be specified.
 
 ### Request
@@ -754,7 +753,7 @@ Create a User in the Tenant. This endpoint does not create an invitation for the
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -767,11 +766,11 @@ UserCreateOrUpdate object.
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
 Id | Guid | No | User Id for the user. When creating a user, if User ID is not specified, one will be generated.
-ExternalUserId | string | No | User ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
+ExternalUserId | string | No | User ExternalUserId for the user. Must be specified if identity provider is Windows Active Directory.
 ContactGivenName | string | No | Preferred name to be used when contacting user.
 ContactSurname | string | No | Preferred surname to be used when contacting user.
-ContactEmail | string | No | Preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
-IdentityProviderId | Guid | No | Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
+ContactEmail | string | No | Preferred contact email to be used. This does not have to be the same as the user's identity provider email.
+IdentityProviderId | Guid | No | Identity provider this user will be required to use to login.  If null, the identity provider Id will            be set when creating the invitation.
 RoleIds | Guid[] | No | List of strings of RoleIds.
 
 
@@ -828,7 +827,7 @@ Created.
 
 #### 400
 
-Missing or invalid inputs, or the User limit exceeded for Tenant.
+Missing or invalid inputs, or the User limit exceeded for tenant.
 
 #### 401
 
@@ -857,7 +856,7 @@ Internal server error.
 
 ## `Update User in a Tenant`
 
-Update a User in a Tenant. The Id of a User cannot be changed.
+Update a user in a tenant. The Id of a user cannot be changed.
 
 ### Request
 
@@ -890,11 +889,11 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
 Id | Guid | No | User Id for the user. When creating a user, if User ID is not specified, one will be generated.
-ExternalUserId | string | No | User ExternalUserId for the user. Must be specified if Identity Provider is Windows Active Directory.
+ExternalUserId | string | No | User ExternalUserId for the user. Must be specified if identity provider is Windows Active Directory.
 ContactGivenName | string | No | Preferred name to be used when contacting user.
 ContactSurname | string | No | Preferred surname to be used when contacting user.
-ContactEmail | string | No | Preferred contact email to be used. This does not have to be the same as the user's Identity Provider email.
-IdentityProviderId | Guid | No | Identity Provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the Invitation.
+ContactEmail | string | No | Preferred contact email to be used. This does not have to be the same as the user's identity provider email.
+IdentityProviderId | Guid | No | Identity provider this user will be required to use to login.  If null, the Identity Provider Id will            be set when creating the invitation.
 RoleIds | Guid[] | No | List of strings of RoleIds.
 
 
@@ -963,7 +962,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 405
 
@@ -980,14 +979,14 @@ Internal server error.
 
 ## `Delete User in a Tenant`
 
-Delete a User. Admins cannot delete themselves.
-            Deleting a User does not invalidate any of the
-            existing access tokens, but it prevents this User
+Delete a user. Admins cannot delete themselves.
+            Deleting a user does not invalidate any of the
+            existing access tokens, but it prevents this user
             from being able to authenticate in the future.
-            Existing access tokens for the User will be valid
+            Existing access tokens for the user will be valid
             until their expiration date. Refresh tokens on
-            behalf of the User will no longer be valid after the
-            User has been deleted.
+            behalf of the user will no longer be valid after the
+            user has been deleted.
 
 ### Request
 
@@ -1000,14 +999,14 @@ Delete a User. Admins cannot delete themselves.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -1031,7 +1030,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 405
 
@@ -1048,7 +1047,7 @@ Internal server error.
 
 ## `Get Header for User`
 
-Validate that a User exists. This endpoint is identical to the GET
+Validate that a user exists. This endpoint is identical to the GET
             one, but it does not return an object in the body.
 
 ### Request
@@ -1062,14 +1061,14 @@ Validate that a User exists. This endpoint is identical to the GET
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -1107,9 +1106,7 @@ Internal server error.
 
 ## `Get Total Count of Users`
 
-Return total number of users in a Tenant. Optionally, check based on a list of requested users.
-            The value will be set in the Total-Count header. This endpoint is identical to the GET one but
-            it does not return any objects in the body.
+Return total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -1122,7 +1119,7 @@ Return total number of users in a Tenant. Optionally, check based on a list of r
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -1169,7 +1166,7 @@ Internal server error.
 
 ## `Get Header for User's Preferences`
 
-Validate that there are preferences for a User. This endpoint is identical
+Validate that there are preferences for a user. This endpoint is identical
             to the GET one but it does not return any objects in the body.
 
 ### Request
@@ -1219,7 +1216,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 500
 

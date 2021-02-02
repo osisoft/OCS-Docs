@@ -4,7 +4,7 @@ uid: operationsLogs
 
 # Logs
 
-APIs related to querying logs.
+APIs related to querying logs. A log is a record of events that occur in operation of OCS.
 
 
 ***
@@ -19,7 +19,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will appear as follows:
 
@@ -36,7 +36,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get Tenant Logs`
 
-Get customer facing logs for a **Tenant**.
+Get customer facing logs for a **tenant**.
 
 ### Request
 

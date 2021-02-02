@@ -5,17 +5,18 @@ uid: identityInvitation
 # Invitation
 
 Invitations are issued after the creation of a User object in OCS,
-            to begin the provisioning process for a user with one of the Identity
-            Providers in a tenant.
-            There can only be one Invitation for a User at a time. An invitation
+            to begin the provisioning process for a user with one of the identity
+            providers in a tenant.
+            There can only be one invitation for a User at a time. An invitation
             can expire, at which time the Admin can either delete it, or extend it.
-            When creating an Invitation an Account Administrator has the option to resend the
-            Invitation email to the ContactEmail configured for the User the Invitation
-            is attached to. The email can be re-sent by updating the Invitation.
-            When an Invitation expires the User cannot accept it. If the expiration
-            date is extended the User can accept an Invitation.
+            When creating an invitation an Account Administrator has the option to resend the
+            invitation email to the ContactEmail configured for the user the invitation
+            is attached to. The email can be re-sent by updating the invitation.
+            When an invitation expires the User cannot accept it. If the expiration
+            date is extended the User can accept an invitation.
             Invitations that are past of their expiration date by more than two weeks will be deleted.
-            The only way to provision a User after this, is to send a new Invitation.
+            The only way to provision a User after this, is to send a new invitation.
+Invitations are issued after the creation of a User object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the admin can either delete it, or extend it. When creating an invitation an account admin has the option to resend the invitation email to the ContactEmail configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the User can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
 ## Properties
 
@@ -30,9 +31,9 @@ Accepted | DateTime | Invitation accepted timestamp.
 State | InvitationStates | Invitation state. Can be None (0), InvitationEmailSent (1), InvitationAccepted (2).
 TenantId | string | ID of the Tenant the invitation belongs to.
 UserId | Guid | ID of the User whom the invitation was issued to.
-IdentityProviderId | Guid | ID of the Identity Provider that must be used to accept the invitation.
+IdentityProviderId | Guid | ID of the identity provider that must be used to accept the invitation.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -59,7 +60,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -76,7 +77,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get Invitation`
 
-Get an Invitation from Tenant.
+Get an Invitation from tenant.
 
 ### Request
 
@@ -89,14 +90,14 @@ Get an Invitation from Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string invitationId
 ```
 
-Id of Invitation.
+Id of invitation.
 
 ### Security
 
@@ -137,7 +138,7 @@ Forbidden.
 
 #### 404
 
-Invitation or Tenant not found.
+Invitation or tenant not found.
 
 #### 500
 
@@ -159,7 +160,7 @@ Get all non-expired invitations from a Tenant. Optionally include expired invita
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -275,14 +276,14 @@ Update an Invitation. Expired invitations will not be extended.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string invitationId
 ```
 
-Id of Invitation.
+Id of invitation.
 
 ```csharp
 [FromBody]
@@ -297,7 +298,7 @@ Property Name | Data Type | Required | Description
 ExpiresDateTime | DateTime | No | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
 State | InvitationStates | No | Set the state of invitation. For OSISoft internal use only.
 SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
+IdentityProviderId | Guid | No | Identity provider to use for accepting this invitation.            Required when creating an invitation.
 
 
 
@@ -353,7 +354,7 @@ Forbidden.
 
 #### 404
 
-Invitation or Tenant not found.
+Invitation or tenant not found.
 
 #### 405
 
@@ -370,8 +371,8 @@ Internal server error.
 
 ## `Delete Invitation`
 
-Delete an Invitation. Users who already have an Invitation email
-            will not be able to sign-up once the Invitation is deleted.
+Delete an Invitation. Users who already have an invitation email
+            will not be able to sign-up once the invitation is deleted.
 
 ### Request
 
@@ -384,14 +385,14 @@ Delete an Invitation. Users who already have an Invitation email
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string invitationId
 ```
 
-Id of Invitation.
+Id of invitation.
 
 ### Security
 
@@ -419,7 +420,7 @@ Forbidden.
 
 #### 404
 
-Invitation or Tenant not found.
+Invitation or tenant not found.
 
 #### 405
 
@@ -434,9 +435,9 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for an Invitation`
+## `Get Header for an Invitation`
 
-Validate that an Invitation exists. This endpoint is identical to the GET
+Validate that an invitation exists. This endpoint is identical to the GET
             one, but it does not return an object in the body.
 
 ### Request
@@ -450,14 +451,14 @@ Validate that an Invitation exists. This endpoint is identical to the GET
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string invitationId
 ```
 
-Id of Invitation.
+Id of invitation.
 
 ### Security
 
@@ -485,16 +486,16 @@ Forbidden.
 
 #### 404
 
-Invitation or Tenant not found.
+Invitation or tenant not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get header for Invitations`
+## `Get Header for Invitations`
 
-Return total number of non-expired Invitations in a Tenant. Optionally include expired invitations.
+Return total number of non-expired Invitations in a tenant. Optionally include expired invitations.
             The value will be set in the Total-Count header. This endpoint is identical to the GET one but
             it does not return any objects in the body.
 
@@ -559,7 +560,7 @@ Internal server error.
 
 ## `Get User's Invitation`
 
-Get Invitation for a User.
+Get Invitation for a user.
 
 ### Request
 
@@ -572,14 +573,14 @@ Get Invitation for a User.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -621,7 +622,7 @@ Forbidden.
 
 #### 404
 
-Invitation, User, or Tenant not found.
+Invitation, user, or tenant not found.
 
 #### 500
 
@@ -630,7 +631,7 @@ Internal server error.
 
 ## `Create Invitation`
 
-Create an Invitation for a User. Should use when no other Invitation exists for the User.
+Create an invitation for a User. Should use when no other invitation exists for the user.
 
 ### Request
 
@@ -643,14 +644,14 @@ Create an Invitation for a User. Should use when no other Invitation exists for 
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ```csharp
 [FromBody]
@@ -664,8 +665,8 @@ Property Name | Data Type | Required | Description
  --- | --- | --- | ---
 ExpiresDateTime | DateTime | No | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
 State | InvitationStates | No | Set the state of invitation. For OSISoft internal use only.
-SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
+SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the user this invitation is attached to.            Default is true.
+IdentityProviderId | Guid | No | Identity provider to use for accepting this invitation.            Required when creating an invitation.
 
 
 
@@ -721,7 +722,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 405
 
@@ -742,7 +743,7 @@ Internal server error.
 
 ## `Create or Update Invitation`
 
-Create or update an Invitation for a User.
+Create or update an invitation for a User.
 
 ### Request
 
@@ -777,7 +778,7 @@ Property Name | Data Type | Required | Description
 ExpiresDateTime | DateTime | No | Invitation expiration date. Must be in the future.            Maximum allowed is two month in the future.            Defaults to 21 days on creation.            It should be in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) and either            include a *Z* at the end to represent UTC timezone            or include the offset in hours. If neither is present            time will be treated in the local time zone of the server.
 State | InvitationStates | No | Set the state of invitation. For OSISoft internal use only.
 SendInvitation | bool | No | Send an invitation email. Invitation will be sent to the            ContactEmail in the User this invitation is attached to.            Default is true.
-IdentityProviderId | Guid | No | Identity Provider to use for accepting this invitation.            Required when creating an Invitation.
+IdentityProviderId | Guid | No | Identity provider to use for accepting this invitation.            Required when creating an invitation.
 
 
 
@@ -854,7 +855,7 @@ Forbidden.
 
 #### 404
 
-User or Tenant not found.
+User or tenant not found.
 
 #### 405
 
@@ -875,7 +876,7 @@ Internal server error.
 
 ## `Delete Invitation`
 
-Delete an Invitation for a User.
+Delete an invitation for a user.
 
 ### Request
 
@@ -888,14 +889,14 @@ Delete an Invitation for a User.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -919,7 +920,7 @@ Forbidden.
 
 #### 404
 
-Invitation or Tenant not found.
+Invitation or tenant not found.
 
 #### 405
 
@@ -934,9 +935,9 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get header for User's Invitation`
+## `Get Header for User's Invitation`
 
-Validate that Invitation exist for a User. This endpoint
+Validate that Invitation exist for a user. This endpoint
             is identical to the GET one but it does not return any
             objects in the body.
 
@@ -951,14 +952,14 @@ Validate that Invitation exist for a User. This endpoint
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ```csharp
 [FromQuery]

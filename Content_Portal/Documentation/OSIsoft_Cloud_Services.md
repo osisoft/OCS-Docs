@@ -15,26 +15,24 @@ The information in the sections that follow document the APIs and usage for each
 
 ## Access to OCS
 
-You must acquire an account before interacting with OCS. If you do not 
-have an account, you can request access to OCS at https://cloud.osisoft.com/?signup.
+You must acquire an account before interacting with OCS. If you do not have an account, you can request access to OCS at https://cloud.osisoft.com/?signup.
 
 
 ## Architecture
 
-A Tenant represents a client or organization that owns and manages a collection of OSIsoft Cloud Services.
+A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
 
 Tenants are divided into one or more logical units called Namespaces. Each Namespace is distinct and separate from 
-other Namespaces, with its own instances of the various OSIsoft Cloud Services and data stores. 
-Namespaces provide isolation of resources. 
+other Namespaces with its own instances of the various OSIsoft Cloud Services and data stores. Namespaces provide isolation of resources. 
 
 Namespaces are provisioned within a region. The Namespace's services and data stores all exist in the Namespace's region. Resources allocated to a Namespace are isolated to the Namespace's region. For more information on regions see the [Namespace](xref:AccountNamespace_1) documentation.  Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
 
 OSIsoft Cloud Services provides data residency via namespaces in the following regions:
 
-| Supported Regions | Geographic Area | Location | 
- | --- | --- | ---  | 
-| WestUS | Americas | California | 
-| WestEurope | Europe | Netherlands | 
+| Supported Regions | Geographic Area | Location |
+| --- | --- | ---  |
+| WestUS | Americas | California |
+| WestEurope | Europe | Netherlands |
 
 Tenant account information is stored in all regions for read-only purposes. Write operations are only supported through the global base URL. See the [Tenant](xref:AccountTenant) documentation for information on how to access this data.
 

@@ -2,15 +2,15 @@
 uid: MetadataRulesOverview
 ---
 
-# Metadata Rules
-Metadata, or data about data, is descriptive information assigned to data objects. Metadata enriches sequential data in OCS and it logically segregates and contextualizes data. It supports data analysis, visualization, organization, and search capabilities.
+# Metadata rules
+Metadata, or data about data, is a collection of properties that asset instances of an asset type are expected to provide. The type and units of measure for the value can be defined. Metadata enriches sequential data in OCS and it logically segregates and contextualizes data. It supports data analysis, visualization, organization, and search capabilities.
 
 A metadata rule is a user-defined stream name pattern in which each part is assigned a metadata type. Metadata rules capture any streams currently stored in an OCS namespace, as well as matching streams that are subsequently added to the namespace.
 
-## The Metadata Rules feature
+## The metadata rules feature
 The Metadata Rules feature in the OCS Portal simplifies the process of assigning metadata to streams. The user interface guides users through the process of designating  metadata types for a stream name pattern.
 
-## Metadata Rules example
+## Metadata rules example
 Users base metadata rules on an existing stream name in the OCS Portal. Stream name parts are “delimited,” or separated, by non-alphanumeric characters placed within the name, typically to separate meaningful sections of the name.
 An example metadata rule stream name pattern follows:
 ```

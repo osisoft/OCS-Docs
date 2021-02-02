@@ -3,11 +3,11 @@ uid: sdsReadingDataApi
 ---
 # API calls for reading data
 
-#### Example Type, Stream, and Data
+#### Example type, stream, and data
 
 Many of the API methods described below contain example requests and responses in JSON to highlight usage and specific behaviors. The following type, stream, and data are used in the examples.
 
-**Example Type**  
+**Example type**  
 ``SimpleType`` is an SdsType with a single index. This type is defined below in .NET, Python, and Javascript:
 
 ###### .NET
@@ -415,6 +415,7 @@ The response will contain up to 100 events. The boundary type Outside indicates 
 event outside the boundary will be included in the response. For a reverse direction range request, 
 this means one event forward of the specified start index. In a default direction range request, 
 it would mean one event before the specified start index.
+
 ##### Example request  
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
@@ -860,7 +861,7 @@ SDS supports two ways of specifying which interpolated events to return:
 * [Interval](#getvaluesinterpolatedinterval): An interval can be specified with a start index, end index, and count. This will return the specified count of events evenly spaced from start index to end index.
 
 <a name="getvaluesindexcollection"></a>
-### `Index Collection`  
+### `Index collection`  
 
 Returns events at the specified indexes. If no stored event exists at a specified index, the stream's read characteristics determine how the returned event is calculated. For more information, see [Interpolation](xref:sdsReadingData#interpolation) and [Extrapolation](xref:sdsReadingData#extrapolation).
 
@@ -1062,7 +1063,7 @@ Content-Type: application/json
 ## ``Get Summaries``
 
 Returns summary intervals between a specified start and end index. 
-  
+
 Index types that cannot be interpolated do not support summary requests. Strings are an example of indexes that cannot be interpolated. Summaries are not supported for streams with compound indexes. Interpolating between two indexes 
 that consist of multiple properties is not defined and results in non-determinant behavior.
 
@@ -1154,7 +1155,7 @@ The number of intervals requested
 
 ``string filter``  
 Optional filter expression
-  
+
 #### Response
 The response includes a status code and a response body containing a serialized collection of SdsIntervals.
 
@@ -1173,7 +1174,7 @@ The following request calculates two summary intervals between the `startIndex` 
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
  ```
- 
+
 ##### Example response body
 ```json
 HTTP/1.1 200
@@ -1325,7 +1326,7 @@ While calculating weighted summaries, if we encounter a null value at a given in
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 0 | 0 |
 
 Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 PM] respectively, the table would look like below:
@@ -1333,13 +1334,13 @@ Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 P
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 1 |
 
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 1 | 1.5 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 2 |
 
 **Note:** Non-weighted summaries disregard null values and treat them as non-existent. 
@@ -1351,7 +1352,7 @@ The following request calculates one summary interval between the `startIndex` a
  ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:01Z&endIndex=2017-11-23T12:00:08Z&count=1
- ```                
+ ```
 
 ##### Example response body
 ```json
@@ -1435,7 +1436,7 @@ Content-Type: application/json
 ## ``Get Sampled Values``
 
 Returns representative data sampled by intervals between a specified start and end index. 
-  
+
 Sampling is driven by a specified property or properties of the stream's Sds Type. Property types that cannot be interpolated do not support sampling requests. Strings are an example of a property that cannot be interpolated. For more 
 information see [Interpolation](xref:sdsReadingData#interpolation). 
 
@@ -1490,7 +1491,7 @@ The following request returns two sample intervals between the `startIndex` and 
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
         Sampled?startIndex=2019-01-01T00:00:00Z&endIndex=2019-01-02T00:00:00Z&intervals=2&sampleBy=Measurement
  ```
- 
+
 ##### Example response body
 ```json
 HTTP/1.1 200
@@ -1584,7 +1585,7 @@ SDS supports GET and POST join requests:
 * [POST](#postjoin): Only the joinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
 
 <a name="getjoin"></a>
-### `GET Request`
+### `GET request`
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams={streams}&joinMode={joinMode}&startIndex={startIndex}&endIndex={endIndex}
@@ -1595,13 +1596,13 @@ SDS supports GET and POST join requests:
 ##### Parameters
 ``string tenantId``  
 The tenant identifier
-  
+
 ``string namespaceId``  
 The namespace identifier
-  
+
 ``string streams``  
 Commas separated list of stream identifiers
-  
+
 ``SdsJoinMode joinMode``  
 Type of join: inner, outer, interpolated, merge left or merge right
 
@@ -2037,7 +2038,7 @@ Content-Type: application/json
 Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00Z". 
 
 <a name="postjoin"></a>
-### `POST Request`
+### `POST request`
  ```text
     POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins?
         joinMode={joinMode}
@@ -2047,10 +2048,10 @@ Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00
 
 ``string tenantId``  
 The tenant identifier
-  
+
 ``string namespaceId``  
 The namespace identifier
-  
+
 ``SdsJoinMode joinMode``  
 Type of join: inner, outer, interpolated, merge left or merge right
 
@@ -2205,6 +2206,6 @@ See `Outer Join` [GET request](#outer-join-example-request) above to compare.
    Task<IList<T>> GetMergeValuesAsync<T>(IEnumerable<string> streams, SdsMergeType joinMode, 
       string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
       SdsBoundaryType endBoundaryType, string filter, int count);
- ```
+```
 
 ***********************

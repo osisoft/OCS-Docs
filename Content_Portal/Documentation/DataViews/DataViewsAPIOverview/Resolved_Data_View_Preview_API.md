@@ -64,7 +64,7 @@ The response includes a status code and, in most cases, a body.
 | 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation |
 | 404 Not Found | error | The query does not exist |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details | 
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:

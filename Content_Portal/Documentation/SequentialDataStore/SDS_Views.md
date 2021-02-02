@@ -3,12 +3,7 @@ uid: sdsStreamViews
 ---
 
 # Stream Views
-SdsStreamViews (or stream views) provide flexibility in the use of SdsTypes.
-While you cannot actually change the properties of SdsTypes themselves,
-the stream views feature enables you to create a view of a selected SdsStream that appears as if you had changed the SdsType on which it is based.
-You create a stream view by choosing a source and target type then a set of mappings between properties of those two types. 
-Using a stream view to leverage existing SdsType properties is preferable to creating a new SdsType, because the SdsStream that is based on the SdsType continues to function with its previously archived stream data intact.
-For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type).
+SdsStreamViews (or stream views) provide flexibility in the use of SdsTypes and allow you to expose data as a different type. While you cannot actually change the properties of SdsTypes themselves, the stream views feature enables you to create a view of a selected SdsStream that appears as if you had changed the SdsType on which it is based. You create a stream view by choosing a source and target type then a set of mappings between properties of those two types. Using a stream view to leverage existing SdsType properties is preferable to creating a new SdsType, because the SdsStream that is based on the SdsType continues to function with its previously archived stream data intact. For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type).
 
 ## SdsStreamView fields and properties table
 <a name="streamviewpropertiestable"></a>
@@ -50,7 +45,7 @@ and add it to the SdsStreamView’s properties collection.
 SDS largely supports mapping within the same data type. 
 
 **Mapping compatibility chart**
- 
+
 | Source type\ Target type    | Numeric types 	| Nullable numeric types 	| Enumeration types 	| Nullable enumeration types 	| Object types    	| 
 |----------------------------	|---------------	|------------------------	|-------------------	|----------------------------	|--------------------|
 | Numeric types              	| Yes           	| Yes                    	| No                	| No                         	| No                 |
@@ -133,7 +128,7 @@ For code examples, see [Work with SdsStreamViews in .NET framework](#work-with-s
     - The mapping between the source and the target type happens automatically if you do not specify it in [SdsStreamViewProperty](#sdsstreamviewproperty).
 7. Get [SdsStreamViewMap](#get-stream-view-map) to see how properties are mapped.
 8. Read data from the stream with the stream view to verify. For more information, see [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews).
-     
+   
 
 ## Work with SdsStreamViews in .NET framework
 
@@ -572,10 +567,10 @@ Returns the stream view corresponding to the specified streamViewId within a giv
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -700,10 +695,10 @@ If no matching identifier is found, the specified stream view is created.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier. The identifier must match the ``SdsStreamView.Id`` field.   
 
@@ -736,10 +731,10 @@ Creates or updates the definition of a stream view.
 
 `string tenantId`
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -772,10 +767,10 @@ Deletes a stream view from the specified tenant and namespace.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -801,7 +796,7 @@ Gets the default ACL for the Stream Views collection. For more information on AC
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -812,7 +807,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -847,7 +842,7 @@ Updates the default ACL for the Stream Views collection. For more information on
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -917,7 +912,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -943,10 +938,10 @@ Gets the ACL of the specified stream view. For more information on ACLs, see [Ac
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -957,7 +952,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -993,10 +988,10 @@ Updates the ACL of the specified stream view. For more information on ACLs, see 
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -1069,7 +1064,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -1095,10 +1090,10 @@ Gets the Owner of the specified stream view. For more information on Owners, see
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -1127,10 +1122,10 @@ Updates the Owner of the specified stream view. For more information on Owners, 
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -1160,10 +1155,10 @@ more information on Access Rights, see [Access Control](xref:accessControl#commo
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
