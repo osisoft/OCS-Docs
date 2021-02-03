@@ -1,0 +1,8 @@
+- name: About Namepaces
+  href: namespaces-concept.md
+- name: Namepaces Best Practices
+  href: namespaces-best-practices.md
+- name: Create a Namespace
+  href: namespaces-procedure.md
+- name: Assets and Asset Types
+  href: Assets/toc.yml

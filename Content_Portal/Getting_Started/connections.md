@@ -1,5 +1,5 @@
 ---
-uid: GSConnections
+uid: gsConnections
 ---
 
 # Connections

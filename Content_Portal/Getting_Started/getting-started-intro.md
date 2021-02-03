@@ -1,5 +1,5 @@
 ---
-uid: GettingStartedOCS
+uid: gsGettingStartedOCS
 ---
 
 # Getting Started with OSIsoft Cloud Services 

@@ -1,18 +1,8 @@
 ---
-uid: piSystemConnection
+uid: gsPISystemConnection
 ---
 
-## PI System Connections
-
-### Best Practices for PI System Connections
-
-The most important consideration is to ensure the PI to OCS Agent does not place an excessive load on PI Data Archive. The following recommendations address this issue.
-
-- Only one PI to OCS Agent per connection is allowed to transfer data from a specific PI Data Archive to an OCS namespace. This restriction prevents multiple PI to OCS Agents from pulling data from a single PI Data Archive, which can create an excessive load on the server.
-- Install the PI to OCS Agent on a host computer that is separate from your PI Data Archive deployment, so it does not add to the load on the host computer.
-- Keep the PI to OCS Agent software version up to date for the best performance. The OCS Portal indicates when an agent is out of date and needs to be updated. 
-
-### Get Started with PI to OCS Connections
+# Get Started with PI to OCS Connections
 
 To use PI to OCS to transfer data from your PI System to OCS, you must complete the following:
 

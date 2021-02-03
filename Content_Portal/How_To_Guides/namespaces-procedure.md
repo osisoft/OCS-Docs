@@ -1,17 +1,9 @@
 ---
-uid: gsNamespaces
+uid: GSCreateNamespaces
 ---
 
 
-# Get Started with Namespaces
-
-The first task is to create a namespace, a logical unit of organization for data within a tenant. For more information on namespaces, see the following:
-
-- [About Namespaces](xref:ccNamespaces)
-- [PI Core Counterpart](xref:ccNamespaces#pi-core-counterpart) 
-- [Namespace IDs](xref:ccNamespaces#namespace-ids)
-- [Querying Data Across Namespaces](xref:ccNamespaces#querying-data-across-namespaces)
-- [Namespaces Best Practices](xref:bpNamespaces)
+# Create a Namespace
 
 ## Procedure
 

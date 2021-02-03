@@ -1,21 +1,10 @@
 ---
-uid: omfConnection
+uid: gsOMFConnection
 ---
 
-## OSIsoft Messaging Format Connection
+# Get Started with OMF Connections
 
-### Best Practices for OMF Connections
-
-The most important considerations with OMF connections are to ensure applications use the correct client credentials and security is correctly configured for OMF connections.
-
-- Each type of application or system that sends OMF data to OCS should have its own defined OMF connection, with the name and description referencing the data source.
-- Each application instance or each device that sends OSIsoft Message Format (OMF) data to OCS should have its own client credentials client and its own secret. Connections allow a list of clients to be defined. When each application instance or device has its own client, security is improved because secrets can be managed at a granular level.
-- The client credentials client should have the absolute minimum roles and access in OCS. For example, a client may be granted access to write data, but it does not have permissions to delete data. Note, however, the permissions associated with the OMF connection are separate from the client's permissions, and restrictions on the client do not impact permissions on OMF messages.
-- For use cases that involve a large number of source applications or source devices, the OCS API can be used to automatically assign a new client credentials client and secret whenever a new device is brought online.
-
-### Get Started with OMF Connections
-
-To send OMF data to OCS, you must first configure an OMF connection. Use this getting started procedure to become familiar with OMF connections.
+To send OSIsoft Message Format (OMF) data to OCS, you must first configure an OMF connection. Use this getting started procedure to become familiar with OMF connections.
 
 1. Click the ![Menu icon](images\menu-icon.png) icon and click **Clients** (below Security) to open the Manage Clients page.
 
