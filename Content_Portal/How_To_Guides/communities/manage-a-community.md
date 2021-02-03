@@ -4,18 +4,18 @@ uid: managecommunity
 
 # Manage tenants in a community
 
-The Community Details page lets you perform various tasks for managing tenants that already belong to a community.
+The Community Details page lets you perform various tasks for managing tenants that already belong to a community. It also lets you add tenants to a community.
 
 To create a new community, see [Add a community](xref:add-community).
 
-## Add a tenant to a community
+## Invite a tenant to a community
 
 OCS lets you invite business partners to join a community so they are enabled to share data. The business partner must already be a tenant in OCS.
 
 Two different users must perform this procedure:
 
-- One user, the "inviter," issues an invitation to another tenant to join a community. Only an OCS user whose role is Community Administrator, Community Moderator, or Tenant Administrator can be an inviter.
-- Another user in separate tenant, the "invitee," accepts the invitation. Only an OCS user whose role is a Tenant Administrator or Community Administrator can be an invitee.
+- One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be a Tenant Administrator *and* a Community Administrator. 
+- Another user in a separate tenant, the "invitee," accepts the invitation. To be an invitee, you must be a Tenant Administrator. 
 
 1. **Inviter:** Perform the following steps:   
    1.1. On the Communities overview page, find the community you want to share and click **Details**.   
@@ -24,7 +24,7 @@ Two different users must perform this procedure:
 2. **Invitee:** Perform the following steps:   
    2.1 Open the email from OSIsoft Cloud Services and click **VIEW COMMUNITY INVITE**. OCS opens and displays a login dialog.   
    2.2. Enter the name of your tenant and click **Continue**. A dialog for verifying identity appears.   
-   2.3. Verify your identity. OCS displays a page saying that your tenant will be joining the community from which the invite was issued.   
+   2.3. Verify your identity. OCS displays a page saying that your tenant will be joining the community from which the invite was issued. Membership in the community does not begin until the inviter confirms the invitation in the next step.   
    2.4. Click **Join**. The inviter receives an email asking for confirmation of the pending invitation.   
 3. **Inviter:** Perform the following steps:   
    3.1. Click **VIEW PENDING INVITATIONS**. After authentication into OCS, the Community Details page opens and shows that an invitation awaits confirmation.   
@@ -36,11 +36,11 @@ This procedure is TBD
 
 ## Remove a tenant from a community
 
-Use this procedure to remove a tenant from a community. This action might be necessary if a business relationship changes or a security breach occurs.
+Use this procedure to remove a tenant from a community. This action might be necessary if a business relationship changes or the tenant's organization experiences a security breach.
 
 After removing a tenant, you can re-invite the tenant to the community but all data that was previously shared must be shared again with the returning tenant.
 
-**Note.** Only an OCS user whose role is Community Administrator or Tenant Administrator can remove a tenant from a community.  
+**Note.** Only an OCS user who has a Community Administrator role *and* a Tenant Administrator role can remove a tenant from a community.  
 
 1. On the Communities overview page, find the community you want to modify and click **Details**.
 2. On the Community Details page, select the tenant you want to remove from the community.
@@ -52,8 +52,8 @@ Use this procedure to remove your own tenant from a community.
 
 After removing you tenant, you can be re-invited to the community but all data that was previously shared with your tenant must be shared again.
 
-**Note.** Only OCS users whose role is Community Administrator or Tenant Administrator can remove their own tenant from a community.
+**Note.** Only OCS users who have the Community Administrator role *and* the Tenant Administrator role can remove their own tenant from a community.
 
 1. On the Communities overview page, find the community you want to leave and click **Details**.
-2. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Remove <your tenant>**. A confirmation dialog opens.
+2. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Remove *\<your tenant\>***. A confirmation dialog opens.
 3. Enter the name of your own tenant and click **Remove**.
