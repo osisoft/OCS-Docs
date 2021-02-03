@@ -1,4 +1,4 @@
-- name: Data Ingress to OCS in OMF
+- name: Data collection using OMF
   href: OMF_Ingress_to_OCS.md
 - name: Use OMF with OCS
   href: OMF_Ingress_Specification.md

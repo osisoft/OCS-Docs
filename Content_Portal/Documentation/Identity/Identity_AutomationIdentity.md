@@ -4,7 +4,7 @@ uid: identityAutomationIdentity
 
 # AutomationIdentity
 
-APIs for Automation Identities.
+APIs for automation identities.
 
 ## Properties
 
@@ -12,14 +12,14 @@ For HTTP requests and responses, the AutomationIdentity object has the following
 
 Property Name | Data Type | Description
  --- | --- | ---
-Id | Guid | Automation Identity id.
-Name | string | The Automation Identity name.
-TenantId | string | The Automation Identity Tenant id.
-RoleIds | Guid[] | Role ids associated with this Automation Identity.
-RoleTypeIds | Guid[] | Role type ids associated with this Automation Identity.
-Tags | string[] | Tags associated with this Automation Identity.
+Id | Guid | Automation identity id.
+Name | string | The automation identity name.
+TenantId | string | The automation identity tenant id.
+RoleIds | Guid[] | Role ids associated with this automation identity.
+RoleTypeIds | Guid[] | Role type ids associated with this automation identity.
+Tags | string[] | Tags associated with this automation identity.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -53,7 +53,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -70,7 +70,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Create an Automation Identity`
 
-Create an Automation Identity. A non-Administrator caller must have all roles being assigned to the new Automation Identity.
+Create an automation identity. A non-Administrator caller must have all roles being assigned to the new automation adentity.
 
 ### Request
 
@@ -83,7 +83,7 @@ Create an Automation Identity. A non-Administrator caller must have all roles be
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -95,9 +95,9 @@ New Automation Identity object.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Name | string | Yes | The Automation Identity name.
-RoleIds | Guid[] | Yes | Role ids associated with this Automation Identity.
-Tags | string[] | No | Tags associated with this Automation Identity.
+Name | string | Yes | The automation identity name.
+RoleIds | Guid[] | Yes | Role ids associated with this automation identity.
+Tags | string[] | No | Tags associated with this automation identity.
 
 
 
@@ -162,7 +162,7 @@ Unauthorized.
 
 #### 403
 
-Forbidden. A non-Administrator caller must have all roles being assigned to the new Automation Identity.
+Forbidden. A non-Administrator caller must have all roles being assigned to the new automation identity.
 
 #### 404
 
@@ -187,7 +187,7 @@ Internal server error.
 
 ## `Get an Automation Identity`
 
-Returns Automation Identity object.
+Returns automation identity object.
 
 ### Request
 
@@ -200,14 +200,14 @@ Returns Automation Identity object.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid automationIdentityId
 ```
 
-Id of Automation Identity.
+Id of automation identity.
 
 ### Security
 
@@ -265,7 +265,7 @@ Internal server error.
 
 ## `Get Header for Automation Identity`
 
-Validate that an Automation Identity exists in Tenant.
+Validate that an automation identity exists in tenant.
 
 ### Request
 
@@ -278,14 +278,14 @@ Validate that an Automation Identity exists in Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid automationIdentityId
 ```
 
-Id of Automation Identity.
+Id of automation identity.
 
 ### Security
 
@@ -314,7 +314,7 @@ Forbidden.
 
 #### 404
 
-Automation Identity or Tenant not found.
+Automation identity or tenant not found.
 
 #### 500
 
@@ -323,7 +323,7 @@ Internal server error.
 
 ## `Get Automation Identities from a Tenant`
 
-Returns Automation Identity objects.
+Returns automation identity objects.
 
 ### Request
 
@@ -336,7 +336,7 @@ Returns Automation Identity objects.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -345,7 +345,7 @@ Id of Tenant.
 string[] tag
 ```
 
-Only return Automation Identities that have at least one of these tags.
+Only return automation identities that have at least one of these tags.
 
 ```csharp
 [FromQuery]
@@ -363,7 +363,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of Automation Identities to skip. Ignored if a list of ids is passed.
+Number of automation identities to skip. Ignored if a list of ids is passed.
 
 ```csharp
 [FromQuery]
@@ -372,7 +372,7 @@ Number of Automation Identities to skip. Ignored if a list of ids is passed.
 int32 count
 ```
 
-Maximum number of Automation Identities to return. Ignored if a list of ids is passed.
+Maximum number of automation identities to return. Ignored if a list of ids is passed.
 
 ### Security
 
@@ -449,7 +449,7 @@ Internal server error.
 
 ## `Get Total Count of Automation Identities from Tenant`
 
-Return total number of Automation Identities in Tenant in the Total-Count header.
+Return total number of automation identities in tenant in the Total-Count header.
 
 ### Request
 
@@ -462,7 +462,7 @@ Return total number of Automation Identities in Tenant in the Total-Count header
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -471,7 +471,7 @@ Id of Tenant.
 string[] tag
 ```
 
-Only count Automation Identities that have at least one of these tags.
+Only count automation identities that have at least one of these tags.
 
 ### Security
 
@@ -500,7 +500,7 @@ Forbidden.
 
 #### 404
 
-Automation Identity or Tenant not found.
+Automation identity or tenant not found.
 
 #### 500
 
@@ -509,7 +509,7 @@ Internal server error.
 
 ## `Delete an Automation Identity`
 
-Delete an Automation Identity. A non-Administrator caller must have all roles belonging to the Automation Identity being deleted.
+Delete an automation identity. A non-Administrator caller must have all roles belonging to the automation identity being deleted.
 
 ### Request
 
@@ -522,14 +522,14 @@ Delete an Automation Identity. A non-Administrator caller must have all roles be
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid automationIdentityId
 ```
 
-Id of Automation Identity.
+Id of automation identity.
 
 ### Security
 
@@ -550,11 +550,11 @@ Unauthorized.
 
 #### 403
 
-Forbidden. A non-Administrator caller must have all roles belonging to the Automation Identity being deleted.
+Forbidden. A non-Administrator caller must have all roles belonging to the automation identity being deleted.
 
 #### 404
 
-Automation Identity or Tenant not found.
+Automation identity or tenant not found.
 
 #### 405
 
@@ -571,7 +571,7 @@ Internal server error.
 
 ## `Update Automation Identity`
 
-Update a Automation Identity. A non-Administrator caller must have all roles belonging to the existing Automation Identity, as well as any roles being added.
+Update a automation identity. A non-Administrator caller must have all roles belonging to the existing automation identity, as well as any roles being added.
 
 ### Request
 
@@ -584,14 +584,14 @@ Update a Automation Identity. A non-Administrator caller must have all roles bel
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid automationIdentityId
 ```
 
-Id of Automation Identity.
+Id of automation identity.
 
 ```csharp
 [FromBody]
@@ -599,13 +599,13 @@ Id of Automation Identity.
 AutomationIdentityUpdate automationIdentityUpdate
 ```
 
-Automation Identity object. Properties that are not set or are null will not be changed.
+Automation identity object. Properties that are not set or are null will not be changed.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Name | string | No | The Automation Identity name.
-RoleIds | Guid[] | No | Role ids associated with this Automation Identity.
-Tags | string[] | No | Tags associated with this Automation Identity.
+Name | string | No | The automation identity name.
+RoleIds | Guid[] | No | Role ids associated with this automation identity.
+Tags | string[] | No | Tags associated with this automation identity.
 
 
 
@@ -666,7 +666,7 @@ Unauthorized.
 
 #### 403
 
-Forbidden. A non-Administrator caller must have all roles belonging to the existing Automation Identity, as well as any roles being added.
+Forbidden. A non-Administrator caller must have all roles belonging to the existing automation identity, as well as any roles being added.
 
 #### 400
 
@@ -674,7 +674,7 @@ Missing or invalid inputs.
 
 #### 404
 
-Automation Identity or Tenant not found.
+Automation identity or tenant not found.
 
 #### 405
 

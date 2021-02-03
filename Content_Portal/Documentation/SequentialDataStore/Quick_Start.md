@@ -218,7 +218,7 @@ simpleType.Name = "Simple";
 simpleType.Description = "Basic sample type";
 await config.CreateTypeAsync(simpleType);
 ```
- 
+
 
 #### Step 5: Create a stream
 
@@ -366,7 +366,7 @@ Dictionary<string, object> Errors
   if an ``InsertValues`` call failed because it conflicted with an existing event in the stream, the index of the 
   conflicting event will be included in this dictionary.
 
-### SDS Timeout request header
+### SDS timeout request header
 
 Handling timeout issues can be difficult and confusing in a distributed programming environment. When a client 
 times out, for example, the request is terminated before the client receives a response from the server. Meanwhile, the application is

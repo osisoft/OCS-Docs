@@ -4,18 +4,20 @@ uid: identitySecret
 
 # Secret
 
-Secrets are used to authenticate both Client Credential clients and Hybrid clients.
-            A Secret has an expiration date or can be created to never expire. We advise to avoid
-            creating secrets that do not expire. After a Secret expires it can no longer be used
-            to authenticate the Client. Any access token issued while a Secret is still valid will
+Secrets are used to authenticate both client credential clients and hybrid clients.
+            A secret has an expiration date or can be created to never expire. We advise to avoid
+            creating secrets that do not expire. After a secret expires it can no longer be used
+            to authenticate the client. Any access token issued while a secret is still valid will
             be active until the token itself expires. The same applies to refresh tokens, which are
-            issued to Hybrid clients. Safe storage of secrets is your responsibility. OSIsoft Cloud Services
-            does not store secret values, so once lost there is no way to retrieve the value of a Secret.
+            issued to hybrid clients. Safe storage of secrets is your responsibility. OSIsoft Cloud Services
+            does not store secret values, so once lost there is no way to retrieve the value of a secret.
             For some guidelines on use of secrets, refer to the [Credential Management](xref:CredentialManagement) topic.
+Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. OSIsoft Cloud Services
+does not store secret values, so once lost there is no way to retrieve the value of a secret.
 
 ## Properties
 
-For HTTP requests and responses, the Secret object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the secret object has the following properties and JSON-serialized body: 
 
 Property Name | Data Type | Description
  --- | --- | ---
@@ -25,7 +27,7 @@ Value | string | The secret value.
 Expiration | DateTime | The expiration date.
 Type | string | The type of the client secret.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -49,7 +51,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -66,9 +68,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get Hybrid Client Secrets`
 
-Get all secrets for a Hybrid Client.
-            Total number of secrets in the Client
-            set in the Total-Count header.
+Get all secrets for a Hybrid Client. Total number of secrets in the client set in the Total-Count header.
 
 ### Request
 
@@ -81,14 +81,14 @@ Get all secrets for a Hybrid Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromQuery]
@@ -160,7 +160,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
@@ -169,7 +169,7 @@ Internal server error.
 
 ## `Get Hybrid Client Secret`
 
-Get a Hybrid Client Secret.
+Get a hybrid client secret.
 
 ### Request
 
@@ -182,21 +182,21 @@ Get a Hybrid Client Secret.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -233,7 +233,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 500
 
@@ -242,7 +242,7 @@ Internal server error.
 
 ## `Add Hybrid Client Secret`
 
-Add a new secret to a Client Credential Client.
+Add a new secret to a hybrid client.
             A client can have a maximum of 10 secrets.
             We advise against creating secrets that do not expire.
 
@@ -257,14 +257,14 @@ Add a new secret to a Client Credential Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromBody]
@@ -343,7 +343,7 @@ Internal server error.
 
 ## `Update Hybrid Client Secret`
 
-Update a Hybrid Client Secret. It can take up to one hour for
+Update a hybrid client secret. It can take up to one hour for
             the update to manifest in the authentication process.
 
 ### Request
@@ -357,21 +357,21 @@ Update a Hybrid Client Secret. It can take up to one hour for
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ```csharp
 [FromBody]
@@ -436,7 +436,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 405
 
@@ -453,9 +453,7 @@ Internal server error.
 
 ## `Delete Hybrid Client Secret`
 
-Delete a Secret from a Hybrid Client. It can take up to one hour for
-            deletion to manifest in the authentication process.
-            Access tokens issued using this Secret will be valid until their expiration.
+Delete a secret from a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued using this secret will be valid until their expiration.
 
 ### Request
 
@@ -468,21 +466,21 @@ Delete a Secret from a Hybrid Client. It can take up to one hour for
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -506,7 +504,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 405
 
@@ -523,7 +521,7 @@ Internal server error.
 
 ## `Get Header for Hybrid Client Secret`
 
-Validate that a Secret with given Id exists in the Client.
+Validate that a secret with given Id exists in the client.
             This endpoint is identical to the GET one but it does not
             return any objects in the body.
 
@@ -538,21 +536,21 @@ Validate that a Secret with given Id exists in the Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -580,7 +578,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 500
 
@@ -589,10 +587,7 @@ Internal server error.
 
 ## `Get Total Count of Hybrid Client Secrets`
 
-Return total number of Secrets in a Hybrid Client. The value
-            will be set in the Total-Count header. This endpoint
-            is identical to the GET one but it does not return
-            any objects in the body.
+Return total number of secrets in a hybrid client. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return  any objects in the body.
 
 ### Request
 
@@ -605,14 +600,14 @@ Return total number of Secrets in a Hybrid Client. The value
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -640,7 +635,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
@@ -649,8 +644,8 @@ Internal server error.
 
 ## `Get Client Credential Client Secrets`
 
-Get all secrets for a Client Credential Client.
-            Total number of secrets in the Client set in the
+Get all secrets for a client credential client.
+            Total number of secrets in the client set in the
             Total-Count header.
 
 ### Request
@@ -664,14 +659,14 @@ Get all secrets for a Client Credential Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromQuery]
@@ -743,7 +738,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
@@ -752,7 +747,7 @@ Internal server error.
 
 ## `Get Client Credential Client Secret`
 
-Get a Client Credential Client Secret.
+Get a client credential client secret.
 
 ### Request
 
@@ -765,21 +760,21 @@ Get a Client Credential Client Secret.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -816,7 +811,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 500
 
@@ -825,9 +820,7 @@ Internal server error.
 
 ## `Add Client Credential Client Secret`
 
-Add a new Secret to a Client Credential Client.
-            A Client can have a maximum of 10 secrets.
-            We advise against creating secrets that do not expire.
+Add a new secret to a client credential client. A client can have a maximum of 10 secrets. We advise against creating secrets that do not expire.
 
 ### Request
 
@@ -840,14 +833,14 @@ Add a new Secret to a Client Credential Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromBody]
@@ -913,7 +906,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 405
 
@@ -930,7 +923,7 @@ Internal server error.
 
 ## `Update Client Credential Client Secret`
 
-Update a Client Credential Client Secret.
+Update a client credential client secret.
             It can take up to one hour for the update
             to manifest in the authentication process.
 
@@ -1024,7 +1017,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 405
 
@@ -1041,10 +1034,10 @@ Internal server error.
 
 ## `Delete Client Credential Client Secret`
 
-Delete a Secret from a Client Credential Client.
+Delete a Secret from a client credential client.
             It can take up to one hour for deletion to manifest
             in the authentication process. Access tokens issued
-            using this Secret will be valid until their expiration.
+            using this secret will be valid until their expiration.
 
 ### Request
 
@@ -1057,21 +1050,21 @@ Delete a Secret from a Client Credential Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -1095,7 +1088,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 405
 
@@ -1112,7 +1105,7 @@ Internal server error.
 
 ## `Get Header for Client Credential Client Secret`
 
-Validate that a Secret with given Id exists in the Client.
+Validate that a secret with given Id exists in the client.
             This endpoint is identical to the GET one but it does not
             return any objects in the body.
 
@@ -1127,21 +1120,21 @@ Validate that a Secret with given Id exists in the Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [Required]
 int32 secretId
 ```
 
-Id of Secret.
+Id of secret.
 
 ### Security
 
@@ -1169,7 +1162,7 @@ Forbidden.
 
 #### 404
 
-Secret, Client, or Tenant not found.
+Secret, client, or tenant not found.
 
 #### 500
 
@@ -1178,7 +1171,7 @@ Internal server error.
 
 ## `Get Total Count of Client Credential Client Secrets`
 
-Return total number of Secrets in a Client. The value
+Return total number of secrets in a client. The value
             will be set in the Total-Count header. This endpoint
             is identical to the GET one but it does not return
             any objects in the body.
@@ -1194,14 +1187,14 @@ Return total number of Secrets in a Client. The value
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -1229,7 +1222,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 

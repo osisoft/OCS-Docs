@@ -4,7 +4,7 @@ uid: DataViewsFieldMappings
 
 # View field mappings
 
-A `FieldMapping` contains information on the source on every field of data in the data view. For each field in the data view, there is a corresponding `FieldMapping`. Inspecting the field mapping resource after defining the data view is a good way to confirm that the output data view does contain the data-of-interest prior to data generation.
+A `FieldMapping` contains information on the source on every field of data in the data view. Field mappings are part of a resolved data view that describe which data items will map to specific fields. Each field mapping can report the field kind (index, group, data, or field id) of the field as well as information on how it is mapped via its data mapping. For each field in the data view, there is a corresponding `FieldMapping`. Inspecting the field mapping resource after defining the data view is a good way to confirm that the output data view does contain the data-of-interest prior to data generation.
 
 Within each field mapping, the list of `DataMapping`s shows the source of data for each group. There is one `DataMapping` per group, since the number of distinct data sources for each field equals the number of groups in the resolved data view. The order of the data mappings corresponds to the order of the groups as seen from [Get Groups](xref:ResolvedDataViewAPI#get-groups). If a field does not resolve for a specific group, then the data mapping will be empty. Empty data mappings have a `TypeCode` of `Empty`. See below for more details in `TypeCode`.
 
@@ -23,7 +23,7 @@ Narrow shape data views have a fixed field mapping shape. There are only two dat
 The number and order of field mappings is identical to the number and order of the resulting data view fields. 
 
 ### Id and label
-The field mapping id represents the json property name (or column name in table or csv format) in the output data view data. The field mapping label represents the data view field label with tokens resolved. If all field mapping labels in a data view are unique, the field mapping id is identical to the label; if not, the id is generated from the label by adding an index number postfix. 
+The field mapping id represents the JSON property name (or column name in table or csv format) in the output data view data. The field mapping label represents the data view field label with tokens resolved. If all field mapping labels in a data view are unique, the field mapping id is identical to the label; if not, the id is generated from the label by adding an index number postfix. 
 
 ### Field kind
 The `FieldKind` specifies whether the field maps to an index field, grouping field, data field, or field id field. Not all `DataMapping` properties apply to each `FieldKind`.

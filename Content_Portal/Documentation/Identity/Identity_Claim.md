@@ -4,12 +4,11 @@ uid: identityClaim
 
 # Claim
 
-An Identity Provider Claim provides a mechanism to map a Claim
-            from an Identity Provider to one or more Roles.
+An identity provider claim provides a mechanism to map a claim from an identity provider to one or more Roles.
 
 ## Properties
 
-For HTTP requests and responses, the Claim object has the following properties and JSON-serialized body: 
+For HTTP requests and responses, the claim object has the following properties and JSON-serialized body: 
 
 Property Name | Data Type | Description
  --- | --- | ---
@@ -20,7 +19,7 @@ Type | string | The type of the claim.
 Value | string | The value of the claim.
 ValueType | string | The value type of the claim.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -46,7 +45,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -61,9 +60,9 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Get All Identity Provider Claims`
+## `Get all Identity Provider Claims`
 
-Get all Identity Provider Claims for an Identity Provider on a Tenant.
+Get all identity provider claims for an identity provider on a tenant.
 
 ### Request
 
@@ -76,14 +75,14 @@ Get all Identity Provider Claims for an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [FromQuery]
@@ -101,7 +100,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of Identity Providers to skip.
+Number of identity providers to skip.
 
 ```csharp
 [FromQuery]
@@ -110,7 +109,7 @@ Number of Identity Providers to skip.
 int32 count
 ```
 
-Maximum number of Identity Providers to return.
+Maximum number of identity providers to return.
 
 ### Security
 
@@ -161,16 +160,16 @@ Forbidden.
 
 #### 404
 
-Tenant or Identity Provider not found.
+Tenant or identity provider not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get All Identity Provider Claims Header`
+## `Get all Identity Provider Claims Header`
 
-Get Header for all Identity Provider Claims for an Identity Provider on a Tenant.
+Get Header for all identity provider claims for an identity provider on a tenant.
 
 ### Request
 
@@ -183,14 +182,14 @@ Get Header for all Identity Provider Claims for an Identity Provider on a Tenant
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ### Security
 
@@ -218,7 +217,7 @@ Forbidden.
 
 #### 404
 
-Tenant or Identity Provider not found.
+Tenant or identity provider not found.
 
 #### 500
 
@@ -227,7 +226,7 @@ Internal server error.
 
 ## `Get Identity Provider Claim`
 
-Get an Identity Provider Claim from an Identity Provider on a Tenant.
+Get an identity provider claim from an identity provider on a tenant.
 
 ### Request
 
@@ -240,21 +239,21 @@ Get an Identity Provider Claim from an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
 Guid identityProviderClaimId
 ```
 
-Id of Identity Provider Claim.
+Id of identity provider claim.
 
 ### Security
 
@@ -294,7 +293,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Identity Provider Claim not found.
+Tenant, identity provider, or identity provider claim not found.
 
 #### 500
 
@@ -303,7 +302,7 @@ Internal server error.
 
 ## `Get Identity Provider Claim Header`
 
-Get an Identity Provider Claim Header from an Identity Provider on a Tenant.
+Get an identity provider claim Header from an identity provider on a tenant.
 
 ### Request
 
@@ -316,21 +315,21 @@ Get an Identity Provider Claim Header from an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
 Guid identityProviderClaimId
 ```
 
-Id of Identity Provider Claim.
+Id of identity provider claim.
 
 ### Security
 
@@ -358,7 +357,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Identity Provider Claim not found.
+Tenant, identity provider, or identity provider claim not found.
 
 #### 500
 
@@ -367,7 +366,7 @@ Internal server error.
 
 ## `Create New Identity Provider Claim`
 
-Create a new Identity Provider Claim for an Identity Provider on a Tenant.
+Create a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 
@@ -380,14 +379,14 @@ Create a new Identity Provider Claim for an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [FromBody]
@@ -395,12 +394,12 @@ Id of Identity Provider.
 IdentityProviderClaimCreate identityProviderClaimCreate
 ```
 
-Identity Provider Claim to create.
+Identity provider claim to create.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Value | string | Yes | The value for this IdentityProvider Claim.
-IdentityProviderClaimTypeNameId | Guid | Yes | The Identity Provider Claim Type Name Id for this IdentityProvider Claim.
+Value | string | Yes | The value for this identity provider claim.
+IdentityProviderClaimTypeNameId | Guid | Yes | The identity provider Claim Type Name Id for this IdentityProvider claim.
 RoleIds | Guid[] | Yes | The list of Role Ids associated with this IdentityProviderClaim.
 
 
@@ -458,7 +457,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Roles not found.
+Tenant, identity provider, or Roles not found.
 
 #### 405
 
@@ -470,16 +469,16 @@ Operation timed out.
 
 #### 409
 
-Identity Provider Claim configuration already exists.
+Identity provider claim configuration already exists.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Update an existing Identity Provider Claim`
+## `Update an Existing Identity Provider Claim`
 
-Create a new Identity Provider Claim for an Identity Provider on a Tenant.
+Create a new identity provider claim for an identity provider on a tenant.
 
 ### Request
 
@@ -492,21 +491,21 @@ Create a new Identity Provider Claim for an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
 Guid identityProviderClaimId
 ```
 
-Id of Identity Provider Claim.
+Id of identity provider claim.
 
 ```csharp
 [FromBody]
@@ -514,11 +513,11 @@ Id of Identity Provider Claim.
 IdentityProviderClaimUpdate identityProviderClaimUpdate
 ```
 
-Updated Identity Provider Claim values.
+Updated identity provider claim values.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Value | string | No | The value for this IdentityProvider Claim.
+Value | string | No | The value for this IdentityProvider claim.
 RoleIds | Guid[] | No | The list of Role Ids associated with this IdentityProviderClaim.
 
 
@@ -571,7 +570,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, Identity Provider Claim, or Roles not found.
+Tenant, identity provider, identity provider claim, or roles not found.
 
 #### 405
 
@@ -583,16 +582,16 @@ Operation timed out.
 
 #### 409
 
-Identity Provider Claim configuration already exists.
+identity provider claim configuration already exists.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Delete an existing Identity Provider Claim`
+## `Delete an Existing Identity Provider Claim`
 
-Delete an Identity Provider Claim for an Identity Provider on a Tenant.
+Delete an identity provider claim for an identity provider on a tenant.
 
 ### Request
 
@@ -605,21 +604,21 @@ Delete an Identity Provider Claim for an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
 Guid identityProviderClaimId
 ```
 
-Id of Identity Provider Claim.
+Id of identity provider claim.
 
 ### Security
 
@@ -643,7 +642,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Identity Provider Claim not found.
+Tenant, identity provider, or identity provider claim not found.
 
 #### 405
 

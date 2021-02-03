@@ -5,8 +5,8 @@ uid: identityHybridClient
 # HybridClient
 
 Hybrid clients are used in typical, thick MVC clients with the presence of a User.
-            These clients are issued an Id and Secret upon creation, which are later used for authentication
-            against OSIsoft Cloud Services. More than one Secret can be created for a Client. You can read more about these clients
+            These clients are issued an Id and secret upon creation, which are later used for authentication
+            against OSIsoft Cloud Services. More than one secret can be created for a client. You can read more about these clients
             [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#hybrid-flow).
             Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically
             have an longer lifetime than access tokens, and are used to request a new access token on behalf of the user
@@ -14,6 +14,8 @@ Hybrid clients are used in typical, thick MVC clients with the presence of a Use
             It is highly suggested that both the Client Secret and the refresh token be stored
             in a secure location.
             For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
+
+Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have an longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to sign-in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
 
 ## Properties
 
@@ -28,12 +30,12 @@ PostLogoutRedirectUris | string[] | Allowed URIs to redirect to after logout. Wi
 ClientUri | string | URI to a page with information about client (used on consent screen).
 LogoUri | string | URI to client logo (used on consent screen).
 Id | string | Secret Id.
-Name | string | Name of Client.
+Name | string | Name of client.
 Enabled | bool | Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.
 AccessTokenLifetime | int32 | Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | For OSIsoft internal use only.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -72,7 +74,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -90,10 +92,10 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 ## `Create Hybrid Client`
 
 Create a Hybrid Client. A Client Id and Client Secret will be generated to perform
-            authentication. Make sure to store the Secret somewhere safe as we do not store the
-            actual value after the creation step. If you do not have access to the Secret value, we suggest
-            deleting the Secret and adding a new one for this Client. Clients have unique ids in a Tenant.
-            Currently there is a limit of 50000 clients (of all types) per Tenant.
+            authentication. Make sure to store the secret somewhere safe as we do not store the
+            actual value after the creation step. If you do not have access to the secret value, we suggest
+            deleting the secret and adding a new one for this client. Clients have unique ids in a tenant.
+            Currently there is a limit of 50000 clients (of all types) per tenant.
 
 ### Request
 
@@ -106,7 +108,7 @@ Create a Hybrid Client. A Client Id and Client Secret will be generated to perfo
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -243,7 +245,7 @@ Internal server error.
 
 ## `Update Hybrid Client`
 
-Update a Hybrid Client. It can take up to one hour
+Update a hybrid client. It can take up to one hour
             for these values to manifest in the authentication process.
 
 ### Request
@@ -257,14 +259,14 @@ Update a Hybrid Client. It can take up to one hour
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromBody]
@@ -370,7 +372,7 @@ Missing or invalid inputs.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 405
 
@@ -387,7 +389,7 @@ Internal server error.
 
 ## `Get Hybrid Client`
 
-Get a Hybrid Client from a Tenant.
+Get a Hybrid Client from a tenant.
 
 ### Request
 
@@ -400,14 +402,14 @@ Get a Hybrid Client from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -460,18 +462,16 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get All Hybrid Clients`
+## `Get All Hybrid Client`
 
-Get a list of Hybrid clients from a Tenant.
-            Optionally, get a list of requested clients. Total number
-            of clients in the Tenant set in the Total-Count header.
+Get a list of Hybrid clients from a tenant. Optionally, get a list of requested clients. Total number of clients in the tenant set in the Total-Count header.
 
 ### Request
 
@@ -484,7 +484,7 @@ Get a list of Hybrid clients from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -493,7 +493,7 @@ Id of Tenant.
 string[] id
 ```
 
-Unordered list of Hybrid Client Ids. Empty, whitespace or null Ids will be ignored.
+Unordered list of hybrid client Ids. Empty, whitespace or null Ids will be ignored.
 
 ```csharp
 [FromQuery]
@@ -502,7 +502,7 @@ Unordered list of Hybrid Client Ids. Empty, whitespace or null Ids will be ignor
 string[] tag
 ```
 
-Only return Clients that have these tags.
+Only return clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -615,10 +615,7 @@ Internal server error.
 
 ## `Delete Hybrid Client`
 
-Delete a Hybrid Client. It can take up to one hour
-            for deletion to manifest in the authentication process. Access
-            tokens issued to this Client will be valid until their expiration.
-            Refresh tokens issued to this will be valid up to one hour after deletion.
+Delete a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration. Refresh tokens issued to this will be valid up to one hour after deletion.
 
 ### Request
 
@@ -631,14 +628,14 @@ Delete a Hybrid Client. It can take up to one hour
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -662,7 +659,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 405
 
@@ -679,9 +676,7 @@ Internal server error.
 
 ## `Get Header for Hybrid Client`
 
-Validate that a Hybrid Client exists.
-            This endpoint is identical to the GET one but
-            it does not return any objects in the body.
+Validate that a hybrid client exists. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -694,14 +689,14 @@ Validate that a Hybrid Client exists.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -729,7 +724,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
@@ -738,11 +733,7 @@ Internal server error.
 
 ## `Get Total Count of Hybrid Clients`
 
-Return total number of Hybrid clients in a Tenant.
-            Optionally, check based on a list of requested clients. The
-            value will be set in the Total-Count header. This endpoint
-            is identical to the GET one but it does not return any objects
-            in the body.
+Return total number of hybrid clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -755,7 +746,7 @@ Return total number of Hybrid clients in a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -764,7 +755,7 @@ Id of Tenant.
 string[] id
 ```
 
-Unordered list of Hybrid Client Ids. Empty, whitespace or null Ids will be ignored.
+Unordered list of hybrid client Ids. Empty, whitespace or null Ids will be ignored.
 
 ```csharp
 [FromQuery]
@@ -801,7 +792,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 

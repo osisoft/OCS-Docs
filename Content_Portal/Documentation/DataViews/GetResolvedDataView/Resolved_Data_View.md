@@ -4,7 +4,7 @@ uid: ResolvedDataView
 
 # Get resolved data view
 
-Various information is available about how each data view _resolves_. This information describes exactly what data will be in the data view, where it comes from, and where it will appear. This is useful when defining a data view and when consuming it.
+A resolved data view is used to describe the output of a data view at the time it was resolved and for the authorized user. It can provide information on what items will be in the results, how they will be grouped, what items are mapped to a particular field, what additional fields are available to be included in the data view, and data items which are ineligible for mapping. Resolved Data Views do not query or return event data. This is useful when defining a data view and when consuming it.
 
 ## General concepts
 

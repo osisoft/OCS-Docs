@@ -4,7 +4,7 @@ uid: DataViewsGrouping
 
 # Group data items
 
-The data items of a data view may be organized by _grouping_ them. It is one way of producing a meaningful, consumable shape of data.
+A group can be returned from a resolved data view that describes how data view results will be grouped. The data items of a data view may be organized by _grouping_ them. It is one way of producing a meaningful, consumable shape of data.
 
 Grouping is optional when defining the data view. If the `.GroupingFields` section is not defined on the data view, the resolved data view shows a single group with all eligible data items. If the `.GroupingFields` section is defined, the resolved data view shows multiple groups, each with the list of data items for the group and the `.GroupingValues` field showing the matching group's value(s). In this case, if a data item does not match any group, it is added to all groups.
 
@@ -72,7 +72,7 @@ Let us start with a simple data view. It queries for the aforementioned streams,
 ```
 Unfortunately, the initial result is not very usable. The fields are ambiguous.  Eight fields are simply labeled "Value" with an index appendended to the end and the size of each data record is tied to the number of inverter streams found by the query.
 
-| Timestamp.0 | Value.1 | Value.2 | Value.3 | ... | 
+| Timestamp.0 | Value.1 | Value.2 | Value.3 | ... |
 |--|--|--|--|--|
 | - | ROSE.Meter.Primary.Inverter.0.PwrIn/Value | ROSE.Meter.Primary.Inverter.0.PwrOut/Value | ROSE.Meter.Primary.Inverter.1.PwrIn/Value | ... |
 

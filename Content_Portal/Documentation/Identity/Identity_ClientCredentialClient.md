@@ -4,19 +4,18 @@ uid: identityClientCredentialClient
 
 # ClientCredentialClient
 
-Client Credential clients are used for machine-to-machine communication without
+Client credential clients are used for machine-to-machine communication without
             the presence of a User. 
-            These clients are issued an Id and Secret upon creation,
-            which are later used for authentication against OSIsoft Cloud Services. More than one Secret can be
-            created for a Client. You can read more about these clients
+            These clients are issued an Id and secret upon creation,
+            which are later used for authentication against OSIsoft Cloud Services. More than one secret can be
+            created for a client. You can read more about these clients
             [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#client-credential-flow).
             Because they access resources on OSIsoft Cloud Services, and are not associated to users, these
-            clients can be assigned any of the roles in the Tenant. We suggest following a
+            clients can be assigned any of the roles in the tenant. We suggest following a
             least privilege strategy when assigning roles to these clients, as they are more
             likely to operate in remote machines with a wider attack surface.
-            For some guidelines for managing tokens, refer to the [Token Management](xref:TokenManagement) topic.
-            For some guidelines on use of secrets, refer to the [Credential Management](xref:CredentialManagement) topic.
-            For some recommendations on least privilege for users and clients, refer to the [Least Privilege](xref:LeastPrivilege) topic.
+
+Because they access resources on OSIsoft Cloud Services and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
 
 ## Properties
 
@@ -26,12 +25,12 @@ Property Name | Data Type | Description
  --- | --- | ---
 RoleIds | Guid[] | List of Roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning Admin roles to a client.
 Id | string | Secret Id.
-Name | string | Name of Client.
+Name | string | Name of client.
 Enabled | bool | Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.
 AccessTokenLifetime | int32 | Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | For or OSIsoft internal use only.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -62,7 +61,7 @@ Requests made without an access token or an invalid/expired token will fail with
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
 Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -79,11 +78,11 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Create Client Credential Client`
 
-Create a Client Credential Client. A Client Id and Client Secret will be generated to perform
-            authentication. Make sure to store the Secret somewhere safe as we do not store the
-            actual value after the creation step. If you do not have access to the Secret value, we suggest
-            deleting the Secret and adding a new one for this Client. Clients have unique Ids in a Tenant.
-            Currently there is a limit of 50000 clients (of all types) per Tenant.
+Create a Client credential client. A Client Id and Client Secret will be generated to perform
+            authentication. Make sure to store the secret somewhere safe as we do not store the
+            actual value after the creation step. If you do not have access to the secret value, we suggest
+            deleting the secret and adding a new one for this client. Clients have unique Ids in a tenant.
+            Currently there is a limit of 50000 clients (of all types) per tenant.
 
 ### Request
 
@@ -96,7 +95,7 @@ Create a Client Credential Client. A Client Id and Client Secret will be generat
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -112,7 +111,7 @@ SecretDescription | string | No | Description for the initial secret for the cli
 SecretExpirationDate | DateTime | No | Expiration date for the initial secret for the client. If set to null the secret will            never expire. We advise against such practice.
 RoleIds | Guid[] | Yes | List of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
 Id | string | No | Client ID for this client. This ID should be a GUID.
-Name | string | Yes | Name of Client.
+Name | string | Yes | Name of client.
 Enabled | bool | No | Whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
 AccessTokenLifetime | int32 | No | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | No | For OSIsoft internal use only.
@@ -179,7 +178,7 @@ Created.
 
 #### 400
 
-Missing or invalid inputs, or Client limit exceeded.
+Missing or invalid inputs, or client limit exceeded.
 
 #### 401
 
@@ -212,7 +211,7 @@ Internal server error.
 
 ## `Update Client Credential Client`
 
-Update a Client Credential Client. It can take up to one hour
+Update a client credential client. It can take up to one hour
             for these values to manifest in the authentication process.
 
 ### Request
@@ -226,14 +225,14 @@ Update a Client Credential Client. It can take up to one hour
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ```csharp
 [FromBody]
@@ -247,7 +246,7 @@ Property Name | Data Type | Required | Description
  --- | --- | --- | ---
 RoleIds | Guid[] | No | List of Roles to be assigned to this client. Member role is always required.            For security reasons we advise against assigning Admin roles to a client.
 Id | string | No | Client ID for this client. This ID should be a GUID.
-Name | string | Yes | Name of Client.
+Name | string | Yes | Name of client.
 Enabled | bool | No | Whether client is enabled. Client can be used for authentication            if set to true. Client cannot be used for authentication if set to false.
 AccessTokenLifetime | int32 | No | Lifetime of access token issued for this client after authentication.            Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | No | For OSIsoft internal use only.
@@ -318,7 +317,7 @@ Missing or invalid inputs.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 405
 
@@ -335,7 +334,7 @@ Internal server error.
 
 ## `Get Client Credential Client`
 
-Get a Client Credential Client.
+Get a client credential client.
 
 ### Request
 
@@ -348,14 +347,14 @@ Get a Client Credential Client.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -401,18 +400,18 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get All Client Credential Clients`
+## `Get all Client Credential Clients`
 
-Get a list of Client Credential clients from a Tenant.
+Get a list of client credential clients from a tenant.
             Optionally, get a list of requested clients. Total number
-            of clients in the Tenant set in the Total-Count header.
+            of clients in the tenant set in the Total-Count header.
 
 ### Request
 
@@ -425,7 +424,7 @@ Get a list of Client Credential clients from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -434,7 +433,7 @@ Id of Tenant.
 string[] id
 ```
 
-Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids will be ignored.
+Unordered list of client credential client Ids. Empty, whitespace or null Ids will be ignored.
 
 ```csharp
 [FromQuery]
@@ -443,7 +442,7 @@ Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids wi
 string[] tag
 ```
 
-Only return Clients that have these tags.
+Only return clients that have these tags.
 
 ```csharp
 [FromQuery]
@@ -605,9 +604,9 @@ Internal server error.
 
 ## `Delete Client Credential Client`
 
-Delete a Client Credential Client. It can take up to one hour
+Delete a client credential client. It can take up to one hour
             for deletion to manifest in the authentication process. Access
-            tokens issued to this Client will be valid until their expiration.
+            tokens issued to this client will be valid until their expiration.
 
 ### Request
 
@@ -620,14 +619,14 @@ Delete a Client Credential Client. It can take up to one hour
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -651,7 +650,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 405
 
@@ -668,7 +667,7 @@ Internal server error.
 
 ## `Get Header for Client Credential Client`
 
-Validate that a Client Credential Client exists.
+Validate that a client credential client exists.
             This endpoint is identical to the GET one but
             it does not return any objects in the body.
 
@@ -683,14 +682,14 @@ Validate that a Client Credential Client exists.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 string clientId
 ```
 
-Id of Client.
+Id of client.
 
 ### Security
 
@@ -719,7 +718,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 
@@ -728,11 +727,7 @@ Internal server error.
 
 ## `Get Total Count of Clients`
 
-Return total number of Client Credential clients in a Tenant.
-            Optionally, check based on a list of requested clients. The
-            value will be set in the Total-Count header. This endpoint
-            is identical to the GET one but it does not return any objects
-            in the body.
+Return total number of client credential clients in a tenant. Optionally, check based on a list of requested clients. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -745,7 +740,7 @@ Return total number of Client Credential clients in a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -754,7 +749,7 @@ Id of Tenant.
 string[] id
 ```
 
-Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids will be ignored.
+Unordered list of client credential client Ids. Empty, whitespace or null Ids will be ignored.
 
 ```csharp
 [FromQuery]
@@ -763,7 +758,7 @@ Unordered list of Client Credential Client Ids. Empty, whitespace or null Ids wi
 string[] tag
 ```
 
-Only count Clients that have these tags.
+Only count clients that have these tags.
 
 ### Security
 
@@ -792,7 +787,7 @@ Forbidden.
 
 #### 404
 
-Client or Tenant not found.
+Client or tenant not found.
 
 #### 500
 

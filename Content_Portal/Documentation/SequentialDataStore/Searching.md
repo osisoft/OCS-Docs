@@ -309,12 +309,12 @@ Note that while wildcard (``*``) can be used either in or outside of quotes, it 
 #### Request
 ```text	
 	GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams?query="pump pressure"	
-```	
+```
 
 #### .NET client libraries method
 ```csharp	
 	GetStreamsAsync(query:"\\"pump pressure\\"");	
-```	
+```
 
 ## <a name="Stream_Metadata_search_topic">How search works with stream metadata</a>
 [Stream metadata](xref:sdsStreamExtra) behaves differently with search syntax rules described in the previous sections. 
@@ -326,7 +326,7 @@ Note that while wildcard (``*``) can be used either in or outside of quotes, it 
 stream1      | { manufacturer, company }<br>{ serial, abc }
 stream2      | { serial, a1 }
 stream3      | { status, active }<br>{ second key, second value }   
- 
+
 
 ### Field-scoping (``:``) Operator
 SdsStream metadata key is only searchable in association with its value. This pairing is defined using the field-scoping (``:``) operator. 

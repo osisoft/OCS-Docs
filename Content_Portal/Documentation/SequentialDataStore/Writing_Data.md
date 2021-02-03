@@ -16,7 +16,7 @@ to the request. All references to indexes are to the primary index.
 **\*Notes:** Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:30:00-08:00` for February 20, 2020 at 8:30 AM PST, for example.
 SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time if it is of `DateTimeOffset`. 
 
-### Single Stream Writes   
+### Single stream writes   
 
 The following methods support writing a single or multiple values:
 * [Insert Values](xref:sdsWritingDataApi#insert-values) inserts a collection of events.
@@ -29,18 +29,18 @@ The base URI for writing SDS data to a single stream is:
  ```text
       api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Data  
  ```
- 
+
 ### Parameters
 ``string tenantId``  
 The tenant identifier  
-  
+
 ``string namespaceId``  
 The namespace identifier  
-  
+
 ``string streamId``  
 The stream identifier  
- 
-### Request Body Format
+
+### Request body format
 With the exception of Remove Values, all single stream write calls require a request body containing the events to insert or modify.
 
 The events must be formatted as a serialized JSON array of the stream's type. JSON arrays are comma-delimited lists of a type enclosed within square brackets. The following code shows a list of three WaveData events that are properly formatted for insertion. See the [OCS-Samples](https://github.com/osisoft/OCS-Samples) for the complete example.
@@ -87,7 +87,7 @@ You can serialize your data using one of many available JSON serializers availab
 
 
 
-### Response Format
+### Response format
 Supported response formats include JSON, verbose JSON, and SDS. 
 
 The default response format for SDS is JSON, which is used in all examples in this document. 

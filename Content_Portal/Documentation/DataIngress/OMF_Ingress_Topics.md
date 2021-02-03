@@ -4,16 +4,16 @@ uid: omfIngressTopics
 
 # Topics 
 
-A Topic aggregates OMF messages received from one or more Clients and makes them available for consumption by a Subscription.
+OMF topics aggregate OMF messages received from one or more clients and makes them available for consumption by a subscription.
 
-## Topic Information 
-A Topic must contain at least one Client Id. Clients may be added to or removed from an existing Topic. A given Client may belong to multiple Topics in separate Namespaces. 
+## Topic information 
+A topic must contain at least one Client Id. Clients may be added to or removed from an existing topic. A given client may belong to multiple topics in separate namespaces. 
 
-When a Topic is created, OMF messages sent from the Topic's associated Clients are routed to a queue where they can be consumed by a Subscription. This queue makes OMF messages available to Subscriptions for up to seven days. While the OMF messages are in the Topic queue, they are not available for retrieval via an API. They must first be consumed by a Subscription and forwarded to a data store. The Topic queue stores the OMF messages in the Region of its Namespace.
+When you create a topic, OMF messages sent from the topic's associated clients are routed to a queue where they can be consumed by a subscription. This queue makes OMF messages available to subscriptions for up to seven days. While the OMF messages are in the topic queue, they are not available for retrieval via an API. They must first be consumed by a subscription and forwarded to a data store. The topic queue stores the OMF messages in the region of its namespace.
 
 The API calls in this section are used to create and manipulate topics. 
 
-## Data Models 
+## Data models 
 Topic information is contained in an object called ``Topic`` and has the following format: 
 
 | Property        | Type                    | Details                                |
@@ -25,7 +25,7 @@ Topic information is contained in an object called ``Topic`` and has the followi
 | CreatedDate     | DateTime                | Date and time this Topic was created. |
 
 ## `Get Tenant Topics`
-Get all Topics for a tenant. 
+Get all topics for a tenant. 
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics``
@@ -41,7 +41,7 @@ Unique Id for the namespace
 An array of Topic objects. 
 
 ## `Get Topic`
-Get a specific Topic. 
+Get a specific topic. 
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
@@ -59,7 +59,7 @@ Unique Id for the Topic
 A Topic object
 
 ## `Get Topic Subscriptions`
-Get all Subscriptions across all namespaces mapped to a Topic.
+Get all subscriptions across all namespaces mapped to a topic.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions``
@@ -74,10 +74,10 @@ Unique Id for the namespace of the Topic
 Unique Id for the Topic
 
 ### Returns
-An array of Subscription objects. 
+An array of subscription objects. 
 
 ## `Get Topics Access Control List`
-Get the default Access Control List for new Topics.
+Get the default Access Control List for new topics.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
@@ -93,7 +93,7 @@ Unique Id for the namespace
 An AccessControlList object
 
 ## `Get Topics Access Rights`
-Get the default Access Rights of the requesting identity for any newly created Topics.
+Get the default Access Rights of the requesting identity for any newly created topics.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accessrights/topics``
@@ -109,7 +109,7 @@ Unique Id for the namespace
 An array of Access Rights strings
 
 ## `Get Topic Access Control List`
-Get the Access Control List for a particular Topic.
+Get the Access Control List for a particular topic.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
@@ -176,13 +176,13 @@ Unique Id for the tenant
 Unique Id for the namespace
 
 ### Body
-A Topic object. The ``Id`` property should not be specified, since it will be automatically generated during creation.
+A topic object. The ``Id`` property should not be specified, since it will be automatically generated during creation.
 
 ### Returns
-The Topic object that was created
+The topic object that was created
 
 ## `Update Topic`
-Update an existing Topic. Only the name and description can be updated. 
+Update an existing topic. Only the name and description can be updated. 
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``
@@ -197,13 +197,13 @@ Unique Id for the namespace
 Topic Id for the Topic to be updated
 
 ### Body
-A Topic object. The ``Id`` property should match the ``topicId`` in the route.
+A topic object. The ``Id`` property should match the ``topicId`` in the route.
 
 ### Returns
 The Topic object that was updated. 
 
 ## `Update Topics Access Control List`
-Update the default Access Control List for new Topics.
+Update the default Access Control List for new topics.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/topics``
@@ -219,7 +219,7 @@ Unique Id for the namespace
 An AccessControlList object
 
 ## `Update Topic Access Control List`
-Update the Access Control List for a particular Topic.
+Update the Access Control List for a particular topic.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/accesscontrol``
@@ -237,7 +237,7 @@ Unique Id for the Topic
 An AccessControlList object
 
 ## `Update Topic Owner`
-Update the Owner for a particular Topic.
+Update the Owner for a particular topic.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/owner``
@@ -255,7 +255,7 @@ Unique Id for the Topic
 A Trustee object.
 
 ## `Delete Topic`
-Delete a Topic.
+Delete a topic.
 
 ### Request
 ``DELETE api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}``

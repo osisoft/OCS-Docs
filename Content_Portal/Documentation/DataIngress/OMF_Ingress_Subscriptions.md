@@ -4,18 +4,18 @@ uid: omfIngressSubsctriptions
 
 # Subscriptions 
 
-A Subscription consumes OMF messages from a Topic and forwards them to a data store. Multiple Subscriptions can retrieve OMF messages from a single Topic. 
+A subscription consumes OMF messages from a Topic and forwards them to a data store. Multiple subscriptions can retrieve OMF messages from a single *topic*. 
 
-## Subscription Information 
-A Subscription can consume OMF messages from a Topic in a different Namespace. However, the Topic's Namespace must be in the same Region as the Subscription's Namespace. OMF messages that the Subscription is processing are temporarily stored in the Region of its Namespace.
+## Subscription information 
+A subscription can consume OMF messages from a *topic* in a different *namespace*; however, the topic's namespace must be in the same region as the subscription's namespace. OMF messages that the subscription is processing are temporarily stored in the region of its namespace.
 
-The API calls in this section are used to create and manipulate Subscriptions.
+The API calls in this section are used to create and manipulate subscriptions.
 
-## Sequential Data Store (Sds) Subscription 
-A Sequential Data Store Subscription retrieves OMF messages from a Topic and writes them directly to a Namespace in the Sequential Data Store. Currently only Sds Subscriptions are supported. The documentation uses Sds Subscription and Subscription interchangeably.
+## OMF subscription 
+An  OMF Subscription retrieves OMF messages from a topic and writes them directly to a namespace in the Sequential Data Store. Currently only OMF subscriptions are supported. The documentation uses OMF subscription and subscription interchangeably.
 
-## Data Models 
-Subscription information is contained in an object called Subscription which has the following format: 
+## Data models 
+Subscription information is contained in an object called subscription which has the following format: 
 
 | Property             | Type                    | Details                                |
 |----------------------|-------------------------|----------------------------------------|
@@ -34,7 +34,7 @@ Subscription information is contained in an object called Subscription which has
 *****************
 
 ## `Get Tenant Subscriptions`
-Get all Subscriptions for a tenant. 
+Get all subscriptions for a tenant. 
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions``
@@ -47,10 +47,10 @@ Unique Id for the tenant
 Unique Id for the namespace
 
 ### Returns
-An array of Subscription objects. 
+An array of subscription objects. 
 
 ## `Get Subscription`
-Get a specific Subscription.
+Get a specific subscription.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
@@ -65,10 +65,10 @@ Unique Id for the namespace
 Unique Id for the Subscription. 
 
 ### Returns
-A Subscription object 
+A subscription object 
 
 ## `Get Subscriptions Access Control List`
-Get the default Access Control List for new Subscriptions.
+Get the default Access Control List for new subscriptions.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
@@ -136,7 +136,7 @@ Unique Id for the Subscription.
 An array of Access Rights strings.
 
 ## `Get Subscription Owner`
-Get the Owner for a particular Subscription.
+Get the owner for a particular subscription.
 
 ### Request
 ``GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
@@ -151,10 +151,10 @@ Unique Id for the namespace.
 Unique Id for the Subscription. 
 
 ### Returns
-A Trustee object.
+A trustee object.
 
 ## `Create Subscription`
-Create a new Subscription.
+Create a new subscription.
 
 ### Request
 ``POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions``
@@ -170,10 +170,10 @@ Unique Id for the namespace.
 A Subscription object. The ``Id`` property should not be specified, since it will be automatically generated during creation.
 
 ### Returns
-The Subscription object that was created. 
+The subscription object that was created. 
 
-## `Update Subscription`
-Update an existing Subscription. Only the name and description may be updated. 
+## `Update subscription`
+Update an existing subscription. Only the name and description may be updated. 
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``
@@ -188,13 +188,13 @@ Unique Id for the namespace.
 Subscription Id for the Subscription to be updated.
 
 ### Body
-A Subscription object. The ``Id`` property should match the ``subscriptionId`` in the route.
+A subscription object. The ``Id`` property should match the ``subscriptionId`` in the route.
 
 ### Returns
-The Subscription object that was updated. 
+The subscription object that was updated. 
 
 ## `Update Subscriptions Access Control List`
-Update the default Access Control List for new Subscriptions.
+Update the default Access Control List for new subscriptions.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/accesscontrol/subscriptions``
@@ -210,7 +210,7 @@ Unique Id for the namespace.
 An AccessControlList object.
 
 ## `Update Subscription Access Control List`
-Update the Access Control List for a particular Subscription.
+Update the Access Control List for a particular subscription.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/accesscontrol``
@@ -228,7 +228,7 @@ Unique Id for the Subscription
 An AccessControlList object.
 
 ## `Update Subscription Owner`
-Update the Owner for a particular Subscription.
+Update the owner for a particular subscription.
 
 ### Request
 ``PUT api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}/owner``
@@ -246,7 +246,7 @@ Unique Id for the Subscription
 A Trustee object.
 
 ## `Delete Subscription`
-Delete a Subscription.
+Delete a subscription.
 
 ### Request
 ``DELETE api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}``

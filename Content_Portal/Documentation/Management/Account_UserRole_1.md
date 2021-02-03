@@ -14,10 +14,10 @@ but all users have the Account Member role. The following are currently availabl
 
 For HTTP requests and responses, the UserRole object has the following properties and JSON-serialized body: 
 
-| Property Name | Data Type | Description | 
- | --- | --- | ---  | 
-| UserId | string | String value that identifies the user. | 
-| RoleId | string | String value that identifies the role. | 
+| Property Name | Data Type | Description |
+| --- | --- | ---  |
+| UserId | string | String value that identifies the user. |
+| RoleId | string | String value that identifies the role. |
 
 
 ```json
@@ -85,12 +85,12 @@ Authorized for Account Administrators of the specified tenant and an Account Mem
 
 ### Returns
 
-| Status Code | Return Type | Description | 
- | --- | --- | ---  | 
-| 200 | [Role] | Returns a list of `Role` objects belonging to the user with the specified userId. | 
-| 400 | Nothing is returned | Could not retrieve `Roles` due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to get `Roles` for the specified user. | 
-| 404 | Nothing is returned | User not found in the specified `Tenant`. | 
+| Status Code | Return Type | Description |
+| --- | --- | ---  |
+| 200 | [Role] | Returns a list of `Role` objects belonging to the user with the specified userId. |
+| 400 | Nothing is returned | Could not retrieve `Roles` due to missing or invalid input. |
+| 403 | Nothing is returned | Unauthorized to get `Roles` for the specified user. |
+| 404 | Nothing is returned | User not found in the specified `Tenant`. |
 
 
 ***
@@ -126,7 +126,7 @@ The identifier of the user whose roles will be replaced.
 [Role] roleList
 ```
 
-A list of `Role` objects to set as the Roles for the specified user.
+A list of `Role` objects to set as the roles for the specified user.
 
 
 ### Security
@@ -135,13 +135,13 @@ Authorized for Account Administrators of the specified tenant.
 
 ### Returns
 
-| Status Code | Return Type | Description | 
- | --- | --- | ---  | 
-| 200 | Nothing is returned | Returns the new list of all `Role` objects assigned to the specified user. | 
-| 400 | Nothing is returned | Could not replace the `Roles` of the specified user due to missing or invalid input. | 
-| 403 | Nothing is returned | Unauthorized to replace the `Roles` of the specified user. | 
-| 404 | Nothing is returned | A user with the specified userId was not found. | 
-| 405 | Nothing is returned | Method not allowed at this base URL. Try the request again at the Global base URL. | 
+| Status Code | Return Type | Description |
+| --- | --- | ---  |
+| 200 | Nothing is returned | Returns the new list of all `Role` objects assigned to the specified user. |
+| 400 | Nothing is returned | Could not replace the `Roles` of the specified user due to missing or invalid input. |
+| 403 | Nothing is returned | Unauthorized to replace the `Roles` of the specified user. |
+| 404 | Nothing is returned | A user with the specified userId was not found. |
+| 405 | Nothing is returned | Method not allowed at this base URL. Try the request again at the Global base URL. |
 
 
 ***
