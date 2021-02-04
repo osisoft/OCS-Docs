@@ -27,7 +27,7 @@ Two different users must perform this procedure:
    2.3. Verify your identity. OCS displays a page saying that your tenant will be joining the community from which the invite was issued. Membership in the community does not actually begin until the inviter confirms the invitation in the next step.   
    2.4. Click **Join**. The inviter receives an email asking for confirmation of the pending invitation.   
 3. **Inviter:** Perform the following steps to confirm the new tenant:   
-   3.1. Click **VIEW PENDING INVITATIONS**. After authentication, the Community Details page opens and shows that an invitation awaits confirmation.   
+   3.1. In the email, click **VIEW PENDING INVITATIONS**. After authentication, the Community Details page opens and shows that an invitation awaits confirmation.   
    3.2. Select the tenant with the pending confirmation, select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options"), and click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again.
 
 ## Pause or resume sharing your tenant's data
