@@ -28,7 +28,7 @@ Two different users must perform this procedure:
    2.4. Click **Join**. The inviter receives an email asking for confirmation of the pending invitation.   
 3. **Inviter:** Perform the following steps to confirm the new tenant:   
    3.1. Click **VIEW PENDING INVITATIONS**. After authentication, the Community Details page opens and shows that an invitation awaits confirmation.   
-   3.2. Select the tenant with the pending confirmation, select **More Options** ![More Options](..\images\more-options-wite-background.png "More Options"), and click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again.
+   3.2. Select the tenant with the pending confirmation, select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options"), and click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again.
 
 ## Pause or resume sharing your tenant's data
 
@@ -44,7 +44,7 @@ After removing a tenant, you can re-invite the tenant to the community but all d
 
 1. On the Communities overview page, find the community you want to modify and click **Details**.
 2. On the Community Details page, select the tenant you want to remove from the community.
-3. Select **More Options** ![More Options](..\images\more-options-wite-background.png "More Options") and click **Remove Tenant**. When prompted for confirmation, click **Remove Tenant** again.
+3. Select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options") and click **Remove Tenant**. When prompted for confirmation, click **Remove Tenant** again.
 
 ## Remove your own tenant from a community
 
