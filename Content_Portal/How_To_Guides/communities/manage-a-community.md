@@ -14,7 +14,7 @@ OCS lets you invite business partners to join a community so they are enabled to
 
 Two different users must perform this procedure:
 
-- One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be an OCS [Tenant Administrator](xref:communities#account-admin) *and* a [Community Administrator](xref:communities#community-admin) .
+- One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be an OCS [Tenant Administrator](xref:communities#account-admin) *and* a [Community Administrator](xref:communities#community-admin).
 - Another user, the "invitee," accepts the invitation. To be an invitee, you must be a Tenant Administrator of a separate tenant that does not already belong to the community.
 
 1. **Inviter:** Perform the following steps to issue an invitation:   
@@ -40,7 +40,7 @@ Use this procedure to remove a tenant from a community. This action might be nec
 
 After removing a tenant, you can re-invite the tenant to the community but all data that was previously shared must be shared again with the returning tenant.
 
-**Note.** Only an OCS user who has a Community Administrator role *and* a Tenant Administrator role can remove a tenant from a community.  
+**Note.** Only an OCS user who has a [Community Administrator](xref:communities#community-admin) role *and* a [Tenant Administrator](xref:communities#account-admin) role can remove a tenant from a community.  
 
 1. On the Communities overview page, find the community you want to modify and click **Details**.
 2. On the Community Details page, select the tenant you want to remove from the community.
@@ -54,7 +54,7 @@ After removing you tenant, you can be re-invited to the community but all data t
 
 If your tenant created a community and still has ownership of it, you cannot remove your own tenant.
 
-**Note.** Only OCS users who have the Community Administrator role *and* the Tenant Administrator role can remove their own tenant from a community.
+**Note.** Only OCS users who have the [Community Administrator](xref:communities#community-admin) role *and* the [Tenant Administrator](xref:communities#account-admin) role can remove their own tenant from a community.
 
 1. On the Communities overview page, find the community you want to leave and click **Details**.
 2. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Remove \<*your tenant*\>**. A confirmation dialog opens.

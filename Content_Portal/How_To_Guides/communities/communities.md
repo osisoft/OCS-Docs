@@ -23,7 +23,7 @@ When using Communities, you may need to assign the following roles:
 
 The tenant who created the community. Currently, only this one tenant can be the Community Owner.
 
-### Community Admin
+### Community Administrator
 
 The role assigned to the user within the Community Owner tenant who created the community. Community Admins can also assign other users the Community Admin role, but only to users within their own tenant (that is, the Community Owner's tenant).
 
@@ -33,7 +33,7 @@ The role assigned to the user within a community "member tenant" that manages th
 
 ### Community Member
 
-### Account Admin
+### Account Administrator
 
 A tenant-level role assigned to users within a tenant that allows those users to administer their own tenant. Note that this user role will eventually be renamed "Tenant Administrator".
 
