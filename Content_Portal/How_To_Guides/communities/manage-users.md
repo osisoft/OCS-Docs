@@ -6,7 +6,7 @@ uid: managecommunityusers
 
 The Community Details page lets you add and delete community users. It also lets you assign roles to users.
 
-To perform these procedures, you must be a Community Administrator or Data Steward.
+To perform these procedures, you must be a [Community Administrator](xref:communities#community-admin) or [Community Moderator](xref:communities#community-moderator).
 
 ## Add users to a community
 
@@ -30,6 +30,6 @@ To perform these procedures, you must be a Community Administrator or Data Stewa
 2. On the Community Details page, on the **Users** tab, select a user. If necessary, you can filter the list of users by typing characters in the **Filter users** box.
 3. Select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options") and click **Manage Permissions**.
 4. Select the roles to apply to the selected user. In addition to the basic Community Member role, you can assign these specialized roles:
-   - Community Moderator - Typically manages a community for their tenant. Community Moderators must also be Account Administrators within their own tenant.
+   - Community Moderator - Typically manages a community for their tenant. Community Moderators must also be Account Administrators within their own tenant. 
    - Community Administrator - Administers their own tenant.
 5. Click **Update**.
