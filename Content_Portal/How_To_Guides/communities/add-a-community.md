@@ -8,7 +8,7 @@ When you create a community, you are defining a space where external business pa
 
 <!-- Include discussion of entitlements; also check in whether I need to mention community roles here -->
 
-For information about managing an existing community, see [Manage tenants in a community](xref:managecommunity).
+For information about adding or deleting tenants from an existing community, see [Manage tenants in a community](xref:managecommunity).
 
 **Note:** Only a Tenant Administrator can perform this procedure.
 

@@ -6,6 +6,8 @@ uid: communities
 
 OCS communities help industrial users share operational data with their external business partners, service providers, and analytics providers. Sharing data helps OCS users generate more value from their data.
 
+The data you share remains within your namespace. For others to see your data, you must share it with them. <!-- add link to sharing procedure?>
+
 MORE OVERVIEW MATERIAL TO BE DEVELOPED HERE
 
 Some random scenarios
@@ -17,7 +19,7 @@ Some random scenarios
 
 ## Community roles
 
-When using Communities, you may need to assign the following roles:
+When using Communities, you may need to [assign roles](xref:managecommunityusers#assign-user-roles) that grant permissions for certain types of actions. The following roles are available:
 
 ### Community Owner
 
