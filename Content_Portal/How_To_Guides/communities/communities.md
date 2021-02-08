@@ -33,6 +33,10 @@ A tenant-level role assigned to users within a tenant that allows those users to
 
 A role granted the privilege to share their tenant’s data with any community they are a part of. This sharing privilege may be granted to other roles. 
 
+### Community Member
+
+The role representing a user in the community authorized to read any data shared in the community. 
+
 ### Community Moderator
 
 The role assigned to a user within a community "member tenant" who manages the community for their tenant. Usually, a Community Moderator is the person who accepted the invitation on behalf of his or her community. This user must also be an Account Administrator within their own tenant. 

@@ -6,7 +6,7 @@ uid: managecommunityusers
 
 The Community Details page lets you add and delete community users. It also lets you assign roles to users.
 
-To perform these procedures, you must be a [Community Administrator](xref:communities#community-admin) or [Community Moderator](xref:communities#community-moderator).
+To perform these procedures, you must be a [Community Administrator](xref:communities#community-administrator) or [Community Moderator](xref:communities#community-moderator).
 
 ## Add users to a community
 

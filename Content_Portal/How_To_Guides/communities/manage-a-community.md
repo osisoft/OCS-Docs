@@ -14,7 +14,7 @@ OCS lets you invite business partners to join a community so they are enabled to
 
 Two different users must perform this procedure:
 
-- One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be an OCS [Tenant Administrator](xref:communities#account-admin) *and* a [Community Administrator](xref:communities#community-admin).
+- One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be an OCS [Tenant Administrator](xref:communities#account-administrator) *and* a [Community Administrator](xref:communities#community-administrator).
 - Another user, the "invitee," accepts the invitation. To be an invitee, you must be a Tenant Administrator of a separate tenant that does not already belong to the community.
 
 1. **Inviter:** Perform the following steps to issue an invitation:   
