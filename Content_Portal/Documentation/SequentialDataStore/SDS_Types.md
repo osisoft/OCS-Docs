@@ -178,18 +178,22 @@ Fields that are not included are reserved for internal SDS use.
 | InterpolationMode         | SdsInterpolationMode    | No    | Interpolation setting of the property. Default is null. |
 | Uom                       | String                  | No    | Unit of measure of the property |
 
-The `SdsTypeProperty` ID follows the same [rules](#typepropertiestable) as the type identifier.
+**ID rule**
+The SdsTypeProperty ID follows the same [rules](#typepropertiestable) as the type identifier.
 
+**`IsKey`**   
 Boolean value ``IsKey`` identifies the primary index of a type in a single index. An index that is defined by more than one 
-`SdsTypeProperty` is called a compound index. The maximum number of properties that can define a compound index is three. 
+SdsTypeProperty is called a compound index. The maximum number of properties that can define a compound index is three. 
 In a compound index, each `SdsTypeProperty` that is included in the index is specified as ``IsKey``.
 The ``Order`` field marks the order of comparison within a compound index.
 
+**`Value`**  
 The ``Value`` field is used for properties that represent a value. An example of a property with a 
 value is an enumeration's named constant. When representing an enum in an SdsType, the SdsType's 
 SdsTypeProperty collection defines the enum's constant list. The SdsTypeProperty's ``Id`` represents 
 the constant's name and the SdsTypeProperty's ``Value`` represents the constant's value (see the enum ``State`` definitions in the code samples below).
 
+**`InterpolationMode`**  
 ``InterpolationMode`` is assigned when the SdsTypeProperty of the event should be interpolated in a specific way 
 that differs from the interpolation mode of the SdsType. ``InterpolationMode`` is only applied to an SdsTypeProperty 
 that is not part of the index. If the ``InterpolationMode`` is not set, the SdsTypeProperty is interpolated 
@@ -198,12 +202,13 @@ in the manner defined by the SdsType's ``InterpolationMode``.
 An SdsType with the ``InterpolationMode`` set to `Discrete` cannot also have the SdsTypeProperty with ``InteroplationMode``. 
 For more information on interpolation of events, see [Interpolation](xref:sdsReadingData#interpolation).
 
+**`Uom`**  
 ``Uom`` is the unit of measure for the SdsTypeProperty. The ``Uom`` of the SdsTypeProperty may be specified by the name or the 
 abbreviation. The names and abbreviations of ``Uoms`` are case sensitive. 
 
 The ``InterpolationMode`` and ``Uom`` of the SdsTypeProperty can be overridden on the SdsStream. For more information, see [Streams](xref:sdsStreams#sdsstreampropertyoverride).
 
-### Supported Units of Measure
+### Supported units of measure
 For a list of units of measures that are supported for an SdsTypeProperty, see [Units of measure](xref:unitsOfMeasure#supported-units-of-measure).
 
 ## Work with SdsTypes in .NET framework
@@ -300,12 +305,12 @@ unique identifiers. Note that the following table contains only a partial list o
 The `SdsTypeBuilder` also supports derived types. Note that you need not add the base types to 
 the SDS before using `SdsTypeBuilder`. Base types are maintained within the SdsType.
 
-## Work with SdsTypes outside of .NET framework
-SdsTypes must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
+## Work with types outside of .NET framework
+Types must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
 [Python](https://github.com/osisoft/sample-ocs-waveform-python) and [JavaScript](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples. 
 For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
-SdsType, SdsTypeProperty, and SdsTypeCode are defined below:
+Type, SdsTypeProperty, and SdsTypeCode are defined below:
 
 **Python**
 ```python
@@ -428,7 +433,7 @@ SdsType: function (SdsType) {
 },
 ```
 
-These are the SdsTypes we are working with in Python and JavaScript classes:
+These are the types we are working with in Python and JavaScript classes:
 
 **Python**
 ```python
@@ -473,7 +478,7 @@ var Simple = function () {
 }
 ```
 
-These are the SdsTypes defined in Python and JavaScript:
+These are the types defined in Python and JavaScript:
 
 **Python**
 ```python
@@ -594,7 +599,7 @@ class Derived(Simple):
         self.__observation = observation
 ```
 
-Extend the above SdsType as follows:
+Extend the type above as follows:
 
 **Python**
 ```python
@@ -638,9 +643,9 @@ var derivedType = new SdsObjects.SdsType({
 ```
 
 ## Type reusability
-SdsTypes can also refer other types by using their identifiers. This enables type re-usability.
-For example, if there is a common index and value property for a group of types that may have additional properties,
-a base type can be created with those properties.
+Types can refer to other types by using their identifiers, which enables type reusability.
+For example, if there is a common index and value property for a group of types that 
+may have additional properties, a base type can be created with those properties.
 
 ```json
 {
@@ -667,7 +672,7 @@ a base type can be created with those properties.
 }
 ```
 
-If a new type should be created with properties in addition to the ones shown above,
+If you need to create a new type created with properties in addition to the ones shown above,
 a reference to the base type can be added by simply specifying the base type's ``Id``.
 
 ```json
@@ -732,17 +737,19 @@ The new type may also include the full type definition of the reference type ins
 ```
 
 If the full definition is sent, the referenced types (base type "Simple" in the above example)
-should match the actual type that was initially created. If the full definition is sent and the referenced types do not exist,
-they will be created automatically by the SDS. Further type creations can reference them as shown above.
+should match the actual type that was initially created. 
+If the full definition is sent and the referenced types do not exist,
+new types by the same definition will be created automatically by the SDS. 
+Further type creations can reference them as shown above.
 Note that when trying to get types back from the SDS, the results will also include types that were automatically created by the SDS.
 
-Base types and properties of type Object, Enum, or user-defined collections such as Array, List and Dictionary,
+Base types and properties of type `object`, `enum`, or user-defined collections such as `array`, `list` and `dictionary`,
 will be treated as referenced types. Note that streams cannot be created using these referenced types.
-If a stream of particular type is to be created, the type should contain at least one property
+If a stream of a particular type is to be created, the type should contain at least one property
 with a valid index type as described in the [Indexes](xref:sdsIndexes) section. 
 The index property may also be in the base type as shown in the example above.
 
-This works seamlessly when using any programming language, using .NET for example:
+You can do this with any programming languages. Here's an example in .NET:
 
 ```csharp
 
@@ -774,12 +781,12 @@ windShieldType.BaseType.Id = "Basic";
 
 ```
 
-Note that if necessary, the base type's Id can also be changed to be more meaningful.
+If needed, the base type's ID can also be changed to be more meaningful.
 
 # SdsType API
 
 The REST APIs provide programmatic access to read and write SDS data. The APIs in this section 
-interact with SdsTypes. When working in .NET, convenient SDS Client Libraries are available. 
+interact with types. When working in .NET, convenient SDS Client Libraries are available. 
 The ISdsMetadataService interface, accessed using the `SdsService.GetMetadataService()` helper, 
 defines the available functions. See [Types](#types) for general type-related information.
 
