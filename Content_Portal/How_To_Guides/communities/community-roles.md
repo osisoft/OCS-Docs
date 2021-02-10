@@ -33,7 +33,7 @@ A role assigned to a user granting full administrative rights within the [Commun
 - Delete the community
 - Invite and remove tenants from the community
 
-Community Administrators can assign other users any Communities-based role including the Community Administrator role. Community Administrators can only assign roles to users within their own tenant, which, by definition, is the Community Owner's tenant.
+Community Administrators can assign other users any Communities-based role including the Community Administrator role. However, Community Administrators can only assign roles to users within their own tenant, which, by definition, is the Community Owner's tenant.
 
 ## Related user classifications
 
