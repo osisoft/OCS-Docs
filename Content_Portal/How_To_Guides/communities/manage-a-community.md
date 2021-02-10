@@ -10,12 +10,12 @@ To create a new community, see [Add a community](xref:add-community).
 
 ## Invite a tenant to a community
 
-OCS lets you invite business partners to join a community so they are enabled to share data. The business partner must already be a tenant in OCS.
+OCS lets you invite business partners to join a community so they are enabled to share data. The business partner must already belong to a tenant in OCS.
 
 Two different users must perform this procedure:
 
 - One user, the "inviter," issues an invitation to another tenant to join a community. To be an inviter, you must be an OCS [Tenant Administrator](xref:communityroles#account-administrator) *and* a [Community Administrator](xref:communityroles#community-administrator).
-- Another user, the "invitee," accepts the invitation. To be an invitee, you must be a Tenant Administrator of a separate tenant that does not already belong to the community.
+- Another user, the "invitee," accepts the invitation on behalf of their tenant. To be an invitee, you must be a Tenant Administrator of a separate tenant that does not already belong to the community.
 
 1. **Inviter:** Perform the following steps to issue an invitation:   
    1.1. On the Communities overview page, find the community you want to share and click **Details**.   
@@ -28,7 +28,7 @@ Two different users must perform this procedure:
    2.4. Click **Join**. The inviter receives an email asking for confirmation of the pending invitation.   
 3. **Inviter:** Perform the following steps to confirm the new tenant:   
    3.1. In the email, click **VIEW PENDING INVITATIONS**. After authentication, the Community Details page opens and shows that an invitation awaits confirmation.   
-   3.2. Select the tenant with the pending confirmation, select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options"), and click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again.
+   3.2. Select the tenant with the pending confirmation, select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options"), and click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again. The invitee's tenant is now part of the community.
 
 ## Pause or resume sharing your tenant's data
 
@@ -50,9 +50,9 @@ After removing a tenant, you can re-invite the tenant to the community but all d
 
 Use this procedure to remove your own tenant from a community.
 
-After removing you tenant, you can be re-invited to the community but all data that was previously shared with your tenant must be shared again.
+After removing your tenant, you can be re-invited to the community but all data that was previously shared with your tenant must be shared again.
 
-If your tenant created a community and still has ownership of it, you cannot remove your own tenant.
+If your tenant created a community, you cannot remove your own tenant.
 
 **Note.** Only OCS users who have the [Community Administrator](xref:communityroles#community-administrator) role *and* the [Tenant Administrator](xref:communityroles#account-administrator) role can remove their own tenant from a community.
 

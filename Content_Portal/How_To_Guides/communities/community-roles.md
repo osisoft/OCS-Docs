@@ -46,4 +46,4 @@ A tenant-level role that allows those users to administer their own tenant. Acco
 
 ### Community Owner
 
-The tenant who created a community. Any tenant granted the Communities entitlement can create a community. <!--this needs a link or more explanation > By default Account Administrators are granted the privilege to create communities. A Community Owner is not a role and is not granted any privileges.  
+The tenant who created a community. A Community Owner is not a role and is not granted any privileges. By default Account Administrators are granted the privilege to create communities.
