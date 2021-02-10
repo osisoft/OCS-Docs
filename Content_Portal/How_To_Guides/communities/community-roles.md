@@ -16,20 +16,19 @@ A role granted the privilege to share a tenant’s data with any community to wh
 
 ## Community Moderator
 
-The role assigned to a user within a community "member tenant" who manages the community for their tenant. Usually, a Community Moderator is the person who accepted the invitation on behalf of his or her tenant. This user must also be an Account Administrator within their own tenant. 
+A role assigned to a user within a community "member tenant" who manages the community for their tenant. Usually, a Community Moderator is the person who accepted the invitation on behalf of his or her tenant. This user must also be an Account Administrator within their own tenant. 
 
 The Community Moderator's primary purpose is to manage what users from their tenant have access to the community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
 
 - Pause access to shared data from their tenant.
-- Add or remove users from their tenant to the community
-- Manage user access up to their role.
+- Add users from their tenant to the community or remove users
 - Remove their tenant from the community
 
 A Community Moderator can assign the Community Moderator role or Community Member role to any user in their own tenant. A Community Moderator cannot assign the Community Administrator role.
 
 ## Community Administrator
 
-The role assigned to the user within the Community Owner's tenant. Community Administrators have full administrative rights to their community. These rights include all the privileges granted to a Community Moderator plus the ability to:
+A role assigned to a user granting full administrative rights within the [Community Owner's](#community-owner) tenant. These rights include all the privileges granted to a Community Moderator plus the ability to:
 
 - Delete the community
 - Invite and remove tenants from the community
@@ -38,11 +37,11 @@ Community Administrators can assign other users any Communities-based role inclu
 
 ## Related user classifications
 
-In addition to the roles you can assign in Communties, you should be aware of the following related roles and user classifications:
+In addition to the roles you can assign in Communities, you should be aware of the following related roles and user classifications:
 
 ### Account Administrator
 
-A tenant-level role that allows those users to administer their own tenant. Account Administrators are OCS roles rather than Community roles. In OCS user roles are managed as part of the Security component. Note that this user role will eventually be renamed "Tenant Administrator".
+A tenant-level role that allows those users to administer their own tenant. Account Administrators are roles that apply to all of OCS rather than just Communities. In OCS, user roles are managed as part of the Security component. Note that this user role will eventually be renamed "Tenant Administrator".
 
 ### Community Owner
 
