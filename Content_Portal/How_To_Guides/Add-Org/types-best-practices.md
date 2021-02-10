@@ -34,7 +34,3 @@ When defining what value properties should be added to a type in Sequential Data
    - The data is collected all by the same equipment at the same time and could be used together
    - e.g. Many measurements taken by different instruments on the same equipment
    - In this case, if data is likely to be used together, can be secured together, does not exceed 15 properties, and the list of properties is not likely to change, use a single type. Otherwise, split into multiple types.
-
-## Inherited Attributes
-
-<!-- We might want to add some general discussion about inheritance of attributes and why/when you want to define these attributes on the type. -->
