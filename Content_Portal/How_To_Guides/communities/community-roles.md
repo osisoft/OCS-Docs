@@ -14,16 +14,17 @@ The role representing a user in the community authorized to read any data shared
 
 ## Data Steward
 
-A role granted the privilege to share a tenant’s data with any community to which the data steward belongs. A data steward can grant this sharing privilege (that is, the data steward role) to other users in their own tenant.
+A role that can share a tenant’s data with any community to which the data steward belongs. A data steward can grant this sharing privilege (that is, the data steward role) to other users in their own tenant.
 
 ## Community Moderator
 
-A role assigned to a user within a community member tenant who manages the community for the tenant. Usually, a Community Moderator is the person who accepted the invitation on behalf of his or her tenant. This user must also be an Tenant Administrator within their own tenant.
+A role who manages the community for the tenant. Usually, a Community Moderator is the individual who accepted the invitation on behalf of his or her tenant. This user must also be an Tenant Administrator within their own tenant.
 
-The Community Moderator's primary purpose is to manage what users from their tenant have access to the community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
+The Community Moderator's primary purpose is to specify which users from their tenant have access to the community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
 
 - Pause access to shared data from their tenant.
-- Add users from their tenant to the community or remove users from the community
+- Add users from their tenant to the community
+- Remove users from the community
 - Remove their tenant from the community
 
 A Community Moderator can assign the following roles to users in their own tenant:
@@ -33,10 +34,11 @@ A Community Moderator can assign the following roles to users in their own tenan
 
 ## Community Administrator
 
-A role assigned to a user granting full administrative rights. These rights include all the privileges granted to a Community Moderator plus the ability to:
+A role granting full administrative rights. These rights include all the privileges granted to a Community Moderator plus the ability to:
 
 - Delete the community
-- Invite and remove tenants from the community
+- Invite tenants to the community
+- Remove tenants from the community
 
 Community Administrators in the community owner's tenant can assign any role to any user in any tenant belonging to the community. A community owner is the tenant who created a community.
 
