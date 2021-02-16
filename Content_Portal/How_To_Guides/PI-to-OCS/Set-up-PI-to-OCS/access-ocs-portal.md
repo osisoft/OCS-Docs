@@ -18,9 +18,9 @@ Make sure to have your OCS account log on credentials, your company alias or ten
 2. In the upper-right corner of the OCS portal window, click **Sign In**.
 3. In the **Specify Tenant ID or Company Alias** window, enter your tenant ID or company alias.
 4. Click **Continue**.
-5. At the **PI to OCS Agent Login** window, sign in to your OCS tenant using a user account that has Account Administrator privileges.
+5. At the **PI to OCS Agent Login** window, sign in to your OCS tenant using a user account that has Tenant Administrator privileges.
 
-<br>**Note.** In the screenshot below, the OCS user is configured to use both a Microsoft Account (MSA) and Google to sign in again.  Be sure to sign in to the OCS portal with an account assigned to the Account Administrator role.<br>
+<br>**Note.** In the screenshot below, the OCS user is configured to use both a Microsoft Account (MSA) and Google to sign in again.  Be sure to sign in to the OCS portal with an account assigned to the Tenant Administrator role.<br>
 
 ![ ](../../images/sign-in-screen.png)
 _Sign in window_

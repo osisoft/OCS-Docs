@@ -115,7 +115,7 @@ Maximum number of identity providers to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -195,7 +195,7 @@ Id of identity provider.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -259,7 +259,7 @@ Id of identity provider claim.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -335,7 +335,7 @@ Id of identity provider claim.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -419,7 +419,7 @@ RoleIds | Guid[] | Yes | The list of Role Ids associated with this IdentityProvi
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -536,7 +536,7 @@ RoleIds | Guid[] | No | The list of Role Ids associated with this IdentityProvid
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -624,7 +624,7 @@ Id of identity provider claim.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

@@ -5,9 +5,9 @@ uid: AccountUserRole_1
 # User Roles
 
 User `Roles` authorize API requests made by users to various OCS features. Users can be assigned more than one `Role`,
-but all users have the Account Member role. The following are currently available User `Roles`:
-- Account Administrator: Can add, edit, and remove users. Can also edit the permissions of existing users.
-- Account Member: Can log in and access the OCS portal.
+but all users have the Tenant Member role. The following are currently available User `Roles`:
+- Tenant Administrator: Can add, edit, and remove users. Can also edit the permissions of existing users.
+- Tenant Member: Can log in and access the OCS portal.
 
 
 ## Properties
@@ -81,7 +81,7 @@ Unsupported parameter.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant and an Account Member's own `Roles` within the specified tenant.
+Authorized for Tenant Administrators of the specified tenant and an Tenant Member's own `Roles` within the specified tenant.
 
 ### Returns
 
@@ -131,7 +131,7 @@ A list of `Role` objects to set as the roles for the specified user.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant.
+Authorized for Tenant Administrators of the specified tenant.
 
 ### Returns
 

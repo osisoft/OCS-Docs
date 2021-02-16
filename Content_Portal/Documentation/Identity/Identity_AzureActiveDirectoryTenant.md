@@ -79,7 +79,7 @@ Id or Domain Name of Azure Active Directory tenant.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -179,7 +179,7 @@ Maximum number of Azure Active Directory tenants to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -249,7 +249,7 @@ Id of Azure Active Directory tenant.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -317,7 +317,7 @@ Id of Azure Active Directory tenant to remove.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -411,7 +411,7 @@ AzureActiveDirectoryTenant | string | Yes | Azure Active Directory Domain Name (
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -474,7 +474,7 @@ Id of Azure Active Directory tenant.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -528,7 +528,7 @@ Id of OSIsoft Cloud Services tenant.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

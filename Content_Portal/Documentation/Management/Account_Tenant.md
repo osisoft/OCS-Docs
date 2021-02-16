@@ -62,7 +62,7 @@ The identifier of the `Tenant` to retrieve.
 
 ### Security
 
-Authorized for Account Members of the specified `Tenant`.
+Authorized for Tenant Members of the specified `Tenant`.
 
 ### Returns
 
@@ -96,7 +96,7 @@ The identifier of the `Tenant` for this request.
 
 ### Security
 
-Authorized for Account Members of the specified `Tenant`.
+Authorized for Tenant Members of the specified `Tenant`.
 
 ### Returns
 
@@ -137,7 +137,7 @@ The updated details of the `Tenant`.
 
 ### Security
 
-Authorized for Account Administrators of the specified `Tenant`.
+Authorized for Tenant Administrators of the specified `Tenant`.
 
 ### Returns
 
@@ -172,7 +172,7 @@ The identifier of the `Tenant` for this request.
 
 ### Security
 
-Authorized for Account Members of the specified `Tenant`.
+Authorized for Tenant Members of the specified `Tenant`.
 
 ### Returns
 
@@ -213,7 +213,7 @@ The Base64 encoded PNG icon for the `Tenant`.
 
 ### Security
 
-Authorized for Account Administrators of the specified `Tenant`.
+Authorized for Tenant Administrators of the specified `Tenant`.
 
 ### Returns
 
@@ -248,7 +248,7 @@ The `Tenant` identifier for this request.
 
 ### Security
 
-Authorized for Account Administrators of the specified `Tenant`.
+Authorized for Tenant Administrators of the specified `Tenant`.
 
 ### Returns
 

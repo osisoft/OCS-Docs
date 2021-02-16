@@ -89,7 +89,7 @@ Maximum number of identity providers to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -161,7 +161,7 @@ Id of identity provider.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -225,7 +225,7 @@ Id of Identity Provider Claim Type Name.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -301,7 +301,7 @@ Id of Identity Provider Claim Type Name.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

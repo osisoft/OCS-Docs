@@ -121,7 +121,7 @@ Maximum number of clients to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -202,7 +202,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -294,7 +294,7 @@ Description | string | No | Description for the client secret. We suggest being 
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -401,7 +401,7 @@ Description | string | No | Description for the client secret. We suggest being 
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -486,7 +486,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -556,7 +556,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -613,7 +613,7 @@ Id of client.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -699,7 +699,7 @@ Maximum number of clients to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -780,7 +780,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -870,7 +870,7 @@ Description | string | No | Description for the client secret. We suggest being 
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -982,7 +982,7 @@ Description | string | No | Description for the client secret. We suggest being 
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1070,7 +1070,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1140,7 +1140,7 @@ Id of secret.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1200,7 +1200,7 @@ Id of client.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

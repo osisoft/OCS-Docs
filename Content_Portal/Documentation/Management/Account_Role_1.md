@@ -4,9 +4,9 @@ uid: AccountRole_1
 
 # Roles
 
-A `Role` is a representation of a user’s job that is used to authorize access to resources necessary to accomplish that job. A user may have multiple roles assigned to it. All users are assigned the Account Member role by default. There are two predefined Roles for OCS accounts. Check the user or client role APIs for more information.
-- Account Administrator
-- Account Member
+A `Role` is a representation of a user’s job that is used to authorize access to resources necessary to accomplish that job. A user may have multiple roles assigned to it. All users are assigned the Tenant Member role by default. There are two predefined Roles for OCS accounts. Check the user or client role APIs for more information.
+- Tenant Administrator
+- Tenant Member
 
 
 ## Properties
@@ -64,7 +64,7 @@ The new `Role` to be created.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant.
+Authorized for Tenant Administrators of the specified tenant.
 
 ### Returns
 
@@ -108,7 +108,7 @@ The identifier of the `Role` to delete.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant.
+Authorized for Tenant Administrators of the specified tenant.
 
 ### Returns
 
@@ -150,7 +150,7 @@ The identifier of the `Role` to return.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant.
+Authorized for Tenant Administrators of the specified tenant.
 
 ### Returns
 
@@ -209,7 +209,7 @@ Unsupported parameter.
 
 ### Security
 
-Authorized for Account Members of the specified tenant.
+Authorized for Tenant Members of the specified tenant.
 
 ### Returns
 
@@ -257,7 +257,7 @@ The updated `Role` for this request.
 
 ### Security
 
-Authorized for Account Administrators of the specified tenant.
+Authorized for Tenant Administrators of the specified tenant.
 
 ### Returns
 

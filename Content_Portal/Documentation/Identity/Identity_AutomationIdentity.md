@@ -119,8 +119,8 @@ Tags | string[] | No | Tags associated with this automation identity.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -213,8 +213,8 @@ Id of automation identity.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -291,8 +291,8 @@ Id of automation identity.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -378,8 +378,8 @@ Maximum number of automation identities to return. Ignored if a list of ids is p
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -477,8 +477,8 @@ Only count automation identities that have at least one of these tags.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -535,8 +535,8 @@ Id of automation identity.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -627,8 +627,8 @@ Tags | string[] | No | Tags associated with this automation identity.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 

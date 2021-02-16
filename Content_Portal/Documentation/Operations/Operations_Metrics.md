@@ -85,8 +85,8 @@ End date of the metric results to return.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -183,8 +183,8 @@ End date of the metric results to return.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 

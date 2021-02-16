@@ -47,7 +47,7 @@ The identifier of the tenant to access.
 
 ### Security
 
-Authorized for Account Members of the specified tenant.
+Authorized for Tenant Members of the specified tenant.
 
 ### Returns
 
@@ -88,7 +88,7 @@ The identifier of the `FeatureState` to retrieve.
 
 ### Security
 
-Authorized for Account Members of the specified tenant.
+Authorized for Tenant Members of the specified tenant.
 
 ### Returns
 

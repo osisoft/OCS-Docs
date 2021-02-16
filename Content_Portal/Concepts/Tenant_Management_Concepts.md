@@ -36,12 +36,12 @@ Clients are assigned roles that define their access to OCS objects. See [Roles](
 
 ## <a name="roles"></a> Roles
 
-Roles, in combination with Access Control Lists (ACL), determine the level of access to OCS objects. The tenant administrator creates roles for the users and clients that will access OCS and assigns the appropriate roles to them. Additionally, the administrator creates an ACL for each OCS object (namespaces, streams, and so on) that defines access permissions for each type of role. Users and clients are granted access permissions to OCS objects based on their assigned roles and the corresponding ACLs. 
+Roles, in combination with Access Control Lists (ACL), determine the level of access to OCS objects. The Tenant Administrator creates roles for the users and clients that will access OCS and assigns the appropriate roles to them. Additionally, the administrator creates an ACL for each OCS object (namespaces, streams, and so on) that defines access permissions for each type of role. Users and clients are granted access permissions to OCS objects based on their assigned roles and the corresponding ACLs. 
 
 OCS provides two built-in roles:
 
-- Account member &#150; Assigned to every user and client credentials client. Users and clients assigned this role can access objects or information of which they are the owner.
-- Account administrator &#150; Role with the highest privileges, the Account administrator can create and delete users, clients, and secrets.
+- Tenant Member &#150; Assigned to every user and client credentials client. Users and clients assigned this role can access objects or information of which they are the owner.
+- Tenant Administrator &#150; Role with the highest privileges, the Tenant Administrator can create and delete users, clients, and secrets.
 
 
 

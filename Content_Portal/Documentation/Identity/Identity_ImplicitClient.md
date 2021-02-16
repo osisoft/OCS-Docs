@@ -158,7 +158,7 @@ Tags | string[] | No | Gets or sets for OSIsoft internal use only.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -310,7 +310,7 @@ Tags | string[] | No | Gets or sets for OSIsoft internal use only.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -408,7 +408,7 @@ Id of Client.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -534,7 +534,7 @@ Maximum number of clients to return. Will be ignored if a list of Ids is passed.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -648,7 +648,7 @@ Id of Client.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -711,7 +711,7 @@ Id of client.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -785,7 +785,7 @@ Only count Clients that have these tags.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

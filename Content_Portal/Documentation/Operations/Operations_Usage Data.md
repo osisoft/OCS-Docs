@@ -88,7 +88,7 @@ When **true** the usage data is grouped by namespaces.
 
 Allowed for these roles:
 
-- `Account Member`
+- `Tenant Member`
 
 ### Returns
 
@@ -188,7 +188,7 @@ End date of the daily usage data, if there is no end date only one summary is re
 
 Allowed for these roles:
 
-- `Account Member`
+- `Tenant Member`
 
 ### Returns
 

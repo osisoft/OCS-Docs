@@ -5,10 +5,10 @@ uid: AccountClientRole_1
 # Client roles
 
 Client `roles` authorize API requests made by clients to various OCS features. Clients can be assigned more than one
-`role`, but all clients have the Account Member role. The following are currently available client `Roles`:
+`role`, but all clients have the Tenant Member role. The following are currently available client `Roles`:
 
-- Account Administrator: Can add, edit, and remove data using APIs.
-- Account Member: Can read data using most APIs.
+- Tenant Administrator: Can add, edit, and remove data using APIs.
+- Tenant Member: Can read data using most APIs.
 
 
 ## Properties
@@ -65,7 +65,7 @@ List of `Role` objects to set as the Roles for the specified client.
 
 ### Security
 
-`Roles` of a client can only be replaced by an Account Administrator.
+`Roles` of a client can only be replaced by an Tenant Administrator.
 
 ### Returns
 
@@ -133,7 +133,7 @@ Unsupported parameter.
 
 ### Security
 
-`Roles` can be retrieved by an Account Administrator.
+`Roles` can be retrieved by an Tenant Administrator.
 
 ### Returns
 

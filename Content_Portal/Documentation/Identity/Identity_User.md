@@ -145,8 +145,8 @@ Maximum number of users to return. Ignored if a list of Ids is passed.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -350,8 +350,8 @@ Only return statuses that match these values. Possible User statuses are: Invita
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -455,8 +455,8 @@ Id of User.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -533,8 +533,8 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -614,8 +614,8 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -688,8 +688,8 @@ JSON object preferences.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -794,7 +794,7 @@ RoleIds | Guid[] | No | List of strings of RoleIds.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -917,7 +917,7 @@ RoleIds | Guid[] | No | List of strings of RoleIds.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1012,7 +1012,7 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1074,8 +1074,8 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1134,8 +1134,8 @@ Unordered list of User Ids.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -1193,8 +1193,8 @@ Id of User.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 

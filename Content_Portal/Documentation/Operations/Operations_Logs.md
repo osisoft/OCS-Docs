@@ -115,7 +115,7 @@ Maximum number of logs to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -253,7 +253,7 @@ Maximum number of logs to return.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 

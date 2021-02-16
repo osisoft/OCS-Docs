@@ -9,7 +9,7 @@ Invitations are issued after the creation of a User object in OCS,
             providers in a tenant.
             There can only be one invitation for a User at a time. An invitation
             can expire, at which time the Admin can either delete it, or extend it.
-            When creating an invitation an Account Administrator has the option to resend the
+            When creating an invitation an Tenant Administrator has the option to resend the
             invitation email to the ContactEmail configured for the user the invitation
             is attached to. The email can be re-sent by updating the invitation.
             When an invitation expires the User cannot accept it. If the expiration
@@ -103,7 +103,7 @@ Id of invitation.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -202,7 +202,7 @@ Specify whether to return expired invitations.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -315,7 +315,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -398,7 +398,7 @@ Id of invitation.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -464,7 +464,7 @@ Id of invitation.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -525,7 +525,7 @@ Specify to return expired invitations.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -586,8 +586,8 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -683,7 +683,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -795,7 +795,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -902,7 +902,7 @@ Id of user.
 
 Allowed for these roles:
 
-- `Account Administrator`
+- `Tenant Administrator`
 
 ### Returns
 
@@ -974,8 +974,8 @@ Specify whether to include expired invitations.
 
 Allowed for these roles:
 
-- `Account Member`
-- `Account Administrator`
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Returns
 
