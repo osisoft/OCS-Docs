@@ -10,3 +10,5 @@
   href: delete-a-community.md
 - name: Manage users in a community
   href: manage-users.md
+- name: Manage clients in a community
+  href: manage-clients.md

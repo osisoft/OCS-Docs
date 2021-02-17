@@ -4,14 +4,16 @@ uid: communities
 
 # Communities
 
-OCS Communities help industrial users share operational data with communities of other users, including external business partners, service providers, and analytics providers. Sharing data helps OCS users generate more value from their data.
+OCS Communities help industrial users share operational data with communities of other users, including external business partners, service providers, and analytics providers. Sharing data can be costly, risky from a security standpoint, and difficult to manage. Using Communities, OCS users can generate more value from their data by sharing with business partners.
 
 For example, OCS users can use Communities in the following scenarios:
 
-- Sharing data with users such as contractors without bringing them inside your corporate firewall.
-- Avoiding unauthorized data sharing such as rogue spreadsheets being passed around
-- Sharing data with customers to assure them that they are getting the services they paid for.
-- Sharing data with other users without requiring them to be onsite.
+- Sharing data with partners while avoiding any need to manage security for partners or bringing them inside your corporate firewall.
+- Sharing data with users without requiring them to be onsite.
+- Sharing data with users who do not have a PI System.
+- Sharing data with customers to assure them that they are getting the services they requested.
+- Understanding who has access to which data and turning off access at any time.
+- Avoiding unauthorized data sharing.
 
 ## Basics of using Communities
 
@@ -23,3 +25,4 @@ For a high-level view of the process needed to share data, see [Share data with 
 
 Your data can be shared with one or more communities so others in those communities can see it. At any time, you can choose to stop sharing your data.
 <!-- add link to sharing procedure >
+
