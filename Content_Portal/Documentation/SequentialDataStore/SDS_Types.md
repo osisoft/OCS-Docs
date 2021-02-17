@@ -11,7 +11,7 @@ A primitive type is available in the OCS and is used within the API and REST def
 You can define simple atomic types, such as integers, floats, strings, arrays, and dictionaries, or 
 complex or nested types using the [Properties collection of SdsTypes](#sdstypeproperty). 
 
-An type that is used to define a stream must have a key. A key is a [Property, or a combination of Properties](#sdstypeproperty) 
+A type that is used to define a stream must have a key. A key is a [Property, or a combination of Properties](#sdstypeproperty) 
 that constitutes an ordered, unique identity. If the key is ordered so it functions as an index, it is 
 known as the *primary index*. While a timestamp (``DateTime``) is a very common type of index, any type that 
 can be ordered is permitted. Secondary and other indexes are defined in the stream. 
@@ -161,7 +161,7 @@ VersionArray            | 222
 
 ## SdsTypeProperty
 The `Properties` collection defines the fields in a type. 
-Stream properties are a field expected to appear in every stream created from a given type.
+Type properties will appear in every stream that is created from a given type.
 
 The following table shows the required and optional `SdsTypeProperty` fields.
 Fields that are not included are reserved for internal SDS use.
@@ -211,7 +211,7 @@ The ``InterpolationMode`` and ``Uom`` of the SdsTypeProperty can be overridden o
 ### Supported units of measure
 For a list of units of measures that are supported for an SdsTypeProperty, see [Units of measure](xref:unitsOfMeasure#supported-units-of-measure).
 
-## Work with SdsTypes in .NET framework
+## SdsTypes in .NET framework
 
 When working in .NET, use the `SdsTypeBuilder` to create SdsTypes. The `SdsTypeBuilder` eliminates 
 potential errors that can occur when working with SdsTypes manually.
@@ -305,12 +305,12 @@ unique identifiers. Note that the following table contains only a partial list o
 The `SdsTypeBuilder` also supports derived types. Note that you need not add the base types to 
 the SDS before using `SdsTypeBuilder`. Base types are maintained within the SdsType.
 
-## Work with types outside of .NET framework
-Types must be built manually when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
+## SdsTypes outside of .NET framework
+You can manually build types when .NET `SdsTypeBuilder` is unavailable. Below, you'll see how types are built and defined in
 [Python](https://github.com/osisoft/sample-ocs-waveform-python) and [JavaScript](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples. 
 For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
-Type, SdsTypeProperty, and SdsTypeCode are defined below:
+SdsType, SdsTypeProperty, and SdsTypeCode are defined below:
 
 **Python**
 ```python
@@ -599,7 +599,7 @@ class Derived(Simple):
         self.__observation = observation
 ```
 
-Extend the type above as follows:
+You can extend the above type as follows:
 
 **Python**
 ```python
@@ -672,7 +672,7 @@ may have additional properties, a base type can be created with those properties
 }
 ```
 
-If you need to create a new type created with properties in addition to the ones shown above,
+If you need to create a new type with properties in addition to the ones shown above,
 a reference to the base type can be added by simply specifying the base type's ``Id``.
 
 ```json
@@ -739,7 +739,7 @@ The new type may also include the full type definition of the reference type ins
 If the full definition is sent, the referenced types (base type "Simple" in the above example)
 should match the actual type that was initially created. 
 If the full definition is sent and the referenced types do not exist,
-new types by the same definition will be created automatically by the SDS. 
+a new type will be created automatically by the SDS. 
 Further type creations can reference them as shown above.
 Note that when trying to get types back from the SDS, the results will also include types that were automatically created by the SDS.
 
@@ -749,7 +749,7 @@ If a stream of a particular type is to be created, the type should contain at le
 with a valid index type as described in the [Indexes](xref:sdsIndexes) section. 
 The index property may also be in the base type as shown in the example above.
 
-You can do this with any programming languages. Here's an example in .NET:
+You can do this using any programming languages. Here's an example in .NET:
 
 ```csharp
 
