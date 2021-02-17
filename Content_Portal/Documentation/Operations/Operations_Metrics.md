@@ -133,8 +133,9 @@ Internal server error
 ***
 
 ## `Get OMF Connection Metrics`
-
+<!--Get OMF Metrics-->
 Retrieves metrics related to OMF ingress rates for a given namespace.
+<!--Or, Retrieves metrics related to OMF data collection for a given namespace-->
 
 ### Request
 
