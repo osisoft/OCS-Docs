@@ -44,9 +44,9 @@ Community Administrators in the community owner's tenant can assign any role to 
 
 Community Administrators in tenants that *do not belong* to the community owner's tenant can assign any role to users in their own tenant.
 
-## Related concepts
+## Related roles and identities
 
-In addition to the roles you can assign in Communities, be aware of the following related concepts:
+In addition to the roles you can assign in Communities, be aware of the following related roles and identities:
 
 ### Tenant Administrator
 
