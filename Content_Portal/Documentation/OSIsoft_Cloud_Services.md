@@ -6,16 +6,18 @@ uid: osisoftCloudServices
 
 The information in the sections that follow document the APIs and usage for each of the following:
 
-* Management - Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
-* Identity - Use the information in this section to create, manage and administer Users and Clients.
-* Sequential Data Store (SDS) - Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
-* Data ingress and OSIsoft Message Format - You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
-* Data Views - Use the information in this section to create user-selected subsets of data stored in OSIsoft Cloud Services which are mapped into customizable table formats.
-
+* [Tenant Management](xref:AccountManagementOverview) - Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
+* [Identity and Access Management](xref:identityandaccessmanagement) - Use the information in this section to create, manage and administer users and clients.
+* [Sequential Data Store (SDS)](xref:sds) - Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
+* [Data Ingress and OSIsoft Message Format](xref:dataIngress) - You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
+* [Metadata Rules](xref:MetadataRulesOverview) - The metadata rules feature in the OCS Portal simplifies the process of assigning metadata to streams.
+* [Data Views](xref:DataViewsOverview) - Use the information in this section to create user-selected subsets of data stored in OSIsoft Cloud Services which are mapped into customizable table formats.
+* [Operations](xref:operationsOverview) - USe the information in this section to get metrics on OCS operation. 
 
 ## Access to OCS
 
-You must acquire an account before interacting with OCS. If you do not have an account, you can request access to OCS at https://cloud.osisoft.com/?signup.
+You must acquire an account before interacting with the OCS. 
+Go to the [OCS page on OSIsoft website](https://www.osisoft.com/pi-system/pi-cloud/osisoft-cloud-services), click [Contact Us](https://www.osisoft.com/contact) and request an OCS account.
 
 
 ## Architecture
