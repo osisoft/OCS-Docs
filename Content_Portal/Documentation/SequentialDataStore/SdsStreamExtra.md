@@ -3,12 +3,12 @@ uid: sdsStreamExtra
 ---
 
 # Stream metadata and tags
-SdsStream metadata is represented as a dictionary of string keys and associated string values. 
-It can be used to associate additional information with a stream. SdsStream tags are represented 
+Stream metadata is represented as a dictionary of string keys and associated string values. 
+It can be used to associate additional information with a stream. Stream tags are represented 
 as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
-The SdsStream Metadata API And SdsStream Tags API do not accept the search query parameter in their respective
-Get calls. However, stream tags and metadata can be used as criteria in search query strings to return 
-SdsStream results with the [Stream](xref:sdsStreams) API.
+The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
+GET calls. However, stream tags and metadata can be used as criteria in search query strings to return 
+stream results with the [Stream](xref:sdsStreams) API.
 
 # SdsStream Metadata API 
 
@@ -36,7 +36,7 @@ The stream identifier
 The response includes a status code and a response body  
 
 #### Response body  
-The metadata for the specified SdsStream
+The metadata for the specified stream
 
 #### Example response body
 ```json
@@ -83,7 +83,7 @@ The key specifying the metadata value of interest
 The response includes a status code and a response body  
 
 #### Response body  
-The metadata for the specified SdsStream 
+The metadata for the specified stream 
 
 #### Example response body
 ```json
@@ -228,7 +228,7 @@ The stream identifier
 The response includes a status code and a response body
 
 #### Response body  
-The tags for the specified SdsStream   
+The tags for the specified stream   
 
 #### Example response body
 ```json
