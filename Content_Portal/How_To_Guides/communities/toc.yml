@@ -1,7 +1,5 @@
 - name: Community roles
   href: community-roles.md
-- name: Share data with a partner
-  href: share-data-with-partner.md
 - name: Create a community
   href: add-a-community.md
 - name: Manage tenants in a community
