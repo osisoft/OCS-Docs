@@ -6,7 +6,7 @@
   href: manage-a-community.md
 - name: Manage users in a community
   href: manage-users.md
-- name: Manage clients in a community
+- name: Add and remove community clients
   href: manage-clients.md
 - name: Delete a community
   href: delete-a-community.md

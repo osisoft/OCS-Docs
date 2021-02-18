@@ -18,9 +18,9 @@ FROM MARKETING: Vendors and partners can gain real-time visibility into equipmen
 
 To use Communities, you must have the necessary entitlements. If you cannot access Communities, contact your [account manager](https://customers.osisoft.com/s/contactus "Contact Us").
 
-When using Communities, you are assigned certain roles that grant levels of permissions. For more information, see [Community roles](xref:communityroles).
+When using Communities, you assign certain roles that grant levels of permissions. Typically, you assign roles when adding users to a community. For more information about possible roles, see [Community roles](xref:communityroles).
 
-# Share data with a partner
+## Share data with a partner
 
 The following procedure describes the high-level process needed to share data using Communities. The process provides links to the more detailed procedures needed to create a community, populate it with tenants, users, and clients, and then share data.
 

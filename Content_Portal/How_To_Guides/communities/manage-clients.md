@@ -2,7 +2,7 @@
 uid: managecommunityclients
 ---
 
-# Manage clients in a community
+# Add and remove community clients
 
 The Community Details page lets you add and delete clients, which are entities that provide programmatic access to OCS resources through APIs.
 
