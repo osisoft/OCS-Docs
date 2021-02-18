@@ -188,10 +188,12 @@ In a compound index, each `SdsTypeProperty` that is included in the index is spe
 The ``Order`` field marks the order of comparison within a compound index.
 
 **`Value`**  
-The ``Value`` field is used for properties that represent a value. An example of a property with a 
-value is an enumeration's named constant. When representing an enum in an SdsType, the SdsType's 
-SdsTypeProperty collection defines the enum's constant list. The SdsTypeProperty's ``Id`` represents 
-the constant's name and the SdsTypeProperty's ``Value`` represents the constant's value (see the enum ``State`` definitions in the code samples below).
+The ``Value`` field is used for the properties of enumeration types.
+An enumeration is a collection of named constants with associated constant values.
+Each named constant is defined by the `Id` of the SdsTypeProperty.
+The associated constant value is defined by the `Value` of the SdsTypeProperty.
+For more information, see the enumeration ``State`` definitions in the sample code below.
+
 
 **`InterpolationMode`**  
 ``InterpolationMode`` is assigned when the SdsTypeProperty of the event should be interpolated in a specific way 
