@@ -312,9 +312,11 @@ You can manually build types when .NET `SdsTypeBuilder` is unavailable. Below, y
 [Python](https://github.com/osisoft/sample-ocs-waveform-python) and [JavaScript](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples. 
 For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
-SdsType, SdsTypeProperty, and SdsTypeCode are defined below:
+### SdsTypeCode, SdsTypeProperty and SdsType
 
-**Python**
+
+#### [Python](#tab/tabid-1)
+
 ```python
 class SdsTypeCode(Enum):
     Empty = 0
@@ -388,9 +390,8 @@ class SdsType(object):
     def Properties(self, properties):
         self.__properties = properties
 ```
+#### [JavaScript](#tab/tabid-2)
 
-
-**JavaScript**
 ```javascript
 SdsTypeCodeMap: {
     Empty: 0,
@@ -434,10 +435,14 @@ SdsType: function (SdsType) {
     }
 },
 ```
+***
 
-These are the types we are working with in Python and JavaScript classes:
 
-**Python**
+### Enum `State` and type `Simple`
+
+
+#### [Python](#tab/tabid-a)
+
 ```python
 class State(Enum):
     Ok = 0
@@ -464,7 +469,8 @@ class Simple(object):
         self.__measurement = measurement
 ```
 
-**JavaScript**
+#### [JavaScript](#tab/tabid-b)
+
 ```javascript
 var State =
 {
@@ -480,9 +486,12 @@ var Simple = function () {
 }
 ```
 
-These are the types defined in Python and JavaScript:
+***
 
-**Python**
+### Defining and creating types
+
+#### [Python](#tab/tabid-c)
+
 ```python
 # Create the properties
 
@@ -534,8 +543,8 @@ simpleType.Description = "Basic sample type"
 simpleType.SdsTypeCode = SdsTypeCode.Object
 simpleType.Properties = [ time ]
 ```
+#### [JavaScript](#tab/tabid-d)
 
-**JavaScript**
 ```javascript
 // Time is the primary index
 var timeProperty = new SdsObjects.SdsTypeProperty({
@@ -600,10 +609,12 @@ class Derived(Simple):
     def Observation(self, observation):
         self.__observation = observation
 ```
+***
 
-You can extend the above type as follows:
+### Extending the types
 
-**Python**
+#### [Python](#tab/tabid-e)
+
 ```python
 # Observation property is a simple non-indexed, standard data type
 observation = SdsTypeProperty()
@@ -623,8 +634,8 @@ derived.BaseType = simpleType # Set the base type to the derived type
 derived.SdsTypeCode = SdsTypeCode.Object
 derived.Properties = [ observation ]
 ```
+#### [JavaScript](#tab/tabid-f)
 
-**JavaScript**
 ```javascript
 var observationProprety = new SdsObjects.SdsTypeProperty({
     "Id": "Observation",
@@ -643,7 +654,7 @@ var derivedType = new SdsObjects.SdsType({
     "Properties": [ observationProprety ]
 });
 ```
-
+***
 ## Type reusability
 Types can refer to other types by using their identifiers, which enables type reusability.
 For example, if there is a common index and value property for a group of types that 

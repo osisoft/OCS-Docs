@@ -350,8 +350,8 @@ and [Java Script](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples
 
 To build an SdsType representation of sample classes in Python and Java Script, see [Sample](#sample) below:
 
-**Python**
-
+##### [Python](#tab/tabid-1)
+```python
       class State(Enum):
         Ok = 0
         Warning = 1
@@ -375,10 +375,10 @@ To build an SdsType representation of sample classes in Python and Java Script, 
           return self.__measurement
         def setValue(self, measurement):
           self.__measurement = measurement
+```
 
-
-**JavaScript**
-
+##### [JavaScript](#tab/tabid-2)
+```javascript
 
       var State =
       {
@@ -392,13 +392,15 @@ To build an SdsType representation of sample classes in Python and Java Script, 
         this.State = null;
         this.Value = null;
       }
+```
+***
 
 ##### **Sample**
 The following code is used to build an SdsType representation of the sample class above:
 
-**Python**
+##### [Python](#tab/tabid-3)
 
-
+```python
       # Create the properties
     
       # Time is the primary index
@@ -447,10 +449,11 @@ The following code is used to build an SdsType representation of the sample clas
       simple.Description = "Basic sample type"
       simple.SdsTypeCode = SdsTypeCode.Object
       simple.Properties = [ time, state, measurement ]
+```
 
+##### [JavaScript](#tab/tabid-4)
 
-**JavaScript**
-
+```javascript
 
       // Time is the primary key
       var timeProperty = new SdsObjects.SdsTypeProperty({
@@ -503,13 +506,15 @@ The following code is used to build an SdsType representation of the sample clas
         "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
         "Properties": [timeProperty, stateProperty, valueProperty]
       });
+```
 
+***
 
 The `Time` property is identified as the primary index by defining its SdsTypeProperty as follows:
 
-**Python**
+##### [Python](#tab/tabid-5)
 
-
+```python
       # Time is the primary index
       time = SdsTypeProperty()
       time.Id = "Time"
@@ -519,10 +524,11 @@ The `Time` property is identified as the primary index by defining its SdsTypePr
       time.SdsType.Id = "DateTime"
       time.SdsType.Name = "DateTime"
       time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
+```
 
-**JavaScript**
+##### [JavaScript](#tab/tabid-6)
 
-
+```javascript
       // Time is the primary index
       var timeProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Time",
@@ -533,7 +539,8 @@ The `Time` property is identified as the primary index by defining its SdsTypePr
         })
       });
 
-
+```
+***
 
 Note that the `time.IsKey` field is set to true.
 
@@ -552,9 +559,9 @@ specifying the `Measurement` property and define an SdsStream identifying the
 `Measurement` as the secondary index as shown below:
 
 
-**Python**
+##### [Python](#tab/tabid-a)
 
-
+```python
       # Create the properties
     
       measurementIndex = SdsStreamIndex()
@@ -567,11 +574,11 @@ specifying the `Measurement` property and define an SdsStream identifying the
       stream.TypeId = simple.Id
       stream.Indexes = [ measurementIndex ]
 
+```
 
+##### [JavaScript](#tab/tabid-b)
 
-**JavaScript**
-
-
+```javascript
       var measurementIndex = new SdsObjects.SdsStreamIndex({
         "SdsTypePropertyId": valueProperty.Id
       });
@@ -583,14 +590,15 @@ specifying the `Measurement` property and define an SdsStream identifying the
         "TypeId": simpleTypeId,
         "Indexes": [ measurementIndex ]
       });
-
+```
+***
 
 #### Compound indexes
 Consider the following Python and JavaScript types:
 
-**Python**
+##### [Python](#tab/tabid-c)
 
-
+```python
       class Simple(object):
       # First-order index property
       Time = property(getTime, setTime)
@@ -619,11 +627,11 @@ Consider the following Python and JavaScript types:
       @Recorded.setter
       def Recorded(self, recorded):
         self.__recorded = recorded
+```
 
+##### [JavaScript](#tab/tabid-d)
 
-**JavaScript**
-
-
+```javascript
       var Simple = function () {
         this.Time = null;
         this.State = null;
@@ -634,15 +642,16 @@ Consider the following Python and JavaScript types:
         Simple.call(this);
         this.Recorded = null;
       }
-
+```
+***
 
 To turn the simple SdsType shown in the example into a type supporting the `DerivedCompoundIndex` 
 type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundIndex.Recorded``, 
 extend the SdsType as follows:
 
-**Python**
+##### [Python](#tab/tabid-p)
 
-
+```python
       # We set the order for this property. The order of the first property defaulted to 0
       recorded = SdsTypeProperty()
       recorded.Id = "Recorded"
@@ -663,10 +672,10 @@ extend the SdsType as follows:
       derived.SdsTypeCode = SdsTypeCode.Object
       derived.Properties = [ recorded ]
 
+```
 
-
-**JavaScript**  
-
+##### [JavaScript](#tab/tabid-j)
+```javascript
       // We set the order for this property. The order of the first property defaulted to 0
       var recordedProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Recorded",
@@ -689,7 +698,8 @@ extend the SdsType as follows:
         "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
         "Properties": [recordedProperty]
       });
-
+```
+***
 
 Data in the SdsStream will be ordered as follows:
 
