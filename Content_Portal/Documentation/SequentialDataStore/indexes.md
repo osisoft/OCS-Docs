@@ -3,8 +3,7 @@ uid: sdsIndexes
 ---
 
 # Indexes
-Indexes speed up and order the results of searches. A key uniquely identifies a record within 
-a collection of records. Keys are unique within the collection.
+Indexes speed up and order the results of searches. A key uniquely identifies a record within a collection of records. Keys are unique within the collection.
 
 In SDS, the key of an SdsType is also an index. The key is often referred to as the *primary index,* 
 while all other indexes are referred to as *secondary indexes* or *secondaries*.
@@ -102,7 +101,7 @@ Using the `SdsTypeBuilder` eliminates potential errors that might occur when wor
         Warning,
         Alarm
       }
-
+    
       public class Simple
       {
         [SdsMember(IsKey = true, Order = 0) ]
@@ -110,7 +109,7 @@ Using the `SdsTypeBuilder` eliminates potential errors that might occur when wor
         public State State { get; set; }
         public Double Measurement { get; set; }
       }
-
+    
       SdsType simpleType = SdsTypeBuilder.CreateSdsType<Simple>();
 
 
@@ -182,20 +181,20 @@ To read data indexed by a secondary index, use a filtered `Get` call, as in the 
                 Measurement = 1
             },
         });
-
+    
       IEnumerable<Simple> orderedByKey = await client.GetWindowValuesAsync<Simple>(secondary.Id, 
           time.ToString("o"), time.AddSeconds(4).ToString("o"));
       foreach (Simple value in orderedByKey)
           Console.WriteLine("{0}: {1}", value.Time, value.Measurement);
-
+    
       Console.WriteLine();
-
+    
       IEnumerable<Simple> orderedBySecondary = await client.GetFilteredValuesAsync<Simple>(secondary.Id, 
       "Measurement gt 0 and Measurement lt 6");
       foreach (Simple value in orderedBySecondary)
           Console.WriteLine("{0}: {1}", value.Time, value.Measurement);
       Console.WriteLine();
-
+    
       // Output:
       // 1/20/2017 12:00:00 AM: 5
       // 1/20/2017 12:00:01 AM: 4
@@ -220,7 +219,7 @@ Compound indexes are defined using the `SdsMemberAttribute` as follows:
         public State State { get; set; }
         public Double Measurement { get; set; }
       }
-
+    
       public class DerivedCompoundIndex : Simple
       {
         [SdsMember(IsKey = true, Order = 1)]
@@ -272,7 +271,7 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
                 Measurement = 1
             },
         });
-
+    
       // measure and estimates at 1/20/2017 01:00
       await client.UpdateValuesAsync(compoundStream.Id, new List<DerivedCompoundIndex>()
         {
@@ -291,7 +290,7 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
                 Measurement = 3
             },
         });
-
+    
       // measure at 1/20/2017 02:00
       await client.UpdateValuesAsync(compoundStream.Id, new List<DerivedCompoundIndex>()
         {
@@ -303,7 +302,7 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
                 Measurement = 4
             },
         });
-
+    
       // adjust earlier values at 1/20/2017 14:00
       await client.UpdateValuesAsync(compoundStream.Id, new List<DerivedCompoundIndex>()
         {
@@ -322,15 +321,15 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
                 Measurement = 6
             },
         });
-
+    
       var from = new Tuple<DateTime, DateTime>(DateTime.Parse("1/20/2017 01:00"), DateTime.Parse("1/20/2017 00:00"));
       var to = new Tuple<DateTime, DateTime>(DateTime.Parse("1/20/2017 02:00"), DateTime.Parse("1/20/2017 14:00"));
-
+    
       var compoundValues = await client.GetWindowValuesAsync<DerivedCompoundIndex, DateTime, DateTime>(compoundStream.Id, from, to);
-
+    
       foreach (DerivedCompoundIndex value in compoundValues)
          Console.WriteLine("{0}:{1} {2}", value.Time, value.Recorded, value.Measurement);
-
+    
       // Output:
       // 1/20/2017 1:00:00 AM:1/20/2017 12:00:00 AM 0
       // 1/20/2017 1:00:00 AM:1/20/2017 1:00:00 AM 2
@@ -346,41 +345,40 @@ Note that the ``GetWindowValuesAsync()`` call specifies an expected return type 
 #### Simple indexes
 When the .NET `SdsTypeBuilder` is unavailable, indexes must be built manually.
 
-Below, SdsTypes defined in the [Python](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Python)
-and [Java Script](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript)
-samples are shown. For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS).
+Below, SdsTypes defined in the [Python](https://github.com/osisoft/sample-ocs-waveform-python)
+and [Java Script](https://github.com/osisoft/sample-ocs-waveform-nodejs) samples are shown. For samples in other languages, go to [OCS code samples in GitHub](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/SDS_WAVEFORM_README.md).
 
 To build an SdsType representation of sample classes in Python and Java Script, see [Sample](#sample) below:
 
-**Python**
-
+##### [Python](#tab/tabid-1)
+```python
       class State(Enum):
         Ok = 0
         Warning = 1
         Alarm = 2
-
+    
       class Simple(object):
         Time = property(getTime, setTime)
         def getTime(self):
           return self.__time
         def setTime(self, time):
           self.__time = time
-
+    
         State = property(getState, setState)
         def getState(self):
           return self.__state
         def setState(self, state):
           self.__state = state
-
+    
         Measurement = property(getValue, setValue)
         def getValue(self):
           return self.__measurement
         def setValue(self, measurement):
           self.__measurement = measurement
+```
 
-
-**JavaScript**
-
+##### [JavaScript](#tab/tabid-2)
+```javascript
 
       var State =
       {
@@ -388,21 +386,23 @@ To build an SdsType representation of sample classes in Python and Java Script, 
         Warning: 1,
         Alarm: 2
       }
-
+    
       var Simple = function () {
         this.Time = null;
         this.State = null;
         this.Value = null;
       }
+```
+***
 
 ##### **Sample**
 The following code is used to build an SdsType representation of the sample class above:
 
-**Python**
+##### [Python](#tab/tabid-3)
 
-
+```python
       # Create the properties
-
+    
       # Time is the primary index
       time = SdsTypeProperty()
       time.Id = "Time"
@@ -412,7 +412,7 @@ The following code is used to build an SdsType representation of the sample clas
       time.SdsType.Id = "DateTime"
       time.SdsType.Name = "DateTime"
       time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
-
+    
       # State is not a pre-defined type. An SdsType must be defined to represent the enum
       stateTypePropertyOk = SdsTypeProperty()
       stateTypePropertyOk.Id = "Ok"
@@ -423,7 +423,7 @@ The following code is used to build an SdsType representation of the sample clas
       stateTypePropertyAlarm = SdsTypeProperty()
       stateTypePropertyAlarm.Id = "Alarm"
       stateTypePropertyAlarm.Measurement = State.Alarm
-
+    
       stateType = SdsType()
       stateType.Id = "State"
       stateType.Name = "State"
@@ -433,7 +433,7 @@ The following code is used to build an SdsType representation of the sample clas
       state.Id = "State"
       state.Name = "State"
       state.SdsType = stateType
-
+    
       # Measurement property is a simple non-indexed, pre-defined type
       measurement = SdsTypeProperty()
       measurement.Id = "Measurement"
@@ -441,7 +441,7 @@ The following code is used to build an SdsType representation of the sample clas
       measurement.SdsType = SdsType()
       measurement.SdsType.Id = "Double"
       measurement.SdsType.Name = "Double"
-
+    
       # Create the Simple SdsType
       simple = SdsType()
       simple.Id = str(uuid.uuid4())
@@ -449,10 +449,11 @@ The following code is used to build an SdsType representation of the sample clas
       simple.Description = "Basic sample type"
       simple.SdsTypeCode = SdsTypeCode.Object
       simple.Properties = [ time, state, measurement ]
+```
 
+##### [JavaScript](#tab/tabid-4)
 
-**JavaScript**
-
+```javascript
 
       // Time is the primary key
       var timeProperty = new SdsObjects.SdsTypeProperty({
@@ -463,23 +464,23 @@ The following code is used to build an SdsType representation of the sample clas
           "SdsTypeCode": SdsObjects.SdsTypeCodeMap.DateTime
         })
       });
-
+    
       // State is not a pre-defined type. A SdsType must be defined to represent the enum
       var stateTypePropertyOk = new SdsObjects.SdsTypeProperty({
         "Id": "Ok",
         "Value": State.Ok
       });
-
+    
       var stateTypePropertyWarning = new SdsObjects.SdsTypeProperty({
         "Id": "Warning",
         "Value": State.Warning
       });
-
+    
       var stateTypePropertyAlarm = new SdsObjects.SdsTypeProperty({
         "Id": "Alarm",
         "Value": State.Alarm
       });
-
+    
       var stateType = new SdsObjects.SdsType({
         "Id": "State",
         "Name": "State",
@@ -487,7 +488,7 @@ The following code is used to build an SdsType representation of the sample clas
         "Properties": [stateTypePropertyOk, stateTypePropertyWarning,
           stateTypePropertyAlarm, stateTypePropertyRed]
       });
-
+    
       // Value property is a simple non-indexed, pre-defined type
       var valueProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Value",
@@ -496,7 +497,7 @@ The following code is used to build an SdsType representation of the sample clas
           "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Double
         })
       });
-
+    
       // Create the Simple SdsType
       var simpleType = new SdsObjects.SdsType({
         "Id": "Simple",
@@ -505,13 +506,15 @@ The following code is used to build an SdsType representation of the sample clas
         "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
         "Properties": [timeProperty, stateProperty, valueProperty]
       });
+```
 
+***
 
 The `Time` property is identified as the primary index by defining its SdsTypeProperty as follows:
 
-**Python**
+##### [Python](#tab/tabid-5)
 
-
+```python
       # Time is the primary index
       time = SdsTypeProperty()
       time.Id = "Time"
@@ -521,10 +524,11 @@ The `Time` property is identified as the primary index by defining its SdsTypePr
       time.SdsType.Id = "DateTime"
       time.SdsType.Name = "DateTime"
       time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
+```
 
-**JavaScript**
+##### [JavaScript](#tab/tabid-6)
 
-
+```javascript
       // Time is the primary index
       var timeProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Time",
@@ -535,7 +539,8 @@ The `Time` property is identified as the primary index by defining its SdsTypePr
         })
       });
 
-
+```
+***
 
 Note that the `time.IsKey` field is set to true.
 
@@ -554,14 +559,14 @@ specifying the `Measurement` property and define an SdsStream identifying the
 `Measurement` as the secondary index as shown below:
 
 
-**Python**
+##### [Python](#tab/tabid-a)
 
-
+```python
       # Create the properties
-
+    
       measurementIndex = SdsStreamIndex()
       measurementIndex.SdsTypePropertyId = measurement.Id
-
+    
       stream = SdsStream()
       stream.Id = str(uuid.uuid4())
       stream.Name = "SimpleWithSecond"
@@ -569,15 +574,15 @@ specifying the `Measurement` property and define an SdsStream identifying the
       stream.TypeId = simple.Id
       stream.Indexes = [ measurementIndex ]
 
+```
 
+##### [JavaScript](#tab/tabid-b)
 
-**JavaScript**
-
-
+```javascript
       var measurementIndex = new SdsObjects.SdsStreamIndex({
         "SdsTypePropertyId": valueProperty.Id
       });
-
+    
       var stream = new SdsObjects.SdsStream({
         "Id": "SimpleWithSecond",
         "Name": "SimpleWithSecond",
@@ -585,14 +590,15 @@ specifying the `Measurement` property and define an SdsStream identifying the
         "TypeId": simpleTypeId,
         "Indexes": [ measurementIndex ]
       });
-
+```
+***
 
 #### Compound indexes
 Consider the following Python and JavaScript types:
 
-**Python**
+##### [Python](#tab/tabid-c)
 
-
+```python
       class Simple(object):
       # First-order index property
       Time = property(getTime, setTime)
@@ -600,19 +606,19 @@ Consider the following Python and JavaScript types:
         return self.__time
       def setTime(self, time):
         self.__time = time
-
+    
       State = property(getState, setState)
       def getState(self):
         return self.__state
       def setState(self, state):
         self.__state = state
-
+    
       Measurement = property(getValue, setValue)
       def getValue(self):
         return self.__measurement
       def setValue(self, measurement):
         self.__measurement = measurement
-
+    
       class DerivedCompoundIndex(Simple):
       # Second-order index property
       @property
@@ -621,30 +627,31 @@ Consider the following Python and JavaScript types:
       @Recorded.setter
       def Recorded(self, recorded):
         self.__recorded = recorded
+```
 
+##### [JavaScript](#tab/tabid-d)
 
-**JavaScript**
-
-
+```javascript
       var Simple = function () {
         this.Time = null;
         this.State = null;
         this.Value = null;
       }
-
+    
       var DerivedCompoundIndex = function() {
         Simple.call(this);
         this.Recorded = null;
       }
-
+```
+***
 
 To turn the simple SdsType shown in the example into a type supporting the `DerivedCompoundIndex` 
 type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundIndex.Recorded``, 
 extend the SdsType as follows:
 
-**Python**
+##### [Python](#tab/tabid-p)
 
-
+```python
       # We set the order for this property. The order of the first property defaulted to 0
       recorded = SdsTypeProperty()
       recorded.Id = "Recorded"
@@ -655,7 +662,7 @@ extend the SdsType as follows:
       recorded.SdsType.Id = "DateTime"
       recorded.SdsType.Name = "DateTime"
       recorded.SdsType.SdsTypeCode = SdsTypeCode.DateTime
-
+    
       # Create the Derived SdsType
       derived = SdsType()
       derived.Id = str(uuid.uuid4())
@@ -665,10 +672,10 @@ extend the SdsType as follows:
       derived.SdsTypeCode = SdsTypeCode.Object
       derived.Properties = [ recorded ]
 
+```
 
-
-**JavaScript**  
-
+##### [JavaScript](#tab/tabid-j)
+```javascript
       // We set the order for this property. The order of the first property defaulted to 0
       var recordedProperty = new SdsObjects.SdsTypeProperty({
         "Id": "Recorded",
@@ -681,7 +688,7 @@ extend the SdsType as follows:
           "SdsTypeCode": SdsObjects.SdsTypeCodeMap.DateTime
         })
       });
-
+    
       // Create the Derived SdsType
       var derivedType = new SdsObjects.SdsTyp({
         "Id": "Compound",
@@ -691,7 +698,8 @@ extend the SdsType as follows:
         "SdsTypeCode": SdsObjects.SdsTypeCodeMap.Object,
         "Properties": [recordedProperty]
       });
-
+```
+***
 
 Data in the SdsStream will be ordered as follows:
 

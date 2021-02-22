@@ -1,12 +1,14 @@
 ---
-uid: AssetStatusMapping
+uid: AssetStatus
 ---
 
-# Asset Status Mapping
+# Asset and Asset Type Status
 
-Status mapping is a child resource of an asset or asset type that defines the simple status of an asset or asset type. There is one status mapping resource for each asset or asset type.
+Status is a property of an asset or asset type that defines the simple status of an asset or asset type. There is one status property for each asset or asset type.
 
-If an asset references an existing asset type and the asset type has a corresponding type reference, then the status mapping on the asset is ignored. 
+If an asset references an existing asset type and the asset type has a corresponding type reference, then the status mapping on the asset is ignored.
+
+Create, read, update, and delete of an asset status mapping is done through the asset or asset type itself.
 
 ## Status mapping properties table
 
@@ -14,8 +16,7 @@ The following table lists the most common fields in a status mapping.
 
 | Property            | Type                     | Required? | Searchable? | Description                                                  |
 | ------------------- | ------------------------ | --------- | ----------- | ------------------------------------------------------------ |
-| Name                | String                   | Required  | No          | `Name` and `Id` for this status mapping.                     |
-| Description         | String                   | Required  | No          | `Description` of the status mapping.                         |
+| Name                | String                   | Optional  | No          | `Name` and `Id` for this status mapping.                     |
 | StreamReferenceId   | String                   | Required  | No          | `Id` for the asset's StreamReference property. The stream reference must exist before the status mapping can be created. |
 | StreamPropertyId    | String                   | Required  | No          | SDS stream property that status uses for calculations. It must be present on the StreamId property on the asset StreamReference.  The SDS stream property must be a numeric enumeration, character, or string type. |
 | ValueStatusMappings | List<ValueStatusMapping> | Required  | No          | The value status mapping maps values to a given status. See [Value status mapping properties table](xref:AssetStatusMapping#value-status-mapping-properties-table) |
@@ -33,7 +34,7 @@ The following table lists the most common fields in a value status mapping. A si
 
 ## Status enumerations
 
-The following are valid status enumerations: <!-- Is this meant to be an example of a valid status enumeration? -->
+The following are valid status enumerations: 
 
 - Unknown = 0
 - Good = 1
@@ -42,30 +43,28 @@ The following are valid status enumerations: <!-- Is this meant to be an example
 
 ## Example status mapping
 
-The following is an example of a status mapping.
+The following is an example of a status property which is on the asset or asset type.
 
 ```
-{
-    "Name": "StatusAlertMapping",
-    "Description": "Sample Status Mapping",
-    "StreamReferenceId": "AssetStreamReferenceId1",
+"Status": {
+    "Name": "ChargingStationStatus",
+    "StreamReferenceId": "Reference1",
     "StreamPropertyId": "Value",
-    "ValueStatusMappings":[
+    "ValueStatusMappings": [
         {
             "Value": 0,
-            "Status": "Unknown",
-            "DisplayName": "UnknownStatusTroubleshoot"
-        },
+            "Status": 0,
+            "DisplayName": "Bad"
+        }
         {
             "Value": 1,
-            "Status": "Good"
+            "Status": 1,
+            "DisplayName": "Good"
         }
     ]
 }
 ```
-
-The asset or asset type's  StreamReferences field has an Id property. To assign a status mapping to an asset or asset type, the value assigned to the Id property must match the StreamReferenceId of the status mapping object. Using the status mapping example above, AssetStreamReferenceId1 is assigned to the asset in the following example. 
-
+The asset or asset type's 'StreamReferences' field has an 'Id' property. To assign a status mapping to an asset or asset type, the value assigned to the Id property must match the StreamReferenceId of the status mapping object. Using the status mapping example above, AssetStreamReferenceId1 is assigned to the asset in the following example. 
 ```
 {
   "Id": "ChargingStationAsset", 
@@ -80,151 +79,11 @@ The asset or asset type's  StreamReferences field has an Id property. To assign 
 } 
 ```
 
-***
-
-## `Get Status Mapping`
-
-Returns the status mapping of the specified asset or asset type.
-
-### Request
-
-Asset
-
-```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/StatusMapping
-
-```
-
-Asset Type
-
-```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/StatusMapping
-
-```
-
-### Parameters
-
-`string tenantId`  
-The tenant identifier
-
-`string namespaceId`  
-The namespace identifier
-
-`string assetId`  
-The asset identifier
-
-`string assetTypeId`  
-The asset type identifier
-
-### Response
-
-The response includes a status code and a response body.
-
-| Status Code     | Body Type                                                    | Description                                                  |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 200 OK          | `MeasurementMapping` | The requested status mapping of the specified asset or asset type. |
-| 400 Bad Request | error                                                        | The request is not valid. See the response body for additional details. |
-| 403 Forbidden   | error                                                        | You are not authorized to view the requested asset or asset type. |
-| 404 Not Found   | error                                                        | The specified asset or asset type with identifier is not found. |
-
-#### Example response body
-
-
-```
-{
-    "Name": "StatusAlertMapping",
-    "Description": "Sample Status Mapping",
-    "StreamReferenceId": "AssetStreamReferenceId1",
-    "StreamPropertyId": "Value",
-    "ValueStatusMapping":[
-        {
-            "Value": 0,
-            "Status": "Unknown",
-            "DisplayName": "UnknownStatusTroubleshoot"
-        },
-        {
-            "Value": 1,
-            "Status": "Good"
-        }
-    ]
-}
-```
-
-***
-
-## `Update Status Mapping`
-
-Update the status mapping for a given asset or asset type.
-
-For an asset status mappings, you can include an If-Match property in the HTTP request header to specify the asset version. The status mappings is updated only if the asset version matches. The If-Match property is not available for asset types. 
-
-### Request
-
-Asset
-
-```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/StatusMapping
-
-``` 
-
-Asset Type
-
-```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/StatusMapping
-```
-
-### Parameters
-
-`string tenantId`  
-The tenant identifier
-
-`string namespaceId`  
-The namespace identifier
-
-`string assetId`  
-The asset identifier
-
-`string assetTypeId`  
-The asset type identifier
-
-#### Example POST body
-
-```
-{
-    "Name": "StatusAlertMapping",
-    "Description": "Sample Status Mapping",
-    "StreamReferenceId": "AssetStreamReferenceId1",
-    "StreamPropertyId": "Value",
-    "ValueStatusMapping":[
-        {
-            "Value": 0,
-            "Status": "Unknown",
-            "DisplayName": "UnknownStatusTroubleshoot"
-        },
-        {
-            "Value": 1,
-            "Status": "Good"
-        }
-    ]
-}
-```
-
-### Response
-
-The response includes a status code and a response body. 
-| Status Code     | Body Type  | Description                                                  |
-| --------------- | ---------- | ------------------------------------------------------------ |
-| 204 OK          | no-content | On successful POST, HTTP Response 204 (no content) is returned. |
-| 400 Bad Request | error      | The request is not valid. See the response body for additional details. |
-| 403 Forbidden   | error      | You are not authorized to view the requested asset or asset type. |
-| 404 Not Found   | error      | The specified asset or asset type with identifier is not found. |
-| 412 Pre-Condition Failed | error     | The asset failed to update because the If-Match condition failed. |
-
-***
-
 ## `Get Asset Status`
 
-View the status of an asset
+View the status of an asset. 
+
+The status of an asset is determined by an exact match of the Sds stream property value to the value of the ValueStatusMapping. If there are no exact matches, the status is a 0 (Unknown).
 
 ### Request
 

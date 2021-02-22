@@ -20,4 +20,6 @@
   topicHref: Field_Mappings.md
 - name: Display units of measure
   topicHref: Units_of_Measure.md
+- name: Display calculated summaries
+  topicHref: Summaries.md
 

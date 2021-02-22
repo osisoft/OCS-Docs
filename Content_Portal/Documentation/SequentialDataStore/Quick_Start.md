@@ -11,13 +11,13 @@ Email [OCS support](mailto://cloudservices@osisoft.com) at OSIsoft Cloud Service
 You will be mainly working on the [OSIsoft Cloud Services portal](https://cloud.osisoft.com/). Sign into the portal using the credentials associated with the tenant. You will also need a namespace and administrative client keys. 
 
 
-#### Step 1: Acquire a Namespace
+#### Step 1: Acquire a namespace
 
 In the portal, open the navigation menu ![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**.
 You can use an existing namespace or create a new one.
 
 
-#### Step 2: Acquire a Client Identity and Secret
+#### Step 2: Acquire a client identity and secret
 
 The application acts as a confidential client – an application that is capable of securely maintaining a secret.
 In Azure Active Directory, the confidential client authentication flow is accomplished using an Application Identity.
@@ -218,7 +218,7 @@ simpleType.Name = "Simple";
 simpleType.Description = "Basic sample type";
 await config.CreateTypeAsync(simpleType);
 ```
- 
+
 
 #### Step 5: Create a stream
 
@@ -366,7 +366,7 @@ Dictionary<string, object> Errors
   if an ``InsertValues`` call failed because it conflicted with an existing event in the stream, the index of the 
   conflicting event will be included in this dictionary.
 
-### SDS Timeout Request Header
+### SDS timeout request header
 
 Handling timeout issues can be difficult and confusing in a distributed programming environment. When a client 
 times out, for example, the request is terminated before the client receives a response from the server. Meanwhile, the application is

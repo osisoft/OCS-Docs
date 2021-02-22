@@ -2,13 +2,9 @@
 uid: identityPersistedGrant
 ---
 
-# PersistedGrant
+# Persisted Grant
 
-Persisted Grants such as refresh tokens or authorization codes are used
-            by OSIsoft Cloud Services to maintain some state about User authentication with regards to
-            a Client. For instance, refresh tokens, which are issued to Hybrid clients,
-            make it possible to determine when the Client can be issued a new access token
-            on behalf of the User without the users themselves being present.
+Persisted grants, such as refresh tokens or authorization codes, are used by OSIsoft Cloud Services to maintain some state about User authentication with regards to a client. For instance, refresh tokens, which are issued to hybrid clients, make it possible to determine when the client can be issued a new access token on behalf of the user without the users themselves being present.
 
 
 ***
@@ -21,9 +17,9 @@ All endpoints referenced in this documentation require authenticated access. Aut
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -41,8 +37,8 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 ## `Get Client Ids of Persisted Grants for User`
 
 Get enumerable of client IDs that have been issued an
-            Authorization Codes (not the same as the client type)
-            on behalf of a User.
+            authorization code (not the same as the client type)
+            on behalf of a user.
 
 ### Request
 
@@ -55,14 +51,14 @@ Get enumerable of client IDs that have been issued an
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -107,7 +103,7 @@ Internal server error.
 
 ## `Get Total Count of Persisted Grants for a User`
 
-Validate whether there are any Authorization Code Persisted Grants for User.
+Validate whether there are any authorization code persisted grants for user.
 
 ### Request
 
@@ -120,14 +116,14 @@ Validate whether there are any Authorization Code Persisted Grants for User.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 
@@ -165,8 +161,8 @@ Internal server error.
 
 ## `Remove Persisted Grants`
 
-Remove Authorization Code Persisted Grants
-            for the User with the specified User Id in the Tenant.
+Remove authorization code persisted grants 
+            for the user with the specified User Id in the tenant.
 
 ### Request
 
@@ -179,14 +175,14 @@ Remove Authorization Code Persisted Grants
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid userId
 ```
 
-Id of User.
+Id of user.
 
 ### Security
 

@@ -10,7 +10,7 @@ In Communities, the following roles are possible, ordered from least privileged 
 
 ## Community Member
 
-The role representing a user in the community authorized to read any data shared in the community.
+The role authorized to read any data shared in the community.
 
 ## Data Steward
 
@@ -18,16 +18,16 @@ A role that can share a tenant’s data with any community to which the data ste
 
 ## Community Moderator
 
-A role that  manages the community for a tenant. Usually, a Community Moderator is the individual who accepted the invitation to join a community on behalf of their tenant. This user must also be a Tenant Administrator within their own tenant.
+A role that  manages the community for a tenant. Usually, a Community Moderator is the individual who accepted the invitation to join a community on behalf of a tenant. This user must also be a Tenant Administrator for the same tenant.
 
-The Community Moderator's primary purpose is to specify which users from their tenant have access to the community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
+The Community Moderator's primary purpose is to specify which users from a tenant have access to a community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
 
 - Pause access to shared data from their tenant.
 - Add users from their tenant to the community
 - Remove users from the community
 - Remove their tenant from the community
 
-A Community Moderator can assign the following roles to users in their own tenant:
+Community Moderators can assign the following roles to users in their own tenant:
 
 - Community Member
 - Community Moderator
@@ -46,7 +46,7 @@ Community Administrators in tenants other than the community owner's tenant can 
 
 ## Related roles and identities
 
-In addition to the roles you can assign in Communities, be aware of the following related identities and OCS roles:
+In addition to the roles you can assign in Communities, be aware of the following related roles and identities:
 
 ### Tenant Administrator
 

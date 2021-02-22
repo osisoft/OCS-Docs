@@ -287,35 +287,35 @@ HTTP 200 OK
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -373,35 +373,35 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -546,28 +546,28 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },                
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -589,7 +589,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -711,28 +711,28 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -750,7 +750,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                 "Keys": [
                     "Site"
                 ],
-                "Label": "{IdentifyingValue} {FirstKey}"
+                "Label": "{IdentifyingValue} {Key}"
             }
        },
   ],
@@ -818,7 +818,7 @@ Find the `Field` associated with "AmbientTemperature". To the `Field`'s `.Keys` 
     "AmbientTemperature",
     "Temperature"
   ],
-  "Label": "{IdentifyingValue} {FirstKey}"
+  "Label": "{IdentifyingValue} {Key}"
 },
 ```
 Now that field will match to either "Temperature" or "AmbientTemperature".  
@@ -850,21 +850,21 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                         "AmbientTemperature",
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -883,7 +883,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                 "Keys": [
                     "Site"
                 ],
-                "Label": "{IdentifyingValue} {FirstKey}"
+                "Label": "{IdentifyingValue} {Key}"
             }
        },
   ],

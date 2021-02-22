@@ -4,19 +4,18 @@ uid: sdsStreams
 
 # Streams
 
-SdsStreams are collections of sequentially occurring values indexed by a single property, typically time series data.
-You define SdsStreams to organize incoming data from another system into the OCS.
-To define an SdsStream, you must first define an SdsType, which defines the structure of the data you want to stream into a selected namespace.
+Streams are a container for sequential data of some type of sequentially occurring values indexed by a single property, typically time series data. You define streams to organize incoming data from another system into the OCS.
+To define a stream, you must first define a type, which defines the structure of the data you want to stream into a selected namespace.
 
 SDS stores collections of events and provides convenient ways to find and associate events.
-Events of consistent structure are stored in SdsStreams. SdsStreams are referenced by their identifier or `Id` field.
-SdsStream identifiers must be unique within a namespace.
+Events of consistent structure are stored in streams. Streams are referenced by their identifier or `Id` field.
+Stream identifiers must be unique within a namespace.
 
-An SdsStream must include a `TypeId` that references the identifier of an existing SdsType.
-SdsStream management using the .NET SDS client libraries is performed through `ISdsMetadataService`.
+A stream must include a `TypeId` that references the identifier of an existing type.
+Stream management using the .NET SDS client libraries is performed through `ISdsMetadataService`.
 Create the `ISdsMetadataService`, using one of the ``SdsService.GetMetadataService()`` factory methods.
 
-The following table shows the required and optional SdsStream fields. Fields not listed are reserved
+The following table shows the required and optional stream fields. Fields not listed are reserved
 for internal SDS use.
 
 <a name="streampropertiestable"></a>
@@ -33,10 +32,10 @@ for internal SDS use.
 | [Tags](xref:sdsStreamExtra)*		| IList\<String\>					| Optional    | Yes		  | A list of tags denoting special attributes or categories.|
 | [Metadata](xref:sdsStreamExtra)*	| IDictionary\<String, String\>	| Optional    | Yes		  | A dictionary of string keys and associated string values.  |
 
-**\* Notes on SdsStream metadata and tags:** Stream metadata and tags are accessed via the Metadata and Tags API respectively.
+**\* Notes on stream metadata and tags:** Stream metadata and tags are accessed via the Metadata and Tags API respectively.
 However, they are associated with SdsStream objects and can be used as search criteria.
 
-**Rules for the Stream Identifier (SdsStream.Id)**
+**Rules for the stream identifier (SdsStream.Id)**
 1. Is not case sensitive
 2. Cannot just be whitespace
 3. Cannot contain leading or trailing whitespace
@@ -44,18 +43,18 @@ However, they are associated with SdsStream objects and can be used as search cr
 5. Can contain a maximum of 100 characters
 
 ## Indexes
-While you define the primary index on the SdsType, the SdsStream is where you define secondary indexes.
-If the primary index defined on the SdsType is a compound index, secondary indexes on the SdsStream are allowed as long as that compound index does not have more than two properties. For more information on compound indexes, see [Indexes](xref:sdsIndexes#compound-indexes). 
+While you define the primary index on the type, the stream is where you define secondary indexes.
+If the primary index defined on the type is a compound index, secondary indexes on the stream are allowed as long as that compound index does not have more than two properties. For more information on compound indexes, see [Indexes](xref:sdsIndexes#compound-indexes). 
 <!-- Secondary indexes apply to a single property. In other words, there are no compound secondary indexes.-->
-  
-Note that you can only use the SdsTypeCodes of SdsType properties that can be ordered (``DateTime`` or numbers, for example) as a secondary index.
+
+Note that you can only use the SdsTypeCodes of type properties that can be ordered (``DateTime`` or numbers, for example) as a secondary index.
 
 ## Interpolation and extrapolation
-The InterpolationMode, ExtrapolationMode, and [SdsStreamPropertyOverride object](#sdsstreampropertyoverride) can be used to determine how a specific SdsStream reads data.
-These read characteristics are inherited from the SdsType if they are not defined at the SdsStream level.
+The `InterpolationMode`, `ExtrapolationMode`, and [SdsStreamPropertyOverride object](#sdsstreampropertyoverride) can be used to determine how a specific stream reads data.
+These read characteristics are inherited from the type if they are not defined at the stream level.
 
 
-## ``SdsStreamPropertyOverride``
+## SdsStreamPropertyOverride
 ``SdsStreamPropertyOverride`` object provides a way to override interpolation behavior and unit of measure for individual 
 SdsType Properties for a specific SdsStream.
 
@@ -71,21 +70,21 @@ The ``SdsStreamPropertyOverride`` object has the following structure:
 The unit of measure can be overridden for any SdsTypeProperty defined by the stream type, including primary 
 and secondary indexes. For more information on SdsTypeProperty `Uom`, see [Types](xref:sdsTypes#sdstypeproperty). 
 
-Read characteristics of the SdsStream are determined by the SdsType and the `PropertyOverride` of the SdsStream. The 
-interpolation mode for non-index properties can be defined and overridden at the SdsStream level. For more 
-information about type read characteristics see [Types](xref:sdsTypes#sdstypeproperty).
+Read characteristics of the stream are determined by the type and the `PropertyOverride` of the stream.
+The interpolation mode for non-index properties can be defined and overridden at the stream level.
+For more information about type read characteristics see [Types](xref:sdsTypes#sdstypeproperty).
 
-If `InterpolationMode` of the SdsType is set to ``Discrete``, it cannot be overridden 
+If `InterpolationMode` of the type is set to ``Discrete``, it cannot be overridden 
 at any level. When `InterpolationMode` is set to ``Discrete`` and an event is not defined for the index,
 a null value is returned for the entire event.
 
 # SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The API in this 
-section interacts with SdsStreams. When working in .NET framework, convenient SDS client libraries are 
+section interacts with streams. When working in .NET framework, convenient SDS client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
 defines the available functions. See [Streams](#streams) above for general 
-information related to SdsStream. 
+information related to streams. 
 
 **********************
 ## `Get Streams` 
@@ -222,10 +221,10 @@ Returns the type definition that is associated with a given stream.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -243,7 +242,7 @@ The requested SdsType.
 ***********************
 
 ## `Get or Create Stream`
-Creates the specified stream. If an SdsStream with a matching identifier already exists, SDS compares the 
+Creates the specified stream. If a stream with a matching identifier already exists, SDS compares the 
 existing stream with the stream that was sent. If the streams are identical, a ``Found`` (302) error 
 is returned with the Location header set to the URI where the stream may be retrieved using a Get function. 
 If the streams do not match, a ``Conflict`` (409) error is returned.
@@ -265,10 +264,10 @@ redirect with the authorization header, you should disable automatic redirect.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier. The stream identifier must match the identifier in content. 
 
@@ -320,10 +319,10 @@ Changes that are not permitted result in an error.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -343,7 +342,7 @@ The response includes a status code.
 ## `Update Stream Type`
 
 Updates a stream’s type. The type is modified to match the specified stream view. 
-Defined Indexes and PropertyOverrides are removed when updating a stream type. 
+Defined indexes and PropertyOverrides are removed when updating a stream type. 
 
 ### Request
  ```text
@@ -354,13 +353,13 @@ Defined Indexes and PropertyOverrides are removed when updating a stream type.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
-  
+
 `string streamViewId`  
 The stream view identifier  
 
@@ -393,10 +392,10 @@ Deletes a stream.
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -423,7 +422,7 @@ Gets the default ACL for the Streams collection. For more information on ACL, se
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -434,7 +433,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body 
@@ -458,7 +457,7 @@ Successful (200 OK) responses include an additional response header.
 
 ## `Update Streams Access Control List`
 
-Updates the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
+Updates the default ACL for the `Streams` collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -469,7 +468,7 @@ Updates the default ACL for the Streams collection. For more information on ACL,
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -489,7 +488,7 @@ The response includes a status code.
 
 ## `Patch Streams Access Control List`
 
-Updates the default ACL for the Streams collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the default ACL for the `Streams` collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -540,7 +539,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -566,10 +565,10 @@ Gets the ACL of the specified stream. For more information on ACL, see [Access C
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -580,7 +579,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -616,10 +615,10 @@ Updates the ACL of the specified stream. For more information on ACL, see [Acces
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -692,7 +691,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -719,10 +718,10 @@ Gets the `Owner` of the specified stream. For more information, see [Access Cont
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -751,10 +750,10 @@ Updates the `Owner` of the specified stream. For more information, see [Access C
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -768,7 +767,7 @@ The response includes a status code
 ```csharp
    Task UpdateStreamOwnerAsync(string streamId, Trustee streamOwner);
 ```
-*** 
+***
 
 ## `Get Stream Access Rights`
 
@@ -784,10 +783,10 @@ more information on access rights, see [Access Control](xref:accessControl#commo
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 

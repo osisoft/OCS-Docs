@@ -2,12 +2,10 @@
 uid: GettingStartedWithTrendData
 ---
 
-Getting Started with Trend Data
+Getting started with trend data
 =================================================
 
-Use trace data in a trend to monitor assets, anticipate problems, and proactively perform preventative maintenance.
-
-The following procedure describes how to display traces in your trend and glean useful information from your data.
+Use trace data in a trend to monitor assets, anticipate problems, and proactively perform preventative maintenance. The following procedure describes how to display traces in your trend and glean useful information from your data.
 
 Procedure
 ---------

@@ -7,7 +7,7 @@
 - name: Sequential Data Store
   href: SequentialDataStore/toc.yml
   topicHref: SequentialDataStore/Data_Store_and_SDS.md
-- name: Data Ingress and OMF
+- name: Data Collection and OMF
   href: DataIngress/toc.yml
   topicHref: DataIngress/Data_Ingress.md
 - name: Metadata Rules
@@ -15,6 +15,9 @@
 - name: Asset Store (Preview)
   href: Assets/toc.yml
   topicHref: Assets/assets.md
+- name: Asset Rules (Preview)
+  href: Asset Rules/toc.yml
+  topicHref: Asset Rules/asset-rules.md  
 - name: Data Views
   href: DataViews/toc.yml
   topicHref: DataViews/Data_Views_Overview.md

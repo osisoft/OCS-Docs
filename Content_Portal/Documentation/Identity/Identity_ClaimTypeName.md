@@ -2,10 +2,9 @@
 uid: identityClaimTypeName
 ---
 
-# ClaimTypeName
+# Claim Type Name
 
-An Identity Provider Claim Type Name is the field or type name in a claim
-            that will be used to match to a value when creating an Identity Provider Claim.
+An Identity Provider Claim Type Name is the field or type name in a claim that will be used to match to a value when creating an identity provider claim.
 
 
 ***
@@ -18,9 +17,9 @@ All endpoints referenced in this documentation require authenticated access. Aut
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -37,7 +36,7 @@ If and when contacting OSIsoft support about this error, please provide the Oper
 
 ## `Get All Identity Provider Claim Type Names`
 
-Get all Identity Provider Claim Type Names for an Identity Provider on a Tenant.
+Get all Identity Provider Claim Type Names for an identity provider on a tenant.
 
 ### Request
 
@@ -50,14 +49,14 @@ Get all Identity Provider Claim Type Names for an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [FromQuery]
@@ -75,7 +74,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of Identity Providers to skip.
+Number of identity providers to skip.
 
 ```csharp
 [FromQuery]
@@ -84,7 +83,7 @@ Number of Identity Providers to skip.
 int32 count
 ```
 
-Maximum number of Identity Providers to return.
+Maximum number of identity providers to return.
 
 ### Security
 
@@ -127,7 +126,7 @@ Forbidden.
 
 #### 404
 
-Tenant or Identity Provider not found.
+Tenant or identity provider not found.
 
 #### 500
 
@@ -136,7 +135,7 @@ Internal server error.
 
 ## `Get All Identity Provider Claim Type Names Header`
 
-Get Header for all Identity Provider Claims Type Names for an Identity Provider on a Tenant.
+Get Header for all Identity Provider Claims Type Names for an identity provider on a tenant.
 
 ### Request
 
@@ -149,14 +148,14 @@ Get Header for all Identity Provider Claims Type Names for an Identity Provider 
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ### Security
 
@@ -184,7 +183,7 @@ Forbidden.
 
 #### 404
 
-Tenant or Identity Provider not found.
+Tenant or identity provider not found.
 
 #### 500
 
@@ -193,7 +192,7 @@ Internal server error.
 
 ## `Get Identity Provider Claim Type Name`
 
-Get an Identity Provider Claim Type Name from an Identity Provider on a Tenant.
+Get an Identity Provider Claim Type Name from an identity provider on a tenant.
 
 ### Request
 
@@ -206,14 +205,14 @@ Get an Identity Provider Claim Type Name from an Identity Provider on a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
@@ -260,7 +259,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Identity Provider Claim Type Name not found.
+Tenant, identity provider, or Identity Provider Claim Type Name not found.
 
 #### 500
 
@@ -269,7 +268,7 @@ Internal server error.
 
 ## `Get Identity Provider Claim Type Name Header`
 
-Get an Identity Provider Claim Type Name Header from an Identity Provider on a Tenant.
+Get an Identity Provider Claim Type Name Header from an identity provider on a tenant.
 
 ### Request
 
@@ -282,14 +281,14 @@ Get an Identity Provider Claim Type Name Header from an Identity Provider on a T
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
@@ -324,7 +323,7 @@ Forbidden.
 
 #### 404
 
-Tenant, Identity Provider, or Identity Provider Claim Type Name not found.
+Tenant, identity provider, or Identity Provider Claim Type Name not found.
 
 #### 500
 

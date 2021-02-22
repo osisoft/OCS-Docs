@@ -134,6 +134,45 @@ The response includes a status code and, in some cases, a body.
    Task UpdateAccessControlListAsync(AccessControlList acl);
 ```
 
+## `Get Data Views Access Rights`
+Get access rights to the data views collection for the calling user or client.
+
+### Request
+```text
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/DataViews
+```
+### Parameters
+`string tenantId`
+The tenant identifier
+
+`string namespaceId`
+The namespace identifier
+
+### Response
+The response includes a status code and a body.
+
+| Status code | Body Type | Description |
+|--|--|--|
+| 200 OK | `string[]` | A list of access rights to the data views collection |
+| 403 Forbidden | error | You are not authorized to view the requested data view collection's access control list |
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details. |
+
+#### Example response body
+```json
+HTTP 200 OK
+[
+  "Read",
+  "Write",
+  "Delete",
+  "ManageAccessControl"
+]
+```
+
+### .NET client libraries method
+```csharp
+   Task<string[]> GetAccessRightsAsync();
+```
+
 ## `Get Data View Access Control List`
 Get the [`AccessControlList`](xref:accessControl#access-control-lists) of the specified data view.
 
@@ -270,7 +309,7 @@ The response includes a status code and, in some cases, a body.
 ```
 
 ## `Get Data View Access Rights`
-Get the calling user or client's access rights to the requested data view
+Get access rights to the requested data view for the calling user or client.
 
 ### Request
 ```text

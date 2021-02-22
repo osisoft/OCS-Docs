@@ -2,13 +2,13 @@
 uid: identityImplicitClient
 ---
 
-# ImplicitClient (Deprecated)
+# Implicit Client (deprecated)
 
 Implicit Client has been deprecated. We suggest using an Authorization Code Client instead of an Implicit Client.
             Implicit clients are used in Javascript/Browser (SPA) based applications or native
             mobile applications with the presence of a User.
             You can read more about these clients
-            [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication#implicit-flow-deprecated).
+            [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md#implicit-flow-deprecated).
             These clients are not issued secrets or refresh tokens.
 
 ## Properties
@@ -28,7 +28,7 @@ Enabled | bool | Gets or sets whether client is enabled. Client can be used for 
 AccessTokenLifetime | int32 | Gets or sets lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.
 Tags | string[] | Gets or sets for OSIsoft internal use only.
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -67,9 +67,9 @@ All endpoints referenced in this documentation require authenticated access. Aut
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -84,7 +84,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## `Create an Implicit Client (Deprecated)`
+## `Create an implicit client (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
@@ -230,12 +230,11 @@ Client Id already exists.
 Internal server error.
 ***
 
-## `Update an Implicit Client (Deprecated)`
+## `Update an implicit client (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
-Update an Implicit Client. It can take up to one hour
-            for update to manifest in the authentication process.
+Update an Implicit Client. It can take up to one hour for an update to manifest in the authentication process.
 
 ### Request
 
@@ -379,7 +378,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get an Implicit Client (Deprecated)`
+## `Get an implicit client (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
@@ -465,7 +464,7 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Get All Implicit Clients from Tenant (Deprecated)`
+## `Get all implicit clients from tenant (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
@@ -617,7 +616,7 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Delete an Implicit Client (Deprecated)`
+## `Delete an implicit client (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
@@ -682,7 +681,7 @@ Operation timed out.
 Internal server error.
 ***
 
-## `Get Header for Implicit Client (Deprecated)`
+## `Get header for implicit client (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 
@@ -741,7 +740,7 @@ Client or Tenant not found.
 Internal server error.
 ***
 
-## `Get Total Count of Implicit Clients (Deprecated)`
+## `Get total count of implicit clients (deprecated)`
 
 Implicit Client has been deprecated, please use Authorization Code Client instead.
 

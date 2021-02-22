@@ -17,12 +17,10 @@ The examples cover the basics of interacting with OCS, such as:
 
 Currently, the samples are available in these languages:
 
-* [.NET](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/DotNet) 
-* [Java](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Java)
-* [Python](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/Python)
-* [NodeJs](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript/NodeJS)
-* [Angular](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/SDS/JavaScript/Angular)
+* [.NET](https://github.com/osisoft/OSI-Samples-OCS/tree/master/docs/SDS_WAVEFORM_DOTNET_README.md) 
+* [Java](https://github.com/osisoft/sample-ocs-waveform-java)
+* [Python](https://github.com/osisoft/sample-ocs-waveform-python)
+* [NodeJs](https://github.com/osisoft/sample-ocs-waveform-nodejs)
+* [Angular](https://github.com/osisoft/sample-ocs-waveform-angular)
 
-Because the examples are intended for demonstration purposes, they represent some example
-practices. The patterns may change as OCS continues to develop. Be sure
-to follow the [OSI-Samples](https://github.com/osisoft/OSI-Samples) repository on GitHub for updates.
+Because the examples are intended for demonstration purposes, they represent some example practices. The patterns may change as OCS continues to develop. Be sure to follow the [OSI-Samples](https://github.com/osisoft/OSI-Samples) repository on GitHub for updates.

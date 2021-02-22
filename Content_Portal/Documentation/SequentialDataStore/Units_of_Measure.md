@@ -2,7 +2,7 @@
 uid: unitsOfMeasure
 ---
 
-# Units of Measure
+# Units of measure
 
 The Sequential Data Store (SDS) provides a collection of built-in units of measure (UOM). These units of measure can be [associated](#associating-a-unit-of-measure-with-a-sdstype) with SdsStreams and SdsTypes in order to provide unit information for stream data that model measurable quantities. If data has unit information associated with it, SDS is able to support unit conversions when retrieving data. See [Reading data](xref:sdsReadingData) for more information.
 
@@ -37,7 +37,7 @@ The following table shows the required and optional SdsUomQuantity fields.
 | BaseUom    | SdsUom  | Required    | The base unit of measure for this quantity. All other Uom's measuring this quantity will have ConversionFactor's and ConversionOffsets relative to the BaseUom  | SdsUom representing "meters per second" |
 | Dimensions | short[] | Optional    | Reserved for internal use. Represents the seven base SI dimensions: Length, Mass, Time, Electric Current, Thermodynamic Temperature, Amount of Substance, and Luminous Density. | [1,0,-1,0,0,0,0] |
 
-## Supported Quantities
+## Supported system-defined unit quantities
 A list of the supported quantities and their base unit of measures is below. Supported quantities are read-only.
 
 | Quantity Id                                 | Base Uom Id               |
@@ -77,7 +77,7 @@ A list of the supported quantities and their base unit of measures is below. Sup
 | Volume                                      | cubic meter               |
 | Volume Flow Rate                            | cubic meter per second    |
 
-## Supported Units of Measure
+## Supported system-defined units of measure
 A list of the supported units of measure is below. Supported units of measure are read-only.
 
 | Uom Id                                           | Abbreviation | Quantity Id                                 | Conversion Factor | Conversion Offset |
@@ -436,7 +436,7 @@ Content-Type: application/json
 
 
 
-## `Get Quantity Uoms`
+## `Get Quantity UOMs`
 
 Returns the list of units of measure that belongs to the quantity with the specified quantityId.
 
@@ -490,7 +490,7 @@ Content-Type: application/json
    Task<IEnumerable<SdsUom>> GetQuantityUomsAsync(string quantityId);
 ```
 ***
-## `Get Quantity Uom`
+## `Get Quantity UOM`
 
 Returns the unit of measure associated with the specified uomId belonging to the quantity with the specified quantityId.
 
@@ -550,7 +550,7 @@ Gets the default ACL for the Quantities collection. For more information on ACLs
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -561,7 +561,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -594,7 +594,7 @@ Updates the default ACL for the Quantities collection. For more information on A
 ##### Parameters
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
 
@@ -663,7 +663,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -687,10 +687,10 @@ Gets the ACL of the specified quantity. For more information on ACLs, see [Role-
 ##### Parameters
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -701,7 +701,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -723,8 +723,6 @@ Successful (200 OK) responses include an additional response header.
 
 ***********************
 
-
-
 ## `Update Quantity Access Control List`
 
 Updates the ACL of the specified quantity. For more information on ACLs, see [Role-based access control](xref:accessControl).
@@ -738,10 +736,10 @@ Updates the ACL of the specified quantity. For more information on ACLs, see [Ro
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -814,7 +812,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -839,10 +837,10 @@ Gets the Owner of the specified quantity. For more information on Owners, see [R
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -871,10 +869,10 @@ Updates the Owner of the specified quantity. For more information on Owners, see
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -904,10 +902,10 @@ more information on Access Rights, see [Role-based access control](xref:accessCo
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -936,7 +934,7 @@ The REST APIs provide programmatic access to read and write SDS data. The APIs i
 
 ***
 
-## ``Get Uoms``
+## ``Get UOMs``
 
 Returns a list of all available units of measure in the system.
 
@@ -1044,7 +1042,7 @@ Content-Type: application/json
 ```
 ***
 
-## `Get Uom Access Control List`
+## `Get UOM Access Control List`
 
 Gets the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
@@ -1057,10 +1055,10 @@ Gets the ACL of the specified unit of measure. For more information on ACLs, see
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -1074,7 +1072,7 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `AccessControlList` | See [Access Control](xref:accessControl) |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
 #### Response body  
@@ -1096,23 +1094,23 @@ Successful (200 OK) responses include an additional response header.
 
 ***********************
 
-## `Update Uom Access Control List`
+## `Update UOM Access Control List`
 
 Updates the ACL of the specified unit of measure. For more information on ACLs, see [Access Control](xref:accessControl).
 
 #### Request
  ```text
-    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{uomId}/AccessControl
+    PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/Units/{UOMId}/AccessControl
  ```
 
 ##### Parameters
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -1127,10 +1125,10 @@ The response includes a status code.
 
 #### .NET client libraries method
 ```csharp
-   Task UpdateQuantityUomAccessControlListAsync(string quantityId, string uomId, AccessControlList uomAcl);
+   Task UpdateQuantityUomAccessControlListAsync(string quantityId, string UOMId, AccessControlList uomAcl);
 ```
 ***
-## `Patch Uom Access Control List`
+## `Patch UOM Access Control List`
 
 Updates the ACL of the specified unit of measure using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
@@ -1189,7 +1187,7 @@ The response includes a status code.
 |--|--|--|
 | 204 No Content || The ACL was successfully patched. |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The data view or query does not exist |
+| 404 Not Found | error | The resource does not exist |
 | 412 Precondition Failed | error | The `If-Match` header did not match `ETag` on the ACL, or a `test` operation in the JSON Patch document failed to evaluate to `true`.
 | 500 Internal Server Error | error | An error occurred while processing the request. |
 
@@ -1201,7 +1199,7 @@ The response includes a status code.
 
 ***********************
 
-## `Get Uom Owner`
+## `Get UOM Owner`
 
 Gets the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
@@ -1214,10 +1212,10 @@ Gets the Owner of the specified unit of measure. For more information on Owners,
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -1236,7 +1234,7 @@ The Owner for the specified Uom
 ```
 ***********************
 
-## `Update Uom Owner`
+## `Update UOM Owner`
 
 Updates the Owner of the specified unit of measure. For more information on Owners, see [Access Control](xref:accessControl).
 
@@ -1249,10 +1247,10 @@ Updates the Owner of the specified unit of measure. For more information on Owne
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -1271,7 +1269,7 @@ The response includes a status code.
 ```
 ***
 
-## `Get Uom Access Rights`
+## `Get UOM Access Rights`
 
 Gets the Access Rights associated with the specified unit of measure for the requesting identity. For 
 more information on Access Rights, see [Access Control](xref:accessControl#commonaccessrightsenum).
@@ -1285,10 +1283,10 @@ more information on Access Rights, see [Access Control](xref:accessControl#commo
 
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string quantityId`  
 The quantity identifier  
 
@@ -1317,7 +1315,7 @@ Content-Type: application/json
 
 
 ## Associating a unit of measure with a SdsType
-At [SdsType](xref:sdsTypes) creation, a SdsUom can be associated with a [SdsTypeProperty](xref:sdsTypes#sdstypeproperty). 
+At [type](xref:sdsTypes) creation, SdsUom can be associated with a [SdsTypeProperty](xref:sdsTypes#sdstypeproperty). 
 
 ## Associating a unit of measure with a SdsStream
-At [SdsStream](xref:sdsStreams) creation, you can override any unit of measure associated with a SdsTypeProperty belonging to the SdsType of the stream. This enables the reuse of a SdsType that may have default unit information associated with it already.
+At [stream](xref:sdsStreams) creation, you can override any unit of measure associated with a SdsTypeProperty belonging to the SdsType of the stream. This enables the reuse of a SdsType that may have default unit information associated with it already.
