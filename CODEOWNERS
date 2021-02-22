@@ -3,7 +3,7 @@
 
 # These owners will be the default owners for everything in the repo.
 *       @GiselleLeeOSI
-Content_Portal/Documentation/SequentialDataStore @GiselleLeeOSI @afloresOSI
+Content_Portal/Documentation/SequentialDataStore @GiselleLeeOSI
 Content_Portal/Documentation/Identity @digitaljoshua
 Content_Portal/Documentation/Management @digitaljoshua
 Content_Portal/Documentation/DataViews @osimarkrogers

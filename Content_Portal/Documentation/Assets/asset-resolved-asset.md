@@ -58,7 +58,7 @@ In this scenario, the default reference rules resolve as follows:
 
 ### Request
 
-```
+```text
 GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Resolved
 ```
 
@@ -147,3 +147,43 @@ Content-Type: application/json
     ]
 }
 ```
+
+## `Get Resolved Asset (Bulk)`
+
+### Request
+```text
+POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Resolved
+```
+
+### Parameters
+
+`string tenantId`    
+The tenant identifier
+
+`string namespaceId`  
+The namespace identifier
+
+#### Request body 
+
+A list of asset `Id`s.
+
+#### Example request body 
+Requesting resolved assets for assets with the following `Id`s: "Asset1", "Asset2", and "Asset3".
+
+```json
+[
+   "Asset1",
+   "Asset2",
+   "Asset3"
+]
+```
+
+### Response
+
+The response includes a list of resolved assets, a status code and a response body.
+
+| Status Code     | Body Type        | Description                                                  |
+| --------------- | ---------------- | ------------------------------------------------------------ |
+| 200 OK          | `Resolved Asset` List | The resolved assets                                           |
+| 207 Multi-status| `Resolved Asset` List and Error List | The resolved assets and errors for assets which could not be resolved.  |
+| 400 Bad Request | error            | The request is not valid. See the response body for additional details. |

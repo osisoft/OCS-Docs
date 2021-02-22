@@ -660,9 +660,11 @@ Consider the following Python and JavaScript types:
 ```
 ***
 
+
 To turn the simple type shown in the example into a type supporting the `DerivedCompoundIndex` 
 type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundIndex.Recorded``, 
 extend the type as follows:
+
 
 ##### [Python](#tab/tabid-p)
 
@@ -716,7 +718,9 @@ extend the type as follows:
 ```
 ***
 
+
 Data in the stream will be ordered as follows:
+
 
 | **Time**   | **Recorded**   | **Measurement**   |
 |------------|----------------|-------------------|

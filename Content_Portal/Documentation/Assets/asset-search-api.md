@@ -12,15 +12,15 @@ Returns an array of assets that meet the search criteria.
 ### Searchable Properties
 Assets can be searched on the following asset properties:
 
-- Id
-- Name
-- Description
-- Metadata
-  - Name
-  - Description
-  - Value
-- Asset Type Name
-- AssetTypeId
+- Asset Top-level Fields
+  - Id, Name, Description, AssetTypeId, AssetTypeName
+
+- Metadata Fields
+  - Name, Description. Value
+
+- Stream Reference Fields
+  - StreamReferences - Stream Reference Name
+  - StreamProperties - Sds Stream Property Ids, not including indices
 
 Search criteria can be chained together using an **AND**. See examples below. 
 
@@ -156,13 +156,13 @@ Content-Type: application/json
 | Id:Id1 Name desc               | Returns the asset with `Id` equal to **Id1** return results in descending order by Name. |
 | Id:Id*                         | Returns all assets with `Id` matching **id*** wildcard. |
 | Name:Name1                     | Returns all asset with a friendly name equal to **Name1**. |
-| Id:Id AND Name:Name1           | Returns all assets with `Id` matching the **id*** wildcard and with a friendly name equal to **Name1**. |
+| Id:Id AND Name:Name1           | Returns all assets with `Id` matching the **id** and with a friendly name equal to **Name1**. |
 | Description:floor1*            | Returns all assets with a description that starts with **floor1**. |
-| Metadata/Name:Building*      | Returns all assets with at least one metadata value whose description contains the string **Building**. |
-| Metadata/Description:heater* | Returns all assets with at least one metadata value whose description starts with **heater**. |
-| Metadata/Value:123           | Returns all assets with at least one metadata value whose Value property equals **123**. |
+| Metadata/Name:Building*      | Returns all assets with at least one metadata name whose description contains the string **Building**. |
+| Metadata/Description:heater* | Returns all assets with at least one metadata whose description starts with **heater**. |
+| Metadata/Value:123           | Returns all assets with at least one metadata whose Value property equals **123**. |
 | Id:X* AND Metadata/Name:B*   | Returns all assets with `Id` starting with **X** and containing at least one metadata value with a name that starts with a **B**. |
 | AssetTypeId:HeaterTypeId | Returns all assets with `AssetTypeId` matching `HeaterTypeId` |
-| AssetTypeName:HeaterTypeName | Returns all assets whose Name field of the asset type matches `HeaterTypeName` |
-
-
+| AssetTypeName:HeaterTypeName | Returns all assets whose `Name` field of the asset type matches **HeaterTypeName** |
+| StreamProperties:Pressure | Returns all assets that have one or more stream references with the stream property ID **Pressure**. Note: This search only searches non-key Sds stream properties. |
+| StreamReferences:Name1| Returns all assets whose stream references contain a stream reference name that matches **Name1**. |

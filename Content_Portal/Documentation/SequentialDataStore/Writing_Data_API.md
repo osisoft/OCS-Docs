@@ -11,7 +11,8 @@ Many of the API methods described below contain example requests and responses i
 **Example type**  
 ``SimpleType`` is an SdsType with a single index and two additional properties. This type is defined below in .NET, Python, and Javascript:
 
-###### .NET
+#### [.NET](#tab/tabid-1)
+
 ```csharp
 public enum State
 {
@@ -29,7 +30,8 @@ public class SimpleType
    public Double Measurement { get; set; }
 }
 ```
-###### Python
+#### [Python](#tab/tabid-2)
+
 ```python
 class State(Enum):
   Ok = 0
@@ -55,7 +57,8 @@ class SimpleType(object):
   def setValue(self, measurement):
     self.__measurement = measurement
 ```
-###### JavaScript
+#### [JavaScript](#tab/tabid-3)
+
 ```javascript
 var State =
 {
@@ -70,6 +73,8 @@ var SimpleType = function () {
   this.Value = null;
 }
 ```
+
+***
 
 **Example stream**  
 ``Simple`` is an SdsStream of type ``SimpleType``.
