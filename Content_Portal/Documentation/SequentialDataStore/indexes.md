@@ -3,22 +3,27 @@ uid: sdsIndexes
 ---
 
 # Indexes
-Indexes speed up and order the results of searches. A key uniquely identifies a record within a collection of records. Keys are unique within the collection.
+Indexes speed up and order the results of searches. 
+A key uniquely identifies a record within a collection of records.
+Keys are unique within the collection.
 
-In SDS, the key of an SdsType is also an index. The key is often referred to as the *primary index,* 
+In SDS, the key of type is also an index. The key is often referred to as the *primary index,* 
 while all other indexes are referred to as *secondary indexes* or *secondaries*.
 
-An SdsType that is used to define an SdsStream must specify a key. When inserting data into an SdsStream, every 
-key value must be unique. SDS will not store more than a single event for a given key; an event with 
-a particular key may be deleted or updated, but two events with the same key cannot exist.
+A type that is used to define a stream must specify a key.
+When you put data into stream, every key value must be unique.
+SDS will not store more than a single event for a given key;
+an event with a particular key may be deleted or updated, but two events with the same key cannot exist.
 
 In .NET, the SdsType properties that define the primary index are identified using an ``OSIsoft.Sds.SdsMemberAttribute`` 
-and setting its ``IsKey`` field to true. If the key consists of only a single property it is permissible to 
-use the ``System.ComponentModel.DataAnnotations.KeyAttribute``. In the SdsType, the Property or Properties 
-representing the primary index have their ``SdsTypeProperty.IsKey`` field set to true.
+and setting its ``IsKey`` field to true.
+If the key consists of only a single property, you can 
+use the ``System.ComponentModel.DataAnnotations.KeyAttribute``.
+Property or properties representing the primary index of an SdsType have their ``SdsTypeProperty.IsKey`` field set to true.
 
-Secondary indexes are defined on SdsStreams and are applied to a single property. You can define several 
-secondary indexes. Secondary index values need not be unique.
+Secondary indexes are defined on streams and are applied to a single property.
+You can define several secondary indexes.
+Secondary index values need not be unique.
 
 ## Supported types for an index
 Type                     | SdsTypeCode
@@ -43,28 +48,30 @@ UInt32                   | 10
 UInt64                   | 12
 
 ## Compound indexes
-A single property (such as a `DateTime`) is adequate for defining an index most of the time. 
+A single property (such as `DateTime`) is adequate for defining an index most of the time. 
 But for more complex scenarios, SDS allows you to define multiple properties. 
 Indexes defined by multiple properties are known as *compound indexes*.
 Only the primary index (or key) supports compound indexes.
 
 When defining a compound index within .NET framework, you should apply the ``OSIsoft.Sds.SdsMemberAttribute`` 
 on each property field of the SdsType that is combined to define the index.
-Set the Property ``IsKey`` to ``true`` and give the ``Order`` field a zero-based index value.
-The ``Order`` field defines the precedence of the Property when sorting.
-A Property with an order of 0 has highest precedence.
+Set the property ``IsKey`` to ``true`` and give the ``Order`` field a zero-based index value.
+The ``Order`` field defines the precedence of the property when sorting.
+A property with an order of 0 has highest precedence.
 
 When defining compound indexes outside of .NET framework, specify the ``IsKey`` and ``Order`` fields
 on the ``SdsTypeProperty`` object.
 
 You can specify a maximum of three properties to define a compound index.
-In read and write operations, specify compound indexes in the URI by ordering each property that composes the index
+In read and write data operations, specify compound indexes in the URI by ordering each property that composes the index
  separated by the pipe character, ‘|’. 
 To help those using compound indexes, .NET client libraries methods also allow the use of tuples for indexes.
 
 **Notes:** 
-- Compound indexing only applies to SdsTypes. In other words, there is no compound indexing for secondary indexes that are on SdsStreams. For more information, see [SdsStreams](xref:sdsStreams#indexes).  
-- The examples below are for compound indexes on SdsTypes and not of secondary indexes on SdsStreams.
+- Compound indexing only applies to types.
+In other words, there is no compound indexing for secondary indexes that are on streams.
+For more information, see [Streams](xref:sdsStreams#indexes).  
+- The examples below are for compound indexes on types and not of secondary indexes on streams.
 
 
 **REST API**
@@ -87,14 +94,14 @@ Task RemoveValueAsync(compoundStream.Id, 1/20/2017 01:00|1/20/2017 00:00);
 ```
 
 
-## Work with indexes
+## Working with indexes
 ### Indexes in .NET framework
 #### Simple indexes
 
 When working in .NET, use the `SdsTypeBuilder` together with either the ``OSIsoft.Sds.SdsMemberAttribute`` (preferred) or the
-``System.ComponentModel.DataAnnotations.KeyAttribute`` to identify the Property that defines the simple index. 
+``System.ComponentModel.DataAnnotations.KeyAttribute`` to identify the property that defines the simple index. 
 Using the `SdsTypeBuilder` eliminates potential errors that might occur when working with SdsTypes manually.
-
+```csharp
       public enum State
       {
         Ok,
@@ -111,24 +118,29 @@ Using the `SdsTypeBuilder` eliminates potential errors that might occur when wor
       }
     
       SdsType simpleType = SdsTypeBuilder.CreateSdsType<Simple>();
-
+```
 
 To read data that is located between two indexes, define both a start index and 
 an end index. For `DateTime`, use the ISO 8601 representation of dates and times. For example, to query 
 for a window of simple values between January 1, 2010 and February 1, 2010, you can define indexes 
 and query as follows:
 
+```csharp
+
       IEnumerable<Simple> values = await
       client.GetWindowValuesAsync<Simple>(simpleStream.Id,
       "2010-01-01T08:00:00.000Z","2010-02-01T08:00:00.000Z");
-
+```
 
 For more information about querying data, see [Read data](xref:sdsReadingData).
 
 #### Secondary indexes
-Secondary indexes are defined at the SdsStream. To add indexes to an SdsStream, you add them to the SdsStream’s `Indexes` field.
+Secondary indexes are defined at the stream level.
+To add indexes to a stream, you add them to the stream `Indexes` field.
 
 For example, to add a second index on `Measurement`, use the following code:
+
+```csharp
 
       SdsStreamIndex measurementIndex = new SdsStreamIndex()
       {
@@ -144,9 +156,11 @@ For example, to add a second index on `Measurement`, use the following code:
           }
       };
       secondary = await config.GetOrCreateStreamAsync(secondary);
+```
 
+To read data indexed by a secondary index, use a filtered GET method, as in the following:
 
-To read data indexed by a secondary index, use a filtered `Get` call, as in the following:
+```csharp
 
       await client.UpdateValuesAsync<Simple>(secondary.Id, new List<Simple>()
         {
@@ -207,11 +221,11 @@ To read data indexed by a secondary index, use a filtered `Get` call, as in the 
       // 1/20/2017 12:00:02 PM: 3
       // 1/20/2017 12:00:01 PM: 4
       // 1/20/2017 12:00:00 PM: 5
-
+```
 
 #### Compound indexes
 Compound indexes are defined using the `SdsMemberAttribute` as follows:
-
+```csharp
       public class Simple
       {
         [SdsMember(IsKey = true, Order = 0)]
@@ -225,7 +239,7 @@ Compound indexes are defined using the `SdsMemberAttribute` as follows:
         [SdsMember(IsKey = true, Order = 1)]
         public DateTime Recorded { get; set; } 
       }
-
+```
 
 Events of type `DerivedCompoundIndex` are sorted first by the `Time` parameter and then by the `Recorded` parameter.
 A collection of times would be sorted as follows:
@@ -253,6 +267,7 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
 | 01:00      | 14:00          | 5                 |
 | 02:00      | 14:00          | 6                 |
 
+```csharp
       // estimates at 1/20/2017 00:00
       await client.UpdateValuesAsync(compoundStream.Id, new List<DerivedCompoundIndex>()
         {
@@ -338,7 +353,7 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
       // 1/20/2017 2:00:00 AM:1/20/2017 1:00:00 AM 3
       // 1/20/2017 2:00:00 AM:1/20/2017 2:00:00 AM 4
       // 1/20/2017 2:00:00 AM:1/20/2017 2:00:00 PM 6
-
+```
 Note that the ``GetWindowValuesAsync()`` call specifies an expected return type and the index types as generic parameters.
 
 ### Indexes outside of .NET framework
