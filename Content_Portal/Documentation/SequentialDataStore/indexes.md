@@ -567,10 +567,10 @@ the ISO 8601 representation of dates and times. To query for a window of values 
 For additional information, see [Read data](xref:sdsReadingData).
 
 #### Secondary indexes
-Secondary indexes are defined at the SdsStream. To create an SdsStream 
+Secondary indexes are defined at the stream. To create a stream 
 using the `Simple` class and adding a secondary index on the `Measurement`, 
-you use the previously defined SdsType. Then you create `SdsStreamIndex` 
-specifying the `Measurement` property and define an SdsStream identifying the 
+you use the previously defined type. Then you create `SdsStreamIndex` 
+specifying the `Measurement` property and define a stream identifying the 
 `Measurement` as the secondary index as shown below:
 
 
@@ -660,9 +660,9 @@ Consider the following Python and JavaScript types:
 ```
 ***
 
-To turn the simple SdsType shown in the example into a type supporting the `DerivedCompoundIndex` 
+To turn the simple type shown in the example into a type supporting the `DerivedCompoundIndex` 
 type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundIndex.Recorded``, 
-extend the SdsType as follows:
+extend the type as follows:
 
 ##### [Python](#tab/tabid-p)
 
@@ -716,7 +716,7 @@ extend the SdsType as follows:
 ```
 ***
 
-Data in the SdsStream will be ordered as follows:
+Data in the stream will be ordered as follows:
 
 | **Time**   | **Recorded**   | **Measurement**   |
 |------------|----------------|-------------------|
