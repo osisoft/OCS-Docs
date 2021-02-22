@@ -5,7 +5,7 @@ uid: sdsQuickStart
 # Quick Start: Sequential Data Store
 
 Sequential Data Store (SDS) is a sophisticated data store. The steps described here show a very simple interaction with SDS.
-To follow along with the steps in this section, you will first need a tenant, a user account and associated security credentials. 
+To follow along with the steps in this section, you need a tenant, a user account and associated security credentials. 
 Email [OCS support](mailto://cloudservices@osisoft.com) at OSIsoft Cloud Services to get access.
 
 You will be mainly working on the [OSIsoft Cloud Services portal](https://cloud.osisoft.com/). Sign into the portal using the credentials associated with the tenant. You will also need a namespace and administrative client keys. 
@@ -20,40 +20,40 @@ You can use an existing namespace or create a new one.
 #### Step 2: Acquire a client identity and secret
 
 The application acts as a confidential client – an application that is capable of securely maintaining a secret.
-In Azure Active Directory, the confidential client authentication flow is accomplished using an Application Identity.
-OSIsoft Cloud Services supports this authentication with a Client Identity (Client Id) and a Client Secret.
+In Azure Active Directory, the confidential client authentication flow is accomplished using an application identity.
+OSIsoft Cloud Services supports this authentication with a client identity (Client Id) and a client secret.
 
 To acquire a client identity from the portal, open the navigation menu and select **Security** > **Clients**.
 
-You can either select an existing client or create a new client. For a new client, select **Add Client** and follow the 
+You can either select an existing client or create a new one. For a new client, select **Add Client** and follow the 
 prompts for creating a client identity and client secret. Be sure to keep a record of the client secret.
-For an exisiting client, highlight the desired client and select **Client Details** to see configuration information. 
+For an existing client, highlight the desired client and select **Client Details** to see configuration information. 
 
-You will need the Tenant Identity, Client Identity, and Client Secret to proceed. 
+You need the tenant identity, client identity, and client secret to proceed. 
 
-The Tenant Identity, Client Identity, and Client Secret are used to acquire a security token from an identity 
+The tenant identity, client identity, and client secret are used to acquire a security token from an identity 
 provider, Azure Active Directory in this case.
 
 #### Step 3: Acquire authentication token
 
-You use the Tenant Identity, Client Identity, and Client Secret to acquire an access token 
+You use the tenant identity, client identity, and client secret to acquire an access token 
 from Azure Active Directory. Select one of the clients from the list to see configuration information 
 and code samples in various languages which are shown on tabs in the right panel.
 
 #### Step 4: Create data types
 
-An SdsType (or type) describes the structure of a single measured event or object. An SdsStream (or stream) has an associated 
-SdsType and stores a stream of events or objects that take the shape of that type.
+A type describes the structure of a single measured event or object. A stream has an associated 
+type and stores a stream of events or objects that take the shape of that type.
 
 A type consists of one or more data properties, one of which must represent an index. Indexes can be 
 simple (a single integer property, for example) or compound (represented by multiple properties). 
 ``DateTime`` is a common index for time-series stores. 
 
 SDS supports a wide variety of property types, both simple (integers, strings and floats, for example) 
-and complex (lists, arrays and enumerations, for example). Properties can be of any complex SdsType. 
+and complex (lists, arrays and enumerations, for example). Properties can be of any complex type. 
 See [Types](xref:sdsTypes#sdstypecode) for a detailed list of supported data types.
 
-The SdsType is defined in JSON and is posted on OSIsoft Cloud Services (OCS) endpoint.
+The type is defined in JSON and is posted on OSIsoft Cloud Services (OCS) endpoint.
 
 ```json
 POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}  
@@ -222,10 +222,10 @@ await config.CreateTypeAsync(simpleType);
 
 #### Step 5: Create a stream
 
-An SdsStream (or stream) has an associated SdsType and stores a stream of events or objects that take the shape of that type. 
+A stream has an associated type and stores a stream of events or objects that take the shape of that type. 
 For more information, see [Streams](xref:sdsStreams).
 
-Define and post a JSON representation of SdsStream to OCS endpoint.
+Define and create a JSON representation of stream to OCS endpoint.
 
 ```json 
 POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  
