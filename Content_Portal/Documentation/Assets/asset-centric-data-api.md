@@ -3,7 +3,7 @@ uid: AssetCentricDataAPI
 ---
 
 # Asset Centric Data API
-The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams.
+The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams. 
 
 In order to retrieve stream data from an asset, you must first set up stream references for a given asset. The data that is retrieved is based on the resolved asset.
 
@@ -36,11 +36,11 @@ The following asset is used in all of the sample output in this topic.
 ***
 
 ## `Get Asset Last Data` 
-Returns the last stored value for all SDS streams in the resolved asset.
+Returns the last stored value for SDS streams in the resolved asset.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?Stream={streams}
 ```
 
 ### Parameters  
@@ -52,6 +52,9 @@ The namespace identifier
 
 `string assetId`  
 The asset identifier
+
+[optional] `string[] streams`   
+An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
 The response includes a status code and a response body.
@@ -85,13 +88,13 @@ Content-Type: application/json
 ***
 
 ## `Get Asset Sampled Data` 
-Returns sampled data for all referenced measurements. 
+Returns sampled data for referenced Sds streams. 
 
 Note: The inputs to this API matches the SDS stream Get samples values data call.  
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&Stream={streams}
 ```
 
 ### Parameters  
@@ -112,6 +115,9 @@ The end index for the intervals
 
 `int intervals`  
 The number of requested intervals
+
+[optional] `string[] streams`   
+An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
 The response includes a status code and a response body.
@@ -154,11 +160,11 @@ Content-Type: application/json
 ***
 
 ## `Get Asset Summary Data` 
-Returns summary data for all referenced SDS streams. 
+Returns summary data for referenced SDS streams. 
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&Stream={streams}
 ```
 
 ###  Parameters  
@@ -179,6 +185,9 @@ The end index for the intervals
 
 `int count`   
 The number of requested intervals
+
+[optional] `string[] streams`   
+An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
 The response includes a status code and a response body.
@@ -333,16 +342,19 @@ Content-Type: application/json
             }
         ],
     "Errors": null
+   }
 }
+```
 
 ***
 
 ## `Get Asset Window Data`
-Returns window data for all referenced SDS streams.
+Returns window data for referenced SDS streams.
 
 ### Request
+
 ```
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&Stream={streams}
 ```
 
 ### Parameters
@@ -360,6 +372,9 @@ The start index for the intervals
 
 `string endIndex`   
 The end index for the intervals
+
+[optional] `string[] streams`   
+An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response
 The response includes a status code and a response body.
@@ -426,3 +441,74 @@ Content-Type: application/json
     },
     "Errors": null
 }
+
+
+***
+
+## `Get Asset Interpolated Data` 
+Returns interpolated data for referenced SDS streams. 
+
+### Request 
+``` 
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&Stream={streams}
+```
+
+###  Parameters  
+`string tenantId`   
+The tenant identifier 
+
+`string namespaceId`   
+The namespace identifier
+
+`string assetId`  
+The asset identifier
+
+`string startIndex`   
+The start index for the intervals
+
+`string endIndex`   
+The end index for the intervals
+
+`int count`   
+The number of requested intervals
+
+[optional] `string[] streams`   
+An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+
+### Response 
+The response includes a status code and a response body.
+
+| Status Code | Body Type | Description |
+|--|--|--|
+| 200 OK | OK | Array of summary values for all references. |
+| 207 Multi-Status | partial success | Array of summary values for  references. Look at child errors for those that are unsuccessful. |
+| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
+| 403 Forbidden | error | You are not authorized to view the requested asset. |
+| 404 Not Found | error | The specified asset with identifier is not found. |
+
+```json 
+HTTP 200 OK
+Content-Type: application/json
+{
+	"Results": {
+		"StreamReferenceWithEventsName": [
+			{
+                "Timestamp": "2019-01-02T00:00:05Z",
+                "Temp": 5.045,
+                "Pres": 1
+			},
+			{
+				"Timestamp": "2020-04-12T08:00:00Z",
+                "Temp": 3.045,
+                "Pres": 11
+			},
+			{
+				"Timestamp": "2020-06-29T05:20:00Z",
+                "Temp": 54.045,
+                "Pres": 11
+			}]
+	},
+	"Errors": null
+}
+
+```

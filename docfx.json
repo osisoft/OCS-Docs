@@ -18,16 +18,19 @@
 	"globalMetadata": {
 		"_enableSearch": true
 	},
-    "content": [
-      {
-        "files": [
-	  "Content_Portal/**/**.md",
-	  "Content_Portal/**/toc.yml",
-          "toc.yml",
-          "**.md"
-        ]
-      }
-    ],
+   "content":[
+   {
+      "files":[
+         "Content_Portal/**/**.md",
+         "Content_Portal/**/toc.yml",
+         "toc.yml",
+         "**.md"
+      ],
+      "exclude":[
+         "Content_Portal/Documentation/Identity/Identity_ImplicitClient.md"
+      ]
+   }
+],
     "resource": [
       {
         "files": [

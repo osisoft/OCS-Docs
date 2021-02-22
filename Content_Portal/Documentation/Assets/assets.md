@@ -15,14 +15,14 @@ In this situation, an asset type can be used to create multiple similar assets. 
 
 | Property      | Type              | Required? | Searchable? | Description                                                  | Asset Property? | Asset Type Property? |
 | ------------- | ----------------- | --------- | ----------- | ------------------------------------------------------------ | ----- | --------------- |
-| Id            | String            | Required  | Yes         | `Id` for referencing this asset. If you do not provide an `Id`, OCS copies the name as the identifier`Id`. If you do not provide a name, OCS assigns a random GUID for the `Id`.| Yes  | Yes            |
+| Id           | String            | Required  | Yes         | `Id` for referencing this asset. If you do not provide an `Id`, OCS copies the name as the identifier`Id`. If you do not provide a name, OCS assigns a random GUID for the `Id`.| Yes  | Yes            |
 | Name          | String            | Required only if `Id` is not specified  | Yes         | User-friendly name. Required if `Id` is not provided. If Name is used as the `Id`, it must be unique within a given namespace. | Yes  | Yes            |
 | Description   | String            | Optional  | Yes         | User-provided description.                                   | Yes  | Yes            |
 | AssetTypeId   | String            | Optional  | No          | `Id` for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
-| Metadata      | Metadata List     | Optional  | Yes*       | Asset and asset type metadata                               | Yes  | Yes            |
-| StreamReferences   | Stream Reference List | Optional  | No *       | Asset stream references                                             | Yes  | No            |
-| TypeReferences | Type Reference List | Optional  | No*        | Asset type type references                                     | No | Yes            |
-| StatusMapping | Status Mapping | Optional  | No*        | Asset and asset type status mapping | Yes | Yes            |
+| Metadata      | Metadata List     | Optional  | Yes       | Asset and asset type metadata                               | Yes  | Yes            |
+| StreamReferences   | Stream Reference List | Optional  | No       | Asset stream references                                             | Yes  | No            |
+| TypeReferences | Type Reference List | Optional  | No        | Asset type type references                                     | No | Yes            |
+| StatusMapping | Status Mapping | Optional  | No        | Asset and asset type status mapping | Yes | Yes            |
 
 For more information on search syntax, see [Assets Search API](xref:AssetsSearchAPI).
 
@@ -32,12 +32,14 @@ An asset or asset type metadata is static information associated with a given as
 
 | Property    | Type   | Required? | Description                                                  |
 | ----------- | ------ | --------- | ------------------------------------------------------------ |
-| Id          | String | Required  | `Id` for the metadata value.                                 |
+| Id          | String | Required*  | `Id` for the metadata value.                                 |
 | Name        | String | Required  | User-friendly name for the metadata value. If not null, must be unique within an asset or asset type. |
 | Description | String | Optional  | User-provided description                                    |
 | SdsTypeCode | Int    | Required  | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer values: 11 (Int64), 14 (Double), 16 (DateTime), and 18 (String). |
 | Uom         | String | Optional  | Asset metadata unit of measurement. Select from the list of supported Uom types. |
 | Value       | String | Optional  | String representation of the metadata.                       |
+
+\* `Id` is not required on property if the `Name` matches a `Name` on the Asset Type metadata. In this case, the `Id` of the metadata on the Asset will be set as the metadata `Id` of the Asset Type. This also applies when an Asset is updated.
 
 ## Asset stream reference properties
 
@@ -45,10 +47,12 @@ An asset stream reference represents dynamic stream data associated with an asse
 
 | Property      | Type   | Required? | Searchable? | Description                                                  |
 | ------------- | ------ | --------- | ----------- | ------------------------------------------------------------ |
-| Id            | String | Required  | No          | `Id` for this stream reference object.  This `Id` must be unique within the asset.                    |
+| Id            | String | Required*  | No          | `Id` for this stream reference object.  This `Id` must be unique within the asset.                    |
 | Name          | String | Required  | No          | User-friendly name for the stream reference object. If not null, must be unique within an asset. |
 | Description   | String | Optional  | No          | Description text.                                            |
 | StreamId      | String | Required  | No          | The SDS stream `Id` of this stream reference. This SDS stream must exist at the time the asset is created. |
+
+\* `Id` is not required on property if the `Name` matches a `Name` on the Asset Type type reference. In this case, the `Id` of the stream reference on the Asset will be set as the type reference `Id` of the Asset Type. This also applies when an Asset is updated.
 
 ## Asset type type reference properties
 

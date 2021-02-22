@@ -54,7 +54,7 @@ The `InterpolationMode`, `ExtrapolationMode`, and [SdsStreamPropertyOverride obj
 These read characteristics are inherited from the type if they are not defined at the stream level.
 
 
-## ``SdsStreamPropertyOverride``
+## SdsStreamPropertyOverride
 ``SdsStreamPropertyOverride`` object provides a way to override interpolation behavior and unit of measure for individual 
 SdsType Properties for a specific SdsStream.
 
@@ -70,18 +70,18 @@ The ``SdsStreamPropertyOverride`` object has the following structure:
 The unit of measure can be overridden for any SdsTypeProperty defined by the stream type, including primary 
 and secondary indexes. For more information on SdsTypeProperty `Uom`, see [Types](xref:sdsTypes#sdstypeproperty). 
 
-Read characteristics of the stream are determined by the type and the `PropertyOverride` of the stream. The 
-interpolation mode for non-index properties can be defined and overridden at the SdsStream level. For more 
-information about type read characteristics see [Types](xref:sdsTypes#sdstypeproperty).
+Read characteristics of the stream are determined by the type and the `PropertyOverride` of the stream.
+The interpolation mode for non-index properties can be defined and overridden at the stream level.
+For more information about type read characteristics see [Types](xref:sdsTypes#sdstypeproperty).
 
-If `InterpolationMode` of the SdsType is set to ``Discrete``, it cannot be overridden 
+If `InterpolationMode` of the type is set to ``Discrete``, it cannot be overridden 
 at any level. When `InterpolationMode` is set to ``Discrete`` and an event is not defined for the index,
 a null value is returned for the entire event.
 
 # SdsStream API
 
 The REST APIs provide programmatic access to read and write SDS data. The API in this 
-section interacts with SdsStreams. When working in .NET framework, convenient SDS client libraries are 
+section interacts with streams. When working in .NET framework, convenient SDS client libraries are 
 available. The ``ISdsMetadataService`` interface, accessed using the ``SdsService.GetMetadataService( )`` helper, 
 defines the available functions. See [Streams](#streams) above for general 
 information related to streams. 
@@ -242,7 +242,7 @@ The requested SdsType.
 ***********************
 
 ## `Get or Create Stream`
-Creates the specified stream. If an SdsStream with a matching identifier already exists, SDS compares the 
+Creates the specified stream. If a stream with a matching identifier already exists, SDS compares the 
 existing stream with the stream that was sent. If the streams are identical, a ``Found`` (302) error 
 is returned with the Location header set to the URI where the stream may be retrieved using a Get function. 
 If the streams do not match, a ``Conflict`` (409) error is returned.
@@ -342,7 +342,7 @@ The response includes a status code.
 ## `Update Stream Type`
 
 Updates a stream’s type. The type is modified to match the specified stream view. 
-Defined Indexes and PropertyOverrides are removed when updating a stream type. 
+Defined indexes and PropertyOverrides are removed when updating a stream type. 
 
 ### Request
  ```text
@@ -457,7 +457,7 @@ Successful (200 OK) responses include an additional response header.
 
 ## `Update Streams Access Control List`
 
-Updates the default ACL for the Streams collection. For more information on ACL, see [Access Control](xref:accessControl).
+Updates the default ACL for the `Streams` collection. For more information on ACL, see [Access Control](xref:accessControl).
 
 ### Request
  ```text
@@ -488,7 +488,7 @@ The response includes a status code.
 
 ## `Patch Streams Access Control List`
 
-Updates the default ACL for the Streams collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
+Updates the default ACL for the `Streams` collection using an [RFC 6902](https://tools.ietf.org/html/rfc6902) compliant JSON Patch document. This allows the ACL to be modified without submitting the entire Access Control List. For more information on ACLs, see [Access Control](xref:accessControl).
 
 ### Request
  ```text

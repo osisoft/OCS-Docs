@@ -2,7 +2,7 @@
 uid: AssetStatus
 ---
 
-# Asset Status
+# Asset and Asset Type Status
 
 Status is a property of an asset or asset type that defines the simple status of an asset or asset type. There is one status property for each asset or asset type.
 
@@ -16,8 +16,7 @@ The following table lists the most common fields in a status mapping.
 
 | Property            | Type                     | Required? | Searchable? | Description                                                  |
 | ------------------- | ------------------------ | --------- | ----------- | ------------------------------------------------------------ |
-| Name                | String                   | Required  | No          | `Name` and `Id` for this status mapping.                     |
-| Description         | String                   | Required  | No          | `Description` of the status mapping.                         |
+| Name                | String                   | Optional  | No          | `Name` and `Id` for this status mapping.                     |
 | StreamReferenceId   | String                   | Required  | No          | `Id` for the asset's StreamReference property. The stream reference must exist before the status mapping can be created. |
 | StreamPropertyId    | String                   | Required  | No          | SDS stream property that status uses for calculations. It must be present on the StreamId property on the asset StreamReference.  The SDS stream property must be a numeric enumeration, character, or string type. |
 | ValueStatusMappings | List<ValueStatusMapping> | Required  | No          | The value status mapping maps values to a given status. See [Value status mapping properties table](xref:AssetStatusMapping#value-status-mapping-properties-table) |
@@ -35,7 +34,7 @@ The following table lists the most common fields in a value status mapping. A si
 
 ## Status enumerations
 
-The following are valid status enumerations: <!-- Is this meant to be an example of a valid status enumeration? -->
+The following are valid status enumerations: 
 
 - Unknown = 0
 - Good = 1
@@ -82,7 +81,9 @@ The asset or asset type's 'StreamReferences' field has an 'Id' property. To assi
 
 ## `Get Asset Status`
 
-View the status of an asset
+View the status of an asset. 
+
+The status of an asset is determined by an exact match of the Sds stream property value to the value of the ValueStatusMapping. If there are no exact matches, the status is a 0 (Unknown).
 
 ### Request
 
