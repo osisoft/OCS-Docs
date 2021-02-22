@@ -46,7 +46,7 @@ Community Administrators in tenants other than the community owner's tenant can 
 
 ## Related roles and identities
 
-In addition to the roles you can assign in Communities, be aware of the following related identities and OCS roles:
+In addition to the roles you can assign in Communities, be aware of the following related roles and identities:
 
 ### Tenant Administrator
 
