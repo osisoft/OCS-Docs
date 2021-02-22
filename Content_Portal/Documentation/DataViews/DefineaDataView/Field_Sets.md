@@ -7,7 +7,7 @@ uid: DataViewsFieldSets
 A data view is likely to include multiple fields of information. One field serves as the index (e.g. Timestamp), and others contain information from or about the data items in the data view `DataFieldSet`s. Data field sets are collections of fields originating from the same query.
 
 ### Available field sets
-The typical workflow for adding data field sets, and the data fields in them, is to use or adapt the [available field sets](xref:DataViewsAvailableFieldSets) that resolve for the data view. This workflow is demonstrated in [Define a Data View](xref:DataViewsQuickStartDefine).
+The typical workflow for adding data field sets, and the data fields in them, is to use or adapt the [available field sets](xref:DataViewsAvailableFieldSets) that resolve for the data view. Available field sets provide the field sets and data fields which are available to a data view based on its query, but not currently included in its definition. This workflow is demonstrated in [Define a Data View](xref:DataViewsQuickStartDefine).
 
 
 #### Example: Defining data field sets
@@ -39,7 +39,7 @@ The following represents a data view grouped by "Meter", including fields for th
         {
           "Source": "PropertyId",
           "Keys": [ "Value" ],
-          "Label": "{IdentifyingValue} {FirstKey}"
+          "Label": "{IdentifyingValue} {Key}"
         },
         {
           "Source": "Tags",
@@ -53,7 +53,7 @@ The following represents a data view grouped by "Meter", including fields for th
     {
       "Source": "Metadata",
       "Keys": [ "Meter" ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ]
 }
@@ -73,7 +73,7 @@ Two things are clearly undesirable here:
 To fix this, we will add an `.IdentifyingField` to the field set.
 
 #### Identifying field
-If the field set resolves to multiple data items in any group (or if grouping is not used), then a field should be designated as the `.IdentifyingField` of the field set. If one lone criterion is not a sufficient or useful way of disambiguating the fields, then [grouping](xref:DataViewsGrouping) by additional criteria may be necessary. Field from field sources `FieldSource.Id`, `FieldSource.Name`, `FieldSource.Metadata`, `FieldSource.Tags` can be used as an identifying field. Keys are required for identifying fields with the source type of `FieldSource.Metadata` and `FieldSource.Tags`. Keys are not applicable for identifying fields with the source type of `FieldSource.Id` and `FieldSource.Name`.
+If the field set resolves to multiple data items in any group (or if grouping is not used), then a field should be designated as the `.IdentifyingField` of the field set. The identifying field of a data field set specifies the primary field to identify multiple items in a group. This allows the identifying field value to be used automatically in field labels of the group. If one lone criterion is not a sufficient or useful way of disambiguating the fields, then [grouping](xref:DataViewsGrouping) by additional criteria may be necessary. Field from field sources `FieldSource.Id`, `FieldSource.Name`, `FieldSource.Metadata`, `FieldSource.Tags` can be used as an identifying field. Keys are required for identifying fields with the source type of `FieldSource.Metadata` and `FieldSource.Tags`. Keys are not applicable for identifying fields with the source type of `FieldSource.Id` and `FieldSource.Name`.
 
 #### Example: Adding an identifying field
 To the data view from the previous example, we will add a `Field` as the `.IdentifyingField` of its field set. In this example, it makes sense to identify each data item by its _Measurement_.
@@ -95,7 +95,7 @@ To the data view from the previous example, we will add a `Field` as the `.Ident
         {
           "Source": "PropertyId",
           "Keys": [ "Value" ],
-          "Label": "{IdentifyingValue} {FirstKey}"
+          "Label": "{IdentifyingValue} {Key}"
         },
         {
           "Source": "Tags",
@@ -113,7 +113,7 @@ To the data view from the previous example, we will add a `Field` as the `.Ident
     {
       "Source": "Metadata",
       "Keys": [ "Meter" ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ]
 }
@@ -130,7 +130,7 @@ The result is much more consumable. The data field identifiers are no longer amb
 Each data field represents a particular source of information, such as a data item's `.Id` or the values from one of its properties.
 
 ### Label
-A data field's label is a friendly name. Null, empty or whitespace is not allowed for a data field label.
+A data field's label is a friendly name that can by specified directly or via rules. Null, empty or whitespace is not allowed for a data field label.
 
 When the data view is resolved and data fields produce field mappings, labels are trimmed of whitespace and used as the field mappings' identifier. For example:
 | Timestamp | Power In Value | Power Out Value |
@@ -143,9 +143,9 @@ In cases where the identifiers are unique, the identifier is suffixed with an or
 
 There are four special parameters available for use in field labels:
 - `{IdentifyingValue}` - the value of the identifying field
-- `{FirstKey}` - the value of the first of the `"Keys"` specified on the field
+- `{Key}` - the value of the first of the `"Keys"` specified on the field
 - `{QueryId}` - the id of the query that produced the field
-- `{MeasurementFirstKey}` *(Coming Soon)* - the value of the first of the `"MeasurementKeys"` specified on the field
+- `{StreamReferenceName}` *(Coming Soon)* - the value of the first of the `"StreamReferenceNames"` specified on the field
 
 If a special parameter fails to resolve, it becomes an empty string, `""`.
 
@@ -153,7 +153,7 @@ If a special parameter fails to resolve, it becomes an empty string, `""`.
 A field's [`.Source`](xref:DataViewsQuickStartDefine#fieldsource-enumeration) indicates where the field's values will come from, if applicable. A field of source type `FieldSource.NotApplicable` cannot be used as a data field.
 
 ### Keys
-In certain cases, a field may need to address data _within_ its data source, such as a particular Metadata value of a data item. This applies to the sources `Metadata`, `PropertyId`, and `PropertyName`.
+The collection of data items in the data view represents all OCS resources that match the `.Queries` field of the data view, excluding data items that are ineligible. The list of data items can be retrieved from a resolved data view. The ineligible data items can be retrieved from a resolved data view to determine OCS resources that match the queries but cannot be included in the data view results. A data item is ineligible if it does not contain at least one eligible non-key data item field. In certain cases, a field may need to address data _within_ its data source, such as a particular Metadata value of a data item.  This applies to the sources `Metadata`, `PropertyId`, and `PropertyName`.
 
 Multiple keys may be specified in the field's `.Keys`. This is a way to overcome differences in properties or metadata across data items. Keys are evaluated in order specified until a match is found, i.e. first-match-wins.
 
@@ -171,11 +171,11 @@ A field of source `FieldSource.Tags` and `.Keys` `[ "Low Resolution", "High Reso
 
 The field's value when resolved will be `[ "Low Resolution", "Gen2" ]`
 
-#### Special Case: Asset measurements (Coming Soon)
+#### Special Case: Asset properties (Coming Soon)
 *Note: This section covers features that are not yet generally available. If you are interested in trialing these pre-release features, contact your account team for more details.*
 
-Asset measurements are a special case because they require two pieces of information in order to address the data within the measurement: the measurement name and the measurement property id. In order to reference an asset measurement, a field must contain at least one measurement name in the `.MeasurementKeys` collection and at least one property id in the `.Keys` collection.
+Asset properties are a special case because they require two pieces of information in order to address the data within the asset property: the stream reference name and the property id. In order to reference an asset property, a field must contain at least one stream reference name in the `.StreamReferenceNames` collection and at least one property id in the `.Keys` collection.
 
-`.MeasurementKeys` only applies to fields with source `FieldSource.PropertyId`. For all other field sources, `.MeasurementKeys` are ignored. 
+`.StreamReferenceNames` only applies to fields with source `FieldSource.PropertyId`. For all other field sources, `.StreamReferenceNames` are ignored. 
 
-Similar to `.Keys`, `.MeasurementKeys` are evaluated in order specified until a match is found, i.e. first-match-wins.
+Similar to `.Keys`, `.StreamReferenceNames` are evaluated in order specified until a match is found, i.e. first-match-wins.

@@ -17,9 +17,9 @@ All endpoints referenced in this documentation require authenticated access. You
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) to learn how to authenticate against OCS with the various clients and receive an access token in response.
+Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) to learn how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will appear as follows:
 
@@ -132,9 +132,10 @@ Forbidden
 Internal server error
 ***
 
-## `Get OMF Ingress Connection Metrics`
-
-Retrieves metrics related to OMF Ingress connections for a given namespace.
+## `Get OMF Connection Metrics`
+<!--Get OMF Metrics-->
+Retrieves metrics related to OMF ingress rates for a given namespace.
+<!--Or, Retrieves metrics related to OMF data collection for a given namespace-->
 
 ### Request
 
@@ -228,4 +229,5 @@ Forbidden
 #### 500
 
 Internal server error
+
 ***

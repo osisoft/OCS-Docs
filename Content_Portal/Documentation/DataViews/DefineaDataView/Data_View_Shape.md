@@ -4,7 +4,7 @@ uid: DataViewShape
 
 # Data view shape
 
-Data views may be set to resolve as a standard shape or a narrow shape. 
+Data views may be set to resolve as a standard shape or a narrow shape. A data view shape is a portion of a data view definition that determines if the data should be returned in the standard grouped row format or a narrow view which is a pivot of the standard table.
 
 With a standard shape, each row in the resolved data view includes all the data fields for a single event or observation. With a narrow shape, each row in the resolved data view includes only one data field. This results in a narrow output schema where one column contains all the data field values, so the schema remains fixed regardless of changes to the included data fields. Narrow shape may be used when an invariant output schema is required.
 

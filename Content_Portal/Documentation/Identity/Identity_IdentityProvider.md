@@ -2,9 +2,9 @@
 uid: identityIdentityProvider
 ---
 
-# IdentityProvider
+# Identity Provider
 
-APIs for getting a list of all supported Identity Providers.
+APIs for getting a list of all supported identity providers.
 
 ## Properties
 
@@ -20,7 +20,7 @@ ClientId | string | The ClientId of the identity provider.
 IsConfigured | bool | A value indicating whether the identity provider has been configured.
 Capabilities | object | The capabilities of the identity provider. 
 
-### Serialized Model
+### Serialized model
 
 ```json
 {
@@ -54,9 +54,9 @@ All endpoints referenced in this documentation require authenticated access. Aut
 
 Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
 Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [here](https://github.com/osisoft/OSI-Samples-OCS/tree/master/basic_samples/Authentication) on how to authenticate against OCS with the various clients and receive an access token in response.
+Read [here](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
 
-## Error Handling
+## Error handling
 
 All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will look as follows:
 
@@ -86,7 +86,7 @@ Returns an IdentityProvider object.
 Guid identityProviderId
 ```
 
-Id of provider.
+Id of identity provider.
 
 ### Security
 
@@ -126,14 +126,14 @@ Forbidden.
 
 #### 404
 
-Identity Provider not found.
+Identity provider not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get Identity Provider By Scheme`
+## `Get Identity Providers by Scheme`
 
 Returns a list of IdentityProvider objects that follow a scheme.
 
@@ -188,7 +188,7 @@ Forbidden.
 
 #### 404
 
-Identity Provider not found.
+Identity provider not found.
 
 #### 500
 
@@ -221,7 +221,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of providers to skip.
+Number of identity providers to skip.
 
 ```csharp
 [FromQuery]
@@ -230,7 +230,7 @@ Number of providers to skip.
 int32 count
 ```
 
-Maximum number of providers to return.
+Maximum number of identity providers to return.
 
 ### Security
 
@@ -288,7 +288,7 @@ Forbidden.
 Internal server error.
 ***
 
-## `Get Identity Provider based on scheme`
+## `Get Identity Provider Based on Scheme`
 
 Get header for a scheme to check its validity.
 
@@ -331,14 +331,14 @@ Forbidden.
 
 #### 404
 
-Identity Provider not found.
+Identity provider not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get Identity Provider based on Id`
+## `Get Identity Provider Based on Id`
 
 Get header for an identity provider to check if the identity provider exists.
 
@@ -353,7 +353,7 @@ Get header for an identity provider to check if the identity provider exists.
 Guid identityProviderId
 ```
 
-Id of provider.
+Id of identity provider.
 
 ### Security
 
@@ -381,7 +381,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -390,7 +390,7 @@ Internal server error.
 
 ## `Get Header for Identity Providers`
 
-Get header for Identity Providers to get the total number of Identity Providers.
+Get header for identity providers to get the total number of identity providers.
 
 ### Request
 
@@ -431,9 +431,9 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get All Identity Providers from Tenant`
+## `Get all Identity Providers from Tenant`
 
-Get all Identity Providers from a Tenant.
+Get all identity providers from a tenant.
 
 ### Request
 
@@ -446,7 +446,7 @@ Get all Identity Providers from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromQuery]
@@ -455,7 +455,7 @@ Id of Tenant.
 bool ignoreAadConsentState
 ```
 
-Return AAD Identity Provider if at least one AAD tenant exists, regardless of the consent state.
+Return AAD identity provider if at least one AAD tenant exists, regardless of the consent state.
 
 ```csharp
 [FromQuery]
@@ -473,7 +473,7 @@ Query to execute. Currently not supported.
 int32 skip
 ```
 
-Number of Identity Providers to skip.
+Number of identity providers to skip.
 
 ```csharp
 [FromQuery]
@@ -482,7 +482,7 @@ Number of Identity Providers to skip.
 int32 count
 ```
 
-Maximum number of Identity Providers to return.
+Maximum number of identity providers to return.
 
 ### Security
 
@@ -561,7 +561,7 @@ Internal server error.
 
 ## `Get Identity Provider from Tenant`
 
-Get an Identity Provider from a Tenant.
+Get an identity provider from a tenant.
 
 ### Request
 
@@ -574,14 +574,14 @@ Get an Identity Provider from a Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ### Security
 
@@ -631,7 +631,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -640,7 +640,7 @@ Internal server error.
 
 ## `Add Identity Provider to Tenant`
 
-Add an existing Identity Provider to a Tenant. This Identity Provider
+Add an existing identity provider to a tenant. This identity provider
             will be available in the Home Realm Discovery Page
             for users to sign-in or sign-up.
 
@@ -655,7 +655,7 @@ Add an existing Identity Provider to a Tenant. This Identity Provider
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [FromBody]
@@ -667,7 +667,7 @@ IdentityProviderAdd object.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-IdentityProviderId | Guid | Yes | Identity Provider Id to Add.
+IdentityProviderId | Guid | Yes | Identity provider Id to Add. 
 AzureActiveDirectorySendConsent | bool | No | A value indicating whether send consent email for Azure Active Directory.
 AzureActiveDirectoryConsentEmail | string | Yes | Address to email consent.            Only Azure Active Directory Admins have permission to consent to            being allowed to interact with the tenant. The email            does not have to be sent to an Admin.
 AzureActiveDirectoryConsentGivenName | string | Yes | Preferred name to use in the consent email.
@@ -743,19 +743,19 @@ Operation timed out.
 
 #### 409
 
-Identity Provider already exists in Tenant.
+Identity provider already exists in tenant.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Remove Identity Provider From Tenant`
+## `Remove Identity Provider from Tenant`
 
-Remove an Identity Provider from a Tenant. Users provisioned
-            with this Identity Provider will remain in the Tenant, but will
+Remove an identity provider from a tenant. Users provisioned
+            with this identity provider will remain in the tenant, but will
             not be able to authenticate.
-            An administrator cannot remove the Identity Provider they are signed in with.
+            An administrator cannot remove the identity provider they are signed in with.
 
 ### Request
 
@@ -768,14 +768,14 @@ Remove an Identity Provider from a Tenant. Users provisioned
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ### Security
 
@@ -799,7 +799,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+IdentityProvider or tenant not found.
 
 #### 405
 
@@ -816,7 +816,7 @@ Internal server error.
 
 ## `Get Header for Identity Provider`
 
-Validate that a Identity Provider exists in the Tenant.
+Validate that a identity provider exists in the tenant.
             This endpoint is identical to the GET one but
             it does not return any objects in the body.
 
@@ -831,14 +831,14 @@ Validate that a Identity Provider exists in the Tenant.
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ### Security
 
@@ -867,7 +867,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -876,7 +876,7 @@ Internal server error.
 
 ## `Get Total Count of Identity Providers`
 
-Return total number of Identity Providers in a Tenant. The
+Return total number of identity providers in a tenant. The
             value will be set in the Total-Count header. This endpoint
             is identical to the GET one but it does not return any objects
             in the body.
@@ -892,7 +892,7 @@ Return total number of Identity Providers in a Tenant. The
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ### Security
 
@@ -928,9 +928,9 @@ Tenant not found.
 Internal server error.
 ***
 
-## `Get a List of all User on an Identity Provider`
+## `Get a List of All Users on an Identity Provider`
 
-Get a list of users that matches the query string on an Identity Provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
+Get a list of users that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
 ### Request
 
@@ -943,14 +943,14 @@ Get a list of users that matches the query string on an Identity Provider that s
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [FromQuery]
@@ -1003,7 +1003,7 @@ Success.
 "SkipToken": SkipToken
 ```
 
-## `Get a List of all Groups on an Identity Provider`
+## `Get a List of All Groups on an Identity Provider`
 
 Get a list of groups that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
@@ -1018,14 +1018,14 @@ Get a list of groups that matches the query string on an identity provider that 
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [FromQuery]
@@ -1084,16 +1084,16 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get a List of all Groups that a User belongs to on an Identity Provider`
+## `Get a List of All Groups that a User Belongs to on an Identity Provider`
 
-Get a list of all groups that the specified user belongs to on an Identity Provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
+Get a list of all groups that the specified user belongs to on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
 ### Request
 
@@ -1106,14 +1106,14 @@ Get a list of all groups that the specified user belongs to on an Identity Provi
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
@@ -1177,16 +1177,16 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
 Internal server error.
 ***
 
-## `Get a List of all Users belongs a Group on an Identity Provider`
+## `Get a List of All Users Belonging to Group on an Identity Provider`
 
-Get a list of all users belonging to a specific group on an Identity Provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
+Get a list of all users belonging to a specific group on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
 
 ### Request
 
@@ -1199,14 +1199,14 @@ Get a list of all users belonging to a specific group on an Identity Provider th
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider.
+Id of identity provider.
 
 ```csharp
 [Required]
@@ -1267,7 +1267,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1276,7 +1276,7 @@ Internal server error.
 
 ## `Get an Identity Provider Consent from a Tenant`
 
-Get the consent information for an Identity Provider for a Tenant. The ConsentState property, if returned, determines whether an Identity Provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for Azure Active Directory (AAD) include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
+Get the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for Azure Active Directory (AAD) include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
 
 ### Request
 
@@ -1289,14 +1289,14 @@ Get the consent information for an Identity Provider for a Tenant. The ConsentSt
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider to check for consent.
+Id of identity provider to check for consent.
 
 ### Security
 
@@ -1343,7 +1343,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1352,7 +1352,7 @@ Internal server error.
 
 ## `Get Header for Identity Provider Consent`
 
-Validate that a Identity Provider Consent exists in the Tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
+Validate that a identity provider consent exists in the tenant. This endpoint is identical to the GET one but it does not return any objects in the body.
 
 ### Request
 
@@ -1365,14 +1365,14 @@ Validate that a Identity Provider Consent exists in the Tenant. This endpoint is
 string tenantId
 ```
 
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider to check for consent.
+Id of identity provider to check for consent.
 
 ### Security
 
@@ -1401,7 +1401,7 @@ Forbidden.
 
 #### 404
 
-IdentityProvider or Tenant not found.
+Identity provider or tenant not found.
 
 #### 500
 
@@ -1410,7 +1410,7 @@ Internal server error.
 
 ## `Update Identity Provider Consent of a Tenant`
 
-Update the Identity Provider Consent of a Tenant. Currently only support Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
+Update the identity provider consent of a tenant. Currently only support Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.all permissions to the OCS tenant.
 
 ### Request
 
@@ -1422,14 +1422,14 @@ Update the Identity Provider Consent of a Tenant. Currently only support Azure A
 [Required]
 string tenantId
 ```
-Id of Tenant.
+Id of tenant.
 
 ```csharp
 [Required]
 Guid identityProviderId
 ```
 
-Id of Identity Provider to activate consent
+Id of identity provider to activate consent
 
 ```csharp
 [FromBody]
@@ -1441,7 +1441,7 @@ IdentityProviderConsent object.
 
 Property Name | Data Type | Required | Description 
  --- | --- | --- | ---
-Scheme | string | Yes | The scheme of the Identity Provider.
+Scheme | string | Yes | The scheme of the identity provider.
 AadTenantId | string | No | Azure Active Directory Tenant Id.
 AadDomain | string | No | Azure Active Directory Domain Name (for example, mydomain.onmicrosoft.com).
 AadConsentTypes | string | Yes | Azure Active Directory Consent Types (for example, SignIn or SignIn;ReadAllUsersGroups).
@@ -1498,4 +1498,5 @@ Operation timed out.
 #### 500
 
 Internal server error.
+
 ***

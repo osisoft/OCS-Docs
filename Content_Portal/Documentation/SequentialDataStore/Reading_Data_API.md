@@ -3,14 +3,14 @@ uid: sdsReadingDataApi
 ---
 # API calls for reading data
 
-#### Example Type, Stream, and Data
+#### Example type, stream, and data
 
 Many of the API methods described below contain example requests and responses in JSON to highlight usage and specific behaviors. The following type, stream, and data are used in the examples.
 
-**Example Type**  
+**Example type**  
 ``SimpleType`` is an SdsType with a single index. This type is defined below in .NET, Python, and Javascript:
 
-###### .NET
+#### [.NET](#tab/tabid-1)
 ```csharp
 public enum State
 {
@@ -28,7 +28,8 @@ public class SimpleType
    public Double Measurement { get; set; }
 }
 ```
-###### Python
+#### [Python](#tab/tabid-2)
+
 ```python
 class State(Enum):
   Ok = 0
@@ -54,7 +55,7 @@ class SimpleType(object):
   def setValue(self, measurement):
     self.__measurement = measurement
 ```
-###### JavaScript
+#### [JavaScript](#tab/tabid-3)
 ```javascript
 var State =
 {
@@ -69,6 +70,7 @@ var SimpleType = function () {
   this.Value = null;
 }
 ```
+***
 
 **Example Stream**  
 ``Simple`` is an SdsStream of type ``SimpleType``.
@@ -415,6 +417,7 @@ The response will contain up to 100 events. The boundary type Outside indicates 
 event outside the boundary will be included in the response. For a reverse direction range request, 
 this means one event forward of the specified start index. In a default direction range request, 
 it would mean one event before the specified start index.
+
 ##### Example request  
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data 
@@ -860,7 +863,7 @@ SDS supports two ways of specifying which interpolated events to return:
 * [Interval](#getvaluesinterpolatedinterval): An interval can be specified with a start index, end index, and count. This will return the specified count of events evenly spaced from start index to end index.
 
 <a name="getvaluesindexcollection"></a>
-### `Index Collection`  
+### `Index collection`  
 
 Returns events at the specified indexes. If no stored event exists at a specified index, the stream's read characteristics determine how the returned event is calculated. For more information, see [Interpolation](xref:sdsReadingData#interpolation) and [Extrapolation](xref:sdsReadingData#extrapolation).
 
@@ -1062,7 +1065,7 @@ Content-Type: application/json
 ## ``Get Summaries``
 
 Returns summary intervals between a specified start and end index. 
-  
+
 Index types that cannot be interpolated do not support summary requests. Strings are an example of indexes that cannot be interpolated. Summaries are not supported for streams with compound indexes. Interpolating between two indexes 
 that consist of multiple properties is not defined and results in non-determinant behavior.
 
@@ -1154,7 +1157,7 @@ The number of intervals requested
 
 ``string filter``  
 Optional filter expression
-  
+
 #### Response
 The response includes a status code and a response body containing a serialized collection of SdsIntervals.
 
@@ -1173,7 +1176,7 @@ The following request calculates two summary intervals between the `startIndex` 
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:00Z&endIndex=2017-11-23T16:00:00Z&count=2
  ```
- 
+
 ##### Example response body
 ```json
 HTTP/1.1 200
@@ -1325,7 +1328,7 @@ While calculating weighted summaries, if we encounter a null value at a given in
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 2 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 0 | 0 |
 
 Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 PM] respectively, the table would look like below:
@@ -1333,13 +1336,13 @@ Similarly, for intervals [12:00:03 PM, 12:00:04 PM] and [12:00:04 PM, 12:00:05 P
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 0 | 0 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 0 | 0 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 1 |
 
 | Interpolation Mode | Weight in seconds | Value in meter |
 | ---------- | ----------------------- | ------------- |
 | Continuous | 1 | 1.5 |
-| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 | 
+| ContinuousNullableLeading <br> StepwiseContinuousLeading | 1 | 1 |
 | ContinuousNullableTrailing <br> StepwiseContinuousTrailing | 1 | 2 |
 
 **Note:** Non-weighted summaries disregard null values and treat them as non-existent. 
@@ -1351,7 +1354,7 @@ The following request calculates one summary interval between the `startIndex` a
  ```text
     GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/ 
         Summaries?startIndex=2017-11-23T12:00:01Z&endIndex=2017-11-23T12:00:08Z&count=1
- ```                
+ ```
 
 ##### Example response body
 ```json
@@ -1435,7 +1438,7 @@ Content-Type: application/json
 ## ``Get Sampled Values``
 
 Returns representative data sampled by intervals between a specified start and end index. 
-  
+
 Sampling is driven by a specified property or properties of the stream's Sds Type. Property types that cannot be interpolated do not support sampling requests. Strings are an example of a property that cannot be interpolated. For more 
 information see [Interpolation](xref:sdsReadingData#interpolation). 
 
@@ -1490,7 +1493,7 @@ The following request returns two sample intervals between the `startIndex` and 
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data/
         Sampled?startIndex=2019-01-01T00:00:00Z&endIndex=2019-01-02T00:00:00Z&intervals=2&sampleBy=Measurement
  ```
- 
+
 ##### Example response body
 ```json
 HTTP/1.1 200
@@ -1566,7 +1569,7 @@ Note that `State` is not included in the JSON when its value is the default valu
 
 ## ``Join Values``
 
-Returns data from multiple streams, which are joined based on the request specifications. The streams must be of the same SdsType.
+Returns data from multiple streams, which are joined based on the request specifications. The streams must be of the same type.
 
 SDS supports the following types of joins:
 
@@ -1575,16 +1578,16 @@ SDS supports the following types of joins:
 | Inner        | 0                 | Results include the stored events with common indexes across specified streams. |
 | Outer        | 1                 | Results include the stored events for all indexes across all streams. |
 | Interpolated | 2                 | Results include events for each index across all streams for the request index boundaries. Some events may be interpolated. |
-| MergeLeft    | 3                 | Results include events for each index across all streams selecting events at the indexes based on left to right order of the streams. |
-| MergeRight   | 4                 | Results include events for each index across all streams selecting events at the indexes based on right to left order of the streams. |
+| MergeLeft    | 3                 | Results include one event for each index across all streams selecting events at the indexes based on left to right order of the streams. |
+| MergeRight   | 4                 | Results include one event for each index across all streams selecting events at the indexes based on right to left order of the streams. |
 
 
-SDS supports two types of join requests:
+SDS supports GET and POST join requests:
 * [GET](#getjoin): The stream, joinMode, start index, and end index are specified in the request URI path.
-* [POST](#postjoin): Only the SdsJoinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
+* [POST](#postjoin): Only the joinMode is specified in the URI. The streams and read specification for each stream are specified in the body of the request.
 
 <a name="getjoin"></a>
-### `GET Request`
+### `GET request`
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams={streams}&joinMode={joinMode}&startIndex={startIndex}&endIndex={endIndex}
@@ -1595,15 +1598,15 @@ SDS supports two types of join requests:
 ##### Parameters
 ``string tenantId``  
 The tenant identifier
-  
+
 ``string namespaceId``  
 The namespace identifier
-  
+
 ``string streams``  
 Commas separated list of stream identifiers
-  
+
 ``SdsJoinMode joinMode``  
-Type of join, i.e. inner, outer, etc.
+Type of join: inner, outer, interpolated, merge left or merge right
 
 ``string startIndex``  
 Index identifying the beginning of the series of events to return
@@ -1611,27 +1614,28 @@ Index identifying the beginning of the series of events to return
 ``string endIndex``  
 Index identifying the end of the series of events to return
 
-``int count``  
-Optional maximum number of events to return.
+[Optional] ``int count``  
+[Optional] Maximum number of events to return.
 
-``SdsBoundaryType boundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
+[Optional] ``SdsBoundaryType boundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex
 
-``SdsBoundaryType startBoundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the startIndex
+[Optional] ``SdsBoundaryType startBoundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the startIndex
 
-``SdsBoundaryType endBoundaryType``  
-Optional SdsBoundaryType specifies the handling of events at or near the endIndex
+[Optional] ``SdsBoundaryType endBoundaryType``  
+[Optional] SdsBoundaryType specifies the handling of events at or near the endIndex
 
-``string filter``  
-Optional filter expression
+[Optional] ``string filter``  
+[Optional] Filter expression
 
-#### Response
-The response includes a status code and a response body containing multiple serialized events. See examples for specifics.
+##### Response
+The response includes a status code and a response body containing multiple serialized events. 
 
 ##### Examples
-
-To join multiple streams, for example `Simple1` and `Simple2`, assume that `Simple1` presents the following data:
+Data from streams `Simple1` and `Simple2` will be used to illustrate how each join operation works.
+ 
+###### Stream data `Simple1` 
 
 ```json  
 HTTP/1.1 200
@@ -1640,28 +1644,30 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 30
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     }
 ]
 ```
+| Time                	| Measurement 	|
+|----------------------	|-------------	|
+| 2017-11-23T11:00:00Z 	| 10          	|
+| 2017-11-23T13:00:00Z 	| 20          	|
+| 2017-11-23T14:00:00Z 	| 30          	|
+| 2017-11-23T16:00:00Z 	| 40          	|
 
-And assume that `Simple2` presents the following data:
+###### Stream data `Simple2`
 
 ```json
 HTTP/1.1 200
@@ -1670,37 +1676,37 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 60
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
 ```
+| Time                	| Measurement 	|
+|----------------------	|-------------	|
+| 2017-11-23T12:00:00Z 	| 50          	|
+| 2017-11-23T14:00:00Z 	| 60          	|
+| 2017-11-23T15:00:00Z 	| 70          	|
+| 2017-11-23T17:00:00Z 	| 80          	|
 
-The following are responses for various Joins request options:
-
-##### `Inner Join` example request
+#### `Inner Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=inner
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
+##### Response
 Measurements from both streams with common indexes.
 
 ##### Example response body 
@@ -1713,27 +1719,29 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ]
 ]
 ```
+| Time                	| `Simple 1` Measurement 	| `Simple 2` Measurement 	|
+|----------------------	|-------------	|-------------	|
+| 2017-11-23T14:00:00Z 	| 30          	| 60          	|
+
 <a name="outer"></a>
-##### `Outer Join` example request
+#### `Outer Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=outer
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
-All Measurements from both Streams, with default values at indexes where a Stream does not have a value.
+##### Response
+All Measurements from both streams, with default values at indexes where a stream does not have a value.
 
 ##### Example response body
 ```json
@@ -1744,7 +1752,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         null
@@ -1753,14 +1760,12 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         null
@@ -1768,12 +1773,10 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ],
@@ -1781,14 +1784,12 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
     [
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         null
@@ -1797,24 +1798,38 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| null                    	|
+| 2017-11-23T12:00:00Z 	| null                   	| 50                      	|
+| 2017-11-23T13:00:00Z 	| 20                     	| null                    	|
+| 2017-11-23T14:00:00Z 	| 30                     	| 60                      	|
+| 2017-11-23T15:00:00Z 	| null                   	| 70                      	|
+| 2017-11-23T16:00:00Z 	| 40                     	| null                    	|
+| 2017-11-23T17:00:00Z 	| null                   	| 80                      	|
 
-##### `Interpolated Join` example request
+Default value is `null` for SdsTypes. 
+
+#### `Interpolated Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=interpolated
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
-All Measurements from both Streams with missing values interpolated. If the missing values are between valid Measurements within a Stream, they are interpolated. If the missing values are outside of the boundary values, they are extrapolated.
+##### Response
+All Measurements from both streams with missing values interpolated. 
+If the missing values are between valid measurements within a stream, they are interpolated.
+For more information, see [Interpolation](xref:sdsReadingData#interpolation).
+If the missing values are outside of the boundary values, they are extrapolated.
+For more information, see [Extrapolation](xref:sdsReadingData#extrapolation).
 
-**Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. For more information, see [Interpolation](xref:sdsReadingData#interpolation).
+**Note:** The Interpolated SdsJoinMode currently does not support SdsInterpolationModes of the streams. All join requests with interpolations will honor the interpolation mode of the stream type or type property. 
 
 ##### Example response body
 
@@ -1826,99 +1841,96 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 15
         },
         {
             "Time": "2017-11-23T12:00:00Z",
-            "State": 0,
             "Measurement": 50
         }
     ],
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 55
         }
     ],
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 60
         }
     ],
     [
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 35
         },
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
     [
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         {
             "Time": "2017-11-23T16:00:00Z",
-            "State": 0,
             "Measurement": 75
         }
     ],
     [
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 40
         },
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| _50_                     	|
+| 2017-11-23T12:00:00Z 	| **15**                     	| 50                      	|
+| 2017-11-23T13:00:00Z 	| 20                     	| **55**                      	|
+| 2017-11-23T14:00:00Z 	| 30                     	| 60                      	|
+| 2017-11-23T15:00:00Z 	| **35**                    | 70                      	|
+| 2017-11-23T16:00:00Z 	| 40                     	| **75**                      	|
+| 2017-11-23T17:00:00Z 	| _40_                     	| 80                      	|
 
-##### `MergeLeft Join` example request
+Interpolated values are in **bold**. Extrapolated values are in *italics*. 
+
+#### `MergeLeft Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeleft
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
-This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from left to right.
+##### Response
+Similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from left to right.
 
 ##### Example response body
 ```json
@@ -1928,51 +1940,56 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 30
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
 ```
 
-##### `MergeRight Join` example request
+| Index                	| `Simple1`  	| `Simple2` 	| Returned `MergeLeft Join` Values    	|
+|----------------------	|------------	|-----------	|----	|
+| 2017-11-23T11:00:00Z 	| 10         	|           	| 10 	|
+| 2017-11-23T12:00:00Z 	|            	| 50        	| 50 	|
+| 2017-11-23T13:00:00Z 	| 20         	|           	| 20 	|
+| 2017-11-23T14:00:00Z 	| *30*         	| 60        	| 30 	|
+| 2017-11-23T15:00:00Z 	|            	| 70        	| 70 	|
+| 2017-11-23T16:00:00Z 	| 40         	|           	| 40 	|
+| 2017-11-23T17:00:00Z 	|            	| 80        	| 80 	|
+
+Takes the value from the stream on the left (`Simple1`) at "2017-11-23T14:00:00Z". 
+
+#### `MergeRight Join` example request
  ```text
     GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?streams=Simple1,Simple2&joinMode=mergeright
         &startIndex=0001-01-01T00:00:00.0000000&endIndex=9999-12-31T23:59:59.9999999
  ```
 
-#### Response
-This is similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from right to left.
+##### Response
+Similar to [OuterJoin](#outer), but value at each index is the first available value at that index when iterating the given list of streams from right to left.
 
 ##### Example response body
 ```json
@@ -1982,45 +1999,48 @@ Content-Type: application/json
 [
     {
         "Time": "2017-11-23T11:00:00Z",
-        "State": 0,
         "Measurement": 10
     },
     {
         "Time": "2017-11-23T12:00:00Z",
-        "State": 0,
         "Measurement": 50
     },
     {
         "Time": "2017-11-23T13:00:00Z",
-        "State": 0,
         "Measurement": 20
     },
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 60
     },
     {
         "Time": "2017-11-23T15:00:00Z",
-        "State": 0,
         "Measurement": 70
     },
     {
         "Time": "2017-11-23T16:00:00Z",
-        "State": 0,
         "Measurement": 40
     },
     {
         "Time": "2017-11-23T17:00:00Z",
-        "State": 0,
         "Measurement": 80
     }
 ]
 ```
+| Index                	| `Simple1`  	| `Simple2` 	| Returned `MergeRight Join` Values    	|
+|----------------------	|------------	|-----------	|----	|
+| 2017-11-23T11:00:00Z 	| 10         	|           	| 10 	|
+| 2017-11-23T12:00:00Z 	|            	| 50        	| 50 	|
+| 2017-11-23T13:00:00Z 	| 20         	|           	| 20 	|
+| 2017-11-23T14:00:00Z 	| 30         	| *60*        	| 60 	|
+| 2017-11-23T15:00:00Z 	|            	| 70        	| 70 	|
+| 2017-11-23T16:00:00Z 	| 40         	|           	| 40 	|
+| 2017-11-23T17:00:00Z 	|            	| 80        	| 80 	|
 
+Takes the value from the stream on the right (`Simple2`) at "2017-11-23T14:00:00Z". 
 
 <a name="postjoin"></a>
-### `POST Request`
+### `POST request`
  ```text
     POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins?
         joinMode={joinMode}
@@ -2030,26 +2050,27 @@ Content-Type: application/json
 
 ``string tenantId``  
 The tenant identifier
-  
+
 ``string namespaceId``  
 The namespace identifier
-  
+
 ``SdsJoinMode joinMode``  
-Type of join, i.e. inner, outer, etc.
+Type of join: inner, outer, interpolated, merge left or merge right
 
 ##### Request body  
-Read options specific to each stream.
+Read option specific to each stream
 
-#### Response
- The response includes a status code and a response body containing multiple serialized events.
+##### Response
+The response includes a status code and a response body containing multiple serialized events.
 
-Consider the following outer join request,
+#### `Outer Join` example request 
  ```text
     POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
         ?joinMode=outer
  ```
 
-where in the request body, different start indexes and end indexes are specified per stream,
+##### `Outer Join` example request body
+Different start indexes and end indexes are specified per stream.
 
 ```json
 [  
@@ -2080,9 +2101,11 @@ where in the request body, different start indexes and end indexes are specified
 ] 
 ```
 
-Only events within the stream's specified index boundaries are considered for the outer join operation
 
-#### Response body
+
+##### `Outer Join` example response body
+Only events within the two streams' specified index boundaries are considered for the outer join operation.
+
 ```json
 HTTP/1.1 200
 Content-Type: application/json
@@ -2091,7 +2114,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T11:00:00Z",
-            "State": 0,
             "Measurement": 10
         },
         null
@@ -2099,7 +2121,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T13:00:00Z",
-            "State": 0,
             "Measurement": 20
         },
         null
@@ -2107,7 +2128,6 @@ Content-Type: application/json
     [
         {
             "Time": "2017-11-23T14:00:00Z",
-            "State": 0,
             "Measurement": 30
         },
         null
@@ -2116,7 +2136,6 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T15:00:00Z",
-            "State": 0,
             "Measurement": 70
         }
     ],
@@ -2124,16 +2143,23 @@ Content-Type: application/json
         null,
         {
             "Time": "2017-11-23T17:00:00Z",
-            "State": 0,
             "Measurement": 80
         }
     ]
 ]
 ```
+| Index                	| `Simple 1` Measurement 	| `Simple 2` Measurement  	|
+|----------------------	|------------------------	|-------------------------	|
+| 2017-11-23T11:00:00Z 	| 10                     	| null                    	|
+| 2017-11-23T13:00:00Z 	| 20                     	| null                    	|
+| 2017-11-23T14:00:00Z 	| 30                     	| null                      |
+| 2017-11-23T15:00:00Z 	| null                   	| 70                      	|
+| 2017-11-23T17:00:00Z 	| null                   	| 80                      	|
 
-Notice that not all the values from Streams were included since they are restricted by individual queries for each Stream.
+Not all values from both streams are included because the query restricts each stream.
+See `Outer Join` [GET request](#outer-join-example-request) above to compare.   
 
-#### .NET client libraries methods
+### .NET client libraries methods
 ```csharp
    Task<IEnumerable<IList<T>>> GetJoinValuesAsync<T>(IEnumerable<string> streams, 
       SdsJoinType joinMode, string startIndex, string endIndex);
@@ -2182,6 +2208,6 @@ Notice that not all the values from Streams were included since they are restric
    Task<IList<T>> GetMergeValuesAsync<T>(IEnumerable<string> streams, SdsMergeType joinMode, 
       string startIndex, SdsBoundaryType startBoundaryType, string endIndex, 
       SdsBoundaryType endBoundaryType, string filter, int count);
- ```
+```
 
 ***********************

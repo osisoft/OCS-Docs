@@ -2,7 +2,7 @@
 uid: Roles
 ---
 
-# Roles
+# Preconfigured roles
 OSIsoft provides two preconfigured roles:
 -	Account Member
 -	Account Administrator

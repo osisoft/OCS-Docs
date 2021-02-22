@@ -9,8 +9,7 @@ You retrieve data view data with the [Data API](xref:DataViewsDataAPI). This top
 The supported mode of retrieval is interpolated values within a user-specified range. Several formats are available, such as JSON and CSV.
 
 ### Index
-All data in a data view is associated with an index value, i.e. a timestamp.
-If there are multiple groups in the data view, the index and grouping field values together form a unique identifier for each data record.
+All data in a data view is associated with an index value, i.e. a timestamp. If there are multiple groups in the data view, the index and grouping field values together form a unique identifier for each data record.
 
 #### Index type
 The supported index type is `DateTime`, as noted in [Define a Data View](xref:DataViewsQuickStartDefine). Date times should use ISO 8601 format and can be in either UTC or local time. Data retrieved using the [Data API](xref:DataViewsDataAPI) will be returned in UTC.
@@ -38,7 +37,7 @@ Required index parameters when requesting interpolated data are:
 - Start index
 - End index
 - Interval
- 
+
 If one or more of these parameters is not specified at query time or as a default, the data query is not valid.
 
 Streams in SDS may be configured to have non-default interpolation and extrapolation behavior. These behaviors are observed when stream data is included in data views. Data view data is always treated as dense, even if SDS returns sparse data. See the following section on empty or missing values for details.
@@ -105,7 +104,7 @@ Link: <.../dataViews/{dataViewId}/data/interpolated?cache=Preserve&count=1000>; 
 
 #### .NET client library
 Paging is handled automatically when using the .NET client library to retrieve data. Results are returned as an IAsyncEnumerable<string> where each value is one record of data in the requested format. The actual backend page size of the request is configurable using the backingPageSize parameter.
- 
+
 #### Index parameters
 Index parameters, such as Start Index, must remain constant while paging through a range of data. If a different range of data is desired, restart the paging operation.
 

@@ -4,22 +4,19 @@ uid: omfIngressSpecification
 
 # Use OSIsoft Message Format with OSIsoft Cloud Services
 
-[The OSIsoft Message Format (OMF) specification](http://omf-docs.osisoft.com) is generic in that it does
-not specify a particular back-end system. This topic is a companion to the OMF specification which describes how
-OMF is interpreted by OSIsoft Cloud Services back-end system. 
+[The OSIsoft Message Format (OMF) specification](http://omf-docs.osisoft.com) is generic in that it does not specify a particular back-end system. This topic is a companion to the OMF specification which describes how OMF is interpreted by OSIsoft Cloud Services back-end system. 
 
 ## Headers
-For a description of each of the headers, see [OMF specification](http://omf-docs.osisoft.com). Note that rather than using a ``producertoken``, data ingress calls to OCS require a bearer token to be attached in the header, as documented in the [OCS Quick Start](xref:sdsQuickStart) documentation. The bearer token is used to authenticate 
-the sender and to authorize the sender for use with a particular Tenant. The client Id associated with this token is used to route messages to a particular [Topic](xref:omfIngressTopics) that it is mapped to.
+For a description of each of the headers, see [OMF specification](http://omf-docs.osisoft.com). Note that rather than using a ``producertoken``, data collection calls to OCS require a bearer token to be attached in the header, as documented in the [OCS Quick Start](xref:sdsQuickStart) documentation. The bearer token is used to authenticate the sender and to authorize the sender for use with a particular Tenant. The client Id associated with this token is used to route messages to a particular [topic](xref:omfIngressTopics) that it is mapped to.
 
 The ``omfversion`` header must match the version of the OMF spec used to construct the message.
 Versions 1.0 and 1.1 of the spec are currently supported. 
 
-## Message Types
-OMF message types fall into three categories: Type, Container, and Data, which are described below. 
+## Message types
+OMF message types fall into three categories: *type*, *container*, and *data*, which are described below. 
 
 ### Type messages
-  A Type message is interpreted by OSIsoft Cloud Services as an SdsType in the Sequential Data Store. 
+  A *type* message is interpreted by OSIsoft Cloud Services as an SdsType in the Sequential Data Store. 
   Because SdsTypes are immutable, update operations are not supported. The keywords in the 
   Type definition are interpreted as follows:
 
@@ -39,16 +36,16 @@ OMF message types fall into three categories: Type, Container, and Data, which a
   index property order within the message corresponds to the ``Order`` field of 
   an SdsTypeProperty. The ``isname`` keyword is not supported.
 
-### Link Type
-  Link Types are not supported in Sequential Data Store.
+### Link type
+  Link types are not supported in Sequential Data Store.
 
-### Span Type
-  Span Types are not supported in Sequential Data Store.
+### Span type
+  Span types are not supported in Sequential Data Store.
 
-### Property Types and Formats
+### Property types and formats
   OMF supports setting the ``format`` keyword to specify how a particular JSON type should 
   be interpreted. The following is a mapping for the Sequential Data Store supported 
-  types (see [Types](xref:sdsTypes)):
+  types (see [types](xref:sdsTypes)):
 
 
 Type     | Format   | SdsTypeCode
@@ -70,8 +67,8 @@ string   | date-time | DateTime
 
 
 ## Container messages
-A Container message is interpreted as an SdsStream in the Sequential Data Store. The keywords 
-in the Container definition are interpreted as follows:
+A *container* message is interpreted as an SdsStream in the Sequential Data Store. The keywords 
+in the *container* definition are interpreted as follows:
 
 * ``id``: Corresponds to the SdsStream Id field. It must conform to the rules defined for
     an SdsStream Id specified here: [Streams](xref:sdsStreams#streams).
@@ -84,8 +81,8 @@ in the Container definition are interpreted as follows:
 
 
 ## Data messages
-A Data message is mapped to generic Sds values in the Sequential Data Store. The keywords in the 
-Data definitions are interpreted as follows:
+A *data* message is mapped to generic Sds values in the Sequential Data Store. The keywords in the 
+*data* definitions are interpreted as follows:
 
 * ``typeid``: Data that is not grouped by containerId is not supported.
 * ``containerid``: Stream Id for the associated Sds Stream.

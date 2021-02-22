@@ -13,7 +13,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
     
 3. Select the namespace and click **Continue**.
 
-4. Click the Asset/Asset Type selector and click **Assets Types** from the list.
+4. Click the Assets/Asset Type selector and click **Assets Types** from the list.
 
     ![Asset Type selector](..\images\asset-type-picker.png)
 
@@ -48,38 +48,29 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 7. Continue adding metadata for the asset. 
 
-### Add measurements to the asset type
+### Add properties to the asset type
 
-1. Click the **Measurements** tab. 
+1. Click the **Properties** tab. 
 
 2. Click **Add Stream Type Reference**.
 
-3. In the Select Type for Measurements window, click the stream type you want.
+3. In the Select Stream Type window, click the stream type you want.
 
 4. Click **Add**.
    The stream type reference appears in the asset type definition in the right pane. 
    ![Stream type reference](..\images\stream-type-reference.png)
 
-5. Click the caret symbol to display the measurements for the stream reference.
-    ![Stream type reference](..\images\stream-type-reference-caret.png)
-    The measurements associated with the stream are displayed.
-    ![Stream type reference](..\images\stream-type-reference-measurement.png)
-
-6. Edit the names of the measurements.
-
-   Tip: By default, the stream reference is appended as a prefix for all measurement names. You can change this prefix and it will automatically get appended to all measurement names. This is useful if you have multiple streams with the same properties. The prefix is an easy way to distinguish between the different streams.
-
-7. Clear the **Include** checkbox to remove any measurements you don't want to include.
-
-8. Click **Preview** to see a simple list of all measurements from all streams associated with this asset.
+5. Click the scroll bar to display the properties for the stream type reference.
+    The properties associated with the stream type are displayed.
+    ![Stream type reference](..\images\stream-type-reference-properties.png)
 
 ### Add status tracking to the asset
 
 1. Click the **Status** tab.
 2. Click **Add Status Configuration**.
-3. In the Select Measurement window, click the measurement that you want to display status for. Click **Continue**.
+3. In the Select Property window, click the property that you want to display status for. Click **Continue**.
 
-    Note: You can only specify one measurement with enumerated states as the the asset's status.
+    Note: You can only specify one property with enumerated states as the the asset's status.
 
 1. Click the status icons to map the icon for each value.
     ![Mapping status icons](..\images\map-status-values.png)
@@ -87,7 +78,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
     All the values have been mapped in the following screen capture.
     ![Mapped status](..\images\mapped-status-values.png)
     
-    Tip: You can switch to a different measurement by clicking the ![Change measurement icon](..\images\change-measurement-icon@50.png) icon.
+    Tip: You can switch to a different property by clicking the ![Change property icon](..\images\change-property-icon.png) icon.
     
 ### Save the asset type
 

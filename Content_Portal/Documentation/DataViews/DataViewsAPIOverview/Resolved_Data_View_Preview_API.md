@@ -64,7 +64,7 @@ The response includes a status code and, in most cases, a body.
 | 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation |
 | 404 Not Found | error | The query does not exist |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details | 
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -283,7 +283,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -444,14 +444,14 @@ HTTP 200 OK
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 },
                 {
                     "Source": "Tags",
@@ -524,7 +524,7 @@ A `DataView` object to get the results for.
                         "Temperature",
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 }
             ],
        },
@@ -535,7 +535,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -664,7 +664,7 @@ A `DataView` object to get the results for.
                         "Temperature",
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {FirstKey}"
+                    "Label": "{IdentifyingValue} {Key}"
                 }
             ],
        },
@@ -675,7 +675,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {FirstKey}"
+      "Label": "{IdentifyingValue} {Key}"
     }
   ],
   "IndexTypeCode": "DateTime",

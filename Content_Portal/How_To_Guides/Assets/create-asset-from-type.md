@@ -1,5 +1,5 @@
 ---
-uid: CreateAssetFromAssetType
+Puid: CreateAssetFromAssetType
 ---
 
 # Create an asset from an asset type
@@ -8,13 +8,18 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 1. Click the menu icon ![menu icon](..\images\icon_navigation_bigger.png) and click **Asset Explorer**.
 
+2. To change the [namespace](xref:AccountManagementConcepts#namespace), click on the namespace to open the Select a Namespace window.
+
+    ![Namespace icon](../images/namespace-icon.png)
+
+3. Select the namespace and click **Continue**.
+
+4. Verify that the Assets/Asset Type selector is set to **Assets**.
 
 2. Click the plus symbol (+) in the toolbar to open the Select Type for New Asset window. 
 
 3. Select the type from the list and click **Continue**.
     The details blade opens on the right side.
-
-2. Click the pencil icon in the toolbar.
 
 3. Enter a name and description for the asset.
     Note: The asset type on which this asset is based is shown in the Asset Type field.
@@ -26,11 +31,9 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
     ![Metadata fields](..\images\edit-metadata-fields.png)
 
-6. When you are done, click **Save**.
+7. Click the **Properties** tab.
 
-7. Click the **Measurements** tab.
-
-8. Click the caret symbol for a stream reference. 
+8. Click the caret symbol to open the stream reference configuration pane. 
 
     ![](..\images\type-stream-reference-caret.png)
 
@@ -54,6 +57,6 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 2. When you are done, click **Save**.
 
-     Note: Once you click **Save**, any changes are immediately made to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are not reversed if you click **Cancel** on the Measurements tab or if you delete the asset.
+     Note: Once you click **Save**, any changes are immediately made to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are not reversed if you click **Cancel** on the Properties tab or if you delete the asset.
 
 3. Click **Save** to save the asset.

@@ -2,19 +2,19 @@
 uid: sdsStreamExtra
 ---
 
-# Stream Metadata and Tags
-SdsStream metadata is represented as a dictionary of string keys and associated string values. 
-It can be used to associate additional information with a stream. SdsStream tags are represented 
+# Stream metadata and tags
+Stream metadata is represented as a dictionary of string keys and associated string values. 
+It can be used to associate additional information with a stream. Stream tags are represented 
 as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
-The SdsStream Metadata API And SdsStream Tags API do not accept the search query parameter in their respective
-Get calls. However, stream tags and metadata can be used as criteria in search query strings to return 
-SdsStream results with the [Stream](xref:sdsStreams) API.
+The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
+GET calls. However, stream tags and metadata can be used as criteria in search query strings to return 
+stream results with the [Stream](xref:sdsStreams) API.
 
 # SdsStream Metadata API 
 
 ***********************
 
-## `Get stream metadata`
+## `Get Stream Metadata`
 Returns the metadata dictionary for the specified stream.   
 
 ### Request  
@@ -25,10 +25,10 @@ Returns the metadata dictionary for the specified stream.
 ### Parameters  
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -36,7 +36,7 @@ The stream identifier
 The response includes a status code and a response body  
 
 #### Response body  
-The metadata for the specified SdsStream
+The metadata for the specified stream
 
 #### Example response body
 ```json
@@ -55,10 +55,10 @@ Allowed for account administrator and account members
 ```csharp
       Task<IDictionary<string, string>> GetStreamMetadataAsync(string streamId); 
 ```
-  
+
 ***********************
 
-## `Get stream metadata value`
+## `Get Stream Metadata Value`
 Returns the value for the specified key in the metadata dictionary of the specified stream.  
 
 ### Request
@@ -69,13 +69,13 @@ Returns the value for the specified key in the metadata dictionary of the specif
 ### Parameters
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`   
 The namespace identifier   
-  
+
 `string streamId`  
 The stream identifier   
-  
+
 `string key`  
 The key specifying the metadata value of interest  
 
@@ -83,7 +83,7 @@ The key specifying the metadata value of interest
 The response includes a status code and a response body  
 
 #### Response body  
-The metadata for the specified SdsStream 
+The metadata for the specified stream 
 
 #### Example response body
 ```json
@@ -105,7 +105,7 @@ Allowed for account administrator and account members
 
 ***********************
 
-## `Update stream metadata`
+## `Update Stream Metadata`
 Replaces the metadata for the specified stream with the metadata in the request body. 
 Overwrites any existing metadata; does not merge.  
 
@@ -117,10 +117,10 @@ Overwrites any existing metadata; does not merge.
 ### Parameters  
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -138,7 +138,7 @@ Allowed for account administrator and account members
 
 ***********************
 
-## `Patch stream metadata`
+## `Patch Stream Metadata`
 Modifies the metadata based on operations specified in the request body. The request body follows
 [JSON Patch format](http://jsonpatch.com/).
 
@@ -150,10 +150,10 @@ Modifies the metadata based on operations specified in the request body. The req
 ### Parameters  
 `string tenantId`  
 The tenant identifier    
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -173,7 +173,7 @@ Allowed for account administrator and account members
 
 ***********************
 
-## `Delete stream metadata`
+## `Delete Stream Metadata`
 Deletes the metadata for the specified stream.  
 
 ### Request
@@ -184,13 +184,13 @@ Deletes the metadata for the specified stream.
 ### Parameters  
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
-  
+
 ### Response  
 The response includes a status code  
 
@@ -206,7 +206,7 @@ Allowed for account administrator and account members
 
 # SdsStream Tags API 
 
-## `Get stream tags`  
+## `Get Stream Tags`  
 Returns the tag list for the specified stream. 
 
 ### Request
@@ -217,10 +217,10 @@ Returns the tag list for the specified stream.
 ### Parameters  
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier   
 
@@ -228,7 +228,7 @@ The stream identifier
 The response includes a status code and a response body
 
 #### Response body  
-The tags for the specified SdsStream   
+The tags for the specified stream   
 
 #### Example response body
 ```json
@@ -239,7 +239,7 @@ Content-Type: application/json
     "a tag", 
     "another tag" 
 ] 
-```  
+```
 ### Authorization
 Allowed for account administrator and account members
 
@@ -249,7 +249,7 @@ Allowed for account administrator and account members
 ```
 
 ***********************
-## `Update stream tags`
+## `Update Stream Tags`
 Replaces the tag list for the specified stream with the tags listed in the request body.
 Overwrites any existing tags; does not merge. 
 
@@ -261,10 +261,10 @@ Overwrites any existing tags; does not merge.
 ### Parameters  
 `string tenantId`  
 The tenant identifier    
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 
@@ -283,7 +283,7 @@ Allowed for account administrator and account members
 ```
 
 ***********************
-## `Delete stream tags`
+## `Delete Stream Tags`
 Deletes the tag list for the specified stream. 
 
 ### Request
@@ -294,10 +294,10 @@ Deletes the tag list for the specified stream.
 ### Parameters  
 `string tenantId`  
 The tenant identifier  
-  
+
 `string namespaceId`  
 The namespace identifier  
-  
+
 `string streamId`  
 The stream identifier  
 

@@ -4,7 +4,7 @@ uid: ResolvedDataView
 
 # Get resolved data view
 
-Various information is available about how each data view _resolves_. This information describes exactly what data will be in the data view, where it comes from, and where it will appear. This is useful when defining a data view and when consuming it.
+A resolved data view is used to describe the output of a data view at the time it was resolved and for the authorized user. It can provide information on what items will be in the results, how they will be grouped, what items are mapped to a particular field, what additional fields are available to be included in the data view, and data items which are ineligible for mapping. Resolved Data Views do not query or return event data. This is useful when defining a data view and when consuming it.
 
 ## General concepts
 
@@ -113,16 +113,26 @@ Describes the resource type of a data item.
 
 ### DataItemField
 A field of a data item where values come from.  
-Within a data item of resource kind `.Stream`, this corresponds to a stream property. For a data item of resource kind `.Asset`, this corresponds to the a stream property associated with an asset measurement.
+Within a data item of resource kind `.Stream`, this corresponds to a stream property. For a data item of resource kind `.Asset`, this corresponds to a property associated with an asset stream reference.
 
 |Property | Type | Details |
 |--|--|--|
 | Id | string | The data item field's unique identifier 
 | Name | string | The data item field's friendly name
-| MeasurementName *(Coming Soon)* | string | The asset measurement name. Only applies to asset measurement data item fields.
+| StreamReferenceName *(Coming Soon)* | string | The asset stream reference name. Only applies to asset property data item fields.
 | TypeCode | SdsTypeCode| The name of the field's data type
+| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation for the data field. |
+| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |The direction of the summary type calculation for the data field. |
 | Uom *(coming soon)* | bool | The unit of measure id for the data item field
 | IsKey | bool | True if the field is the primary index of the data item. False otherwise.
+
+### SummaryDirection enumeration
+Direction used in the summary calculation.
+
+|Name| Enumeration Id | Description  |
+|--|--|--|
+|Forward | 1 | Uses the start index for the summary calculation.
+|Backward | 2 | Uses the end index for the summary calculation.
 
 ### Group
 A group of the data view. The overall collection of data items is divided into groups as a result of the `.GroupingFields` defined on the `DataView`.
@@ -150,6 +160,8 @@ Details on the provenance on every field of data:
 | Label | string | Friendly name
 | FieldKind | FieldKind enumeration | Specifies if the mapping is for an index, grouping, data, or field id field
 | TypeCode | SdsTypeCode | The primary data type of the mapping
+| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation. Null unless all data mappings' SummaryType within the field mappings are identical. |
+| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. Null unless all data mappings' SummaryDirection within the field mappings are identical. |
 | Uom *(coming soon)* | string | The unit of measure id. Null unless all data mappings' unit of measures within the field mapping are identical.
 | DataMappings | IReadOnlyList<DataMapping> | Per-group details of what this field resolved to
 
@@ -170,8 +182,10 @@ Per-group details of the data that a `FieldMapping` targets:
 |--|--|--|
 | TargetId | string | The unique identifier of the target data item
 | TargetFieldKey | string | The specific targeted part of the data item, if any.
-| TargetMeasurementKey *(coming soon)* | string | The asset measurement name. Only applies to asset measurement data mappings.
+| TargetStreamReferenceName *(coming soon)* | string | The asset stream reference name. Only applies to asset property data mappings.
 | TypeCode | SdsTypeCode | The value type
+| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation for the data field. |
+| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. |
 | Uom *(coming soon)* | string | The unit of measure id
 | FieldSetIndex | Nullable<int> | The position of the corresponding field set within the data view
 | FieldIndex | Nullable<int> | The position of the corresponding field within its field set
