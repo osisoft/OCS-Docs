@@ -7,7 +7,7 @@ uid: omfIngressSpecification
 [The OSIsoft Message Format (OMF) specification](http://omf-docs.osisoft.com) is generic in that it does not specify a particular back-end system. This topic is a companion to the OMF specification which describes how OMF is interpreted by OSIsoft Cloud Services back-end system. 
 
 ## Headers
-For a description of each of the headers, see [OMF specification](http://omf-docs.osisoft.com). Note that rather than using a ``producertoken``, data collection calls to OCS require a bearer token to be attached in the header, as documented in the [OCS Quick Start](xref:sdsQuickStart) documentation. The bearer token is used to authenticate the sender and to authorize the sender for use with a particular Tenant. The client Id associated with this token is used to route messages to a particular [topic](xref:omfIngressTopics) that it is mapped to.
+For a description of each of the headers, see [OMF specification](http://omf-docs.osisoft.com). Note that rather than using a ``producertoken``, data collection calls to OCS require a bearer token to be attached in the header, as documented in the [OCS Quick Start](xref:sdsQuickStart) documentation. The bearer token is used to authenticate the sender and to authorize the sender for use with a particular tenant. The client ID associated with this token is used to route messages to a particular [topic](xref:omfIngressTopics) that it is mapped to.
 
 The ``omfversion`` header must match the version of the OMF spec used to construct the message.
 Versions 1.0 and 1.1 of the spec are currently supported. 
@@ -30,17 +30,19 @@ OMF message types fall into three categories: *type*, *container*, and *data*, w
   + ``tags``: Currently unsupported.
   + ``metadata``: Currently unsupported.
 
-  The ``isindex`` keyword corresponds to the ``iskey`` attribute of an SdsTypeProperty. 
+  The ``isindex`` keyword corresponds to the ``isKey`` attribute of an SdsTypeProperty. 
   SdsTypes support clustered indexes which can be specified with multiple properties marked 
   with the ``isindex`` keyword with a value of ``true``. For compound indexes, the 
   index property order within the message corresponds to the ``Order`` field of 
   an SdsTypeProperty. The ``isname`` keyword is not supported.
 
 ### Link type
-  Link types are not supported in Sequential Data Store.
+  Link types are not supported in Sequential Data Store and will be ignored.
 
+<!--deleting per Chris feedback
 ### Span type
   Span types are not supported in Sequential Data Store.
+-->
 
 ### Property types and formats
   OMF supports setting the ``format`` keyword to specify how a particular JSON type should 
