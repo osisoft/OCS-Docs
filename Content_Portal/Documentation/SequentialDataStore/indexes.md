@@ -11,7 +11,7 @@ In SDS, the key of type is also an index. The key is often referred to as the *p
 while all other indexes are referred to as *secondary indexes* or *secondaries*.
 
 A type that is used to define a stream must specify a key.
-When you put data into stream, every key value must be unique.
+When you add data to a stream, every key value must be unique.
 SDS will not store more than a single event for a given key;
 an event with a particular key may be deleted or updated, but two events with the same key cannot exist.
 
@@ -19,7 +19,7 @@ In .NET, the SdsType properties that define the primary index are identified usi
 and setting its ``IsKey`` field to true.
 If the key consists of only a single property, you can 
 use the ``System.ComponentModel.DataAnnotations.KeyAttribute``.
-Property or properties representing the primary index of an SdsType have their ``SdsTypeProperty.IsKey`` field set to true.
+Property or properties representing the primary index of a type have their ``SdsTypeProperty.IsKey`` field set to true.
 
 Secondary indexes are defined on streams and are applied to a single property.
 You can define several secondary indexes.
@@ -567,7 +567,7 @@ the ISO 8601 representation of dates and times. To query for a window of values 
 For additional information, see [Read data](xref:sdsReadingData).
 
 #### Secondary indexes
-Secondary indexes are defined at the stream. To create a stream 
+Secondary indexes are defined at the stream level. To create a stream 
 using the `Simple` class and adding a secondary index on the `Measurement`, 
 you use the previously defined type. Then you create `SdsStreamIndex` 
 specifying the `Measurement` property and define a stream identifying the 

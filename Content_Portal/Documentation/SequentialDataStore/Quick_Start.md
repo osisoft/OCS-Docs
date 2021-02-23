@@ -225,7 +225,7 @@ await config.CreateTypeAsync(simpleType);
 A stream has an associated type and stores a stream of events or objects that take the shape of that type. 
 For more information, see [Streams](xref:sdsStreams).
 
-Define and create a JSON representation of stream to OCS endpoint.
+Define and post a JSON representation of stream to OCS endpoint.
 
 ```json 
 POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}  
