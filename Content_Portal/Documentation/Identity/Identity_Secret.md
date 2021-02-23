@@ -117,7 +117,7 @@ int32 count
 
 Maximum number of clients to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -198,7 +198,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -290,7 +290,7 @@ Description | string | No | Description for the client secret. We suggest being 
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -397,7 +397,7 @@ Description | string | No | Description for the client secret. We suggest being 
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -482,7 +482,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -552,7 +552,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -609,7 +609,7 @@ string clientId
 
 Id of client.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -695,7 +695,7 @@ int32 count
 
 Maximum number of clients to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -776,7 +776,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -866,7 +866,7 @@ Description | string | No | Description for the client secret. We suggest being 
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -978,7 +978,7 @@ Description | string | No | Description for the client secret. We suggest being 
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1066,7 +1066,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1136,7 +1136,7 @@ int32 secretId
 
 Id of secret.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1196,7 +1196,7 @@ string clientId
 
 Id of client.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

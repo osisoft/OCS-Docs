@@ -63,9 +63,9 @@ The identifier of the client whose `Roles` will be replaced.
 List of `Role` objects to set as the Roles for the specified client.
 
 
-### Security
+### Authorization
 
-`Roles` of a client can only be replaced by an Tenant Administrator.
+`Roles` of a client can only be replaced by a Tenant Administrator.
 
 ### Returns
 
@@ -131,9 +131,9 @@ string query
 Unsupported parameter.
 
 
-### Security
+### Authorization
 
-`Roles` can be retrieved by an Tenant Administrator.
+`Roles` can be retrieved by a Tenant Administrator.
 
 ### Returns
 

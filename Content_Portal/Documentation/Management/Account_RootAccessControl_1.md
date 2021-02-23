@@ -28,7 +28,7 @@ string tenantId
 The identifier of the tenant to access.
 
 
-### Security
+### Authorization
 
 A root [AccessControlList](xref:accessControl) can only be retrieved if the current principal has Read access.
 
@@ -70,7 +70,7 @@ AccessControlList newAccessControlList
 The new root [AccessControlList](xref:accessControl) for `Namespaces`.
 
 
-### Security
+### Authorization
 
 A root [AccessControlList](xref:accessControl) can only be modified if the current principal has ManageAccessControl access.
 

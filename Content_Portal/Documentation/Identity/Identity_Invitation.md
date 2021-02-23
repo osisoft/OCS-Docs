@@ -9,7 +9,7 @@ Invitations are issued after the creation of a User object in OCS,
             providers in a tenant.
             There can only be one invitation for a User at a time. An invitation
             can expire, at which time the Admin can either delete it, or extend it.
-            When creating an invitation an Tenant Administrator has the option to resend the
+            When creating an invitation a Tenant Administrator has the option to resend the
             invitation email to the ContactEmail configured for the user the invitation
             is attached to. The email can be re-sent by updating the invitation.
             When an invitation expires the User cannot accept it. If the expiration
@@ -99,7 +99,7 @@ string invitationId
 
 Id of invitation.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -198,7 +198,7 @@ bool includeExpiredInvitations
 
 Specify whether to return expired invitations.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -311,7 +311,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -394,7 +394,7 @@ string invitationId
 
 Id of invitation.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -460,7 +460,7 @@ string invitationId
 
 Id of invitation.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -521,7 +521,7 @@ bool includeExpiredInvitations
 
 Specify to return expired invitations.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -582,7 +582,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -679,7 +679,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -791,7 +791,7 @@ IdentityProviderId | Guid | No | Identity provider to use for accepting this inv
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -898,7 +898,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -970,7 +970,7 @@ bool includeExpiredInvitations
 
 Specify whether to include expired invitations.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

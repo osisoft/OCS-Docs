@@ -35,7 +35,7 @@ int32 count
 
 Number of blogs to count after skip for paging purposes.
 
-### Security
+### Authorization
 
 Any identity, including anonymous, can retrieve service blog entries.
 
@@ -67,7 +67,7 @@ string id
 Identifier of the blog entry to retrieve.
 
 
-### Security
+### Authorization
 
 Any identity, including anonymous, can retrieve service blog entries.
 

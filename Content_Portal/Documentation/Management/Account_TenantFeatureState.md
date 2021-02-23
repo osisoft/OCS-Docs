@@ -45,7 +45,7 @@ string tenantId
 The identifier of the tenant to access.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified tenant.
 
@@ -86,7 +86,7 @@ string id
 The identifier of the `FeatureState` to retrieve.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified tenant.
 

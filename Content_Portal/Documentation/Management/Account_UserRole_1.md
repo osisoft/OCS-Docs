@@ -79,9 +79,9 @@ string query
 Unsupported parameter.
 
 
-### Security
+### Authorization
 
-Authorized for Tenant Administrators of the specified tenant and an Tenant Member's own `Roles` within the specified tenant.
+Authorized for Tenant Administrators of the specified tenant and a Tenant Member's own `Roles` within the specified tenant.
 
 ### Returns
 
@@ -129,7 +129,7 @@ The identifier of the user whose roles will be replaced.
 A list of `Role` objects to set as the roles for the specified user.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified tenant.
 

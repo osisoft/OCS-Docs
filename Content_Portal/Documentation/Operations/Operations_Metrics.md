@@ -81,7 +81,7 @@ DateTime end
 
 End date of the metric results to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -179,7 +179,7 @@ DateTime end
 
 End date of the metric results to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

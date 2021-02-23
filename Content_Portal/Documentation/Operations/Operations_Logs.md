@@ -111,7 +111,7 @@ int32 count
 
 Maximum number of logs to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -249,7 +249,7 @@ int32 count
 
 Maximum number of logs to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

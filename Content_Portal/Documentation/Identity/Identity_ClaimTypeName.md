@@ -85,7 +85,7 @@ int32 count
 
 Maximum number of identity providers to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -157,7 +157,7 @@ Guid identityProviderId
 
 Id of identity provider.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -221,7 +221,7 @@ Guid identityProviderClaimTypeNameId
 
 Id of Identity Provider Claim Type Name.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -297,7 +297,7 @@ Guid identityProviderClaimTypeNameId
 
 Id of Identity Provider Claim Type Name.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

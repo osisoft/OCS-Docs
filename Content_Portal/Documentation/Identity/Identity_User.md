@@ -141,7 +141,7 @@ int32 count
 
 Maximum number of users to return. Ignored if a list of Ids is passed.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -346,7 +346,7 @@ string[] status
 
 Only return statuses that match these values. Possible User statuses are: InvitationAccepted, NoInvitation, InvitationNotSent, InvitationSent, InvitationExpired.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -451,7 +451,7 @@ Guid userId
 
 Id of User.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -529,7 +529,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -610,7 +610,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -684,7 +684,7 @@ JSON object preferences.
 {}
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -790,7 +790,7 @@ RoleIds | Guid[] | No | List of strings of RoleIds.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -913,7 +913,7 @@ RoleIds | Guid[] | No | List of strings of RoleIds.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1008,7 +1008,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1070,7 +1070,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1130,7 +1130,7 @@ Guid[] id
 
 Unordered list of User Ids.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -1189,7 +1189,7 @@ Guid userId
 
 Id of User.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

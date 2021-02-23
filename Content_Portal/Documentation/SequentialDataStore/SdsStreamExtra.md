@@ -49,7 +49,8 @@ Content-Type: application/json
 } 
 ```
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 #### .NET client libraries method
 ```csharp
@@ -96,7 +97,8 @@ Content-Type: application/json
 ```
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method  
 ```csharp
@@ -128,7 +130,8 @@ The stream identifier
 The response includes a status code  
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method  
 ```csharp
@@ -164,7 +167,8 @@ The response includes a status code and a response body
 A collection of operations to be applied to the metadata collection as specified by the [JSON Patch format](http://jsonpatch.com/)  
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method
 ```csharp
@@ -195,7 +199,8 @@ The stream identifier
 The response includes a status code  
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method
 ```csharp
@@ -241,7 +246,8 @@ Content-Type: application/json
 ] 
 ```
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method
 ```csharp
@@ -275,7 +281,8 @@ The request content is the serialized list of tags
 The response includes a status code  
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method
 ```csharp
@@ -305,7 +312,8 @@ The stream identifier
 The response includes a status code  
 
 ### Authorization
-Allowed for Tenant Administrator and Tenant Members
+- Tenant Administrator
+- Tenant Members
 
 ### .NET client libraries method  
 ```csharp

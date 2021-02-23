@@ -62,7 +62,7 @@ Role role
 The new `Role` to be created.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified tenant.
 
@@ -106,7 +106,7 @@ string roleId
 The identifier of the `Role` to delete.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified tenant.
 
@@ -148,7 +148,7 @@ string roleId
 The identifier of the `Role` to return.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified tenant.
 
@@ -207,7 +207,7 @@ string query
 Unsupported parameter.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified tenant.
 
@@ -255,7 +255,7 @@ Role role
 The updated `Role` for this request.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified tenant.
 

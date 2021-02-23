@@ -151,7 +151,7 @@ Tags | string[] | No | For OSIsoft internal use only.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -301,7 +301,7 @@ Tags | string[] | No | For OSIsoft internal use only.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -397,7 +397,7 @@ string clientId
 
 Id of Client.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -519,7 +519,7 @@ int32 count
 
 Maximum number of clients to return.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -640,7 +640,7 @@ string[] tag
 
 Only count clients that have these tags.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -697,7 +697,7 @@ string clientId
 
 Id of client.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -758,7 +758,7 @@ string clientId
 
 Id of client.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

@@ -60,7 +60,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -125,7 +125,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -184,7 +184,7 @@ Guid userId
 
 Id of user.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

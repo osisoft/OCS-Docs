@@ -62,7 +62,7 @@ string tenantId
 The identifier of the tenant to access.
 
 
-### Security
+### Authorization
 
 A `Namespace` can only be retrieved if the current principal has Read access.
 
@@ -104,7 +104,7 @@ string namespaceId
 The identifier of the `Namespace` to return.
 
 
-### Security
+### Authorization
 
 A `Namespace` can only be retrieved if the current principal has Read access.
 
@@ -156,7 +156,7 @@ The Id of the new `Namespace`. The Id can also be specified in the namespaceToCr
             the Id will be generated.
 
 
-### Security
+### Authorization
 
 A `Namespace` can only be created if the current principal has Write access.
 
@@ -209,7 +209,7 @@ Namespace newProperties
 The new details to store for the `Namespace`.
 
 
-### Security
+### Authorization
 
 A `Namespace` can only be updated if the current principal has Write access.
 
@@ -251,7 +251,7 @@ string namespaceId
 The identifier of the `Namespace` to delete.
 
 
-### Security
+### Authorization
 
 A `Namespace` can only be deleted if the current principal has Delete access.
 
@@ -294,7 +294,7 @@ string namespaceId
 The identifier of the `Namespace` to access.
 
 
-### Security
+### Authorization
 
 An [AccessControlList](xref:accessControl) can only be retrieved if the current principal has Read access.
 
@@ -343,7 +343,7 @@ AccessControlList newAccessControlList
 The updated [AccessControlList](xref:accessControl) for the `Namespace`.
 
 
-### Security
+### Authorization
 
 An [AccessControlList](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
 
@@ -387,7 +387,7 @@ string namespaceId
 The identifier of the `Namespace` to access.
 
 
-### Security
+### Authorization
 
 An Owner's [Trustee](xref:accessControl) can only be retrieved if the current principal has Read access.
 
@@ -436,7 +436,7 @@ Trustee newOwner
 The new Owner's [Trustee](xref:accessControl) of the `Namespace`.
 
 
-### Security
+### Authorization
 
 An Owner's [Trustee](xref:accessControl) can only be changed if the current principal has ManageAccessControl access.
 

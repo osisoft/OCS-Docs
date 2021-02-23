@@ -60,7 +60,7 @@ string tenantId
 The identifier of the `Tenant` to retrieve.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified `Tenant`.
 
@@ -94,7 +94,7 @@ string tenantId
 The identifier of the `Tenant` for this request.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified `Tenant`.
 
@@ -135,7 +135,7 @@ Tenant tenant
 The updated details of the `Tenant`.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 
@@ -170,7 +170,7 @@ string tenantId
 The identifier of the `Tenant` for this request.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Members of the specified `Tenant`.
 
@@ -211,7 +211,7 @@ string icon
 The Base64 encoded PNG icon for the `Tenant`.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 
@@ -246,7 +246,7 @@ string tenantId
 The `Tenant` identifier for this request.
 
 
-### Security
+### Authorization
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 

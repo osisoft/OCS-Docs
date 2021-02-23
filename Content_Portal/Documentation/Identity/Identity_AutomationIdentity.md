@@ -115,7 +115,7 @@ Tags | string[] | No | Tags associated with this automation identity.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -209,7 +209,7 @@ Guid automationIdentityId
 
 Id of automation identity.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -287,7 +287,7 @@ Guid automationIdentityId
 
 Id of automation identity.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -374,7 +374,7 @@ int32 count
 
 Maximum number of automation identities to return. Ignored if a list of ids is passed.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -473,7 +473,7 @@ string[] tag
 
 Only count automation identities that have at least one of these tags.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -531,7 +531,7 @@ Guid automationIdentityId
 
 Id of automation identity.
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
@@ -623,7 +623,7 @@ Tags | string[] | No | Tags associated with this automation identity.
 }
 ```
 
-### Security
+### Authorization
 
 Allowed for these roles:
 

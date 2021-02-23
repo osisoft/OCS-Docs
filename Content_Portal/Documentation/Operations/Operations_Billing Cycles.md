@@ -51,7 +51,7 @@ string tenantId
 
 Id of the Tenant
 
-### Security
+### Authorization
 
 Allowed for these roles:
 
