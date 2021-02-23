@@ -480,7 +480,7 @@ The following code is used to build an SdsType representation of the sample clas
         })
       });
     
-      // State is not a pre-defined type. A SdsType must be defined to represent the enum
+      // State is not a pre-defined type. SdsType must be defined to represent the enum
       var stateTypePropertyOk = new SdsObjects.SdsTypeProperty({
         "Id": "Ok",
         "Value": State.Ok

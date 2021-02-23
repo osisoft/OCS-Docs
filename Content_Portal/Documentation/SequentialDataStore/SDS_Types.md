@@ -505,7 +505,7 @@ time.SdsType.Id = "DateTime"
 time.SdsType.Name = "DateTime"
 time.SdsType.SdsTypeCode = SdsTypeCode.DateTime
 
-# State is not a pre-defined type. A SdsType must be defined to represent the enum
+# State is not a pre-defined type. SdsType must be defined to represent the enum
 stateTypePropertyOk = SdsTypeProperty()
 stateTypePropertyOk.Id = "Ok"
 stateTypePropertyOk.Value = State.Ok
