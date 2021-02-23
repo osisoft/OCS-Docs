@@ -14,8 +14,8 @@ The table below lists supported and unsupported types within a filter expression
 | ``Byte``    |     ``IEnumerable``       |
 | ``Char``    |              ``IDictionary``     |
 | ``DateTime``  |             ``IList``         |
-|``DateTimeOffset``  |``SdsType``              |
-| ``Decimal``   |``SdsTypeProperty``           |
+|``DateTimeOffset``  |          |
+| ``Decimal``   |         |
 |  ``Double``| ``Nullable Types`` |
 | ``Guid`` |                              |
 | ``Int16``  |                             |
