@@ -20,11 +20,11 @@ A role that can share a tenant’s data with any community to which the data ste
 
 A role that  manages the community for a tenant. Usually, a Community Moderator is the individual who accepted the invitation to join a community on behalf of a tenant. This user must also be a Tenant Administrator for the same tenant.
 
-The Community Moderator's primary purpose is to specify which users from a tenant have access to a community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
+The Community Moderator's primary purpose is to specify which tenant's users have access to a community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
 
 - Pause access to shared data from their tenant.
 - Add users from their tenant to the community
-- Remove users from the community
+- Remove their tenant's users from the community
 - Remove their tenant from the community
 
 Community Moderators can assign the following roles to users in their own tenant:
@@ -40,9 +40,7 @@ A role granting full administrative rights. These rights include all the privile
 - Invite tenants to the community
 - Remove tenants from the community
 
-Community Administrators in the community owner's tenant can assign any role to any user in any tenant belonging to the community. A community owner is the tenant who created a community.
-
-Community Administrators in tenants other than the community owner's tenant can assign any role to users in their own tenant.
+Community Administrators in the [community owner's](#community-owner) tenant can assign any role to any user in any tenant belonging to the community. Community Administrators in tenants other than the community owner's tenant can assign any role to users in their own tenant.
 
 ## Related roles and identities
 
