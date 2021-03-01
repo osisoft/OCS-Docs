@@ -12,7 +12,7 @@ There are five built-in roles, which cannot be removed from a tenant.
 - **Account Viewer** - Not granted any specific permissions by default.
 - **Account Member** - Automatically granted to any user or client in OCS, and granted read access throughout OCS by default.
 
-In addition, custom roles can be added, which are not granted any specific permissions by default.
+In addition, custom roles can be added, which are not granted any specific permissions by default. Granting a user or client the new custom role will not have any effect on permissions until the role is explicitly allowed or denied access to resources in OCS.
 
 For any resource in OCS, permissions are granted or denied to specific roles, rather than specific users or clients. These permissions are managed using the **Manage Permissions** dialog for the given resource. Role access to a resource an include **Read**, **Write**, **Delete**, and **Manage Permissions**. Each access type can be set to **Allow** or **Deny** for each individual role.
 
@@ -29,6 +29,8 @@ Roles in OCS are comparable to PI Identities in the PI Data Archive, or Identiti
 1. Use caution when granting the Account Administrator role, ideally using a different role for users and clients that should not be able to manage permissions. Clients should not generally be granted the Account Administrator role.
 
 1. If users from other organizations will be given a user account to log in to your tenant, consider creating a role for their specific organization so that their permissions can be managed explicitly.
+
+1. Use caution when denying permissions, as denying supersedes any allowed access to a role. In other words, if a user is allowed access via one role and denied access via another role, the user will not have access. For this reason, it is not allowed to deny permissions to the **Account Member** role, as this would deny the given permission to every user in the tenant.
 
 ## Creating a Role
 
