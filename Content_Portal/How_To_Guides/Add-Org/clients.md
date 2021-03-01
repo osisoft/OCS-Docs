@@ -54,7 +54,7 @@ Authorization code clients are used to authenticate using any browser, and an au
 
 ### Authorization Code PI Core Counterpart
 
-Authorization Code clients have no direct equivalent, but are conceptually similar to Trusts in the PI Data Archive since they are used to allow users to access OCS if they meet certain criteria. However, instead of allowing access via application name and/or IP Address, Authorization Code clients instead allow users to log in using their own credentials from applications that run at certain URLs.
+Authorization Code clients have no direct equivalent, but are similar to a combination of a Trust and Mappings in the PI Data Archive. These clients are similar to Trusts since they only allow users to access OCS if the application using them meets certain criteria, such as being served at a specific URL. However, like a mapping, they also require authentication as a known user account within the tenant.
 
 ### Authorization Code Best Practices
 
@@ -88,7 +88,7 @@ Hybrid clients are used by native and server-side web applications where you aut
 
 ### Hybrid PI Core Counterpart
 
-Hybrid clients have no direct equivalent, but are similar to Trusts in the PI Data Archive since they are used to allow users to access OCS if they meet certain criteria. However, instead of allowing access via application name and/or IP Address, Hybrid clients instead allow access users to log in using their own credentials from applications that use a secure backend.
+Hybrid clients have no direct equivalent, but are similar to a combination of a Trust and Mappings in the PI Data Archive. These clients are similar to Trusts since they only allow users to access OCS if the application using them meets certain criteria, such as being served at a specific URL. However, like a mapping, they also require authentication as a known user account within the tenant.
 
 ### Hybrid Best Practices
 
