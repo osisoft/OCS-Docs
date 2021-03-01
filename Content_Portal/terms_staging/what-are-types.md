@@ -10,7 +10,7 @@ A type is comprised of at least two properties. One property serves as the prima
 
 For example, if you want to collect three measurements streamed from a device (longitude, latitude, and speed) and you want to collect those measurements over a period of time, you can define a type to include properties for longitude, latitude, speed and a timestamp. The timestamp is the primary index. Longitude, latitude, and speed are value properties. Collectively, these properties define the structure of the data OCS stores from the device.
 
-For a list of the supported property types, see (Supported Types|link to Types in API section).
+For a list of the supported property types, see [Types](xref:sdsTypes).
 
 Before you begin building streams in the Sequential Data Store, make sure you have your types correctly defined. After you create a type, you cannot change it. If you want to change an existing type, you must delete the type and create a new one to ensure that no stored data is invalidated. However, you can only delete a type if no streams, views, or other types reference it.
 
