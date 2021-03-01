@@ -4,6 +4,8 @@
 
 A user is an identity that has access to an OSIsoft Cloud Services (OCS) tenant. Roles assigned to a user determine what permissions the user has on resources in OCS. For more information on Roles see the [Roles](#TODO) documentation. Users must be linked to an account from an enabled identity provider such as Azure Active Directory, Microsoft Accounts, or Google, and then log in to OCS through using the credentials from that account.
 
+A user account is how users log in to the [OCS Portal](https://cloud.osisoft.com), and how users authenticate when using [Hybrid Clients](#TODO?) and [Authorization Code Clients](#TODO?). Hence at least one user should already be added to a tenant when it is first accessed.
+
 You must have the **Account Administrator** role to add and manage users in a tenant.
 
 ## PI Core Counterpart
