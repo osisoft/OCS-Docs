@@ -1,4 +1,4 @@
----
+﻿---
 uid: bpStreams
 ---
 # Streams best practices
@@ -17,3 +17,63 @@ OSIsoft recommends the following are best practices when creating streams:
    - Use metadata for information that follows a specific or consistent pattern, such as the location, manufacturer, and site. 
    - Use tags for simple information about the stream that doesn't adhere to any particular pattern.
    - Use the description field for longer descriptions of the stream and what it represents.
+
+## Reading data from streams
+Introductory content to be added here
+
+### Max. limit for events in egress calls 
+
+OSIsoft limits read data API to retrieve less than 250,000 events per request.
+OCS returns an error message when the maximum limit is reached.  
+This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [Get Summaries](xref:sdsReadingDataApi#get-summaries), [Get Sampled Values](xref:sdsReadingDataApi#get-sampled-values).
+ 
+
+```text
+400 bad request error
+
+{ 
+
+               “Error”: “The request is not valid.”, 
+
+               “Reason”: “Exceeded the maximum return count of 250000 events.” 
+
+               “Resolution”: “Reduce query size and resubmit the request.” 
+
+} 
+```
+
+If the read data API needs to hold events larger than 2GB in memory size, a ``500 - Internal server error`` will be returned. 
+
+ 
+
+### Increase the Request-Timeout in header 
+
+Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
+The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
+It is possible that these large range requests will take up to 5 minutes.
+The large range of values when held in memory are between 1 GB and 2GB hence need enough time to read and return the data.  
+
+If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 300,000 milliseconds (= 300 seconds = 5 minutes), do one of the following: 
+
+- Reduce the range in the request calls of this type 
+- Hold off on sending these requests and contact OSIsoft technical support
+
+ 
+
+### Compression 
+
+Include ``Accept-Encoding: gzip, deflate`` in the HTTP header. 
+This enables compression. For more information, see [Compression](xref:sdsCompression#supported-compression-schemes). 
+
+ 
+### Different read data APIs available
+Depending on the scenario, there are different read data APIs available.
+They return an overview of the values instead of reading all values at once.
+These APIs provide a good high-level view of the values without displaying them all at the same time: 
+- [Get Values](xref:sdsReadingDataApi#get-values) with filters
+- [Get Summaries](xref:sdsReadingDataApi#get-summaries) 
+- [Get Sampled Values](xref:sdsReadingDataApi#get-sampled-values) 
+
+ 
+
+
