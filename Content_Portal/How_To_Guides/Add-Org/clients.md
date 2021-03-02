@@ -8,7 +8,7 @@ You must have the **Account Administrator** role to add and manage clients in a 
 
 ## Client-Credentials
 
-Client-credentials clients are used for server-to-server communication where no user interaction is required. The client typically authenticates with the token endpoint using its client ID and secret. A secret is a unique key generated for each client, to connect to OSIsoft assets, resources and services for a limited period of time.
+Client-credentials clients are used for server-to-server communication where no user interaction is required. The client typically authenticates with the token endpoint using its client ID and secret. A secret is a unique key generated for each client to connect to OSIsoft assets, resources, and services for a time-limited period.
 
 ### Client-Credentials PI Core Counterpart
 
