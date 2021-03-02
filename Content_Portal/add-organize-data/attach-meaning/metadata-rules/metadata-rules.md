@@ -4,7 +4,7 @@ uid: Metadatarules
 
 # Metadata rules
 
-Metadata rules assign defined metadata to all streams in a given namespace matching a defined stream name pattern. Use metadata rules to identify groups of similar streams for analytical purposes. You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule.   
+Use metadata rules to identify groups of similar streams for analytical purposes. You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule. Metadata rules assign defined metadata to all streams in a given namespace matching the stream name pattern defined in the rule.  
 
 ## Create a metadata rule
 
