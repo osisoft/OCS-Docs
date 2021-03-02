@@ -4,9 +4,7 @@ uid: Metadatarules
 
 # Metadata rules
 
-The OCS Portal provides the ability to create metadata rules in a graphical user interface. Metadata rules assign defined metadata to all streams in a given namespace that match a defined stream name pattern. This provides a means of retrieving groups of similar streams for analytical purposes.
-
-You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule.   
+Metadata rules assign defined metadata to all streams in a given namespace matching a defined stream name pattern. Use metadata rules to identify groups of similar streams for analytical purposes. You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule.   
 
 ## Create a metadata rule
 
