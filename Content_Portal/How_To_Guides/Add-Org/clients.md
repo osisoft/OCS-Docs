@@ -46,7 +46,7 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 1. Click **Close**. Note that **Client Id** is still visible, and if you forgot to save the **Client Secret**, you can select the client from the list and use the **Details** tab to remove the old secret and add a new secret.
 
-## Authorization Code
+## Authorization code clients
 
 Authorization Code Clients are used for customer web applications that use OCS as their backend. They provide a secure means of authenticating users of the website to view OCS assets. Creating an Authorization Code Client results in the generation of a Client ID, which must be specified in the web application using the client to authenticate users.
 
