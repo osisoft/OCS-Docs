@@ -14,7 +14,7 @@ Client-credentials clients are used for server-to-server communication where no 
 
 Client-credentials clients are very similar to Windows service accounts that might be used to authenticate against the PI Data Archive or PI AF Server.  Therefore, it is very important to keep secrets secure in the same way that it is important to keep service account passwords secure.
 
-### Client-Credentials Best Practices
+### Client-credentials best practices
 
 1. Create a separate Client-credentials client for each separate device or instance of an application that will connect to to OCS. This will ensure that it is possible to manage secrets discretely for individual applications and to know which applications are connecting to OCS.
 
