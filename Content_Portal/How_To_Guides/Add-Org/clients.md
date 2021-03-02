@@ -6,13 +6,13 @@ Clients provide a way for users or applications to authenticate against OSIsoft 
 
 You must have the **Account Administrator** role to add and manage clients in a tenant.
 
-## Client-Credentials
+## Client-credentials clients
 
 Client-credentials clients are used for server-to-server communication where no user interaction is required. The client typically authenticates with the token endpoint using its client ID and secret. A secret is a unique key generated for each client to connect to OSIsoft assets, resources, and services for a time-limited period.
 
-### Client-Credentials PI Core Counterpart
+### Client-credentials PI Core counterpart
 
-Client-credentials clients are very similar to Windows service accounts that might be used to authenticate against the PI Data Archive or PI AF Server.  Therefore, it is very important to keep secrets secure in the same way that it is important to keep service account passwords secure.
+Client-credentials clients are very similar to Windows service accounts that might be used to authenticate against the PI Data Archive or PI AF Server. Therefore, it is very important to keep secrets secure in the same way that it is important to keep service account passwords secure.
 
 ### Client-credentials best practices
 
@@ -22,7 +22,7 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 1. Use secrets that expire and rotate them on a schedule. When it is time to switch to a new secret, OSIsoft recommends that you create the new secret, redirect the application to use the new secret, and only delete the old secret from the client when it is no longer being used.
 
-### Creating a Client-Credentials Client
+### Creating a client-credentials client
 
 Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 
@@ -52,17 +52,17 @@ Authorization Code Clients are used for customer web applications that use OCS a
 
 Authorization code clients are used to authenticate using any browser, and an authorization code is provided to the client upon successful authentication. The authorization code is exchanged for an access token using PKCE (Proof Code for Code Exchange), which is a more secure authentication flow. No refresh token is provided.
 
-### Authorization Code PI Core Counterpart
+### Authorization code PI Core counterpart
 
 Authorization Code clients have no direct equivalent, but are similar to a combination of a Trust and Mappings in the PI Data Archive. These clients are similar to Trusts since they only allow users to access OCS if the application using them meets certain criteria, such as being served at a specific URL. However, like a mapping, they also require authentication as a known user account within the tenant.
 
-### Authorization Code Best Practices
+### Authorization code best practices
 
 1. Use Authorization Code clients in web applications or services where users need to authenticate and it is not possible to store a client secret securely.
 
 1. Since a refresh token is not provided in this flow, web applications should use an iframe to request a new token before the token expires. Otherwise, the user will have to explicitly log in again to get a new token once their token expires.
 
-### Creating an Authorization Code Client
+### Creating an authorization code client
 
 Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 
@@ -82,21 +82,21 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 1. Click **Save**. Note the **Client Id** from the list, which must be specified when the application makes an authentication request. The client is now ready to use.
 
-## Hybrid
+## Hybrid clients
 
 Hybrid clients are used by native and server-side web applications where you authenticate using any browser, and an access token is retrieved using the server-side code. A refresh token can also be provided.
 
-### Hybrid PI Core Counterpart
+### Hybrid PI Core counterpart
 
 Hybrid clients have no direct equivalent, but are similar to a combination of a Trust and Mappings in the PI Data Archive. These clients are similar to Trusts since they only allow users to access OCS if the application using them meets certain criteria, such as being served at a specific URL. However, like a mapping, they also require authentication as a known user account within the tenant.
 
-### Hybrid Best Practices
+### Hybrid best practices
 
 1. Use Hybrid clients in web applications or services where users can use a browser to authenticate against OCS, but a secure backend that can store a secret is used to perform the actual authentication process.
 
 1. Use caution when determining whether to allow a refresh token for your Hybrid client. If possible, it is more secure to use an iframe to request a new token before the old token expires.
 
-### Creating a Hybrid Client
+### Creating a hybrid vlient
 
 Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 
