@@ -20,7 +20,7 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 1. Ensure that client secrets are stored securely where they are used.
 
-1. Use secrets that expire, and rotate them on a scheduled basis. When it is time to switch to a new secret, it is best to create a new secret, switch the application to use the new secret, and then delete the old secret from the client once it is no longer in use.
+1. Use secrets that expire and rotate them on a schedule. When it is time to switch to a new secret, OSIsoft recommends that you create the new secret, redirect the application to use the new secret, and only delete the old secret from the client when it is no longer being used.
 
 ### Creating a Client-Credentials Client
 
