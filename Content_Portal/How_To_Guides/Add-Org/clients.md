@@ -16,7 +16,7 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 ### Client-credentials best practices
 
-1. Create a separate Client-credentials client for each separate device or instance of an application that will connect to to OCS. This will ensure that it is possible to manage secrets discretely for individual applications and to know which applications are connecting to OCS.
+1. Create a separate client-credentials client for each device or instance of an application that connects to OCS. This ensures that secrets can be discretely managed for individual applications and that you know which applications are connecting to OCS.
 
 1. Ensure that client secrets are stored securely where they are used.
 
