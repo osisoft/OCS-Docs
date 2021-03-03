@@ -117,7 +117,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -255,7 +255,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 

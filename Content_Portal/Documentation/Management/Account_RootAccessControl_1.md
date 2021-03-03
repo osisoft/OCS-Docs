@@ -32,7 +32,7 @@ The identifier of the tenant to access.
 
 A root [AccessControlList](xref:accessControl) can only be retrieved if the current principal has Read access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -47,7 +47,7 @@ A root [AccessControlList](xref:accessControl) can only be retrieved if the curr
 
 Modifies the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace` if none is specified during creation.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/AccessControl/Namespaces`
 
@@ -74,7 +74,7 @@ The new root [AccessControlList](xref:accessControl) for `Namespaces`.
 
 A root [AccessControlList](xref:accessControl) can only be modified if the current principal has ManageAccessControl access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |

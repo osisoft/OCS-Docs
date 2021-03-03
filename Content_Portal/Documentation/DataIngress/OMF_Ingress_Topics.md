@@ -37,7 +37,7 @@ Unique Id for the tenant
 ``namespaceId``  
 Unique Id for the namespace
 
-### Returns
+### Response
 An array of Topic objects. 
 
 ## `Get Topic`
@@ -55,7 +55,7 @@ Unique Id for the namespace
 ``topicId``  
 Unique Id for the Topic 
 
-### Returns
+### Response
 A Topic object
 
 ## `Get Topic Subscriptions`
@@ -73,7 +73,7 @@ Unique Id for the namespace of the Topic
 ``topicId``  
 Unique Id for the Topic
 
-### Returns
+### Response
 An array of subscription objects. 
 
 ## `Get Topics Access Control List`
@@ -89,7 +89,7 @@ Unique Id for the tenant
 ``namespaceId``  
 Unique Id for the namespace
 
-### Returns
+### Response
 An AccessControlList object
 
 ## `Get Topics Access Rights`
@@ -105,7 +105,7 @@ Unique Id for the tenant
 ``namespaceId``  
 Unique Id for the namespace 
 
-### Returns
+### Response
 An array of Access Rights strings
 
 ## `Get Topic Access Control List`
@@ -123,7 +123,7 @@ Unique Id for the namespace
 ``topicId``  
 Unique Id for the Topic
 
-### Returns
+### Response
 An AccessControlList object
 
 ## `Get Topic Access Rights`
@@ -141,7 +141,7 @@ Unique Id for the namespace
 ``topicId``  
 Unique Id for the Topic
 
-### Returns
+### Response
 An array of Access Rights strings
 
 ## `Get Topic Owner`
@@ -159,7 +159,7 @@ Unique Id for the namespace
 ``topicId``  
 Unique Id for the Topic
 
-### Returns
+### Response
 A Trustee object
 
 ## `Create Topic`
@@ -178,7 +178,7 @@ Unique Id for the namespace
 ### Body
 A topic object. The ``Id`` property should not be specified, since it will be automatically generated during creation.
 
-### Returns
+### Response
 The topic object that was created
 
 ## `Update Topic`
@@ -199,7 +199,7 @@ Topic Id for the Topic to be updated
 ### Body
 A topic object. The ``Id`` property should match the ``topicId`` in the route.
 
-### Returns
+### Response
 The Topic object that was updated. 
 
 ## `Update Topics Access Control List`

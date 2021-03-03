@@ -105,7 +105,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -204,7 +204,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -317,7 +317,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -400,7 +400,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 204
 
@@ -466,7 +466,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -527,7 +527,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -589,7 +589,7 @@ Allowed for these roles:
 - `Tenant Member`
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -685,7 +685,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 201
 
@@ -797,7 +797,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 
@@ -904,7 +904,7 @@ Allowed for these roles:
 
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 204
 
@@ -977,7 +977,7 @@ Allowed for these roles:
 - `Tenant Member`
 - `Tenant Administrator`
 
-### Returns
+### Response
 
 #### 200
 

@@ -39,7 +39,7 @@ For HTTP requests and responses, the Role object has the following properties an
 
 Creates a new tenant `Role`.
 
-### Http
+### Request
 
 `POST api/v1/Tenants/{tenantId}/Roles`
 
@@ -66,7 +66,7 @@ The new `Role` to be created.
 
 Authorized for Tenant Administrators of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
@@ -83,7 +83,7 @@ Authorized for Tenant Administrators of the specified tenant.
 ## `Delete Tenant Role`
 
 Deletes any tenant scoped, non built-in `Role` by its Role Id.
-### Http
+### Request
 
 `DELETE api/v1/Tenants/{tenantId}/Roles/{roleId}`
 
@@ -110,7 +110,7 @@ The identifier of the `Role` to delete.
 
 Authorized for Tenant Administrators of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -125,7 +125,7 @@ Authorized for Tenant Administrators of the specified tenant.
 
 Retrieves a tenant `Role` based on the specified tenant Id and role Id.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Roles/{roleId}`
 
@@ -152,7 +152,7 @@ The identifier of the `Role` to return.
 
 Authorized for Tenant Administrators of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
@@ -167,7 +167,7 @@ Authorized for Tenant Administrators of the specified tenant.
 
 Retrieves all tenant `Roles` for the specified tenant Id.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Roles`
 
@@ -211,7 +211,7 @@ Unsupported parameter.
 
 Authorized for Tenant Members of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
@@ -225,7 +225,7 @@ Authorized for Tenant Members of the specified tenant.
 
 Updates a `Role` by its Role Id.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Roles/{roleId}`
 
@@ -259,7 +259,7 @@ The updated `Role` for this request.
 
 Authorized for Tenant Administrators of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 

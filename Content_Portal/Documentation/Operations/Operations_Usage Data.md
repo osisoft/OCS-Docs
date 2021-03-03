@@ -90,7 +90,7 @@ Allowed for these roles:
 
 - `Tenant Member`
 
-### Returns
+### Response
 
 #### 200
 
@@ -190,7 +190,7 @@ Allowed for these roles:
 
 - `Tenant Member`
 
-### Returns
+### Response
 
 #### 200
 

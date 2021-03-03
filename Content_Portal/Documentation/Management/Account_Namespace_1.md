@@ -46,7 +46,7 @@ When a namespace is created, all resources are created in the namespace's region
 
 Returns all `Namespaces` owned by the specified `Tenant` that the caller has access to.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Namespaces`
 
@@ -66,7 +66,7 @@ The identifier of the tenant to access.
 
 A `Namespace` can only be retrieved if the current principal has Read access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -81,7 +81,7 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 Returns a `Namespace` with the specified Id.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
@@ -108,7 +108,7 @@ The identifier of the `Namespace` to return.
 
 A `Namespace` can only be retrieved if the current principal has Read access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
@@ -124,7 +124,7 @@ A `Namespace` can only be retrieved if the current principal has Read access.
 
 Creates a new `Namespace` in the specified `Tenant`.
 
-### Http
+### Request
 
 `POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId?}`
 
@@ -160,7 +160,7 @@ The Id of the new `Namespace`. The Id can also be specified in the namespaceToCr
 
 A `Namespace` can only be created if the current principal has Write access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description | 
  | --- | --- | ---  | 
@@ -179,7 +179,7 @@ A `Namespace` can only be created if the current principal has Write access.
 Updates `Namespace` information: Description and TierId. The [AccessControlList](xref:accessControl) and Owner's [Trustee](xref:accessControl) can
             only be updated through their own routes.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
@@ -213,7 +213,7 @@ The new details to store for the `Namespace`.
 
 A `Namespace` can only be updated if the current principal has Write access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -228,7 +228,7 @@ A `Namespace` can only be updated if the current principal has Write access.
 
 Deletes a `Namespace` in the specified `Tenant`.
 
-### Http
+### Request
 
 `DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}`
 
@@ -255,7 +255,7 @@ The identifier of the `Namespace` to delete.
 
 A `Namespace` can only be deleted if the current principal has Delete access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -271,7 +271,7 @@ A `Namespace` can only be deleted if the current principal has Delete access.
 
 Returns the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
@@ -298,7 +298,7 @@ The identifier of the `Namespace` to access.
 
 An [AccessControlList](xref:accessControl) can only be retrieved if the current principal has Read access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -313,7 +313,7 @@ An [AccessControlList](xref:accessControl) can only be retrieved if the current 
 
 Updates the [AccessControlList](xref:accessControl) that is used to authorize access to a `Namespace`.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol`
 
@@ -347,7 +347,7 @@ The updated [AccessControlList](xref:accessControl) for the `Namespace`.
 
 An [AccessControlList](xref:accessControl) can only be updated if the current principal has ManageAccessControl access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -364,7 +364,7 @@ An [AccessControlList](xref:accessControl) can only be updated if the current pr
 
 Returns the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
@@ -391,7 +391,7 @@ The identifier of the `Namespace` to access.
 
 An Owner's [Trustee](xref:accessControl) can only be retrieved if the current principal has Read access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -406,7 +406,7 @@ An Owner's [Trustee](xref:accessControl) can only be retrieved if the current pr
 
 Changes the Owner's [Trustee](xref:accessControl) for a given `Namespace`.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner`
 
@@ -440,7 +440,7 @@ The new Owner's [Trustee](xref:accessControl) of the `Namespace`.
 
 An Owner's [Trustee](xref:accessControl) can only be changed if the current principal has ManageAccessControl access.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |

@@ -45,7 +45,7 @@ For HTTP requests and responses, the Tenant object has the following properties 
 
 Retrieves a specific `Tenant` by ID.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}`
 
@@ -64,7 +64,7 @@ The identifier of the `Tenant` to retrieve.
 
 Authorized for Tenant Members of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -79,7 +79,7 @@ Authorized for Tenant Members of the specified `Tenant`.
 
 Checks if a `Tenant` with a specific ID exists.
 
-### Http
+### Request
 
 `HEAD api/v1/Tenants/{tenantId}`
 
@@ -98,7 +98,7 @@ The identifier of the `Tenant` for this request.
 
 Authorized for Tenant Members of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -113,7 +113,7 @@ Authorized for Tenant Members of the specified `Tenant`.
 
 Updates a specified `Tenant` object.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}`
 
@@ -139,7 +139,7 @@ The updated details of the `Tenant`.
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -155,7 +155,7 @@ Authorized for Tenant Administrators of the specified `Tenant`.
 
 Returns an icon specified by its `Tenant` ID.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Icon`
 
@@ -174,7 +174,7 @@ The identifier of the `Tenant` for this request.
 
 Authorized for Tenant Members of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -189,7 +189,7 @@ Authorized for Tenant Members of the specified `Tenant`.
 
 Creates or updates the icon for a `Tenant`. Note that the icon size must be less than 65536 bytes.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Icon`
 
@@ -215,7 +215,7 @@ The Base64 encoded PNG icon for the `Tenant`.
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -231,7 +231,7 @@ Authorized for Tenant Administrators of the specified `Tenant`.
 
 Deletes the icon for a `Tenant`.
 
-### Http
+### Request
 
 `DELETE api/v1/Tenants/{tenantId}/Icon`
 
@@ -250,7 +250,7 @@ The `Tenant` identifier for this request.
 
 Authorized for Tenant Administrators of the specified `Tenant`.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |

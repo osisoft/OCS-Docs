@@ -32,7 +32,7 @@ For HTTP requests and responses, the UserRole object has the following propertie
 
 Retrieves all `Roles` for the specified user.
 
-### Http
+### Request
 
 `GET api/v1/Tenants/{tenantId}/Users/{userId}/Roles`
 
@@ -83,7 +83,7 @@ Unsupported parameter.
 
 Authorized for Tenant Administrators of the specified tenant and a Tenant Member's own `Roles` within the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -99,7 +99,7 @@ Authorized for Tenant Administrators of the specified tenant and a Tenant Member
 
 Replaces the `Roles` of a user with a new list of roles.
 
-### Http
+### Request
 
 `PUT api/v1/Tenants/{tenantId}/Users/{userId}/Roles`
 
@@ -133,7 +133,7 @@ A list of `Role` objects to set as the roles for the specified user.
 
 Authorized for Tenant Administrators of the specified tenant.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |

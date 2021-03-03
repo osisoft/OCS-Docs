@@ -12,7 +12,7 @@ API's for reading entries posted on the Service Blog.
 
 Returns blog entries ordered by time posted.
 
-### Http
+### Request
 
 `GET api/v1/ServiceBlog/Entries`
 
@@ -39,7 +39,7 @@ Number of blogs to count after skip for paging purposes.
 
 Any identity, including anonymous, can retrieve service blog entries.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |
@@ -52,7 +52,7 @@ Any identity, including anonymous, can retrieve service blog entries.
 
 Returns a blog entry specified by ID.
 
-### Http
+### Request
 
 `GET api/v1/ServiceBlog/Entries/{id}`
 
@@ -71,7 +71,7 @@ Identifier of the blog entry to retrieve.
 
 Any identity, including anonymous, can retrieve service blog entries.
 
-### Returns
+### Response
 
 | Status Code | Return Type | Description |
 | --- | --- | ---  |

@@ -46,7 +46,7 @@ Unique Id for the tenant
 `namespaceId`  
 Unique Id for the namespace
 
-### Returns
+### Response
 An array of subscription objects. 
 
 ## `Get Subscription`
@@ -64,7 +64,7 @@ Unique Id for the namespace
 `subscriptionId`  
 Unique Id for the Subscription. 
 
-### Returns
+### Response
 A subscription object 
 
 ## `Get Subscriptions Access Control List`
@@ -80,7 +80,7 @@ Unique Id for the tenant
 `namespaceId`  
 Unique Id for the namespace
 
-### Returns
+### Response
 An AccessControlList object.
 
 ## `Get Subscriptions Access Rights`
@@ -96,7 +96,7 @@ Unique Id for the tenant
 `namespaceId`  
 Unique Id for the namespace. 
 
-### Returns
+### Response
 An array of Access Rights strings.
 
 ## Get Subscription Access Control List`
@@ -114,7 +114,7 @@ Unique Id for the namespace.
 `subscriptionId`  
 Unique Id for the Subscription. 
 
-### Returns
+### Response
 An AccessControlList object.
 
 ## `Get Subscription Access Rights`
@@ -132,7 +132,7 @@ Unique Id for the namespace.
 `subscriptionId`  
 Unique Id for the Subscription. 
 
-### Returns
+### Response
 An array of Access Rights strings.
 
 ## `Get Subscription Owner`
@@ -150,7 +150,7 @@ Unique Id for the namespace.
 `subscriptionId`  
 Unique Id for the Subscription. 
 
-### Returns
+### Response
 A trustee object.
 
 ## `Create Subscription`
@@ -169,7 +169,7 @@ Unique Id for the namespace.
 ### Body
 A Subscription object. The ``Id`` property should not be specified, since it will be automatically generated during creation.
 
-### Returns
+### Response
 The subscription object that was created. 
 
 ## `Update subscription`
@@ -190,7 +190,7 @@ Subscription Id for the Subscription to be updated.
 ### Body
 A subscription object. The ``Id`` property should match the ``subscriptionId`` in the route.
 
-### Returns
+### Response
 The subscription object that was updated. 
 
 ## `Update Subscriptions Access Control List`
