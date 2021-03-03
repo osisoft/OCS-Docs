@@ -31,4 +31,4 @@ The following process lists the high-level steps that are needed to share data. 
 3. [Add users](xref:managecommunityusers#add-users-to-a-community) to the community.
 4. [Add clients](xref:managecommunityclients#add-clients-to-a-community) for programmatic access to the community.
 5. Share data --- TBD
-6. Use the search capability --- TBD - another test
+6. Use the search capability --- TBD 
