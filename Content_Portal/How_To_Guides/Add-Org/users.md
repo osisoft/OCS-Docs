@@ -8,17 +8,17 @@ A user account is how users log in to the [OCS Portal](https://cloud.osisoft.com
 
 You must have the **Account Administrator** role to add and manage users in a tenant.
 
-## PI Core Counterpart
+## PI Core counterpart
 
 An OCS user is comparable to a mapping in the PI Data Archive. For example, in the PI Data Archive a mapping may be added from a Windows Account to a specified PI Identity. The user then uses their Windows credentials to authenticate against the PI Data Archive and gets the permissions specified by the PI Identity. In OCS, a user uses Azure AD, Microsoft Accounts, or Google credentials to authenticate against OCS and gets the permissions specified by their set of roles.
 
-## User Best Practices
+## User best practices
 
 1. Ensure the **Contact Email** field is correct before adding new users. The OCS invitation is sent to this address, so if it is incorrect a user may not receive an invitation or an incorrect recipient may receive an invitation, and thus access, to your OCS tenant.
 
 1. Before inviting users to OCS, ensure that they will be granted the correct permissions via their roles. In particular, consider the access granted to the Account Member role, which includes read access to everything in the tenant by default. If a user should not have read access to some resources, the Account Member role can be limited.
 
-## Inviting a User
+## Inviting a user
 
 Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 

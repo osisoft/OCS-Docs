@@ -18,11 +18,11 @@ For any resource in OCS, permissions are granted or denied to specific roles, ra
 
 You must have the **Account Administrator** role to add and manage roles in a tenant.
 
-## PI Core Counterpart
+## PI Core counterpart
 
 Roles in OCS are comparable to PI Identities in the PI Data Archive, or Identities in the PI AF Server. Throughout OCS, permissions are granted to Roles instead of directly to individual users or clients, in much the same way that Identities in PI Core are used to assign permissions for a set of users or clients.
 
-## Roles Best Practices
+## Roles best practices
 
 1. Consider whether the read access granted by the Account Member role is acceptable for all users and clients in your tenant. If you plan to invite users from outside your organization, it may be important to limit the read access granted by the Account Member role.
 
@@ -32,7 +32,7 @@ Roles in OCS are comparable to PI Identities in the PI Data Archive, or Identiti
 
 1. Use caution when denying permissions, as denying supersedes any allowed access to a role. In other words, if a user is allowed access via one role and denied access via another role, the user will not have access. For this reason, it is not allowed to deny permissions to the **Account Member** role, as this would deny the given permission to every user in the tenant.
 
-## Creating a Role
+## Creating a role
 
 Find the Roles page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/roles).
 
