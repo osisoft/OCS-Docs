@@ -14,7 +14,7 @@ There are five built-in roles, which cannot be removed from a tenant.
 
 In addition, you can create custom roles which are not granted any specific permissions, by default. Access to OCS resources depends on explicitly allowing or denying access to a role. Therefore, simply assigning a custom role to a user or client does not determine access. This is defined when a role is explicitly allowed or denied access to OCS resources.
 
-For any resource in OCS, permissions are granted or denied to specific roles, rather than specific users or clients. These permissions are managed using the **Manage Permissions** dialog for the given resource. Role access to a resource an include **Read**, **Write**, **Delete**, and **Manage Permissions**. Each access type can be set to **Allow** or **Deny** for each individual role.
+For any resource in OCS, permissions are allowed or denied for specific roles, rather than to specific users or clients. These permissions are managed using the **Manage Permissions** dialog for the given resource. Each role can be allowed or denied access to one or more of the following access types:  **Read**, **Write**, **Delete**, and **Manage Permissions**. 
 
 You must have the **Account Administrator** role to add and manage roles in a tenant.
 
