@@ -20,7 +20,7 @@ You must have the **Account Administrator** role to add and manage roles in a te
 
 ## PI Core counterpart
 
-Roles in OCS are comparable to PI Identities in the PI Data Archive, or Identities in the PI AF Server. Throughout OCS, permissions are granted to Roles instead of directly to individual users or clients, in much the same way that Identities in PI Core are used to assign permissions for a set of users or clients.
+Roles in OCS are comparable to PI identities in PI Data Archive or identities in PI AF server. Throughout OCS, permissions are granted to roles instead of directly to individual users or clients. This is similar to how identities in PI Core are used to assign permissions for a set of users or clients.
 
 ## Roles best practices
 
