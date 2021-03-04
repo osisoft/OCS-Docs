@@ -8,7 +8,7 @@ There are five built-in roles, which cannot be removed from a tenant.
 
 - **Account Administrator** - OCS Administrator of OCS who is granted full permissions throughout OCS, by default.
 - **Account Contributor** - Granted read and write permissions throughout OCS, by default.
-- **Account Data Steward** - Not granted any specific permissions by default.
+- **Account Data Steward** - No specific permissions are granted to this role, by default.
 - **Account Viewer** - No specific permissions are granted to this role, by default.
 - **Account Member** - This role is assigned to all users or client in OCS.  Account members are granted read access throughout OCS, by default.
 
