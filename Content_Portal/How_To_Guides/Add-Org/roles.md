@@ -30,7 +30,7 @@ Roles in OCS are comparable to PI identities in PI Data Archive or identities in
 
 1. If users from other organizations will be given a user account to log in to your tenant, consider creating a role for their specific organization so that their permissions can be managed explicitly.
 
-1. Use caution when denying permissions, as denying supersedes any allowed access to a role. In other words, if a user is allowed access via one role and denied access via another role, the user will not have access. For this reason, it is not allowed to deny permissions to the **Account Member** role, as this would deny the given permission to every user in the tenant.
+1. Use caution when denying permissions because this supersedes any allowed access to a role. For example, if a user is allowed write access through one role but is denied write access through another role, the user will not have write access. Because all users and clients are assigned the Account Member role, you cannot deny permissions to the **Account Member** role. Doing so would deny the given permission to every user in the tenant.
 
 ## Creating a role
 
