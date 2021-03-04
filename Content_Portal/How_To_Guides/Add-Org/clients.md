@@ -84,7 +84,7 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 ## Hybrid clients
 
-Hybrid clients are used by native and server-side web applications where you authenticate using any browser, and an access token is retrieved using the server-side code. A refresh token can also be provided.
+Hybrid clients are used by native and server-side web applications. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided.
 
 ### Hybrid PI Core counterpart
 
