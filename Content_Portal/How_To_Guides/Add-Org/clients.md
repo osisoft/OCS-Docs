@@ -58,7 +58,7 @@ Authorization Code clients have no direct equivalent, but are similar to a combi
 
 ### Authorization code best practices
 
-1. Use Authorization Code clients in web applications or services where users need to authenticate and it is not possible to store a client secret securely.
+1. Use authorization code clients in web applications or with services where users must be authenticated, and it is not possible to store a client secret securely.
 
 1. Because refresh tokens are not generated in this flow, web applications should use an iframe to request a new token before the existing token expires. Otherwise, the user will have to explicitly log in again to get a new token once their token expires.
 
