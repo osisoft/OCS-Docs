@@ -26,7 +26,8 @@ Roles in OCS are comparable to PI identities in PI Data Archive or identities in
 
 1. Consider whether the read access granted by the Account Member role is acceptable for all users and clients in your tenant. If you plan to invite users from outside your organization, it may be important to limit the read access granted by the Account Member role.
 
-1. Use caution when granting the Account Administrator role, ideally using a different role for users and clients that should not be able to manage permissions. Clients should not generally be granted the Account Administrator role.
+1. Use caution when granting the Account Administrator role.  OSIsoft recommends that you assign a different role to users and clients who should not manage permissions. OSIsoft recommends that you avoid assigning the Account Administrator role to client-credentials clients. 
+1. Ensure that the roles assigned to client-credentials clients only grant the minimum set of permissions required by the application that uses these clients. This minimizes the potential damage in the event a client secret is compromised or a problem arises with the application.
 
 1. If users from other organizations will be given a user account to log in to your tenant, consider creating a role for their specific organization so that their permissions can be managed explicitly.
 
