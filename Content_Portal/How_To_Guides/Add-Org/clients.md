@@ -48,7 +48,7 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 ## Authorization code clients
 
-Authorization Code Clients are used for customer web applications that use OCS as their backend. They provide a secure means of authenticating users of the website to view OCS assets. Creating an Authorization Code Client results in the generation of a Client ID, which must be specified in the web application using the client to authenticate users.
+Authorization code clients are used with customer web applications that use OCS as their backend. They provide a secure means of authenticating users of the website to view OCS assets. The authorization code client is paired with a client ID. The web application that is using the client to authenticate users must include the client ID in its code.
 
 Authorization code clients are used to authenticate using any browser, and an authorization code is provided to the client upon successful authentication. The authorization code is exchanged for an access token using PKCE (Proof Code for Code Exchange), which is a more secure authentication flow. No refresh token is provided.
 
