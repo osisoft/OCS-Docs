@@ -6,7 +6,7 @@ Roles are used to manage access to assets, resources, and services in OSIsoft Cl
 
 There are five built-in roles, which cannot be removed from a tenant.
 
-- **Account Administrator** - Represents the Administrator of OCS, and granted full permissions throughout OCS by default.
+- **Account Administrator** - OCS Administrator of OCS who is granted full permissions throughout OCS, by default.
 - **Account Contributor** - Granted read and write permissions throughout OCS by default.
 - **Account Data Steward** - Not granted any specific permissions by default.
 - **Account Viewer** - Not granted any specific permissions by default.
