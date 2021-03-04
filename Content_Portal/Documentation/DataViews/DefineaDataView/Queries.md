@@ -10,7 +10,7 @@ Queries determine what data items are included in a data view.
 
 Each `Query` must be uniquely identified with an `.Id`. The identifier should be meaningful. The query's results will be referenced by this identifier when you include fields in the data view.
 
-The query text is the same as the corresponding data item's query syntax. For example, queries of kind Stream use [stream query syntax](xref:sdsSearching) and queries of kind Asset use [asset query strings](xref:AssetsSearchAPI#example-asset-query-strings).
+The query text is the same as the corresponding data item's query syntax. For example, queries of kind Stream use [stream query syntax](xref:sdsSearching) and queries of kind Asset use [asset query strings](xref:AssetsSearchAPI#examples-of-asset-query-strings).
 
 |Property| Type | Optionality  | Default  | Details |
 |--|--|--|--|--|

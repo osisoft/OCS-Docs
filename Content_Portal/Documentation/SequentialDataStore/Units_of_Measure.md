@@ -4,7 +4,7 @@ uid: unitsOfMeasure
 
 # Units of measure
 
-The Sequential Data Store (SDS) provides a collection of built-in units of measure (UOM). These units of measure can be [associated](#associating-a-unit-of-measure-with-a-sdstype) with streams and types in order to provide unit information for stream data that model measurable quantities. If data has unit information associated with it, SDS is able to support unit conversions when retrieving data. See [Reading data](xref:sdsReadingData) for more information.
+The Sequential Data Store (SDS) provides a collection of built-in units of measure (UOM). These units of measure can be [associated](#associating-a-unit-of-measure-with-a-type) with streams and types in order to provide unit information for stream data that model measurable quantities. If data has unit information associated with it, SDS is able to support unit conversions when retrieving data. See [Reading data](xref:sdsReadingData) for more information.
 
 Since a unit of measure (meter, for example) defines the magnitude of a quantity (for example, length), SDS represents this by way of two objects: SdsUom and SdsUomQuantity. 
 
@@ -38,6 +38,7 @@ The following table shows the required and optional SdsUomQuantity fields.
 | Dimensions | short[] | Optional    | Reserved for internal use. Represents the seven base SI dimensions: Length, Mass, Time, Electric Current, Thermodynamic Temperature, Amount of Substance, and Luminous Density. | [1,0,-1,0,0,0,0] |
 
 ## Supported system-defined unit quantities
+
 A list of the supported quantities and their base unit of measures is below. Supported quantities are read-only.
 
 | Quantity Id                                 | Base Uom Id               |
@@ -78,6 +79,7 @@ A list of the supported quantities and their base unit of measures is below. Sup
 | Volume Flow Rate                            | cubic meter per second    |
 
 ## Supported system-defined units of measure
+
 A list of the supported units of measure is below. Supported units of measure are read-only.
 
 | Uom Id                                           | Abbreviation | Quantity Id                                 | Conversion Factor | Conversion Offset |
