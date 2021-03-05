@@ -12,6 +12,6 @@ Typically, developers use the SDS as part of their customized applications. The 
 
 For each namespace, OCS creates an instance of the SDS with its own dedicated services and data storage. Services and storage must be scoped to a particular region such as WestUS or West Europe. For regulatory reasons, services and storage cannot span regions.
 
-Using _types_, you can shape the data stored in the SDS. Types allow you to define what data is stored and make that data extensible. See [What are types?](xref:WhatAreTypes) to learn more.
+Using _types_, you can shape the data stored in the SDS. Types allow you to define what data is stored and to make that data extensible. See [What are types?](xref:WhatAreTypes) to learn more.
 
-For each type, you can store a _stream_, which is a series of events, where each event is an instance of the type. You can create and write data to streams using a REST API. See <streams> to learn more.
+For each type, you can store a _stream_, which is a series of events with each event being an instance of the type. You can create and write data to streams using a REST API. See <link to streams> to learn more.
