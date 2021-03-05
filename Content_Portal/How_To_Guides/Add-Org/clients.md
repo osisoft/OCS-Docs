@@ -74,7 +74,7 @@ Authorization code clients have no direct PI Core equivalent, but they are simil
 
 Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 
-1. From the **Client Type:** dropdown, select **Authorization Code**.
+1. From the **Client Type:** dropdown list, select **Authorization Code**.
 
 1. In the toolbar, click **Add Client**.
 
