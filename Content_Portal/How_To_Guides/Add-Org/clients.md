@@ -96,7 +96,7 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
 
 1. Use caution when deciding whether to allow refresh tokens for your hybrid client. Where possible, it is a more secure practice to use an iframe to request a new token before the old token expires rather than use a refresh token.
 
-### Creating a hybrid vlient
+### Creating a hybrid client
 
 Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
 
