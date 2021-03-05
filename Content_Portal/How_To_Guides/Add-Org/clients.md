@@ -111,7 +111,9 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 1. In the toolbar, click **Add Client**.
 
-1. Enter a **Name** for the client to indicate what application it will be used by.
+1. Enter a **Name** for the client. 
+    Use this name to identify the application that will use this client.
+
 
 1. Optionally, check the box **Allow Refresh Token** if the application will use refresh tokens to keep users logged in to OCS.
 
