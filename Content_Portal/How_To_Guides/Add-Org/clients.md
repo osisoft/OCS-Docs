@@ -86,7 +86,8 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 1. (Optional) Enter URLs in the **Allowed CORS Origin(s)** text box. 
     This can be used to designate other URL(s) from which the application is allowed to make requests against OCS. For example, this may be necessary if the user authenticates from an application running at `https://authenticate.com`, but the result of the authentication is sent to an application running at `https://application.com`.
 
-1. Optionally, set the **Token Lifetime**. This represents how long the access token will function before it expires. The default (and maximum) value is 3600 seconds (one hour). The minimum value is 60 seconds (one minute).
+1. (Optional) Set the **Token Lifetime**. 
+    Token Lifetime represents the length of time (in seconds) the access token is valid before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
 
 1. Click **Save**. Note the **Client Id** from the list, which must be specified when the application makes an authentication request. The client is now ready to use.
 
