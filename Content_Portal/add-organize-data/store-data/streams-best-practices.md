@@ -19,7 +19,7 @@ OSIsoft recommends the following are best practices when creating streams:
    - Use the description field for longer descriptions of the stream and what it represents.
 
 ## Reading data from streams
-Introductory content to be added here
+<!-- exact content TBD. When you read data from streams in SDS-->
 
 ### Max. limit for events in egress calls 
 
@@ -42,16 +42,12 @@ This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [
 } 
 ```
 
-If the read data API needs to hold events larger than 2GB in memory size, a ``500 - Internal server error`` will be returned. 
-
- 
-
 ### Increase the Request-Timeout in header 
 
 Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
 The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
 It is possible that these large range requests will take up to 5 minutes.
-The large range of values when held in memory are between 1 GB and 2GB hence need enough time to read and return the data.  
+The large range of values that are held in memory are between 1 GB and 2GB so the system needs enough time to read and return the data.  
 
 If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 300,000 milliseconds (= 300 seconds = 5 minutes), do one of the following: 
 
