@@ -46,13 +46,13 @@ This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [
 
 Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
 The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
-It is possible that these large range requests will take up to 5 minutes.
+
 The large range of values that are held in memory are between 1 GB and 2GB so the system needs enough time to read and return the data.  
 
-If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 300,000 milliseconds (= 300 seconds = 5 minutes), do one of the following: 
+If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 5 minutes, do one of the following: 
 
 - Reduce the range in the request calls of this type 
-- Hold off on sending these requests and contact OSIsoft technical support
+- Retry with an exponential back-off policy
 
  
 
