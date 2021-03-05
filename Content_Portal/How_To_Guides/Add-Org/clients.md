@@ -105,7 +105,7 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
 
 ### Creating a hybrid client
 
-Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
+1. Click the menu icon and click **Users** (under Security).
 
 1. From the **Client Type:** dropdown list, select **Hybrid**.
 
