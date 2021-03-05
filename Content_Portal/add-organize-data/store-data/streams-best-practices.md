@@ -47,7 +47,7 @@ This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [
 Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
 The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
 
-The large range of values that are held in memory are between 1 GB and 2GB so the system needs enough time to read and return the data.  
+The range of values that are held in memory can be large and be anywhere between 1 GB and 2GB, so the system needs enough time to read and return the data.
 
 If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 5 minutes, do one of the following: 
 
