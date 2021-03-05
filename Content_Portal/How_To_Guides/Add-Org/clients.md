@@ -45,7 +45,10 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 1. Ensure that the expiration date is valid for the secret. By default, the secret expires after one year. It is also possible to specify that the secret **Never Expires**. Note that even in this case the secret can be manually deleted from the client later.
 
-1. Click **Add**. You will be prompted with a dialog listing the **Client Id** and **Client Secret**. **IMPORTANT**: The **Client Secret** will no longer be accessible once you close the dialog. Use the **Copy** buttons to the right of these fields to save the values.
+1. Click **Add**. 
+    A window opens with the **Client Id** and **Client Secret**. 
+    **IMPORTANT**: 
+    Use the **Copy** buttons to the right of these fields to save the client secret and client Id. You will need to reference these in your applications. Once the window is closed, the **Client Secret** cannot be accessed or retrieved. 
 
 1. Click **Close**. Note that **Client Id** is still visible, and if you forgot to save the **Client Secret**, you can select the client from the list and use the **Details** tab to remove the old secret and add a new secret.
 
