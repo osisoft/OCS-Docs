@@ -24,7 +24,7 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 ### Creating a client-credentials client
 
-Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
+1. Click the menu icon and click **Users** (under Security).
 
 1. From the **Client Type:** dropdown, select **Client-Credentials**. (This is also the default selected option)
 
