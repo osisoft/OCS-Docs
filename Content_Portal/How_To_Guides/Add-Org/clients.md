@@ -93,7 +93,7 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
 
 ### Hybrid best practices
 
-1. Use Hybrid clients in web applications or services where users can use a browser to authenticate against OCS, but a secure backend that can store a secret is used to perform the actual authentication process.
+1. Use hybrid clients in web applications or services where users authenticate against OCS through a web browser, but a secure backend that stores the secrets performs the actual authentication.
 
 1. Use caution when deciding whether to allow refresh tokens for your hybrid client. Where possible, it is a more secure practice to use an iframe to request a new token before the old token expires rather than use a refresh token.
 
