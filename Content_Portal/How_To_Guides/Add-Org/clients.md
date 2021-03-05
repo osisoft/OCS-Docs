@@ -36,7 +36,8 @@ Client-credentials clients are very similar to Windows service accounts that mig
 1. Select the roles that are appropriate for the client. 
     By default, the client has the Account Member role which cannot be removed. Roles can be modified after the client is created.
 
-1. Optionally, set the **Token Lifetime**. This represents how long the access token will function before it expires. The default (and maximum) value is 3600 seconds (one hour). The minimum value is 60 seconds (one minute).
+1. (Optional) Set the **Token Lifetime**. 
+    Token Lifetime represents the length of time (in seconds) the access token functions before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
 
 1. Click **Continue**.
 
