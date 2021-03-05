@@ -30,7 +30,8 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 1. In the toolbar, click **Add Client**.
 
-1. Enter a **Name** for the client to indicate what device or application it will be used by.
+1. Enter a **Name** for the client. 
+    Use this name to identify the device or application that will use this client.
 
 1. Enable the appropriate roles for the client. By default the client will have the Account Member role, which cannot be removed. Roles can still be modified after the client is created.
 
