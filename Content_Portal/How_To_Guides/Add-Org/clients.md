@@ -129,4 +129,5 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
 1. (Optional) Set the **Token Lifetime**. 
     Token Lifetime represents the length of time (in seconds) the access token is valid before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
 
-1. Click **Save**. Note the **Client Id** from the list, which must be specified when the application makes an authentication request. The client is now ready to use.
+1. Click **Add**.
+    The Client Successfully Created window displays the Client Id for the client.  The application must specify this Client Id when it makes an authentication request. You can copy the Client ID by clicking on the Copy icon, or after you close this window, you can also retrieve the **Client Id** from the list of clients.
