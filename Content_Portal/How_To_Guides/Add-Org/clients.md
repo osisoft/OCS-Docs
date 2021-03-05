@@ -120,7 +120,7 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
     Use this name to identify the application that will use this client.
 
 
-1. Optionally, check the box **Allow Refresh Token** if the application will use refresh tokens to keep users logged in to OCS.
+1. (Optional) Select the **Allow Refresh Token** check box if the application uses refresh tokens to keep users logged in to OCS.
 
 1. Enter the **Allowed Redirect URL(s)** for the application. This will be specified by the application when authenticating against OCS, and the OCS identity server will direct back to this URL after successful authentication.
 
