@@ -71,7 +71,8 @@ Find the Clients page in the OSIsoft Cloud Services portal [here](https://cloud.
 
 1. In the toolbar, click **Add Client**.
 
-1. Enter a **Name** for the client to indicate what application it will be used by.
+1. Enter a **Name** for the client. 
+    Use this name to identify the device or application that will use this client.
 
 1. Enter the **Allowed Redirect URL(s)** for the application. This will be specified by the application when authenticating against OCS, and the OCS identity server will direct back to this URL after successful authentication.
 
