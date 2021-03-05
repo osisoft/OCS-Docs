@@ -43,7 +43,8 @@ Client-credentials clients are very similar to Windows service accounts that mig
 
 1. In the Add Secret window, enter a **Description** for the client secret. 
 
-1. Ensure that the expiration date is valid for the secret. By default, the secret expires after one year. It is also possible to specify that the secret **Never Expires**. Note that even in this case the secret can be manually deleted from the client later.
+1. Enter a date that the secret expires.
+    Ensure that the expiration date is valid for the secret. By default, the secret is set to expire one year after creation. You may specify that the secret does not expire by selecting the **Never Expires** checkbox. Secrets can be deleted later, including secrets that are set to never expire.
 
 1. Click **Add**. 
     A window opens with the **Client Id** and **Client Secret**. 
