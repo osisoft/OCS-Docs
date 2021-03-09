@@ -48,14 +48,17 @@ Offers access to documentation, logs, support links, an OCS blog, and other usef
 
 ## Feature pages
 
-Clicking one of the menu items in the list of OCS features takes you to a page for that feature. Most pages consist of two panes:
+Clicking one of the menu items in the list of OCS features takes you to a page for that feature.
+
+![Feature details](../images/feature-details.png "Feature details")
+
+Most pages consist of two panes:
 
 - The left pane is where you perform the tasks associated with the OCS resource. For example, the left pane is where you add and edit the OCS resource or manage the permissions for the OCS resource.
 - The right pane has one or more tabs:   
-
-o	The Details tab contains additional information about your resource.
-o	The Information tab provides documentation on how to perform tasks on the page.
-o   Some resources have additional panes for other configuration tasks. 
+  - The Details tab on the right pane contains additional information about the selected resource.
+  -  The Information tab on the right pane provides documentation on how to perform tasks on the current page.
+  - Some resources have additional panes for other configuration tasks. 
 
 ## Notifications
 
