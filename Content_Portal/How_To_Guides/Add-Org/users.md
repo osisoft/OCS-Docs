@@ -26,7 +26,8 @@ Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.os
 
 1. If you have multiple identity providers enabled in your tenant, you will be prompted to select an identity provider first. If so, choose the appropriate identity provider for the user you are adding. Once you select an option, you can still switch to a different option.
 
-1. Enter a **First Name** and **Last Name** for the user. This can be changed later, but will appear in the user's invitation email.
+1. Enter a **First Name** and **Last Name** for the user. 
+    This can be changed later, but will appear in the user's invitation email.
 
 1. Enter the **Contact Email**.  The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
 
