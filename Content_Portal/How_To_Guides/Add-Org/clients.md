@@ -73,7 +73,7 @@ Authorization code clients have no direct PI Core equivalent, but they are simil
 ### Creating an authorization code client
 
 
-1. From the **Client Type:** dropdown list, select **Authorization Code**.
+1. From the **Client Type** dropdown list, select **Authorization Code**.
 
 1. In the toolbar, click **Add Client**.
 
