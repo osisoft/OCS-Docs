@@ -19,9 +19,9 @@ OSIsoft recommends the following are best practices when creating streams:
    - Use the description field for longer descriptions of the stream and what it represents.
 
 ## Reading data from streams
-<!-- exact content TBD. When you read data from streams in SDS-->
+While SDS is a robust data storage, it performs best if you follow certain guidelines: 
 
-### Max. limit for events in egress calls 
+### Maximum limit for events in read data calls 
 
 OSIsoft limits read data API to retrieve less than 250,000 events per request.
 OCS returns an error message when the maximum limit is reached.  
@@ -42,7 +42,7 @@ This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [
 } 
 ```
 
-### Increase the Request-Timeout in header 
+### Increase the Request-Timeout in the header 
 
 Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
 The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
