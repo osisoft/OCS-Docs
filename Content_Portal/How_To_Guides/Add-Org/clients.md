@@ -49,7 +49,7 @@ Client-credentials clients are very similar to Microsoft Windows service account
 1. Click **Add**. 
     A window opens with the **Client Id** and **Client Secret**. 
     **IMPORTANT**: 
-    Use the **Copy** buttons to the right of these fields to save the client secret and client Id. You will need to reference these in your applications. Once the window is closed, the **Client Secret** cannot be accessed or retrieved. 
+    Use the **Copy** buttons to the right of these fields to save the client secret and client ID. You will need to reference these in your applications. Once the window is closed, the **Client Secret** cannot be accessed or retrieved. 
 
 1. Click **Close**. 
     Note: In the list of secrets, the **Client Id** is still visible. If you did not save the **Client Secret**, select the client in the list and use the **Details** pane to remove the old secret and add a new secret.
