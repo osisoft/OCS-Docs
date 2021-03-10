@@ -16,35 +16,19 @@ The navigation icon at top left opens a menu from which you display different OC
 
 ![Menu icon](../images/menu-icon.png "Menu icon")
 
-Clicking the navigation icon lists the following features:
+Clicking the navigation icon lists the OCS features.
 
-> Data Management
+![Feature menu](../images/feature-menu.png "Feature menu")
 
-Provides tools for setting up basic capabilities of OCS, including tenants, connections to PI Systems, the Sequential Data Store (SDS), and metadata rules for data streams
+Here is a short summary of each OCS feature:
 
-> Data Collection
-
-Provides mechanisms to bring data from multiple sources and systems into a namespace within OCS
-
-> Visualization
-
-Allows you to view data trends and use assets to set up digital twins of real world physical entities
-
-> Analytics
-
-Provides tools for shaping and querying large datasets
-
-> Security
-
-Allows you to specify identity providers for authentication and add users, roles, and clients to your tenant
-
-> Developer Tools
-
-Provides code samples, an API console, and an editor for the OSIsoft Message Format (OMF)
-
-> Support
-
-Offers access to documentation, logs, support links, an OCS blog, and other useful information
+- **Data Management**: Provides tools for setting up basic capabilities of OCS, including tenants, connections to PI Systems, the Sequential Data Store (SDS), and metadata rules for data streams.
+- **Data Collection**: Provides mechanisms to bring data from multiple sources and systems into a namespace within OCS.
+- **Visualization**: Allows you to view data trends and use assets to set up digital twins of real-world physical entities.
+- **Analytics**: Provides tools for shaping and querying large datasets.
+- **Security**: Allows you to specify identity providers for authentication and add users, roles, and clients to your tenant.
+- **Developer Tools**: Provides code samples, an API console, and an editor for the OSIsoft Message Format (OMF).
+- **Support**: Provides access to documentation, logs, support links, an OCS blog, and other useful information.
 
 ## Feature pages
 
@@ -68,12 +52,12 @@ At top right, the View Notifications icon lists any OCS-generated notifications.
 
 ## User and tenant information
 
-Also at top right, a drop-down menu gives you access to information specific to your own user and tenant. This menu provides:
+At top right, a drop-down menu gives you access to information about your user profile and tenant. This menu provides:
 
 - Tenant information
 - Resource usage data
 - User profile information and roles assigned to your user
 
-The menu also lets you enter feedback about OCS.
+The menu also provides a link to a page where you can give feedback about OCS.
 
 ![User and tenant information](../images/user-and-tenant.png "User and tenant information")
