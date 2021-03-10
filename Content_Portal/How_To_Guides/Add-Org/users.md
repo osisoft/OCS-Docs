@@ -30,7 +30,7 @@ Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.os
 
 1. Enter the **Contact Email**, which is where the user will receive their invitation to your OCS tenant. Ensure that this is correct so that the invitation is not sent to an unintended recipient.
 
-1. Optionally, enable additional roles for the user. By default the user will have the Account Member role, which cannot be removed. Roles can still be modified after the user is invited.
+1. (Optional) Enable additional roles for the user. By default, the user is assigned the Account Member role which cannot be removed. Roles can be modified after the user is invited.
 
 1. Once the information has been entered, click **Invite**. OCS sends the invitation to the email address specified in the **Contact Email** field. The **Status** column lists the new user as **Pending** until the invitation is accepted. If the invitation expires, the status changes to **Expired**. Once expired, the invitation can be resent.
 
