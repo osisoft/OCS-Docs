@@ -80,7 +80,8 @@ Authorization code clients have no direct PI Core equivalent, but they are simil
 1. Enter a **Name** for the client. 
     Use this name to identify the device or application that will use this client.
 
-1. Enter the **Allowed Redirect URL(s)** for the application. This will be specified by the application when authenticating against OCS, and the OCS identity server will direct back to this URL after successful authentication.
+1. Enter the URLs in the **Allowed Redirect URL(s)** text box.
+    The application will specify one of the URLs in this list when it authenticates against OCS, and the OCS identity server will return the results of the authentication to this URL.
 
 1. (Optional) Enter **Allowed Logout Redirect URL(s)**. Similar to normal redirect URL(s), this is specified by the application when logging out of OCS, and the OCS identity server will direct back to this URL after successfully logging out.
 
