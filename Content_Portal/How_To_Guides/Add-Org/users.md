@@ -27,7 +27,6 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in P
 1. If multiple identity providers are enabled in your tenant, you are prompted to select an identity provider. Choose the appropriate identity provider for the user you are adding. After you select an option, you can later switch to a different option.
 
 1. Enter a **First Name** and **Last Name** for the user.  
-   This can be changed later, but will appear in the user's invitation email.
 
 1. Enter the **Contact Email**. The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
 
