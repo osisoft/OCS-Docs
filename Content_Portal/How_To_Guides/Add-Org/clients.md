@@ -26,7 +26,7 @@ Client-credentials clients are very similar to Microsoft Windows service account
 
 1. Click the menu icon and click **Users** (under Security).
 
-1. From the **Client Type:** dropdown list, select **Client-Credentials**. (This is the option that is displayed, by default.)
+1. From the **Client Type** dropdown list, select **Client-Credentials**. (This is the option that is displayed, by default.)
 
 1. In the toolbar, click **Add Client**.
 
