@@ -20,7 +20,7 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in t
 
 ## Inviting a user
 
-Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/users).
+1. Click the menu icon and click **Users** (under Security).
 
 1. In the toolbar, click **Add User**.
 
