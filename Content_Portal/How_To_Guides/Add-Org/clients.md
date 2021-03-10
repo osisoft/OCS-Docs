@@ -91,7 +91,7 @@ Authorization code clients have no direct PI Core equivalent, but they are simil
     Token Lifetime represents the length of time (in seconds) the access token is valid before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
 
 1. Click **Add**.
-    The Client Successfully Created window displays the Client Id for the client.  The application must specify this Client Id when it makes an authentication request. After you close this window, you can also retrieve the **Client Id** from the list of clients.
+    The Client Successfully Created window displays the Client ID for the client.  The application must specify this Client ID when it makes an authentication request. After you close this window, you can also retrieve the **Client Id** from the list of clients.
 
 ## Hybrid clients
 
