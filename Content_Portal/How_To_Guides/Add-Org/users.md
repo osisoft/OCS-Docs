@@ -16,7 +16,7 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in t
 
 1. Ensure the **Contact Email** field is correct before adding new users. The OCS invitation is sent to this address, so if it is incorrect a user may not receive an invitation or an incorrect recipient may receive an invitation, and thus access, to your OCS tenant.
 
-1. Before inviting users to OCS, ensure that they will be granted the correct permissions via their roles. In particular, consider the access granted to the Account Member role, which includes read access to everything in the tenant by default. If a user should not have read access to some resources, the Account Member role can be limited.
+1. Before inviting users to OCS, ensure that they have been granted the correct permissions through their roles. In particular, consider the access granted to the Account Member role which, by default, grants read access to everything in the tenant. If a user should not have read access to some resources, the Account Member role can be limited.
 
 ## Inviting a user
 
