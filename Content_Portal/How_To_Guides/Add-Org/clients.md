@@ -60,7 +60,7 @@ Authorization code clients are used with customer web applications that use OCS 
 
 Authorization code clients are used to authenticate using any browser. Upon successful authentication, an authorization code is provided to the client. This authorization code is exchanged for an access token using PKCE (Proof Code for Code Exchange) which is a more secure authentication flow. No refresh token is provided.
 
-### Authorization code PI Core counterpart
+### Authorization code client PI Core counterpart
 
 Authorization code clients have no direct PI Core equivalent, but they are similar to the combined behavior of a trust and mappings in PI Data Archive. These clients are similar to trusts because they only allow users to access OCS if the application that uses them meets certain criteria, for example, the application must be served at a specific URL. However, like a mapping, authorization code clients require the user to authenticate as a known user account within the tenant.
 
