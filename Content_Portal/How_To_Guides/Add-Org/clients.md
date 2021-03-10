@@ -64,7 +64,7 @@ Authorization code clients are used to authenticate using any browser. Upon succ
 
 Authorization code clients have no direct PI Core equivalent, but they are similar to the combined behavior of a trust and mappings in PI Data Archive. These clients are similar to trusts because they only allow users to access OCS if the application that uses them meets certain criteria, for example, the application must be served at a specific URL. However, like a mapping, authorization code clients require the user to authenticate as a known user account within the tenant.
 
-### Authorization code best practices
+### Authorization code client best practices
 
 1. Use authorization code clients in web applications or with services where users must be authenticated and it is not possible to store a client secret securely.
 
