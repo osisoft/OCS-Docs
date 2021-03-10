@@ -32,6 +32,6 @@ Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.os
 
 1. Optionally, enable additional roles for the user. By default the user will have the Account Member role, which cannot be removed. Roles can still be modified after the user is invited.
 
-1. Once the information has been entered, click **Invite** and OCS will send the invitation to the **Contact Email**. The **Status** column will list the new user as **Pending** until the invitation has been accepted. If the invitation expires, the status will change to **Expired**, and the invitation can be resent.
+1. Once the information has been entered, click **Invite**. OCS sends the invitation to the email address specified in the **Contact Email** field. The **Status** column lists the new user as **Pending** until the invitation is accepted. If the invitation expires, the status changes to **Expired**. Once expired, the invitation can be resent.
 
 1. Once the user receives the invitation, they should log in using the identity provider you specified. Once they have logged in, the status of their user should be **Active**.
