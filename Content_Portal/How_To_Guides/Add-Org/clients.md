@@ -12,7 +12,7 @@ Client-credentials clients are used for server-to-server communication where no 
 
 ### Client-credentials PI Core counterpart
 
-Client-credentials clients are very similar to Windows service accounts that might be used to authenticate against PI Data Archive or PI AF server. Therefore, it is very important to keep secrets secure in the same way that it is important to keep service account passwords secure.
+Client-credentials clients are very similar to Microsoft Windows service accounts that might be used to authenticate against PI Data Archive or PI AF server. Therefore, it is very important to keep secrets secure in the same way that it is important to keep service account passwords secure.
 
 ### Client-credentials best practices
 
