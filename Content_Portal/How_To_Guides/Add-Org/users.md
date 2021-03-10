@@ -24,7 +24,7 @@ Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.os
 
 1. In the toolbar, click **Add User**.
 
-1. If you have multiple identity providers enabled in your tenant, you will be prompted to select an identity provider first. If so, choose the appropriate identity provider for the user you are adding. Once you select an option, you can still switch to a different option.
+1. If multiple identity providers are enabled in your tenant, you are prompted to select an identity provider. Choose the appropriate identity provider for the user you are adding. After you select an option, you can later switch to a different option.
 
 1. Enter a **First Name** and **Last Name** for the user. 
     This can be changed later, but will appear in the user's invitation email.
