@@ -111,7 +111,7 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
 
 1. Click the menu icon and click **Users** (under Security).
 
-1. From the **Client Type:** dropdown list, select **Hybrid**.
+1. From the **Client Type** dropdown list, select **Hybrid**.
 
 1. In the toolbar, click **Add Client**.
 
