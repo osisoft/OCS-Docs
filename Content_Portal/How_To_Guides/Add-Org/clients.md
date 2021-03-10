@@ -101,7 +101,7 @@ Hybrid clients are used by native and server-side web applications. Authenticati
 
 Hybrid clients have no direct PI Core equivalent, but they are similar to the combined behavior of a trust and mappings in PI Data Archive. These clients are similar to trusts because they only allow users to access OCS if the application that uses them meets certain criteria, for example, the application must be served at a specific URL. However, like a mapping, hybrid clients require the user to authenticate as a known user account within the tenant.```
 
-### Hybrid best practices
+### Hybrid client best practices
 
 1. Use hybrid clients in web applications or services where users authenticate against OCS through a web browser, but a secure backend that stores the secrets performs the actual authentication.
 
