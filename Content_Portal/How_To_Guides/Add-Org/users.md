@@ -10,7 +10,7 @@ You must have the **Account Administrator** role to add and manage users in a te
 
 ## PI Core counterpart
 
-An OCS user is comparable to a mapping in the PI Data Archive. For example, in the PI Data Archive a mapping may be added from a Windows Account to a specified PI Identity. The user then uses their Windows credentials to authenticate against the PI Data Archive and gets the permissions specified by the PI Identity. In OCS, a user uses Azure AD, Microsoft Accounts, or Google credentials to authenticate against OCS and gets the permissions specified by their set of roles.
+An OCS user is comparable to a mapping in the PI Data Archive. For example, in PI Data Archive a mapping may be added from a Microsoft Windows account to a specified PI identity. The user uses their Windows credentials to authenticate against PI Data Archive and gets the permissions specified by the PI identity. In OCS, a user uses Azure Active Directory, Microsoft accounts, or Google credentials to authenticate against OCS, and users get their permissions from the roles that are assigned to them.
 
 ## User best practices
 
