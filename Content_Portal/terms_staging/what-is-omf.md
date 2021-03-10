@@ -1,9 +1,13 @@
+---
+uid: whatisomf
+---
+
 # What is OSIsoft Message Format (OMF)?
 
-OSIsoft Message Format (OMF) is a specification that defines a set of message headers and bodies used to generate messages for ingestion into a compliant back-end system.
+The OSIsoft Message Format (OMF) defines a set of message headers and message bodies that you can use to generate compliant messages for inputting data into either an on-premises PI System, OSIsoft Cloud Services, or another compliant backend system.
 
-For programmatic access to data, you can use OMF to develop data acquisition applications on platforms and in languages for which there is no native support. This allows you to integrate data collection directly into a device or asset.
+You can use OMF for programmatic access to data, enabling you to integrate data collection directly into a device or asset. Because OMF does not depend on a particular binary message protocol, such as HTTP, you can use OMF to develop data-acquisition applications on platforms and in languages for which there is no native support. 
 
-OMF itself does not define or depend on any binary message protocol, such as HTTP, AMQP, or Kafka. Instead, it is based on an abstract message type, where a message consists of a set of key/value pairs, which may include binary files, configuration files, and batch or Shell scripts. You can construct OMF messages using any message protocol that defines headers and bodies.
+OMF is based on an abstract message type, where a message consists of a set of key and value pairs, which may include binary files, configuration files, and batch or Shell scripts. You can construct OMF messages using any message protocol that defines headers and bodies.
 
-Refer to [OMF Message Format](https://omf-docs.osisoft.com/) for additional information about the OMF specification.
+Refer to [OMF Message Format](https://omf-docs.osisoft.com/) for more information about the OMF specification.
