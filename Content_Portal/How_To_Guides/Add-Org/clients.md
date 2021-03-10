@@ -82,7 +82,7 @@ Authorization code clients have no direct PI Core equivalent, but they are simil
 
 1. Enter the **Allowed Redirect URL(s)** for the application. This will be specified by the application when authenticating against OCS, and the OCS identity server will direct back to this URL after successful authentication.
 
-1. Optionally, enter **Allowed Logout Redirect URL(s)**. Similar to normal redirect URL(s), this is specified by the application when logging out of OCS, and the OCS identity server will direct back to this URL after successful logout.
+1. (Optional) Enter **Allowed Logout Redirect URL(s)**. Similar to normal redirect URL(s), this is specified by the application when logging out of OCS, and the OCS identity server will direct back to this URL after successfully logging out.
 
 1. (Optional) Enter URLs in the **Allowed CORS Origin(s)** text box. 
     This can be used to designate other URL(s) from which the application is allowed to make requests against OCS. For example, this may be necessary if the user authenticates from an application running at `https://authenticate.com`, but the result of the authentication is sent to an application running at `https://application.com`.
