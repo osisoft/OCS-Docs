@@ -14,7 +14,7 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in P
 
 ## User best practices
 
-1. The OCS invitation is sent to the user at the email address specified in the **Contact Email** field.  Therefore, verify that it is correct to ensure that your users receive the invitation and ensure that it is not sent to an unintended recipient, giving them access to OCS.
+1. The OCS invitation is sent to the user at the email address specified in the **Contact Email** field. Therefore, verify that it is correct to ensure that your users receive the invitation and ensure that it is not sent to an unintended recipient, giving them access to OCS.
 
 1. Before inviting users to OCS, ensure that they have been granted the correct permissions through their roles. In particular, consider the access granted to the Account Member role which, by default, grants read access to everything in the tenant. If a user should not have read access to some resources, the Account Member role can be limited.
 
@@ -26,10 +26,10 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in P
 
 1. If multiple identity providers are enabled in your tenant, you are prompted to select an identity provider. Choose the appropriate identity provider for the user you are adding. After you select an option, you can later switch to a different option.
 
-1. Enter a **First Name** and **Last Name** for the user. 
-    This can be changed later, but will appear in the user's invitation email.
+1. Enter a **First Name** and **Last Name** for the user.  
+   This can be changed later, but will appear in the user's invitation email.
 
-1. Enter the **Contact Email**.  The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
+1. Enter the **Contact Email**. The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
 
 1. (Optional) Enable additional roles for the user. By default, the user is assigned the Account Member role which cannot be removed. Roles can be modified after the user is invited.
 
