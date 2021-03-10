@@ -126,7 +126,8 @@ Hybrid clients have no direct PI Core equivalent, but they are similar to the co
     The application will specify one of the URLs in this list when it authenticates against OCS, and the OCS identity server will return the results of the authentication to this URL.
 
 
-1. Optionally, enter **Allowed Logout Redirect URL(s)**. Similar to normal redirect URL(s), this is specified by the application when logging out of OCS, and the OCS identity server will direct back to this URL after successful logout.
+1. (Optional) Enter URLs in the **Allowed Logout Redirect URL(s)** text box. 
+     This is similar to the **Allowed Redirect URL(s)**. The application specifies one of the **Allowed Logout Redirect URL(s)** from this list when it  logs a user out of OCS, and the OCS identity server sends the user to that URL after a  successful log out.
 
 1. (Optional) Set the **Token Lifetime**. 
     Token Lifetime represents the length of time (in seconds) the access token is valid before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
