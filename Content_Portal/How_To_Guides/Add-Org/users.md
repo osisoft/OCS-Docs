@@ -28,7 +28,7 @@ Find the Users page in the OSIsoft Cloud Services portal [here](https://cloud.os
 
 1. Enter a **First Name** and **Last Name** for the user. This can be changed later, but will appear in the user's invitation email.
 
-1. Enter the **Contact Email**, which is where the user will receive their invitation to your OCS tenant. Ensure that this is correct so that the invitation is not sent to an unintended recipient.
+1. Enter the **Contact Email**.  The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
 
 1. (Optional) Enable additional roles for the user. By default, the user is assigned the Account Member role which cannot be removed. Roles can be modified after the user is invited.
 
