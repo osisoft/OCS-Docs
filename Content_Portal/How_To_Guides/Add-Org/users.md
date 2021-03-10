@@ -14,7 +14,7 @@ An OCS user is comparable to a mapping in the PI Data Archive. For example, in t
 
 ## User best practices
 
-1. Ensure the **Contact Email** field is correct before adding new users. The OCS invitation is sent to this address, so if it is incorrect a user may not receive an invitation or an incorrect recipient may receive an invitation, and thus access, to your OCS tenant.
+1. The OCS invitation is sent to the user at the email address specified in the **Contact Email** field.  Therefore, verify that it is correct to ensure that your users receive the invitation and ensure that it is not sent to an unintended recipient, giving them access to OCS.
 
 1. Before inviting users to OCS, ensure that they have been granted the correct permissions through their roles. In particular, consider the access granted to the Account Member role which, by default, grants read access to everything in the tenant. If a user should not have read access to some resources, the Account Member role can be limited.
 
