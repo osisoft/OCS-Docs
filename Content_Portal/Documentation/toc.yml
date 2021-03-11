@@ -24,6 +24,9 @@
 - name: Operations
   href: Operations/toc.yml
   topicHref: Operations/Operations_Overview.md
+- name: Community (Preview)
+  href: Community/toc.yml
+  topicHref: Community/Community_Overview.md
 - name: Role-Based Access Control
   topicHref: Access_Control.md
 - name: HTTP Status Codes
