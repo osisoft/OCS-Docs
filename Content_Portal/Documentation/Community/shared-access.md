@@ -41,13 +41,17 @@ When a stream is shared, the members of the community it is shared to will be li
 
 > [!NOTE]
 >
-> For information on how to get data from a Stream, please see [API calls for reading data](xref:sdsReadingDataApi) in the **Sequential Data Store** section.
+> For information on how to get data from a Stream, please see [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific type information..
 
-### Available API routes
+### Available Community API routes
 
 ```bash
 GET  api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/{*more} 
+```
+```bash
 POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Transform/{*more} 
+```
+```bash
 POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Join/{*more} 
 ```
 
@@ -97,7 +101,7 @@ Success
 
 ##### Type
 
-Please see [SDS](xref:sds) for specific type information.
+Please see [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific type information.
 
 #### 400
 
