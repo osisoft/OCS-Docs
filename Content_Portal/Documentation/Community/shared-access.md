@@ -35,7 +35,7 @@ All responses will have an error message in the body. The exceptions are 200 res
 
 If and when contacting OSIsoft support about this error, please provide the OperationId.
 
-## Streams
+## Shared Streams
 
 When a stream is shared, the members of the community it is shared to will be limited to read-only access.
 
