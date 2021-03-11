@@ -9,7 +9,7 @@ OSIsoft recommends the following are best practices when creating streams:
 
 - Ensure that the default stream permissions are configured before you begin creating streams. While you can later do a bulk update of stream permissions, it is easier to configure the default permissions before the streams are created. Permissions that vary from the default are configured on the individual streams. 
 
-- OSIsoft recommends you use a meaningful pattern when naming your streams. For example, a naming pattern might be "QuickStart.{Region}.{Site}.{Equipment}". This makes it possible for OCS tools, such as metadata rules, to use this naming schema to find relevant data. Metadata like this can also be stored as key-value pairs on the stream, but a well-defined naming pattern allows metadata to be generated automatically. 
+- OSIsoft recommends you use a meaningful pattern when naming your streams. For example, a naming pattern might be "QuickStart.{Region}.{Site}.{Equipment}". This makes it possible for OCS tools, such as metadata rules, to use this naming schema to find relevant data. Metadata like this can also be stored as key-value pairs on the stream, but a well-defined naming pattern allows metadata to be generated automatically. However, if you create streams manually, OSIsoft recommends that you add the metadata directly rather than using rules.
 
   <!-- I removed the following  and added a note in step 5 below telling them to leave it blank. --> <!-- 3. Use the stream name to provide a more readable name for the string than the stream ID itself. -->
 
