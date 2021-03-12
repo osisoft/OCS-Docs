@@ -10,18 +10,13 @@ Email [OCS support](mailto://cloudservices@osisoft.com) at OSIsoft Cloud Service
 
 You will be mainly working on the [OSIsoft Cloud Services portal](https://cloud.osisoft.com/). Sign into the portal using the credentials associated with the tenant. You will also need a namespace and administrative client keys. 
 
+## Before you get started 
+To work with SDS, you must first acquire a client identity, secret and authentication token. 
 
-#### Step 1: Acquire a namespace
-
-In the portal, open the navigation menu ![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**.
-You can use an existing namespace or create a new one.
-
-
-#### Step 2: Acquire a client identity and secret
+### Acquire client identity and secret
 
 The application acts as a confidential client – an application that is capable of securely maintaining a secret.
-In Azure Active Directory, the confidential client authentication flow is accomplished using an application identity.
-OSIsoft Cloud Services supports this authentication with a client identity (Client Id) and a client secret.
+OSIsoft Cloud Services supports confidential client authentication flow with a client identifier (Client Id) and a client secret.
 
 To acquire a client identity from the portal, open the navigation menu and select **Security** > **Clients**.
 
@@ -34,13 +29,18 @@ You need the tenant identity, client identity, and client secret to proceed.
 The tenant identity, client identity, and client secret are used to acquire a security token from an identity 
 provider, Azure Active Directory in this case.
 
-#### Step 3: Acquire authentication token
+### Acquire authentication token
 
 You use the tenant identity, client identity, and client secret to acquire an access token 
 from Azure Active Directory. Select one of the clients from the list to see configuration information 
 and code samples in various languages which are shown on tabs in the right panel.
 
-#### Step 4: Create data types
+## Step 1: Acquire namespace
+
+In the portal, open the navigation menu ![navigation menu](../images/icon_navigation_bigger.png) and select **Data Management** > **Namespaces**.
+You can use an existing namespace or create a new one.
+
+## Step 2: Create data types
 
 A type describes the structure of a single measured event or object. A stream has an associated 
 type and stores a stream of events or objects that take the shape of that type.
@@ -220,7 +220,7 @@ await config.CreateTypeAsync(simpleType);
 ```
 
 
-#### Step 5: Create a stream
+## Step 3: Create stream
 
 A stream has an associated type and stores a stream of events or objects that take the shape of that type. 
 For more information, see [Streams](xref:sdsStreams).
@@ -258,7 +258,7 @@ SdsStream simpleStream = new SdsStream()
 simpleStream = config.CreateStreamAsync(simpleStream);
 ```
 
-#### Step 6: Write data
+## Step 4: Write data
 
 SDS supports a number of methods for adding and updating data. In this section, you will insert data. 
 Inserts fail if events with the same index already exist in the database.
@@ -295,7 +295,7 @@ Simple value = new Simple()
 await client.InsertValueAsync(simpleStream.Id, value);
 ```
 
-#### Step 7: Read data
+## Step 5: Read data
 
 SDS includes different read methods for retrieving data from streams. 
 For more information, see [Read data](xref:sdsReadingData).
@@ -332,6 +332,8 @@ To read a value at a distinct index, you can use the SDS .NET client libraries m
 value = await client.GetDistinctValueAsync<Simple>(simpleStream.Id, index); 
 ```
 
+## Error handling 
+To deal with common errors you encounter, refer to the following sections: 
 
 ### Handling transient service interruptions
 
