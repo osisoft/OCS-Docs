@@ -1,7 +1,13 @@
 
+---
+uid: whatOCSdoes
+---
+
 # What does OSIsoft Cloud Services do? 
 
+<!--commenting out the image to see if uid is affected by it 
 ![OCS](images/how-does-ocs-work/ocs_intro.png)
+-->
 
 OSIsoft Cloud Services (OCS) consists of several different areas of core functionality: tenant management, data collection, data organization, and data analysis. The following sections discuss each in detail:
 
