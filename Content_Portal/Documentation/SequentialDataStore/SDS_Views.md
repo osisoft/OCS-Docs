@@ -3,7 +3,7 @@ uid: sdsStreamViews
 ---
 
 # Stream Views
-Stream views provide flexibility in the use of types and allow you to expose data as a different type. While you cannot actually change the properties of types themselves, the stream views feature enables you to create a view of a selected stream that appears as if you had changed the type on which it is based. You create a stream view by choosing a source and target type then a set of mappings between properties of those two types. Using a stream view to leverage existing type properties is preferable to creating a new type, because the stream that is based on the type continues to function with its previously archived stream data intact. For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type).
+Stream views provide flexibility in the use of types and allow you to expose data as a different type. While you cannot actually change the properties of types themselves, the stream views feature enables you to create a view of a selected stream that appears as if you had changed the type on which it is based. You create a stream view by choosing a source and target type then a set of mappings between properties of those two types. Using a stream view to leverage existing type properties is preferable to creating a new type, because the stream that is based on the type continues to function with its previously archived stream data intact. For more information, see [Update Stream Type](xref:sdsStreams#update-stream-type) and [stream views](xref:whatOCSdoes#stream-views).
 
 ## SdsStreamView fields and properties table
 <a name="streamviewpropertiestable"></a>
