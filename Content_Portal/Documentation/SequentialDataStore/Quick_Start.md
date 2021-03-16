@@ -333,7 +333,9 @@ value = await client.GetDistinctValueAsync<Simple>(simpleStream.Id, index);
 ```
 
 ## Error handling 
+
 Refer to the following sections to troubleshoot: 
+
 
 ### Handling transient service interruptions
 

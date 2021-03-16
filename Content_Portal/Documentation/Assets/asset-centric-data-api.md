@@ -5,10 +5,45 @@ uid: AssetCentricDataAPI
 # Asset Centric Data API
 The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams. 
 
-In order to retrieve stream data from an asset, you must first set up stream references for a given asset. The data that is retrieved is based on the resolved asset.
+In order to retrieve stream data from an asset, you must first set up stream references for a given asset. The data that is retrieved is based on the resolved asset. By default, data calls return data for all stream references. 
 
+If you are only interested in data from a subset of streams, you must specify the streams encoded as a URL parameter. The format is to add stream={streamName} for each stream you are interested in.
+
+For example, if a given asset has the following definition and you are only interested in HeaterA and PressureB for the last data call, you would send:
+
+```text 
+GET ...Namespaces/{namespaceId}/Assets/AssetStreamFilter/Data/Last?Stream={HeaterA},Stream={PressureB}
+```
+
+Note: Asset stream references can contain commas. In this case, the comma must be properly escaped.
+
+```
+{
+    "Id": "AssetStreamFilter",
+    "Name": "Demo",
+    "Description": "Only for demoing stream filtering",
+    "StreamReferences": 
+    [
+        {
+            "Id": "StreamReferenceId1",
+            "Name": "StreamReferenceWithEventsName"
+            "StreamId": "PI_buildingMachine"
+        },
+        {
+            "Id": "HeaterId1",
+            "Name": "HeaterA"
+            "StreamId": "PI_HeaterA"
+        },
+        {
+            "Id": "PressureId1",
+            "Name": "PressureB"
+            "StreamId": "PI_PressureB"
+        }
+    ]
+}
+```
 ### Example Asset
-The following asset is used in all of the sample output in this topic.
+The following asset is used in all of the sample output in the output below.
 ```
 {
     "Id": "Idsample",
@@ -40,7 +75,7 @@ Returns the last stored value for SDS streams in the resolved asset.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?Stream={streams}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?stream={stream 1}[,stream={stream n}]
 ```
 
 ### Parameters  
@@ -53,7 +88,7 @@ The namespace identifier
 `string assetId`  
 The asset identifier
 
-[optional] `string[] streams`   
+[optional] string[] streams
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -94,7 +129,7 @@ Note: The inputs to this API matches the SDS stream Get samples values data call
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&Stream={streams}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&stream={stream 1}[,stream={stream n}]
 ```
 
 ### Parameters  
@@ -116,7 +151,7 @@ The end index for the intervals
 `int intervals`  
 The number of requested intervals
 
-[optional] `string[] streams`   
+[optional] string[] streams
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -164,7 +199,7 @@ Returns summary data for referenced SDS streams.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&Stream={streams}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[,stream={stream n}]
 ```
 
 ###  Parameters  
@@ -186,7 +221,7 @@ The end index for the intervals
 `int count`   
 The number of requested intervals
 
-[optional] `string[] streams`   
+[optional] string[] streams
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -354,7 +389,7 @@ Returns window data for referenced SDS streams.
 ### Request
 
 ```
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&Stream={streams}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&stream={stream 1}[,stream={stream n}]
 ```
 
 ### Parameters
@@ -373,7 +408,7 @@ The start index for the intervals
 `string endIndex`   
 The end index for the intervals
 
-[optional] `string[] streams`   
+[optional] string[] streams
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response
@@ -442,7 +477,7 @@ Content-Type: application/json
     "Errors": null
 }
 
-
+```
 ***
 
 ## `Get Asset Interpolated Data` 
@@ -450,7 +485,7 @@ Returns interpolated data for referenced SDS streams.
 
 ### Request 
 ``` 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&Stream={streams}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[,stream={stream n}]
 ```
 
 ###  Parameters  
@@ -472,7 +507,7 @@ The end index for the intervals
 `int count`   
 The number of requested intervals
 
-[optional] `string[] streams`   
+[optional] string[] streams
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
