@@ -6,32 +6,48 @@ uid: managecommunityusers
 
 The Community Details page lets you add and delete community users. The users must belong to your own tenant. The Community Details page also lets you assign roles to users in your tenant.
 
-To perform these procedures, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
-
 ## Add users to a community
 
+To perform this procedure, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
+
 1. On the Communities overview page, find the community where you want to add users and click **Details**.
-2. On the Community Details page, on the **Users** tab, click **New User** ![New User](..\images\Add_Button.png "New User").
-3. Select users or groups of users. If necessary, you can filter the list of users by typing characters in the **Filter users** box.
+2. On the Community Details page, on the **My Users** tab, click **New User**.
+3. Select users. If necessary, you can filter the list of users by typing characters in the **Filter users** box.
 4. Select the roles to apply to users being added. You can assign the following roles:
+   - [Community Administrator](xref:communityroles#community-administrator)
    - [Community Member](xref:communityroles#community-member)
    - [Community Moderator](xref:communityroles#community-moderator)
-   - [Community Administrator](xref:communityroles#community-administrator)
 5. Click **Save**.
 
 ## Remove users from a community
 
+To perform this procedure, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
+
 1. On the Communities overview page, find the community where you want to remove users and click **Details**.
-2. On the Community Details page, on the **Users** tab, select a user or group of users. If necessary, you can filter the list of users by typing characters in the **Filter users** box.
-3. Select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options") and click **Remove User**. When prompted for confirmation, click **Remove**.
+2. On the Community Details page, on the **My Users** tab, select one or more users. If necessary, you can filter the list of users by typing characters in the **Filter users** box. A details pane appears.
+3. On the detail pane, click **Remove User**. When prompted for confirmation, click **Remove**.
+
+## Remove your own user from a community
+
+Use this procedure to remove your own user from a community. When you leave a community, you will no longer be able to access the community or its data. 
+
+Any user can perform this procedure.
+
+1. On the Communities overview page, find the community where you want to remove users and click **Details**.
+2. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Leave Community**. A confirmation dialog opens.
+3. Click **Leave**.
+
 
 ## Assign user roles
 
+To perform this procedure, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
+
+
 1. On the Communities overview page, find the community where you want to assign roles and click **Details**.
-2. On the Community Details page, on the **Users** tab, select a user. If necessary, you can filter the list of users by typing characters in the **Filter users** box.
-3. Select **More Options** ![More Options](..\images\more-options-blue-background.png "More Options") and click **Manage Permissions**.
+2. On the Community Details page, on the **My Users** tab, select a user. If necessary, you can filter the list of users by typing characters in the **Filter users** box. The User Details pane appears at right.
+3. On the details pane, click **Manage Roles**.
 4. Select the roles to apply to users being added. You can assign the following roles:
+   - [Community Administrator](xref:communityroles#community-administrator)
    - [Community Member](xref:communityroles#community-member)
    - [Community Moderator](xref:communityroles#community-moderator)
-   - [Community Administrator](xref:communityroles#community-administrator)
 5. Click **Update**.
