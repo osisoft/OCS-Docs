@@ -11,6 +11,58 @@ If you are working in a .NET environment, convenient SDS Client Libraries are av
 The `ISdsDataService` interface, which is accessed using the ``SdsService.GetDataService()`` helper, 
 defines the functions that are available.
 
+### Reading data from streams
+While SDS is a robust data storage, it performs best if you follow certain guidelines: 
+
+#### Maximum limit for events in read data calls 
+
+OSIsoft limits read data API to retrieve less than 250,000 events per request.
+OCS returns an error message when the maximum limit is reached.  
+This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [Get Summaries](xref:sdsReadingDataApi#get-summaries), [Get Sampled Values](xref:sdsReadingDataApi#get-sampled-values).
+ 
+
+```text
+400 bad request error
+
+{ 
+
+               “Error”: “The request is not valid.”, 
+
+               “Reason”: “Exceeded the maximum return count of 250000 events.” 
+
+               “Resolution”: “Reduce query size and resubmit the request.” 
+
+} 
+```
+
+#### Increase the Request-Timeout in the header 
+
+Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
+The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
+
+The range of values that are held in memory can be large and be anywhere between 1 GB and 2GB, so the system needs enough time to read and return the data.
+
+If multiple calls return ``408 - Operation timed out error`` even after increasing the timeout limit to 5 minutes, do one of the following: 
+
+- Reduce the range in the request calls of this type 
+- Retry with an exponential back-off policy
+
+ 
+
+#### Compression 
+
+Include ``Accept-Encoding: gzip, deflate`` in the HTTP header. 
+This enables compression. For more information, see [Compression](xref:sdsCompression#supported-compression-schemes). 
+
+ 
+#### Use available read data APIs
+Depending on the scenario, there are different read data APIs available.
+They return an overview of the values instead of reading all values at once.
+These APIs provide a good high-level view of the values without displaying them all at the same time: 
+- [Get Values](xref:sdsReadingDataApi#get-values) with filters
+- [Get Summaries](xref:sdsReadingDataApi#get-summaries) 
+- [Get Sampled Values](xref:sdsReadingDataApi#get-sampled-values) 
+
 ### Single stream reads  
 The following methods for reading a single value are available:
 
