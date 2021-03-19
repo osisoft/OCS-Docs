@@ -1,15 +1,4 @@
-- name: Introduction to credential management 
-  topicHref: credential-management.md
-- name: Consent to Add AAD or AAD with Advanced Integration as an Identity Provider to your OCS Tenant 
-  topicHref: Consent.md
 - name: Introduction to data storage
   topicHref: Data_Storage_Concepts.md
-- name: Introduction to least privilege
-  topicHref: least-privilege.md
-- name: Preconfigured roles
-  topicHref: Roles.md
 - name: Introduction to tenant management 
   topicHref: Account_Management_Concepts.md
-- name: Introduction to token management
-  topicHref: token-management.md
-

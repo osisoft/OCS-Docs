@@ -1,0 +1,10 @@
+- name: Credential management
+  topicHref: credential-management.md
+- name: Least privileges 
+  topicHref: least-privilege.md
+- name: Roles
+  topicHref: Roles.md
+- name: Role-based access control 
+  topicHref: Access_Control.md
+- name: Token management 
+  topicHref: token-management.md

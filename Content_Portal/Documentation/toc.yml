@@ -32,3 +32,6 @@
   topicHref: samples.md
 - name: Technical Support
   topicHref: support.md
+- name: Developer guide
+  href: developer-guide/toc.yml
+  topicHref: developer-guide/introduction.md

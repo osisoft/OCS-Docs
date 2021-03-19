@@ -1,0 +1,6 @@
+- name: Tenant management
+  href: tenant-dev/toc.yml
+  topicHref: tenant-dev/tenant-overview.md
+- name: Identity and access management
+  href: identity-dev/toc.yml
+  topicHref: identity-dev/identity-access-management.md
