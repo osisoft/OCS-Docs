@@ -30,5 +30,5 @@ The following process lists the high-level steps that are needed to share data. 
 2. [Invite another OCS tenant](xref:managecommunity#add-a-tenant-to-a-community) to join the community.
 3. [Add users](xref:managecommunityusers#add-users-to-a-community) to the community.
 4. [Add clients](xref:managecommunityclients#add-clients-to-a-community) for programmatic access to the community.
-5. Share data --- TBD ---
+5. Share data --- TBD
 6. 
