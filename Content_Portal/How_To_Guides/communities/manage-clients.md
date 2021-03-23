@@ -4,16 +4,18 @@ uid: managecommunityclients
 
 # Add and remove community clients
 
-The Community Details page lets you add and delete clients, which are headless applications that can authenticate to OCS and gain programmatic access to shared data and resources.
+In OCS, clients are applications and adapters that act on behalf of users and allow programmatic access via APIs to shared data and resources.
 
-To perform these procedures, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
+The Community Details page lets you add and delete clients. Currently, you can only add [client-credentials clients](xref:ccClients) to a community.
+
+To perform the following procedures, you must be a [Community Administrator](xref:communityroles#community-administrator) or [Community Moderator](xref:communityroles#community-moderator).
 
 ## Add clients to a community
 
 1. On the Communities overview page, find the community where you want to add clients and click **Details**.
 2. On the Community Details page, click the **My Clients** tab.
 3. Click **Add Client**.
-4. Select the clients to add. If necessary, you can filter the list of clients by typing characters in the **Filter clients** box. If you need to create a client in OCS before adding it to the community, use the Security feature in OCS.
+4. Select the clients to add. If necessary, you can filter the list of clients by typing characters in the **Filter clients** box. If you need to create a client in OCS before adding it to the community, see [Add a client-credentials client](xref:gpClientCredentialsClient).
 5. Click **Add**.
 
 ## Remove a client from a community
