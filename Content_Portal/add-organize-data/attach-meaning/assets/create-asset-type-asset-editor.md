@@ -6,16 +6,16 @@ uid: CreateAssetType
 
 For more information on asset types, see [Asset types](xref:AssetTypes).
 
-1. Click the menu icon ![menu icon](images\icon_navigation_bigger.png) and click **Asset Explorer**.
+1. Click the menu icon ![menu icon](images/icon_navigation_bigger.png) and click **Asset Explorer**.
 
-2. To change the [namespace](xref:AccountManagementConcepts#namespace), click on the namespace to open the Select a Namespace window.
-    ![Namespace icon](images\namespace-icon.png)
+2. To change the [namespace](xref:AccountManagementConcepts#introduction-to-namespaces), click on the namespace to open the Select a Namespace window.
+    ![Namespace icon](images/namespace-icon.png)
     
 3. Select the namespace and click **Continue**.
 
 4. Click the Assets/Asset Type selector and click **Assets Types** from the list.
 
-    ![Asset Type selector](images\asset-type-picker.png)
+    ![Asset Type selector](images/asset-type-picker.png)
 
 5. Click the plus symbol (+) in the toolbar.
 
@@ -35,7 +35,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
     The fields for entering the metadata details appear. 
 
-    ![Metadata fields](images\metadata-fields.png)
+    ![Metadata fields](images/metadata-fields.png)
 
 4. Enter a name for the metadata.
 
@@ -58,11 +58,11 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 4. Click **Add**.
    The stream type reference appears in the asset type definition in the right pane. 
-   ![Stream type reference](images\stream-type-reference.png)
+   ![Stream type reference](images/stream-type-reference.png)
 
 5. Click the scroll bar to display the properties for the stream type reference.
     The properties associated with the stream type are displayed.
-    ![Stream type reference](images\stream-type-reference-properties.png)
+    ![Stream type reference](images/stream-type-reference-properties.png)
 
 ### Add status tracking to the asset
 
@@ -73,12 +73,12 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
     Note: You can only specify one property with enumerated states as the the asset's status.
 
 1. Click the status icons to map the icon for each value.
-    ![Mapping status icons](images\map-status-values.png)
+    ![Mapping status icons](images/map-status-values.png)
     
     All the values have been mapped in the following screen capture.
-    ![Mapped status](images\mapped-status-values.png)
+    ![Mapped status](images/mapped-status-values.png)
     
-    Tip: You can switch to a different property by clicking the ![Change property icon](images\change-property-icon.png) icon.
+    Tip: You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
     
 ### Save the asset type
 

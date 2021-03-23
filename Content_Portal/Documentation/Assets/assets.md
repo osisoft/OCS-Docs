@@ -66,7 +66,7 @@ An asset type type reference represents dynamic stream data associated with an a
 | TypeId    | String | Required  | No          | This string must be an SDS stream type `Id` in the referenced SDS stream. |
 
 ## Asset and asset type status mapping properties
-For information about asset and asset type status mapping, please refer to [Asset Status](xref:AssetStatusMapping) for more details.  
+For information about asset and asset type status mapping, please refer to [Asset Status](xref:AssetStatus) for more details.  
 
 The following is an example of an asset derived from an asset type.
 

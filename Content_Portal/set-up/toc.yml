@@ -4,3 +4,21 @@
   topicHref: namespaces-best-practices.md
 - name: Add a namespace
   topicHref: namespaces-procedure.md
+- name: About roles
+  topicHref: roles-concept.md
+- name: Add a role
+  topicHref: roles-procedure.md
+- name: About users
+  topicHref: users-concept.md
+- name: Add a user
+  topicHref: users-procedure.md
+- name: About clients
+  topicHref: clients-concept.md
+- name: Add a client
+  topicHref: clients-procedure.md
+- name: Add a client-credentials client
+  topicHref: client-credentials-client-procedure.md
+- name: Add an authorization code client
+  topicHref: authorization-code-client-procedure.md
+- name: Add a hybrid client
+  topicHref: hybrid-client-procedure.md

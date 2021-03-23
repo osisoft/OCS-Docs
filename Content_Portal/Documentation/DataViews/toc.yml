@@ -13,5 +13,6 @@
 - name: Data views API reference
   href: DataViewsAPIOverview/toc.yml
   topicHref: DataViewsAPIOverview/Data_Views_API_Overview.md
-- name: Stream examples
-  topicHref: Reference/Example_Scenario.md
+- name: Examples
+  href: Reference/toc.yml
+  topicHref: Reference/Data_Views_Examples.md

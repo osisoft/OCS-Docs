@@ -66,8 +66,8 @@ Tags: some subset of [ "Commercial", "Residential", "Critical Asset" ]
 Metadata: { 
             "Site" : one of ( "Biltmore" | "Rosecliff" | "Winterthur" ),
             "Measurement": one of ( "Power In" | "Power Out" ),
-            "Meter": one of ( "Primary", "Secondary" ),
-            "Inverter": one of ( "0", "1", "2" )
+            "Meter": one of ( "Primary" | "Secondary" ),
+            "Inverter": one of ( "0" | "1" | "2" )
             "Nominal Power MW": "1.21"
           }
 ```

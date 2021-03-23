@@ -10,3 +10,5 @@
   topicHref: streams-best-practices.md
 - name: Add a stream
   topicHref: streams-procedure.md
+- name: About stream views
+  topicHref: stream-views-concept.md

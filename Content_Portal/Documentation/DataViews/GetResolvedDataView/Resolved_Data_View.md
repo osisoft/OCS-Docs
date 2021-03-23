@@ -27,7 +27,7 @@ Paged responses include a `Link` header, with a hyperlink to the first page of r
 Using these hyperlinks is the recommended method of paging. Alternatively, constructing paging links by manually incrementing the `skip` is allowable, though in this case it is recommended to specify cache behavior of "preserve".
 
 ### How is a data view resolved?
-Data views resolve on a per user basis. Data views respect the permissions on underlying data items such as SDS Streams. If a user does not have read access to a particular stream in SDS, then that stream is not visible from data views.
+Data views resolve on a per user basis. Data views respect the permissions on underlying data items such as streams and assets. For example, if a user does not have read access to a particular stream in SDS, then that stream is not visible from data views.
 
 As a consequence, different users may see different collections of data items resolve for a data view. This is by design.
 
@@ -109,7 +109,7 @@ Describes the resource type of a data item.
 |Name| Enumeration Id | Description  |
 |--|--|--|
 | Stream | 1 | A stream from the Sequential Data Store |
-| Asset *(Coming Soon)* | 2 | An asset |
+| Asset | 2 | An asset |
 
 ### DataItemField
 A field of a data item where values come from.  
@@ -119,11 +119,11 @@ Within a data item of resource kind `.Stream`, this corresponds to a stream prop
 |--|--|--|
 | Id | string | The data item field's unique identifier 
 | Name | string | The data item field's friendly name
-| StreamReferenceName *(Coming Soon)* | string | The asset stream reference name. Only applies to asset property data item fields.
+| StreamReferenceName | string | The asset stream reference name. Only applies to asset property data item fields.
 | TypeCode | SdsTypeCode| The name of the field's data type
-| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation for the data field. |
-| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |The direction of the summary type calculation for the data field. |
-| Uom *(coming soon)* | bool | The unit of measure id for the data item field
+| SummaryType | SdsSummaryType  |The summary type calculation for the data field. |
+| SummaryDirection | SummaryDirection Enumeration |The direction of the summary type calculation for the data field. |
+| Uom | bool | The unit of measure id for the data item field
 | IsKey | bool | True if the field is the primary index of the data item. False otherwise.
 
 ### SummaryDirection enumeration
@@ -160,9 +160,9 @@ Details on the provenance on every field of data:
 | Label | string | Friendly name
 | FieldKind | FieldKind enumeration | Specifies if the mapping is for an index, grouping, data, or field id field
 | TypeCode | SdsTypeCode | The primary data type of the mapping
-| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation. Null unless all data mappings' SummaryType within the field mappings are identical. |
-| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. Null unless all data mappings' SummaryDirection within the field mappings are identical. |
-| Uom *(coming soon)* | string | The unit of measure id. Null unless all data mappings' unit of measures within the field mapping are identical.
+| SummaryType | SdsSummaryType  |The summary type calculation. Null unless all data mappings' SummaryType within the field mappings are identical. |
+| SummaryDirection | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. Null unless all data mappings' SummaryDirection within the field mappings are identical. |
+| Uom | string | The unit of measure id. Null unless all data mappings' unit of measures within the field mapping are identical.
 | DataMappings | IReadOnlyList<DataMapping> | Per-group details of what this field resolved to
 
 ### FieldKind enumeration
@@ -182,11 +182,11 @@ Per-group details of the data that a `FieldMapping` targets:
 |--|--|--|
 | TargetId | string | The unique identifier of the target data item
 | TargetFieldKey | string | The specific targeted part of the data item, if any.
-| TargetStreamReferenceName *(coming soon)* | string | The asset stream reference name. Only applies to asset property data mappings.
+| TargetStreamReferenceName | string | The asset stream reference name. Only applies to asset property data mappings.
 | TypeCode | SdsTypeCode | The value type
-| SummaryType *(coming soon)* | SdsSummaryType  |The summary type calculation for the data field. |
-| SummaryDirection *(coming soon)* | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. |
-| Uom *(coming soon)* | string | The unit of measure id
+| SummaryType | SdsSummaryType  |The summary type calculation for the data field. |
+| SummaryDirection | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. |
+| Uom | string | The unit of measure id
 | FieldSetIndex | Nullable<int> | The position of the corresponding field set within the data view
 | FieldIndex | Nullable<int> | The position of the corresponding field within its field set
 

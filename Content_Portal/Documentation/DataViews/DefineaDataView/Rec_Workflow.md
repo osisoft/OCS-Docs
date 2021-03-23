@@ -5,10 +5,10 @@ uid: DefineaDataViewRecommendedWorkflow
 # Recommended workflow: Define a data view
 This is an introduction to the recommended workflow for defining data views. The following sections show these concepts in action.
 
-Designing and tweaking a data view is expected to be an iterative process. You are not expected to "get it right the first time," nor to be an expert at your OCS configuration such as the streams available in the Sequential Data Store. Data views provide an interactive way to select, identify, and arrange the data you and your applications need.
+Designing and tweaking a data view is expected to be an iterative process. You are not expected to "get it right the first time," nor to be an expert at your OCS configuration such as available streams and assets. Data views provide an interactive way to select, identify, and arrange the data you and your applications need.
 
 There are three main steps required to define a data view: 
-1. Including data items (such as streams)
+1. Including data items (such as streams and assets)
 2. Including specific data fields
 3. Arranging them within the data view.
 
@@ -19,7 +19,7 @@ This is not a one-way street. You are likely to keep adjusting the data fields i
 
 This section presents the main concepts behind creating data views.
 
-It is assumed that you are working with streams as described in the [Stream examples](xref:DataViewsExampleScenario). The data views API uses the same authentication scheme as the Sequential Data Store.
+It is assumed that you are working with streams and assets as described in the [Stream examples](xref:DataViewsExampleScenario) and [Asset examples](xref:DataViewsAssetExamples). The data views API uses the same authentication scheme as the Sequential Data Store.
 
 ### Create a data view
 Very little information is required to create a new data view. In fact, if you request that the system generate an identifier for the new data view, no information at all is necessary. However, it is recommended to specify a meaningful `.Id`, because the identifier cannot be changed later without recreating the data view. All other properties are modifiable.
@@ -90,7 +90,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
   "Name": "quickstart",
   "IndexField": { "Label": "Timestamp" },
   "Queries": [
-    { 
+    {
       "Id": "weather",
       "Kind": "Stream",
       "Value":"*weather*" 
@@ -287,35 +287,35 @@ HTTP 200 OK
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Site {Uom}"
                 },
                 {
                     "Source": "Tags",
@@ -373,35 +373,35 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Site {Uom}"
                 },
                 {
                     "Source": "Tags",
@@ -546,28 +546,28 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },                
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Tags",
@@ -589,7 +589,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {Key}"
+      "Label": "{IdentifyingValue} Site {Uom}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -711,28 +711,28 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Tags",
@@ -750,7 +750,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                 "Keys": [
                     "Site"
                 ],
-                "Label": "{IdentifyingValue} {Key}"
+                "Label": "{IdentifyingValue} Site {Uom}"
             }
        },
   ],
@@ -850,21 +850,21 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                         "AmbientTemperature",
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Tags",
@@ -883,7 +883,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
                 "Keys": [
                     "Site"
                 ],
-                "Label": "{IdentifyingValue} {Key}"
+                "Label": "{IdentifyingValue} Site {Uom}"
             }
        },
   ],

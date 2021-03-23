@@ -2,6 +2,7 @@
 uid: WhatOCSdoes
 ---
 
+
 # What does OSIsoft Cloud Services do? 
 
 ![OCS](images/how-does-ocs-work/ocs_intro.png)
@@ -11,7 +12,7 @@ OSIsoft Cloud Services (OCS) consists of several different areas of core functio
 * [Tenant management](#tenant-management) - Explains basic concepts in managing OCS, including clients, users, roles, roles-based access control and discusses how administrators can customize OCS based on organizational requirements 
 * [Data collection](#data-collection) - Summarizes techniques to collect and feed data from multiple sources across your organization into a namespace within OCS 
 * [Data organization](#data-organization) - Provides a high-level description of how OCS stores and retrieves operational data
-* [Visualization](#visualization) - Enables users to render a graphical depiction of selected OCS stream data values
+* [Data analysis](#data-analysis) - Provides users with analytical tools to sort and visualize OCS data.
 * [Data science enablement](#data-science-enablement) - Highlights the capabilities of OCS tools for data grouping and organization to enable the use of third-party data science applications
 
 ## Tenant management    
@@ -68,7 +69,7 @@ Authorization is the process of determining the appropriate access level for a u
 
 ### Access control list 
 
-Each OCS service and resource has an access control list (ACL) that defines how much access is granted to assigned roles. The OCS Administrator configures each ACL and specifies types of permissions for each role. When a request is made to a specific OCS resource, the role assigned to the requestor (whether a user or client) is compared to the ACL for that resource to determine whether the request should be authorized. 
+Each OCS service and resource has an access control list (ACL) that defines how much access is granted to assigned roles. The OCS Administrator configures each ACL and specifies types of permissions for each role. When a request is made to a specific OCS resource, the role assigned to the requestor (whether a user or client) is compared to the ACL for that resource to determine whether the request should be authorized. Users are allowed or denied access permissions to OCS objects based on their assigned roles and the corresponding ACLs.
 
 The types of permissions granted to roles are as follows:
 * Read
@@ -175,13 +176,39 @@ To create a stream view, designate a souce type that contains the desired proper
 
 OCS provides a graphical interface for setting up stream views or you can use REST APIs to define stream views programmatically. If you are using the .NET framework, OSIsoft also offers client libraries to help you create and use stream views. 
 
-## Trend
+## Data analysis 
+
+After defining types, streams and stream views as needed, you can use the analytical tools provided by OCS to sort and visualize data from these objects. 
+
+Two analytical tools are available in OCS: 
+
+* [Trend](#trend) 
+* [Assets](#assets) 
+
+
+### Trend
 
 The Trend feature converts stream data to a graphic view, which can reveal trends, high points, or trouble spots. Use Trend to select data streams in a namespace, specify a time range, and then render a graph of those data values.
 
 The following example shows stream data for two streams over a selected period of several days:
 
 ![OCS](images/how-does-ocs-work/trend.jpg)
+
+### Assets
+
+Assets are a digital twin of physical entities in the real world.  An asset can consist of data from one or more streams. 
+
+The assets in the example below represent trucks in a fleet, with multiple data streams associated with each.  You can select an asset and display a trend of the data streams which can be used to identify and analyze problems.
+
+![OCS](images/how-does-ocs-work/assets-example.png)
+
+You can display the variation in the pressure of the suspension cylinders on each truck over time, identify those trucks whose cylinder pressure is outside the accepted range, and proactively deal with potential problems.
+
+Assets are a useful way to organize and contextualize data streams.  With PI to OCS data transfers, for example, you can organize multiple PI tags under a single asset. You could create an asset with streams measuring data for thermostats, ventilation equipment, lighting systems, and security.
+
+You can create assets on an ad hoc basis or create them from an asset type, a template for creating similar assets. 
+
+Users can use API calls to define asset rules, which bulk create or update assets according to matching patterns in stream names and metadata.  Asset rules are applied to existing applicable streams, and whenever a stream is created, updated, or deleted.
 
 ## Data science enablement
 

@@ -54,35 +54,35 @@ HTTP 200 OK
                     "Keys": [
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} AmbientTemperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "CloudCover"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} CloudCover {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Site {Uom}"
                 },
                 {
                     "Source": "Tags",

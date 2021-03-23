@@ -1,0 +1,4 @@
+- name: Get started with PI to OCS connections
+  topicHref: gs-pi-to-ocs-connection.md
+- name: Get started with OMF connections
+  topicHref: gs-omf-connection.md

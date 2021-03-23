@@ -13,7 +13,7 @@ Any data stored within a namespace is tied to that namespace, along with the reg
 
 ## PI Core counterpart
 
-In PI Core Services, a namespace is similar to a full PI Server. Much like a PI Server, a namespace has its own resources and it is not typical or easy to use data from multiple namespaces at the same time. It is reasonable for an account to use only one namespace.
+In PI Core Services, a namespace is similar to a full PI Server. Much like a PI Server, a namespace has its own resources and it is not typical or easy to use data from multiple namespaces at the same time. It is reasonable for a tenant to use only one namespace.
 
 ## Namespace IDs
 

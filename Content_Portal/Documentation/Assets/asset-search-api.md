@@ -148,7 +148,7 @@ Content-Type: application/json
 }
 ```
 
-### Example Asset Query Strings
+### Examples of asset query strings
 
 | Query String                   | Description                                                  |
 | ------------------------------ | ------------------------------------------------------------ |
@@ -166,3 +166,15 @@ Content-Type: application/json
 | AssetTypeName:HeaterTypeName | Returns all assets whose `Name` field of the asset type matches **HeaterTypeName** |
 | StreamProperties:Pressure | Returns all assets that have one or more stream references with the stream property ID **Pressure**. Note: This search only searches non-key Sds stream properties. |
 | StreamReferences:Name1| Returns all assets whose stream references contain a stream reference name that matches **Name1**. |
+
+### Special characters in search queries
+
+Add the backslash escape character ( \ ) before any special characters in search queries. The following special characters require an escape character:   " |  /  *  \  ( )  : 
+
+The following are examples of using the escape character in query strings.
+
+| Example Field Value                          | Query String                               |
+| -------------------------------------- | ------------------------------------------ |
+| Austin\Dallas\Fort Worth               | Austin\\\Dallas\\\Fort Worth               |
+| 1:100                                  | 1\\:100                                    |
+

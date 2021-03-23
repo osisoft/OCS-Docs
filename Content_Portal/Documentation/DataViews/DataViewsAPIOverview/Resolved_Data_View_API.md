@@ -381,14 +381,14 @@ HTTP 200 OK
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Site {Uom}"
                 },
                 {
                     "Source": "Tags",

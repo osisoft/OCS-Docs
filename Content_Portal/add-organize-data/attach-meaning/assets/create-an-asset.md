@@ -8,11 +8,11 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
 ### Create the asset
 
-1. Click the menu icon ![menu icon](images\icon_navigation_bigger.png) and click **Asset Explorer**.
+1. Click the menu icon ![menu icon](images/icon_navigation_bigger.png) and click **Asset Explorer**.
    
-1. To change the [namespace](xref:AccountManagementConcepts#namespace), click on the namespace to open the Select a Namespace window.
+1. To change the [namespace](xref:ccNamespaces), click on the namespace to open the Select a Namespace window.
 
-    ![Namespace icon](images\namespace-icon.png)
+    ![Namespace icon](images/namespace-icon.png)
 
 4. Select the namespace and click **Continue**.
 
@@ -36,7 +36,7 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
     The fields for entering the metadata details appear. 
 
-    ![Metadata fields](images\metadata-fields.png)
+    ![Metadata fields](images/metadata-fields.png)
 
     <!-- We need a definition for metadata that covers its use in different OCS contexts. --> 
 
@@ -63,11 +63,11 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
 4. Click **Add**.  
      The stream reference appears in the right pane. This is the automatically generated user-friendly stream name. You can edit this name.
-     ![Stream reference properties](images\stream-reference.png)
+     ![Stream reference properties](images/stream-reference.png)
      
 5. Click the scroll bar to display the properties for the stream reference.
    
-    ![Stream reference properties](images\stream-reference-properties.png)
+    ![Stream reference properties](images/stream-reference-properties.png)
 
 8. Click **Configure UOMs**. 
 
@@ -93,12 +93,12 @@ Follow the procedures to create an asset, add and configure its metadata and pro
     You can only specify one property as the asset's status. 
 
 1. Click the status icons to map the icon for each value.
-    ![Mapping status icons](images\map-status-values.png)
+    ![Mapping status icons](images/map-status-values.png)
     
     All the values have been mapped in the following screen capture.
-    ![Mapped status](images\mapped-status-values.png)
+    ![Mapped status](images/mapped-status-values.png)
     
-    Tip: You can switch to a different property by clicking the ![Change property icon](images\change-property-icon.png) icon.
+    Tip: You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
 
 ### Save the asset
 

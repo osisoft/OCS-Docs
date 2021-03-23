@@ -49,7 +49,7 @@ SDS supports reading from multiple streams in one request. The following method 
 
 Multi-stream reads can be HTTP GET or POST actions. The base reading URI for reading from multiple streams is as follows:
  ```text
-    api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data
+    api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Data/Joins
  ```
 
 **Parameters**  

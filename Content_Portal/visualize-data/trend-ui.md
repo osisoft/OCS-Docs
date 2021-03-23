@@ -2,17 +2,17 @@
 uid: TrendUserInterface
 ---
 
-# Trend user interface
+# Trend User Interface
 
 The screen capture and table below identify the important elements of the Trend user interface and how to use these elements to interact with the application. For more information on how to use the Trend page to analyze traces, see [Getting Started with Trend Data](xref:GettingStartedWithTrendData).
 
-![Trend page](images\Trend_full_page.png)
+![Trend page](images/Trend_full_page.png)
 
 | Number | Description                                                  |
 | ------ | ------------------------------------------------------------ |
 | 1      | Tenant &ndash; Click the triangle and select the tenant from the list. |
 | 2      | Namespace &ndash; Click the triangle and select the namespace from the list. |
-| 3      | Trend pane &ndash; Displays the selected traces.             |
+| 3      | Trend pane &ndash; Displays the selected traces. Line traces are displayed for numeric data and heat maps are displayed for string or enumerated data. |
 | 4      | Add Traces pane &ndash; Click the plus symbol (+) to add the trace to the trend pane. |
 | 5      | Trend mode &ndash; Click to toggle between the stacked, single-scale, and multi-scale view modes. |
 | 6      | Legend table &ndash; Displays information about the traces in the Trend pane. Toggle between the Trend and Cursor views. |

@@ -63,21 +63,21 @@ The requested page size. The maximum is 250,000. If the parameter is not provide
                     "Keys": [
                         "Temperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Flowrate"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Flowrate {Uom} {SummaryType}"
                 },
                 {
                     "Source": "PropertyId",
                     "Keys": [
                         "Volume"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Volume {Uom} {SummaryType}"
                 },
             ],
        },

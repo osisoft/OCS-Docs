@@ -7,22 +7,22 @@ uid: gsNamespaces
 
 The first task is to create a namespace, a logical unit of organization for data within a tenant. For more information on namespaces, see the following:
 
-- [About Namespaces](xref:ccNamespaces)
-- [PI Core Counterpart](xref:ccNamespaces#pi-core-counterpart) 
+- [About namespaces](xref:ccNamespaces)
+- [PI Core counterpart](xref:ccNamespaces#pi-core-counterpart) 
 - [Namespace IDs](xref:ccNamespaces#namespace-ids)
-- [Querying Data Across Namespaces](xref:ccNamespaces#querying-data-across-namespaces)
-- [Namespaces Best Practices](xref:bpNamespaces)
+- [Querying data across namespaces](xref:ccNamespaces#querying-data-across-namespaces)
+- [Namespaces best practices](xref:bpNamespaces)
 
 ## Procedure
 
-Creating a namespace is a resource-intensive operation. Therefore, you may prefer to use an existing namespace. In this procedure, the ID assigned to the namespace is QuickStart. Throughout the Getting Started, we will refer to the namespace with this name. Substitute "QuickStart" with the name of an existing namespace or any other name you prefer.
+Creating a namespace is a resource-intensive operation. Therefore, you may prefer to use an existing namespace. In this procedure, the ID assigned to the namespace is MyOCS. Throughout the Getting Started, we will refer to the namespace with this name. Substitute "MyOCS" with the name of an existing namespace or any other name you prefer.
 
-1. Click the ![Menu icon](images\menu-icon.png) icon and click **Namespaces** (under Data Management).
+1. Click the ![Menu icon](images/menu-icon.png) icon and click **Namespaces** (under Data Management).
 
 
 2. In the Manage Namespaces pane, click **Add Namespace**. 
 
-3. In the Namespace Id field, enter _QuickStart_ for your namespace ID, enter a description, and select a region. 
+3. In the Namespace Id field, enter *MyOCS* for your namespace ID, enter a description, and select a region. 
 
    Note: Once the namespace is created, the **Namespace Id** and **Region** cannot be changed.
 
@@ -30,7 +30,7 @@ Creating a namespace is a resource-intensive operation. Therefore, you may prefe
 
 4. Click **Display Details**.  
 
-   - The window shows your account ID, namespace ID, description, and region of your namespace. It also displays zero (0) in the **Type Count** and **Stream Count** fields.  
+   - The window shows your tenant ID, namespace ID, description, and region of your namespace. It also displays zero (0) in the **Type Count** and **Stream Count** fields.  
    - The details window shows the **State**, which indicates the status of the namespace. Once the process of creating a namespace and bringing it online is complete, the **State** changes to **Active**. If the status is not yet **Active**, close the window and refresh the page. 
 
     Note: It will take some time for the namespace to be created. 
@@ -52,6 +52,10 @@ Access control is managed by assigning permissions to roles. Each role is grante
 Note: The remaining steps are optional. 
 
 1. Click **Manage Permissions**.
-2. Click the **Selected role** arrow, and select Account Member from the list.
-3. Give the account member write permissions by selecting the **Allow** checkbox for the **Write** access type.
+2. Click the **Selected role** arrow, and select Tenant Member from the list.
+3. Give the tenant member write permissions by selecting the **Allow** checkbox for the **Write** access type.
 4. Click **Save**.
+
+## Next Step
+
+Continue with [Get started with connections](xref:gsConnections).

@@ -14,7 +14,7 @@ You define multiple aspects of a data view when you define it, including data it
 A data view must have a unique identifier. It may have a friendly name and description. If a friendly name is not specified, the identifier will be used as the data view's name.
 
 ### Include data items
-One or more queries determine the set of data items (such as SDS streams) that the data view will include. Each [Query](xref:DataViewsQueries) should represent a collection of like data items. To include data items that represent very different items, such as power inverters and weather stations, use separate queries.
+One or more queries determine the set of data items (such as streams and assets) that the data view will include. Each [Query](xref:DataViewsQueries) should represent a collection of like data items. Use separate queries to include data items that represent very different items, such as power inverters and weather stations.
 
 ### Include data fields
 
@@ -49,9 +49,9 @@ The following table lists the properties of a `DataView`:
 | Name | string | Optional | value of Id | Friendly name
 | Description | string | Optional  | null | Longer description of the view
 | IndexField | Field | Optional | { Label:"Timestamp" } | The field used for indexing.  If unspecified a field labeled "Timestamp" is included.
-| Queries     | Query[] | Optional | [ ] | Queries for OCS resources (such as streams) to include in the view. This is the starting point when defining a data view. Each Query should represent a collection of like data items. To include data items that represent very different items (e.g. solar inverters and weather), use separate queries.
-| DataFieldSets   | FieldSet[] | Optional | [ ] | The sets of fields included in the data view. Often copied or adapted from the view's available field sets, which are exposed in a resolved resource.
-| GroupingFields  | Field[] | Optional | [ ] | Fields by which the data items are partitioned/grouped.
+| Queries | Query[] | Optional | [ ] | Queries for OCS resources (such as streams and assets) to include in the view. This is the starting point when defining a data view. Each Query should represent a collection of like data items. To include data items that represent very different items (e.g. solar inverters and weather), use separate queries.
+| DataFieldSets | FieldSet[] | Optional | [ ] | The sets of fields included in the data view. Often copied or adapted from the view's available field sets, which are exposed in a resolved resource.
+| GroupingFields | Field[] | Optional | [ ] | Fields by which the data items are partitioned/grouped.
 | DefaultStartIndex | string | Optional | null | The default value of StartIndex used when querying the data view data if none is specified.
 | DefaultEndIndex | string | Optional | null | The default value of EndIndex used when querying the data view data if none is specified.
 | DefaultInterval | string | Optional | null | The default value of Interval used when querying the data view data if none is specified.
@@ -81,7 +81,7 @@ The `DataItemResourceType` enumeration specifies the OCS resource type included 
 | Name | Enumeration Id | Details |
 |--|--|--|--|
 | Stream | 1 | [SDS streams](xref:sdsStreams)
-| Asset *(Coming Soon)* | 2 | Assets
+| Asset | 2 | [Assets](xref:AssetsProperties)
 
 ### FieldSet
 A set of fields included in the data view, sharing a common role and query. One `DataView` is likely to include one `FieldSet` per query.
@@ -92,18 +92,18 @@ A set of fields included in the data view, sharing a common role and query. One 
 | IdentifyingField | Field | Optional | null | A field by which to tell the data items apart, within each group. Any field from field sources `FieldSource.Id`, `FieldSource.Name`, `FieldSource.Metadata` and `FieldSource.Tags` can be used as an identifying field.
 
 ### Field
-Individual piece of information, such as a property of an SDS stream or metadata of that stream.
+An individual piece of information, such as a property of an SDS stream, an asset stream reference, or metadata of that stream or asset.
 All sources except `FieldSource.NotApplicable` can be used as data fields. Fields from sources `FieldSource.Id`, `FieldSource.Name`, `FieldSource.Metadata` and `FieldSource.Tags` can be used as grouping fields and identifying fields. Some sources are used in conjunction with the Keys property (see below).
 |Property | Type | Optionality  | Default  | Details |
 |--|--|--|--|--|
 | Source | FieldSource | Optional | NotApplicable | Identifies the `.Source` of the field's values (not applicable for an index field). See the FieldSource enumeration section in this topic for details.
 | Keys | String[] | Optional | [ ] | Used for sources `FieldSource.PropertyId`, `FieldSource.PropertyName`, `FieldSource.Metadata` and `FieldSource.Tags`, e.g. to map to specific data item properties by id. If more than one key is specified, they are matched as exclusive-or. A key has to be a non-null value.
-| StreamReferenceNames *(Coming Soon)* | String[] | Optional | [ ] | Identifies the stream reference name when referencing an asset property. `StreamReferenceNames` only applies to source `FieldSource.PropertyId`. If more than one key is specified, they are matched as exclusive-or. A key has to be a non-null value.
+| StreamReferenceNames | String[] | Optional | [ ] | Identifies the stream reference name when referencing an asset property. `StreamReferenceNames` only applies to source `FieldSource.PropertyId`. If more than one key is specified, they are matched as exclusive-or. A key has to be a non-null value.
 | Label | string | Optional | null | Friendly name for the field. Certain tokens have special meaning: one of these, {IdentifyingValue}, is included in the suggested labels of AvailableFieldSets. Tokens that do not resolve are "" (empty string). The label is required in a field for all usages except in an identifying field. Label is trimmed of whitespace when used to identify field mappings. 
-| IncludeUom *(Coming Soon)*| bool | Optional | false | Specifies whether to include the unit of measure for this field as an additional field mapping in the resolved data view.
+| IncludeUom | bool | Optional | false | Specifies whether to include the unit of measure for this field as an additional field mapping in the resolved data view.
 
 ### FieldSource enumeration
-For fields that derive data from a data item (e.g. an SDS stream), the `FieldSource` enumeration specifies the part of that data item that a Field resolves to. Some sources require one or more `.Keys` to be specified on the field, such as `PropertyId`, in which a key is the id of a desired property.
+For fields that derive data from a data item (e.g. a stream or asset), the `FieldSource` enumeration specifies the part of that data item that a Field resolves to. Some sources require one or more `.Keys` to be specified on the field, such as `PropertyId`, in which a key is the id of a desired property.
 
 |Name | Enumeration Id | Keyed | Details |
 |--|--|--|--|

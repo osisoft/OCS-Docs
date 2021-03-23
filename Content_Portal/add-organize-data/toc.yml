@@ -4,6 +4,6 @@
 - name: Store data
   href: store-data/toc.yml
   topicHref: store-data/store-data-overview.md
-- name: Attach meaning to data
+- name: Organize data
   href: attach-meaning/toc.yml
   topicHref: attach-meaning/data-context-overview.md

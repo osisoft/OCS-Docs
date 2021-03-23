@@ -2,9 +2,7 @@
 uid: DataViewsUnitsOfMeasure
 ---
 
-# Display units of measure (coming soon)
-
-*Note: This topic covers features that are not yet generally available. If you are interested in trialing these pre-release features, contact your account team for more details.*
+# Display units of measure
 
 Data views can be configured to show the units of measure (Uom) from the underlying data source. This topic describes how to see the effective units of measure within a resolved data view, as well as the different options to include them in the data set itself.
 
@@ -45,8 +43,8 @@ This simple example shows the `IncludeUom` property of a data field is set to `t
         {
           "Source": "PropertyId",
           "Keys": [ "Value" ],
-          "Label": "{IdentifyingValue} {Key}",
-		  "IncludeUom": "true"
+          "Label": "{IdentifyingValue} Value",
+          "IncludeUom": "true"
         }
       ]
     }
@@ -87,8 +85,8 @@ The following example shows how the field label token `{Uom}` of a data field is
         {
           "Source": "PropertyId",
           "Keys": [ "Value" ],
-          "Label": "{IdentifyingValue} {Key} {Uom}",
-		  "IncludeUom": "false"
+          "Label": "{IdentifyingValue} Value {Uom}",
+          "IncludeUom": "false"
         }
       ]
     }

@@ -1,7 +1,8 @@
 - name: OSIsoft Cloud Services
-  href: OCS_Content_Portal_Overview.md
+  href: ocs-content-portal-overview.md
 - name: Get started
   href: Overview/toc.yml
+  topicHref: Overview/get-started-overview.md
 - name: Set up the environment
   href: set-up/toc.yml
   topicHref: set-up/set-up-overview.md

@@ -1,0 +1,6 @@
+- name: Get started with client-credentials clients
+  topicHref: gs-client-credentials-clients.md
+- name: Get started with client authorization clients
+  topicHref: gs-client-authorization-clients.md
+- name: Get started with hybrid clients
+  topicHref: gs-hybrid-clients.md

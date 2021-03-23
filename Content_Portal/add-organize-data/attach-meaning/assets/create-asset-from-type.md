@@ -6,11 +6,11 @@ Puid: CreateAssetFromAssetType
 
 For more information on asset types, see [Asset types](xref:AssetTypes).
 
-1. Click the menu icon ![menu icon](images\icon_navigation_bigger.png) and click **Asset Explorer**.
+1. Click the menu icon ![menu icon](images/icon_navigation_bigger.png) and click **Asset Explorer**.
 
-2. To change the [namespace](xref:AccountManagementConcepts#namespace), click on the namespace to open the Select a Namespace window.
+2. To change the [namespace](xref:AccountManagementConcepts#introduction-to-namespaces), click on the namespace to open the Select a Namespace window.
 
-    ![Namespace icon](images\namespace-icon.png)
+    ![Namespace icon](images/namespace-icon.png)
 
 3. Select the namespace and click **Continue**.
 
@@ -29,17 +29,17 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 5. Edit the values for any of the metadata.
     Note: You can only edit the values. The metadata are derived from an asset type, as indicated by the T and, therefore, you cannot add or delete metadata or change the type.
 
-    ![Metadata fields](images\edit-metadata-fields.png)
+    ![Metadata fields](images/edit-metadata-fields.png)
 
 7. Click the **Properties** tab.
 
 8. Click the caret symbol to open the stream reference configuration pane. 
 
-    ![](images\type-stream-reference-caret.png)
+    ![](images/stream-reference-caret.png)
 
 9. Click **Choose a Stream** to open the Select Stream window.
 
-    ![](images\choose-stream.png)
+    ![](images/choose-stream.png)
 
 10. Select the stream from the list of streams.
 

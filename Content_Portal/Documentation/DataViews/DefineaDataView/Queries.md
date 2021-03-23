@@ -10,7 +10,9 @@ Queries determine what data items are included in a data view.
 
 Each `Query` must be uniquely identified with an `.Id`. The identifier should be meaningful. The query's results will be referenced by this identifier when you include fields in the data view.
 
-The query text is the same as the corresponding data item's query syntax. For example, queries of kind Stream use [stream query syntax](xref:sdsSearching).
+
+The query text is the same as the corresponding data item's query syntax. For example, queries of kind Stream use [stream query syntax](xref:sdsSearching) and queries of kind Asset use [asset query strings](xref:AssetsSearchAPI#examples-of-asset-query-strings).
+
 
 |Property| Type | Optionality  | Default  | Details |
 |--|--|--|--|--|
@@ -35,7 +37,7 @@ For example:
     "Id": "weather stations",
     "Kind": "Stream",
     "Value": "tags:weather"
-  },
+  }
 ]
 ```
 Using separate queries means the data items will be available in separate field sets. This is good, because a power inverter has completely different fields versus a weather station.
@@ -56,19 +58,18 @@ In the example scenario, each power inverter is associated with two streams. It 
 
 These streams will be available in one single field set. This is good, because our data view can operate in terms of physical assets, and not be bound by how the stream data was recorded.
 
-## Asset queries (Coming Soon)
-*Note: This section covers features that are not yet generally available. If you are interested in trialing these pre-release features, contact your account team for more details.*
+## Asset queries
 
-Currently, the only supported query kind is Stream meaning only SDS streams can be queried and included in a data view as data items. With the introduction of asset queries, data views will also be able to query and include [assets](xref:AssetsProperties).
+Users can create a data view by querying directly for assets, as long as the assets have stream references defined.
 
 An asset query looks identical to a stream query with the exception that query kind (set using the [DataItemResourceType enumeration](xref:DataViewsQuickStartDefine#dataitemresourcetype-enumeration)) is equal to Asset, and query value uses [asset search syntax](xref:AssetsSearchAPI).
 
 ```json
 "Queries": [
     {
-        "Id": "trucks",
+        "Id": "inverter power measurements",
         "Kind": "Asset",
-        "Value": "Truck*"
+        "Value": "Metadata/Name:Inverter"
     }
 ]
 ```
@@ -78,14 +79,14 @@ Note that query kind defaults to Stream if not included in the query definition.
 ```json
 "Queries": [
     {
-        "Id": "truck assets",
+        "Id": "inverter power measurements",
         "Kind": "Asset",
-        "Value": "Truck*"
+        "Value": "Metadata/Name:Inverter"
     },
     {
-        "Id": "truck streams",
-        "Kind": "Stream",
-        "Value": "Truck*"
+      "Id": "weather stations",
+      "Kind": "Stream",
+      "Value": "tags:weather"
     }
 ]
 ```

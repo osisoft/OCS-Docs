@@ -211,7 +211,7 @@ abbreviation. The names and abbreviations of ``Uoms`` are case sensitive.
 The ``InterpolationMode`` and ``Uom`` of the SdsTypeProperty can be overridden on the SdsStream. For more information, see [Streams](xref:sdsStreams#sdsstreampropertyoverride).
 
 ### Supported units of measure
-For a list of units of measures that are supported for an SdsTypeProperty, see [Units of measure](xref:unitsOfMeasure#supported-units-of-measure).
+For a list of units of measures that are supported for an SdsTypeProperty, see [Units of measure](xref:unitsOfMeasure#supported-system-defined-units-of-measure).
 
 ## SdsTypes in .NET framework
 

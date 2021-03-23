@@ -1,73 +1,55 @@
 ---
-uid: gsStreams
+uid: gpStreams
 ---
 
 # Add a stream
 
-(Draft in progress)
+Sequential Data Store (SDS) stream data are values or events of the same SDS type. SDS stream data are stored in the Sequential Data Store and indexed by one or more properties defined by the stream's SDS type. See the following for more information about streams:
+
+- [About streams](xref:ccStreams)
+- [Streams best practices](xref:bpStreams)
 
 ## Procedure
 
-Find the Streams page in the OSIsoft Cloud Services portal [here](https://cloud.osisoft.com/data/streams). <!-- FYI: looks like the UI might be changing. Refer to cloud.osisoft.com main page-->
+1. Click the ![Menu icon](images\menu-icon.png) icon and click **Sequential Data Store** (under Data Management).
 
-1. Click the menu icon and click **Sequential Data Store** (under Data Management).
+1. Click **Streams**. From the **Namespace** drop-down list, select the namespace in which you want the stream created.
 
-1. Click **Streams**. From the **Namespace** drop-down list, select QuickStart.
-
-1. Click the **Manage Default Stream Permissions** icon above the tree on the left.  
-    This opens the Manage Default Permissions for New Streams window where default permissions for streams created in the selected namespace are configured. 
-   
-    Note: Permissions to change the defaults are restricted to Account Administrators. Any changes that are made here do not change the permissions on already existing streams.  
-    When you are done reviewing the permissions, click **Cancel** to continue.
-   
 1. Click **Add Stream**.
 
 1. In the Add Stream window, enter the following:
 
-   - Stream Id &ndash; QuickStart.NorthAmerica.SLTC.PumpA
-   - Description &ndash; SDS Stream used by OCS Quick Start
-   - Type ID &ndash; QuickStart.PumpState
+   - Stream Id &ndash;   Identifier for referencing the stream
+   - Description &ndash; User-friendly description of the stream
+   - Type ID &ndash; Sds type identifier of the type used in this stream          
 
     Note: Leave the Name field blank. By default, it will take the value of the Stream Id.
 
 1. Click **Save**.
 
-1. In the **Search...** field, enter _TypeId:QuickStart.PumpState_. 
+1. In the **Search...** field, enter: **TypeId:** *type_ID*, where *type_ID* is the value of the **TypeId** of the stream.
 
-    This searches for streams that use the QuickStart.PumpState type. 
+    This searches for streams that use the specified type. 
 
-1. Select the newly created stream in the list and in the right panel, select the **Metadata and Tags** tab.
+1. In the left panel, select the newly created stream in the list and continue with adding stream tags and metadata.
 
-1. Click **Add Tag**.
+## Add stream tags
 
-1. In the input field, type *OSIsoft*, and click anywhere outside of the text box to add the tag. 
+1.  In the right panel, select the **Metadata and Tags** tab, and then click **Add Tag**.
+
+1. In the input field, type the name of the metadata tag and click **Enter**. 
 
     Note: You can click the tag to edit it, or click the *X* to delete it from the stream.
 
+## Add metadata to the stream
+
 1. Click **Add Metadata**.
 
-1. In **Enter Metadata key...**, type *Site*, and in in **Enter Metadata value...**, enter *SLTC*. 
+1. In **Enter Metadata key... ** and **Enter Metadata value...**, enter the key and value of your metadata.
 
-    Note: You can click either of these fields to edit them later, click the *X* to delete it from the stream, or click the *i* <!-- add screen capture here --> to see who last changed this metadata key.
+    Note: You can click either of these fields to edit them later, click the *X* to delete it from the stream, or click the ![Information](images/info.png) to see who last changed this metadata key.
 
-1. In the **Search...** field, enter *Site:SLTC*. 
 
-    This searches for streams that have the metadata key *Site* and the value *SLTC*. This search query returns the QuickStart stream. 
-   
-    Note: Use quotation marks around the value if there are spaces in the text.
-    
-1. Select the QuickStart.NorthAmerica.SLTC.PumpA stream and click **Manage Data**. 
+## Related Links
 
-    This allows you to run queries against the data in the stream and to add, edit, and remove events.
-
-1. Click **Add Event**.
-
-1. In the Add Event window, enter the following: 
-
-   - Status &ndash; Running
-   - Value &ndash; 3.14
-   - Timestamp &ndash; Leave at default, which should be current time
-
-1. Click **Save**. 
-
-    The event appears as the latest value in the stream.
+- [Streams](xref:sdsStreams) API

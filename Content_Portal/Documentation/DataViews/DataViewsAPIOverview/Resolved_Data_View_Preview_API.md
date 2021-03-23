@@ -283,7 +283,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {Key}"
+      "Label": "{IdentifyingValue} Site {Uom}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -444,14 +444,14 @@ HTTP 200 OK
                     "Keys": [
                         "SolarRadiation"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
                 },
                 {
                     "Source": "Metadata",
                     "Keys": [
                         "Site"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Site {Uom}"
                 },
                 {
                     "Source": "Tags",
@@ -524,7 +524,7 @@ A `DataView` object to get the results for.
                         "Temperature",
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 }
             ],
        },
@@ -535,7 +535,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {Key}"
+      "Label": "{IdentifyingValue} Site {Uom}"
     }
   ],
   "IndexTypeCode": "DateTime",
@@ -664,7 +664,7 @@ A `DataView` object to get the results for.
                         "Temperature",
                         "AmbientTemperature"
                     ],
-                    "Label": "{IdentifyingValue} {Key}"
+                    "Label": "{IdentifyingValue} Temperature {Uom} {SummaryType}"
                 }
             ],
        },
@@ -675,7 +675,7 @@ A `DataView` object to get the results for.
       "Keys": [
         "Site" 
       ],
-      "Label": "{IdentifyingValue} {Key}"
+      "Label": "{IdentifyingValue} Site {Uom}"
     }
   ],
   "IndexTypeCode": "DateTime",

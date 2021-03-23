@@ -1,8 +1,18 @@
+- name: Introduction to the portal interface
+  topicHref: introduction-portal-interface.md
 - name: Get started with namespaces
   topicHref: gs-namespaces.md
 - name: Get started with connections
+  href: connections/toc.yml
   topicHref: gs-connections.md
 - name: Get started with types
   topicHref: gs-types.md
 - name: Get started with streams
   topicHref: gs-streams.md
+- name: Get started with roles
+  topicHref: gs-roles.md
+- name: Get started with users
+  topicHref: gs-users.md
+- name: Get started with clients
+  href: clients/toc.yml
+  topicHref: gs-clients.md
