@@ -61,5 +61,5 @@ For more information, see [stream views](xref:WhatOCSdoes#stream-views). To conf
    - Go to **Developer Tools** > **API Console**.
    - In **URI**, enter the following endpoint in the URI and click **Get**.
 ```text
-/Namespaces/{yourNamespace}/Streams/source-stream/Data/Transform/?startIndex={earliestDateWithData}&count=100&streamViewId=stream-view
+/Namespaces/{yourNamespace}/Streams/source-stream/Data/Transform?startIndex={earliestDateWithData}&count=100&streamViewId=stream-view
 ```
