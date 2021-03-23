@@ -1,3 +1,7 @@
+---
+uid: WhatOCSdoes
+---
+
 # What does OSIsoft Cloud Services do? 
 
 ![OCS](images/how-does-ocs-work/ocs_intro.png)
