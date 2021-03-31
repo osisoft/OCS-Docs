@@ -1,15 +1,24 @@
 ---
-UID: share-data-with-partner
+UID: share-streams
 ---
 
-# Share data with a partner
+# Share streams
 
-This topic provides a high level description of the entire process needed to create a community, add tenants to the community, and share data with tenants.
+**This topic is in development**
 
-This topic is in development
+Use this procedure to share streams with other communities.
 
-1. [Create a community](xref:add-community). 
-2. [Invite another OCS tenant](xref:managecommunity#add-a-tenant-to-a-community) to join the community.
-3. [Add users](xref:managecommunityusers#add-users-to-a-community) to the community.
-4. [Add clients](xref:managecommunityclients#add-clients-to-a-community) to the community.
-5. Share data --- TBD
+To perform this procedure you must have already defined streams.
+
+**Note.** Only an OCS user who has a [Data Steward](xref:communityroles#data-steward) role can share streams.  
+
+1. On the navigation bar, click **Sequential Data Store**.
+2. Select namespace or community?
+3. If it is not already selected, select Streams. (at top left)
+4. Select one or more streams to share.
+5. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Share Stream**. A confirmation dialog opens.
+6. If you selected multiple streams, selct **Share Streams**. ???is this step skipped if you're sharing one stream??? The Select Communities page opens.
+7. Click **Select Communities**.
+A list of communities appears.
+8. Select the communities with which you want to share the selected streams and click **Continue**.
+9. Click **Share**. When prompted for confirmation, click **Confirm**.
