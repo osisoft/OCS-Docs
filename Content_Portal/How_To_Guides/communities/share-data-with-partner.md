@@ -1,3 +1,7 @@
+---
+uid: ShareStreams
+---
+
 # Share streams
 
 **This topic is in development**
