@@ -1,7 +1,3 @@
----
-UID: share-streams
----
-
 # Share streams
 
 **This topic is in development**
