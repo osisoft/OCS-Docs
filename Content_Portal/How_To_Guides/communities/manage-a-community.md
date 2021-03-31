@@ -34,10 +34,6 @@ Two different users must perform this procedure:
    3.5. Select an invitation with a status of Invitation Accepted. The Invitation Details pane opens.   
    3.6. Click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again. The invitee's tenant is now part of the community.
 
-## Pause or resume sharing your tenant's data
-
-This procedure is TBD
-
 ## Remove a tenant from a community
 
 Use this procedure to remove a tenant from a community. This action might be necessary if a business relationship changes or the tenant's organization experiences a security breach.
