@@ -8,5 +8,7 @@
   href: manage-users.md
 - name: Add and remove community clients
   href: manage-clients.md
+- name: Share streams
+  href: share-data-with-partner.md  
 - name: Delete a community
   href: delete-a-community.md
