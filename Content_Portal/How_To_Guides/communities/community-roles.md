@@ -12,17 +12,12 @@ In Communities, the following roles are possible, ordered from least privileged 
 
 The role authorized to read any data shared in the community.
 
-## Data Steward
-
-A role that can share a tenant’s data with any community to which the data steward belongs. A data steward can grant this sharing privilege (that is, the data steward role) to other users in their own tenant.
-
 ## Community Moderator
 
-A role that  manages the community for a tenant. Usually, a Community Moderator is the individual who accepted the invitation to join a community on behalf of a tenant. This user must also be a Tenant Administrator for the same tenant.
+A role that  manages the community for a tenant. Usually, a Community Moderator is the individual who accepted the invitation to join a community on behalf of a tenant. 
 
 The Community Moderator's primary purpose is to specify which tenant's users have access to a community. Community Moderators have all the privileges of a Community Member, plus the ability to:  
 
-- Pause access to shared data from their tenant.
 - Add users from their tenant to the community
 - Remove their tenant's users from the community
 - Remove their tenant from the community
@@ -49,6 +44,10 @@ In addition to the roles you can assign in Communities, be aware of the followin
 ### Tenant Administrator
 
 A tenant-level role that allows users to administer their own tenant. Tenant Administrators are roles that apply to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component.
+
+### Data Steward
+
+A tenant-level role that can share a tenant’s data with any community to which the data steward belongs. A data steward can grant this sharing privilege (that is, the data steward role) to other users in their own tenant.
 
 ### Community Owner
 

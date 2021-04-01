@@ -4,7 +4,7 @@ uid: add-community
 
 # Create a community
 
-When you create a community, you are defining a space where external business partners can collaborate and share data. The community is private; no one outside of your community will have read or write access.
+When you create a community, you are defining a space where external business partners can collaborate and share data. The community is private; no one outside of your community will have read access.
 
 <!-- Include discussion of entitlements; also check in whether I need to mention community roles here -->
 
