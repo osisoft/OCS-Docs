@@ -24,8 +24,6 @@ When using Communities, you assign roles that grant levels of permission. Typica
 
 The following process lists the high-level steps that are needed to share data. The process consists of creating a community, populating it with tenants, users, and clients, and then sharing streams of data.
 
-**This procedure is still in development**
-
 1. [Create a community](xref:add-community).
 2. [Invite another OCS tenant](xref:managecommunity#add-a-tenant-to-a-community) to join the community.
 3. [Add users](xref:managecommunityusers#add-users-to-a-community) from your own tenant to the community.
