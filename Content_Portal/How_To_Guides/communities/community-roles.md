@@ -45,7 +45,7 @@ In addition to the roles you can assign in Communities, be aware of the followin
 
 A tenant-level role that allows users to administer their own tenant. Tenant Administrators are roles that apply to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component.
 
-### Data-sharing role
+### Data sharing role
 
 To share a tenant's data with a community, a user in that tenant must be assigned a role that has been granted the ManageAccessControl permission. To learn more about granting OCS permissions, see [Role-based access control](xref:accessControl).
 

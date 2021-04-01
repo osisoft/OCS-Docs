@@ -10,7 +10,7 @@ Use this procedure to share streams with other communities.
 
 To perform this procedure you must have already defined streams.
 
-**Note.** Only an OCS user who has a [Data Steward](xref:communityroles#data-sharing-role) role can share streams.  
+**Note.** Only an OCS user who has a [data-sharing role](xref:communityroles#data-sharing-role) role can share streams.  
 
 1. On the navigation bar, click **Sequential Data Store**.
 2. Select namespace or community?
