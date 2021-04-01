@@ -1,4 +1,4 @@
-- name: OMF best practices
+- name: OMF connections best practices
   topicHref: omf-connection-best-practices.md
 - name: Configure an OMF connection
   topicHref: omf-connection-procedure.md

@@ -39,6 +39,7 @@ After creating the namespace, the next step is to add one or more types. For mor
    - `Id` &ndash;  **MyOCS.PumpState**
    - `Name` &ndash;  **MyOCS.PumpState**
    - `Description` &ndash; **SDS Type used by My OCS**
+   
 1. Click the ![Properties icon](images\PropertiesPlusIcon.png) icon next to **Properties** to add a property.
 
 1. Complete the following fields for the first property:
@@ -62,6 +63,12 @@ After creating the namespace, the next step is to add one or more types. For mor
    - `Id` &ndash; Enter **Pressure**.
    - `Type` &ndash; Select **Double**.
    - `UOM` &ndash; Select **kilogram per cubic meter**.
+
+1. Click the ![Properties icon](images\PropertiesPlusIcon.png) icon to add a fourth property and complete the fields:
+
+     - `Id` &ndash; Enter **Status**.
+     - `Type` &ndash; Select **String**.
+     - UOM &ndash; Leave this blank.
 
 1. Click **Save**.
 
