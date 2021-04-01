@@ -22,7 +22,7 @@ When using Communities, you assign roles that grant levels of permission. Typica
 
 ## Share data with a partner
 
-The following process lists the high-level steps that are needed to share data. The process consists of creating a community, populating it with tenants, users, and clients, and then sharing data.
+The following process lists the high-level steps that are needed to share data. The process consists of creating a community, populating it with tenants, users, and clients, and then sharing streams of data.
 
 **This procedure is still in development**
 

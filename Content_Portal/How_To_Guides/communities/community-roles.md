@@ -45,10 +45,10 @@ In addition to the roles you can assign in Communities, be aware of the followin
 
 A tenant-level role that allows users to administer their own tenant. Tenant Administrators are roles that apply to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component.
 
-### Data Steward
+### Data-sharing role
 
-A tenant-level role that can share a tenant’s data with any community to which the data steward belongs. A data steward can grant this sharing privilege (that is, the data steward role) to other users in their own tenant.
+To share a tenant's data with a community, a user in that tenant must be assigned a role that has been granted the ManageAccessControl permission. To learn more about granting OCS permissions through access controls, see [Role-based access control](xref:accessControl).
 
-### Community Owner
+### Community owner
 
 The tenant who created a community. A community owner is not a role and is not granted any privileges. By default Tenant Administrators are granted the privilege to create communities.

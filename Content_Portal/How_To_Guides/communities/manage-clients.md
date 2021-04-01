@@ -17,7 +17,7 @@ To perform the following procedures, you must be a [Community Administrator](xre
 1. On the Communities overview page, find the community where you want to add clients and click **Details**.
 2. On the Community Details page, click the **My Clients** tab.
 3. Click **Add Client**.
-4. Select the clients to add. If necessary, you can filter the list of clients by typing characters in the **Filter clients** box. If you need to create a client in OCS before adding it to the community, see [Add a client-credentials client](xref:gpClientCredentialsClient).
+4. Select the clients to add. If necessary, you can filter the list of clients by typing characters in the **Filter clients** box. If you need to create a client in OCS before adding it to the community, see [Add a client credentials client](xref:gpClientCredentialsClient).
 5. Click **Add**.
 
 ## Remove a client from a community

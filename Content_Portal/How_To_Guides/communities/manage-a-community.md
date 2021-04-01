@@ -22,14 +22,14 @@ Two different users must perform this procedure:
    1.2. On the Community Details page, on the **Tenants** tab, click **Invite Tenant**.   
    1.3. Enter the email address of the administrator of the tenant you would like to invite and click **Send**. An email is sent to the invitee.
 2. **Invitee:** Perform the following steps to accept an invitation:   
-   2.1 Open the email from OSIsoft Cloud Services Operations and follow the instructions it provides. OCS opens and displays a login dialog.   
-   2.2. Enter the tenant ID or tenant alias of the tenant from which you want to share data and click **Continue**. You must be a tenant administrator for this tenant to accept the invitation.   
+   2.1 Open the email from OSIsoft Cloud Services Operations and follow the instructions. OCS opens and displays a login dialog.   
+   2.2. Enter the tenant ID or tenant alias of the tenant from which you want to share data and click **Continue**. You must be a Tenant Administrator for this tenant to accept the invitation.   
    2.3. On the authentication dialog, verify your identity. OCS displays a page saying that your tenant will be joining the community from which the invite was issued. Membership in the community does not actually begin until the inviter confirms the invitation in the next step.   
    2.4. Click **Join**. The inviter receives an email asking for confirmation of the pending invitation.   
 3. **Inviter:** Perform the following steps to confirm the new tenant:   
    3.1. Follow the instructions in the email.   
    3.2. Log into the tenant that owns the community you are sharing.   
-   3.3. On the Communities overview page, find the community you to which you have invited another tenant and click **Details**.   
+   3.3. On the Communities overview page, find the community to which you have invited another tenant and click **Details**.   
    3.4  On the Community Details page, click the **Invitations** tab.   
    3.5. Select an invitation with a status of Invitation Accepted. The Invitation Details pane opens.   
    3.6. Click **Confirm Tenant**. When prompted for confirmation, click **Confirm Tenant** again. The invitee's tenant is now part of the community.
