@@ -47,7 +47,7 @@ A tenant-level role that allows users to administer their own tenant. Tenant Adm
 
 ### Data-sharing role
 
-To share a tenant's data with a community, a user in that tenant must be assigned a role that has been granted the ManageAccessControl permission. To learn more about granting OCS permissions through access controls, see [Role-based access control](xref:accessControl).
+To share a tenant's data with a community, a user in that tenant must be assigned a role that has been granted the ManageAccessControl permission. To learn more about granting OCS permissions, see [Role-based access control](xref:accessControl).
 
 ### Community owner
 
