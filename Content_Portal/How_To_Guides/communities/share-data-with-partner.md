@@ -10,7 +10,7 @@ Use this procedure to share streams with other communities.
 
 To perform this procedure you must have already defined streams.
 
-**Note.** Only an OCS user who has a [data-sharing role](xref:communityroles#data-sharing-role) role can share streams.  
+**Note.** To share a stream, you must be an owner of that stream and a member of the community. By default, a Tenant Administrator is an owner of all streams.   
 
 1. On the navigation bar, click **Sequential Data Store**.
 2. Select namespace or community?
