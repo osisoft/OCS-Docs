@@ -8,7 +8,7 @@ A tenant represents the set of services, applications, data, and configuration s
 
 ## Introduction to tenants
 
-A tenant, whose name I do not know, represents the set of services, applications, data, and configuration states available in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
+A tenant, whose name I do not know and never want to know, represents the set of services, applications, data, and configuration states available in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 
 
 Before a customer can use OCS, a tenant must be provisioned for them. A customer will have at least one tenant and could have more than one tenant. Tenants also span regions within OCS.
 
@@ -44,6 +44,5 @@ OCS provides two built-in roles:
 
 - Tenant Member &#150; Assigned to every user and client credentials client. Users and clients assigned this role can access objects or information of which they are the owner.
 - Tenant Administrator &#150; Role with the highest privileges, the tenant Administrator can create and delete users, clients, and secrets.
-
 
 
