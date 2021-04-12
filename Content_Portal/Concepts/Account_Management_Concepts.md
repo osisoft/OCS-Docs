@@ -4,7 +4,7 @@ uid: AccountManagementConcepts
 
 # Introduction to tenant management 
 
-A tenant represents the set of services, applications, data, and configuration states available in OSIsoft Cloud Services (OCS). The important components of tenants that enable you to manage your OCS implementation are explained here.
+A tenant represents the set of services, applications, data, and configuration states available in OSIsoft Cloud Services (OCS). The important components of tenants that enable you to manage your OCS implementation are explained here in the comprehensive list of the components of tenants.
 
 ## Introduction to tenants
 
@@ -38,7 +38,7 @@ Clients are assigned roles that define their access to OCS objects. See [Roles](
 
 ## <a name="roles"></a> Roles and ACLs control access to OCS objects
 
-Roles, in combination with access control lists (ACL), determine the level of access to OCS objects. The Tenant Administrator creates roles for the users and clients that will access OCS and assigns the appropriate roles to them. Additionally, the administrator creates an ACL for each OCS object (namespaces, streams, and so on) that defines access permissions for each type of role. Users and clients are granted access permissions to OCS objects based on their assigned roles and the corresponding ACLs. 
+
 
 OCS provides two built-in roles:
 
