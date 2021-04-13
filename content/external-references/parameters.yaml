@@ -58,3 +58,7 @@ dataViewId:
   type: text/plain
   value: |
     Data view identifier
+cancellation-token:
+  type: text/plain
+  value: |
+    Cancellation token
