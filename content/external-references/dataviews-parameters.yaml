@@ -32,11 +32,11 @@ count-data:
   type: markdown
   value: |
     The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsQuickStartGetData#page-size).
-count-dataitem:
+count-dataitems:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.
-count-dataview:
+count-dataviews:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.
@@ -44,7 +44,7 @@ count-fieldmappings:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.
-count-group:
+count-groups:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.
@@ -85,19 +85,19 @@ owner:
     A [`Trustee`](xref:accessControl#owner)
 
 # skip
-skip-dataitem:
+skip-dataitems:
   type: text/plain
   value: |
     An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.
-skip-dataview:
+skip-dataviews:
   type: text/plain
   value: |
-    An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.
+    An optional parameter representing the zero-based offset of the first data view to retrieve. If not specified, a default value of 0 is used.
 skip-fieldmappings:
   type: text/plain
   value: |
-    An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.
-skip-group:
+    An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.
+skip-groups:
   type: text/plain
   value: |
     An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.
