@@ -4,7 +4,7 @@ uid: Aboutassets
 
 # Organize steams with assets
 
-This is my new homeowkr attempt. I hope this works! Thanks so much for all your help!
+This is my new homework attempt. I hope this works! Thanks so much for all your help!
 
 Use the asset explorer in the OCS Portal to create assets and visualize selected data streams and properties for troubleshooting and analysis of the associated devices or entities. You can create assets on an ad hoc basis or create them from an asset type, which acts as a template for creating similar assets.
 
