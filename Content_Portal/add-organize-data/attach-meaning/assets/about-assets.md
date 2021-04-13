@@ -12,6 +12,6 @@ Asset types are a template that is used to create multiple assets with similar p
 
 I deleted the metadata section, we dont need it.
 
-Stream Type references - A collection of named references to streams that asset instances of the asset type are expected to provide. The name functions as a key identifying the relationship between asset of the referenced Stream. The stream type and unit of measure override define constraints on the referenced stream that instances will comply with.
+Stream Type references - A collection of named references to streams that asset instances of the asset type are expected to provide. The name functions as a key identifying the relationship between asset of the referenced Stream. 
 
 For more information on assets, see [Assets](xref:WhatOCSdoes#assets).
