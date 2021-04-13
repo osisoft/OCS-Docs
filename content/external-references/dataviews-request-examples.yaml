@@ -1,0 +1,115 @@
+# data view create/update requests
+dataview-create:
+  type: application/json
+  value: |
+    {
+        "Name": "demo",
+        "Description": "demonstration",
+        "IndexField": { "Label": "Timestamp" },
+        "Queries": [],
+        "DataFieldSets": [],
+        "GroupingFields": [],
+        "IndexTypeCode": "DateTime",
+        "Shape": "Standard"
+    }
+dataview-createorupdate:
+  type: application/json
+  value: |
+    {
+      "Id": "demo",
+      "Name": "demo",
+      "Description": "demonstration",
+      "IndexField": { "Label": "Timestamp" },
+      "Queries": [],
+      "DataFieldSets": [],
+      "GroupingFields": [],
+      "IndexTypeCode": "DateTime",
+      "Shape": "Standard"
+    }
+dataview-getorcreate:
+  type: application/json
+  value: |
+    {
+      "Id": "demo",
+      "Name": "demo",
+      "Description": "demonstration",
+      "IndexField": { "Label": "Timestamp" },
+      "Queries": [],
+      "DataFieldSets": [],
+      "GroupingFields": [],
+      "IndexTypeCode": "DateTime",
+      "Shape": "Standard"
+    }
+# access control requests
+dataview-acl-update:
+  type: application/json
+  value: |
+    {
+      "RoleTrusteeAccessControlEntries": 
+      [
+        {
+          "Trustee": {
+            "Type": Role,
+            "RoleId": "11111111-1111-1111-1111-111111111111"
+          },
+          "AccessType": Allowed,
+          "AccessRights": 1
+        },
+        {
+          "Trustee": {
+            "Type": Role,
+            "RoleId": "22222222-2222-2222-2222-222222222222"
+          },
+          "AccessType": Allowed,
+          "AccessRights": 15
+        },
+        {
+          "Trustee": {
+            "Type": User,
+            "RoleId": "33333333-3333-3333-3333-333333333333"
+          },
+          "AccessType": Denied,
+          "AccessRights": 8
+        }
+      ]
+    }
+dataview-owner-update:
+  type: application/json
+  value: |
+    {
+        "Type": User,
+        "TenantId": "55555555-5555-5555-5555-555555555555",
+        "ObjectId": "44444444-4444-4444-4444-444444444444"
+    }
+dataviews-acl-update:
+  type: application/json
+  value: |
+    {
+      "RoleTrusteeAccessControlEntries": 
+      [
+        {
+          "Trustee": {
+            "Type": Role,
+            "RoleId": "11111111-1111-1111-1111-111111111111"
+          },
+          "AccessType": Allowed,
+          "AccessRights": 1
+        },
+        {
+          "Trustee": {
+            "Type": Role,
+            "RoleId": "22222222-2222-2222-2222-222222222222"
+          },
+          "AccessType": Allowed,
+          "AccessRights": 15
+        },
+        {
+          "Trustee": {
+            "Type": User,
+            "RoleId": "33333333-3333-3333-3333-333333333333"
+          },
+          "AccessType": Denied,
+          "AccessRights": 8
+        }
+      ]
+    }
