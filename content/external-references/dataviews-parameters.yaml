@@ -5,6 +5,12 @@ acl:
     An [`AccessControlList`](xref:accessControl#access-control-lists)
 
 # cache
+cache:
+  type: text/plain
+  value: |
+    "Refresh" to force the resource to re-resolve.
+    "Preserve" to use cached information, if available. This is the default value
+
 cache-data:
   type: markdown
   value: |
@@ -14,6 +20,12 @@ cache-data:
     |--|--|
     | `Refresh` | Force the resource to re-resolve.  This is the default value for this API route.  
     | `Preserve`| Use cached information, if available.
+
+# continutation-token
+continuation-token:
+  type: markdown
+  value: |
+    Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
 
 # count
 count-data:
@@ -28,7 +40,7 @@ count-dataview:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.
-count-fieldmapping:
+count-fieldmappings:
   type: text/plain
   value: |
     An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.
@@ -37,11 +49,6 @@ count-group:
   value: |
     An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.
 
-# continutation-token
-continuation-token:
-  type: markdown
-  value: |
-    Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
 
 # dataview
 dataview:
@@ -75,7 +82,7 @@ interval:
 owner:
   type: markdown
   value: |
-    A DataView object whose Id is null or unspecified
+    A [`Trustee`](xref:accessControl#owner)
 
 # skip
 skip-dataitem:
@@ -86,7 +93,7 @@ skip-dataview:
   type: text/plain
   value: |
     An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.
-skip-fieldmapping:
+skip-fieldmappings:
   type: text/plain
   value: |
     An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.
