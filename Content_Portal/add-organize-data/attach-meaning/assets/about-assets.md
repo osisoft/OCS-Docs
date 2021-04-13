@@ -10,7 +10,7 @@ Use the asset explorer in the OCS Portal to create assets and visualize selected
 
 Asset types are a template that is used to create multiple assets with similar properties. Assets created from asset types have the following characteristics:
 
-Metadata - A collection of properties that asset instances of this asset type are expected to provide. The type and units of measure for the value can be defined.
+I deleted the metadata section, we dont need it.
 
 Stream Type references - A collection of named references to streams that asset instances of the asset type are expected to provide. The name functions as a key identifying the relationship between asset of the referenced Stream. The stream type and unit of measure override define constraints on the referenced stream that instances will comply with.
 
