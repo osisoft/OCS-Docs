@@ -1,0 +1,102 @@
+# acl
+acl:
+  type: markdown
+  value: |
+    An [`AccessControlList`](xref:accessControl#access-control-lists)
+
+# cache
+cache-data:
+  type: markdown
+  value: |
+    Controls when the data view backing resources are to be refreshed. Used only when requesting the first page of data. Ignored if used with the continuationToken. Values are:
+
+    | Value | Description | 
+    |--|--|
+    | `Refresh` | Force the resource to re-resolve.  This is the default value for this API route.  
+    | `Preserve`| Use cached information, if available.
+
+# count
+count-data:
+  type: markdown
+  value: |
+    The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsQuickStartGetData#page-size).
+count-dataitem:
+  type: text/plain
+  value: |
+    An optional parameter representing the maximum number of data items to retrieve. If not specified, a default value of 100 is used.
+count-dataview:
+  type: text/plain
+  value: |
+    An optional parameter representing the maximum number of data views to retrieve. If not specified, a default value of 100 is used.
+count-fieldmapping:
+  type: text/plain
+  value: |
+    An optional parameter representing the maximum number of field mappings to retrieve. If not specified, a default value of 100 is used.
+count-group:
+  type: text/plain
+  value: |
+    An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.
+
+# continutation-token
+continuation-token:
+  type: markdown
+  value: |
+    Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
+
+# dataview
+dataview:
+  type: text/plain
+  value: |
+    A DataView object whose Id matches the dataViewId in the URL.
+dataview-no-id:
+  type: text/plain
+  value: |
+    A DataView object whose Id is null or unspecified
+
+# end index
+end-index:
+  type: markdown
+  value: |
+    The requested end index, inclusive. The default value is the ```.DefaultEndIndex``` of the data view. Optional if a default value is specified.
+
+#form
+form:
+  type: markdown
+  value: |
+    The requested data [output format](xref:DataViewsQuickStartGetData#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
+    
+# interval:
+interval:
+  type: text/plain
+  value: |
+    The requested interval between index values. The default value is the ```.DefaultInterval``` of the data view. Optional if a default is specified.
+
+# owner
+owner:
+  type: markdown
+  value: |
+    A DataView object whose Id is null or unspecified
+
+# skip
+skip-dataitem:
+  type: text/plain
+  value: |
+    An optional parameter representing the zero-based offset of the first data item to retrieve. If not specified, a default value of 0 is used.
+skip-dataview:
+  type: text/plain
+  value: |
+    An optional parameter representing the zero-based offset of the first field mapping to retrieve. If not specified, a default value of 0 is used.
+skip-fieldmapping:
+  type: text/plain
+  value: |
+    An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.
+skip-group:
+  type: text/plain
+  value: |
+    An optional parameter representing the zero-based offset of the first group to retrieve. If not specified, a default value of 0 is used.
+
+# start index
+start-index:
+  type: markdown
+  value: |
+    The requested start index, inclusive. The default value is the ```.DefaultStartIndex``` of the data view. Optional if a default value is specified
