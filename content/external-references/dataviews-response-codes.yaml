@@ -64,3 +64,54 @@
   type: text/plain
   value: |
     Successfully retrieved data.
+
+# Response Code: 403 Forbidden
+403-dataview-acl-get:
+  type: text/plain
+  value: |
+    You are not authorized to view the requested data view's access control list
+
+403-dataview-acl-update:
+  type: text/plain
+  value: |
+    You are not authorized to update the requested data view's access control list
+
+403-dataview-create:
+  type: text/plain
+  value: |
+    You are not authorized to create a data view
+
+403-dataview-get:
+  type: text/plain
+  value: |
+    You are not authorized to view the requested data view
+
+403-dataview-owner-get:
+  type: text/plain
+  value: |
+    You are not authorized to view the requested data view's owner
+
+403-dataview-owner-update:
+  type: text/plain
+  value: |
+    You are not authorized to update the requested data view's owner
+
+403-dataviews-accessrights-get:
+  type: text/plain
+  value: |
+    You are not authorized to view the requested data view collection's access control list
+
+403-dataviews-acl-get:
+  type: text/plain
+  value: |
+    You are not authorized to view the requested data view collection's access control list
+
+403-dataviews-acl-update:
+  type: text/plain
+  value: |
+    You are not authorized to update the data views collection's default access control list
+
+403-standard-message:
+  type: text/plain
+  value: |
+    You are not authorized for this operation
