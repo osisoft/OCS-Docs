@@ -30,6 +30,16 @@
   value: |
     The owner of the requested data view
 
+200-dataviews-acl-get:
+  type: text/plain
+  value: |
+    The default access control list of the data views collection
+
+200-dataviews-accessrights-get:
+  type: text/plain
+  value: |
+    A list of access rights to the data views collection
+
 200-dataviews-get:
   type: text/plain
   value: |
