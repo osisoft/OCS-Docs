@@ -65,6 +65,27 @@
   value: |
     Successfully retrieved data.
 
+# Response Code: 204 No Content
+204-dataview-update-standard-message:
+  type: text/plain
+  value: |
+    Successfully updated the data view
+
+204-dataview-acl-update:
+  type: text/plain
+  value: |
+    Successfully updated the data view access control list
+
+204-dataviews-acl-update:
+  type: text/plain
+  value: |
+    Successfully updated the default access control list of the data views collection
+
+204-dataviews-owner-update:
+  type: text/plain
+  value: |
+    Successfully updated the data view owner
+
 # Response Code: 403 Forbidden
 403-dataview-acl-get:
   type: text/plain
@@ -115,3 +136,9 @@
   type: text/plain
   value: |
     You are not authorized for this operation
+
+# Response Code: 500 Internal Server Error
+500-standard-message:
+  type: text/plain
+  value: |
+    An error occurred while processing the request. See the response body for details.
