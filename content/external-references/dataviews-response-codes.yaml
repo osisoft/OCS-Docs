@@ -1,0 +1,56 @@
+
+# Response Code: 200 OK
+200-data-get:
+  type: text/plain
+  value: |
+    Successfully retrieved data.
+
+200-dataview-accessrights-get:
+  type: text/plain
+  value: |
+    A list of access rights to the requested data view
+
+200-dataview-acl-get:
+  type: text/plain
+  value: |
+    The access control list of the requested data view
+
+200-dataitems-get:
+  type: text/plain
+  value: |
+    An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.
+
+200-dataview-get:
+  type: text/plain
+  value: |
+    The requested data view.
+
+200-dataview-owner-get:
+  type: text/plain
+  value: |
+    The owner of the requested data view
+
+200-dataviews-get:
+  type: text/plain
+  value: |
+    A page of data views. A response header, Total-Count, indicates the total size of the collection.
+
+200-fieldmappings-get:
+  type: text/plain
+  value: |
+    An object with a "TimeOfResolution" and a collection of "Items", the FieldMappings that resolved.
+
+200-fieldsets-get:
+  type: text/plain
+  value: |
+    An object with a "TimeOfResolution" and a collection of "Items", the FieldSets that resolved and which are still available
+
+200-groups-get:
+  type: text/plain
+  value: |
+    An object with a "TimeOfResolution" and a collection of "Items", the Groups that resolved.
+
+200-statistics-get:
+  type: text/plain
+  value: |
+    Successfully retrieved data.
