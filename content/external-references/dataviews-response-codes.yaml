@@ -65,6 +65,12 @@
   value: |
     Successfully retrieved data.
 
+# Response Code: 201 Created
+201-dataview-standard-message:
+  type: text/plain
+  value: |
+    The data view as persisted, including values for optional parameters that were omitted in the request.
+
 # Response Code: 204 No Content
 204-dataview-update-standard-message:
   type: text/plain
@@ -85,6 +91,23 @@
   type: text/plain
   value: |
     Successfully updated the data view owner
+
+# Response Code: 302 Found
+302-data-get:
+  type: text/plain
+  value: |
+    The specified data view already exists. A response header, Location, indicates the URL where the data view may be retrieved with the GET verb
+
+# Response Code: 400 Bad Request
+400-data-get:
+  type: text/plain
+  value: |
+    The request could not be understood by the server due to malformed syntax.
+
+400-standard-message:
+  type: text/plain
+  value: |
+    The request is not valid. See the response body for details
 
 # Response Code: 403 Forbidden
 403-dataview-acl-get:
@@ -136,6 +159,38 @@
   type: text/plain
   value: |
     You are not authorized for this operation
+
+# Response Code: 404 Not Found
+xxx404-availablefieldsets-get:
+  type: text/plain
+  value: |
+    The data view does not exist
+
+404-dataitems-get:
+  type: text/plain
+  value: |
+    The data view or query does not exist
+
+404-dataview-standard-message:
+  type: text/plain
+  value: |
+    The requested data view was not found
+
+404-dataviewid-standard-message:
+  type: text/plain
+  value: |
+    The specified data view identifier is not found
+
+404-fieldmappings-get:
+  type: text/plain
+  value: |
+    The data view or query does not exist
+
+# Response Code: 409 Conflict
+409-data-get:
+  type: text/plain
+  value: |
+    The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see Create Or Update Data View
 
 # Response Code: 500 Internal Server Error
 500-standard-message:
