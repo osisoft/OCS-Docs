@@ -161,11 +161,6 @@
     You are not authorized for this operation
 
 # Response Code: 404 Not Found
-xxx404-availablefieldsets-get:
-  type: text/plain
-  value: |
-    The data view does not exist
-
 404-dataitems-get:
   type: text/plain
   value: |
