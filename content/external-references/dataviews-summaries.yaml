@@ -1,0 +1,124 @@
+# class summaries
+class-collectionaccessrightscontroller:
+  type: text/plain
+  value: |
+    API for retrieving access rights on the data views collection
+
+class-collectionaclcontroller:
+  type: text/plain
+  value: |
+    APIs for working with Data View collection Access Control Lists
+
+class-dataviewscontroller:
+  type: text/plain
+  value: |
+    APIs for working with Data Views
+
+# method summaries: access control
+dataview-accessrights-get:
+  type: text/plain
+  value: |
+    Get access rights to the requested data view for the calling user or client.
+
+dataview-acl-get:
+  type: markdown
+  value: |
+    Get the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
+
+dataview-acl-update:
+  type: markdown
+  value: |
+    Update the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
+
+dataview-owner-get:
+  type: markdown
+  value: |
+    Get the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+
+dataview-owner-update:
+  type: markdown
+  value: |
+    Update the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+
+dataviews-accessrights-get:
+  type: text/plain
+  value: |
+    Get access rights to the data views collection for the calling user or client
+
+dataviews-acl-get:
+  type: markdown
+  value: |
+    Get the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+
+dataviews-acl-update:
+  type: markdown
+  value: |
+    Update the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+
+# method summaries: requesting data
+data-get:
+  type: markdown
+  value: |
+    Get data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+
+# method summaries: data views
+dataview-create:
+  type: text/plain
+  value: |
+    Create a new data view with a system-generated identifier.
+
+dataview-createorupdate:
+  type: text/plain
+  value: |
+    If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
+
+dataview-delete:
+  type: text/plain
+  value: |
+    Delete the data view with the specified id.
+
+dataview-get:
+  type: text/plain
+  value: |
+    Returns the specified data view.
+
+dataview-getorcreate:
+  type: markdown
+  value: |
+    This call creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
+
+dataviews-get:
+  type: text/plain
+  value: |
+    Returns a list of data views.
+
+# method summaries: resolved routes
+availablefieldsets-get:
+  type: text/plain
+  value: |
+    Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.
+
+dataitems-get:
+  type: text/plain
+  value: |
+    Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+    
+fieldmappings-get:
+  type: text/plain
+  value: |
+    Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
+
+groups-get:
+  type: text/plain
+  value: |
+    Gets the collection of `Group`s that resolved for a data view.
+
+ineligibledataitems-get:
+  type: text/plain
+  value: |
+    Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+
+statistics-get:
+  type: text/plain
+  value: |
+    Gets statistics about the size and shape on how the data view resolved. 
