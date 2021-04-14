@@ -377,7 +377,7 @@ ineligibledataitems-get:
       ]
     }
     ```
-    # access control responses
+# access control responses
 dataview-accessrights-get:
   type: markdown
   value: |
