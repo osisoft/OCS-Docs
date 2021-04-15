@@ -2,7 +2,7 @@
 acl:
   type: markdown
   value: |
-    An [`AccessControlList`](xref:accessControl#access-control-lists)
+    An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists)
 
 # cache
 cache:
@@ -20,18 +20,17 @@ cache-data:
     |--|--|
     | `Refresh` | Force the resource to re-resolve.  This is the default value for this API route.  
     | `Preserve`| Use cached information, if available.
-
 # continutation-token
 continuation-token:
   type: markdown
   value: |
-    Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
+    Used only when [paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging). Not specified when requesting the first page of data.
 
 # count
 count-data:
   type: markdown
   value: |
-    The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsQuickStartGetData#page-size).
+    The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#page-size).
 count-dataitems:
   type: text/plain
   value: |
@@ -49,16 +48,16 @@ count-groups:
   value: |
     An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.
 
-
 # dataview
 dataview:
-  type: text/plain
+  type: markdown
   value: |
-    A DataView object whose Id matches the dataViewId in the URL.
+    A `DataView` object whose `Id` matches the `dataViewId` in the URL.
+
 dataview-no-id:
-  type: text/plain
+  type: markdown
   value: |
-    A DataView object whose Id is null or unspecified
+    A `DataView` object whose `Id` is `null` or unspecified.
 
 # end index
 end-index:
@@ -70,7 +69,7 @@ end-index:
 form:
   type: markdown
   value: |
-    The requested data [output format](xref:DataViewsQuickStartGetData#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
+    The requested data [output format](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
     
 # interval:
 interval:
@@ -82,7 +81,7 @@ interval:
 owner:
   type: markdown
   value: |
-    A [`Trustee`](xref:accessControl#owner)
+    A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner)
 
 # skip
 skip-dataitems:
