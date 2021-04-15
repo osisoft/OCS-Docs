@@ -1,3 +1,4 @@
+# test
 # data responses
 data-get:
   type: markdown
@@ -113,18 +114,45 @@ availablefieldsets-get:
   value: |
     ```json
     HTTP 200 OK
-    Content-Type: application/json  
     {
-      [
-        {
-          "Id": "demo view 1",
-          ... etc.
-        },
-        {
-          "Id": "demo view 2",
-          ... etc.
-        }
-      ]
+        "TimeOfResolution": "2019-12-13T01:23:45Z",
+        "Items": [
+            {
+                "QueryId": "weather",
+                "DataFields": [
+                    {
+                        "Source": "Id",
+                        "Keys": [],
+                        "Label": "{IdentifyingValue} Id"
+                    },
+                    {
+                        "Source": "PropertyId",
+                        "Keys": [
+                            "SolarRadiation"
+                        ],
+                        "Label": "{IdentifyingValue} SolarRadiation {Uom} {SummaryType}"
+                    },
+                    {
+                        "Source": "Metadata",
+                        "Keys": [
+                            "Site"
+                        ],
+                        "Label": "{IdentifyingValue} Site {Uom}"
+                    },
+                    {
+                        "Source": "Tags",
+                        "Keys": [
+                            "Weather",
+                            "Low Resolution",
+                            "High Resolution",
+                            "Gen1",
+                            "Gen2",
+                        ],
+                        "Label": "{IdentifyingValue} Tags"
+                    }
+                ]
+            }
+        ]
     }
     ```
 dataitems-get:
@@ -377,7 +405,7 @@ ineligibledataitems-get:
       ]
     }
     ```
-# access control responses
+    # access control responses
 dataview-accessrights-get:
   type: markdown
   value: |
