@@ -109,7 +109,7 @@ fieldmappings-get:
     Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
 
 groups-get:
-  type: text/plain
+  type: markdown
   value: |
     Gets the collection of `Group`s that resolved for a data view.
 
