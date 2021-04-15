@@ -16,9 +16,9 @@
     The access control list of the requested data view
 
 200-dataitems-get:
-  type: text/plain
+  type: markdown
   value: |
-    An object with a "TimeOfResolution" and a collection of "Items", the DataItems that resolved.
+    An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved.
 
 200-dataview-get:
   type: text/plain
@@ -46,19 +46,19 @@
     A page of data views. A response header, Total-Count, indicates the total size of the collection.
 
 200-fieldmappings-get:
-  type: text/plain
+  type: markdown
   value: |
-    An object with a "TimeOfResolution" and a collection of "Items", the FieldMappings that resolved.
+    An object with a "TimeOfResolution" and a collection of "Items", the `FieldMapping`s that resolved.
 
 200-fieldsets-get:
-  type: text/plain
+  type: markdown
   value: |
-    An object with a "TimeOfResolution" and a collection of "Items", the FieldSets that resolved and which are still available
+    An object with a "TimeOfResolution" and a collection of "Items", the `FieldSet`s that resolved and which are still available
 
 200-groups-get:
-  type: text/plain
+  type: markdown
   value: |
-    An object with a "TimeOfResolution" and a collection of "Items", the Groups that resolved.
+    An object with a "TimeOfResolution" and a collection of "Items", the `Group`s that resolved.
 
 200-statistics-get:
   type: text/plain
@@ -94,9 +94,9 @@
 
 # Response Code: 302 Found
 302-data-get:
-  type: text/plain
+  type: markup
   value: |
-    The specified data view already exists. A response header, Location, indicates the URL where the data view may be retrieved with the GET verb
+    The specified data view already exists. A response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb
 
 # Response Code: 400 Bad Request
 400-data-get:
@@ -185,7 +185,7 @@
 409-data-get:
   type: text/plain
   value: |
-    The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see Create Or Update Data View
+    The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*
 
 # Response Code: 500 Internal Server Error
 500-standard-message:
