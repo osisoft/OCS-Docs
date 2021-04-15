@@ -64,5 +64,5 @@ If your tenant created a community, you cannot remove your own tenant from the c
 1. On the `Communities` overview page, find the community you want to leave and click **Details**.
 2. On the `Community Details` page, click the **Tenants** tab.
 3. Select your own tenant.
-3. Select **More Options** ![More Options](..\images\MoreOptions.png "More Options") and click **Remove \<*your tenant*\>**.<br>A confirmation dialog opens.
+3. Select **More Options** ![More Options](..\images\more-options.png "More Options") and click **Remove \<*your tenant*\>**.<br>A confirmation dialog opens.
 4. Enter the name of your own tenant and click **Remove**.

@@ -10,5 +10,5 @@ From the `Community Details` page, you can delete a community. The ability to de
 
 1. On the navigation bar, click **Communities**.
 2. On the `Communities` page, find the community you want to delete and click **Details**.
-3. On the `Community Details` page, click **More Options** ![More Options](..\images\MoreOptions.png "More Options") at the top-right and select **Delete Community** from the pop-up menu.
+3. On the `Community Details` page, click **More Options** ![More Options](..\images\more-options.png "More Options") at the top-right and select **Delete Community** from the pop-up menu.
 4. Confirm the deletion by entering the name of the community to delete and click **Delete**.
