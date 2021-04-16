@@ -14,4 +14,8 @@ For information about adding or deleting tenants from an existing community, see
 
 1. On the navigation bar, click **Communities**.
 2. On the `Communities` page, click **Add Communities**.
-3. Enter a name and description for the new community and click **Enter**.<br>The community is added to the Communities page.
+3. Enter a name and description for the new community and click **Enter**.<br>A dialog opens that allows you to assign a Community Administrator.
+4. Click **Add User**.<br>A list of users appears.
+5. Click **Add User** ![Add User](..\images\add-button-white-background.png "Add User") beside each user who should be an administrator. If necessary, you can filter the list of users by typing in the **Filter by name or e-mail** box.
+6. Click **Create**.<br>The community is added to the `Communities` page.   
+   **Note:** To view details about the newly created community, you must assign yourself the <community name> Community Member Role  ???I tried to do this but there was no such role in Users > Community Roles. 
