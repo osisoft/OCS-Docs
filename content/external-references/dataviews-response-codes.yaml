@@ -104,6 +104,11 @@
   value: |
     The request could not be understood by the server due to malformed syntax.
 
+400-standard-message-preview:
+  type: text/plain
+  value: |
+    The data view or the query parameters are not valid. See the response body for details.
+
 400-standard-message:
   type: text/plain
   value: |
