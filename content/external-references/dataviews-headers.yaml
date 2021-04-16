@@ -5,6 +5,11 @@ first-page-standard-message:
     Hyperlink to the first page of results
 
 # Link 
+link-data-get:
+  type: text/plain
+  value: |
+    Hyperlinks to the first page and next page of data as applicable. Absence of the next link indicates that there is no additional data to be retrieved.
+
 link-standard-message:
   type: text/plain
   value: |
