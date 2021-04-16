@@ -14,6 +14,11 @@ class-dataviewscontroller:
   value: |
     APIs for working with Data Views
 
+class-dataviewspreviewcontroller:
+  type: text/plain
+  value: |
+    APIs for previewing data view methods without saving the data view
+
 # method summaries: access control
 dataview-accessrights-get:
   type: text/plain
@@ -60,6 +65,11 @@ data-get:
   type: markdown
   value: |
     Gets data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+
+data-get-preview:
+  type: markdown
+  value: |
+    Gets data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
 # method summaries: data views
 dataview-create:
@@ -111,7 +121,7 @@ fieldmappings-get:
 groups-get:
   type: markdown
   value: |
-    Gets the collection of `Group`s that resolved for a data view.
+    Gets the collection of `Group`s that resolved for the data view.
 
 ineligibledataitems-get:
   type: text/plain
