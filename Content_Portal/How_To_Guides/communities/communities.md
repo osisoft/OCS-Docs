@@ -16,8 +16,6 @@ For example, with Communities, OCS users can:
 
 ## Preliminary considerations
 
-To use Communities, you must have the necessary entitlements. If you cannot access Communities, contact your [account manager](https://customers.osisoft.com/s/contactus "Contact Us").
-
 When using Communities, you assign roles that grant levels of permission. Typically, you assign roles when [adding users](xref:managecommunityusers#add-users-to-a-community) to a community. For more information about available roles, see [Community roles](xref:communityroles).
 
 ## Share data with a partner
