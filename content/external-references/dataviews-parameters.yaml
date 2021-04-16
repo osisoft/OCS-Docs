@@ -48,6 +48,12 @@ count-groups:
   value: |
     An optional parameter representing the maximum number of groups to retrieve. If not specified, a default value of 100 is used.
 
+# count-per-group
+count-per-group:
+  type: text/plain
+  value: |
+    The number of rows per group. It overrides the endIndex.
+
 # dataview
 dataview:
   type: markdown
@@ -75,6 +81,12 @@ form:
   type: markdown
   value: |
     The requested data [output format](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
+ 
+# group-count
+group-count:
+  type: text/plain
+  value: |
+    The requested number of groups.
     
 # interval:
 interval:
