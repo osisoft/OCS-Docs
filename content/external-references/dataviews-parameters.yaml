@@ -59,6 +59,11 @@ dataview-no-id:
   value: |
     A `DataView` object whose `Id` is `null` or unspecified.
 
+dataview-preview:
+  type: markdown
+  value: |
+    A `DataView` object to get the results for.
+
 # end index
 end-index:
   type: markdown
