@@ -26,6 +26,9 @@
   topicHref: operations/operations-overview.md
 - name: Role-based access control
   topicHref: ../developer-guide/identity-dev/dev-guide-role-based-access-control.md
+- name: Communities (Preview)
+  href: communities/toc.yml
+  topicHref: communities/communities-overview.md
 - name: HTTP status codes
   topicHref: http-status-codes.md
 - name: Samples
