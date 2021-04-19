@@ -43,8 +43,8 @@ In addition to the roles you can assign in Communities, be aware of the followin
 
 ### Tenant Administrator
 
-A tenant-level role that allows users to administer their own tenant. The Tenant Administrator roles applies to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component.
+A tenant-level role that allows users to administer their own tenant. The Tenant Administrator roles applies to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component. In Communities, Tenant Administrators can create a community and accept invitations to include their tenant in other communities.
 
 ### Community owner
 
-A tenant who created a community. A community owner is not a role and is not granted any privileges. By default, Tenant Administrators are granted the privilege to create communities.
+The community owner refers to the tenant that created a community. A community owner is not a role and is not granted any privileges. By default, Tenant Administrators are granted the privilege to create communities.

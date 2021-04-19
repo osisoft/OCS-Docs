@@ -4,7 +4,7 @@ uid: delete-community
 
 # Delete a community
 
-From the `Community Details` page, you can delete a community. The ability to delete a community lets you limit access to a community to only users who need access. Additionally, you can limit access only to periods of time when users need access. After you delete a community, no users can access it again.
+From the `Community Details` page, you can delete a community. Deleting a community removes all access to all data in the community from all tenants. Deleting a community also removes all users from the community. After you delete a community, no users can access it again.
 
 **Note:** Only a Community Administrator can perform this procedure.
 

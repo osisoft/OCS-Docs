@@ -6,7 +6,7 @@ uid: ShareStreams
 
 Use these procedures to share or stop sharing streams of data with other communities.
 
-**Note.** To share or unshare a stream, you must be an owner of that stream and a member of the community. By default, a Tenant Administrator is an owner of all streams.
+**Note.** To share or unshare a stream, your role must have the Manage Permission privilege for that stream. By default the user who created a stream always has the Manage Permission privilege. To determine if you have the necessary permission, select **Sequential Data Store**, select **Streams**, select a stream, and then, from **More Options** ![More Options](..\images\more-options.png "More Options"), select **Manage Permissions**. 
 
 ## Share streams
 
@@ -19,11 +19,11 @@ To perform this procedure you must have already defined streams.
 5. Select **More Options** ![More Options](..\images\more-options.png "More Options") and select **Share Stream** from the drop-down menu.<br>If you select multiple streams, a pane appears for managing streams. You can select **Share Streams** on that pane.
 6. Click **Select Communities**.<br>A list of communities appears.
 8. Select the communities with which you want to share streams and click **Continue**. If necessary, you can filter the list of communities by typing in the **Filter Communities** box.
-9. Click **Continue**. and then click **Share**. When prompted for confirmation, click **Confirm**.
+9. Click **Continue**. and then click **Share**. When prompted for confirmation, click **Confirm**.<br>All members of the selected communities are able to read data from the shared streams.
 
 ## Unshare streams
 
-1. On the `Communities` overview page, find the community you want to leave and click **Details**.
+1. On the `Communities` overview page, find the community where you are sharing streams and click **Details**.
 2. On the `Community Details` page, click the **Tenants** tab.
 3. Select your own tenant.<br>If you have shared streams, a **Streams** tab appears at right.
 4. On the **Streams** tab, select the streams you want to unshare and click **Unshare Streams**. When prompted for confirmation, click **Unshare**.
