@@ -22,7 +22,7 @@ When a resource is shared in a community, the users with the **Community Member*
 >
 > Any routes that modifies a shared resource will be unavailable.
 
-#### Shared Stream Routes Available
+#### Available Shared Stream Endpoints
 
 ```text
 
@@ -68,10 +68,10 @@ POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{nam
 
 #### Parameters
 
-`Guid communityId`
+`string communityId`
 Community Unique Identifier - validated to be a `Guid`
 
-`Guid tenantId`
+`string tenantId`
 Tenant Unique Identifier - validated to be a `Guid`
 
 `string namespaceId`
@@ -98,20 +98,10 @@ Stream Identifier
 | 404 Not Found             | error         | The data view or query does not exist                                                                                                                               |
 | 500 Internal Server Error | error         | An error occurred while processing the request.                                                                                                                     |
 
-### Authentication
+### Authorization
 
 Allowed for specific **Community Member** role for community where the stream is shared. Having **Community Member** role indicates you are a member of the community.
 
 > [!IMPORTANT]
 >
-> Both the user's Tenant and the Tenant of the shared resource must be a part of the Community in the route.
-
-All endpoints referenced in this documentation require authenticated access. You must set the Authorization header to the access token you retrieved from a successful authentication request.
-
-`Authorization: Bearer <token>`
-
-Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
-
-Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-
-Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) to learn how to authenticate against OCS with the various clients and receive an access token in response.
+> Both the user's tenant and the tenant of the shared resource must be a part of the community in the route.
