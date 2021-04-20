@@ -10,7 +10,7 @@ When you create a community, you can designate a [Community Administrator](xref:
 
 For information about adding or deleting tenants from an existing community, see [Manage tenants in a community](xref:managecommunity).
 
-**Note:** Only a Tenant Administrator can perform this procedure.
+**Note:** Only a [Tenant Administrator](xref:communityroles#tenant-administrator) can perform this procedure.
 
 1. On the navigation bar, click **Communities**.
 2. On the `Communities` page, click **Add Communities**.

@@ -16,9 +16,9 @@ To perform this procedure, you must be a [Community Administrator](xref:communit
 2. On the `Community Details` page, on the **My Users** tab, click **New User**.
 3. Select users. If necessary, you can filter the list of users by typing in the **Filter users** box. You can also filter by role. Selecting any role shown at the top of the user list displays only users who have been assigned that role.
 4. Select the roles to apply to users being added. You can assign the following roles:
-   - [Community Administrator](xref:communityroles#community-administrator)
+   - [Community Administrator](xref:communityroles#community-administrator). Only a Community Administrator can assign the Community Administrator role.
    - [Community Member](xref:communityroles#community-member)
-   - [Community Moderator](xref:communityroles#community-moderator)
+   - [Community Moderator](xref:communityroles#community-moderator). Only a Community Administrator or Community Moderator can assign the Community Moderator role.
 5. Click **Save**.
 
 ## Remove users from a community
