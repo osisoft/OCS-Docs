@@ -4,15 +4,15 @@ uid: communities
 
 # Communities
 
-OCS Communities help industrial companies share their operational data with external business partners, service providers, and analytics providers.
+OCS Communities helps industrial companies share their operational data with external business partners, service providers, and analytics providers.
 
 For example, with Communities, OCS tenants can:
 
 - Share data with external partners without bringing their users inside the corporate firewall or taking extra security precautions.
 - Share data without requiring external users to be onsite.
-- Share data with usexternals partners who do not have a PI System or other required software.
+- Share data with external partners who do not have a PI System or other required software.
 
-x## Share data with a partner
+## Share data with a partner
 
 The following process lists the high-level steps that are needed to share data. The process consists of creating a community, inviting other tenants, adding users and clients, and then sharing streams of data.
 
