@@ -18,7 +18,7 @@ To perform this procedure, you must be a [Community Administrator](xref:communit
 4. Select the roles to apply to users being added. You can assign the following roles:
    - [Community Administrator](xref:communityroles#community-administrator). Only a Community Administrator can assign the Community Administrator role.
    - [Community Member](xref:communityroles#community-member)
-   - [Community Moderator](xref:communityroles#community-moderator). Only a Community Administrator or Community Moderator can assign the Community Moderator role.
+   - [Community Moderator](xref:communityroles#community-moderator). 
 5. Click **Save**.
 
 ## Remove users from a community
@@ -52,5 +52,5 @@ To perform this procedure, you must be a [Community Administrator](xref:communit
 4. Select the roles to apply to users being added. The following roles are possible:
    - [Community Administrator](xref:communityroles#community-administrator). Only a Community Administrator can assign the Community Administrator role.
    - [Community Member](xref:communityroles#community-member)
-   - [Community Moderator](xref:communityroles#community-moderator). Only a Community Administrator or Community Moderator can assign the Community Moderator role.
+   - [Community Moderator](xref:communityroles#community-moderator). 
 5. Click **Update**.
