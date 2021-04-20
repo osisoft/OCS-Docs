@@ -13,3 +13,4 @@ in this and subsequent sections:
 - A *Subscription* receives messages from a Topic and writes them to the Sequential Data Store.
 
 Laureen is adding content to her fork.
+Laureen is adding content to her branch lasato-OSI-fork-TEST-branch.
