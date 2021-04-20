@@ -6,7 +6,7 @@ uid: ShareStreams
 
 Use these procedures to share or stop sharing streams of data with other communities.
 
-**Note.** To share or unshare a stream, your role must have the Manage Permission privilege for that stream. By default the user who created a stream always has the Manage Permission privilege. To determine if you have the necessary permission, select **Sequential Data Store**, select **Streams**, select a stream, and then, from **More Options** ![More Options](..\images\more-options.png "More Options"), select **Manage Permissions**. 
+**Note.** To share or unshare a stream, your role must have the Manage Permission privilege for that stream. By default any user who creates a stream has the Manage Permission privilege. To manage permissions for a role, use the **Sequential Data Store > Streams** feature. 
 
 ## Share streams
 

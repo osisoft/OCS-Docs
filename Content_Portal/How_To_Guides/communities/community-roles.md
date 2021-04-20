@@ -32,10 +32,10 @@ Community Moderators can assign the following roles to users in their own tenant
 A role that grants full administrative rights. These rights include all the privileges of a Community Moderator plus the ability to:
 
 - Delete the community
-- Invite tenants to the community
+- Invite tenants to the community and confirm invitations
 - Remove tenants from the community
 
-Community Administrators in the [community owner's](#community-owner) tenant can assign any role to any user in any tenant that belongs to the community. Community Administrators in tenants other than the community owner's tenant can assign any role to users in their own tenant.
+Community Administrators only exist in the [community owner's](#community-owner) tenant. Community Administrators can assign any role to users in their own tenant; they cannot assign roles to users in other tenants.
 
 ## Related roles and identities
 
@@ -43,7 +43,7 @@ In addition to the roles you can assign in Communities, be aware of the followin
 
 ### Tenant Administrator
 
-A tenant-level role that allows users to administer their own tenant. The Tenant Administrator roles applies to all of OCS rather than just to Communities. In OCS, user roles are managed as part of the Security component. In Communities, Tenant Administrators can create a community and accept invitations to include their tenant in other communities.
+A tenant-level role that allows users to administer their own tenant. The Tenant Administrator roles applies to all of OCS rather than just Communities. For more information about OCS roles, see [roles](xref:ccRoles). In Communities, Tenant Administrators can create a community and accept invitations to include their tenant in other communities.
 
 ### Community owner
 
