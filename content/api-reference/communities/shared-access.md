@@ -89,14 +89,14 @@ Stream Identifier
 >
 > All routes use standard SDS service. Please see [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
-| Status Code               | Response Type | Description                                                                                                                                                         |
-|---------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 200 OK                    | Multiple      | Please see [Sequential Data Store](xref:sds) for specific information.                                                                                              |
-| 400 Bad Request           | error         | Missing or invalid inputs                                                                                                                                           |
-| 401 Unauthorized          | error         | This message is from Shared Access: `You are currently not authorized to access this route. Note: it can take up to 20 mins for community access to become active.` |
-| 403 Forbidden             | error         | You are not authorized for this operation                                                                                                                           |
-| 404 Not Found             | error         | The data view or query does not exist                                                                                                                               |
-| 500 Internal Server Error | error         | An error occurred while processing the request.                                                                                                                     |
+| Status Code               | Response Type | Description                                                            |
+|---------------------------|---------------|------------------------------------------------------------------------|
+| 200 OK                    | Multiple      | Please see [Sequential Data Store](xref:sds) for specific information. |
+| 400 Bad Request           | error         | Missing or invalid inputs                                              |
+| 401 Unauthorized          | error         | You are not authorized for this operation                              |
+| 403 Forbidden             | error         | You are not authorized for this operation                              |
+| 404 Not Found             | error         | The data view or query does not exist                                  |
+| 500 Internal Server Error | error         | An error occurred while processing the request.                        |
 
 ### Authorization
 
