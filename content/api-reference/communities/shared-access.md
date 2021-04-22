@@ -6,7 +6,7 @@ uid: shared-access-routes
 
 ## Shared Access
 
-Routes Access to shared resources, such as streams.
+This service brokers all requests for a shared resource in a community. Currently, streams are the only shared resources.
 
 When a resource is shared in a community, users with the **Community Member** role will be able to access metadata and data for that resource. Community members are limited to read-only access.
 
