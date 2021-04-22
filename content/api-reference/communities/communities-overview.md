@@ -4,4 +4,4 @@ uid: communityOverview
 
 # Communities
 
-Communities in the OCS help industrial users share operational data with communities of other users, including external business partners, service providers, and analytics providers.
+OCS Communities helps industrial companies share their operational data with external business partners, service providers, and analytics providers.
