@@ -8,19 +8,19 @@ uid: shared-access-routes
 
 Routes Access to shared resources, such as streams.
 
-When a resource is shared in a community, the users with the **Community Member** role of the community will be able to access metadata and data in the resource. This is limited to read-only access.
+When a resource is shared in a community, users with the **Community Member** role will be able to access metadata and data for that resource. Community members are limited to read-only access.
 
 ### Request
 
 > [!IMPORTANT]
 >
-> All routes use standard SDS service. Please see [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
+> All routes use the standard SDS service. Please see [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
 ***
 
 > [!NOTE]
 >
-> Any routes that modifies a shared resource will be unavailable.
+> Any routes that modify a shared resource will be unavailable.
 
 #### Available Shared Stream Endpoints
 
@@ -69,16 +69,16 @@ POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{nam
 #### Parameters
 
 `string communityId`
-Community Unique Identifier - validated to be a `Guid`
+Community identifier - validated to be a `Guid`
 
 `string tenantId`
-Tenant Unique Identifier - validated to be a `Guid`
+Tenant identifier - validated to be a `Guid`
 
 `string namespaceId`
-Namespace Identifier
+Namespace identifier
 
 `string streamId`
-Stream Identifier
+Stream identifier
 
 [Optional] `string key`  
 [Optional] The key specifying the metadata value of interest  
@@ -87,11 +87,11 @@ Stream Identifier
 
 > [!IMPORTANT]
 >
-> All routes use standard SDS service. Please see [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
+> All routes use the standard SDS service. See [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
 | Status Code               | Response Type | Description                                                            |
 |---------------------------|---------------|------------------------------------------------------------------------|
-| 200 OK                    | Multiple      | Please see [Sequential Data Store](xref:sds) for specific information. |
+| 200 OK                    | Multiple      | See [Sequential Data Store](xref:sds) for specific information. |
 | 400 Bad Request           | error         | Missing or invalid inputs                                              |
 | 401 Unauthorized          | error         | You are not authorized for this operation                              |
 | 403 Forbidden             | error         | You are not authorized for this operation                              |
@@ -100,7 +100,7 @@ Stream Identifier
 
 ### Authorization
 
-Allowed for specific **Community Member** role for community where the stream is shared. Having **Community Member** role indicates you are a member of the community.
+Allowed for specific **Community Member** role for community where the stream is shared. Having the **Community Member** role indicates you are a member of the community.
 
 > [!IMPORTANT]
 >
