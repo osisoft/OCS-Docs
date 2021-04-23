@@ -108,7 +108,7 @@ Allowed for specific **Community Member** role for community where the stream is
 
 ### Example
 
-Responses will be identical to those from the SDS service. Here are a couple of examples (Source:[Read data API](xref:sdsReadingDataApi))
+Responses will be identical to those from the SDS service. Here are a couple of examples (Source:[Read data API](xref:sdsReadingDataApi)).
 
 #### Example 1 request
 
@@ -143,7 +143,7 @@ GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{name
 
 The request specifies an index that does not match an index of an existing event. The next event in the stream is retrieved.
 
-#### Example response body
+#### Example 2 response body
 
 ```text
 HTTP/1.1 200
