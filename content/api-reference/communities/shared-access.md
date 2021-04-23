@@ -106,7 +106,7 @@ Allowed for specific **Community Member** role for community where the stream is
 >
 > Both the user's tenant and the tenant of the shared resource must be a part of the community in the route.
 
-### Example
+### Examples
 
 Responses will be identical to those from the SDS service. Here are a couple of examples (Source:[Read data API](xref:sdsReadingDataApi)).
 
