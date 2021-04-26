@@ -1,5 +1,5 @@
 ---
-title: identity/identity-hybrid-clients v20210426.1
+title: identity/identity-hybrid-clients v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Hybrid Clients
 Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
 
-## List All Hybrid Client
+## `List All Hybrid Client`
 
 <a id="opIdHybridClients_List All Hybrid Client"></a>
 
@@ -84,7 +84,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Hybrid Clients
+## `Get Total Count of Hybrid Clients`
 
 <a id="opIdHybridClients_Get Total Count of Hybrid Clients"></a>
 
@@ -124,7 +124,7 @@ Allowed for these roles:
 
 ---
 
-## Create Hybrid Client (`v1` path)
+## `Create Hybrid Client (`v1` path)`
 
 <a id="opIdHybridClients_Create Hybrid Client (`v1` path)"></a>
 
@@ -221,7 +221,7 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client (`v1` path)
+## `Get Hybrid Client (`v1` path)`
 
 <a id="opIdHybridClients_Get Hybrid Client (`v1` path)"></a>
 
@@ -283,7 +283,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Hybrid Client
+## `Get Header for Hybrid Client`
 
 <a id="opIdHybridClients_Get Header for Hybrid Client"></a>
 
@@ -320,7 +320,7 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client (`v1` path)
+## `Update Hybrid Client (`v1` path)`
 
 <a id="opIdHybridClients_Update Hybrid Client (`v1` path)"></a>
 
@@ -409,7 +409,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Hybrid Client
+## `Delete Hybrid Client`
 
 <a id="opIdHybridClients_Delete Hybrid Client"></a>
 
@@ -460,7 +460,7 @@ Allowed for these roles:
 
 ---
 
-## List All Hybrid Clients
+## `List All Hybrid Clients`
 
 <a id="opIdHybridClients_List All Hybrid Clients"></a>
 
@@ -528,7 +528,7 @@ Allowed for these roles:
 
 ---
 
-## Create Hybrid Client (`v1-preview` path)
+## `Create Hybrid Client (`v1-preview` path)`
 
 <a id="opIdHybridClients_Create Hybrid Client (`v1-preview` path)"></a>
 
@@ -623,7 +623,7 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client (`v1-preview` path)
+## `Get Hybrid Client (`v1-preview` path)`
 
 <a id="opIdHybridClients_Get Hybrid Client (`v1-preview` path)"></a>
 
@@ -684,7 +684,7 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client (`v1-preview` path)
+## `Update Hybrid Client (`v1-preview` path)`
 
 <a id="opIdHybridClients_Update Hybrid Client (`v1-preview` path)"></a>
 

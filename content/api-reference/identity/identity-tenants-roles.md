@@ -1,5 +1,5 @@
 ---
-title: identity/identity-tenants-roles v20210426.1
+title: identity/identity-tenants-roles v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for creating, getting, updating, and deleting roles on a tenant.
 
-## List Roles
+## `List Roles`
 
 <a id="opIdRoles_List Roles"></a>
 
@@ -71,7 +71,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Roles
+## `Get Header for Roles`
 
 <a id="opIdRoles_Get Header for Roles"></a>
 
@@ -106,7 +106,7 @@ Allowed for these roles:
 
 ---
 
-## Create Role on Tenant
+## `Create Role on Tenant`
 
 <a id="opIdRoles_Create Role on Tenant"></a>
 
@@ -176,7 +176,7 @@ Allowed for these roles:
 
 ---
 
-## Get Role
+## `Get Role`
 
 <a id="opIdRoles_Get Role"></a>
 
@@ -227,7 +227,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for a Given Role
+## `Get Header for a Given Role`
 
 <a id="opIdRoles_Get Header for a Given Role"></a>
 
@@ -263,7 +263,7 @@ Allowed for these roles:
 
 ---
 
-## Update Role on Tenant
+## `Update Role on Tenant`
 
 <a id="opIdRoles_Update Role on Tenant"></a>
 
@@ -332,7 +332,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Tenant Role
+## `Delete Tenant Role`
 
 <a id="opIdRoles_Delete Tenant Role"></a>
 
@@ -384,7 +384,7 @@ Allowed for these roles:
 
 ---
 
-## List All Clients for a Given Role
+## `List All Clients for a Given Role`
 
 <a id="opIdRoles_List All Clients for a Given Role"></a>
 
@@ -440,7 +440,7 @@ Allowed for these roles:
 
 ---
 
-## Get Count of Clients for a Given Role
+## `Get Count of Clients for a Given Role`
 
 <a id="opIdRoles_Get Count of Clients for a Given Role"></a>
 
@@ -476,7 +476,7 @@ Allowed for these roles:
 
 ---
 
-## List Users for a Given Role
+## `List Users for a Given Role`
 
 <a id="opIdRoles_List Users for a Given Role"></a>
 
@@ -535,7 +535,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Users for a Given Role
+## `Get Total Count of Users for a Given Role`
 
 <a id="opIdRoles_Get Total Count of Users for a Given Role"></a>
 

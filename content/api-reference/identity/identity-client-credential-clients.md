@@ -1,5 +1,5 @@
 ---
-title: identity/identity-client-credential-clients v20210426.1
+title: identity/identity-client-credential-clients v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Client Credential Clients
 Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Because they access resources on OCS and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
 
-## List all Client Credential Clients
+## `List all Client Credential Clients`
 
 <a id="opIdClientCredentialClients_List all Client Credential Clients"></a>
 
@@ -77,7 +77,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Clients
+## `Get Total Count of Clients`
 
 <a id="opIdClientCredentialClients_Get Total Count of Clients"></a>
 
@@ -116,7 +116,7 @@ Allowed for these roles:
 
 ---
 
-## Create Client Credential Client (`v1` path)
+## `Create Client Credential Client (`v1` path)`
 
 <a id="opIdClientCredentialClients_Create Client Credential Client (`v1` path)"></a>
 
@@ -199,7 +199,7 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client (`v1` path)
+## `Get Client Credential Client (`v1` path)`
 
 <a id="opIdClientCredentialClients_Get Client Credential Client (`v1` path)"></a>
 
@@ -254,7 +254,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Client Credential Client
+## `Get Header for Client Credential Client`
 
 <a id="opIdClientCredentialClients_Get Header for Client Credential Client"></a>
 
@@ -291,7 +291,7 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client (`v1` path)
+## `Update Client Credential Client (`v1` path)`
 
 <a id="opIdClientCredentialClients_Update Client Credential Client (`v1` path)"></a>
 
@@ -366,7 +366,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Client Credential Client
+## `Delete Client Credential Client`
 
 <a id="opIdClientCredentialClients_Delete Client Credential Client"></a>
 
@@ -417,7 +417,7 @@ Allowed for these roles:
 
 ---
 
-## List All Client Credential Clients
+## `List All Client Credential Clients`
 
 <a id="opIdClientCredentialClients_List All Client Credential Clients"></a>
 
@@ -479,7 +479,7 @@ Allowed for these roles:
 
 ---
 
-## Create Client Credential Client (`v1-preview` path)
+## `Create Client Credential Client (`v1-preview` path)`
 
 <a id="opIdClientCredentialClients_Create Client Credential Client (`v1-preview` path)"></a>
 
@@ -559,7 +559,7 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client (`v1-preview` path)
+## `Get Client Credential Client (`v1-preview` path)`
 
 <a id="opIdClientCredentialClients_Get Client Credential Client (`v1-preview` path)"></a>
 
@@ -613,7 +613,7 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client (`v1-preview` path)
+## `Update Client Credential Client (`v1-preview` path)`
 
 <a id="opIdClientCredentialClients_Update Client Credential Client (`v1-preview` path)"></a>
 

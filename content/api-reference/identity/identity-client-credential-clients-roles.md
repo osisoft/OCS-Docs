@@ -1,5 +1,5 @@
 ---
-title: identity/identity-client-credential-clients-roles v20210426.1
+title: identity/identity-client-credential-clients-roles v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for getting, updating, and deleting client credential client roles.
 
-## List Roles for Client Credential Client (`Client Credential Clients` path)
+## `List Roles for Client Credential Client (`Client Credential Clients` path)`
 
 <a id="opIdRoles_List Roles for Client Credential Client (`Client Credential Clients` path)"></a>
 
@@ -75,7 +75,7 @@ Allowed for these roles:
 
 ---
 
-## Get Roles for Client Credential Client Header (`Client Credential Clients` path)
+## `Get Roles for Client Credential Client Header (`Client Credential Clients` path)`
 
 <a id="opIdRoles_Get Roles for Client Credential Client Header (`Client Credential Clients` path)"></a>
 
@@ -112,7 +112,7 @@ Allowed for these roles:
 
 ---
 
-## Replace Client Credential Client's Roles (`Client Credential Clients` path)
+## `Replace Client Credential Client's Roles (`Client Credential Clients` path)`
 
 <a id="opIdRoles_Replace Client Credential Client's Roles (`Client Credential Clients` path)"></a>
 
@@ -185,7 +185,7 @@ Allowed for these roles:
 
 ---
 
-## List Roles for Client Credential Client (`Clients` path)
+## `List Roles for Client Credential Client (`Clients` path)`
 
 <a id="opIdRoles_List Roles for Client Credential Client (`Clients` path)"></a>
 
@@ -246,7 +246,7 @@ Allowed for these roles:
 
 ---
 
-## Get Roles for Client Credential Client Header (`Clients` path)
+## `Get Roles for Client Credential Client Header (`Clients` path)`
 
 <a id="opIdRoles_Get Roles for Client Credential Client Header (`Clients` path)"></a>
 
@@ -283,7 +283,7 @@ Allowed for these roles:
 
 ---
 
-## Replace Client Credential Client's Roles (`Clients` path)
+## `Replace Client Credential Client's Roles (`Clients` path)`
 
 <a id="opIdRoles_Replace Client Credential Client's Roles (`Clients` path)"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: identity/identity-secrets v20210426.1
+title: identity/identity-secrets v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Secrets
 Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires it can no longer be used to authenticate the client. Any access token issued while a secret is still valid will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost there is no way to retrieve the value of a secret.
 
-## List Client Credential Client Secrets (`v1` path)
+## `List Client Credential Client Secrets (`v1` path)`
 
 <a id="opIdSecrets_List Client Credential Client Secrets (`v1` path)"></a>
 
@@ -69,7 +69,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Client Credential Client Secrets
+## `Get Total Count of Client Credential Client Secrets`
 
 <a id="opIdSecrets_Get Total Count of Client Credential Client Secrets"></a>
 
@@ -105,7 +105,7 @@ Allowed for these roles:
 
 ---
 
-## Add Client Credential Client Secret (`v1` path)
+## `Add Client Credential Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Add Client Credential Client Secret (`v1` path)"></a>
 
@@ -168,7 +168,7 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Secret (`v1` path)
+## `Get Client Credential Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Get Client Credential Client Secret (`v1` path)"></a>
 
@@ -217,7 +217,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Client Credential Client Secret
+## `Get Header for Client Credential Client Secret`
 
 <a id="opIdSecrets_Get Header for Client Credential Client Secret"></a>
 
@@ -254,7 +254,7 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client Secret (`v1` path)
+## `Update Client Credential Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Update Client Credential Client Secret (`v1` path)"></a>
 
@@ -317,7 +317,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Client Credential Client Secret
+## `Delete Client Credential Client Secret`
 
 <a id="opIdSecrets_Delete Client Credential Client Secret"></a>
 
@@ -373,7 +373,7 @@ Allowed for these roles:
 
 ---
 
-## List Hybrid Client Secrets (`v1` path)
+## `List Hybrid Client Secrets (`v1` path)`
 
 <a id="opIdSecrets_List Hybrid Client Secrets (`v1` path)"></a>
 
@@ -428,7 +428,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Hybrid Client Secrets
+## `Get Total Count of Hybrid Client Secrets`
 
 <a id="opIdSecrets_Get Total Count of Hybrid Client Secrets"></a>
 
@@ -464,7 +464,7 @@ Allowed for these roles:
 
 ---
 
-## Add Hybrid Client Secret (`v1` path)
+## `Add Hybrid Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Add Hybrid Client Secret (`v1` path)"></a>
 
@@ -526,7 +526,7 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Secret (`v1` path)
+## `Get Hybrid Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Get Hybrid Client Secret (`v1` path)"></a>
 
@@ -575,7 +575,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Hybrid Client Secret
+## `Get Header for Hybrid Client Secret`
 
 <a id="opIdSecrets_Get Header for Hybrid Client Secret"></a>
 
@@ -612,7 +612,7 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client Secret (`v1` path)
+## `Update Hybrid Client Secret (`v1` path)`
 
 <a id="opIdSecrets_Update Hybrid Client Secret (`v1` path)"></a>
 
@@ -675,7 +675,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Hybrid Client Secret
+## `Delete Hybrid Client Secret`
 
 <a id="opIdSecrets_Delete Hybrid Client Secret"></a>
 
@@ -731,7 +731,7 @@ Allowed for these roles:
 
 ---
 
-## List Client Credential Client Secrets (`v1-preview` path)
+## `List Client Credential Client Secrets (`v1-preview` path)`
 
 <a id="opIdSecrets_List Client Credential Client Secrets (`v1-preview` path)"></a>
 
@@ -787,7 +787,7 @@ Allowed for these roles:
 
 ---
 
-## Add Client Credential Client Secret (`v1-preview` path)
+## `Add Client Credential Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Add Client Credential Client Secret (`v1-preview` path)"></a>
 
@@ -851,7 +851,7 @@ Allowed for these roles:
 
 ---
 
-## Get Client Credential Client Secret (`v1-preview` path)
+## `Get Client Credential Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Get Client Credential Client Secret (`v1-preview` path)"></a>
 
@@ -901,7 +901,7 @@ Allowed for these roles:
 
 ---
 
-## Update Client Credential Client Secret (`v1-preview` path)
+## `Update Client Credential Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Update Client Credential Client Secret (`v1-preview` path)"></a>
 
@@ -965,7 +965,7 @@ Allowed for these roles:
 
 ---
 
-## List Hybrid Client Secrets (`v1-preview` path)
+## `List Hybrid Client Secrets (`v1-preview` path)`
 
 <a id="opIdSecrets_List Hybrid Client Secrets (`v1-preview` path)"></a>
 
@@ -1021,7 +1021,7 @@ Allowed for these roles:
 
 ---
 
-## Add Hybrid Client Secret (`v1-preview` path)
+## `Add Hybrid Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Add Hybrid Client Secret (`v1-preview` path)"></a>
 
@@ -1085,7 +1085,7 @@ Allowed for these roles:
 
 ---
 
-## Get Hybrid Client Secret (`v1-preview` path)
+## `Get Hybrid Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Get Hybrid Client Secret (`v1-preview` path)"></a>
 
@@ -1135,7 +1135,7 @@ Allowed for these roles:
 
 ---
 
-## Update Hybrid Client Secret (`v1-preview` path)
+## `Update Hybrid Client Secret (`v1-preview` path)`
 
 <a id="opIdSecrets_Update Hybrid Client Secret (`v1-preview` path)"></a>
 

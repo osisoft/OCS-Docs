@@ -1,5 +1,5 @@
 ---
-title: identity/identity-implicit-clients v20210426.1
+title: identity/identity-implicit-clients v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Implicit Clients
 Implicit client has been deprecated. We suggest using an authorization code client instead of an implicit client. Implicit clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are not issued secrets or refresh tokens.
 
-## List all implicit clients from tenant (deprecated)
+## `List all implicit clients from tenant (deprecated)`
 
 <a id="opIdImplicitClients_List all implicit clients from tenant (deprecated)"></a>
 
@@ -85,7 +85,7 @@ Allowed for these roles:
 
 ---
 
-## Get total count of implicit clients (deprecated)
+## `Get total count of implicit clients (deprecated)`
 
 <a id="opIdImplicitClients_Get total count of implicit clients (deprecated)"></a>
 
@@ -125,7 +125,7 @@ Allowed for these roles:
 
 ---
 
-## Create an implicit client (deprecated)
+## `Create an implicit client (deprecated)`
 
 <a id="opIdImplicitClients_Create an implicit client (deprecated)"></a>
 
@@ -216,7 +216,7 @@ Allowed for these roles:
 
 ---
 
-## Get an implicit client (deprecated)
+## `Get an implicit client (deprecated)`
 
 <a id="opIdImplicitClients_Get an implicit client (deprecated)"></a>
 
@@ -279,7 +279,7 @@ Allowed for these roles:
 
 ---
 
-## Get header for implicit client (deprecated)
+## `Get header for implicit client (deprecated)`
 
 <a id="opIdImplicitClients_Get header for implicit client (deprecated)"></a>
 
@@ -316,7 +316,7 @@ Allowed for these roles:
 
 ---
 
-## Update an implicit client (deprecated)
+## `Update an implicit client (deprecated)`
 
 <a id="opIdImplicitClients_Update an implicit client (deprecated)"></a>
 
@@ -407,7 +407,7 @@ Allowed for these roles:
 
 ---
 
-## Delete an implicit client (deprecated)
+## `Delete an implicit client (deprecated)`
 
 <a id="opIdImplicitClients_Delete an implicit client (deprecated)"></a>
 
@@ -462,7 +462,7 @@ Allowed for these roles:
 
 ---
 
-## List All Implicit Clients (Obsolete)
+## `List All Implicit Clients (Obsolete)`
 
 <a id="opIdImplicitClients_List All Implicit Clients (Obsolete)"></a>
 
@@ -531,7 +531,7 @@ Allowed for these roles:
 
 ---
 
-## Create Implicit Client (Obsolete)
+## `Create Implicit Client (Obsolete)`
 
 <a id="opIdImplicitClients_Create Implicit Client (Obsolete)"></a>
 
@@ -622,7 +622,7 @@ Allowed for these roles:
 
 ---
 
-## Get Implicit Client (Obsolete)
+## `Get Implicit Client (Obsolete)`
 
 <a id="opIdImplicitClients_Get Implicit Client (Obsolete)"></a>
 
@@ -684,7 +684,7 @@ Allowed for these roles:
 
 ---
 
-## Update Implicit Client (Obsolete)
+## `Update Implicit Client (Obsolete)`
 
 <a id="opIdImplicitClients_Update Implicit Client (Obsolete)"></a>
 

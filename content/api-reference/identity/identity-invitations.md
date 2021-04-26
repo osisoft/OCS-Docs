@@ -1,5 +1,5 @@
 ---
-title: identity/identity-invitations v20210426.1
+title: identity/identity-invitations v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Invitations
 Invitations are issued after the creation of a user object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
-## List Invitations
+## `List Invitations`
 
 <a id="opIdInvitations_List Invitations"></a>
 
@@ -73,7 +73,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Invitations
+## `Get Header for Invitations`
 
 <a id="opIdInvitations_Get Header for Invitations"></a>
 
@@ -112,7 +112,7 @@ Allowed for these roles:
 
 ---
 
-## Get Invitation
+## `Get Invitation`
 
 <a id="opIdInvitations_Get Invitation"></a>
 
@@ -163,7 +163,7 @@ Allowed for these roles:
 
 ---
 
-## Get header for an Invitation
+## `Get header for an Invitation`
 
 <a id="opIdInvitations_Get header for an Invitation"></a>
 
@@ -199,7 +199,7 @@ Allowed for these roles:
 
 ---
 
-## Update Invitation
+## `Update Invitation`
 
 <a id="opIdInvitations_Update Invitation"></a>
 
@@ -265,7 +265,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Invitation
+## `Delete Invitation`
 
 <a id="opIdInvitations_Delete Invitation"></a>
 
@@ -322,7 +322,7 @@ Allowed for these roles:
 # Invitation
 Invitations are issued after the creation of a user object in OCS, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
-## Get User's Invitation
+## `Get User's Invitation`
 
 <a id="opIdInvitation_Get User's Invitation"></a>
 
@@ -373,7 +373,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for User's Invitation
+## `Get Header for User's Invitation`
 
 <a id="opIdInvitation_Get Header for User's Invitation"></a>
 
@@ -413,7 +413,7 @@ Allowed for these roles:
 
 ---
 
-## Create Invitation
+## `Create Invitation`
 
 <a id="opIdInvitation_Create Invitation"></a>
 
@@ -481,7 +481,7 @@ Allowed for these roles:
 
 ---
 
-## Create or Update Invitation
+## `Create or Update Invitation`
 
 <a id="opIdInvitation_Create or Update Invitation"></a>
 
@@ -549,7 +549,7 @@ Allowed for these roles:
 
 ---
 
-## Delete Invitation
+## `Delete Invitation`
 
 <a id="opIdInvitation_Delete Invitation"></a>
 

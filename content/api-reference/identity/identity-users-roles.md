@@ -1,5 +1,5 @@
 ---
-title: identity/identity-users-roles v20210426.1
+title: identity/identity-users-roles v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Roles
 APIs for getting, updating, and deleting users roles.
 
-## List Roles for User
+## `List Roles for User`
 
 <a id="opIdRoles_List Roles for User"></a>
 
@@ -74,7 +74,7 @@ Allowed for these roles:
 
 ---
 
-## Get Roles for User Header
+## `Get Roles for User Header`
 
 <a id="opIdRoles_Get Roles for User Header"></a>
 
@@ -111,7 +111,7 @@ Allowed for these roles:
 
 ---
 
-## Replace User's Roles
+## `Replace User's Roles`
 
 <a id="opIdRoles_Replace User's Roles"></a>
 

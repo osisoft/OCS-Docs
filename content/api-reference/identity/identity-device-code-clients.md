@@ -1,5 +1,5 @@
 ---
-title: identity/identity-device-code-clients v20210426.1
+title: identity/identity-device-code-clients v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Device Code Clients
 Device Code clients are used in browserless or input constrained devices. These clients are issued an ID. Device Code clients are not issued secrets.
 
-## List All Device Code Clients from Tenant
+## `List All Device Code Clients from Tenant`
 
 <a id="opIdDeviceCodeClients_List All Device Code Clients from Tenant"></a>
 
@@ -77,7 +77,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count Device Code Clients from Tenant
+## `Get Total Count Device Code Clients from Tenant`
 
 <a id="opIdDeviceCodeClients_Get Total Count Device Code Clients from Tenant"></a>
 
@@ -117,7 +117,7 @@ Allowed for these roles:
 
 ---
 
-## Create a Device Code Client
+## `Create a Device Code Client`
 
 <a id="opIdDeviceCodeClients_Create a Device Code Client"></a>
 
@@ -192,7 +192,7 @@ Allowed for these roles:
 
 ---
 
-## Get a Device Code Client from Tenant
+## `Get a Device Code Client from Tenant`
 
 <a id="opIdDeviceCodeClients_Get a Device Code Client from Tenant"></a>
 
@@ -247,7 +247,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Device Code Client
+## `Get Header for Device Code Client`
 
 <a id="opIdDeviceCodeClients_Get Header for Device Code Client"></a>
 
@@ -302,7 +302,7 @@ Allowed for these roles:
 
 ---
 
-## Update a Device Code Client
+## `Update a Device Code Client`
 
 <a id="opIdDeviceCodeClients_Update a Device Code Client"></a>
 
@@ -377,7 +377,7 @@ Allowed for these roles:
 
 ---
 
-## Delete a Device Code Client
+## `Delete a Device Code Client`
 
 <a id="opIdDeviceCodeClients_Delete a Device Code Client"></a>
 

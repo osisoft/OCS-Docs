@@ -1,5 +1,5 @@
 ---
-title: identity/identity-authorization-code-clients v20210426.1
+title: identity/identity-authorization-code-clients v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Authorization Code Clients
 Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
 
-## List All Authorization Code Clients from Tenant
+## `List All Authorization Code Clients from Tenant`
 
 <a id="opIdAuthorizationCodeClients_List All Authorization Code Clients from Tenant"></a>
 
@@ -85,7 +85,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count Authorization Code Clients from Tenant
+## `Get Total Count Authorization Code Clients from Tenant`
 
 <a id="opIdAuthorizationCodeClients_Get Total Count Authorization Code Clients from Tenant"></a>
 
@@ -125,7 +125,7 @@ Allowed for these roles:
 
 ---
 
-## Create an Authorization Code Client
+## `Create an Authorization Code Client`
 
 <a id="opIdAuthorizationCodeClients_Create an Authorization Code Client"></a>
 
@@ -216,7 +216,7 @@ Allowed for these roles:
 
 ---
 
-## Get an Authorization Code Client from Tenant
+## `Get an Authorization Code Client from Tenant`
 
 <a id="opIdAuthorizationCodeClients_Get an Authorization Code Client from Tenant"></a>
 
@@ -279,7 +279,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Authorization Code Client
+## `Get Header for Authorization Code Client`
 
 <a id="opIdAuthorizationCodeClients_Get Header for Authorization Code Client"></a>
 
@@ -334,7 +334,7 @@ Allowed for these roles:
 
 ---
 
-## Update an Authorization Code Client
+## `Update an Authorization Code Client`
 
 <a id="opIdAuthorizationCodeClients_Update an Authorization Code Client"></a>
 
@@ -425,7 +425,7 @@ Allowed for these roles:
 
 ---
 
-## Delete an Authorization Code Client
+## `Delete an Authorization Code Client`
 
 <a id="opIdAuthorizationCodeClients_Delete an Authorization Code Client"></a>
 

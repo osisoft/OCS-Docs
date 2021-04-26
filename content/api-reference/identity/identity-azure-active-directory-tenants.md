@@ -1,5 +1,5 @@
 ---
-title: identity/identity-azure-active-directory-tenants v20210426.1
+title: identity/identity-azure-active-directory-tenants v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Azure Active Directory Tenants
 An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.
 
-## List All AAD Tenants from OCS Tenant
+## `List All AAD Tenants from OCS Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_List All AAD Tenants from OCS Tenant"></a>
 
@@ -66,7 +66,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of AAD Tenant in Tenant
+## `Get Total Count of AAD Tenant in Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Get Total Count of AAD Tenant in Tenant"></a>
 
@@ -102,7 +102,7 @@ Allowed for these roles:
 
 ---
 
-## Get AAD Tenant from OCS Tenant
+## `Get AAD Tenant from OCS Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant from OCS Tenant"></a>
 
@@ -150,7 +150,7 @@ Allowed for these roles:
 
 ---
 
-## Get AAD Tenant in Tenant
+## `Get AAD Tenant in Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Get AAD Tenant in Tenant"></a>
 
@@ -187,7 +187,7 @@ Allowed for these roles:
 
 ---
 
-## Add AAD Tenant to OCS Tenant
+## `Add AAD Tenant to OCS Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Add AAD Tenant to OCS Tenant"></a>
 
@@ -237,7 +237,7 @@ Allowed for these roles:
 
 ---
 
-## Remove AAD Tenant from OCS Tenant
+## `Remove AAD Tenant from OCS Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Remove AAD Tenant from OCS Tenant"></a>
 
@@ -269,7 +269,7 @@ Allowed for these roles:
 
 ---
 
-## Send Consent Email for AAD Tenant
+## `Send Consent Email for AAD Tenant`
 
 <a id="opIdAzureActiveDirectoryTenants_Send Consent Email for AAD Tenant"></a>
 

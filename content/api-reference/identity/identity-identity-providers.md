@@ -1,5 +1,5 @@
 ---
-title: identity/identity-identity-providers v20210426.1
+title: identity/identity-identity-providers v20210426.2
 language_tabs: []
 toc_footers: []
 includes: []
@@ -14,7 +14,7 @@ generator: osisoft.widdershins v1.0.7
 # Identity Providers
 An identity provider provides authentication services and maintains credentials for users that have been provisioned in OCS. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider they signed up with.
 
-## List Identity Providers
+## `List Identity Providers`
 
 <a id="opIdIdentityProviders_List Identity Providers"></a>
 
@@ -72,7 +72,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Identity Providers
+## `Get Header for Identity Providers`
 
 <a id="opIdIdentityProviders_Get Header for Identity Providers"></a>
 
@@ -102,7 +102,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider
+## `Get Identity Provider`
 
 <a id="opIdIdentityProviders_Get Identity Provider"></a>
 
@@ -162,7 +162,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider based on Id
+## `Get Identity Provider based on Id`
 
 <a id="opIdIdentityProviders_Get Identity Provider based on Id"></a>
 
@@ -197,7 +197,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider by Scheme
+## `Get Identity Provider by Scheme`
 
 <a id="opIdIdentityProviders_Get Identity Provider by Scheme"></a>
 
@@ -257,7 +257,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Based on Scheme
+## `Get Identity Provider Based on Scheme`
 
 <a id="opIdIdentityProviders_Get Identity Provider Based on Scheme"></a>
 
@@ -292,7 +292,7 @@ Allowed for these roles:
 
 ---
 
-## List all Identity Providers from Tenant
+## `List all Identity Providers from Tenant`
 
 <a id="opIdIdentityProviders_List all Identity Providers from Tenant"></a>
 
@@ -352,7 +352,7 @@ Allowed for these roles:
 
 ---
 
-## Get Total Count of Identity Providers
+## `Get Total Count of Identity Providers`
 
 <a id="opIdIdentityProviders_Get Total Count of Identity Providers"></a>
 
@@ -387,7 +387,7 @@ Allowed for these roles:
 
 ---
 
-## Add Identity Provider to Tenant
+## `Add Identity Provider to Tenant`
 
 <a id="opIdIdentityProviders_Add Identity Provider to Tenant"></a>
 
@@ -467,7 +467,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider from Tenant
+## `Get Identity Provider from Tenant`
 
 <a id="opIdIdentityProviders_Get Identity Provider from Tenant"></a>
 
@@ -528,7 +528,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Identity Provider
+## `Get Header for Identity Provider`
 
 <a id="opIdIdentityProviders_Get Header for Identity Provider"></a>
 
@@ -564,7 +564,7 @@ Allowed for these roles:
 
 ---
 
-## Remove Identity Provider From Tenant
+## `Remove Identity Provider From Tenant`
 
 <a id="opIdIdentityProviders_Remove Identity Provider From Tenant"></a>
 
@@ -615,7 +615,7 @@ Allowed for these roles:
 
 ---
 
-## Get an Identity Provider Consent from a Tenant
+## `Get an Identity Provider Consent from a Tenant`
 
 <a id="opIdIdentityProviders_Get an Identity Provider Consent from a Tenant"></a>
 
@@ -662,7 +662,7 @@ Allowed for these roles:
 
 ---
 
-## Get Header for Identity Provider Consent
+## `Get Header for Identity Provider Consent`
 
 <a id="opIdIdentityProviders_Get Header for Identity Provider Consent"></a>
 
@@ -712,7 +712,7 @@ Allowed for these roles:
 
 ---
 
-## Update Identity Provider Consent of a Tenant
+## `Update Identity Provider Consent of a Tenant`
 
 <a id="opIdIdentityProviders_Update Identity Provider Consent of a Tenant"></a>
 
@@ -773,7 +773,7 @@ Allowed for these roles:
 
 ---
 
-## Get a List of all Groups on an Identity Provider
+## `Get a List of all Groups on an Identity Provider`
 
 <a id="opIdIdentityProviders_Get a List of all Groups on an Identity Provider"></a>
 
@@ -833,7 +833,7 @@ Allowed for these roles:
 
 ---
 
-## Get Identity Provider Groups
+## `Get Identity Provider Groups`
 
 <a id="opIdIdentityProviders_Get Identity Provider Groups"></a>
 
@@ -898,7 +898,7 @@ Allowed for these roles:
 
 ---
 
-## Get a List of All Users Belonging to Group on an Identity Provider
+## `Get a List of All Users Belonging to Group on an Identity Provider`
 
 <a id="opIdIdentityProviders_Get a List of All Users Belonging to Group on an Identity Provider"></a>
 
@@ -967,7 +967,7 @@ Allowed for these roles:
 
 ---
 
-## Get a List of All Users on an Identity Provider
+## `Get a List of All Users on an Identity Provider`
 
 <a id="opIdIdentityProviders_Get a List of All Users on an Identity Provider"></a>
 
@@ -1028,7 +1028,7 @@ Allowed for these roles:
 
 ---
 
-## Get a List of All Groups that a User Belongs to on an Identity Provider
+## `Get a List of All Groups that a User Belongs to on an Identity Provider`
 
 <a id="opIdIdentityProviders_Get a List of All Groups that a User Belongs to on an Identity Provider"></a>
 
