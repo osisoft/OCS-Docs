@@ -4,13 +4,13 @@ uid: shared-access-routes
 
 ***
 
-## Shared Access
+# Shared Access
 
-This service brokers all requests for a shared resource in a community. Currently, streams are the only shared resources.
+The Shared Access service brokers all requests for a shared resource in a community. Currently, streams are the only shared resources.
 
-When a resource is shared in a community, users with the **Community Member** role will be able to access metadata and data for that resource. Community members are limited to read-only access.
+When a resource is shared in a community, users with the **Community Member** role are able to access metadata and data for that resource. Community members are limited to read-only access.
 
-### Request
+## Request
 
 > [!IMPORTANT]
 >
@@ -20,9 +20,9 @@ When a resource is shared in a community, users with the **Community Member** ro
 
 > [!NOTE]
 >
-> Any routes that modify a shared resource will be unavailable.
+> Any routes that modify a shared resource are unavailable.
 
-#### Available Shared Stream Endpoints
+### Available Shared Stream Endpoints
 
 ```text
 
@@ -66,7 +66,7 @@ POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{nam
 
 ```
 
-#### Parameters
+### Parameters
 
 `string communityId`
 Community identifier - validated to be a `Guid`
@@ -83,7 +83,7 @@ Stream identifier
 [Optional] `string key`  
 [Optional] The key specifying the metadata value of interest  
 
-### Response
+## Response
 
 > [!IMPORTANT]
 >
@@ -98,27 +98,27 @@ Stream identifier
 | 404 Not Found             | error         | The data view or query does not exist                           |
 | 500 Internal Server Error | error         | An error occurred while processing the request.                 |
 
-### Authorization
+## Authorization
 
-Allowed for specific **Community Member** role for community where the stream is shared. Having the **Community Member** role indicates you are a member of the community.
+Allowed for the **Community Member** role in a community where the stream is shared. Having the **Community Member** role indicates you are a member of the community.
 
 > [!IMPORTANT]
 >
 > Both the user's tenant and the tenant of the shared resource must be a part of the community in the route.
 
-### Examples
+## Examples
 
-Responses will be identical to those from the SDS service. Here are a couple of examples (Source:[Read data API](xref:sdsReadingDataApi)).
+Responses are identical to those from the SDS service. See the following examples (Source:[Read data API](xref:sdsReadingDataApi)).
 
-#### Example 1 request
+### Example 1 request
 
 ```text
 GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data?index=2017-11-23T13:00:00Z&searchMode=Next
 ```
 
-The request has an index that matches the index of an existing event, but since a `SdsSearchMode` of ``next`` was specified, the response contains the next event in the stream after the specified index:
+The request has an index that matches the index of an existing event, but because an `SdsSearchMode` of ``next`` was specified, the response contains the next event in the stream after the specified index:
 
-#### Example 1 response body
+### Example 1 response body
 
 ```text
 HTTP/1.1 200
@@ -135,7 +135,7 @@ Content-Type: application/json
 ]
 ```
 
-#### Example 2 request
+### Example 2 request
 
 ```text
 GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data?index=2017-11-23T13:30:00Z&searchMode=Next
@@ -143,7 +143,7 @@ GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{name
 
 The request specifies an index that does not match an index of an existing event. The next event in the stream is retrieved.
 
-#### Example 2 response body
+### Example 2 response body
 
 ```text
 HTTP/1.1 200
