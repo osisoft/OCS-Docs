@@ -110,15 +110,15 @@ Allowed for the **Community Member** role in a community where the stream is sha
 
 Responses are identical to those from the SDS service. See the following examples (Source:[Read data API](xref:sdsReadingDataApi)).
 
-### Example 1 request
+### Get Event Example request
 
 ```text
-GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data?index=2017-11-23T13:00:00Z&searchMode=Next
+GET api/v1-preview/communities/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?index=2017-11-23T13:00:00Z&searchMode=Next
 ```
 
 The request has an index that matches the index of an existing event, but because an `SdsSearchMode` of ``next`` was specified, the response contains the next event in the stream after the specified index:
 
-### Example 1 response body
+#### Get Event Example response body
 
 ```text
 HTTP/1.1 200
@@ -135,27 +135,32 @@ Content-Type: application/json
 ]
 ```
 
-### Example 2 request
+### Filter Example request
 
 ```text
-GET api/v1-preview/communities/{communityId}/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Simple/Data?index=2017-11-23T13:30:00Z&searchMode=Next
-```
+GET api/v1-preview/communities/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?filter=Measurement gt 10
+ ```
 
-The request specifies an index that does not match an index of an existing event. The next event in the stream is retrieved.
+The events in the stream with `Measurement` greater than 10 are returned.
 
-### Example 2 response body
-
-```text
-HTTP/1.1 200
-Content-Type: application/json
-```
+#### Filter Example response body
 
 ```json
+HTTP/1.1 200
+Content-Type: application/json
+
 [
     {
         "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
         "Measurement": 20
+    },
+    {
+        "Time": "2017-11-23T15:00:00Z",
+        "Measurement": 30
+    },
+    {
+        "Time": "2017-11-23T16:00:00Z",
+        "Measurement": 40
     }
 ]
 ```
