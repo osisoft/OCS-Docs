@@ -36,4 +36,4 @@ Hybrid clients are used by native and server-side web applications. Authenticati
 
 ## Related links
 
-- [Hybrid Client](xref:identityHybridClient) API
+- [Hybrid Clients](xref:identityHybridClient) API

@@ -42,4 +42,4 @@ Client-credentials clients are used for server-to-server communication where no 
 
 ## Related links
 
-- [Client Credential Client](xref:identityClientCredentialClient) API
+- [Client Credential Clients](xref:identityClientCredentialClient) API

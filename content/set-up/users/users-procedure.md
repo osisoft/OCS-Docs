@@ -31,4 +31,4 @@ Follow the procedure to invite a user to your tenant.
 
 ## Related links
 
-- [User](xref:identityUser) API
+- [Users](xref:identityUser) API

@@ -8,7 +8,7 @@ code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
 generator: osisoft.widdershins v1.0.7
-
+uid: identityClientCredentialClient
 ---
 
 # Client Credential Clients
