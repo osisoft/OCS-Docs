@@ -18,7 +18,7 @@
   href: identity-identity-providers.md
 - name: Invitations
   href: identity-invitations.md
-- name: Secret
+- name: Secrets
   href: identity-secrets.md
 - name: Tenants roles
   href: identity-tenants-roles.md
