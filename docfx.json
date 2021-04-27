@@ -27,7 +27,7 @@
           "**.md"
         ],
 	"exclude":[
-         "content/api-reference/identity/identity-implicit-client.md",
+         "content/api-reference/identity/identity-implicit-clients.md",
 	 "content/external-references/**.yaml"     
       ]      
       }

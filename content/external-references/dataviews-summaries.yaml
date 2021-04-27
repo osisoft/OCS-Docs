@@ -2,22 +2,46 @@
 class-collectionaccessrightscontroller:
   type: text/plain
   value: |
-    API for retrieving access rights on the data views collection
+    APIs for retrieving access rights on the data views collection
 
 class-collectionaclcontroller:
   type: text/plain
   value: |
-    APIs for working with Data View collection Access Control Lists
+    APIs for working with the Access Control List of the data view collection
+
+class-dataqueriescontroller:
+  type: markdown
+  value: |
+    The Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
 
 class-dataviewscontroller:
-  type: text/plain
+  type: markdown
   value: |
-    APIs for working with Data Views
+    The `DataView` API provides mechanisms to create, read, update, and delete data views. This is one portion of the whole [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
+
+    For a description of the `DataView` object type, see the [DataView documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/Data_Views_Overview.html).
+
+    Other sections of documentation describe how to [secure data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions, and the corresponding [API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Access_Control_API.html).
+
+class-dataviewpermissionscontroller:
+  type: markdown
+  value: |
+    This portion of the [overall data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) focuses on [securing data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions.
 
 class-dataviewspreviewcontroller:
-  type: text/plain
+  type: markdown
   value: |
-    APIs for previewing data view methods without saving the data view
+    This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) specifies the resources that resolve per-user for an input data view. The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.
+
+class-previewdataqueriescontroller:
+  type: markdown
+  value: |
+    The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
+
+class-resolveddataviewscontroller:
+  type: markdown
+  value: |
+    This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetResolvedDataView/Resolved_Data_View.html) for resolved data views.
 
 # method summaries: access control
 dataview-accessrights-get:

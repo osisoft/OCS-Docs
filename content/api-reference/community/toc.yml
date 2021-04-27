@@ -1,0 +1,12 @@
+- name: Community shared access routes
+  href: community-shared-access.md
+- name: Communities
+  href: community-communities.md
+- name: Invitations
+  href: community-invitations.md
+- name: Roles
+  href: community-roles.md
+- name: Tenants
+  href: community-tenants.md
+- name: Users
+  href: community-users.md
