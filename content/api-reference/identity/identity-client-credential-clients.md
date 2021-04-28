@@ -1,3 +1,6 @@
+---
+uid: identityClientCredentialClient
+---
 
 
 # Client Credential Clients

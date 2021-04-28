@@ -1,4 +1,8 @@
 
+---
+uid: identityAuthorizationCodeClient
+---
+
 
 # Authorization Code Clients
 Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.
