@@ -1,6 +1,5 @@
-
 ---
-uid: identityAuthorizationCodeClient
+uid: identity-authorization-code-clients
 ---
 
 

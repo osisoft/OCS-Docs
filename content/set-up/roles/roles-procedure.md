@@ -25,4 +25,4 @@ Follow the procedure to create a role.
 
 ## Related links
 
-- [Roles](xref:AccountRole_1) API
+- [Tenants Roles](xref:identity-tenants-roles) API

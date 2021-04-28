@@ -37,4 +37,4 @@ Authorization code clients are used with customer web applications that use OCS 
 
 ## Related links
 
-- [Authorization Code Clients](xref:identityAuthorizationCodeClient) API
+- [Authorization Code Clients](xref:identity-authorization-code-clients) API
