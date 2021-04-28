@@ -2,7 +2,7 @@
   href: community-shared-access.md
 - name: Communities
   href: community-communities.md
-- name: Community search 
+- name: Search 
   href: community-search.md
 - name: Invitations
   href: community-invitations.md
@@ -12,3 +12,5 @@
   href: community-tenants.md
 - name: Users
   href: community-users.md
+- name: Client credential clients
+  href: community-client-credential-clients.md
