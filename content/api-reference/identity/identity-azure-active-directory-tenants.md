@@ -1,15 +1,4 @@
----
-title: identity/identity-azure-active-directory-tenants v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Azure Active Directory Tenants
 An Azure Active Directory (AAD) Tenant is used to map an existing [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) Tenant from Azure to OSIsoft Cloud Services. We only allow one Azure Active Directory Tenant per OSIsoft Cloud Services Tenant.

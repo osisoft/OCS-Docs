@@ -1,15 +1,4 @@
----
-title: identity/identity-authorization-code-clients v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Authorization Code Clients
 Authorization code clients are used in JavaScript/Browser (SPA) based applications or native mobile applications with the presence of a user. These clients are issued an unique identifier. Authorization code clients are not issued secrets or refresh tokens.

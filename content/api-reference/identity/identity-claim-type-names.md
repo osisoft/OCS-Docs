@@ -1,15 +1,4 @@
----
-title: identity/identity-claim-type-names v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Claim Type Names
 An identity provider claim type name is the attribute needed when creating an identity provider claim.

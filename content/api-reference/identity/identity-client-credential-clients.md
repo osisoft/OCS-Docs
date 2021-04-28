@@ -1,15 +1,4 @@
----
-title: identity/identity-client-credential-clients v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Client Credential Clients
 Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Because they access resources on OCS and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.

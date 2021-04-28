@@ -1,15 +1,4 @@
----
-title: identity/identity-claims v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Claims
 An identity provider claim provides a mechanism to map a claim from an identity provider to one or more roles.
