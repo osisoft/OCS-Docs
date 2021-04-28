@@ -455,10 +455,10 @@ Object returned whenever there is an error
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation unique identifier of action that caused the error.|
-|Error|string|true|false|Error description.|
-|Reason|string|true|false|Reason for the error.|
-|Resolution|string|true|false|Resolution to resolve the error.|
+|OperationId|string|true|false|Operation unique identifier of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
 |DynamicProperties|object|false|true|Additional properties.|
 
 ```json
