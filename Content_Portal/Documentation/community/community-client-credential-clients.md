@@ -256,7 +256,7 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+Object returned whenever there is an error 
 
 ### Properties
 
