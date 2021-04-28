@@ -1,5 +1,5 @@
 ---
-title: identity/identity-client-credential-clients v20210426.5
+title: identity/identity-client-credential-clients v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -8,7 +8,7 @@ code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
 generator: osisoft.widdershins v1.0.7
-uid: identityClientCredentialClient
+
 ---
 
 # Client Credential Clients
@@ -687,9 +687,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## ClientCredentialClientCreateResponse
+### ClientCredentialClientCreateResponse
 
 <a id="schemaclientcredentialclientcreateresponse"></a>
 <a id="schema_ClientCredentialClientCreateResponse"></a>
@@ -698,7 +698,7 @@ Allowed for these roles:
 
 Secret information returned after a client credential client is created.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -732,7 +732,7 @@ Secret information returned after a client credential client is created.
 
 ---
 
-## ClientCredentialClient
+### ClientCredentialClient
 
 <a id="schemaclientcredentialclient"></a>
 <a id="schema_ClientCredentialClient"></a>
@@ -741,7 +741,7 @@ Secret information returned after a client credential client is created.
 
 Object to get or update a ClientCredentialClient
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -770,7 +770,7 @@ Object to get or update a ClientCredentialClient
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -779,7 +779,7 @@ Object to get or update a ClientCredentialClient
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -802,7 +802,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 ---
 
-## ClientCredentialClientCreate
+### ClientCredentialClientCreate
 
 <a id="schemaclientcredentialclientcreate"></a>
 <a id="schema_ClientCredentialClientCreate"></a>
@@ -811,7 +811,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 Object used during Client creation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -844,7 +844,7 @@ Object used during Client creation.
 
 ---
 
-## ClientCredentialClientMultiStatusResponse
+### ClientCredentialClientMultiStatusResponse
 
 <a id="schemaclientcredentialclientmultistatusresponse"></a>
 <a id="schema_ClientCredentialClientMultiStatusResponse"></a>
@@ -853,7 +853,7 @@ Object used during Client creation.
 
 MultiStatusResponse objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -900,7 +900,7 @@ MultiStatusResponse objects returned in a 207 response. TODO: Remove this intern
 
 ---
 
-## MultiStatusResponseChildError
+### MultiStatusResponseChildError
 
 <a id="schemamultistatusresponsechilderror"></a>
 <a id="schema_MultiStatusResponseChildError"></a>
@@ -909,7 +909,7 @@ MultiStatusResponse objects returned in a 207 response. TODO: Remove this intern
 
 ChildError objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -936,7 +936,7 @@ ChildError objects returned in a 207 response. TODO: Remove this internal model 
 
 ---
 
-## ClientCredentialClient2
+### ClientCredentialClient2
 
 <a id="schemaclientcredentialclient2"></a>
 <a id="schema_ClientCredentialClient2"></a>
@@ -945,7 +945,7 @@ ChildError objects returned in a 207 response. TODO: Remove this internal model 
 
 Object to get or update the ClientCredentialClient
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -974,7 +974,7 @@ Object to get or update the ClientCredentialClient
 
 ---
 
-## ClientCredentialClientMultiStatusResponse2
+### ClientCredentialClientMultiStatusResponse2
 
 <a id="schemaclientcredentialclientmultistatusresponse2"></a>
 <a id="schema_ClientCredentialClientMultiStatusResponse2"></a>
@@ -983,7 +983,7 @@ Object to get or update the ClientCredentialClient
 
 MultiStatusResponse objects returned in a 207 response.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1034,7 +1034,7 @@ MultiStatusResponse objects returned in a 207 response.
 
 ---
 
-## MultiStatusResponseChildError2
+### MultiStatusResponseChildError2
 
 <a id="schemamultistatusresponsechilderror2"></a>
 <a id="schema_MultiStatusResponseChildError2"></a>
@@ -1043,7 +1043,7 @@ MultiStatusResponse objects returned in a 207 response.
 
 ChildError objects returned in a 207 response.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1075,7 +1075,7 @@ ChildError objects returned in a 207 response.
 
 ---
 
-## ClientCredentialClientResponse
+### ClientCredentialClientResponse
 
 <a id="schemaclientcredentialclientresponse"></a>
 <a id="schema_ClientCredentialClientResponse"></a>
@@ -1084,7 +1084,7 @@ ChildError objects returned in a 207 response.
 
 Object returned after a client credential client is created.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1121,7 +1121,7 @@ Object returned after a client credential client is created.
 
 ---
 
-## ClientCredentialClientCreate2
+### ClientCredentialClientCreate2
 
 <a id="schemaclientcredentialclientcreate2"></a>
 <a id="schema_ClientCredentialClientCreate2"></a>
@@ -1130,7 +1130,7 @@ Object returned after a client credential client is created.
 
 Object used during client creation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

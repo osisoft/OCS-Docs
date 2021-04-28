@@ -1,5 +1,5 @@
 ---
-title: identity/identity-claim-type-names v20210426.5
+title: identity/identity-claim-type-names v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -187,9 +187,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## IdentityProviderClaimTypeName
+### IdentityProviderClaimTypeName
 
 <a id="schemaidentityproviderclaimtypename"></a>
 <a id="schema_IdentityProviderClaimTypeName"></a>
@@ -198,7 +198,7 @@ Allowed for these roles:
 
 Claim type name associated with an identity provider.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -217,7 +217,7 @@ Claim type name associated with an identity provider.
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -226,7 +226,7 @@ Claim type name associated with an identity provider.
 
 Object returned whenever there is an error
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -254,7 +254,7 @@ Object returned whenever there is an error
 
 ---
 
-## IdentityProviderClaim
+### IdentityProviderClaim
 
 <a id="schemaidentityproviderclaim"></a>
 <a id="schema_IdentityProviderClaim"></a>
@@ -263,7 +263,7 @@ Object returned whenever there is an error
 
 Object representing a claim from an identity provider to map to a role
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

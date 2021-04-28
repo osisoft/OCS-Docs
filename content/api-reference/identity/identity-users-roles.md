@@ -1,5 +1,5 @@
 ---
-title: identity/identity-users-roles v20210426.5
+title: identity/identity-users-roles v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -183,9 +183,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## Role
+### Role
 
 <a id="schemarole"></a>
 <a id="schema_Role"></a>
@@ -194,7 +194,7 @@ Allowed for these roles:
 
 The object for retrieving a role
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -221,7 +221,7 @@ The object for retrieving a role
 
 ---
 
-## RoleScope
+### RoleScope
 
 <a id="schemarolescope"></a>
 <a id="schema_RoleScope"></a>
@@ -241,7 +241,7 @@ The object that represents the scope of a given role
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -250,7 +250,7 @@ The object that represents the scope of a given role
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

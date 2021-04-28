@@ -1,5 +1,5 @@
 ---
-title: identity/identity-invitations v20210426.5
+title: identity/identity-invitations v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -599,9 +599,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## Invitation
+### Invitation
 
 <a id="schemainvitation"></a>
 <a id="schema_Invitation"></a>
@@ -610,7 +610,7 @@ Allowed for these roles:
 
 Object for an invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -637,7 +637,7 @@ Object for an invitation.
 
 ---
 
-## InvitationStates
+### InvitationStates
 
 <a id="schemainvitationstates"></a>
 <a id="schema_InvitationStates"></a>
@@ -656,7 +656,7 @@ Invitation states.
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -665,7 +665,7 @@ Invitation states.
 
 Object returned whenever there is an error
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -693,7 +693,7 @@ Object returned whenever there is an error
 
 ---
 
-## InvitationCreateOrUpdate
+### InvitationCreateOrUpdate
 
 <a id="schemainvitationcreateorupdate"></a>
 <a id="schema_InvitationCreateOrUpdate"></a>
@@ -702,7 +702,7 @@ Object returned whenever there is an error
 
 Object used to create or update an invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -723,7 +723,7 @@ Object used to create or update an invitation.
 
 ---
 
-## ErrorResponse2
+### ErrorResponse2
 
 <a id="schemaerrorresponse2"></a>
 <a id="schema_ErrorResponse2"></a>
@@ -732,7 +732,7 @@ Object used to create or update an invitation.
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

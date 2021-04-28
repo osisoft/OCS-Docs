@@ -1,5 +1,5 @@
 ---
-title: identity/identity-identity-providers v20210426.5
+title: identity/identity-identity-providers v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -1089,9 +1089,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## IdentityProvider
+### IdentityProvider
 
 <a id="schemaidentityprovider"></a>
 <a id="schema_IdentityProvider"></a>
@@ -1100,7 +1100,7 @@ Allowed for these roles:
 
 The IdentityProvider object
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1137,7 +1137,7 @@ The IdentityProvider object
 
 ---
 
-## IdentityProviderCapabilities
+### IdentityProviderCapabilities
 
 <a id="schemaidentityprovidercapabilities"></a>
 <a id="schema_IdentityProviderCapabilities"></a>
@@ -1146,7 +1146,7 @@ The IdentityProvider object
 
 The model for the capabilities of an identity provider
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1170,7 +1170,7 @@ The model for the capabilities of an identity provider
 
 ---
 
-## IdentityProviderUserCapabilites
+### IdentityProviderUserCapabilites
 
 <a id="schemaidentityproviderusercapabilites"></a>
 <a id="schema_IdentityProviderUserCapabilites"></a>
@@ -1179,7 +1179,7 @@ The model for the capabilities of an identity provider
 
 User-level capabilities of an identity provider
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1198,7 +1198,7 @@ User-level capabilities of an identity provider
 
 ---
 
-## IdentityProviderGroupCapabilites
+### IdentityProviderGroupCapabilites
 
 <a id="schemaidentityprovidergroupcapabilites"></a>
 <a id="schema_IdentityProviderGroupCapabilites"></a>
@@ -1207,7 +1207,7 @@ User-level capabilities of an identity provider
 
 The model for the group level capabilities of an identity provider
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1224,7 +1224,7 @@ The model for the group level capabilities of an identity provider
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -1233,7 +1233,7 @@ The model for the group level capabilities of an identity provider
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1256,7 +1256,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 ---
 
-## IdentityProviderConsent
+### IdentityProviderConsent
 
 <a id="schemaidentityproviderconsent"></a>
 <a id="schema_IdentityProviderConsent"></a>
@@ -1265,7 +1265,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 The model for an identity provider consent in identity storage. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1282,7 +1282,7 @@ The model for an identity provider consent in identity storage. TODO: Remove thi
 
 ---
 
-## IdentityProviderAdd
+### IdentityProviderAdd
 
 <a id="schemaidentityprovideradd"></a>
 <a id="schema_IdentityProviderAdd"></a>
@@ -1291,7 +1291,7 @@ The model for an identity provider consent in identity storage. TODO: Remove thi
 
 Object for adding an identity provider.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1318,7 +1318,7 @@ Object for adding an identity provider.
 
 ---
 
-## IdentityProviderResultsOfIdentityProviderUser
+### IdentityProviderResultsOfIdentityProviderUser
 
 <a id="schemaidentityproviderresultsofidentityprovideruser"></a>
 <a id="schema_IdentityProviderResultsOfIdentityProviderUser"></a>
@@ -1327,7 +1327,7 @@ Object for adding an identity provider.
 
 Result object for Identity Provider access users/groups.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1352,7 +1352,7 @@ Result object for Identity Provider access users/groups.
 
 ---
 
-## IdentityProviderUser
+### IdentityProviderUser
 
 <a id="schemaidentityprovideruser"></a>
 <a id="schema_IdentityProviderUser"></a>
@@ -1361,7 +1361,7 @@ Result object for Identity Provider access users/groups.
 
 Base class for identity provider access user.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1384,7 +1384,7 @@ Base class for identity provider access user.
 
 ---
 
-## IdentityProviderResultsOfIdentityProviderGroup
+### IdentityProviderResultsOfIdentityProviderGroup
 
 <a id="schemaidentityproviderresultsofidentityprovidergroup"></a>
 <a id="schema_IdentityProviderResultsOfIdentityProviderGroup"></a>
@@ -1393,7 +1393,7 @@ Base class for identity provider access user.
 
 Result object for Identity Provider access users/groups.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1417,7 +1417,7 @@ Result object for Identity Provider access users/groups.
 
 ---
 
-## IdentityProviderGroup
+### IdentityProviderGroup
 
 <a id="schemaidentityprovidergroup"></a>
 <a id="schema_IdentityProviderGroup"></a>
@@ -1426,7 +1426,7 @@ Result object for Identity Provider access users/groups.
 
 Base class for identity provider access group.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1447,7 +1447,7 @@ Base class for identity provider access group.
 
 ---
 
-## IdentityProviderMembers
+### IdentityProviderMembers
 
 <a id="schemaidentityprovidermembers"></a>
 <a id="schema_IdentityProviderMembers"></a>
@@ -1456,7 +1456,7 @@ Base class for identity provider access group.
 
 Class to hold members in a group.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

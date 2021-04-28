@@ -1,5 +1,5 @@
 ---
-title: identity/identity-hybrid-clients v20210426.5
+title: identity/identity-hybrid-clients v20210427.1
 language_tabs: []
 toc_footers: []
 includes: []
@@ -8,7 +8,7 @@ code_clipboard: true
 highlight_theme: darkula
 headingLevel: 2
 generator: osisoft.widdershins v1.0.7
-uid: identityHybridClient
+
 ---
 
 # Hybrid Clients
@@ -772,9 +772,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## HybridClientCreateResponse
+### HybridClientCreateResponse
 
 <a id="schemahybridclientcreateresponse"></a>
 <a id="schema_HybridClientCreateResponse"></a>
@@ -783,7 +783,7 @@ Allowed for these roles:
 
 Secret information returned after a hybrid client is created.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -824,7 +824,7 @@ Secret information returned after a hybrid client is created.
 
 ---
 
-## HybridClient
+### HybridClient
 
 <a id="schemahybridclient"></a>
 <a id="schema_HybridClient"></a>
@@ -833,7 +833,7 @@ Secret information returned after a hybrid client is created.
 
 Object used for Hybrid Clients.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -874,7 +874,7 @@ Object used for Hybrid Clients.
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -883,7 +883,7 @@ Object used for Hybrid Clients.
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -906,7 +906,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 ---
 
-## HybridClientCreate
+### HybridClientCreate
 
 <a id="schemahybridclientcreate"></a>
 <a id="schema_HybridClientCreate"></a>
@@ -915,7 +915,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 Object used during Hybrid Client creation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -960,7 +960,7 @@ Object used during Hybrid Client creation.
 
 ---
 
-## HybridClientResponse
+### HybridClientResponse
 
 <a id="schemahybridclientresponse"></a>
 <a id="schema_HybridClientResponse"></a>
@@ -969,7 +969,7 @@ Object used during Hybrid Client creation.
 
 Object returned after a hybrid client is created.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1018,7 +1018,7 @@ Object returned after a hybrid client is created.
 
 ---
 
-## HybridClientCreate2
+### HybridClientCreate2
 
 <a id="schemahybridclientcreate2"></a>
 <a id="schema_HybridClientCreate2"></a>
@@ -1027,7 +1027,7 @@ Object returned after a hybrid client is created.
 
 Object used during hybrid client creation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1072,7 +1072,7 @@ Object used during hybrid client creation.
 
 ---
 
-## HybridClient2
+### HybridClient2
 
 <a id="schemahybridclient2"></a>
 <a id="schema_HybridClient2"></a>
@@ -1081,7 +1081,7 @@ Object used during hybrid client creation.
 
 Object used for hybrid clients.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
