@@ -2,6 +2,7 @@
 uid: identity-device-code-clients
 ---
 
+
 # Device Code Clients
 Device Code clients are used in browserless or input constrained devices. These clients are issued an ID. Device Code clients are not issued secrets.
 
