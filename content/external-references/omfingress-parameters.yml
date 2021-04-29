@@ -1,1 +1,8 @@
-
+subscriptionId:
+  type: text/plain
+  value: |
+    Subscription identifier
+topicId:
+  type: text/plain
+  value: |
+    Topic identifier
