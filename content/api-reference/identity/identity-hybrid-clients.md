@@ -1,6 +1,3 @@
----
-uid: identityHybridClient
----
 
 
 # Hybrid Clients
