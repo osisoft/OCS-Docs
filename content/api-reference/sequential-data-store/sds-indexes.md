@@ -392,7 +392,7 @@ To build an SdsType representation of sample classes in Python and Java Script, 
         def setValue(self, measurement):
           self.__measurement = measurement
 ```
-***
+
 ##### [JavaScript](#tab/tabid-2)
 ```javascript
 
@@ -409,6 +409,7 @@ To build an SdsType representation of sample classes in Python and Java Script, 
         this.Value = null;
       }
 ```
+
 ***
 
 ##### **Sample**
@@ -556,6 +557,7 @@ The `Time` property is identified as the primary index by defining its SdsTypePr
       });
 
 ```
+
 ***
 
 Note that the `time.IsKey` field is set to true.
@@ -575,7 +577,7 @@ specifying the `Measurement` property and define a stream identifying the
 `Measurement` as the secondary index as shown below:
 
 
-##### [Python](#tab/tabid-a)
+##### [Python](#tab/tabid-7)
 
 ```python
       # Create the properties
@@ -592,7 +594,7 @@ specifying the `Measurement` property and define a stream identifying the
 
 ```
 
-##### [JavaScript](#tab/tabid-b)
+##### [JavaScript](#tab/tabid-8)
 
 ```javascript
       var measurementIndex = new SdsObjects.SdsStreamIndex({
@@ -607,12 +609,13 @@ specifying the `Measurement` property and define a stream identifying the
         "Indexes": [ measurementIndex ]
       });
 ```
+
 ***
 
 #### Compound indexes
 Consider the following Python and JavaScript types:
 
-##### [Python](#tab/tabid-c)
+##### [Python](#tab/tabid-9)
 
 ```python
       class Simple(object):
@@ -645,7 +648,7 @@ Consider the following Python and JavaScript types:
         self.__recorded = recorded
 ```
 
-##### [JavaScript](#tab/tabid-d)
+##### [JavaScript](#tab/tabid-10)
 
 ```javascript
       var Simple = function () {
@@ -659,6 +662,7 @@ Consider the following Python and JavaScript types:
         this.Recorded = null;
       }
 ```
+
 ***
 
 
@@ -667,7 +671,7 @@ type with a compound index based on the ``Simple.Time`` and ``DerivedCompoundInd
 extend the type as follows:
 
 
-##### [Python](#tab/tabid-p)
+##### [Python](#tab/tabid-11)
 
 ```python
       # We set the order for this property. The order of the first property defaulted to 0
@@ -692,7 +696,7 @@ extend the type as follows:
 
 ```
 
-##### [JavaScript](#tab/tabid-j)
+##### [JavaScript](#tab/tabid-12)
 ```javascript
       // We set the order for this property. The order of the first property defaulted to 0
       var recordedProperty = new SdsObjects.SdsTypeProperty({
@@ -717,6 +721,7 @@ extend the type as follows:
         "Properties": [recordedProperty]
       });
 ```
+
 ***
 
 

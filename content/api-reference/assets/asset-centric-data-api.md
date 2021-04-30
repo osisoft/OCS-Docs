@@ -2,7 +2,7 @@
 uid: AssetCentricDataAPI
 ---
 
-# Asset centric data API
+# Asset Centric Data API
 The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams. 
 
 In order to retrieve stream data from an asset, you must first set up stream references for a given asset. The data that is retrieved is based on the resolved asset. By default, data calls return data for all stream references. 
@@ -54,7 +54,7 @@ The following asset is used in all of the sample output in the output below.
             "Id": "b47c9529-7fbf-4b2d-810b-fe79d7fdb2b0",
             "Name": "RoomLocation",
             "Description": "This is what room number the asset is located.",
-            "SdsTypeCode": 14,
+            "SdsTypeCode": "Double",
             "Value": 1.0
         }
     ],
@@ -68,6 +68,7 @@ The following asset is used in all of the sample output in the output below.
     ]
 }
 ```
+***
 
 ## `Get Asset Last Data` 
 Returns the last stored value for SDS streams in the resolved asset.
@@ -87,7 +88,7 @@ The namespace identifier
 `string assetId`  
 The asset identifier
 
-[optional] string[] streams
+[optional] string[] stream
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -119,6 +120,7 @@ Content-Type: application/json
 }
 ```
 
+***
 
 ## `Get Asset Sampled Data` 
 Returns sampled data for referenced Sds streams. 
@@ -149,7 +151,7 @@ The end index for the intervals
 `int intervals`  
 The number of requested intervals
 
-[optional] string[] streams
+[optional] string[] stream
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -190,6 +192,7 @@ Content-Type: application/json
 }
 ```
 
+***
 
 ## `Get Asset Summary Data` 
 Returns summary data for referenced SDS streams. 
@@ -218,7 +221,7 @@ The end index for the intervals
 `int count`   
 The number of requested intervals
 
-[optional] string[] streams
+[optional] string[] stream
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 
@@ -378,6 +381,8 @@ Content-Type: application/json
 }
 ```
 
+***
+
 ## `Get Asset Window Data`
 Returns window data for referenced SDS streams.
 
@@ -403,7 +408,7 @@ The start index for the intervals
 `string endIndex`   
 The end index for the intervals
 
-[optional] string[] streams
+[optional] string[] stream
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response
@@ -473,6 +478,7 @@ Content-Type: application/json
 }
 
 ```
+***
 
 ## `Get Asset Interpolated Data` 
 Returns interpolated data for referenced SDS streams. 
@@ -501,7 +507,7 @@ The end index for the intervals
 `int count`   
 The number of requested intervals
 
-[optional] string[] streams
+[optional] string[] stream
 An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
 
 ### Response 

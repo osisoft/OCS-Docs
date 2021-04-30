@@ -1,15 +1,4 @@
----
-title: community/community-roles v20210426.5
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Roles
 Cluster APIs for getting Community Roles.
@@ -72,9 +61,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## Role
+### Role
 
 <a id="schemarole"></a>
 <a id="schema_Role"></a>
@@ -83,7 +72,7 @@ Allowed for these roles:
 
 Identity internal representation of role. Unlike the public Role model which uses string identifiers, this internal Role model uses Guids. The public Role model originally comes from Infrastructure which uses and persists only string identifiers. In Identity, Guid is currently the type used internally for persisting Role identifiers.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -110,7 +99,7 @@ Identity internal representation of role. Unlike the public Role model which use
 
 ---
 
-## RoleScope
+### RoleScope
 
 <a id="schemarolescope"></a>
 <a id="schema_RoleScope"></a>
@@ -130,7 +119,7 @@ The object that represents the scope of a given role
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -139,7 +128,7 @@ The object that represents the scope of a given role
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

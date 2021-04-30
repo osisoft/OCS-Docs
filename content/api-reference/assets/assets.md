@@ -35,7 +35,7 @@ An asset or asset type metadata is static information associated with a given as
 | Id          | String | Required*  | `Id` for the metadata value.                                 |
 | Name        | String | Required  | User-friendly name for the metadata value. If not null, must be unique within an asset or asset type. |
 | Description | String | Optional  | User-provided description                                    |
-| SdsTypeCode | Int    | Required  | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer values: 11 (Int64), 14 (Double), 16 (DateTime), and 18 (String). |
+| SdsTypeCode | Int    | Required  | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer or string values: 11 ("Int64"), 14 ("Double"), 16 ("DateTime"), and 18 ("String"). |
 | Uom         | String | Optional  | Asset metadata unit of measurement. Select from the list of supported Uom types. |
 | Value       | String | Optional  | String representation of the metadata.                       |
 
@@ -66,7 +66,7 @@ An asset type type reference represents dynamic stream data associated with an a
 | TypeId    | String | Required  | No          | This string must be an SDS stream type `Id` in the referenced SDS stream. |
 
 ## Asset and asset type status mapping properties
-For information about asset and asset type status mapping, please refer to [Asset Status](xref:AssetStatus) for more details.  
+For information about asset and asset type status mapping, please refer to [Asset Status](xref:AssetStatus) for more details.
 
 The following is an example of an asset derived from an asset type.
 
@@ -80,7 +80,7 @@ Content-Type: application/json
   "Metadata": [{ 
      "Id":"d7368dc2-58f0-4669-8e6e-44ac2cc3f47c",
      "Name": "Location", 
-     "SdsTypeCode": 18, 
+     "SdsTypeCode": "String", 
      "Value": null 
      "Uom": null 
   }], 
@@ -103,7 +103,7 @@ Asset example
       "Id": "d7368dc2-58f0-4669-8e6e-44ac2cc3f47c",   
       "Name": null,   
       "Value": "Houston",  
-      "SdsTypeCode": 18,  
+      "SdsTypeCode": "String",  
    }],
    "StreamReferences": [
         {

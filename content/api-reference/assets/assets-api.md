@@ -1,4 +1,4 @@
----
+﻿---
 uid: AssetsAPI
 ---
 
@@ -27,6 +27,8 @@ If-Match : "7"
 ```
 
 Note: If-Match is optional. If you want to delete or modify an asset regardless of the asset version, do not specify an If-Match.
+
+***
 
 ## `Get Asset by Id` 
 Returns the specified asset and the version Etag in the HTTP response header.
@@ -70,7 +72,7 @@ Content-Type: application/json
             "Id": "17020d80-1dc8-4690-932f-3421c9cff0d1",
             "Name": "ModelNumber",
             "Description": "This is attribute with double value representing the model number.",
-            "SdsTypeCode": 14,
+            "SdsTypeCode": "Double",
             "Value": 1.3
         }
     ],
@@ -84,6 +86,7 @@ Content-Type: application/json
     ]
 }
 ```
+***
 
 ## `Get Assets` 
 Returns an array of assets and the total number of assets returned, specified as Total-Count in the HTTP response header. 
@@ -116,10 +119,23 @@ The response includes a status code and a body.
 | 400 Bad Request | error | The request is not valid. See the response body for additional details. |
 | 503 Service Unavailable | error | An error occurred while processing the request. See the response body for additional details. |
 
+***
+
 ## `Create Asset` 
 Create a new asset with a specified `Id`. 
 
 If the asset you are trying to create references an asset type (through the AssetTypeId property) and if the corresponding asset type has a metadata value with the same `Id`, then the name and SDS type code of the metadata value on the asset must be null. If the asset type does not have metadata value with a corresponding `Id`, the name and SDS type code on the asset cannot be null.
+
+To support flexibility on creation and update, the following rules and behaviors are executed for metadata and stream references on a given asset when that asset is created from an asset type.
+## Examples
+
+| Asset values                                             | Metadata values on the asset type                          | How references are resolved                                             |
+| ----------------------------------------------------| ----------------------------------------------------- | ------------------------------------------------- | 
+| Id = "Metadata Id"​ and Name = Not specified         | Id matches the asset type's Metadata Id | Uses the matching asset type's Metadata Name |
+|                                                     | Id does not match any asset type Metadata Id | Id is used as Name |
+| Id = Not specified​ and Name = "Metadata Name"       | Name matches asset type Metadata Name | Use matching asset type Metadata Id |
+|                                                     | Name does not match any asset type Metadata Name | GUID is generated for Id |
+| Id = "Metadata Id"​ and Name = "Metadata Name"       | Either Id or Name, but not both, match asset type Metadata Id or Name | Error. |
 
 ### Request 
 ```text 
@@ -152,7 +168,7 @@ NOTE: To create an asset with a specific `Id`, use the API route with `Id`. If t
             "Id": "c0e29698-d157-4288-9dea-db290de1fb35",
             "Name": "ModelNumber",
             "Description": "This is attribute with double value representing the model number.",
-            "SdsTypeCode": 14,
+            "SdsTypeCode": "Double",
             "Value": 1.3
         }
     ],
@@ -177,6 +193,7 @@ The response includes a status code, a body, and the Etag version in the HTTP re
 | 403 Forbidden            | error     | You are not authorized to create assets.           |
 | 409 Conflict | error     | The asset create has a conflict. See the response body for additional details. |
 
+***
 
 ## `Create Assets (Bulk create)` 
 
@@ -212,9 +229,24 @@ The response includes a status code and a body.
 | 403 Forbidden             | error     | You are not authorized to create assets.           |
 | 409 Conflict              | error      | The asset create has a conflict. See the response body for additional details.  |
 
+***
+
 ## `Create or Update Asset` 
 
 Create or update an asset with a specified `Id`. If the asset already exists, you can specify an If-Match property in the HTTP request header to ensure that the asset is modified only if its version matches.
+
+To support flexibility, on creation and update, the following rules and behaviors are executed for metadata and stream references on a given asset when that asset is from an asset type.
+## Examples
+| Asset values                                            | Metadata values on the asset type                          | How references are resolved                                              |
+| ----------------------------------------------------| ----------------------------------------------------- | ------------------------------------------------- | 
+| Id = "Metadata Id"​ and Name = Not specified         | Id matches the asset type's Metadata Id | Uses the matching asset type Metadata Name |
+|                                                     | Id matches the existing asset type's Metadata Id | Uses the existing matching Metadata Name|
+|                                                     | Id does not match any asset type Metadata Id | Id is used as Name |
+| Id = Not specified​ and Name = "Metadata Name"       | Name matches the asset type's Metadata Name | Uses the matching asset type Metadata Id |
+|                                                     | Name matches the existing asset type's Metadata Name | Uses the matching existing asset type Metadata Id |
+|                                                     | Name does not match any asset type Metadata Name | GUID is generated for Id |
+| Id = "Metadata Id"​ and Name = "Metadata Name"       | Only Id or Name (not both) matches asset type Metadata Id or Name | Error. |
+|                                                     | Only Id or Name (not both) matches existing asset type Metadata Id or Name | The non-matching Id or Name of the existing Metadata is updated |
 
 ### Request 
 
@@ -255,6 +287,8 @@ The response includes a status code, body, and Etag version in the HTTP response
 | 404 Not Found            | error     | The asset, with the specified identifier, was not found.            |
 | 409 Conflict             | error     | The asset update or create has a conflict. See the response body for additional details. |
 | 412 Pre-Condition Failed | error     | The asset failed to update because the If-Match condition failed.  |
+
+***
 
 ## `Delete Asset` 
 

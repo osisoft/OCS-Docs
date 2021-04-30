@@ -62,3 +62,11 @@ cancellation-token:
   type: text/plain
   value: |
     Cancellation token
+subscriptionId:
+  type: text/plain
+  value: |
+    Subscription identifier
+topicId:
+  type: text/plain
+  value: |
+    Topic identifier

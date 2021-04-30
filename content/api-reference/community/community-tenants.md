@@ -1,15 +1,4 @@
----
-title: community/community-tenants v20210426.5
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Community Tenants
 APIs for updating and removing community tenant information
@@ -192,9 +181,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
@@ -203,7 +192,7 @@ Allowed for these roles:
 
 Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -226,7 +215,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 ---
 
-## UpdateCommunityTenantInput
+### UpdateCommunityTenantInput
 
 <a id="schemaupdatecommunitytenantinput"></a>
 <a id="schema_UpdateCommunityTenantInput"></a>
@@ -235,7 +224,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 
 The UpdateCommunityTenantInput object
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -250,7 +239,7 @@ The UpdateCommunityTenantInput object
 
 ---
 
-## CommunityTenantStatus
+### CommunityTenantStatus
 
 <a id="schemacommunitytenantstatus"></a>
 <a id="schema_CommunityTenantStatus"></a>
