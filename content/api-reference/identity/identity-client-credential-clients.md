@@ -1,5 +1,5 @@
 ---
-uid: identityHybridClient
+uid: identityClientCredentialClient
 ---
 
 # Client Credential Clients
