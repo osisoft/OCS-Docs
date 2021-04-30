@@ -20,9 +20,9 @@
   href: identity-invitations.md
 - name: Secrets
   href: identity-secrets.md
-- name: Tenants roles
+- name: Tenant roles
   href: identity-tenants-roles.md
-- name: Tenants users
-  href: identity-tenants-users.md
-- name: Users roles
-  href: identity-users-roles.md  
+- name: User roles
+  href: identity-users-roles.md
+- name: Users
+  href: identity-tenants-users.md 
