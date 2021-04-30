@@ -1,15 +1,4 @@
----
-title: community/community-search v20210427.1
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Community Search
 Defines the public API endpoints that are used to search communities. A community provides a way to share information, such as data streams, between customers.
@@ -28,7 +17,7 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/summary
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Calling tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 
 ### Response
@@ -60,7 +49,7 @@ Allowed for these roles:
 <li>Community Administrator</li>
 <li>Community Member</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -80,7 +69,7 @@ GET /api/v1-preview/tenants/{tenantId}/search/communities/{communityId}/streams
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Calling tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 `[optional] string query`
 <br/>Query to execute. The query uses the same format as SDS. See [Search in SDS](xref:sdsSearching).<br/><br/>`[optional] integer count`
@@ -119,13 +108,13 @@ Allowed for these roles:
 <li>Community Administrator</li>
 <li>Community Member</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## StreamSearchResult
+### StreamSearchResult
 
 <a id="schemastreamsearchresult"></a>
 <a id="schema_StreamSearchResult"></a>
@@ -134,7 +123,7 @@ Allowed for these roles:
 
 The StreamSearchResult object. This is the model representation exposed to callers of controller endpoints.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -157,14 +146,14 @@ The StreamSearchResult object. This is the model representation exposed to calle
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -185,21 +174,21 @@ The StreamSearchResult object. This is the model representation exposed to calle
 
 ---
 
-## CommunitySummaryInformation
+### CommunitySummaryInformation
 
 <a id="schemacommunitysummaryinformation"></a>
 <a id="schema_CommunitySummaryInformation"></a>
 <a id="tocScommunitysummaryinformation"></a>
 <a id="tocscommunitysummaryinformation"></a>
 
-The CommunitySummaryInformation Data Transfer Object. This is the model representation exposed to callers of controller endpoints.
+The CommunitySummaryInformation object. This is the model representation exposed to callers of controller endpoints.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|TotalStreams|int32|false|false|The number of streams that have been contributed to the community by all member tenants including the calling tenant.|
-|StreamsContributed|int32|false|false|The number of streams that have been contributed to the community by the calling tenant.|
+|TotalStreams|int32|false|false|The number of streams that have been contributed to the community by all member tenants, including the calling tenant|
+|StreamsContributed|int32|false|false|The number of streams that have been contributed to the community by the calling tenant|
 
 ```json
 {

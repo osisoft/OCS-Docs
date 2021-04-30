@@ -1,15 +1,4 @@
----
-title: community/community-client-credential-clients v20210426.5
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Client Credential Clients
 APIs for getting, adding, or removing client credential clients from communities
@@ -247,25 +236,25 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error 
+Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false| OperationId of action that caused the error|
-|Error|string|true|false|Error description|
-|Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|What can be done to resolve the error|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
 
 ```json
 {
@@ -281,7 +270,7 @@ Object returned whenever there is an error
 
 ---
 
-## ClientCredentialClient
+### ClientCredentialClient
 
 <a id="schemaclientcredentialclient"></a>
 <a id="schema_ClientCredentialClient"></a>
@@ -290,7 +279,7 @@ Object returned whenever there is an error
 
 Object to get or update a ClientCredentialClient
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

@@ -1,15 +1,4 @@
----
-title: community/community-invitations v20210426.5
-language_tabs: []
-toc_footers: []
-includes: []
-search: true
-code_clipboard: true
-highlight_theme: darkula
-headingLevel: 2
-generator: osisoft.widdershins v1.0.7
 
----
 
 # Community Invitations
 Defines the public API methods that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.
@@ -427,9 +416,9 @@ Allowed for these roles:
 </ul>
 
 ---
-# Definitions
+## Definitions
 
-## CommunityInvitation
+### CommunityInvitation
 
 <a id="schemacommunityinvitation"></a>
 <a id="schema_CommunityInvitation"></a>
@@ -438,7 +427,7 @@ Allowed for these roles:
 
 Representation of the community invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -471,7 +460,7 @@ Representation of the community invitation.
 
 ---
 
-## CommunityInvitationState
+### CommunityInvitationState
 
 <a id="schemacommunityinvitationstate"></a>
 <a id="schema_CommunityInvitationState"></a>
@@ -493,23 +482,23 @@ Enum for Community invitation state.
 
 ---
 
-## ErrorResponse
+### ErrorResponse
 
 <a id="schemaerrorresponse"></a>
 <a id="schema_ErrorResponse"></a>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error 
+Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|operationId of action that caused the error|
-|Error|string|true|false|Error description|
-|Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|What can be done to resolve the error|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
 
 ```json
 {
@@ -525,7 +514,7 @@ Object returned whenever there is an error
 
 ---
 
-## CreateInvitationInput
+### CreateInvitationInput
 
 <a id="schemacreateinvitationinput"></a>
 <a id="schema_CreateInvitationInput"></a>
@@ -534,7 +523,7 @@ Object returned whenever there is an error
 
 The input object to Create Invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -549,7 +538,7 @@ The input object to Create Invitation.
 
 ---
 
-## CommunityInvitationDetails
+### CommunityInvitationDetails
 
 <a id="schemacommunityinvitationdetails"></a>
 <a id="schema_CommunityInvitationDetails"></a>
@@ -558,7 +547,7 @@ The input object to Create Invitation.
 
 Summary of a community invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -579,7 +568,7 @@ Summary of a community invitation.
 
 ---
 
-## ProcessInvitationInput
+### ProcessInvitationInput
 
 <a id="schemaprocessinvitationinput"></a>
 <a id="schema_ProcessInvitationInput"></a>
@@ -588,7 +577,7 @@ Summary of a community invitation.
 
 The input object to Process Invitation.
 
-### Properties
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -603,7 +592,7 @@ The input object to Process Invitation.
 
 ---
 
-## ProcessInvitationAction
+### ProcessInvitationAction
 
 <a id="schemaprocessinvitationaction"></a>
 <a id="schema_ProcessInvitationAction"></a>
