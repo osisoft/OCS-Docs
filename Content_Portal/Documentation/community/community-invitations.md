@@ -489,16 +489,16 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+Object returned whenever there is an error 
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false| Error description.|
+|Reason|string|true|false| Reason for the error|
+|Resolution|string|true|false| What can be done to resolve the error|
 
 ```json
 {

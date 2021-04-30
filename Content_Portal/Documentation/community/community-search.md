@@ -127,7 +127,7 @@ The StreamSearchResult object. This is the model representation exposed to calle
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|The Id|
+|Id|string|false|true|The stream Id|
 |Name|string|false|true|The name|
 |TypeId|string|false|true|The type Id|
 |Description|string|false|true|The description|
