@@ -7,7 +7,7 @@ APIs for getting, updating, and deleting users from communities
 
 <a id="opIdUsers_List Users of a Tenant in a Community"></a>
 
-Gets users that are associated with a specific tenant and community.
+Gets users that are associated with a specific tenant and community
 
 ### Request
 ```text 
@@ -29,11 +29,11 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[User](#schemauser)[]|Set of users (Type `User`) associated with the tenant ( `tenantId`) and community ( `communityId`).|
+|200|[User](#schemauser)[]|Set of users (type `User`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad request|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -93,7 +93,7 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 |400|[ErrorResponse](#schemaerrorresponse)|Bad request|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 #### Example response body
@@ -123,7 +123,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Add User to a Community"></a>
 
-Adds a user to a community and provides a list of community role identifiers to be assigned to the user.
+Adds a user to a community and provides a list of community role identifiers to be assigned to the user
 
 ### Request
 ```text 
@@ -194,7 +194,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Remove User from a Community"></a>
 
-Removes a user from a community.
+Removes a user from a community
 
 ### Request
 ```text 
