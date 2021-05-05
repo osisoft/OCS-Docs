@@ -7,7 +7,7 @@ APIs for updating and removing community tenant information
 
 <a id="opIdCommunityTenants_Remove a Community Tenant from a Community"></a>
 
-Removes a community tenant from a community.
+Removes a community tenant from a community
 
 ### Request
 ```text 
@@ -30,7 +30,7 @@ DELETE /api/v1-preview/tenants/{callerTenantId}/communities/{communityId}/commun
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
 #### Example response body
 > 400 Response
@@ -94,7 +94,7 @@ CommunityTenant object that contains the attributes to use for the update<br/>
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
 #### Example response body
 > 400 Response
@@ -157,7 +157,7 @@ CommunityTenant object that contains the attributes to use for the update<br/>
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested community tenant was not found.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
 #### Example response body
 > 400 Response
@@ -190,16 +190,16 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error 
+Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false| OperationId of action that caused the error|
-|Error|string|true|false| Error description|
-|Reason|string|true|false| Reason for the error|
-|Resolution|string|true|false| What can be done to resolve the error|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
 
 ```json
 {
@@ -246,7 +246,7 @@ The UpdateCommunityTenantInput object
 <a id="tocScommunitytenantstatus"></a>
 <a id="tocscommunitytenantstatus"></a>
 
-Represents a status of a Community Tenant.
+Represents a status of a community tenant
 
 #### Enumerated Values
 
