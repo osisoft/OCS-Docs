@@ -1,6 +1,3 @@
----
-uid: identity-device-code-clients
----
 
 
 # Device Code Clients

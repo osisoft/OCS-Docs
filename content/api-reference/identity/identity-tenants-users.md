@@ -1,6 +1,3 @@
----
-uid: identity-tenants-users
----
 
 
 # Users
@@ -994,7 +991,7 @@ Object for retrieving a user
 |ContactGivenName|string|false|true|Preferred given name for the user|
 |ContactSurname|string|false|true|Preferred contact surname for the user|
 |ExternalUserId|string|false|true|Provider unique identifier for the user. This is the unique identifier we get from the identity provider.|
-|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. Will be set once the user accepts an invitation. If not specified when sending the invitation to the user, it can be any of the identity provider Ids configured for this tenant.|
+|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. This cannot be set to null and must be set when creating a new User.|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
@@ -1224,7 +1221,7 @@ Object when updating a user.
 |ContactGivenName|string|false|true|Preferred name to be used when contacting user.|
 |ContactSurname|string|false|true|Preferred surname to be used when contacting user.|
 |ContactEmail|email|false|true|Preferred contact email to be used. This does not have to be the same as the user's identity provider email.|
-|IdentityProviderId|guid|false|true|Identity provider this user will be required to use to log in. If null, the identity provider unique identifier will be set when creating the invitation.|
+|IdentityProviderId|guid|false|true|Identity Provider this user will be required to use to log in. This value cannot be null when creating a new user. When updating, this value must match what is currently assigned to user. This cannot be updated via update user.|
 |IdentityProviderSpecificUserId|string|false|true|Identity provider specific user unique identifier. For example, object Id for AD and AAD.|
 |RoleIds|string[]|false|true|List of strings of role Ids.|
 

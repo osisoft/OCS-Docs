@@ -1,7 +1,3 @@
----
-uid: identity-authorization-code-clients
----
-
 
 
 # Authorization Code Clients

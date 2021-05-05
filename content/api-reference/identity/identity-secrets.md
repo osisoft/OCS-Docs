@@ -1,6 +1,3 @@
----
-uid: identity-secrets
----
 
 
 # Secrets
