@@ -15,4 +15,4 @@ Use the following procedure to add and remove tags from an edge system:
 5. In the **New Tag** field, enter the tag text and press Enter.
 6. To remove a tag, click **X** in the tag bubble. 
 7. When you have finished modifying tags, click **Save & Close**.
-8. Confirm the changes to 
+8. Click **Save & Close** to confirm the changes. 
