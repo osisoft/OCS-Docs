@@ -1,8 +1,12 @@
-- name: PI to OCS Agent maintenance
-  href: update-agent.md
-- name: Uninstall an agent
-  href: uninstall-pi-to-ocs-agent.md
+- name: Install the PI to OCS Agent
+  href: install-agent.md
+- name: Use the PI to OCS Agent Configuration Utility
+  href: pi-to-ocs-utility.md
+- name: Filter, uninstall or remove an agent
+  href: filter-remove-agents.md 
 - name: Repair an agent
   href: repair-pi-to-ocs-agent.md
+- name: View PI to OCS Agent metrics
+  href: view-kpi-metrics.md
 - name: Disable IE enhanced security
   href: disable-ie-security.md
