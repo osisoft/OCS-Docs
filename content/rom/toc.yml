@@ -1,2 +1,4 @@
-- name: Getting Started with Remote Operations Monitoring
+- name: Getting started with remote operations monitoring
   topicHref: getting-started-rom.md
+- name: Share a view of your fleet
+  topicHref: share-fleet-view.md

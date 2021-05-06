@@ -4,7 +4,7 @@
 - name: Identity and access management
   href: identity/toc.yml
   topicHref: identity/identity-and-access-management.md
-- name: Sequential data store
+- name: Sequential Data Store
   href: sequential-data-store/toc.yml
   topicHref: sequential-data-store/sds-lp.md
 - name: Data collection and data ingress

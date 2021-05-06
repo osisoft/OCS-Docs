@@ -9,7 +9,7 @@
 - name: Stream views
   href: sds-stream-views.md
 - name: Indexes
-  href: sds-indexes.md
+  href: sds-index.md
 - name: Units of measure
   href: sds-uom.md
 - name: Read data

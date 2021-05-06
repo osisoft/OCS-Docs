@@ -17,7 +17,7 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/summary
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Calling tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 
 ### Response
@@ -49,7 +49,7 @@ Allowed for these roles:
 <li>Community Administrator</li>
 <li>Community Member</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -69,7 +69,7 @@ GET /api/v1-preview/tenants/{tenantId}/search/communities/{communityId}/streams
 #### Parameters
 
 `string tenantId`
-<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Calling tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 `[optional] string query`
 <br/>Query to execute. The query uses the same format as SDS. See [Search in SDS](xref:sdsSearching).<br/><br/>`[optional] integer count`
@@ -108,7 +108,7 @@ Allowed for these roles:
 <li>Community Administrator</li>
 <li>Community Member</li>
 <li>Community Moderator</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---

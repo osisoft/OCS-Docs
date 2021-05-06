@@ -18,8 +18,6 @@ Prerequisite: The exercise below assumes that your organization has a PI System 
 
 1.  Click the ![Menu icon](images\menu-icon.png) icon, and then click **Connections** (under Data Management).
 
-    The `Connections` page opens.
-
 1.  From the **Namespace** drop-down list, click **MyOCS**.
 
 1.  From the **Type** drop-down list, click **PI System**.

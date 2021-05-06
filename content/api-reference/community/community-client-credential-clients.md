@@ -7,7 +7,7 @@ APIs for getting, adding, or removing client credential clients from communities
 
 <a id="opIdClientCredentialClients_List Client Credential Clients for a Community"></a>
 
-Gets clients associated with a specific tenant and community.
+Gets clients associated with a specific tenant and community
 
 ### Request
 ```text 
@@ -29,7 +29,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Set of Clients ( `ClientCredentialClient`) associated with the Tenant ( `tenantId`) and Community ( `communityId`).|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Set of clients ( `ClientCredentialClient`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad request|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
@@ -69,7 +69,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_Get Count of Clients for a Community"></a>
 
-Gets a count of client credential client for a community.
+Gets a count of client credential clients for a community
 
 ### Request
 ```text 
@@ -120,7 +120,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_Add Client Credential Client to a Community"></a>
 
-Adds a client credential client to a community, providing a list of community roles to be assigned to the client.
+Adds a client credential client to a community, providing a list of community roles to be assigned to the client
 
 ### Request
 ```text 
@@ -188,7 +188,7 @@ Allowed for these roles:
 
 <a id="opIdClientCredentialClients_Remove Client Credential Client from a Community"></a>
 
-Removes a client credential client from a community.
+Removes a client credential client from a community
 
 ### Request
 ```text 

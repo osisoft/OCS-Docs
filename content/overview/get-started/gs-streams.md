@@ -12,52 +12,53 @@ After creating your types, you can add streams and associate a type with the str
 
 ## Procedure
 
-1. Click the ![Menu icon](images\menu-icon.png) and click **Sequential Data Store** (under Data Management).
+1. Click the ![Menu icon](images/menu-icon.png) and click **Sequential Data Store** (under Data Management).
 
-1. Click **Streams**. From the **Namespace** drop-down list, select **MyOCS**.
+1. Click the **Namespace** selection button to open the `Select a Namespace` window. Select the namespace in which you want to create the stream. 
+    ![Namespace list](images/sds-gs-namespace.png)
 
-1. Click the **Manage Default Stream Permissions** icon above the tree on the left.  
-    This opens the `Manage Default Permissions for New Streams` window where default permissions for streams created in the selected namespace are configured. 
+1. From the **Streams** drop-down list, select **Streams** if it is not already selected. 
+    ![Streams list](images/streams-list.png)
+
+1. Click the ![More options](images/more-options.png) icon on the menu bar and click **Manage Default Permissions**.  
+    The `Manage Default Permissions for New Streams` window opens. The default permissions for streams created in the selected namespace are configured here.
    
-    **Note:** By default, you must be assigned the Tenant Administrator role to change the default permissions. Any changes only affect new streams. It does not change the permissions on already existing steams. 
+    **Note:** By default, you must be assigned the Tenant Administrator role to change the default permissions. Any changes only affect new streams. It does not change the permissions on already existing streams. 
     
-    When you are done reviewing the permissions, click **Cancel** to continue.
+    When you are done reviewing permissions, click **Cancel** to continue.
    
 1. Click **Add Stream**.
 
 1. In the `Add Stream` window, enter the following values for these fields:
 
-   - `Stream Id` &ndash; **MyOCS.NorthAmerica.SLTC.PumpA**
+   - `Id` &ndash; **MyOCS.NorthAmerica.SLTC.PumpA**
    - `Description` &ndash; **SDS Stream used by My OCS**
-   - `Type ID` &ndash; **MyOCS.PumpState**
+   - `Type` &ndash; **MyOCS.PumpState**
 
     **Note:** Leave the `Name` field blank. By default, it will take the value of the Stream Id.
 
+1. Click the **Tags** tab, if it is not already selected.
+
+1. In the `New Tag` field, type **OSIsoft**, and click **+** to add the tag. 
+
+    **Note:** You can click the *X* to delete it from the stream.
+
+1. Click the **Metadata** tab and click **Add Metadata**.
+
+1. In the `Metadata Key` field,  enter **Site**, and in `Metadata Value`, enter **SLTC**. 
+
+    **Note:** You can click the *X* to delete them from the stream. Once the stream is created, you can select the stream and click **Edit** to make changes to the tags and the metadata.
+
 1. Click **Save**.
 
-1. In the `Search` field, enter **TypeId:MyOCS.PumpState**.
+1. In the `Search` field, enter **Site:SLTC**
 
-    This searches for streams that use the MyOCS.PumpState type. 
-
-1. Select the newly created stream in the list and in the right panel, select the **Metadata and Tags** tab.
-
-1. Click **Add Tag**.
-
-1. In the input field, type **OSIsoft**, and click anywhere outside of the text box to add the tag. 
-
-    **Note:** You can click the tag to edit it, or click the *X* to delete it from the stream.
-
-1. Click **Add Metadata**.
-
-1. In `Enter Metadata key`, enter **Site**, and in `Enter Metadata value`, enter **SLTC**. 
-
-    **Note:** You can click either of these fields to edit them later, click the **X** to delete it from the stream, or click the ![Info icon](images/Info.png)to see who last changed this metadata key.
-
-1. In the `Search` field, enter **Site:SLTC**. 
-
-    This searches for streams that have the metadata key *Site* and the value *SLTC*. This search query returns the MyOCS stream. 
+    OCS searches for streams that have the metadata key *Site* and the value *SLTC*. This search query returns the MyOCS stream. 
    
-    **Note:** Use quotation marks around the value if there are spaces in the text.
+    **Note:** 
+    
+    - Use quotation marks around the value if there are spaces in the text.
+    - You can also search by the Type Id.  If you enter **TypeId:MyOCS.PumpState**, it returns the  MyOCS.NorthAmerica.SLTC.PumpA stream.
     
 1. Select the **MyOCS.NorthAmerica.SLTC.PumpA** stream and click **Manage Data**. 
 
@@ -67,13 +68,13 @@ After creating your types, you can add streams and associate a type with the str
 
 1. In the `Add Event` window, complete the following fields: 
 
-   - `Status` &ndash; Enter **Running**.
+   - `Status` &ndash; Enter **Running**. 
    - `Value` &ndash; Enter **3.14**.
    - `Timestamp` &ndash; Leave this setting as it appears, displaying the current time.
 
 1. Click **Save**. 
 
-    The event appears as the latest value in the stream.
+    The event appears as the latest value in the stream. 
 
 ## Next step
 

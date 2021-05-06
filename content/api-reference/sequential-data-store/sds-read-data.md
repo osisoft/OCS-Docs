@@ -11,10 +11,10 @@ If you are working in a .NET environment, convenient SDS Client Libraries are av
 The `ISdsDataService` interface, which is accessed using the ``SdsService.GetDataService()`` helper, 
 defines the functions that are available.
 
-### Reading data from streams
+## Reading data from streams
 While SDS is a robust data storage, it performs best if you follow certain guidelines: 
 
-#### Maximum limit for events in read data calls 
+### Maximum limit for events in read data calls 
 
 OSIsoft limits read data API to retrieve less than 250,000 events per request.
 OCS returns an error message when the maximum limit is reached.  
@@ -35,7 +35,7 @@ This maximum limit applies to [Get Values](xref:sdsReadingDataApi#get-values), [
 } 
 ```
 
-#### Increase the Request-Timeout in the header 
+### Increase the Request-Timeout in the header 
 
 Increase the Request-Timeout in the header to 5 minutes for large range calls that are requesting 250,000 events in a read call. 
 The gateway will send ``408 - Operation timed out error`` if the request needs more than 30 seconds. 
@@ -49,13 +49,13 @@ If multiple calls return ``408 - Operation timed out error`` even after increasi
 
  
 
-#### Compression 
+### Compression 
 
 Include ``Accept-Encoding: gzip, deflate`` in the HTTP header. 
 This enables compression. For more information, see [Compression](xref:sdsCompression#supported-compression-schemes). 
 
  
-#### Use available read data APIs
+### Use available read data APIs
 Depending on the scenario, there are different read data APIs available.
 They return an overview of the values instead of reading all values at once.
 These APIs provide a good high-level view of the values without displaying them all at the same time: 
@@ -63,7 +63,7 @@ These APIs provide a good high-level view of the values without displaying them 
 - [Get Summaries](xref:sdsReadingDataApi#get-summaries) 
 - [Get Sampled Values](xref:sdsReadingDataApi#get-sampled-values) 
 
-### Single stream reads  
+## Single stream reads  
 The following methods for reading a single value are available:
 
 * [Get First Value](xref:sdsReadingDataApi#get-first-value) returns the first value in the stream.
@@ -94,7 +94,7 @@ The namespace identifier
 ``string streamId``  
 The stream identifier
 
-### Bulk reads   
+## Bulk reads   
 
 SDS supports reading from multiple streams in one request. The following method for reading data from multiple streams is available:
 * [Join Values](xref:sdsReadingDataApi#join-values) retrieves a collection of events across multiple streams and joins the results based on the request parameters.
@@ -122,14 +122,14 @@ Verbose JSON responses include all values, including defaults, in the returned J
 
 To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
 
-### Indexes and reading data
+## Indexes and reading data
 
 Most read operations take at least one index as a parameter. Indexes may be specified as strings, or 
 using the SDS Client libraries, the index may be passed as-is to read methods that take the index 
 type as a generic argument. For more information, see [Indexes](xref:sdsIndexes). For information on compound indexes, see [Compound indexes](xref:sdsIndexes#compound-indexes).
 
 
-### Read characteristics
+## Read characteristics
 
 When data is requested at an index for which no stored event exists, the read characteristics determine 
 whether the result is an error, no event, interpolated event, or extrapolated event. The combination of 
@@ -139,7 +139,7 @@ determine the read characteristics.
 **\*Notes:** Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:30:00-08:00` for February 20, 2020 at 8:30 AM PST, for example.
 SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time if it is of `DateTimeOffset`. 
 
-### Interpolation
+## Interpolation
 
 Interpolation determines how a stream behaves when asked to return an event at an index between 
 two existing events. InterpolationMode determines how the returned event is constructed. SDS provides 
@@ -187,7 +187,7 @@ If the InterpolationMode is not assigned, the events are interpolated in the def
 mode is overridden in the SdsTypeProperty or the SdsStream. For more information on overriding the interpolation mode 
 on a specific type property see [SdsTypeProperty](xref:sdsTypes#sdstypeproperty). For more information on overriding the interpolation mode for a specific stream see [Sds Streams](xref:sdsStreams).
 
-### Extrapolation
+## Extrapolation
 
 Extrapolation defines how a stream responds to requests with indexes that precede or follow all 
 data in the steam. ExtrapolationMode acts as a master switch to determine whether extrapolation 
@@ -228,7 +228,7 @@ documentation on the [read method](xref:sdsReadingDataApi)
 you are using.
 
 
-### Filter expressions
+## Filter expressions
 
 Filter expressions can be applied to any read that returns multiple values, including Get Values, Get Range Values, 
 Get Window Values, and Get Intervals. The filter expression is applied to the collection events conditionally 
@@ -236,7 +236,7 @@ filtering events that do not meet the filter conditions.
 
 Filter expressions are covered in detail in the [Filter expressions](xref:sdsFilterExpressions) section.
 
-### Table format
+## Table format
 
 Results of a query can be organized into tables by directing the form parameter to return a table. 
 Two forms of table are available: table and header table.
@@ -250,7 +250,7 @@ contains a column header list.
 
 Table formats are covered in detail in the [Table format](xref:sdsTableFormat) section.
 
-### SdsBoundaryType
+## SdsBoundaryType
 
 The `SdsBoundaryType` enum defines how data on the boundary of queries is handled: around the start index for range value queries, 
 and around the start and end index for window values. The following are valid values for `SdsBoundaryType`:
@@ -262,7 +262,7 @@ and around the start and end index for window values. The following are valid va
 | Outside  | 2                 | Results include up to one event that falls immediately outside of the specified index boundary. |
 | ExactOrCalculated | 3        | Results include the event at the specified index boundary. If no stored event exists at that index, one is calculated based on the index type and interpolation and extrapolation settings. |
 
-### SdsSearchMode
+## SdsSearchMode
 
 The `SdsSearchMode` enum defines search behavior when seeking a stored event near a specified index. The following are valid values for `SdsSearchMode`:
 

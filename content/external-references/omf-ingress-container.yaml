@@ -1,0 +1,32 @@
+Container messages
+A container message is interpreted as an SdsStream in the Sequential Data Store. The keywords in the container definition are interpreted as follows:
+
+id:
+  type: text/plain
+  value: |
+    Data that is not grouped by containerId is not supported.
+typeid:
+  type: text/plain
+  value: |
+    Corresponds to the SdsStream TypeId field.
+typeverson:
+  type: text/plain
+  value: |
+    Versioning of SdsTypes is not supported.
+name:
+  type: text/plain
+  value: |
+    Corresponds to the SdsStream Name field. This is a friendly name for the stream.
+description:
+  type: text/plain
+  value: |
+    Corresponds to the SdsStream Description field.
+tags:
+  type: text/plain
+  value: |
+    Corresponds to the SdsStream Tag field.
+metadata:
+  type: text/plain
+  value: |
+    Corresponds to the SdsStream Metadata field.
+

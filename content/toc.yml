@@ -15,6 +15,9 @@
 - name: Remote operations monitoring
   href: rom/toc.yml
   topicHref: rom/rom-overview.md
+- name: Communities
+  href: communities/toc.yml
+  topicHref: communities/communities.md
 - name: API reference
   href: api-reference/toc.yml
   topicHref: api-reference/ocs-api-reference.md
