@@ -29,15 +29,13 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 
 3. In the `PI to OCS Agents` window, select an agent for the data transfer.
 
-4. Click the **Create Transfer** button in the Details pane to open the Transfer Settings dialog box.
- 
-![ ](../../images/transfer-settings.png)
+4. Click the **Create Transfer** button in the `Details pane` to open the `Transfer Settings` dialog box.
 
 5. Enter a name and description for the transfer.
 
 6. Optional: In the **Historical Start time** fields, enter a [historical time context](xref:overview-data-transfers) for the data retrieval. 
 
-   NOTE: OCS supports out of order events and stores data in chronological order by timestamp. PI Data Archive 2017 SP2 or higher is required for this feature. Enter the historical start date and time correctly to ensure all data is included in the transfer. No data before the historical start time will be captured and stored in SDS.
+   Note: OCS supports out of order events and stores data in chronological order by timestamp. PI Data Archive 2017 SP2 or higher is required for this feature. Enter the historical start date and time correctly to ensure all data is included in the transfer. No data before the historical start time will be captured and stored in SDS.
 
 7. Click **Ok**.
 
@@ -76,23 +74,23 @@ You build a PI points transfer list to select which PI points you want in a data
    
 2. Define your search query by entering filter criteria:
 
-| To... | Do this... | 
-| ------------- | ----------------- | 
-| Include common PI point attributes in a query | Enter criteria in any of the following fields:<ul><li>Name (alias for tag attribute).</li><li>Point Source</li></ul>Note: The search fields default to * or all PI points if search criteria is not ensured. |
-| Include point descriptions in a query | Enter criteria in the following fields:<ul><li>Descriptor</li><li>Extended Descriptor</li></ul> |
-| Include engineering units in a query | Enter criteria in the Engineering Units field. |
-| Specify a specific PI point type for a query |Select one of the following point types from the Point Type drop-down list: <ul><li>Float32</li><li>Float64</li><li>Int16</li><li>Int32</li><li>Digital</li><li>Timestamp</li><li>String</li></ul> |
-| Specify specific location code(s) for a query | Enter search criteria for PI tag attributes in the Location Codes fields (Location1, Location2, Location3, Location4, and/or Location5).  |
+   | To... | Do this... | 
+   | ------------- | ----------------- | 
+   | Include common PI point attributes in a query | Enter criteria in any of the following fields:<ul><li>Name (alias for tag attribute).</li><li>Point Source</li></ul>Note: The search fields default to * or all PI points if search criteria is not ensured. |
+   | Include point descriptions in a query | Enter criteria in the following fields:<ul><li>Descriptor</li><li>Extended Descriptor</li></ul> |
+   | Include engineering units in a query | Enter criteria in the Engineering Units field. |
+   | Specify a specific PI point type for a query |Select one of the following point types from the Point Type drop-down list: <ul><li>Float32</li><li>Float64</li><li>Int16</li><li>Int32</li><li>Digital</li><li>Timestamp</li><li>String</li></ul> |
+   | Specify specific location code(s) for a query | Enter search criteria for PI tag attributes in the Location Codes fields (Location1, Location2, Location3, Location4, and/or Location5).  |
 
-   TIP: Click the **Search Criteria** toggle arrow to hide or show search fields.
+   Tip: Click the **Search Criteria** toggle arrow to hide or show search fields.
 
 3. Click **Search** to execute the query and retrieve matching results.
-
+   
    Search results are displayed in the Search Results list box.
 
 4. Scroll through the PI points in the Search Results list and click each point you want in the data transfer.
 
-   TIP: To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
+   Tip: To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
 
 5. To advance through multiple-paged search results, click the back and forward arrows OR enter a page number in the **Page** text box.
 
@@ -102,9 +100,9 @@ You build a PI points transfer list to select which PI points you want in a data
 
    The points are added to the transfer and listed in the Explicit PI Points pane.
 
-![ ](../../images/explicit-pi-pts-pane.png)
+   ![ ](../../images/explicit-pi-pts-pane.png)
 
-​	NOTE: Once you are done adding PI points, you must save the transfer before you can start to transfer data to OCS.
+Note: Once you are done adding PI points, you must save the transfer before you can start to transfer data to OCS.
 
 
 ### View PI point details
@@ -113,11 +111,11 @@ You can view attribute details for a PI point that has been added to a transfer.
 
 ### Procedure
 
-1. Select a PI point on the Explicit PI Points tab.
+1. Select a PI point on the **Explicit PI Points** tab.
 
-2. Click ![](../../images/view-details-btn.png) at the top right of the Transfer pane.
+2. Click ![](../../images/view-details-btn.png) at the top right of the `Transfer` pane.
 
-   Result: The PI Points Information pane opens to the right and the PI point's attributes are shown.
+   The PI point's attributes are shown in the `PI Points Information` pane.
    ![](../../images/view-details-pane.png)
 
 3. To view another PI point's details, click to unselect the selected PI point, then select the new point.
@@ -131,7 +129,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 
 #### Procedure
 
-1. On the Explicit PI Points tab, select the PI points you wish to remove in the `Explicit PI Points pane`.
+1. On the **Explicit PI Points** tab, select the PI points you wish to remove.
 2. Click the **Remove # Selected Items** button.
 
    ![](../../images/remove-selected-pts.png)
@@ -159,7 +157,7 @@ You can transfer data to OCS after you have finished adding PI points.  During a
    The data transfer begins and the fields in the Transfer Overview section display the transfer's progress.
    ![](../../images/transfer-details.png)
 
-4. In the Details pane, click the Data Source down arrow to view more information about your transfer:
+4. In the `Details` pane, click the **Data Source** down arrow to view more information about your transfer:
 
    * Server version: The version of the connected PI Data Archive
    * Last Streaming Read
@@ -171,6 +169,3 @@ You can transfer data to OCS after you have finished adding PI points.  During a
 5. Optional: Click the **Stop Transfer** button, then click **Stop** to stop the transfer of data to OCS.
 
 6. Optional: Click the **Remove Transfer** button, then click **Remove** to delete the transfer completely.
-
-
-
