@@ -2,7 +2,7 @@
 uid: bpPISystemConnection
 ---
 
-# PI System connections best practices
+# PI System Connections Best Practices
 
 Only one PI to OCS Agent per connection is allowed to transfer data from a specific PI Data Archive to an OCS namespace. This restriction prevents multiple PI to OCS Agents from pulling data from a single PI Data Archive, which can create an excessive load on the server. The following recommendations address this issue:
 

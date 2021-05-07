@@ -4,7 +4,7 @@ uid: data-transfer-statuses
 
 # Data transfer statuses
 
-The **Current Activity** field displays details about the status of a data transfer.
+The Current Activity field displays details about the status of a data transfer.
 
 
 Data status | Meaning
