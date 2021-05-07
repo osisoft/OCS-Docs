@@ -1,6 +1,6 @@
 # OSIsoft Cloud Services
 
-OSIsoft Cloud Services (OCS) is a cloud data platform for storing, retrieving, and analyzing sequentially indexed data. This repository contains the documentation for OSIsoft Cloud Services. You can access a readable version of this documentation [here.](https://ocs-docs.osisoft.com/)
+OSIsoft Cloud Services (OCS) is a cloud data platform for storing, retrieving, and analyzing sequentially indexed data. This repository contains the documentation for OSIsoft Cloud Services. You can access a readable version of this documentation [here.](https://ocs-docs.osisoft.com/Content_Portal/OCS_Content_Portal_Overview.html)
 
 ## License
 
