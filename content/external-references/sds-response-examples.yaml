@@ -1,0 +1,272 @@
+# Types
+get-types:
+  type: markdown
+  value: |
+    ```json
+    HTTP/1.1 200
+    Content-Type: application/json
+
+    [    
+        {
+        "Id": "Simple",
+        "Name": "Simple",
+        "SdsTypeCode": 1,
+        "Properties": [
+            {
+                "Id": "Time",
+                "Name": "Time",
+                "IsKey": true,
+                "SdsType": {
+                    "Id": "19a87a76-614a-385b-ba48-6f8b30ff6ab2",
+                    "Name": "DateTime",
+                    "SdsTypeCode": 16
+                }
+            },
+            {
+                "Id": "State",
+                "Name": "State",
+                "SdsType": {
+                    "Id": "e20bdd7e-590b-3372-ab39-ff61950fb4f3",
+                    "Name": "State",
+                    "SdsTypeCode": 609,
+                    "Properties": [
+                        {
+                            "Id": "Ok",
+                            "Value": 0
+                        },
+                        {
+                            "Id": "Warning",
+                            "Value": 1
+                        },
+                        {
+                            "Id": "Alarm",
+                            "Value": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "Id": "Measurement",
+                "Name": "Measurement",
+                "SdsType": {
+                    "Id": "6fecef77-20b1-37ae-aa3b-e6bb838d5a86",
+                    "Name": "Double",
+                    "SdsTypeCode": 14
+                }
+            }
+        ]
+        },
+        …
+    ]
+    ```
+get-type:
+  type: markdown
+  value: |
+    ```json
+    HTTP/1.1 200
+    Content-Type: application/json
+
+    {
+    "Id": "Simple",
+    "Name": "Simple",
+    "SdsTypeCode": 1,
+    "Properties": [
+        {
+            "Id": "Time",
+            "Name": "Time",
+            "IsKey": true,
+            "SdsType": {
+                "Id": "19a87a76-614a-385b-ba48-6f8b30ff6ab2",
+                "Name": "DateTime",
+                "SdsTypeCode": 16
+            }
+        },
+        {
+            "Id": "State",
+            "Name": "State",
+            "SdsType": {
+                "Id": "e20bdd7e-590b-3372-ab39-ff61950fb4f3",
+                "Name": "State",
+                "SdsTypeCode": 609,
+                "Properties": [
+                    {
+                        "Id": "Ok",
+                        "Value": 0
+                    },
+                    {
+                        "Id": "Warning",
+                        "Value": 1
+                    },
+                    {
+                        "Id": "Alarm",
+                        "Value": 2
+                    }
+                ]
+            }
+        },
+        {
+            "Id": "Measurement",
+            "Name": "Measurement",
+            "SdsType": {
+                "Id": "6fecef77-20b1-37ae-aa3b-e6bb838d5a86",
+                "Name": "Double",
+                "SdsTypeCode": 14
+            }
+        }
+    ]
+    }
+    ```
+get-type-reference-count:
+  type: markdown
+  value: |
+    ```json
+     {
+        "SdsStream": 3,
+        "SdsStreamView": 2,
+        "SdsType": 1
+    }
+    ```
+get-or-create-type:
+  type: markdown
+  value: |
+    ```json
+    HTTP/1.1 201
+    Content-Type: application/json
+
+    {
+    "Id": "Simple",
+    "Name": "Simple",
+    "Description": null,
+    "SdsTypeCode": 1,
+    "IsGenericType": false,
+    "IsReferenceType": false,
+    "GenericArguments": null,
+    "Properties": [
+        {
+            "Id": "Time",
+            "Name": "Time",
+            "Description": null,
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": {
+                "Id": "19a87a76-614a-385b-ba48-6f8b30ff6ab2",
+                "Name": "DateTime",
+                "Description": null,
+                "SdsTypeCode": 16,
+                "IsGenericType": false,
+                "IsReferenceType": false,
+                "GenericArguments": null,
+                "Properties": null,
+                "BaseType": null,
+                "DerivedTypes": null,
+                "InterpolationMode": 0,
+                "ExtrapolationMode": 0
+            },
+            "Value": null,
+            "Uom": null,
+            "InterpolationMode": null
+        },
+        {
+            "Id": "State",
+            "Name": "State",
+            "Description": null,
+            "Order": 0,
+            "IsKey": false,
+            "FixedSize": 0,
+            "SdsType": {
+                "Id": "e20bdd7e-590b-3372-ab39-ff61950fb4f3",
+                "Name": "State",
+                "Description": null,
+                "SdsTypeCode": 609,
+                "IsGenericType": false,
+                "IsReferenceType": false,
+                "GenericArguments": null,
+                "Properties": [
+                    {
+                        "Id": "Ok",
+                        "Name": null,
+                        "Description": null,
+                        "Order": 0,
+                        "IsKey": false,
+                        "FixedSize": 0,
+                        "SdsType": null,
+                        "Value": 0,
+                        "Uom": null,
+                        "InterpolationMode": null
+                    },
+                    {
+                        "Id": "Warning",
+                        "Name": null,
+                        "Description": null,
+                        "Order": 0,
+                        "IsKey": false,
+                        "FixedSize": 0,
+                        "SdsType": null,
+                        "Value": 1,
+                        "Uom": null,
+                        "InterpolationMode": null
+                    },
+                    {
+                        "Id": "Alarm",
+                        "Name": null,
+                        "Description": null,
+                        "Order": 0,
+                        "IsKey": false,
+                        "FixedSize": 0,
+                        "SdsType": null,
+                        "Value": 2,
+                        "Uom": null,
+                        "InterpolationMode": null
+                    }
+                ],
+                "BaseType": null,
+                "DerivedTypes": null,
+                "InterpolationMode": 0,
+                "ExtrapolationMode": 0
+            },
+            "Value": null,
+            "Uom": null,
+            "InterpolationMode": null
+        },
+        {
+            "Id": "Measurement",
+            "Name": "Measurement",
+            "Description": null,
+            "Order": 0,
+            "IsKey": false,
+            "FixedSize": 0,
+            "SdsType": {
+                "Id": "6fecef77-20b1-37ae-aa3b-e6bb838d5a86",
+                "Name": "Double",
+                "Description": null,
+                "SdsTypeCode": 14,
+                "IsGenericType": false,
+                "IsReferenceType": false,
+                "GenericArguments": null,
+                "Properties": null,
+                "BaseType": null,
+                "DerivedTypes": null,
+                "InterpolationMode": 0,
+                "ExtrapolationMode": 0
+            },
+            "Value": null,
+            "Uom": null,
+            "InterpolationMode": null
+        }
+        ],
+        "BaseType": null,
+        "DerivedTypes": null,
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+        }
+        ```
+get-type-access-rights:
+  type: markdown
+  value: |
+    ```json
+    HTTP/1.1 200
+    Content-Type: application/json
+
+    ["Read", "Write"]
+    ```
