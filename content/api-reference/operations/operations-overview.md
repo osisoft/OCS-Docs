@@ -4,5 +4,4 @@ uid: operationsOverview
 
 # Operations
 
-The Operations service provides operational information such as **logs**, **usage**, and **OCS service health** data.
-
+The Operations services provide operational information such as **health**, **metrics**, **logs**, and **usage** data.
