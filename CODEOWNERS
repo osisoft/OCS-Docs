@@ -2,7 +2,7 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-*       @GiselleLeeOSI
+*       @GiselleLeeOSI @digitaljoshua
 content/api-reference/SequentialDataStore @GiselleLeeOSI @afloresOSI
 content/api-reference/Identity @digitaljoshua
 content/api-reference/Management @digitaljoshua

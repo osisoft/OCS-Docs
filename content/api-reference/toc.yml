@@ -18,7 +18,7 @@
 - name: Operations
   href: operations/toc.yml
   topicHref: operations/operations-overview.md
-- name: Assets (Preview)
+- name: Asset store (Preview)
   href: assets/toc.yml
   topicHref: Assets/assets.md
 - name: Asset rules (Preview)
