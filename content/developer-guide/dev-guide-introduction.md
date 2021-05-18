@@ -7,6 +7,7 @@ OSIsoft Cloud Services (OCS) is a database platform as a service (dbPaaS) design
 Users inside and outside organizations have a flexible, secure, and easy way to access operations data that may be located within a primary control network or at the edge of the industrial network. 
 From data collection to data access to data delivery, OCS provides users with an easy way to prepare and share access to data through a REST API. 
 Contextual information can be added to time-based operations data, enabling process engineers and systems operators to make decisions and take corrective or preemptive actions. 
+Use the information in this guide as you programmatically access OCS. 
 
 ## Access to OCS
 
