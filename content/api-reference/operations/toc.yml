@@ -1,8 +1,8 @@
-- name: Health Query
+- name: 1. Health
   href: operations-health-query.md
-- name: Log Query
+- name: 2. Logs
   href: operations-log-query.md
-- name: Metrics Query
+- name: 3. Metrics
   href: operations-metrics-query.md
-- name: Usage Query
+- name: 4. Usage
   href: operations-usage-query.md
