@@ -12,7 +12,7 @@ A namespace is a logical unit of organization for data within a tenant. It is a 
 - Must not start or end with a period
 - Must not start with two consecutive underscores
 
-In practice, namespaces may correspond to a specific set of infrastructure assets, but more commonly correspond to virtual partitions within a single set of assets. You can create one or more namespaces within an SDS tenant. Each namespace is effectively an instance of SDS, within which you create SDS types and streams, stream views, data views, and metadata.
+In practice, namespaces may correspond to a specific set of infrastructure assets, but more commonly correspond to virtual partitions within a single set of assets. You can create one or more namespaces within a tenant. Each namespace is effectively an instance of SDS, within which you create types and streams, stream views, data views, and metadata.
 
 ## Properties
 
@@ -38,7 +38,7 @@ For HTTP requests and responses, the Namespace object has the following properti
 
 ## Region ##
 
-When a namespace is created, all resources are created in the namespace's region. Resources created in this namespace (for example: SDS types, streams, and stream views) will be created in the region of the namespace, and any data stored in the namespace will be stored in that region. Read and write operations at the namespace level and within a namespace utilize the base URL of the region in which the namespace resides. The ``Self`` property on each namespace provides the complete URL for all operations within that namespace.
+When a namespace is created, all resources are created in the namespace's region. Resources created in this namespace (for example: types, streams, and stream views) will be created in the region of the namespace, and any data stored in the namespace will be stored in that region. Read and write operations at the namespace level and within a namespace utilize the base URL of the region in which the namespace resides. The ``Self`` property on each namespace provides the complete URL for all operations within that namespace.
 
 ***
 
