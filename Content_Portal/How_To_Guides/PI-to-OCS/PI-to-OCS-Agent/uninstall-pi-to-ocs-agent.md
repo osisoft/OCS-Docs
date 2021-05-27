@@ -25,7 +25,7 @@ Before you uninstall a PI to OCS Agent, you need to perform the following tasks 
 
 5. On the **Unregister the PI to OCS Agent** page, click the **Unregister agent from OCS** checkbox.
 
-    **Note:** When you select the option to unregister the agent from OCS, you are required to log on to the OCS portal. To ensure the client and connection information is also removed, make sure to log on with an account that is assigned to the Account Administrative role.
+    **Note:** When you select the option to unregister the agent from OCS, you are required to log on to the OCS portal. To ensure the client and connection information is also removed, make sure to log on with an account that is assigned to the Tenant Administrator role.
 
 6.	Click **Uninstall**.
 7.	**Optional:** You may be required to log on to the OCS portal.
