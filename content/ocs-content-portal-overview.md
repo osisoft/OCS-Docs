@@ -8,5 +8,5 @@ OSIsoft Cloud Services (OCS) is a database platform as a service (dbPaaS) design
 
 ## Access to OCS
 
-You must acquire an account before interacting with OCS. 
-Go to the [OCS page on OSIsoft website](https://www.osisoft.com/pi-system/pi-cloud/osisoft-cloud-services), click [Contact Us](https://www.osisoft.com/contact) and request an OCS account.
+You must acquire a tenant account before interacting with OCS. 
+Go to the [OCS page on OSIsoft website](https://www.osisoft.com/pi-system/pi-cloud/osisoft-cloud-services), click [Contact Us](https://www.osisoft.com/contact) and request an OCS tenant account.
