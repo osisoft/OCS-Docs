@@ -2,7 +2,6 @@
 uid: community-invitations
 ---
 
-
 # Invitations
 Defines the public API methods that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.
 
@@ -104,7 +103,6 @@ GET /api/v1-preview/communityinvitations/{invitationId}/details
 {
   "CommunityName": "string",
   "CommunityId": "string",
-  "TenantAlreadyMemberOfCommunity": true,
   "InvitationState": "None"
 }
 ```
@@ -135,10 +133,12 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 `string tenantId`
 <br/>The identifier of the tenant that issued invitations. The tenant must belong to the community.<br/><br/>`string communityId`
 <br/>The identifier of the community to which the recipient of the invitation is being invited.<br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+`[optional] string query `
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count `
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
+
+
 
 ### Response
 
@@ -266,6 +266,8 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{in
 <br/>Community identifier<br/><br/>`string invitationId`
 <br/>Invitation identifier<br/><br/>
 
+
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -319,9 +321,10 @@ DELETE /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string communityId`
-<br/>Community identifier.<br/><br/>`string invitationId`
-<br/>Invitation identifie.r<br/><br/>
+<br/>Tenant identifier<br/><br/>`string communityId`
+<br/>Community identifier<br/><br/>`string invitationId`
+<br/>Invitation identifier<br/><br/>
+
 
 ### Response
 
@@ -375,10 +378,11 @@ GET /api/v1-preview/tenants/{tenantId}/communityinvitations
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+`[optional] string query `
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
 <br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
+
 
 ### Response
 
@@ -438,7 +442,7 @@ Representation of the community invitation
 |Id|guid|false|false|Invitation identifier|
 |Issued|date-time|false|false|Invitation issued timestamp|
 |Expires|date-time|false|false|Invitation expiration timestamp|
-|Accepted|date-time|false|true|Invitation accepted timestamp.|
+|Accepted|date-time|false|true|Invitation accepted timestamp|
 |State|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Invitation state|
 |IssuingTenantId|guid|false|false|Identifier of the tenant that issued the invitation|
 |InvitedTenantId|guid|false|true|Identifier of the tenant that is invited|
@@ -493,16 +497,16 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+Object returned when there is an error
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
 
 ```json
 {
@@ -557,14 +561,12 @@ Summary of a community invitation
 |---|---|---|---|---|
 |CommunityName|string|false|true|Community name|
 |CommunityId|guid|false|false|Community identifier|
-|TenantAlreadyMemberOfCommunity|boolean|false|false|Value indicating whether the invited tenant is already part of the community|
 |InvitationState|[CommunityInvitationState](#schemacommunityinvitationstate)|false|false|Invitation state|
 
 ```json
 {
   "CommunityName": "string",
   "CommunityId": "string",
-  "TenantAlreadyMemberOfCommunity": true,
   "InvitationState": "None"
 }
 

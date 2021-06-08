@@ -1,4 +1,6 @@
-
+---
+uid: community-search
+---
 
 # Search
 Defines the public API endpoints that are used to search communities. A community provides a way to share information, such as data streams, between customers.
@@ -120,7 +122,6 @@ The StreamSearchResult object. This is the model representation exposed to calle
 }
 
 ```
-
 
 
 

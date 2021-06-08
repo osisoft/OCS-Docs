@@ -24,7 +24,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 <br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 `[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
 <br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
@@ -85,6 +85,8 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredenti
 <br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 
+
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -136,6 +138,7 @@ PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 <br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>`string clientId`
 <br/>Client credential client identifier<br/><br/>
+
 
 ### Request Body
 
@@ -205,6 +208,7 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCreden
 <br/>Community identifier<br/><br/>`string clientId`
 <br/>Client credential client identifier<br/><br/>
 
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -248,16 +252,16 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+Object returned when there is an error
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
 
 ```json
 {

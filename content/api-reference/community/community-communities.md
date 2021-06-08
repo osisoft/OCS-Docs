@@ -2,7 +2,6 @@
 uid: community-communities
 ---
 
-
 # Communities
 A community is an organizational entity that facilitates data sharing across multiple tenants.
 
@@ -22,9 +21,9 @@ GET /api/v1-preview/tenants/{tenantId}/Communities
 
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+`[optional] string query `
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count `
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
 ### Response
@@ -58,9 +57,7 @@ GET /api/v1-preview/tenants/{tenantId}/Communities
         "ClientCount": 0
       }
     ],
-    "DateCreated": "2019-08-24T14:15:22Z",
-    "StreamsContributedCount": 0,
-    "TotalStreamsContributedCount": 0
+    "DateCreated": "2019-08-24T14:15:22Z"
   }
 ]
 ```
@@ -89,6 +86,8 @@ POST /api/v1-preview/tenants/{tenantId}/Communities
 
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/>
+
+
 
 ### Request Body
 
@@ -132,9 +131,7 @@ Community information to create<br/>
       "ClientCount": 0
     }
   ],
-  "DateCreated": "2019-08-24T14:15:22Z",
-  "StreamsContributedCount": 0,
-  "TotalStreamsContributedCount": 0
+  "DateCreated": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -163,6 +160,7 @@ GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/>`string communityId`
 <br/>Community id<br/><br/>
+
 
 ### Response
 
@@ -194,9 +192,7 @@ GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
       "ClientCount": 0
     }
   ],
-  "DateCreated": "2019-08-24T14:15:22Z",
-  "StreamsContributedCount": 0,
-  "TotalStreamsContributedCount": 0
+  "DateCreated": "2019-08-24T14:15:22Z"
 }
 ```
 
@@ -225,6 +221,7 @@ PUT /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
+
 
 ### Request Body
 
@@ -292,6 +289,7 @@ DELETE /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
 <br/>Owning tenant identifier<br/><br/>`string communityId`
 <br/>The id of the community to delete.<br/><br/>
 
+
 ### Response
 
 |Status Code|Body Type|Description|
@@ -351,8 +349,6 @@ The Community object
 |Description|string|false|true|Community description|
 |Tenants|[[CommunityTenant](#schemacommunitytenant)]|false|true|List of CommunityTenant that are in the community|
 |DateCreated|date-time|false|true|Date community was created|
-|StreamsContributedCount|integer|false|false|Current tenant's view of how many streams it contributed|
-|TotalStreamsContributedCount|integer|false|false|Total streams from all community tenants|
 
 ```json
 {
@@ -370,9 +366,7 @@ The Community object
       "ClientCount": 0
     }
   ],
-  "DateCreated": "2019-08-24T14:15:22Z",
-  "StreamsContributedCount": 0,
-  "TotalStreamsContributedCount": 0
+  "DateCreated": "2019-08-24T14:15:22Z"
 }
 
 ```
