@@ -6,30 +6,7 @@ uid: operationsMetrics
 
 APIs related to querying tenant metrics.
 
-## Authentication
-
-All endpoints referenced in this documentation require authenticated access. You must set the Authorization header to the access token you retrieved from a successful authentication request.
-
-`Authorization: Bearer <token>`
-
-Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
-Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) to learn how to authenticate against OCS with the various clients and receive an access token in response.
-
-## Error handling
-
-All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will appear as follows:
-
-```json
-{
-    "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c", 
-    "Error": "Error message.", 
-    "Reason": "Reason that caused error.", 
-    "Resolution": "Possible solution for the error." 
-}
-```
-
-If and when contacting OSIsoft support about this error, please provide the OperationId.
+***
 
 ## `Get Stream Metrics`
 
@@ -37,63 +14,44 @@ Retrieves metrics related to streams ingress and egress rates for a given namesp
 
 ### Request
 
-`GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/streams/{metricId}`
+```text
+
+GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/streams/{metricId}`
+
+```
 
 ### Parameters
 
-```csharp
-[Required]
-string tenantId
-```
-
+`string tenantId`
 Id of the tenant for this metric.
 
-```csharp
-[Required]
-string namespaceId
-```
-
+`string namespaceId`
 Id of the namespace for this metric.
 
-```csharp
-[Required]
-string metricId
-```
+`string metricId`
+Id of metric
 
 **EgressEvents** for events egressed over time, or **IngressEvents** for incoming events over time.
 
-```csharp
-[FromQuery]
-[Required]
-DateTime start
-```
 
+`DateTime start`
 Start date of the metric results to return.
 
-```csharp
-[FromQuery]
-[Required]
-DateTime end
-```
-
+`DateTime end`
 End date of the metric results to return.
-
-### Authorization
-
-Allowed for these roles:
-
-- `Tenant Member`
-- `Tenant Administrator`
 
 ### Response
 
-#### 200
+| Status Code               | Response Type | Description                                     |
+|---------------------------|---------------|-------------------------------------------------|
+| 200 OK                    | `List`        | Returns a `list` of metric values               |
+| 400 Bad Request           | error         | Request has an error or is invalid              |
+| 401 Unauthorized client   | error         | Authentication has failed                       |
+| 403 Forbidden             | error         | You are not authorized for this operation       |
+| 404 Not Found             | error         | The data view or query does not exist           |
+| 500 Internal Server Error | error         | An error occurred while processing the request. |
 
-Success
-
-##### Type:
-
- `List`
+#### Example response body
 
 ```json
 [
@@ -108,25 +66,14 @@ Success
 ]
 ```
 
-#### 400
+### Authorization
 
-Missing or invalid inputs
+Allowed for these roles:
 
-#### 401
+- `Tenant Member`
+- `Tenant Administrator`
 
-Unauthorized
-
-#### 404
-
-Metric Not Found
-
-#### 403
-
-Forbidden
-
-#### 500
-
-Internal server error
+***
 
 ## `Get OMF Connection Metrics`
 <!--Get OMF Metrics-->
@@ -135,63 +82,43 @@ Retrieves metrics related to OMF ingress rates for a given namespace.
 
 ### Request
 
-`GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/topics/{metricId}`
+```text
+
+GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/topics/{metricId}`
+
+```
 
 ### Parameters
 
-```csharp
-[Required]
-string tenantId
-```
-
+`string tenantId`
 Id of the tenant for this metric.
 
-```csharp
-[Required]
-string namespaceId
-```
-
+`string namespaceId`
 Id of the namespace for this metric.
 
-```csharp
-[Required]
-string metricId
-```
+`string metricId`
+Id of metric
 
 **MessagesReceived** for received messages over time, or **MessagesRejected** for rejected messages over time.
 
-```csharp
-[FromQuery]
-[Required]
-DateTime start
-```
-
+`DateTime start`
 Start date of the metric results to return.
 
-```csharp
-[FromQuery]
-[Required]
-DateTime end
-```
-
+`DateTime end`
 End date of the metric results to return.
-
-### Authorization
-
-Allowed for these roles:
-
-- `Tenant Member`
-- `Tenant Administrator`
 
 ### Response
 
-#### 200
+| Status Code | Response Type | Description |
+|--|--|--|
+| 200 OK | `List` | Returns a list containing metrics |
+| 400 Bad Request | error | Request has an error or is invalid |
+| 401 Unauthorized client  | error | Authentication has failed |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 404 Not Found | error | The data view or query does not exist |
+| 500 Internal Server Error | error | An error occurred while processing the request. |
 
-Success
-
-##### Type:
-
- `List`
+#### Example response body
 
 ```json
 [
@@ -206,23 +133,9 @@ Success
 ]
 ```
 
-#### 400
+### Authorization
 
-Missing or invalid inputs
+Allowed for these roles:
 
-#### 401
-
-Unauthorized
-
-#### 404
-
-Metric Not Found
-
-#### 403
-
-Forbidden
-
-#### 500
-
-Internal server error
-
+- `Tenant Member`
+- `Tenant Administrator`
