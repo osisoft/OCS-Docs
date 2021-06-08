@@ -23,22 +23,22 @@ GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/streams/{metricId
 ### Parameters
 
 `string tenantId`
-Id of the tenant for this metric.
+Tenant identifier
 
 `string namespaceId`
-Id of the namespace for this metric.
+Namespace identifier
 
 `string metricId`
-Id of metric
+Metric identifier
 
 **EgressEvents** for events egressed over time, or **IngressEvents** for incoming events over time.
 
 
 `DateTime start`
-Start date of the metric results to return.
+Start date of the metric results to return
 
 `DateTime end`
-End date of the metric results to return.
+End date of the metric results to return
 
 ### Response
 
@@ -91,21 +91,21 @@ GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/topics/{metricId}
 ### Parameters
 
 `string tenantId`
-Id of the tenant for this metric.
+Tenant identifier
 
 `string namespaceId`
-Id of the namespace for this metric.
+Namespace identifier
 
 `string metricId`
-Id of metric
+Metric identifier
 
 **MessagesReceived** for received messages over time, or **MessagesRejected** for rejected messages over time.
 
 `DateTime start`
-Start date of the metric results to return.
+Start date of the metric results to return
 
 `DateTime end`
-End date of the metric results to return.
+End date of the metric results to return
 
 ### Response
 
