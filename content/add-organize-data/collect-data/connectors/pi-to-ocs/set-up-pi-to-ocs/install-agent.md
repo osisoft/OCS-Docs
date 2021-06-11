@@ -28,14 +28,12 @@ This topic contains these sections:
 
 ### Procedure
 
-1. In the OCS portal, click the ![ ](../../images/waffle-button.png) icon, then click **Data Collection > PI to OCS Agents**.
+1. In the OCS portal, click the ![ ](../../images/waffle-button.png) icon, then click **Connections**.
 
-   **Result:** The Agent Installer page opens.
-
-2. Download the agent to the desired location.
-3. Close the Agent Installer page.
+2. Click the **Download the PI to OCS Agent Installation Kit** icon.
+3. Download the agent to the desired location.
 4. Navigate to the downloaded PI to OCS agent installation file.
-5. Right-click the PI to OCS agent installation file, then click **Run as administrator**.
+2. Right-click the PI to OCS agent installation file, then click **Run as administrator**.
 6. Click **Yes**.
 
    **Result**: The Welcome page opens.
@@ -79,7 +77,7 @@ This topic contains these sections:
 
 ![](../../images/agent-complete.png)
 ​
-14. Click **Close** to close and exit the PI to OCS Agent wizard.
+14. Click **Close** to close and exit the PI to OCS Agent installer.
     **Result**: The PI to OCS Configuration Utility opens. See [Run the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) for instructions.
 
 **Note:** An agent cannot be registered until a PI Data Archive server has been configured using the utility.
