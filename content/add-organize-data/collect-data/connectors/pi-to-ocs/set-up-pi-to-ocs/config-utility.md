@@ -4,7 +4,7 @@ uid: pi-to-ocs-utility
 
 # Run the PI to OCS Agent Configuration Utility
 
-You use the PI to OCS Agent Configuration Utility to configure your PI Data Archive server connection settings before creating a data transfer. After a PI to OCS Agent installation or upgrade, you can use the utility to add or change the source PI Data Archive, view connection details, add PI mappings, and set data privacy settings.
+Use the PI to OCS Agent Configuration Utility to configure your PI Data Archive server connection settings before creating a data transfer. After a PI to OCS Agent installation or upgrade, you can use the utility to add or change the source PI Data Archive, view connection details, add PI mappings, and set data privacy settings.
 
 ### Topics in this section
 
@@ -28,7 +28,7 @@ You must add and configure the source PI Data Archive you want to transfer on-pr
 
 #### Before you begin
 
-Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent Configuration Utility, click the Windows menu button, then click **OSIsoft > PI to OCS Agent Configuration Utility** on the Windows menu.
+Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent Configuration Utility, click the **Windows** menu button, then click **OSIsoft > PI to OCS Agent Configuration Utility**.
 
 ### Procedure
 
@@ -37,6 +37,7 @@ Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent C
    ![](../../images/utility-01.png)
    
 2. Enter the name of the source PI Data Archive in the text box, then click **Add Server**.
+
    **Result:** After successful detection, the PI Data Archive connection is added and you are advanced to the next page of the utility.
    ![PI Data Archive connection details](../../images/utility-02.png)
 
@@ -69,18 +70,11 @@ PI mappings enable access to data stored on a PI Data Archive by service account
 
 1. In the PI to OCS Agent Configuration Utility, click the pencil icon next to the **PI Mapping** field.
    **Result:** The **Configure Mapping** dialog box opens.
-
-
 ![Configure Mapping dialog box](../../images/configure-mapping-db.png)
-
-​	
-
 2. Select an identity for the PI mapping under Identity.
-
 3. Click **Edit**.
    **Result:** The PI mapping is created for the selected identity, group or user.
    **Note:** If a PI mapping has already been created with another tool, a warning is displayed. 
-
 4. Click **Close** to return to the utility, then click **Save**.
 
 ## Set data privacy and add an agent description
@@ -138,16 +132,22 @@ You may want to remove a PI to OCS Agent from a host machine. To uninstall an ag
 #### Procedure
 
 1. Click the Windows Start button, then click the **Settings** button.
+
    **Result:** The `Windows Settings` window opens.
 2. Double-click **Apps**.
+
    **Result:** The `Apps & features` window opens.
 3. Scroll to and click **PI to OCS Agent** in the list of installed apps.
 4. Click **Uninstall** twice, then click **Yes** in the `User Account Control` window.
+
    **Result:** The `PI to OCS Agent (Administrator)` window opens.
 5. Select the **Uninstall** option, then click **Next**.
 6. Click the **Unregister agent from OCS** option, then click **Next**.
+
    **Result:** The agent's associated client and connection information is removed in OCS.
 7. Select the user account you wish to use to log on to OCS.
+
    **Result:** You are returned to the `PI to OCS Agent` window.
 8. Click **Uninstall**, then click **Close**.
+
    **Result:** The PI to OCS Agent is uninstalled and removed from the host machine.
