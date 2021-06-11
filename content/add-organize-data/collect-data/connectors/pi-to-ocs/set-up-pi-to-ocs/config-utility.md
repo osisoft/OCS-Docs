@@ -73,7 +73,9 @@ PI mappings enable access to data stored on a PI Data Archive by service account
 ![Configure Mapping dialog box](../../images/configure-mapping-db.png)
 2. Select an identity for the PI mapping under Identity.
 3. Click **Edit**.
+   
    **Result:** The PI mapping is created for the selected identity, group or user.
+   
    **Note:** If a PI mapping has already been created with another tool, a warning is displayed. 
 4. Click **Close** to return to the utility, then click **Save**.
 
