@@ -1,48 +1,108 @@
 ---
-uid: install-pi-to-ocs-agent
+uid: install-agent
 ---
 
-# Install the PI to OCS Agent
+# PI to OCS Agent
 
-The PI to OCS Agent must be installed on a host computer, separate from your PI Data Archive deployment, by a Windows user with local Administrator privileges. You can download the PI to OCS Agent Installation kit and then transfer it to the computer that will host the agent.
+When you install the PI to OCS Agent, make sure to do the following:
 
-**Note:** The PI to OCS Agent installation cannot be completed if the system time is not correct. Additionally, you will not be able to complete the PI to OCS Agent installation if Internet Explorer Enhanced Security configuration is enabled.  See [Disable Internet Explorer Enhanced Security Configuration](xref:disable-ie-security) for details.
+* Install the agent on a host computer separate from your PI Data Archive deployment
+* Use an account that has been granted Administrator privileges
 
-## Procedure
+You can download the PI to OCS Agent Installation kit and then transfer it to the computer that will host the agent.
 
-1. **Optional:** Navigate to the **Connections** page.
-2. Click the **Download the PI to OCS Agent Installation Kit** icon.
+**NOTE:** The PI to OCS Agent installation cannot be completed if the system time is not correct. Additionally, you will not be able to complete the PI to OCS Agent installation if Internet Explorer Enhanced Security configuration is enabled. See [Disable Internet Explorer Enhanced Security Configuration](xref:disable-ie-security) for details. 
 
-    ![ ](../../images/pi2ocs-dwnld-icon.png)
-    
-3. Download the PI to OCS agent to the desired location.
-4. Close the **Download Installation Kit** window.
+
+
+## Topics in this section
+
+This topic contains these sections:
+
+* [Install the PI to OCS Agent](#install-the-pi-to-ocs-agent)
+
+* [Verify the PI to OCS Agent is running and registered](#verify-the-PI-to-ocs-agent-is-running-and-registered)
+
+
+## Install the PI to OCS Agent
+
+### Procedure
+
+1. In the OCS portal, click the ![ ](../../images/waffle-button.png) icon, then click **Data Collection > PI to OCS Agents**.
+
+2. Click **Download Agent**.
+   **Result:** The `Agent Installer` page opens.
+
+4. Download the agent to the desired location.
+
+4. Close the `Agent Installer` page.
+
 5. Navigate to the downloaded PI to OCS agent installation file.
+
 6. Right-click the PI to OCS agent installation file, then click **Run as administrator**.
-7. Click **Yes**.
 
-    <br>![ ](../../images/setupkit_welcome.png)
+8. Click **Yes**.
+   **Result**: The Welcome page opens.
+9. Click **Next**.
 
-8. In the **PI to OCS Agent (Administrator)** window, click **Next**.
-9. Enter your OCS tenant ID or company alias, then click **Next**.
-10. Select or enter the following for your connection:
-    - **Namespace:** Select the location where data will be stored after the data transfer. The region indicates where the namespace resides. Streaming data sent by the PI to OCS Agent will only go to the selected namespace’s region.
-    - **Connection:** Select the name of the data transfer connection you created earlier. 
-    - **PI Data Archive:** Enter the name of the on-premises PI Data Archive you want to transfer data from.
-11. **Optional:** Click the **Refresh Connection List** button to refresh the list of available connections and select a different PI Data Archive.
-
-    <br>    ![ ](../../images/pi2ocs-cnnxtn.png)
-
-12. Click **Next**.
-13. Select the service account type for the connection:
-    - **NT Service**: Use a Network Service account to connect to PI Data Archive.
-    - **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
+   **Result:** The Company Information page opens.
+	![Company Information page](../../images/agent-co-info.png)
+10. Enter your OCS tenant ID or company alias in the **Tenant ID or Company Alias** text box, then click **Next**.
     
-    **Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
+    **Note:** You are prompted to log on with your tenant account in OCS.  The account used to log on must be assigned to the OCS Tenant Administrator role to complete the PI to OCS Agent installation.
+    
+    **Result:** The PI to OCS Agent setup kit advances to the Browser Login page. An OCS message opens in your web browser regarding the status of the user authentication process. 
+    
+10. Close the browser window.
 
-    ![ ](../../images/pi2ocs-serv-acct.png)
+    **Result:** The Connection page opens.
 
-14. Click **Install**, then click **Close**.
-<br>**Result:** The PI to OCS Agent is installed and registered to the PI System data source in OCS. 
+11. Select or enter the following information for your PI to OCS connection:
 
-**Note:** The registration process may take a few minutes.
+    - **Namespace**: Select the location where your transferred data will be stored. The region indicates where the namespace resides. Streaming data sent by the PI to OCS Agent only goes to the selected namespace's region.
+
+    - **Agent Description:** Enter an optional name for your agent.
+
+![](../../images/agent-namespace.png)
+
+​12. Click **Next**.
+    **Result:** The **Service Account** page opens.
+    ![](../../images/agent-serv-acct.png)
+
+13. Select the service account type for the connection:
+
+    * **NT Service**: Use an NT account to connect to PI Data Archive.
+    * **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
+
+**Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
+
+14. Click **Install**.
+
+    **Result:** The PI to OCS Agent is installed. 
+
+    **Note:** Installation may take a few moments.
+
+![](../../images/agent-complete.png)
+​
+15. Click **Close** to close and exit the PI to OCS Agent wizard.
+    **Result**: The PI to OCS Configuration Utility opens. See [Use the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) for instructions.
+
+**Note:** An agent cannot be registered until a PI Data Archive server has been configured using the utility.
+
+## Verify the PI to OCS Agent is running and registered
+
+After installation, check that the PI to OCS Agent Windows service is running on the machine where the agent is installed. You also should confirm the agent has been registered in OCS. <!--Do we even need this topic here if the agent does not register until the user has configured and connected to an AF server or PIDA?-->
+
+### Procedure
+
+1. On the host machine where you installed the agent, type *services.msc* in the text box next to the Windows menu button, then press ENTER.
+
+2. In the **Services** window, scroll to and verify that that the PI to OCS Agent’s status is running.
+
+![img](../../images/services-window.png)
+
+3. Navigate to the **PI to OCS Agents page** in OCS, then select the connection you just created. 
+   1. On the **Details** pane, Verify that **Registered** appears next to the **Agent Status** field.
+   	![Agent status](../../images/details-pane.png)
+
+   **Note:**  The agent status is also displayed in the PI to OCS Configuration Utility.  See [List of agent status states](xref:pi-to-ocs-utility) for a list of states and descriptions that explain why an agent may not be running.
