@@ -24,20 +24,20 @@ This topic contains these sections:
 
 ## Install the PI to OCS Agent
 
+The PI to OCS Agent must be downloaded from the OCS portal and then installed on an on-prem host computer.
+
 ### Procedure
 
 1. In the OCS portal, click the ![ ](../../images/waffle-button.png) icon, then click **Connections**.
-
 2. Click the **Download the PI to OCS Agent Installation Kit** icon.
 3. Download the agent to the desired location.
 4. Navigate to the downloaded PI to OCS agent installation file.
 2. Right-click the PI to OCS agent installation file, then click **Run as administrator**.
-6. Click **Yes**.
-
-   **Result**: The Welcome page opens.
+6. Click **Yes** to open the Welcome page.
 7. Click **Next**.
    
    **Result:** The Company Information page opens.
+
    ![](../../images/agent-co-info.png)
 8. Enter your OCS tenant ID or company alias in the **Tenant ID or Company Alias** text box, then click **Next**.
 
@@ -58,7 +58,9 @@ This topic contains these sections:
     * **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
     **Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
 13. Click **Install**.
+    
     **Result:** The PI to OCS Agent is installed.
+    
     **Note:** Installation may take a few moments.
 
     ![](../../images/agent-complete.png)
