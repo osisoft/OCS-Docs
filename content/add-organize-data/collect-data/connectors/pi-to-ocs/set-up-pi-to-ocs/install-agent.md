@@ -78,7 +78,6 @@ After installation, check that the PI to OCS Agent Windows service is running on
 ### Procedure
 
 1. On the host machine where you installed the agent, type *services.msc* in the text box next to the Windows menu button, then press ENTER.
-
 2. In the `Services` window, scroll to and verify that that the PI to OCS Agent’s status is running.
 ![](../../images/services-window.png)
 3. Navigate to the **PI to OCS Agents page** in OCS, then select the connection you just created. 
