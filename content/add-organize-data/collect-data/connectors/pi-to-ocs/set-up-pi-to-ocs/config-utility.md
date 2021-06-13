@@ -68,8 +68,8 @@ PI mappings enable access to data stored on a PI Data Archive by service account
 
 #### Procedure
 
-1. In the PI to OCS Agent Configuration Utility, click the pencil icon next to the **PI Mapping** field to open the **Configure Mapping** dialog box.
-
+1. In the PI to OCS Agent Configuration Utility, click the pencil icon next to the **PI Mapping** field.
+   **Result:** The **Configure Mapping** dialog box opens.
 ![Configure Mapping dialog box](../../images/configure-mapping-db.png)
 
 2. Select an identity for the PI mapping under Identity.
