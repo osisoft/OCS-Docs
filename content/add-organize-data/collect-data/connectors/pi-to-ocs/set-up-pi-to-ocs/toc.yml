@@ -1,3 +1,5 @@
+- name: Disable Internet Explorer enhanced security
+  href: disable-ie-security.md
 - name: Install the PI to OCS Agent
   href: install-agent.md
 - name: Run the PI to OCS Agent Configuration Utility
