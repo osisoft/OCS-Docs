@@ -24,20 +24,20 @@ This topic contains these sections:
 
 ## Install the PI to OCS Agent
 
-The PI to OCS Agent must be downloaded from the OCS portal and then installed on an on-prem host computer.
-
 ### Procedure
 
 1. In the OCS portal, click the ![ ](../../images/waffle-button.png) icon, then click **Connections**.
+
 2. Click the **Download the PI to OCS Agent Installation Kit** icon.
 3. Download the agent to the desired location.
 4. Navigate to the downloaded PI to OCS agent installation file.
 2. Right-click the PI to OCS agent installation file, then click **Run as administrator**.
-6. Click **Yes** to open the Welcome page.
+6. Click **Yes**.
+
+   **Result**: The Welcome page opens.
 7. Click **Next**.
    
    **Result:** The Company Information page opens.
-
    ![](../../images/agent-co-info.png)
 8. Enter your OCS tenant ID or company alias in the **Tenant ID or Company Alias** text box, then click **Next**.
 
@@ -52,20 +52,19 @@ The PI to OCS Agent must be downloaded from the OCS portal and then installed on
     *  **Namespace**: Select the location where your transferred data will be stored. The region indicates where the namespace resides. Streaming data sent by the PI to OCS Agent only goes to the selected namespace's region.
     * **Agent Description:** Enter an optional name for your agent.
     ![](../../images/agent-namespace.png)
-​11. Click **Next**.
-12. Select the service account type for the connection:
+
+11. Click **Next**, then select the service account type for the connection:
     * **NT Service**: Use an NT account to connect to PI Data Archive.
     * **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
+    
     **Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
 13. Click **Install**.
-    
     **Result:** The PI to OCS Agent is installed.
-    
     **Note:** Installation may take a few moments.
 
     ![](../../images/agent-complete.png)
 
-14. Click **Close** to close and exit the PI to OCS Agent installer.
+13. Click **Close** to close and exit the PI to OCS Agent installer.
     
     **Result**: The PI to OCS Configuration Utility opens. See [Run the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) for instructions.
 
@@ -78,7 +77,6 @@ After installation, check that the PI to OCS Agent Windows service is running on
 ### Procedure
 
 1. On the host machine where you installed the agent, type *services.msc* in the text box next to the Windows menu button, then press ENTER.
-
 2. In the `Services` window, scroll to and verify that that the PI to OCS Agent’s status is running.
 ![](../../images/services-window.png)
 3. Navigate to the **PI to OCS Agents page** in OCS, then select the connection you just created. 
