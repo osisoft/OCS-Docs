@@ -17,5 +17,5 @@ Once an SDS stream is created, its underlying SdsType cannot change. As a result
 * If you care about the data, but do not care about streaming data for that particular tag, create a new transfer without the tag in question and start the transfer. 
 * If you do not care about the streaming data that was previously transferred, delete the SDS stream in question and restart the transfer. The transfer will resume streaming data.
 
-To see what types of point coercions are supported in PI Data Archive, please refer to the [Allowable point type coercions](https://docs.osisoft.com/bundle/pi-server/page/allowable-point-type-coercions.html) topic.
+To see what types of point coercions are supported in PI Data Archive, please refer to the ["Allowable point type coercions"](https://docs.osisoft.com/bundle/pi-server/page/allowable-point-type-coercions.html) topic.
 

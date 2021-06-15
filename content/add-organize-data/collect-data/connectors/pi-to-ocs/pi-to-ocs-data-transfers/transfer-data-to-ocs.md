@@ -8,13 +8,13 @@ To transfer PI points into OCS, you must first define transfer settings and then
 
 * [Create a transfer](create-a-transfer)
 * [Overview of the PI Points Search pane](#overview-of-the-pi-points-search-pane)
-* [Explicit vs. implicit PI points](#explicit-vs.-implicit-pi-points)
+* [Explicit vs. implicit PI points](#explicit-and-implicit-pi-points)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
 * [View PI point details](#view-pi-point-details)
 * [Remove PI points from a transfer](#remove-pi-points-from-a-transfer)
 * [Save a transfer and start transferring data to OCS](#save-a-transfer-and-start-transferring-data-to-OCS)
 
-### Create a transfer
+## Create a transfer
 
 You create a transfer to have a placeholder to store the PI point data you wish to transfer.
 
@@ -48,7 +48,7 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
    ![Transfer window ](../../images/new-transfer.png)
 
 
-### Overview of the PI Points Search pane
+## Overview of the PI Points Search pane
 
 You build a PI points transfer list in the **PI Points Search** pane. You define search criteria to filter which PI points are returned in the query results.
 
@@ -69,7 +69,7 @@ No. | Description  |
 11| Navigate through search result pages.  
 12| Add selected PI points to a transfer. 
 
-### Explicit vs. implicit PI points
+## Explicit and implicit PI points
 
 PI points added to a transfer are assigned one of two reference types:
 
@@ -80,7 +80,7 @@ The reference type indicates a PI point's source and how it was retrieved. The r
 
 The explicit reference type is assigned to PI points directly retrieved from a PI Data Archive.  The implicit reference type is assigned to PI points referenced by AF element attributes that have been retrieved by searching an AF server.
 
-### Build a PI points transfer list
+## Build a PI points transfer list
 
 You build a PI points transfer list to select the PI points you want included in your transfer. 
 
@@ -122,7 +122,7 @@ You build a PI points transfer list to select the PI points you want included in
 ​	**NOTE:** Once you are done adding PI points, you must save the transfer before you can start to transfer data to OCS.
 
 
-### View PI point details
+## View PI point details
 
 You can view attribute details for a PI point that has been added to a transfer prior to saving the transfer. 
 
@@ -140,7 +140,7 @@ You can view attribute details for a PI point that has been added to a transfer 
 4. Click **x** on the **PI Point Information** pane to close it.
 
 
-### Remove PI points from a transfer
+## Remove PI points from a transfer
 
 You can remove unwanted PI points from a transfer prior to saving the transfer.
 
@@ -152,7 +152,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
    **Result:** The PI point are removed from the transfer.
 3. **Optional****:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
 
-### Save a transfer and start transferring data to OCS
+## Save and transfer data to OCS
 
 You must complete adding PI points and then save a transfer before you can transfer selected data to OCS. During a data transfer, events are sent asynchronously. Historical events are sent first, followed by current events.  The progress of a data transfer is displayed in the Details pane.  
 
@@ -169,8 +169,6 @@ You must complete adding PI points and then save a transfer before you can trans
    **Result:** The data transfer begins and the fields in the Transfer Overview section display the transfer's progress. 
    ![](../../images/details-pane-start-transfer.png)
 
-   
-
 4. In the `Details` pane, click the **Data Source** down arrow to view more information about your transfer:
 
    * Server version: The version of the connected PI Data Archive
@@ -183,6 +181,3 @@ You must complete adding PI points and then save a transfer before you can trans
 5. **Optional:** Click the **Stop Transfer** button, then click **Stop** to stop the transfer of data to OCS.
 
 6. **Optional:** Click the **Remove Transfer** button, then click **Remove** to delete the transfer completely.
-
-
-

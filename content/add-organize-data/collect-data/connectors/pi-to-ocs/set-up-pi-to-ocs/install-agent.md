@@ -51,12 +51,13 @@ This topic contains these sections:
 10. Select or enter the following information for your PI to OCS connection:
     *  **Namespace**: Select the location where your transferred data will be stored. The region indicates where the namespace resides. Streaming data sent by the PI to OCS Agent only goes to the selected namespace's region.
     * **Agent Description:** Enter an optional name for your agent.
+
     ![](../../images/agent-namespace.png)
 
 11. Click **Next**, then select the service account type for the connection:
     * **NT Service**: Use an NT account to connect to PI Data Archive.
     * **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
-    
+
     **Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
 12. Click **Install**.
 
