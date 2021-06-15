@@ -8,11 +8,11 @@ To transfer PI points into OCS, you must first define transfer settings and then
 
 * [Create a transfer](create-a-transfer)
 * [Overview of the PI Points Search pane](#overview-of-the-pi-points-search-pane)
-* [Explicit vs. implicit PI points](#explicit-and-implicit-pi-points)
+* [Explicit and implicit PI points](#explicit-and-implicit-pi-points)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
 * [View PI point details](#view-pi-point-details)
 * [Remove PI points from a transfer](#remove-pi-points-from-a-transfer)
-* [Save a transfer and start transferring data to OCS](#save-a-transfer-and-start-transferring-data-to-OCS)
+* [Save and transfer data to OCS](#save-and-transfer-data-to-OCS)
 
 ## Create a transfer
 
@@ -43,10 +43,7 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 
 8. Click **Ok**.
 
-   **Result:** The new transfer opens in the PI to OCS Agents window.
-
-   ![Transfer window ](../../images/new-transfer.png)
-
+   **Result:** The new transfer opens in the `PI to OCS Agents` window.
 
 ## Overview of the PI Points Search pane
 
@@ -130,7 +127,7 @@ You can view attribute details for a PI point that has been added to a transfer 
 
 1. Select a PI point on the PI Points tab.
 
-2. Click ![](../../images/view-details-btn.png) at the top right of the **Transfer** pane.
+2. Click the **View Details** button at the top right of the **Transfer** pane.
 
    **Result:** The PI Points Information pane opens to the right and the PI point's attributes are shown.
    ![](../../images/view-details-pane.png)
@@ -150,7 +147,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 2. Click the **Remove # Selected Items** button, then click **Remove** again.
 
    **Result:** The PI point are removed from the transfer.
-3. **Optional****:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
+3. **Optional:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
 
 ## Save and transfer data to OCS
 
