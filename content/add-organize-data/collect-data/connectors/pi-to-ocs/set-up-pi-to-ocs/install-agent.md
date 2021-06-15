@@ -56,9 +56,13 @@ This topic contains these sections:
 11. Click **Next**, then select the service account type for the connection:
     * **NT Service**: Use an NT account to connect to PI Data Archive.
     * **This account**: Specify a user name and password (domain\account) to connect to PI Data Archive.
-    
     **Note:** The service account must have Administrator privileges and read access to certain data on PI Data Archive.
+<<<<<<< HEAD
+12. Click **Install**.
+    
+=======
 13. Click **Install**.
+>>>>>>> parent of dc19c244 (Corrections)
     **Result:** The PI to OCS Agent is installed.
     **Note:** Installation may take a few moments.
 

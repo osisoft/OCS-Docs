@@ -4,7 +4,7 @@ uid: pi-to-ocs-utility
 
 # Run the PI to OCS Agent Configuration Utility
 
-Use the PI to OCS Agent Configuration Utility to configure your PI Data Archive server connection settings before creating a data transfer. After a PI to OCS Agent installation or upgrade, use the utility to add or change the source PI Data Archive, view connection details, add PI mappings, and set data privacy settings.
+Use the PI to OCS Agent Configuration Utility to configure your PI Data Archive server connection settings before creating a data transfer. After a PI to OCS Agent installation or upgrade, you can use the utility to add or change the source PI Data Archive, view connection details, add PI mappings, and set data privacy settings.
 
 ### Topics in this section
 
@@ -68,7 +68,8 @@ PI mappings enable access to data stored on a PI Data Archive by service account
 
 #### Procedure
 
-1. In the PI to OCS Agent Configuration Utility, click the pencil icon next to the **PI Mapping** field to open the **Configure Mapping** dialog box.
+1. In the PI to OCS Agent Configuration Utility, click the pencil icon next to the **PI Mapping** field.
+   **Result:** The **Configure Mapping** dialog box opens.
 ![Configure Mapping dialog box](../../images/configure-mapping-db.png)
 
 2. Select an identity for the PI mapping under Identity.
