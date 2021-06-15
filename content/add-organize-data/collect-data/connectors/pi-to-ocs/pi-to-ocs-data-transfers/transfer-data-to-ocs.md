@@ -8,7 +8,7 @@ To transfer PI points into OCS, you must first define transfer settings and then
 
 * [Create a transfer](create-a-transfer)
 * [Overview of the PI Points Search pane](#overview-of-the-pi-points-search-pane)
-* [Explicit vs. implicit PI points](#explicit-and-implicit-pi-points)
+* [Explicit and implicit PI points](#explicit-and-implicit-pi-points)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
 * [View PI point details](#view-pi-point-details)
 * [Remove PI points from a transfer](#remove-pi-points-from-a-transfer)
@@ -69,7 +69,7 @@ No. | Description  |
 11| Navigate through search result pages.  
 12| Add selected PI points to a transfer. 
 
-### Explicit vs. implicit PI points
+### Explicit and implicit PI points
 
 PI points added to a transfer are assigned one of two reference types:
 
@@ -303,7 +303,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 2. Click the **Remove # Selected Items** button, then click **Remove** again.
 
    **Result:** The PI point are removed from the transfer.
-3. **Optional****:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
+3. **Optional:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
 
 ## Save and transfer data to OCS
 
