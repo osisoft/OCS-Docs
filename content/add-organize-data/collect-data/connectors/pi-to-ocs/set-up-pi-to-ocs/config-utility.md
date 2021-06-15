@@ -55,7 +55,7 @@ Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent C
 
 7. Click **Save** to retain and add your PI Data Archive configuration.
 
-8. Optional: If you are finished, click **Exit**.
+8. **Optional:** If you are finished, click **Exit**.
 
    **Note:** You must click **Save** to finish setting up your PI Data Archive connection.  
 
@@ -94,7 +94,7 @@ You can set data privacy settings and assign a descriptive name to an agent in t
 
 2. To have your PI to OCS Agent's hostname visible and published in OCS, select the **Opt-in to publishing PI to OCS Agent Hostname in OCS?** option.
 
-3. Optional: Enter a descriptive name for the agent In the **PI to OCS Agent Description** text box.
+3. **Optional:** Enter a descriptive name for the agent In the **PI to OCS Agent Description** text box.
 
 4. Click **Ok** to save your selections, then click **Save** in the utility.
 
@@ -126,30 +126,3 @@ You can open the PI to OCS Agent Configuration Utility to change server connecti
    **Result:** Upon successful authentication, the **PI to OCS Agent Configuration Utility** opens.
 
    **Note:** If you have not yet added a PI Data Archive server, see [Add a PI Data Archive](#add-a-pi-data-archive) for instructions.
-
-## Uninstall an agent
-
-You may want to remove a PI to OCS Agent from a host machine. To uninstall an agent, open the **Apps & features** window and then follow the prompts in the **PI to OCS Agent** window.
-
-#### Procedure
-
-1. Click the Windows Start button, then click the **Settings** button.
-
-   **Result:** The `Windows Settings` window opens.
-2. Double-click **Apps**.
-
-   **Result:** The `Apps & features` window opens.
-3. Scroll to and click **PI to OCS Agent** in the list of installed apps.
-4. Click **Uninstall** twice, then click **Yes** in the `User Account Control` window.
-
-   **Result:** The `PI to OCS Agent (Administrator)` window opens.
-5. Select the **Uninstall** option, then click **Next**.
-6. Click the **Unregister agent from OCS** option, then click **Next**.
-
-   **Result:** The agent's associated client and connection information is removed in OCS.
-7. Select the user account you wish to use to log on to OCS.
-
-   **Result:** You are returned to the `PI to OCS Agent` window.
-8. Click **Uninstall**, then click **Close**.
-
-   **Result:** The PI to OCS Agent is uninstalled and removed from the host machine.

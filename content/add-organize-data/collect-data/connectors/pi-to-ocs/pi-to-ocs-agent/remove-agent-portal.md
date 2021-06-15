@@ -12,8 +12,9 @@ You can remove an unneeded agent in the PI to OCS Agents page.
 3. In the `PI to OCS Agents` window, select an agent in the list.
 
 4. Click the **Remove Agent** button above the list of agents.
+
    **Result:** The **Remove Agent** dialog box opens.
-   ![](../../images/remove-agent.png)
 
 5. Click **Remove**.
+
    **Result:** The agent is removed from the list and deleted from OCS.

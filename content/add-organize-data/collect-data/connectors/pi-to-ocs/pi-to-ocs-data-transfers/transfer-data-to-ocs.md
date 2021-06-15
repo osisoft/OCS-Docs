@@ -31,7 +31,9 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 4. In the `PI to OCS Agents` window, select an agent for the data transfer.
 
 5. Click the **Create Transfer** button in the `Details` pane.
+   
    **Result:** The `Transfer Settings` dialog box opens.
+   
    ![ ](../../images/transfer-settings.png)
 6. Enter a name and description for the transfer.
 
@@ -41,19 +43,21 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 
 8. Click **Ok**.
 
-   **Result:** The new transfer opens in the PI to OCS Agents window.![Transfer window ](../../images/new-transfer.png)
+   **Result:** The new transfer opens in the PI to OCS Agents window.
+
+   ![Transfer window ](../../images/new-transfer.png)
 
 
 ### Overview of the PI Point Search pane
 
 You build a PI points transfer list in the **PI Points Search** pane. You define search criteria to filter which PI points are returned in the query results.
 
+![ ](../../images/pi-pt-search-callouts.png)
 
-​	![ ](../../images/pi-pt-search-callouts.png)
 No. | Description  | 
 ---------|----------
 1   | Hide or reveal the Search Criteria panel  
-2 | Filter by PI point name   
+2 | Filter by PI point name 
 3 | Filter by PI point source  
 4 | Filter by PI point description 
 5 | Filter by a specific engineering unit (gallons, temperature, etc.) 
@@ -84,30 +88,34 @@ You build a PI points transfer list to select the PI points you want included in
 
 
 1. Click the **Add** button.
+
    **Result:** The **Search** pane opens on the left.
-2. Optional: Click the **PI Point Search** tab.
+
+2. **Optional:** Click the **PI Point Search** tab.
 3. Refer to the table below to define your search query and search for PI points:
+
 | Specific Values | Action to Take |
-| -------------------------- | ------------------------------------------------------------ |
+-------------------------- | ------------------------
 | Common PI point attributes | Enter criteria in any of the following fields:<br /><ul><li>**Name** (alias for tag attribute)</li><li>**Point Source**</li></ul><br />**Note:** The search fields default to * or all PI points if search criteria is not entered. |
 | Point descriptions         | Enter criteria in the following fields:<br /><ul><li>**Descriptor** </li><li>**Extended Descriptor**</li></ul> |
-| Engineering units          | Enter criteria in the **Engineering Units** field.           |
+| Engineering units | Enter criteria in the **Engineering Units** field.           |
 | A PI point type            | Select one of the following point types from the **Point Type** drop-down list:<br /><ul><li>**Float32** </li><li>**Float64**</li><li>**Int16**</li><li>**Int32**</li><li>**Digital**</li><li>**Timestamp**</li><li>**String**</li></ul> |
 | Specific location code(s)  | Enter up to five location code values (1-9) in the **Location Codes** field. |
 
-   **TIP:** Click the **Search Criteria** toggle arrow to hide or show search fields.
+4. **Optional:** Click the **Search Criteria** toggle arrow to hide or show search fields.
 
-3. Click **Search** to execute the query and retrieve matching results.
-**Result:** Search results are displayed in the **Search Results** list box.
+5. Click **Search** to execute the query and retrieve matching results.
 
-4. Scroll through the PI points in the **Search Results** list and click each point you want to add to the data transfer.
-   **TIP:** To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
+   **Result:** Search results are displayed in the **Search Results** list box.
+6. Scroll through the PI points in the **Search Results** list and click each point you want to add to the data transfer.
+   **Tip:** To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
 
-5. To advance through multiple-paged search results, click the back and forward arrows OR enter a page number in the **Page** text box.
+7. To advance through multiple-paged search results, click the back and forward arrows OR enter a page number in the **Page** text box.
 
-6. Repeat steps 4-6 as needed until you have selected all the points for your data transfer.
+8. Repeat steps 5-7 as needed until you have selected all the points for your data transfer.
 
-7. When you are done selecting PI points, click the **Add PI Points To Transfer** button.
+9. When you are done selecting PI points, click the **Add PI Points To Transfer** button.
+
    **Result:**  The points are added to the transfer and listed to the right of the **PI Points** tab.
 
 ![ ](../../images/pi-pts-pane.png)
@@ -141,8 +149,9 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 
 1. On the PI Points tab, click to select the PI points you wish to remove from your transfer.
 2. Click the **Remove # Selected Items** button, then click **Remove** again.
+
    **Result:** The PI point are removed from the transfer.
-3. Optional: To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
+3. **Optional****:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
 
 ### Save a transfer and start transferring data to OCS
 
@@ -151,6 +160,7 @@ You must complete adding PI points and then save a transfer before you can trans
 #### Procedure
 
 1. On the PI Points tab, click the **Save** button in the lower-right corner of the window.
+
    **Result:** The transfer is saved and you are returned to the `PI to OCS Agents` window.
 
 2. Make sure to select the agent with the saved transfer.
