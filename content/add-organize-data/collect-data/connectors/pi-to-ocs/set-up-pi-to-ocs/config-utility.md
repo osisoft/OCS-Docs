@@ -18,10 +18,6 @@ Use the PI to OCS Agent Configuration Utility to configure your PI Data Archive 
 
 * [Access the PI to OCS Agent Configuration Utility](#access-the-pi-to-ocs-agent-configuration-utility)
 
-* [Uninstall an agent](#uninstall-an-agent)
-
-   
-
 ## Add a PI Data Archive
 
 You must add and configure the source PI Data Archive you want to transfer on-prem data from to OCS. If you are upgrading an agent, the PI to OCS Agent Configuration Utility maintains the previously selected PI Data Archive configuration.
@@ -32,7 +28,7 @@ Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent C
 
 ### Procedure
 
-1. Click the ![](..\..\images\pda-source-icon.png) button in the PI to OCS Agent Configuration Utility.
+1. Click the ![](../../images/pda-source-icon.png) button in the PI to OCS Agent Configuration Utility.
    
    ![](../../images/utility-01.png)
    

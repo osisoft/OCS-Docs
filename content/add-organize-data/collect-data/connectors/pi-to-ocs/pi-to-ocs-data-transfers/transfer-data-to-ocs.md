@@ -48,7 +48,7 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
    ![Transfer window ](../../images/new-transfer.png)
 
 
-### Overview of the PI Point Search pane
+### Overview of the PI Points Search pane
 
 You build a PI points transfer list in the **PI Points Search** pane. You define search criteria to filter which PI points are returned in the query results.
 
@@ -94,13 +94,13 @@ You build a PI points transfer list to select the PI points you want included in
 2. **Optional:** Click the **PI Point Search** tab.
 3. Refer to the table below to define your search query and search for PI points:
 
-| Specific Values | Action to Take |
--------------------------- | ------------------------
-| Common PI point attributes | Enter criteria in any of the following fields:<br /><ul><li>**Name** (alias for tag attribute)</li><li>**Point Source**</li></ul><br />**Note:** The search fields default to * or all PI points if search criteria is not entered. |
-| Point descriptions         | Enter criteria in the following fields:<br /><ul><li>**Descriptor** </li><li>**Extended Descriptor**</li></ul> |
-| Engineering units | Enter criteria in the **Engineering Units** field.           |
-| A PI point type            | Select one of the following point types from the **Point Type** drop-down list:<br /><ul><li>**Float32** </li><li>**Float64**</li><li>**Int16**</li><li>**Int32**</li><li>**Digital**</li><li>**Timestamp**</li><li>**String**</li></ul> |
-| Specific location code(s)  | Enter up to five location code values (1-9) in the **Location Codes** field. |
+   | Specific Values | Action to Take |
+   -------------------------- | ------------------------
+   | Common PI point attributes | Enter criteria in any of the following fields:<br /><ul><li>**Name** (alias for tag attribute)</li><li>**Point Source**</li></ul><br />**Note:** The search fields default to * or all PI points if search criteria is not entered. |
+   | Point descriptions         | Enter criteria in the following fields:<br /><ul><li>**Descriptor** </li><li>**Extended Descriptor**</li></ul> |
+   | Engineering units | Enter criteria in the **Engineering Units** field.           |
+   | A PI point type            | Select one of the following point types from the **Point Type** drop-down list:<br /><ul><li>**Float32** </li><li>**Float64**</li><li>**Int16**</li><li>**Int32**</li><li>**Digital**</li><li>**Timestamp**</li><li>**String**</li></ul> |
+   | Specific location code(s)  | Enter up to five location code values (1-9) in the **Location Codes** field. |
 
 4. **Optional:** Click the **Search Criteria** toggle arrow to hide or show search fields.
 
@@ -108,15 +108,14 @@ You build a PI points transfer list to select the PI points you want included in
 
    **Result:** Search results are displayed in the **Search Results** list box.
 6. Scroll through the PI points in the **Search Results** list and click each point you want to add to the data transfer.
+   
    **Tip:** To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
 
 7. To advance through multiple-paged search results, click the back and forward arrows OR enter a page number in the **Page** text box.
 
-8. Repeat steps 5-7 as needed until you have selected all the points for your data transfer.
+8. When you are done selecting PI points, click the **Add PI Points To Transfer** button.
 
-9. When you are done selecting PI points, click the **Add PI Points To Transfer** button.
-
-   **Result:**  The points are added to the transfer and listed to the right of the **PI Points** tab.
+   **Result:**  The points are added to the transfer.
 
 ![ ](../../images/pi-pts-pane.png)
 
