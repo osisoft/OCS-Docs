@@ -239,6 +239,62 @@ You build a PI points transfer list to select the PI points you want included in
 
 ### Procedure
 
+1. Click the **Add** button.
+
+   **Result:** The **Search** pane opens on the left.
+
+2. **Optional:** Click the **PI Point Search** tab.
+3. Refer to the table below to define your search query and search for PI points:
+
+   | Specific Values | Action to Take |
+   -------------------------- | ------------------------
+   | Common PI point attributes | Enter criteria in any of the following fields:<br /><ul><li>**Name** (alias for tag attribute)</li><li>**Point Source**</li></ul><br />**Note:** The search fields default to * or all PI points if search criteria is not entered. |
+   | Point descriptions         | Enter criteria in the following fields:<br /><ul><li>**Descriptor** </li><li>**Extended Descriptor**</li></ul> |
+   | Engineering units | Enter criteria in the **Engineering Units** field.           |
+   | A PI point type            | Select one of the following point types from the **Point Type** drop-down list:<br /><ul><li>**Float32** </li><li>**Float64**</li><li>**Int16**</li><li>**Int32**</li><li>**Digital**</li><li>**Timestamp**</li><li>**String**</li></ul> |
+   | Specific location code(s)  | Enter up to five location code values (1-9) in the **Location Codes** field. |
+
+4. **Optional:** Click the **Search Criteria** toggle arrow to hide or show search fields.
+
+5. Click **Search** to execute the query and retrieve matching results.
+
+   **Result:** Search results are displayed in the **Search Results** list box.
+6. Scroll through the PI points in the **Search Results** list and click each point you want to add to the data transfer.
+   
+   **Tip:** To select a range of PI points, click a PI point and then scroll to and [SHIFT+Click] a non-adjacent point. 
+
+7. To advance through multiple-paged search results, click the back and forward arrows OR enter a page number in the **Page** text box.
+
+8. When you are done selecting PI points, click the **Add PI Points To Transfer** button.
+
+   **Result:**  The points are added to the transfer.
+
+![ ](../../images/pi-pts-pane.png)
+
+**NOTE:** Once you are done adding PI points, you must save the transfer before you can start to transfer data to OCS.
+
+
+## View PI point details
+
+You can view attribute details for a PI point that has been added to a transfer prior to saving the transfer. 
+
+### Procedure
+
+1. Select a PI point on the PI Points tab.
+
+2. Click ![](../../images/view-details-btn.png) at the top right of the **Transfer** pane.
+
+   **Result:** The PI Points Information pane opens to the right and the PI point's attributes are shown.
+   ![](../../images/view-details-pane.png)
+
+3. To view another PI point's details, click to unselect the selected PI point, then select the new point.
+
+4. Click **x** on the **PI Point Information** pane to close it.
+
+
+## Remove PI points from a transfer
+
+You can remove unwanted PI points from a transfer prior to saving the transfer.
 
 1. Click the **Add** button.
 
@@ -303,6 +359,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 2. Click the **Remove # Selected Items** button, then click **Remove** again.
 
    **Result:** The PI point are removed from the transfer.
+
 3. **Optional:** To remove all PI points from a transfer, click the checkbox to the left of the **PI Point** column, then click the **Remove # Selected Items** button.
 
 ## Save and transfer data to OCS

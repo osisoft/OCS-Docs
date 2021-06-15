@@ -26,6 +26,10 @@ A tenant is the root-level resource in OCS; all other resources are scoped to a 
 
 A namespace is a logical unit of organization for data within a tenant. Before any data can be collected in OCS, you must create a namespace for that tenant. Each tenant can contain more than one namespace. Namespaces help you create separate instances of your data and resources within a tenant. Resources within a namespace do not affect other namespaces within that tenant. In practice, namespaces may correspond to a specific set of infrastructure assets, but they commonly correspond to virtual partitions within a single set of assets dedicated to a specific tenant.
 
+### Region 
+
+Regions are geographical area designations associated with OCS resources (for example, types, streams, and data views). WestUS and WestEurope are regions. OCS provisions a namespace within a single region. After you create a namespace, any resources you create in that namespace are bound to its region. Any data stored in the namespace is stored in that region.
+
 ### Identity 
 
 Identity is the authentication factor used to verify a user or client that requests access to OCS. OCS identity services provide the following functions: 
