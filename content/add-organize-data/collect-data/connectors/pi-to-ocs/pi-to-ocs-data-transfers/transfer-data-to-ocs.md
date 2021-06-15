@@ -69,7 +69,7 @@ No. | Description  |
 11| Navigate through search result pages.  
 12| Add selected PI points to a transfer. 
 
-## Explicit vs. implicit PI points
+### Explicit vs. implicit PI points
 
 PI points added to a transfer are assigned one of two reference types:
 

@@ -2,7 +2,7 @@
   href: pi-to-ocs-overview.md
 - name: PI System connections best practices
   href: pi-to-ocs-best-practices.md
-- name: Minimum system requirements
+- name: PI to OCS minimum system requirements
   href: min-sys-reqmnts.md
 - name: Limitations of PI to OCS
   href: limitations.md

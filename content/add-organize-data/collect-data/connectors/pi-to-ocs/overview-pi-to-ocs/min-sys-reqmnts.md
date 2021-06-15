@@ -2,7 +2,7 @@
 uid: min-sys-reqmnts
 ---
 
-# PI to OCS Agent minimum system requirements
+# PI to OCS minimum system requirements
 
 The following system requirements are needed to transfer data from your on-premises PI Server to OCS using the PI to OCS Agent:
 
