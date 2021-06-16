@@ -49,7 +49,7 @@ Install the [PI to OCS Agent](xref:install-agent). To open the PI to OCS Agent C
 
 6. **Optional**: Click the **Remove Server** button to remove the configured PI Data Archive from the PI to OCS connection.
 
-7. Click **Save** to retain and add your PI Data Archive configuration.
+7. Click **Save** to finish adding and saving the source PI Data Archive configuration settings.
 
 8. **Optional:** If you are finished, click **Exit**.
 

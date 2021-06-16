@@ -71,7 +71,7 @@ This topic contains these sections:
     
     **Result**: The PI to OCS Configuration Utility opens. See [Run the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) for instructions.
 
-    **Note:** An agent cannot be registered until a PI Data Archive server has been configured using the utility.
+    **Note:** An agent cannot be registered until a PI Data Archive server has been added and configured.
 
 ## Verify the PI to OCS Agent is running and registered
 
