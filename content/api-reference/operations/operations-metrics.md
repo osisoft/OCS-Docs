@@ -1,5 +1,5 @@
 ---
-uid: operationsMetrics
+uid: operations-metrics
 ---
 
 # Metrics
