@@ -35,5 +35,5 @@ To perform this procedure you must have already defined streams.
 3. Use the toggle switches to filter streams by namespace or community.<br>![](images\namespace-communities-switches.png "Filter by namespace or community")
 4. From the list, select a namespace or a community.
 5. From the list of streams, select one or more to unshare.
-6. Select **More Options** ![More Options](images\more-options.png "More Options") and select **Unshare Stream** from the dropdown list.<br>If you select multiple streams, a pane appears for managing streams. You can select **Unshare Streams** on that pane.
+6. Select **More Options** ![More Options](images\more-options.png "More Options") and select **Unshare Stream** from the dropdown list.<br>If you selected multiple streams in the previous step, a pane appears for managing streams. You can select **Unshare Streams** on that pane.
 7. When prompted for confirmation, click **Unshare**.<br>
