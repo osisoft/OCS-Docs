@@ -99,6 +99,14 @@ secretId:
   type: text/plain
   value: |
     Secret identifier
+featurestateId:
+  type: text/plain
+  value: |
+    Feature state identifier
+blogId:
+  type: text/plain
+  value: |
+    Service blog identifier
 # OMF parameters
 subscriptionId:
   type: text/plain
