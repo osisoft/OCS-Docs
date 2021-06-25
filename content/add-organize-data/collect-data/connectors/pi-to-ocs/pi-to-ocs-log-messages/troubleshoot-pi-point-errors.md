@@ -3,7 +3,7 @@ uid: troubleshoot-pi-pt-errors
 ---
 
 # Troubleshoot common PI point errors
-The following table provides a list of common PI point errors that occur when the AF server is indexing, and solutions to resolve these issues.
+The following table lists common PI point errors, which occur when the AF server is indexing, and troubleshooting solutions.
 
 | PI point error | Troubleshooting solution | 
 | ------------- | ----------------- | 
