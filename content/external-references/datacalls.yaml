@@ -23,7 +23,7 @@ list-values:
     - [Find Distinct Value](https://ocs-docs.osisoft.com/Content_Portal/Documentation/SequentialDataStore/Reading_Data_API.html#find-distinct-value): Returns a stored event based on the specified index and searchMode. 
         
         **Parameters**: Accepts ``index`` and ``searchMode``.
-    - [Filtered](https://ocs-docs.osisoft.com/Content_Portal/Documentation/SequentialDataStore/Reading_Data_API.html#filtered): Returns a collection of stored values as determined by a filter.The filter limits results by applying an expression against event fields. 
+    - [Filtered](https://docs.osisoft.com/bundle/ocs/page/api-reference/sequential-data-store/sds-read-data-api.html#getvaluesfiltered): Returns a collection of stored values as determined by a filter.The filter limits results by applying an expression against event fields. 
         
         **Parameters**: Accepts a ``filter`` expression. 
     - [Range](https://ocs-docs.osisoft.com/Content_Portal/Documentation/SequentialDataStore/Reading_Data_API.html#getvaluesrange): Returns a collection of stored values as determined by a ``startIndex`` and ``count``. 
