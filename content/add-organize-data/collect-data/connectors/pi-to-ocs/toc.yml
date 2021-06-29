@@ -13,5 +13,3 @@
 - name: View PI to OCS logs 
   href: pi-to-ocs-log-messages/toc.yml
   topicHref: pi-to-ocs-log-messages/landing-page5.md
-- name: PI to OCS release summary
-  href: pi-to-ocs-release-summary.md

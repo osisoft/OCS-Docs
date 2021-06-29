@@ -4,9 +4,7 @@ uid: remove-agent-portal
 
 ## Remove an agent from the OCS portal
 
-You remove an unneeded agent on the PI to OCS Agents page. Removing an agent removes all client and connection information from the OCS portal. 
-
-​	**Note:** You still need to [uninstall the PI to OCS Agent](xref:remove-agent) on the host computer to remove the agent software from that machine.
+You can remove an unneeded agent in the PI to OCS Agents page.
 
 1. Log on to the [OCS portal](https://cloud.osisoft.com).
 2. Click the menu ![ ](../..\images\waffle-button.png) icon, then click **Data Collection > PI to OCS Agents**.

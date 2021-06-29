@@ -18,8 +18,8 @@ PI to OCS has two major components:
 
 2. A cloud component called a "PI System connection" or "PI System connection data source", which resides within OCS and receives data from the on-premises PI to OCS Agent and stores it in SDS.
 
-Note: Storage in SDS is partitioned by OCS namespace.
+**Note:** Storage in SDS is partitioned by OCS namespace.
 
 The deployment of a PI to OCS Agent establishes a one-to-one connection from an on-premises source PI Server to an OCS PI System connection.
 
-![PI to OCS](../..\images/ocs-diagram.png)
+![PI to OCS](../../images/ocs-diagram.png)

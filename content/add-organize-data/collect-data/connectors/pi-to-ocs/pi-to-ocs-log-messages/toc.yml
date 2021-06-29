@@ -4,5 +4,3 @@
   href: view-logs.md
 - name: Common Event Viewer log messages
   href: log-messages.md
-- name: Troubleshoot common PI point errors
-  href: troubleshoot-pi-point-errors.md

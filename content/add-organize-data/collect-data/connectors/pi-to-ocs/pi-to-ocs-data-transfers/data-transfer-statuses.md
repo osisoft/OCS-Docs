@@ -1,17 +1,11 @@
 ---
-
 uid: data-transfer-statuses
 ---
 
 # Data transfer statuses
 
-As streams are created and data is sent to OCS, you can view the data status or current activity of a transfer.
+The status and progress of a data transfer is shown in the Transfer Overview section of the Details pane.  The table below lists these data statuses and their meanings. 
 
-![](..\..\images\data-statuses.png)
-
-## List of data statuses
-
-For a list of data statuses and definitions, see the table below.
 
 Data status | Meaning
 ---------|-----------
@@ -27,3 +21,4 @@ Data status | Meaning
  PI Point Type Change Detected | PI point type change was detected during data transfer. See [Point type change](xref:pi-point-change) for more information.
  Creating Streams | Streams are in the process of being created.
  Done | Data transfer is complete. Streams have been created.
+

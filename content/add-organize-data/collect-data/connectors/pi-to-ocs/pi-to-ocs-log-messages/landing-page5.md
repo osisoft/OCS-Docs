@@ -12,4 +12,3 @@ This section contains the following topics:
 * [Tenant log messages](xref:download-tenant-log)
 * [View PI to OCS Agent logs](xref:view-logs)
 * [Common Event Viewer log messages](xref:log-messages)
-* [Troubleshoot common PI point errors](xref:troubleshoot-pi-pt-errors)
