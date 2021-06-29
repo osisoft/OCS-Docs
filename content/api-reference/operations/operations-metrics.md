@@ -16,7 +16,7 @@ Retrieves metrics related to streams ingress and egress rates for a given namesp
 
 ```text
 
-GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/streams/{metricId}`
+GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/streams/{metricId}
 
 ```
 
@@ -69,7 +69,7 @@ Retrieves metrics related to OMF ingress rates for a given namespace.
 
 ```text
 
-GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/topics/{metricId}`
+GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/metrics/topics/{metricId}
 
 ```
 
@@ -133,10 +133,10 @@ Object used to represent error information.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets Operation Id of action that caused the Error.|
-|Error|string|false|true|Gets or sets the Error description.|
-|Reason|string|false|true|Gets or sets the Reason for the Error.|
-|Resolution|string|false|true|Gets or set the Resolution for the Error.|
+|OperationId|string|false|true|OperationId of action that caused the error|
+|Error|string|false|true| Error description|
+|Reason|string|false|true|Reason for the error|
+|Resolution|string|false|true|Resolution for the error|
 
 ```json
 {
