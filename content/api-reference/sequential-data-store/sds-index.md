@@ -95,9 +95,10 @@ Task RemoveValueAsync(compoundStream.Id, 1/20/2017 01:00|1/20/2017 00:00);
 ```
 
 
-## Work with indexes
-### Indexes in .NET framework
-#### Simple indexes
+## Indexes in .NET framework
+Examples below are in C# but you can apply the concepts such as simple, compound and secondary indexes to any language.  
+For more information on indexes in JavaScript and Python, go to [Indexes outside of .NET framework](#indexes-outside-of-net-framework). 
+### Simple indexes
 
 When working in .NET, use the `SdsTypeBuilder` together with either the ``OSIsoft.Sds.SdsMemberAttribute`` (preferred) or the
 ``System.ComponentModel.DataAnnotations.KeyAttribute`` to identify the property that defines the simple index. 
@@ -135,7 +136,7 @@ and query as follows:
 
 For more information about querying data, see [Read data](xref:sdsReadingData).
 
-#### Secondary indexes
+### Secondary indexes
 Secondary indexes are defined at the stream level.
 To add indexes to a stream, you add them to the stream `Indexes` field.
 
@@ -159,7 +160,16 @@ For example, to add a second index on `Measurement`, use the following code:
       secondary = await config.GetOrCreateStreamAsync(secondary);
 ```
 
-To read data indexed by a secondary index, use a filtered GET method, as in the following:
+To read data indexed by a secondary index, use a filtered GET method(`IEnumerable<Simple> orderedBySecondary = await client.GetFilteredValuesAsync<Simple>(secondary.Id, 
+      "Measurement gt 0 and Measurement lt 6");`).
+
+You use indexes to order data.
+A secondary index is a property you set on a stream.
+When you are filtering on a large set of data, 
+having the secondary index in combination with
+[logical operators](xref:sdsFilterExpressions#examples-of-logical-operators) significantly improves performance. 
+
+
 
 ```csharp
 
@@ -224,7 +234,8 @@ To read data indexed by a secondary index, use a filtered GET method, as in the 
       // 1/20/2017 12:00:00 PM: 5
 ```
 
-#### Compound indexes
+
+### Compound indexes
 Compound indexes are defined using the `SdsMemberAttribute` as follows:
 ```csharp
       public class Simple
@@ -357,8 +368,10 @@ If the `Order` parameter was reversed, with `Recorded` set to 0 and `Time` set t
 ```
 Note that the ``GetWindowValuesAsync()`` call specifies an expected return type and the index types as generic parameters.
 
-### Indexes outside of .NET framework
-#### Simple indexes
+## Indexes outside of .NET framework
+Samples below are in Python and JavaScript. 
+
+### Simple indexes
 When the .NET `SdsTypeBuilder` is unavailable, indexes must be built manually.
 
 Below, SdsTypes defined in the [Python](https://github.com/osisoft/sample-ocs-waveform-python)
@@ -412,7 +425,7 @@ To build an SdsType representation of sample classes in Python and Java Script, 
 
 ***
 
-##### **Sample**
+#### **Sample**
 The following code is used to build an SdsType representation of the sample class above:
 
 ##### [Python](#tab/tabid-3)
@@ -569,7 +582,7 @@ the ISO 8601 representation of dates and times. To query for a window of values 
 
 For additional information, see [Read data](xref:sdsReadingData).
 
-#### Secondary indexes
+### Secondary indexes
 Secondary indexes are defined at the stream level. To create a stream 
 using the `Simple` class and adding a secondary index on the `Measurement`, 
 you use the previously defined type. Then you create `SdsStreamIndex` 
@@ -612,7 +625,7 @@ specifying the `Measurement` property and define a stream identifying the
 
 ***
 
-#### Compound indexes
+### Compound indexes
 Consider the following Python and JavaScript types:
 
 ##### [Python](#tab/tabid-9)
