@@ -89,15 +89,14 @@ join-values:
 stream-data-transform:
   type: markdown
   value: |
-    Controller for methods hosted at ``{streamId}/Transform/``.
-
+    
     The Transform route is for SdsStreamView project and unit conversion of stream data.
-    - [Reading with SdsStreamViews](https://ocs-docs.osisoft.com/Content_Portal/Documentation/SequentialDataStore/Reading_Data.html#reading-with-sdsstreamviews):Changing the shape of the returned data.
+    - [Reading with SdsStreamViews](xref:sdsReadingData#reading-with-sdsstreamviews):Changing the shape of the returned data.
     When transforming data with an SdsStreamView, the data read is converted to the target type specified in the SdsStreamView. 
     All stream view transformations are HTTP GET requests. 
     Specify the stream view ID `(streamViewId={streamViewId})` at the end of the transformation endpoint.
     When data is requested with an SdsStreamView, the read characteristics defined by the target type of the SdsStreamView determine what is returned. 
-    - [Unit of measure conversions](https://ocs-docs.osisoft.com/Content_Portal/Documentation/SequentialDataStore/Reading_Data.html#unit-conversion-of-data): Converting the unit of measure of the data. 
+    - [Unit of measure conversions](xref:sdsReadingData#unit-conversion-of-data): Converting the unit of measure of the data. 
     SDS supports assigning Units of Measure (UOM) to stream data.
     If stream data has UOM information associated, SDS supports reading data with unit conversions applied.
     On each read data request, unit conversions are specified by a user defined collection of SdsStreamPropertyOverride objects in read requests. 
