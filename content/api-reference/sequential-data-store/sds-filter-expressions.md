@@ -49,7 +49,7 @@ expression:
 
 > [!NOTE]
 > You use logical operators on ordered properties.
-> Using [secondary indexes](xref:sdsIndexes#secondary-indexes) with logical operators improves filtering capability.  
+> When filtering on an ordered property, performance improves significantly if the property is a [secondary index](xref:sdsIndexes#secondary-indexes).   
 
 ### Examples of logical operators
 The examples below assume that the SdsType event includes a field named ``Value`` of type *double*: 

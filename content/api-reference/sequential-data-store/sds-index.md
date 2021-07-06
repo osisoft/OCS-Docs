@@ -164,10 +164,11 @@ To read data indexed by a secondary index, use a filtered GET method(`IEnumerabl
       "Measurement gt 0 and Measurement lt 6");`).
 
 You use indexes to order data.
-A secondary index is a property you set on a stream.
-When you are filtering on a large set of data, 
-having the secondary index in combination with
-[logical operators](xref:sdsFilterExpressions#examples-of-logical-operators) significantly improves performance. 
+On a stream level, you can set the property to be the secondary index.
+To improve performance when working with a large set of data: 
+- Ensure that the property is a secondary index.
+- Use [logical operators](xref:sdsFilterExpressions#examples-of-logical-operators) for filtering. 
+
 
 
 
