@@ -655,41 +655,7 @@ The RuleModel object to create or update.<br/>
 |500|[ResponseBody](#schemaresponsebody)|Internal server error.|
 
 #### Example response body
-> 200 Response
-
-```json
-{
-  "Id": "ruleId",
-  "Name": "name",
-  "Description": "description",
-  "ExampleStreamId": "exampleId",
-  "AutomationId": "00000000-0000-0000-0000-000000000000",
-  "IsDraft": "false",
-  "Expressions": [
-    {
-      "Field": "Id",
-      "Specification": [
-        {
-          "Type": "Wildcard",
-          "Name": "id"
-        }
-      ]
-    }
-  ],
-  "Outputs": [
-    {
-      "Field": "Metadata",
-      "Value": {
-        "key": "{id}"
-      }
-    }
-  ],
-  "CreationTime": "0001-01-01T00:00:00",
-  "ModifiedTime": "0001-01-01T00:00:00"
-}
-```
-
-> 201 Response
+> 200 & 201 Response
 
 ```json
 {
