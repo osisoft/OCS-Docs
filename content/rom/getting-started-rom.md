@@ -17,7 +17,7 @@ Procedure
 1. Log in to OSIsoft Cloud Services.
 
 2. Click the navigation icon ![](images/menu.png) (upper left corner) and click **Asset Explorer** (under Visualization). 
-    
+   
     The asset explorer displays the available assets. In this example, it provides an overview of the health of the fleet of trucks.
 
     **Tip:** Click on the icons in the toolbar to toggle between the card and table views of the assets.
@@ -102,6 +102,6 @@ Procedure
 
     **Note:** When two cursors are locked, the Legend table displays summary calculations for the values between the two cursors.
 
-13. Click the link icon ![Copy link icon](images/copy_url_link.png) in the menu bar to copy the URL of the workspace.
+13. Click the link icon ![Copy link icon](images/share-icon.png) in the menu bar to copy the URL of the workspace.
 
     This link, shared with colleagues, gives them the same view of the trend that they can then use to troubleshoot problems.

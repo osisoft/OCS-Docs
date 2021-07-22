@@ -2,3 +2,5 @@
   topicHref: getting-started-rom.md
 - name: Share a view of your fleet
   topicHref: share-fleet-view.md
+- name: Filter assets in the Asset Explorer
+  topicHref: filter-assets-asset-explorer.md
