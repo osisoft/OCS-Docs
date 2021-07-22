@@ -39,20 +39,20 @@ The following table shows AccessTypes and the corresponding TypeIds.
 | Allowed               | 0      |
 | Denied                | 1      |
 
-### CommonAccessRightsEnum 
-<!-- Angela Flores 6/23/21 why does this table get a heading, but the others don't? What does CommonAccessRightsEnum mean, it isn't mentioned anywhere else?-->
-The following table shows AccessRights and the corresponding int and bitwise information.
+### Common access rights
+The following table shows predefined access rights and their corresponding integer and bitwise information.
 
 | AccessRights          | int  | bitwise |
 |-----------------------|------|---------|
-| None                  | 0    |    0000 |
-| Read                  | 1    |    0001 |
-| Write                 | 2    |    0010 |
-| Delete                | 4    |    0100 |
-| ManageAccessControl   | 8    |    1000 |
-| All                   | 15   |    1111 |
+| None                  | 0    |   00000 |
+| Read                  | 1    |   00001 |
+| Write                 | 2    |   00010 |
+| Delete                | 4    |   00100 |
+| ManageAccessControl   | 8    |   01000 |
+| Share                 | 16   |   10000 |
+| All                   | 31   |   11111 |
 
-AccessRights are the bitwise union of all the access rights they encompass. For example, `AccessRights: 3` indicates that Read and Write access is permitted. <!--Angela Flores 6/23/21 - this bitwise union example needs more explanation. if Read is bitwise `0001` and Write is `0010`, wouldn't that be bitwise `0011`? It seems to be the sum of the assigned int-->
+AccessRights are the union of all the access rights they encompass in terms of integers and bitwise information. For example, `AccessRights: 3` indicates that Read and Write access is permitted. Similarly, a bitwise value of 00011 also indicates that Read and Write are permitted.
 
 ### Sample Access Control List
 
