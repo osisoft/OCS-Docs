@@ -52,7 +52,7 @@ The following table shows predefined access rights and their corresponding integ
 | Share                 | 16   |   10000 |
 | All                   | 31   |   11111 |
 
-AccessRights are the union of all the access rights they encompass in terms of integers and bitwise information. For example, `AccessRights: 3` indicates that Read and Write access is permitted. Similarly, a bitwise value of 00011 also indicates that Read and Write are permitted.
+Access rights are determined by the union or summation of one or more individual access rights. For example `AccessRights: 3` indicates that the `Read (1)` and `Write (2)` access are permitted.
 
 ### Sample Access Control List
 
