@@ -32,10 +32,12 @@ Field sets and fields resolve in the order they are defined. They may be re-orde
 Within each group, a field set may be associated with multiple data items. It is often necessary to disambiguate these items. If a group contains multiple data items from the same query, you may wish to identify those data items so that they are not ambiguous and so they will be aligned across groups. Items can be disambiguated by specifying an [`.IdentifyingField`](xref:DataViewsFieldSets#identifying-field). An identifying field is a field that differentiates the data items within a group, such as the value of _Measurement_ metadata (i.e., the data items are identified by what they measure). Identifying data items also allows the data views engine to "align" them across groups, since it is clear, for example, that streams measuring _Power Out_ and streams measuring _Power In_ are alike. Ensure that each data field's label includes the {IdentifyingValue} token so the field labels are unique. The default field labels already include it.
 
 ### Include the index field
-The field used for indexing.  If not specified, a default value with a label of "Timestamp" is applied. If specified, a label is required. Field source and keys are not applicable for index field.
+The field used for indexing.  If not specified, a default value is applied. If specified, a label is required. Field source and keys are not applicable for index field.
 
 ### Define index type and default range
-Data views currently operate on timestamped data, which is data indexed by a DateTime property. This is reflected by the `.IndexTypeCode` of the DataView, whose value must be "DateTime". Default values may be defined for the start index, end index, and/or interval used when data view data is queried.
+The data view is targeted to include Streams and Assets of a common index property type. Often in OCS, data is indexed by its timestamp property (of type "DateTime"). In certain cases, data may instead be indexed by a numeric value such as depth. Data views supports all index type codes allowed by the Sequential Data Store with the exception of TimeSpan. If not specified, the default `.IndexTypeCode` is "DateTime".
+
+Default values may be defined for the start index, end index, and/or interval used when data view data is queried.
 
 ### Define data view shape
 Data views may be set to resolve as standard shape or narrow shape. Standard shape resolves fields similar to how they are defined. Narrow shape pivots the fields vertically, resulting in a view whose schema is independent of what data items are resolved by the data view. Narrow shape may be used when an invariant output schema is required.
@@ -48,14 +50,14 @@ The following table lists the properties of a `DataView`:
 | Id       | string | Required |  | Unique indentifier
 | Name | string | Optional | value of Id | Friendly name
 | Description | string | Optional  | null | Longer description of the view
-| IndexField | Field | Optional | { Label:"Timestamp" } | The field used for indexing.  If unspecified a field labeled "Timestamp" is included.
+| IndexField | Field | Optional | { Label:"{DefaultIndexName}" } | The field used for indexing.  If unspecified a field labeled "{DefaultIndexName}" is included. This token resolves into "Timestamp" for time-indexed data views and "Index" for all other index types.
 | Queries | Query[] | Optional | [ ] | Queries for OCS resources (such as streams and assets) to include in the view. This is the starting point when defining a data view. Each Query should represent a collection of like data items. To include data items that represent very different items (e.g. solar inverters and weather), use separate queries.
 | DataFieldSets | FieldSet[] | Optional | [ ] | The sets of fields included in the data view. Often copied or adapted from the view's available field sets, which are exposed in a resolved resource.
 | GroupingFields | Field[] | Optional | [ ] | Fields by which the data items are partitioned/grouped.
 | DefaultStartIndex | string | Optional | null | The default value of StartIndex used when querying the data view data if none is specified.
 | DefaultEndIndex | string | Optional | null | The default value of EndIndex used when querying the data view data if none is specified.
 | DefaultInterval | string | Optional | null | The default value of Interval used when querying the data view data if none is specified.
-| IndexTypeCode | SdsTypeCode | Optional | DateTime | The name of the index data type. DateTime is the currently supported index type.
+| IndexTypeCode | SdsTypeCode | Optional | DateTime | The name of the index data type.
 | Shape | DataViewShape | Optional | Standard | Data views may be set to resolve as standard shape or narrow shape. Narrow shape may be used when an invariant output schema is required.
 
 ### Rules for Id property
@@ -116,7 +118,7 @@ For fields that derive data from a data item (e.g. a stream or asset), the `Fiel
 |Tags | 6 | Yes | Data item tags matching the collection provided
 
 ### SdsTypeCode enumeration
-`SdsTypeCode` enumeration is the name of a data type. It is used when defining a data view, where the only supported `.IndexTypeCode` is "DateTime".
+`SdsTypeCode` enumeration is the name of a data type. It is used when defining a data view, where the specified `.IndexTypeCode` determines which data items are eligible for use in the data view.
 
 See [SdsTypeCode](xref:sdsTypes#sdstypecode) for details.
 
