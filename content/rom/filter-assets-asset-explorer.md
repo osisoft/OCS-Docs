@@ -1,4 +1,6 @@
+---
 uid: FilterAssets
+---
 
 # Filter assets in the Asset Explorer
 
@@ -27,8 +29,7 @@ This procedure describes how to use filters to find the assets you are intereste
    - The first ten values of each facet is displayed. If there are more than ten values, a **Show More** button allows you to see the complete list of values. 
 
      ![Facet List](images/facet-list.png)
-     
-
+   
 2. Start entering the name of the metadata facet in the **Search** field to find a particular facet.
 
 3. Select one or more values from one or more facets to apply the filters to the listed assets.
