@@ -41,7 +41,14 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 
    **NOTE:** OCS supports out of order events and stores data in chronological order by timestamp. PI Data Archive 2017 SP2 or higher is required for this feature. Enter the historical start date and time correctly to ensure all data is included in the transfer. No data before the historical start time will be captured and stored in SDS.
 
-8. Click **Ok**.
+8. Select the level of data privacy for the transfer by selecting one of the following **Stream Metadata Replication Policy** settings: 
+
+   * **High**: Send all identifying information about an asset with the PI point.
+   * **Medium (default)**: Send metadata without logical addresses from the data source.
+   * **Low**: Does not send any metadata. Locally configured metadata such as point source and local aliases can be sent in the transfer.
+   * **None**: No sensitive data is included in the transfer.
+
+10. Click **Ok**.
 
    **Result:** The new transfer opens in the `PI to OCS Agents` window.
 
@@ -185,3 +192,10 @@ You must save a transfer before you can start to transfer selected data to OCS. 
 5. **Optional:** Click the **Stop Transfer** button, then click **Stop** to stop the transfer of data to OCS.
 
 6. **Optional:** Click the **Remove Transfer** button, then click **Remove** to delete the transfer completely.
+
+**Note:** If you need to make changes to a Data Archive table during a PI to OCS transfer, you must manually stop and restart the transfer to capture all changes. Follow these steps to ensure all data gets captured:
+
+   1. Stop the transfer.
+   2. Update the digital state tables in Data Archive.
+   3. Restart the transfer to pick up the changes you made.
+   

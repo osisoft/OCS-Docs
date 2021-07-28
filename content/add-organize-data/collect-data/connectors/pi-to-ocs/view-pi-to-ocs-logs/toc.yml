@@ -1,3 +1,5 @@
+- name: Troubleshoot missing PI Data Archive configuration
+  href: troubleshoot-missing-pida.md
 - name: Tenant log messages
   href: download-tenant-log.md
 - name: View PI to OCS Agent logs
