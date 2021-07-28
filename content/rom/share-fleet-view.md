@@ -21,3 +21,8 @@ You may have many hundreds or even thousands of assets in your fleet. Working wi
    This copies the URL to the clipboard. Send this link to your colleagues and partners. When they paste this URL into a browser, they will see the fleet view you captured in the link.
 
    **Hint:** Bookmark this link so you can easily return to this fleet view.
+
+## See also
+
+[Filter assets in the Asset Explorer](xref:FilterAssets)
+
