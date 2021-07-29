@@ -4,11 +4,9 @@ uid: transfer-data
 
 # Transfer PI System data to OCS
 
-To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The data transfer process consists of the following steps:
+To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The data transfer process consists of the following procedures:
 
 * [Create a transfer](#create-a-transfer)
-* [Overview of the PI Points Search pane](#overview-of-the-pi-points-search-pane)
-* [Explicit and implicit PI points](#explicit-and-implicit-pi-points)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
 * [View PI point details](#view-pi-point-details)
 * [Remove PI points from a transfer](#remove-pi-points-from-a-transfer)
@@ -193,9 +191,9 @@ You must save a transfer before you can start to transfer selected data to OCS. 
 
 6. **Optional:** Click the **Remove Transfer** button, then click **Remove** to delete the transfer completely.
 
-**Note:** If you need to make changes to a Data Archive table during a PI to OCS transfer, you must manually stop and restart the transfer to capture all changes. Follow these steps to ensure all data gets captured:
+**Note:** If you make changes to a Data Archive table during a PI to OCS transfer, you must manually stop and restart the transfer to capture all changes. Follow these steps to ensure all data gets captured:
 
    1. Stop the transfer.
-   2. Update the digital state tables in Data Archive.
-   3. Restart the transfer to pick up the changes you made.
+   2. Make changes to the digital state tables in Data Archive.
+   3. Restart the transfer to pick up the changes.
    
