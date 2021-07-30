@@ -198,10 +198,3 @@ Modifications to a Data Archive digital state table during a PI to OCS transfer 
 5. **Optional:** Click the **Stop Transfer** button, then click **Stop** to stop the transfer of data to OCS.
 
 6. **Optional:** Click the **Remove Transfer** button, then click **Remove** to delete the transfer completely.
-
-**Note:** If you make changes to a Data Archive table during a PI to OCS transfer, you must manually stop and restart the transfer to capture all changes. Follow these steps to ensure all data gets captured:
-
-   1. Stop the transfer.
-   2. Make changes to the digital state tables in Data Archive.
-   3. Restart the transfer to pick up the changes.
-   
