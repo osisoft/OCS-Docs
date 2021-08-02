@@ -4,7 +4,7 @@ uid: min-sys-reqmnts
 
 # PI to OCS minimum system requirements
 
-This topic lists PI to OCS hardware, software, and other requirements:
+To transfer data from an on-premises PI Server to OCS using the PI to OCS Agent, you need the following:
 
 * [System requirements](#system-requirements)
 * [Administrator privileges](#administrator-privileges)
@@ -29,9 +29,7 @@ The PI to OCS Agent must be installed on a local machine by a user account with 
 2. Assigned to the OCS Tenant Administrator role
 3. A domain account and a machine registered to the domain when using PI to OCS
 
-During the PI to OCS Agent installation, you will be prompted to log on to the OCS portal. 
-
-**Note:** Make sure to log on to OCS with the correct Tenant Administrator credentials. 
+During the PI to OCS Agent installation, you need to log on to the OCS portal with the Tenant Administrator credentials. 
 
 ## Configure access to PI Data Archive Security tables and PI point data
 

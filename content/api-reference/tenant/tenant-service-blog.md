@@ -1,82 +1,124 @@
 ---
-uid: AccountServiceBlog
+uid: tenant-service-blog
+
 ---
 
-# Service blog
+# Service Blog
+APIs for reading entries posted on the service blog.
 
-API's for reading entries posted on the Service Blog.
+## `List By Page`
 
-***
-
-## `Get Service Blog Entries`
+<a id="opIdServiceBlog_List By Page"></a>
 
 Returns blog entries ordered by time posted.
 
 ### Request
-
-`GET api/v1/ServiceBlog/Entries`
-
-### Parameters
-
-```csharp
-[Optional]
-[Default = "0"]
-[FromQuery]
-int32 skip
+```text 
+GET /api/v1/ServiceBlog/Entries
+?skip={skip}&count={count}&includeDeleted={includeDeleted}
 ```
 
-Number of blogs to skip for paging purposes.
-```csharp
-[Optional]
-[Default = "100"]
-[FromQuery]
-int32 count
-```
+#### Parameters
 
-Number of blogs to count after skip for paging purposes.
-
-### Authorization
-
-Any identity, including anonymous, can retrieve service blog entries.
+`[optional] integer skip`
+<br/>Number of blogs to skip for paging purposes.<br/><br/>`[optional] integer count`
+<br/>Number of blogs to count after skip for paging purposes.<br/><br/>`[optional] boolean includeDeleted`
+<br/>Whether deleted entries are included in return.<br/><br/>
 
 ### Response
 
-| Status Code | Return Type | Description |
-| --- | --- | ---  |
-| 200 | [SdsServiceBlogEntry] | Returns a list of blog entries. |
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[ServiceBlogEntry](#schemaserviceblogentry)[]|An array of `ServiceBlogEntry` objects.|
 
+#### Example response body
+> 200 Response ([ServiceBlogEntry](#schemaserviceblogentry)[])
 
-***
+```json
+[
+  {
+    "IsDeleted": true,
+    "Id": 0,
+    "TimePosted": "2019-08-24T14:15:22Z",
+    "Title": "string",
+    "Content": "string",
+    "Author": "string"
+  }
+]
+```
 
-## `Get Service Blog Entry`
+---
 
-Returns a blog entry specified by ID.
+## `Get Entry By Id`
+
+<a id="opIdServiceBlog_Get Entry By Id"></a>
+
+Returns a blog entry specified by identifier.
 
 ### Request
-
-`GET api/v1/ServiceBlog/Entries/{id}`
-
-### Parameters
-
-```csharp
-[Required]
-[FromRoute]
-string id
+```text 
+GET /api/v1/ServiceBlog/Entries/{id}
 ```
 
-Identifier of the blog entry to retrieve.
+#### Parameters
 
-
-### Authorization
-
-Any identity, including anonymous, can retrieve service blog entries.
+`string id`
+<br/>Service blog identifier.<br/><br/><br/>
 
 ### Response
 
-| Status Code | Return Type | Description |
-| --- | --- | ---  |
-| 200 | SdsServiceBlogEntry | Returns the specified blog entry. |
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[ServiceBlogEntry](#schemaserviceblogentry)|The `ServiceBlogEntry` with Id `id`.|
 
+#### Example response body
+> 200 Response ([ServiceBlogEntry](#schemaserviceblogentry))
 
-***
+```json
+{
+  "IsDeleted": true,
+  "Id": 0,
+  "TimePosted": "2019-08-24T14:15:22Z",
+  "Title": "string",
+  "Content": "string",
+  "Author": "string"
+}
+```
+
+---
+## Definitions
+
+### ServiceBlogEntry
+
+<a id="schemaserviceblogentry"></a>
+<a id="schema_ServiceBlogEntry"></a>
+<a id="tocSserviceblogentry"></a>
+<a id="tocsserviceblogentry"></a>
+
+Representation of a server-side database interpretation of a blog.
+
+#### Properties
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|IsDeleted|boolean|false|false|Value indicating whether boolean flag that represents the blog entry's soft delete status.|
+|Id|int32|false|false|Identifier for the blog entry.|
+|TimePosted|date-time|false|false|Recorded timestamp managed by the blog editor.|
+|Title|string|false|true|Title of the blog entry.|
+|Content|string|false|true|Content body of the blog entry. This is where the details of the blog entry are located.|
+|Author|string|false|true|Author who created the blog entry.|
+
+```json
+{
+  "IsDeleted": true,
+  "Id": 0,
+  "TimePosted": "2019-08-24T14:15:22Z",
+  "Title": "string",
+  "Content": "string",
+  "Author": "string"
+}
+
+```
+
+---
 

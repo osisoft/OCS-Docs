@@ -1,5 +1,5 @@
 - name: Namespaces
-  href: tenant-namespace.md
+  href: tenant-namespaces.md
 - name: Root access control
   href: tenant-root-access-control.md
 - name: Service blog
@@ -7,4 +7,4 @@
 - name: Tenants
   href: tenant-tenants.md
 - name: Tenant feature states
-  href: tenant-feature-state.md
+  href: tenant-features.md

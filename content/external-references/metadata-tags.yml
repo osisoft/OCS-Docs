@@ -7,18 +7,3 @@ stream-metadata-tags:
     The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
     GET methods. However, stream tags and metadata can be used as criteria in search query strings to return 
     stream results with the [Streams](xref:sds-streams) API. 
-namespace-identifier-requirements:
-  type: markdown
-  value: |
-    A namespace is a collection of SDS types, streams, and stream views. Namespace identifiers are unique within a tenant. Requirements for namespace identifiers must meet the following critieria:
-    
-    - Must contain 260 characters or less 
-        
-    - Must only contain alphanumeric characters, underscores, dashes, spaces, and periods 
-    
-    - Must not contain two consecutive periods
-
-    - Must not start or end with a period
-
-    - Must not start with two consecutive underscores
-        

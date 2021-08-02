@@ -43,9 +43,11 @@ A list of the supported quantities and their base unit of measures is below. Sup
 
 | Quantity Id                                 | Base Uom Id               |
 | ------------------------------------------- | ------------------------- |
+| Acceleration	                              | meter per square second   |
 | Angular Velocity                            | radian per second         |
 | Area                                        | square meter              |
 | Computer Storage                            | byte                      |
+| Conductivity	                              | siemens per meter         |
 | Density                                     | kilogram per cubic meter  |
 | Dynamic Viscosity                           | pascal second             |
 | Electric Charge                             | coulomb                   |
@@ -53,9 +55,12 @@ A list of the supported quantities and their base unit of measures is below. Sup
 | Electric Potential                          | volt                      |
 | Electric Resistance                         | ohm                       |
 | Energy                                      | joule                     |
+| Energy per Length	                          | joule per meter           |
 | Entropy and Heat Capacity                   | joule per kelvin          |
 | Force                                       | newton                    |
 | Frequency                                   | hertz                     |
+| Illuminance	                                | lux                       |
+| Irradiance	                                | watt per square meter     |
 | Length                                      | meter                     |
 | Luminous Intensity                          | candela                   |
 | Mass                                        | kilogram                  |
@@ -67,7 +72,9 @@ A list of the supported quantities and their base unit of measures is below. Sup
 | Power                                       | watt                      |
 | Pressure                                    | pascal                    |
 | Quantity                                    | count                     |
+| Quantity per Volume	                        | count per cubic meter     |
 | Ratio                                       | percent                   |
+| Reciprocal length	                          | inverse meter             |
 | Specific Energy                             | joule per kilogram        |
 | Specific Entropy and Specific Heat Capacity | joule per kilogram kelvin |
 | Specific Volume                             | cubic meter per kilogram  |
@@ -78,12 +85,34 @@ A list of the supported quantities and their base unit of measures is below. Sup
 | Volume                                      | cubic meter               |
 | Volume Flow Rate                            | cubic meter per second    |
 
+
 ## Supported system-defined units of measure
 
 A list of the supported units of measure is below. Supported units of measure are read-only.
 
 | Uom Id                                           | Abbreviation | Quantity Id                                 | Conversion Factor | Conversion Offset |
 | ------------------------------------------------ | ------------ | ------------------------------------------- | ----------------- | ----------------- |
+| micrometer                                       | μm	          | Length	                                    | 0.000001	        | 0                 |
+| nanometer	                                       | nm	          | Length	                                    | 0.000000001	    | 0                 |
+| cubic foot per minute	                           | ft3/min	  | Volume Flow Rate	                        | 0.000471947443	| 0                 |
+| hectopascal	                                   | hPa	      | Pressure	                                | 100	            | 0                 |
+| millibar	                                       | mbar	      | Pressure	                                | 100	            | 0                 |
+| milliwatt hour	                               | mWh	      | Energy	                                    | 3.60	            | 0                 |
+| newton meter	                                   | Nm	          | Energy	                                    | 1	                | 0                 |
+| microgram per cubic meter	                       | µg/m3	      | Density	                                    | 0.000000001	    | 0                 |
+| millimeter per square second	                   | mm/s2	      | Acceleration	                            | 0.001	            | 0                 |
+| meter per square second	                       | m/s2	      | Acceleration	                            | 1	                | 0                 |
+| decisiemens per meter	                           | dS/m	      | Conductivity	                            | 0.1	            | 0                 |
+| siemens per meter	                               | S/m	      | Conductivity	                            | 1	                | 0                 |
+| microsiemens per centimeter	                   | µS/cm	      | Conductivity	                            | 0.0001	        | 0                 |
+| count per liter	                               | Count/L	  | Quantity per Volume	                        | 0.001	            | 0                 |
+| count per cubic meter	                           | Count/m3	  | Quantity per Volume	                        | 1	                | 0                 |
+| watt-hours per mile	                           | Wh/mi	      | Energy per Length	                        | 0.44704	        | 0                 |
+| joule per meter	                               | J/m	      | Energy per Length	                        | 1	                | 0                 |
+| inverse centimeter	                           | cm-1	      | Reciprocal length	                        | 100	            | 0                 |
+| inverse meter	                                   | m-1	      | Reciprocal length	                        | 1	                | 0                 |
+| lux	                                           | Lx	          | Illuminance	                                | 1	                | 0                 |
+| watt per square meter	                           | W/m2	      | Irradiance	                                | 1	                | 0                 |
 | count                                            | count        | Quantity                                    | 1                 | 0                 |
 | Ampere hour                                      | Ah           | Electric Charge                             | 3600              | 0                 |
 | coulomb                                          | C            | Electric Charge                             | 1                 | 0                 |

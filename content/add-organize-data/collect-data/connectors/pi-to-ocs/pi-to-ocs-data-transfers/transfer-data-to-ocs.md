@@ -4,7 +4,7 @@ uid: transfer-data
 
 # Transfer PI System data to OCS
 
-To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The data transfer process consists of the following procedures:
+To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The following topics contain the procedures and information you need to transfer data to OCS:
 
 * [Create a transfer](#create-a-transfer)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
@@ -55,7 +55,7 @@ Download and install the PI to OCS agent. Register your PI Data Archive with the
 
 ## Overview of the PI Points Search pane
 
-You build a PI points transfer list in the **PI Points Search** pane. You define search criteria to filter which PI points are returned in the query results.
+You build a PI points transfer list in the **PI Points Search** pane. The screen capture and table below point out the key elements of the **PI Points Search** pane.
 
 ![ ](../../images/pi-pt-search-callouts.png)
 

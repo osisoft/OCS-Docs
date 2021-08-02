@@ -67,4 +67,8 @@ continuationToken:
   type: text/plain
   value: |
     Token used to retrieve the next page of data. If count is specified, a continuationToken must also be specified.
-    
+ifMatch:
+  type: text/plain
+  value: |
+    The entity tag header from a previous read of the Access Control List (ACL). If provided, the ACL will not be 
+    patched unless the current ETag of the ACL, on the server, matches the value passed into the If-Match header.  
