@@ -4,7 +4,7 @@ uid: min-sys-reqmnts
 
 # PI to OCS minimum system requirements
 
-To transfer data from an on-premises PI Server to OCS using the PI to OCS Agent, you need the following:
+The following guidelines are required to transfer data from an on-prem PI Server to OCS:
 
 * [System requirements](#system-requirements)
 * [Administrator privileges](#administrator-privileges)
