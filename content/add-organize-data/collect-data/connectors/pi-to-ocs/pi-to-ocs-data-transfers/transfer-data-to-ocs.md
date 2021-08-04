@@ -7,6 +7,8 @@ uid: transfer-data
 To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The following topics contain the procedures and information you need to transfer data to OCS:
 
 * [Create a transfer](#create-a-transfer)
+* [Overview of the PI Points Search pane](#overview-of-the-pi-points-search-pane)
+* [Explicit and implicit PI points](#explicit-and-implicit-pi-points)
 * [Build a PI points transfer list](#build-a-pi-points-transfer-list)
 * [View PI point details](#view-pi-point-details)
 * [Remove PI points from a transfer](#remove-pi-points-from-a-transfer)
@@ -93,7 +95,6 @@ You build a PI points transfer list to select the PI points you want included in
 
 ### Procedure
 
-
 1. Click the **Add** button.
 
    **Result:** The **Search** pane opens on the left.
@@ -125,9 +126,9 @@ You build a PI points transfer list to select the PI points you want included in
 
    **Result:**  The points are added to the transfer.
 
-![ ](../../images/pi-pts-pane.png)
+   ![ ](../../images/pi-pts-pane.png)
 
-**NOTE:** Once you are done adding PI points, you must save the transfer before you can start to transfer data to OCS.
+**NOTE:** Once you have added PI points, you must save the transfer before you can start to transfer data to OCS.
 
 
 ## View PI point details
