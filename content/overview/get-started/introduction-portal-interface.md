@@ -7,7 +7,7 @@ uid: introPortalInterface
 Access and interact with OCS through the web-based portal. When you first access the OCS portal, several panes provide information about the system's health as well as quick links to popular documentation topics.
 
 ![Portal interface](../images/portal-interface.png "OCS portal interface")
-<!--Angela Flores 6/23/21 - This screenshot has a stray tool tip from another application. It needs to be cleaned up. -->
+<!--Angela Flores 6/23/21 - This screenshot has a stray tool tip from another application. It needs to be cleaned up. --> <!--Victoria Touati 8/4/21 - Screenshot replaced & published to Zoomin. -->
 
 ## OCS features
 
