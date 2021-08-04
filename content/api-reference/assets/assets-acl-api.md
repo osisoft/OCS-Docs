@@ -13,13 +13,13 @@ Returns the default `AccessControlList` for the assets collection and asset type
 Assets collections
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accessControl/Assets
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Assets
 ```
 
 Asset types collections
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accessControl/AssetTypes
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/AssetTypes
 ```
 
 ### Parameters  
@@ -83,14 +83,12 @@ Updates the default `AccessControlList` for the assets or asset type collections
 Assets collections
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accessControl/Assets  
-
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/Assets  
 ```
 
 Asset types collections
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accessControl/AssetTypes  
-
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/AssetTypes  
 ```
 
 ### Parameters  
@@ -127,15 +125,13 @@ Returns the `AssetControlList` of the specified asset or asset type.
 
 Assets
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/accessControl 
-
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 Asset type
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetTypeId}/accessControl 
-
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/accessControl
 ```
 
 
@@ -201,14 +197,14 @@ Updates the `AccessControlList` of the specified asset or asset type.
 Asset
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/accessControl
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 
 Asset type
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetTypeId}/accessControl
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessControl
 ```
 ### Parameters  
 
@@ -253,7 +249,7 @@ Returns the calling user or client's access rights to the requested asset or ass
 Asset
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/accessRights
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessRights
 ```
 
 
@@ -261,7 +257,7 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/
 Asset type
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetTypeId}/accessRights
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessRights
 ```
 
 
@@ -310,13 +306,13 @@ Returns the owner `Trustee` of the specified asset or asset type.
 
 Asset
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/owner
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 Asset type
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetTypeId}/owner
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
 ```
 
 
@@ -364,7 +360,7 @@ Updates the owner `Trustee` of the specified asset or asset type.
 Asset
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/owner
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 
@@ -372,7 +368,7 @@ PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/
 Asset type
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/owner
+PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
 ```
 
 ###  Parameters  
