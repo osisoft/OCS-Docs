@@ -4,7 +4,7 @@ uid: min-sys-reqmnts
 
 # PI to OCS minimum system requirements
 
-The following guidelines are required to transfer data from an on-prem PI Server to OCS:
+These are the requirements to transfer data from an on-prem PI Server to OCS:
 
 * [System requirements](#system-requirements)
 * [Administrator privileges](#administrator-privileges)
