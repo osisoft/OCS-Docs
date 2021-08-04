@@ -22,7 +22,7 @@ If a PI to OCS agent's status appears as "No PI Data Archive Configured" in the 
 
 1. Click **Close** to exit out of the **Configure Mapping** dialog box. 
 
-1. Click **Remove Server**, then click **Yes** to remove the server and return to the first screen of the PI to OCS Configuration Utility 
+1. Click **Remove Server**, then click **Yes** to remove the server and return to the first screen of the PI to OCS Configuration Utility.
 
 1. Add the Data Archive server back to the configuration. See [Run the PI to OCS Configuration Utility](xref:pi-to-ocs-utility) for more information.  
 
