@@ -8,7 +8,7 @@ OSIsoft Cloud Services (OCS) is a database platform as a service (dbPaaS) design
 
 Use the information in this section to programmatically access OCS.
 
-**Note:** OCS strives to align with security best practices. Cross-site Scripting (XSS) protections for OCS align with Open Web Application Security Project (OWASP) XSS Cheatsheet rule 3.1 where returned `Content-type` header is `application/json` and not `text/html` for defending against XSS attacks in JSON responses.
+**Note:** OCS strives to align with security best practices. OCS Cross-site Scripting (XSS) protections align with the [Open Web Application Security Project (OWASP) XSS Cheatsheet rule 3.1](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#rule-31-html-encode-json-values-in-an-html-context-and-read-the-data-with-jsonparse) to ensure returned `Content-type` header is `application/json`, not `text/html`, for defense against XSS attacks in JSON responses.
 
 ## Access to OCS
 
