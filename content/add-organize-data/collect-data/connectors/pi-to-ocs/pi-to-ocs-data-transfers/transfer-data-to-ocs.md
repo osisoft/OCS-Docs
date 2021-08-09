@@ -166,7 +166,7 @@ You can remove unwanted PI points from a transfer prior to saving the transfer.
 
 You must save a transfer before you can transfer data to OCS. During a data transfer, events are sent asynchronously. Historical events are sent first, followed by current events.  The progress of a data transfer is displayed in the Details pane.  
 
-**Note:** To ensure that all changes to an underlying Data Archive digital state table are captured during a transfer, you must manually stop the transfer prior to making changes and then restart the transfer. Follow these steps to ensure all data is captured:
+**Note:** Modifications to an underlying Data Archive digital state table during a transfer require that you manually stop and then restart the transfer to capture all changes. Follow these steps to ensure all data is captured in the transfer:
 
    1. Stop the transfer.
    2. Make modifications to the Data Archive digital state tables.
