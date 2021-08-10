@@ -6,7 +6,7 @@ uid: gsPItoOCS
 
 Before you set up your PI to OCS connection, see [PI System best practices](xref:bpPISystemConnection) for recommendations regarding the PI OCS Agent.
 
-To use PI to OCS to transfer data from your PI System to OCS, you must complete the following:
+To use PI to OCS to transfer data from your PI System to OCS, you must complete the following tasks:
 
 - Install the PI to OCS Agent.
 - Set up your PI to OCS connection in the PI to OCS Configuration Utility.
@@ -14,7 +14,7 @@ To use PI to OCS to transfer data from your PI System to OCS, you must complete 
 
 Prerequisite: The exercise below assumes that your organization has a PI System with default PI points (for example, `sinusoid`) stored on Data Archive.
 
-## Create and set up a PI System connection
+## Create and set up a PI to OCS transfer
 
 1.  Click the ![Menu icon](images\menu-icon.png) icon, then click **Data Collection** > **PI to OCS Agents**.
 
