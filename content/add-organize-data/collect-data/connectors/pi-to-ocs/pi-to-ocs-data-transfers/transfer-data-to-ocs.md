@@ -2,7 +2,7 @@
 uid: transfer-data
 ---
 
-# Transfer PI System data to OCS
+# Transfer data to OCS
 
 To transfer PI points into OCS, you must first define transfer settings and then build a PI points transfer table. The following topics contain the procedures and information you need to transfer data to OCS:
 
