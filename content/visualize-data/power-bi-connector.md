@@ -4,7 +4,7 @@ uid: PowerBI
 
 # OSIsoft Cloud Services Power BI Connector
 
-The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install the connector to retrieve data for use with Microsoft Power BI as described in this section.
+The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install the connector to retrieve data for use with Microsoft Power BI as described in this section.<br>
 
 ## Install OSIsoft Cloud Services Power BI Connector
 
@@ -21,8 +21,8 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
             **Note:** OSIsoft Cloud Services Power BI Connector supports silent installation for on-premises data gateway installations.
 
     - Silent installation
-        - Open a command prompt window and type following command.<br>
-        `.\OCSDataConnectorInstaller.exe -Y INSTALLDIR="<install path>" /quiet`
+        - Open a command prompt window and type following command:<br>
+        `.\OCSDataConnectorInstaller.exe -Y INSTALLDIR="<install path>" /quiet`<br>
 
 ## Retrieve data with OSIsoft Cloud Services Power BI Connector
 
@@ -44,17 +44,17 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
    ![Select Data Views](./images/click-data-view-box.png)
 
-1. For Stored Data Views, specify a Start and End Index in `YYYY-MM-DDTHH:mm:ss` format  for the selected data view, and click **Apply** to apply the values you have specified. For Interpolated data views, specify also an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
+1. For Stored Data Views, specify a Start and End Index in `YYYY-MM-DDTHH:mm:ss` format for the selected data view, and click **Apply** to apply the values you have specified. For Interpolated data views, specify also an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
 
     **Note**: If a data view has default values, enter new values and click **Apply** to accept the defaults.
 
    ![Specify Data View Values](./images/specify-values.png)
 
-1. Click **Load** at the bottom of the **Navigator** pane to load all selected data views to Microsoft Power BI.
+1. Click **Load** at the bottom of the **Navigator** pane to load all selected data views to Microsoft Power BI.<br>
 
 ## Edit the data view query in Microsoft Power BI
 
-In Microsoft Power BI, you can edit the query generated from the connector to modify the Start Index and End Index to fixed dates or relative dates, as well edit the Interpolation Interval (if applicable). You can also use Microsoft Power BI to enable an incremental refresh of data.
+In Microsoft Power BI, you can edit the query generated from the connector to modify the Start Index and End Index to fixed dates or relative dates, as well as edit the Interpolation Interval (if applicable). You can also use Microsoft Power BI to enable an incremental refresh of data.
 
 1. In Microsoft Power BI, click **Transform data** to view the query with Power Query Editor.<br>
 
@@ -76,7 +76,7 @@ In Microsoft Power BI, you can edit the query generated from the connector to mo
         | Rolling 2 month period<br>Start Index: 2 months ago<br>End Index: Now | `Date.AddMonths(DateTimeZone.LocalNow(), -2), DateTimeZone.LocalNow()` |
         | Rolling 1 day period<br>Start Index: 1 day ago<br>End Index: Now | `Date.AddDays(DateTimeZone.LocalNow(), -1), DateTimeZone.LocalNow()` |
         | Start of last month through now<br>Start Index: First day of last month at midnight<br>End Index: Now | `Date.StartOfMonth(Date.AddMonths(DateTimeZone.LocalNow(), -1)), DateTimeZone.LocalNow()` |
-        | Incremental refresh<br>Rolling 3 year period                                                       | `Date.AddYears(DateTimeZone.LocalNow(), -3), DateTimeZone.LocalNow()` |<br>
+        | Incremental refresh<br>Rolling 3 year period  | `Date.AddYears(DateTimeZone.LocalNow(), -3), DateTimeZone.LocalNow()` |<br>
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
 1. Optional. Use Microsoft Power BI Desktop to enable an incremental refresh of data.<br><br>
@@ -87,7 +87,7 @@ In Microsoft Power BI, you can edit the query generated from the connector to mo
          |---------------------|-------------------------------|
         | `RangeStart` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<Start date of the date range>` |
         | `RangeEnd` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<End date of the date range>` |
-     **Note:** `RangeStart` and `RangeEnd` must be named and mixed-cased as is for incremental refresh to work.
+     **Note:** `RangeStart` and `RangeEnd` must be named and mixed-cased as is for incremental refresh to work. Type must always be `Date/Time`.
 
      d. Edit the query function to use the `RangeStart` and `RangeEnd` parameters defined in the previous step. For example,
      `DateTimeZone.From(RangeStart), DateTimeZone.From(RangeEnd), #duration(0, 1, 0, 0)`.<br><br>
