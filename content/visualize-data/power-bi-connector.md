@@ -15,14 +15,14 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
 1. Install OSIsoft Cloud Services Power BI Connector by either the setup wizard or silent installation.
 
-    1. Setup wizard
-        1. Double click the `OCSPowerBIConnector.exe` file and select **Next**.
-        1. Optional: To install the connector to an on-premises data gateway, select `On-premises data gateway installation` and enter the directory where you want to install the connector.<br>
+    - Setup wizard
+        - Double click the `OCSPowerBIConnector.exe` file and select **Next**.<br>
+        - Optional: To install the connector to an on-premises data gateway, select `On-premises data gateway installation` and enter the directory where you want to install the connector.<br>
 
-           **Note:** OSIsoft Cloud Services Power BI Connector supports silent installation for on-premises data gateway installations.
+            **Note:** OSIsoft Cloud Services Power BI Connector supports silent installation for on-premises data gateway installations.
 
-    1. Silent installation
-        1. Open a command prompt window and type following command.<br>
+    - Silent installation
+        - Open a command prompt window and type following command.<br>
         `.\OCSDataConnectorInstaller.exe -Y INSTALLDIR="<install path>" /quiet`<!-- End WI 217906 and 237964-->
 
 ## Retrieve data with OSIsoft Cloud Services Power BI Connector
@@ -107,7 +107,7 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
      d. Edit the function in query to use the `RangeStart` and `RangeEnd` parameters defined in the previous step. For example, 
      `DateTimeZone.From(RangeStart), DateTimeZone.From(RangeEnd), #duration(0, 1, 0, 0)`.<br><br>
      e. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor.<br><br>
-     f. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the drop-down menu.<br><br>
+     f. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the dropdown menu.<br><br>
      g. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
      The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
      ![Transform data](./images/mspowerbi-incremental-refresh.png)<!-- End WI 245245  and 237745-->
