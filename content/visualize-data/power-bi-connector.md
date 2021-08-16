@@ -66,18 +66,18 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
        <br><br>
     ![Transform data](./images/mspowerbi-advanced-editor.png)<br>
 
-1. Modify the Start and End index to different dates or relative start and end dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/).<br>
+1. Modify the Start and End index to different dates or to relative start and end dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/).<br>
 
     - Example base query (query shown in the screenshots in the previous step).<br><br>
     Start Index: August 1, 2021 Midnight<br>
     End Index: August 2, 2021 Midnight<br>
     Interval: 2 hours<br>
-     `#datetimezone(2021, 8, 1, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 2, 0, 0, 0, -7, 0), #duration(0, 2, 0, 0)`<br>
+     `#datetimezone(2021, 8, 1, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 2, 0, 0, 0, -7, 0), #duration(0, 2, 0, 0)`<br><br>
     - Modify the start and end index date to different dates, and change the interval. <br><br>
     Start Index: July 15, 2021 Midnight<br>
     End Index: August 15, 2021 1:00 AM<br>
     Interval: 1 hour<br>
-    `#datetimezone(2021, 7, 15, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 15, 0, 0, 0, -7, 0), #duration(0, 1, 0, 0)`.<br>
+    `#datetimezone(2021, 7, 15, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 15, 0, 0, 0, -7, 0), #duration(0, 1, 0, 0)`<br>
     - Modify the start and end index date to use a relative start and end index.<br><br>
     Start Index: 2 months ago<br>
     Start Index: Now<br>
@@ -94,24 +94,24 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
          See the [Power Query M function reference](https://docs.microsoft.com/en-us/powerquery-m/power-query-m-function-reference) page on functions you can use in your query.
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
-1. Optional. Use Microsoft Power BI Desktop to enable incremental refresh of data.
-     1. In Microsoft Power BI, click **Transform data** to open Power Query Editor.
-     1. Click **Manage Parameters**, and then select `Manage Parameters` in the menu.
-     1. Add the following parameters in the `Manage Parameters` window, and then click **OK**.<br><br>
+1. Optional. Use Microsoft Power BI Desktop to enable a rolling incremental refresh of data.
+     a. In Microsoft Power BI, click **Transform data** to open Power Query Editor.<br><br>
+     b. Click **Manage Parameters**, and then select `Manage Parameters` in the menu.<br><br>
+     c. Add the following parameters in the `Manage Parameters` window, and then click **OK**.<br>
         | Parameter              | Code                          |
          |---------------------|-------------------------------|
         | `RangeStart` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<Start date of the date range>` |
         | `RangeEnd` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<End date of the date range>` |
      **Note:** `RangeStart` and `RangeEnd` must be named and mixed-cased as is for incremental refresh to work.
 
-     1. Edit the function in query to use the `RangeStart` and `RangeEnd` parameters defined in the previous step. For example, 
-     `DateTimeZone.From(RangeStart), DateTimeZone.From(RangeEnd), #duration(0, 1, 0, 0)`.
-     1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor.
-     1. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the drop-down menu.
-     1. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
+     d. Edit the function in query to use the `RangeStart` and `RangeEnd` parameters defined in the previous step. For example, 
+     `DateTimeZone.From(RangeStart), DateTimeZone.From(RangeEnd), #duration(0, 1, 0, 0)`.<br><br>
+     e. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor.<br><br>
+     f. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the drop-down menu.<br><br>
+     g. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
      The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
      ![Transform data](./images/mspowerbi-incremental-refresh.png)<!-- End WI 245245  and 237745-->
 
 ## Create a visualization of the data view in Microsoft Power BI
-1. Select or drag fields from the **Fields** pane onto the report canvas.
+1. Select or drag fields from the **Fields** pane onto the report canvas.<br>
 1. Click the **Visualizations** pane and select a visualization option you want to create.
