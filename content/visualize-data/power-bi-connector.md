@@ -10,13 +10,13 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
 **Note:** Microsoft Edge WebView 2 Runtime is required for OSIsoft Cloud Services Power BI Connector installation.
 
-1. Download the OCSPowerBIConnector.exe file from the [OSIsoft Customer portal](https://customers.osisoft.com/s/products).
+1. Download the `OCSPowerBIConnector.exe` file from the [OSIsoft Customer portal](https://customers.osisoft.com/s/products).
 
 1. Install OSIsoft Cloud Services Power BI Connector by either the setup wizard or silent installation.
 
     - Setup wizard
         - Double click the `OCSPowerBIConnector.exe` file and select **Next**.<br>
-        - Optional: To install the connector to an on-premises data gateway, select `On-premises data gateway installation` and enter the directory where you want to install the connector.<br><br>
+        - Optional: To install the connector to an on-premises data gateway, select `On-premises data gateway installation` and enter the directory where you want to install the connector.<br>
 
     - Silent installation
         - Open a command prompt window and type following command:<br>
