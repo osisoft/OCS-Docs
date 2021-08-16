@@ -45,7 +45,7 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
    ![Select Data Views](./images/click-data-view-box.png)
 
-1. For Stored Data Views, specify a Start and End Index for the selected data view, and click **Apply** to apply the values you have specified. For Interpolated data views, specify also a Interpolation Interval. Repeat for each additional data view as needed.
+1. For Stored Data Views, specify a Start and End Index for the selected data view, and click **Apply** to apply the values you have specified. For Interpolated data views, specify also an Interpolation Interval. Repeat for each additional data view as needed.
 
     **Note**: If a data view has default values, enter new values and click **Apply** to accept the defaults.
 
@@ -55,7 +55,7 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
 ## Edit the data view query in Microsoft Power BI<!-- Start WI 245245 and 237745-->
 
-In Microsoft Power BI, you can view and edit the query generated from the connector to modify the Start and End index to different dates or to relative start and end dates. You can also use Microsoft Power BI to enable an incremental refresh of data.
+In Microsoft Power BI, you can view and edit the query generated from the connector to modify the Start and End index to specific dates or use relative dates. You can also use Microsoft Power BI to enable an incremental refresh of data.
 
 1. In Microsoft Power BI, click **Transform data** to view the query with Power Query Editor.<br>
     - Click **View**, and then select **Formula Bar** to view the query function from the connector.<br><br>
@@ -66,21 +66,21 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
        <br><br>
     ![Transform data](./images/mspowerbi-advanced-editor.png)<br>
 
-1. Modify the Start and End index to different dates or to relative start and end dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see the Microsoft [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/) page.<br>
+1. Modify the Start and End index to specific dates or to relative dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see the Microsoft [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/) page.<br>
 
     - Example base query (query shown in the screenshots in the previous step).<br><br>
     Start Index: August 1, 2021 Midnight<br>
     End Index: August 2, 2021 Midnight<br>
     Interval: 2 hours<br>
      `#datetimezone(2021, 8, 1, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 2, 0, 0, 0, -7, 0), #duration(0, 2, 0, 0)`<br><br>
-    - Modify the start and end index date to different dates, and change the interval. <br><br>
+    - Modify the start and end index to another specific date, and change the interval. <br><br>
     Start Index: July 15, 2021 Midnight<br>
     End Index: August 15, 2021 1:00 AM<br>
     Interval: 1 hour<br>
     `#datetimezone(2021, 7, 15, 0, 0, 0, -7, 0), #datetimezone(2021, 8, 15, 0, 0, 0, -7, 0), #duration(0, 1, 0, 0)`<br>
-    - Modify the start and end index date to use a relative start and end index.<br><br>
+    - Modify the start and end index to use a relative date.<br><br>
     Start Index: 2 months ago<br>
-    Start Index: Now<br>
+    End Index: Now<br>
     `Date.AddMonths(DateTimeZone.LocalNow(), -2), DateTimeZone.LocalNow()`
 
     - Additional examples of common relative time configurations.
@@ -94,7 +94,7 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
          See the Microsoft [Power Query M function reference](https://docs.microsoft.com/en-us/powerquery-m/power-query-m-function-reference) page on functions you can use in your query.
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
-1. Optional. Use Microsoft Power BI Desktop to enable a rolling incremental refresh of data.
+1. Optional. Use Microsoft Power BI Desktop to enable an incremental refresh of data.
      a. In Microsoft Power BI, click **Transform data** to open Power Query Editor.<br><br>
      b. Click **Manage Parameters**, and then select `Manage Parameters` in the menu.<br><br>
      c. Add the following parameters in the `Manage Parameters` window, and then click **OK**.<br>
