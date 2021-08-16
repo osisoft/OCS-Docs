@@ -104,12 +104,12 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
          |---------------------|-------------------------------|
         | `RangeStart` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<Start date of the date range>` |
         | `RangeEnd` | Description: `<optional>`<br> Required: `selected`<br> Type: `Date/Time`<br> Suggested Values: `<Any value>, <List of values>, <Query>`<br> Current Value: `<End date of the date range>` |
-        | **Note:** `RangeStart` and `RangeEnd` must be named and mixed-cased as is for incremental refresh to work. |
+     **Note:** `RangeStart` and `RangeEnd` must be named and mixed-cased as is for incremental refresh to work.
 
      1. Edit the function in query to use the `RangeStart` and `RangeEnd` parameters defined in the previous step. For example, 
      `DateTimeZone.From(RangeStart), DateTimeZone.From(RangeEnd), #duration(0, 1, 0, 0)`.
      1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor.
-     1. Click **Home**, and then in the `Fields` pane select and right-click your data view type, and choose `Incremental Refresh` in the drop-down menu.
+     1. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the drop-down menu.
      1. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
      The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
      ![Transform data](./images/mspowerbi-incremental-refresh.png)
