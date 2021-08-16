@@ -55,7 +55,7 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
 ## Edit the data view query in Microsoft Power BI<!-- Start WI 245245 and 237745-->
 
-In Microsoft Power BI, you can view and edit the query generated from the connector to modify the Start and End index to different dates or relative start and end dates. You can also use Microsoft Power BI to enable a rolling incremental refresh of data.
+In Microsoft Power BI, you can view and edit the query generated from the connector to modify the Start and End index to different dates or to relative start and end dates. You can also use Microsoft Power BI to enable an incremental refresh of data.
 
 1. In Microsoft Power BI, click **Transform data** to view the query with Power Query Editor.<br>
     - Click **View**, and then select **Formula Bar** to view the query function from the connector.<br><br>
@@ -114,5 +114,6 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
     For more information about incremental refresh, see the Microsoft  [Incremental refresh for datasets](https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview) page.<!-- End WI 245245  and 237745-->
 
 ## Create a visualization of the data view in Microsoft Power BI
+
 1. Select or drag fields from the **Fields** pane onto the report canvas.<br>
 1. Click the **Visualizations** pane and select a visualization option you want to create.
