@@ -23,10 +23,8 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
     1. Silent installation
         1. Open a command prompt window and type following command.<br>
-        `.\OCSDataConnectorInstaller.exe -Y INSTALLDIR="<install path>" /quiet`
+        `.\OCSDataConnectorInstaller.exe -Y INSTALLDIR="<install path>" /quiet`<!-- End WI 217906 and 237964-->
 
-           **Note:** OSIsoft Cloud Services Power BI Connector supports silent installation for on-premises data gateway installations.
-<!-- End WI 217906 and 237964-->
 ## Retrieve data with OSIsoft Cloud Services Power BI Connector
 
 1. In Microsoft Power BI Desktop, in the entry field of the **Get Data** window, type *OSI*.<br>The **OSIsoft Cloud Services Data Views** connector file displays in the **All** pane.
@@ -42,8 +40,8 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
     - If you have not already signed into OCS, click **Sign in as different user** and complete the OCS user authentication process.
 
 1. In the **OSIsoft Cloud Services Data Views** sign-in window, click **Connect**.<br>The **Navigator** pane displays.
-<!-- Start WI 246187-->
-1. In the **Navigator** pane, click on either Interpolated Data Views or Stored Data Views, and select the data view you want to work with in Microsoft Power BI.
+
+1. <!-- Start WI 246187-->In the **Navigator** pane, click on either Interpolated Data Views or Stored Data Views, and select the data view you want to work with in Microsoft Power BI.
 
    ![Select Data Views](./images/click-data-view-box.png)
 
@@ -51,11 +49,11 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
     **Note**: If a data view has default values, enter new values and click **Apply** to accept the defaults.
 
-   ![Specify Data View Values](./images/specify-values.png)
-<!-- End WI 246187-->
+   ![Specify Data View Values](./images/specify-values.png)<!-- End WI 246187-->
+
 1. Click **Load** at the bottom of the **Navigator** pane to load all selected data views to Microsoft Power BI.
-<!-- Start WI 245245 and 237745-->
-## Edit the data view query in Microsoft Power BI
+
+## Edit the data view query in Microsoft Power BI<!-- Start WI 245245 and 237745-->
 
 In Microsoft Power BI, you can view and edit the query generated from the connector to modify the Start and End index to different dates or relative start and end dates. You can also use Microsoft Power BI to enable a rolling incremental refresh of data.
 
@@ -112,8 +110,8 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
      1. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the drop-down menu.
      1. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
      The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
-     ![Transform data](./images/mspowerbi-incremental-refresh.png)
-<!-- End WI 245245  and 237745-->
+     ![Transform data](./images/mspowerbi-incremental-refresh.png)<!-- End WI 245245  and 237745-->
+
 ## Create a visualization of the data view in Microsoft Power BI
 1. Select or drag fields from the **Fields** pane onto the report canvas.
 1. Click the **Visualizations** pane and select a visualization option you want to create.
