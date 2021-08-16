@@ -66,7 +66,7 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
        <br><br>
     ![Transform data](./images/mspowerbi-advanced-editor.png)<br>
 
-1. Modify the Start and End index to different dates or to relative start and end dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/).<br>
+1. Modify the Start and End index to different dates or to relative start and end dates in the function with Power Query M Formula Language code. For information about Power Query M Formula Language code, see the Microsoft [Power Query M formula language](https://docs.microsoft.com/en-us/powerquery-m/) page.<br>
 
     - Example base query (query shown in the screenshots in the previous step).<br><br>
     Start Index: August 1, 2021 Midnight<br>
@@ -91,7 +91,7 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
         | Start of last month through now<br>Start Index: First day of last month at midnight<br>End Index: Now | `Date.StartOfMonth(Date.AddMonths(DateTimeZone.LocalNow(), -1)), DateTimeZone.LocalNow()` |
         | Incremental refresh<br>Rolling 3 year period                                                       | `Date.AddYears(DateTimeZone.LocalNow(), -3), DateTimeZone.LocalNow()` |
 
-         See the [Power Query M function reference](https://docs.microsoft.com/en-us/powerquery-m/power-query-m-function-reference) page on functions you can use in your query.
+         See the Microsoft [Power Query M function reference](https://docs.microsoft.com/en-us/powerquery-m/power-query-m-function-reference) page on functions you can use in your query.
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
 1. Optional. Use Microsoft Power BI Desktop to enable a rolling incremental refresh of data.
@@ -110,7 +110,8 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
      f. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the dropdown menu.<br><br>
      g. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
      The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
-     ![Transform data](./images/mspowerbi-incremental-refresh.png)<!-- End WI 245245  and 237745-->
+     ![Transform data](./images/mspowerbi-incremental-refresh.png)<br><br>
+    For more information about incremental refresh, see the Microsoft  [Incremental refresh for datasets](https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview) page.<!-- End WI 245245  and 237745-->
 
 ## Create a visualization of the data view in Microsoft Power BI
 1. Select or drag fields from the **Fields** pane onto the report canvas.<br>
