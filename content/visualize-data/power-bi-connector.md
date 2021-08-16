@@ -94,7 +94,7 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
          See the Microsoft [Power Query M function reference](https://docs.microsoft.com/en-us/powerquery-m/power-query-m-function-reference) page on functions you can use in your query.
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
-1. Optional. Use Microsoft Power BI Desktop to enable an incremental refresh of data.
+1. Optional. Use Microsoft Power BI Desktop to enable an incremental refresh of data.<br><br>
      a. In Microsoft Power BI, click **Transform data** to open Power Query Editor.<br><br>
      b. Click **Manage Parameters**, and then select `Manage Parameters` in the menu.<br><br>
      c. Add the following parameters in the `Manage Parameters` window, and then click **OK**.<br>
@@ -109,8 +109,8 @@ In Microsoft Power BI, you can view and edit the query generated from the connec
      e. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor.<br><br>
      f. Click **Home**, and in the `Fields` pane right-click your data view type, and then choose `Incremental Refresh` in the dropdown menu.<br><br>
      g. Turn on `Incremental Refresh` and edit the values in the `Store rows in the last` fields. This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view.<br><br>
-     The example below shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
-     ![Transform data](./images/mspowerbi-incremental-refresh.png)<br><br>
+     ![Transform data](./images/mspowerbi-incremental-refresh.png)<br>
+     This example shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.<br><br>
     For more information about incremental refresh, see the Microsoft  [Incremental refresh for datasets](https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview) page.<!-- End WI 245245  and 237745-->
 
 ## Create a visualization of the data view in Microsoft Power BI
