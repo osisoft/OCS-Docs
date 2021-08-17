@@ -46,7 +46,7 @@ Use OSIsoft Cloud Services Power BI Connector to retrieve OCS data views for use
 
    ![Select Data Views](./images/click-data-view-box.png)
 
-1. For Stored Data Views, specify a Start and End Index in `YYYY-MM-DDTHH:mm:ss` format for the selected data view, and click **Apply** to save the values you have specified. For Interpolated data views, specify also an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
+1. For Stored Data Views, specify a Start Index and End Index in `YYYY-MM-DDTHH:mm:ss` format for the selected data view, and click **Apply** to save the values. For Interpolated data views, also specify an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
 
     **Note**: If a data view has default values, enter new values and click **Apply** to accept the defaults.
 
