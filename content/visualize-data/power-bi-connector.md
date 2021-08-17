@@ -4,7 +4,7 @@ uid: PowerBI
 
 # OSIsoft Cloud Services Power BI Connector
 
-The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install the connector to retrieve data for use with Microsoft Power BI as described in this section.<br>
+The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install and retrieve data views with the connector for use with Microsoft Power BI as described in this section.<br>
 
 ## Install OSIsoft Cloud Services Power BI Connector
 
