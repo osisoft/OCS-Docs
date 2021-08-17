@@ -1,6 +1,6 @@
 - name: Tenant management
-  href: management/toc.yml
-  topicHref: management/management-overview.md
+  href: tenant/toc.yml
+  topicHref: tenant/management-overview.md
 - name: Identity and access management
   href: identity/toc.yml
   topicHref: identity/identity-and-access-management.md
@@ -10,20 +10,18 @@
 - name: Data collection
   href: data-ingress/toc.yml
   topicHref: data-ingress/data-ingress.md
-- name: Metadata rules
-  topicHref: metadata/metadata-rules-overview.md
 - name: Data views
   href: data-views/toc.yml
   topicHref: data-views/data-views-overview.md
 - name: Operations
   href: operations/toc.yml
   topicHref: operations/operations-overview.md
+- name: Rules
+  href: rules/toc.yml
+  topicHref: rules/rules-overview.md
 - name: Asset store (Preview)
   href: assets/toc.yml
   topicHref: Assets/assets.md
-- name: Asset rules (Preview)
-  href: asset-rules/toc.yml
-  topicHref: asset-rules/asset-rules.md  
 - name: Communities (Preview)
   href: community/toc.yml
   topicHref: community/community-overview.md

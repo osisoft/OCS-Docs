@@ -16,8 +16,8 @@ Procedure
 
 1. Log in to OSIsoft Cloud Services.
 
-2. Click the navigation icon ![](images/menu.png) (upper left corner) and click **Asset Explorer** (under Visualization). 
-    
+2. Click the navigation icon ![](images/menu.png) and select **Visualization > Asset Explorer**. 
+   
     The asset explorer displays the available assets. In this example, it provides an overview of the health of the fleet of trucks.
 
     **Tip:** Click on the icons in the toolbar to toggle between the card and table views of the assets.
@@ -48,13 +48,13 @@ Procedure
 
     The Asset Details pane displays the following:
     
-    -   Data associated with the asset. These values are updated in real time.
+     - Data associated with the asset. These values are updated in real time.
     
-    -   A trend of the selected measurements.
+     - A trend of the selected measurements.
     
     ![Details pane](images/Details_pane.png)
 
-6. Select one or more of the properties that you think might be the cause for the warning.
+6. Select one or more of the properties that might be the cause for the warning.
 
 7. Review the history of the selected properties in the trend to see if the data suggests you have identified a potential cause. 
 
@@ -68,9 +68,9 @@ Procedure
 
     Note the following:
 
-    -   The Trend page shows the properties for the same time range shown in the Details pane of the Asset Editor.
+     - The Trend page shows the properties for the same time range shown in the Details pane of the Asset Editor.
 
-    - There are three views of the trend:
+     - There are three views of the trend:
 
       | Trend View                               | Description                                   |
       | ---------------------------------------- | --------------------------------------------- |
@@ -96,12 +96,12 @@ Procedure
 
     ![Maximum and minimum cursors](images/Max_min_cursors.png)
 
-    Click the plus sign (+) above the trace to lock the cursor in place. The “+” turns into an “x.” Click the “x” to unlock the cursor.
+    Click **+** above the trace to lock the cursor in place. The **+** turns into an **x**. Click the **x** to unlock the cursor.
 
 12. Add other cursors at data points of interest.
 
     **Note:** When two cursors are locked, the Legend table displays summary calculations for the values between the two cursors.
 
-13. Click the link icon ![Copy link icon](images/copy_url_link.png) in the menu bar to copy the URL of the workspace.
+13. Click the link icon ![Copy link icon](images/share-icon.png) in the menu bar to copy the URL of the workspace.
 
-    This link, shared with colleagues, gives them the same view of the trend that they can then use to troubleshoot problems.
+    Share this link to give others the same view of the trend that they can then use to troubleshoot problems.

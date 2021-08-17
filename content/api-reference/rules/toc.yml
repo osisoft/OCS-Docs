@@ -1,0 +1,5 @@
+- name: Metadata rules
+  topicHref: metadata-rules/metadata-rules-overview.md
+- name: Asset rules (Preview)
+  href: asset-rules/toc.yml
+  topicHref: asset-rules/asset-rules.md

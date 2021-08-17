@@ -1,12 +1,8 @@
-- name: Logs
-  href: operations-logs.md
-- name: Usage data
-  href: operations-usage-data.md
-- name: Resource usage data
-  href: operations-resource-usage-data.md
-- name: Billing cycles
-  href: operations-billing-cycles.md
 - name: Health
   href: operations-health.md
+- name: Logs
+  href: operations-logs.md
 - name: Metrics
   href: operations-metrics.md
+- name: Usage
+  href: operations-usage.md

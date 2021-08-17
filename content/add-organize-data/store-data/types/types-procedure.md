@@ -52,4 +52,4 @@ After you have created a type, it cannot be modified.
 
 ## Related links
 
-- [Types](xref:sdsTypes) API
+- [Types](xref:sds-types) API

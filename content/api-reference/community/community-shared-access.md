@@ -14,7 +14,8 @@ When a resource is shared in a community, users with the **Community Member** ro
 
 > [!IMPORTANT]
 >
-> All routes use the standard SDS service. Please see [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
+> All routes use the standard SDS service. 
+> See [Streams](xref:sds-streams) and [Read data API](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
 ***
 
@@ -87,7 +88,8 @@ Stream identifier
 
 > [!IMPORTANT]
 >
-> All routes use the standard SDS service. See [Streams](xref:sdsStreams) and [API calls for reading data](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
+> All routes use the standard SDS service. 
+> See [Streams](xref:sds-streams) and [Read data API](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
 | Status Code               | Response Type | Description                                                     |
 |---------------------------|---------------|-----------------------------------------------------------------|

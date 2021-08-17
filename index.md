@@ -12,4 +12,4 @@ uid: index
 
 ## [API Reference](xref:osisoftCloudServices)
 
-## [Developer guide](xref:intro-dev-guide)
+## [Developer guide](xref:lp-dev-guide)

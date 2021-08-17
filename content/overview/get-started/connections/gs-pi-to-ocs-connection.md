@@ -4,77 +4,30 @@ uid: gsPItoOCS
 
 # Get started with PI to OCS connections
 
-Before you set up your PI to OCS connection, see [PI System best practices](xref:bpPISystemConnection) for recommendations regarding the PI OCS Agent.
+Before you set up your PI to OCS connection, see [PI System best practices](xref:bpPISystemConnection) for recommendations on the PI OCS Agent.
 
-To use PI to OCS to transfer data from your PI System to OCS, you must complete the following:
+To use PI to OCS to transfer data from your PI System to OCS, you must complete the following tasks:
 
-- Create and set up a PI System connection.
 - Install the PI to OCS Agent.
+- Set up your PI to OCS connection in the PI to OCS Configuration Utility.
 - Create a data transfer.
 
-Prerequisite: The exercise below assumes that your organization has a PI System with default PI points (for example, sinusoid) stored on PI Data Archive.
+**Prerequisite:** The exercise below assumes that your organization has a PI System with default PI points (for example, `sinusoid`) stored on Data Archive.
 
-## Create and set up a PI System connection
+## Set up a PI to OCS transfer
 
-1.  Click the ![Menu icon](images\menu-icon.png) icon, and then click **Connections** (under Data Management).
+1.  Click the ![Menu icon](images\menu-icon.png) icon, then click **Data Collection** > **PI to OCS Agents**.
 
-1.  From the **Namespace** drop-down list, click **MyOCS**.
+1.  Select **Download Agent**, then follow the instructions in the [Install the PI to OCS Agent](xref:install-agent).
 
-1.  From the **Type** drop-down list, click **PI System**.
+1. After agent installation, follow the instructions in the [Run the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) to set up your PI to OCS connection and register your agent on OCS.
 
-1.  Click **Add Connection**.
+1.  After successful data source configuration, return to the `PI to OCS Agents` window in the OCS portal.
 
-    The `Add PI System Connection` window opens.
+1.  Select your PI to OCS Agent connection in the `PI to OCS Agents` window, then select **Create Transfer** in the right pane.
 
-1.  In the `Name` field, type **MyOCS**. Click **Next.**
-
-1.  On the **Review** tab, verify that the `Source` field displays *Not Configured*, and the `Destination` field displays *MyOCS*. Click **Save**.
-
-The `Download Installation Kit` window opens. Follow the prompts to download the PI to OCS Agent Installation Kit.
-
-1.  Follow the prompts to download the PI to OCS Agent Installation Kit.
-
-2.  In the `Connections` page, select the **MyOCS** connection.
-
-    **Tip:** Click **Manage Permissions** to open the `Manage Permissions` window. When you are done, click **Cancel**.
-
-    **Note:** In this window, you only configure permissions on the connection object itself.
-
-    **Tip:** Click **Edit Connection** to open the `Edit` window.
-
-    Use this window to edit the name and description of the connection. Enter the new name **MyOCSEdit** and description **PI System Connection used by My OCS**. Click **Next**. When you are done, click **Save**.
-
-## Install the PI to OCS Agent
-
-1. In the `Details` pane on the right side, click **Getting Started Guide** to open the _PI to OCS User Guide_. Follow the installation instructions in the Install the PI to OCS Agent topic.
-
-## Create a data transfer
-
-1.  Once the PI to OCS Agent is installed and registered, return to the `Connections` page of the OCS portal.
-2.  Select the **MyOCS** connection in the list on the left, and then click **Add PI Point Transfer** in the right pane.
-3.  In the `Add PI Point Transfer`window, in the `Name` field, type **sinusoid**. Click **Search**.
-4.  Select the **sinusoid** PI point from the **PI Points Found** list, and click **Add**.
-
-    The sinuisoid PI point appears in the **PI Points to Transfer** list.
-
-5.  Click **Add Transfer** to create the transfer.
-
-    A `Data Transfer` panel appears in the `Details` pane. After some time, the `Historical Transfer` field displays *100%*, and a new stream with sinusoid data is created in the Sequential Data Store.
-
-6.  To verify the result, open the `Sequential Data Store Streams` page in OCS
-    [here](https://cloud.osisoft.com/data/streams), and look for the sinusoid stream.
-
-7.  Select it, and click **Data** on the tree in the left pane.
-
-    If the PI to OCS Agent has transferred historical data, a value with a recent timestamp will display as the last stream value.
-
-8.  Return to the `Connections` page.
-
-9.  Select **MyOCSEdit** in the list, and click **Stop** to end the data transfer.
-
-    **Note:** Connections cannot be deleted while a transfer is running.
+1.  Follow the steps in the [Transfer data to OCS](xref:transfer-data) procedure to define transfer settings and transfer data into OCS.
 
 ## Next step
 
 If you have not already completed [Get started with OMF connections](xref:gsOMF), do this next. Otherwise, continue with [Get started with types](xref:gsTypes).
-

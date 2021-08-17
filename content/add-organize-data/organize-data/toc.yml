@@ -6,3 +6,5 @@
   topicHref: metadata-rules/metadata-rules-concept.md
 - name: Create a data view
   topicHref: data-views/data-views.md
+- name: Stream views
+  topicHref: stream-views/stream-views-concept.md

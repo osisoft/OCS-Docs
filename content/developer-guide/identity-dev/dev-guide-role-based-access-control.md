@@ -4,25 +4,27 @@ uid: accessControl
 
 # Role-based access control
 
-Within OCS, role-based access control to entities such as Namespaces and Streams, is managed using an Access Control List (ACL) and an Owner identity assigned to each entity. ACLs control access to entities based on their OCS Roles.
-
-Owners are granted access for all operations regardless of the contents of the ACL. Not all entities in the OCS system support role-based access control at this time, but the list will quickly grow and currently includes Namespaces and several unreleased entities.
+Use an Access Control List (ACL) to manage role-based access control to entities such as namespaces and streams. ACLs control user access to entities based on their OCS roles. Each entity has an owner, who has access for all operations regardless of the contents of the ACL. Not all entities in the OCS system support role-based access control.  <!--Angela Flores 6/23/21 We should not talk about unreleased functionality or future functionality in the end-user documentation. Original text "Not all entities in the OCS system support role-based access control at this time, but the list will quickly grow and currently includes Namespaces and several unreleased entities." We should list all the entities that do support an ACL. How does access work for entities that don't support an ACL? -->
 
 ## Access Control Lists
 
-Access Control Lists (ACLs) contain sets of Access Control Entries (ACEs), each with a trustee (reference to an identity, such as a role, user, or application), AccessType, and AccessRights. 
+Access Control Lists (ACLs) contain sets of Access Control Entries (ACEs), which contain the following information:
+
+- TrusteeType - the role, user, or application for whom access is set 
+- AccessType - the access permitted, either allowed or denied
+- AccessRights - the 
 
 A user or application that attempts to read, write, delete, or manage access control of an entity assigned an ACL must be assigned a trustee that has `AccessType` set to `Allowed` for the AccessRight corresponding to that operation.
 
-AccessRights are the bitwise union of all of the access rights they encompass. For example, `AccessRights 3` indicates that Read and Write access is permitted.
-
 ### Notes
 
-- If an operation requires more than one access right then an identity can obtain those rights from multiple ACL entries.
+- If an operation requires more than one access right, then an identity obtains those rights from multiple ACL entries.
 - `AccessType.Denied` takes precedence over `AccessType.Allowed`.
   - For example, a role that is assigned `AccessType.Denied` for `AccessRights.All` will receive a `forbidden` for all  requests unless they are the owner of the entity.
 - Roles are the only TrusteeType supported for AccessControlList ACEs.
 - At least one role must be given Manage Permission access.
+
+The following table shows TrusteeTypes and the corresponding TypeIds.
 
 | TrusteeType           | TypeId |
 |-----------------------|--------|
@@ -30,25 +32,31 @@ AccessRights are the bitwise union of all of the access rights they encompass. F
 | Application           | 2      |
 | Role                  | 3      |
 
+The following table shows AccessTypes and the corresponding TypeIds.
+
 | AccessType            | TypeId |
 |-----------------------|--------|
 | Allowed               | 0      |
 | Denied                | 1      |
 
-### CommonAccessRightsEnum
+### Common access rights
+The following table shows predefined access rights and their corresponding integer and bitwise information.
 
 | AccessRights          | int  | bitwise |
 |-----------------------|------|---------|
-| None                  | 0    |    0000 |
-| Read                  | 1    |    0001 |
-| Write                 | 2    |    0010 |
-| Delete                | 4    |    0100 |
-| ManageAccessControl   | 8    |    1000 |
-| All                   | 15   |    1111 |
+| None                  | 0    |   00000 |
+| Read                  | 1    |   00001 |
+| Write                 | 2    |   00010 |
+| Delete                | 4    |   00100 |
+| ManageAccessControl   | 8    |   01000 |
+| Share                 | 16   |   10000 |
+| All                   | 31   |   11111 |
 
-### AccessControlList
+Access rights are determined by the union or summation of one or more individual access rights. For example `AccessRights: 3` indicates that the `Read (1)` and `Write (2)` access are permitted.
 
-The following code sample shows the structure and format for an ACL that gives Role 1 `Read` Access, Role 2 `All` access but denies Role 3 `ManageAccessControl` Access:
+### Sample Access Control List
+
+The following code sample shows the structure and format for an ACL that gives Role 1 `Read` access, Role 2 `All` access but denies Role 3 `ManageAccessControl` access:
 
 **Body**
 
@@ -90,15 +98,9 @@ Content-Type: application/json
 
 ## Owner
 
-Owner objects on OCS entities are used to grant access for all operations on the entity regardless of the entity's AccessControlList's AccessControlEntries. 
+Set an owner on an entity to grant access for all operations on the entity regardless of the access set in the ACL. Only users and applications are valid owners for entities. Users are identified with their `ObjectId`, and applications are identified with the `ApplicationId`.
 
-### Note
-
-- Currently, only Users and Applications are valid owners for entities.  
-
-### Trustee
-
-The following code samples shows the format and structure of an owner object:
+The following code samples shows the format and structure of an owner object.
 
 **User Owner Body**
 

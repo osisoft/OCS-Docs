@@ -1,5 +1,5 @@
 # data responses
-data-get-multiple-formats:
+data-interpolated-get-multiple-formats:
   type: markdown
   value: |
     ```json
@@ -139,6 +139,152 @@ data-get-multiple-formats:
               "2018-01-01T00:00:02Z",
               24,
               44,
+              245
+          ]
+       ]
+    }
+    ```
+
+data-stored-get-multiple-formats:
+  type: markdown
+  value: |
+    ```json
+    form=default
+    HTTP 200 OK
+    Content-Type: application/json
+    [
+        {
+            "Time": "2018-01-01T00:00:03Z",
+            "Temperature": 24,
+            "Flowrate": null,
+            "Volume": 245
+        },
+        {
+            "Time": "2018-01-01T00:00:14Z",
+            "Temperature": 24,
+            "Flowrate": 44,
+            "Volume": null
+        },
+        {
+            "Time": "2018-01-01T00:00:32Z",
+            "Temperature": null,
+            "Flowrate": null,
+            "Volume": 245
+        }
+    ]
+    ```
+
+    ```csv
+    form=csv
+    HTTP 200 OK
+    Content-Type: text/csv
+    2018-01-01T00:00:03Z,24,,245
+    2018-01-01T00:00:14Z,24,44,
+    2018-01-01T00:00:32Z,,,245
+    ```
+
+    ```csv
+    form=csvh
+    HTTP 200 OK
+    Content-Type: text/csv
+    Time,Temperature,Flowrate,Volume
+    2018-01-01T00:00:03Z,24,,245
+    2018-01-01T00:00:14Z,24,44,
+    2018-01-01T00:00:32Z,,,245
+    ```
+
+    ```json
+    form=table
+    HTTP 200 OK
+    Content-Type: application/json
+    {
+       "Columns": [
+          {
+              "Name": "Time",
+              "Type": "DateTime"
+          },
+          {
+              "Name": "Temperature",
+              "Type": "Int32"
+          },
+          {
+              "Name": "Flowrate",
+              "Type": "Int32"
+          },
+          {
+              "Name": "Volume",
+              "Type": "Int32"
+          }
+      ],
+      "Rows": [
+        [
+          "2018-01-01T00:00:03Z",
+          24,
+          null,
+          245
+        ],
+        [
+          "2018-01-01T00:00:14Z",
+          24,
+          44,
+          null
+        ],
+        [
+          "2018-01-01T00:00:32Z",
+          null,
+          null,
+          245
+        ]
+      ]
+    }
+    ```
+
+    ```json
+    form=tableh
+    HTTP 200 OK
+    Content-Type: application/json
+    {
+      "Columns": [
+          {
+              "Name": "Time",
+              "Type": "DateTime"
+          },
+          {
+              "Name": "Temperature",
+              "Type": "Int32"
+          },
+          {
+              "Name": "Flowrate",
+              "Type": "Int32"
+          },
+          {
+              "Name": "Volume",
+              "Type": "Int32"
+          }
+      ],
+      "Rows": [
+          [
+              "Time",
+              "Temperature",
+              "Flowrate",
+              "Volume"
+          ],
+          [
+              "2018-01-01T00:00:03Z",
+              24,
+              null,
+              245
+          ],
+          [
+              "2018-01-01T00:00:14Z",
+              24,
+              44,
+              null
+          ],
+          [
+              "2018-01-01T00:00:32Z",
+              null,
+              null,
               245
           ]
        ]

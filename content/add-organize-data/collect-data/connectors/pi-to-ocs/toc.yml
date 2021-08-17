@@ -10,6 +10,6 @@
 - name: PI to OCS Agent maintenance
   href: pi-to-ocs-agent/toc.yml
   topicHref: pi-to-ocs-agent/landing-page4.md
-- name: View PI to OCS logs 
+- name: Troubleshooting & PI to OCS logs 
   href: pi-to-ocs-log-messages/toc.yml
   topicHref: pi-to-ocs-log-messages/landing-page5.md

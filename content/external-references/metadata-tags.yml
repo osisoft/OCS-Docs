@@ -6,4 +6,4 @@ stream-metadata-tags:
     as a list of strings. Tags can be used to categorize or denote special attributes of streams. 
     The Stream Metadata API And Stream Tags API do not accept the search query parameter in their respective
     GET methods. However, stream tags and metadata can be used as criteria in search query strings to return 
-    stream results with the [Stream](xref:sdsStreams) API. 
+    stream results with the [Streams](xref:sds-streams) API. 

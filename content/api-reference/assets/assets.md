@@ -15,14 +15,14 @@ In this situation, an asset type can be used to create multiple similar assets. 
 
 | Property      | Type              | Required? | Searchable? | Description                                                  | Asset Property? | Asset Type Property? |
 | ------------- | ----------------- | --------- | ----------- | ------------------------------------------------------------ | ----- | --------------- |
-| Id           | String            | Required  | Yes         | `Id` for referencing this asset. If you do not provide an `Id`, OCS copies the name as the identifier`Id`. If you do not provide a name, OCS assigns a random GUID for the `Id`.| Yes  | Yes            |
-| Name          | String            | Required only if `Id` is not specified  | Yes         | User-friendly name. Required if `Id` is not provided. If Name is used as the `Id`, it must be unique within a given namespace. | Yes  | Yes            |
-| Description   | String            | Optional  | Yes         | User-provided description.                                   | Yes  | Yes            |
-| AssetTypeId   | String            | Optional  | No          | `Id` for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
+| Id           | String            | Required  | Yes         | Asset identifier. If the  `Id` field is not specified, the system autogenerates a GUID. | Yes  | Yes            |
+| Name          | String            | Optional | Yes         | User-friendly name. If not specified, name will be set to the same value as the `Id` field. | Yes  | Yes            |
+| Description   | String            | Optional  | Yes         | User-provided description                                   | Yes  | Yes            |
+| AssetTypeId   | String            | Optional  | No          | Identifier for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
 | Metadata      | Metadata List     | Optional  | Yes       | Asset and asset type metadata                               | Yes  | Yes            |
 | StreamReferences   | Stream Reference List | Optional  | No       | Asset stream references                                             | Yes  | No            |
 | TypeReferences | Type Reference List | Optional  | No        | Asset type type references                                     | No | Yes            |
-| StatusMapping | Status Mapping | Optional  | No        | Asset and asset type status mapping | Yes | Yes            |
+| Status | Status | Optional  | No        | Asset and asset type status configuration | Yes | Yes            |
 
 For more information on search syntax, see [Assets Search API](xref:AssetsSearchAPI).
 
@@ -32,14 +32,14 @@ An asset or asset type metadata is static information associated with a given as
 
 | Property    | Type   | Required? | Description                                                  |
 | ----------- | ------ | --------- | ------------------------------------------------------------ |
-| Id          | String | Required*  | `Id` for the metadata value.                                 |
+| Id          | String | Required*  | Metadata value identifier.                    |
 | Name        | String | Required  | User-friendly name for the metadata value. If not null, must be unique within an asset or asset type. |
-| Description | String | Optional  | User-provided description                                    |
+| Description | String | Optional  | User-provided description.                                   |
 | SdsTypeCode | Int    | Required  | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer or string values: 11 ("Int64"), 14 ("Double"), 16 ("DateTime"), and 18 ("String"). |
-| Uom         | String | Optional  | Asset metadata unit of measurement. Select from the list of supported Uom types. |
-| Value       | String | Optional  | String representation of the metadata.                       |
+| Uom         | String | Optional  | Asset metadata unit of measurement (UOM). Select from the list of supported UOM types. |
+| Value       | String | Optional  | String representation of the metadata.                      |
 
-\* `Id` is not required on property if the `Name` matches a `Name` on the Asset Type metadata. In this case, the `Id` of the metadata on the Asset will be set as the metadata `Id` of the Asset Type. This also applies when an Asset is updated.
+\* The`Id` property is not required if the `Name` property matches a `Name` on the asset type metadata. In this case, the `Id` of the metadata on the asset is inherited from the metadata `Id` of the asset type. This also applies when an asset is updated.
 
 ## Asset stream reference properties
 
@@ -47,12 +47,12 @@ An asset stream reference represents dynamic stream data associated with an asse
 
 | Property      | Type   | Required? | Description                                                  |
 | ------------- | ------ | --------- | ------------------------------------------------------------ |
-| Id            | String | Required*  | `Id` for this stream reference object.  This `Id` must be unique within the asset.                    |
+| Id            | String | Required*  | Identifier for the stream reference object.  The identifier must be unique within the asset. |
 | Name          | String | Required  | User-friendly name for the stream reference object. If not null, must be unique within an asset. |
-| Description   | String | Optional  | Description text.                                            |
+| Description   | String | Optional  | Description text.                                          |
 | StreamId      | String | Required  | The SDS stream `Id` of this stream reference. This SDS stream must exist at the time the asset is created. |
 
-\* `Id` is not required on property if the `Name` matches a `Name` on the Asset Type type reference. In this case, the `Id` of the stream reference on the Asset will be set as the type reference `Id` of the Asset Type. This also applies when an Asset is updated.
+\* The`Id` property is not required if the `Name` property matches a `Name` on the asset type type reference. In this case, the `Id` of the stream reference on the asset is inherited from the type reference `Id` of the asset type. This also applies when an asset is updated.
 
 ## Asset type type reference properties
 
@@ -60,9 +60,9 @@ An asset type type reference represents dynamic stream data associated with an a
 
 | Property    | Type   | Required? | Description                                                  |
 | ----------- | ------ | --------- | ------------------------------------------------------------ |
-| StreamReferenceId | String | Required |The `Id` for this type reference. If an asset is derived from this asset type, this Id must be referenced in the asset reference type object. This `Id` must be unique within the asset type. |
+| StreamReferenceId | String | Required |The `Id` for this type reference. If an asset is derived from this asset type, this `Id` must be referenced in the asset reference type object. This `Id` must be unique within the asset type. |
 | StreamReferenceName  | String | Required  | The user friendly name for this type reference. If not null, must be unique within an asset type.|
-| Description | String | Optional  | Description text                                             |
+| Description | String | Optional  | Description text                                            |
 | TypeId    | String | Required  | This string must be an SDS stream type `Id` in the referenced SDS stream. |
 
 ## Asset and asset type status mapping properties
@@ -112,20 +112,22 @@ Asset example
             "StreamId": "PI_StreamReference_1010"
    }],
    "Status": {
-        "Name": "ChargingStationStatus",
-        "StreamReferenceId": "Reference1",
-        "StreamPropertyId": "Value",
-        "ValueStatusMappings": [{
-                "Value": 0,
-                "Status": 0,
-                "DisplayName": "Bad"
-            }
-            {
-                "Value": 1,
-                "Status": 1,
-                "DisplayName": "Good"
-            }
-        ]
+   		"DefinitionType": "StreamPropertyMapping",
+  		"Definition": {
+    		"StreamReferenceId": "Reference1",
+    		"StreamPropertyId": "Value",
+    		"ValueStatusMappings": [
+      		{
+        		"Value": 3,
+        		"Status": "Bad",
+        		"DisplayName": "Bad"
+      		},
+      		{
+        		"Value": 1,
+        		"Status": "Good",
+        		"DisplayName": "Good"
+      		}]
+  		}
     }
 } 
 ```

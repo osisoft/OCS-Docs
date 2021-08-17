@@ -1,40 +1,40 @@
 200:
   type: text/plain
   value: |
-    Success
+    Success.
 201:
   type: text/plain
   value: |
-    Created
+    Created.
 204:
   type: text/plain
   value: |
-    Deleted
+    Deleted.
 207:
   type: text/plain
   value: |
-    Partial 
+    Partial.
 400:
   type: text/plain
   value: |
-    Missing or invalid inputs
+    Missing or invalid inputs.
 401:
   type: text/plain
   value: |
-    Unauthorized
+    Unauthorized.
 403:
   type: text/plain
   value: |
-    Forbidden
+    Forbidden.
 404:
   type: text/plain
   value: |
-    Client or tenant not found
+    Client or tenant not found.
 408:
   type: text/plain
   value: |
-    Operation timed out
+    Operation timed out.
 500:
   type: text/plain
   value: |
-    Internal server error
+    Internal server error.

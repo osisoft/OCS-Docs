@@ -1,4 +1,4 @@
-﻿---
+---
 uid: AssetsAPI
 ---
 
@@ -17,7 +17,7 @@ This is version 7 of this particular asset.
 Etag: "7"
 ```
 
-To edit or delete the asset, specify If-Match in the HTTP request header when calling `DELETE` or `PUT`.
+To edit or delete the asset, specify `If-Match` in the HTTP request header when calling `DELETE` or `PUT`.
 
 #### Example If-Match Response Header
 Modify or delete only if the current asset matches version 7. Otherwise, do not perform this operation. If this condition fails, return a 412. 
@@ -26,7 +26,7 @@ Modify or delete only if the current asset matches version 7. Otherwise, do not 
 If-Match : "7"
 ```
 
-Note: If-Match is optional. If you want to delete or modify an asset regardless of the asset version, do not specify an If-Match.
+**Note:** `If-Match` is optional. If you want to delete or modify an asset regardless of the asset version, do not specify an `If-Match`.
 
 ***
 
@@ -40,13 +40,13 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 
 ### Parameters  
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`  
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 ### Response 
 
@@ -89,7 +89,7 @@ Content-Type: application/json
 ***
 
 ## `Get Assets` 
-Returns an array of assets and the total number of assets returned, specified as Total-Count in the HTTP response header. 
+Returns an array of assets and the total number of assets returned, specified as `Total-Count` in the HTTP response header. 
 
 ### Request 
 ```
@@ -98,16 +98,16 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets?skip={skip
 
 ### Parameters  
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 [optional] `int skip`   
-An optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
+Optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
 
 [optional] `int count`   
-An optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of retrieved assets. If not specified, the default is 100.
+Optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of retrieved assets. If not specified, the default is 100.
 
 ### Response 
 The response includes a status code and a body. 
@@ -122,20 +122,22 @@ The response includes a status code and a body.
 ***
 
 ## `Create Asset` 
-Create a new asset with a specified `Id`. 
+Creates a new asset with a specified `Id`. 
 
-If the asset you are trying to create references an asset type (through the AssetTypeId property) and if the corresponding asset type has a metadata value with the same `Id`, then the name and SDS type code of the metadata value on the asset must be null. If the asset type does not have metadata value with a corresponding `Id`, the name and SDS type code on the asset cannot be null.
+If the asset you are trying to create references an asset type (through the `AssetTypeId` property) and if the corresponding asset type has a metadata value with the same `Id`, then the name and SDS type code of the metadata value on the asset must be null. If the asset type does not have metadata value with a corresponding `Id`, the name and SDS type code on the asset cannot be null.
 
 To support flexibility on creation and update, the following rules and behaviors are executed for metadata and stream references on a given asset when that asset is created from an asset type.
 ### Examples
 
-| Asset values                                             | Metadata values on the asset type                          | How references are resolved                                             |
-| ----------------------------------------------------| ----------------------------------------------------- | ------------------------------------------------- | 
-| Id = "Metadata Id"​ and Name = Not specified         | Id matches the asset type's Metadata Id | Uses the matching asset type's Metadata Name |
-|                                                     | Id does not match any asset type Metadata Id | Id is used as Name |
-| Id = Not specified​ and Name = "Metadata Name"       | Name matches asset type Metadata Name | Use matching asset type Metadata Id |
-|                                                     | Name does not match any asset type Metadata Name | GUID is generated for Id |
-| Id = "Metadata Id"​ and Name = "Metadata Name"       | Either Id or Name, but not both, match asset type Metadata Id or Name | Error. |
+<!-- I changed the formatting of properties to be consistent with how we format examples for other APIs -->
+
+| Asset values                                      | Metadata values on the asset type                            | How references are resolved                      |
+| ------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------ |
+| `Id` = "Metadata Id"​ and `Name` = Not specified   | `Id` matches the asset type's `Metadata` `Id`                | Uses the matching asset type's `Metadata` `Name` |
+|                                                   | `Id` does not match any asset type `Metadata` `Id`           | `Id` is used as `Name`                           |
+| `Id` = Not specified​ and `Name` = "Metadata Name" | `Name` matches asset type `Metadata` `Name`                  | Use matching asset type `Metadata` `Id`          |
+|                                                   | `Name` does not match any asset type `Metadata` `Name`       | GUID is generated for`Id`                        |
+| `Id` = "Metadata Id"​ and `Name` = "Metadata Name" | Either `Id` or `Name`, but not both, match asset type `Metadata` `Id` or `Name` | Error.                                           |
 
 ### Request 
 ```text 
@@ -144,20 +146,20 @@ POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 
 ### Parameters  
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 
 #### Request body 
 An `asset` object
 
 #### Example request body 
-NOTE: To create an asset with a specific `Id`, use the API route with `Id`. If this is used, you must specify a matching `Id` field for the asset object in the JSON object below.
+**NOTE:** To create an asset with a specific `Id`, use the API route with `Id`. If this is used, you must specify a matching `Id` field for the asset object in the JSON object below.
 
 ```json 
 {
@@ -198,7 +200,7 @@ The response includes a status code, a body, and the Etag version in the HTTP re
 
 ## `Create Assets (Bulk create)` 
 
-Create multiple assets in a single call.
+Creates multiple assets in a single call.
 
 ### Request 
 
@@ -209,10 +211,10 @@ POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/bulk/Assets
 ### Parameters  
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 #### Request body 
 
@@ -234,20 +236,20 @@ The response includes a status code and a body.
 
 ## `Create or Update Asset` 
 
-Create or update an asset with a specified `Id`. If the asset already exists, you can specify an If-Match property in the HTTP request header to ensure that the asset is modified only if its version matches.
+Creates or updates an asset with a specified `Id`. If the asset already exists, you can specify an `If-Match` property in the HTTP request header to ensure that the asset is modified only if its version matches.
 
 To support flexibility, on creation and update, the following rules and behaviors are executed for metadata and stream references on a given asset when that asset is from an asset type.
 ### Examples
-| Asset values                                            | Metadata values on the asset type                          | How references are resolved                                              |
-| ----------------------------------------------------| ----------------------------------------------------- | ------------------------------------------------- | 
-| Id = "Metadata Id"​ and Name = Not specified         | Id matches the asset type's Metadata Id | Uses the matching asset type Metadata Name |
-|                                                     | Id matches the existing asset type's Metadata Id | Uses the existing matching Metadata Name|
-|                                                     | Id does not match any asset type Metadata Id | Id is used as Name |
-| Id = Not specified​ and Name = "Metadata Name"       | Name matches the asset type's Metadata Name | Uses the matching asset type Metadata Id |
-|                                                     | Name matches the existing asset type's Metadata Name | Uses the matching existing asset type Metadata Id |
-|                                                     | Name does not match any asset type Metadata Name | GUID is generated for Id |
-| Id = "Metadata Id"​ and Name = "Metadata Name"       | Only Id or Name (not both) matches asset type Metadata Id or Name | Error. |
-|                                                     | Only Id or Name (not both) matches existing asset type Metadata Id or Name | The non-matching Id or Name of the existing Metadata is updated |
+| Asset values                                      | Metadata values on the asset type                            | How references are resolved                                  |
+| ------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `Id` = "Metadata Id"​ and `Name` = Not specified   | `Id` matches the asset type's `Metadata` `Id`                | Uses the matching asset type `Metadata` `Name`               |
+|                                                   | `Id` matches the existing asset type's `Metadata` `Id`       | Uses the existing matching `Metadata` `Name`                 |
+|                                                   | `Id` does not match any asset type `Metadata` `Id`           | `Id` is used as `Name`                                       |
+| `Id` = Not specified​ and `Name` = "Metadata Name" | `Name` matches the asset type's `Metadata` `Name`            | Uses the matching asset type `Metadata` `Id`                 |
+|                                                   | `Name` matches the existing asset type's `Metadata` `Name`   | Uses the matching existing asset type `Metadata` `Id`        |
+|                                                   | `Name` does not match any asset type `Metadata` `Name`       | GUID is generated for `Id`                                   |
+| `Id` = "Metadata Id"​ and `Name` = "Metadata Name" | Only `Id` or `Name` (not both) matches asset type `Metadata`  `Id` or `Name` | Error.                                                       |
+|                                                   | Only `Id` or `Name` (not both) matches existing asset type `Metadata`  `Id` or `Name` | The non-matching `Id` or `Name` of the existing `Metadata` is updated |
 
 ### Request 
 
@@ -258,13 +260,13 @@ PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ### Parameters  
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 #### Request body 
 
@@ -274,7 +276,7 @@ The newly created or updated `asset` object.
 
 If an asset type `Id` is specified for an asset, then the following is true:
 - The stream references name of an asset is set to null if the stream reference `Id` matches the stream reference `Id` of the asset type.
-- If the asset and asset type have a metadata value with the same `Id`, then the name property on the asset is set to null. 
+- If the asset and asset type have a metadata value with the same `Id`, then the `Name` property on the asset is set to null. 
 
 ### Response 
 
@@ -293,7 +295,7 @@ The response includes a status code, body, and Etag version in the HTTP response
 
 ## `Delete Asset` 
 
-Delete an asset with a specified `Id`. You can include an If-Match property in the HTTP request header to specify the asset version. The asset is deleted only if the version matches.
+Deletes an asset with a specified `Id`. You can include an `If-Match` property in the HTTP request header to specify the asset version. The asset is deleted only if the version matches.
 
 ### Request 
 
@@ -304,13 +306,13 @@ DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetI
 ### Parameters  
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 #### Request body 
 
@@ -326,11 +328,11 @@ The response includes a status code and a body.
 | 400 Bad Request           | error     | The request is not valid. The response includes which asset failed validation checks. See the response body for additional details.      |
 | 403 Forbidden             | error     | You are not authorized to delete this asset.       |
 | 404 Not Found             | error     | The asset with the specified `Id` could not be found.  |
-| 412 Pre-Condition Failed  | error     | The asset failed to update because the If-Match condition failed.  |
+| 412 Pre-Condition Failed  | error     | The asset failed to update because the `If-Match` condition failed. |
 
 ## `Delete Asset (bulk)`
 
-Delete all assets with the specified Ids. Use this API to delete up to a maximum of 1000 assets in one API call.
+Deletes all assets with the specified Ids. Use this API to delete up to a maximum of 1000 assets in one API call.
 
 ### Request 
 
@@ -341,13 +343,13 @@ DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/bulk/Assets?id
 ### Parameters  
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string[] ids`  
-A parameter consisting of a comma-separated list of asset Ids that you want to delete.
+Parameter consisting of a comma-separated list of asset Ids that you want to delete.
 
 ### Response 
 

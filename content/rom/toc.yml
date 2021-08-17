@@ -1,4 +1,6 @@
 - name: Get started with remote operations monitoring
   topicHref: getting-started-rom.md
+- name: Filter assets in the Asset Explorer
+  topicHref: filter-assets-asset-explorer.md
 - name: Share a view of your fleet
   topicHref: share-fleet-view.md

@@ -13,7 +13,7 @@ Procedure
 1. Log in to OSIsoft Cloud Services.
 
 2. Click the navigation icon ![](images/icon_navigation_bigger.png) (upper left corner) and click **Trend** (under Visualization). 
-    
+   
 3. In the Add Traces blade, click the **+** sign to add the trace to the trend. 
 
    Tip: 
@@ -35,7 +35,7 @@ Procedure
     The following screen capture shows the stacked view.
     ![Trend dislaying traces in stacked view](images/Traces_stacked_view.png)
    
-5. Click the time picker and select the time range you want to view. If the desired time range doesn't appear in this list, click the **Custom Range** tab and specify your time range.<br>
+5. Click the time picker and select the time range you want to view. If the desired time range does not appear in this list, click the **Custom Range** tab and specify your time range.<br>
 
     ![Time picker](images/Time-picker.png)
 <br>
@@ -63,7 +63,7 @@ Procedure
 
     ![Cursor_view](images/Cursor_view.png)
 
-9. Click the link icon ![Copy link icon](images/copy_url_link.png) in the menu bar to copy the URL of the workspace.  <br>
+9. Click the share icon ![share trend session icon](images/share-icon.png) in the menu bar to copy the URL of the workspace.  <br>
 
-    This link, when shared with colleagues, gives them the same view of the trend that they can then use to troubleshoot problems.
+    You can share this URL with colleagues to give them the same view of the trend which they can use to troubleshoot problems.
 

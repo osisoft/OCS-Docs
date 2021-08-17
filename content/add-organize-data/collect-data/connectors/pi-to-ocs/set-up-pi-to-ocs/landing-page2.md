@@ -8,9 +8,9 @@ uid: landing-page2
 This section contains the following topics:
 <br>
 <br>
-* [Access the OCS portal](xref:access-ocs-portal)
-* [Create a PI System connection](xref:create-pi-to-ocs-connection)
+* [Disable Internet Explorer enhanced security](xref:disable-ie-security)
 * [Install the PI to OCS Agent](xref:install-agent)
 * [Run the PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility)
-* [Confirm PI to OCS Agent is running](xref:confirm-agent-run)
 
+
+**IMPORTANT:** The PI to OCS Agent requires the Windows service to "run as user". You must have read access to PI Data Archive security tables and PI point data. See [PI to OCS minimum system requirements](xref:min-sys-reqmnts) for more information.

@@ -4,13 +4,18 @@ uid: identity-tenants-users
 ---
 
 # Tenants Users
-Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in the user cannot change the identity provider it signed up with. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
+Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. 
+A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, 
+but it delegates authentication to the identity provider the user logged in with at first. Once logged in, the user cannot change the identity provider with which it signed up. 
+A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. 
+Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. 
+We allow the change of some user fields and the complete deletion of a user.
 
 ## `List Users from a Tenant`
 
 <a id="opIdUsers_List Users from a Tenant"></a>
 
-Gets a list of users from a tenant. Optionally, get a list of requested users. Total number of users in the tenant set in the Total-Count header.
+Returns a list of users from a tenant. Optionally, returns a list of requested users. Total number of users in the tenant set in the Total-Count header.
 
 ### Request
 ```text 
@@ -21,12 +26,12 @@ GET /api/v1/Tenants/{tenantId}/Users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of user Ids to get<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of users to skip. Ignored if a list of Ids is passed.<br/><br/>`[optional] integer count`
-<br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>
+<br/>Unordered list of identifiers of all users to return<br/><br/>`[optional] string query`
+<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/><br/>
 
 ### Response
 
@@ -34,14 +39,14 @@ GET /api/v1/Tenants/{tenantId}/Users
 |---|---|---|
 |200|[User](#schemauser)[]|List of users found|
 |207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser)[])
 
 ```json
 [
@@ -76,7 +81,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get Total Count of Users"></a>
 
-Returns the total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This endpoint is identical to the GET one but it does not return any objects in the body.
+Returns the total number of users in a tenant. Optionally, check based on a list of requested users. The value will be set in the Total-Count header. This method is identical to the GET method, but it does not return any objects in the body.
 
 ### Request
 ```text 
@@ -87,19 +92,19 @@ HEAD /api/v1/Tenants/{tenantId}/Users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>
 `[optional] array id`
-<br/>Unordered list of user Ids<br/><br/>
+<br/>Unordered list of user identifiers<br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|User header found|
-|401|None|Unauthorized|
-|403|None|Forbidden|
+|401|None|Unauthorized.<br/>|
+|403|None|Forbidden.<br/>|
 |404|None|User not found|
-|500|None|Internal server error|
+|500|None|Internal server error.<br/>|
 
 ### Authorization
 
@@ -110,11 +115,11 @@ Allowed for these roles:
 
 ---
 
-## `Create User (`v1` path)`
+## `Create User (v1 path)`
 
-<a id="opIdUsers_Create User (`v1` path)"></a>
+<a id="opIdUsers_Create User (v1 path)"></a>
 
-Creates a user in the tenant. This endpoint does not create an invitation for the user. You will need to create an invitation in the respective endpoint for this user, otherwise they will not be able to finish the sign-up process. Users have unique Ids in a tenant. Currently there is a limit of 50000 users per tenant. For Windows Active Directory users, the externalUserId must be specified.
+Creates a user in the tenant. This method does not create an invitation for the user. You will need to create an invitation with the respective method for this user, otherwise they will not be able to finish the sign-up process. Users have identifiers in a tenant. Currently there is a limit of 50000 users per tenant. For Windows Active Directory users, the external user identifier must be specified.
 
 ### Request
 ```text 
@@ -124,7 +129,7 @@ POST /api/v1/Tenants/{tenantId}/Users
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>
 
 ### Request Body
 
@@ -151,14 +156,14 @@ UserCreateOrUpdate object<br/>
 |---|---|---|
 |201|[User](#schemauser)|User created|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or the user limit exceeded for tenant.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 201 Response
+> 201 Response ([User](#schemauser))
 
 ```json
 {
@@ -187,11 +192,80 @@ Allowed for these roles:
 
 ---
 
+## `List Users' Invitation Status`
+
+<a id="opIdUsers_List Users' Invitation Status"></a>
+
+Returns the status of the invitations for multiple users. Optionally, restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+
+### Request
+```text 
+GET /api/v1/Tenants/{tenantId}/Users/Status
+?id={id}&query={query}&skip={skip}&count={count}&status={status}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/><br/>
+`[optional] array id`
+<br/>Unordered list of identifiers of all users to return<br/><br/>`[optional] string query`
+<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/><br/>`[optional] array status`
+<br/>Only return statuses that match these values. Possible user statuses are: InvitationAccepted, NoInvitation, InvitationNotSent, InvitationSent, InvitationExpired.<br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+
+#### Example response body
+> 200 Response ([UserStatus](#schemauserstatus)[])
+
+```json
+[
+  {
+    "InvitationStatus": 0,
+    "User": {
+      "Id": "string",
+      "GivenName": "string",
+      "Surname": "string",
+      "Name": "string",
+      "Email": "string",
+      "ContactEmail": "string",
+      "ContactGivenName": "string",
+      "ContactSurname": "string",
+      "ExternalUserId": "string",
+      "IdentityProviderId": "string",
+      "RoleIds": [
+        "string"
+      ]
+    }
+  }
+]
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Member</li>
+</ul>
+
+---
+
 ## `Get User from a Tenant`
 
 <a id="opIdUsers_Get User from a Tenant"></a>
 
-Gets a specific user from a tenant.
+Returns a specific user from a tenant.
 
 ### Request
 ```text 
@@ -201,21 +275,21 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[User](#schemauser)|User specified|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -249,7 +323,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get Header for User"></a>
 
-Validates that a user exists. This endpoint is identical to the GET one, but it does not return an object in the body.
+Validates that a user exists. This method is identical to the GET method, but it does not return an object in the body.
 
 ### Request
 ```text 
@@ -259,18 +333,18 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Header for user|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|User does not exist.|
-|500|None|Internal server error|
+|401|None|Unauthorized.<br/>|
+|403|None|Forbidden.<br/>|
+|404|None|User does not exist|
+|500|None|Internal server error.<br/>|
 
 ### Authorization
 
@@ -286,7 +360,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Update User in a Tenant"></a>
 
-Updates a user in a tenant. The user unique identifier cannot be changed.
+Updates a user in a tenant. The user identifier cannot be changed.
 
 ### Request
 ```text 
@@ -296,8 +370,8 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Request Body
 
@@ -323,15 +397,15 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[User](#schemauser)|Updated user|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser))
 
 ```json
 {
@@ -375,8 +449,8 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 `[optional] boolean force`
 <br/>Forcibly delete a user that can remain due to claim role mappings.<br/><br/>
 
@@ -386,14 +460,14 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 |---|---|---|
 |200|string|No content|
 |204|None|No content|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 401 Response
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
@@ -401,6 +475,7 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "EventId": "string",
   "property1": null,
   "property2": null
 }
@@ -410,146 +485,6 @@ DELETE /api/v1/Tenants/{tenantId}/Users/{userId}
 
 Allowed for these roles: 
 <ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Get User's Preferences`
-
-<a id="opIdUsers_Get User's Preferences"></a>
-
-Gets preferences from a user. User preferences can be any valid JSON object. A common use case is to store UI preferences for the user.
-
-### Request
-```text 
-GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|Inline|User preferences for specified user|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|422|[ErrorResponse](#schemaerrorresponse)|Unprocessable entity|
-
-#### Example response body
-> 401 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Self</li>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Get Header for User's Preferences`
-
-<a id="opIdUsers_Get Header for User's Preferences"></a>
-
-Validates that there are preferences for a user. This endpoint is identical to the GET one but it does not return any objects in the body.
-
-### Request
-```text 
-HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Header for specified user's preferences|
-|401|None|Unauthorized|
-|403|None|Forbidden|
-|404|None|User or tenant not found|
-|500|None|Internal server error|
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Self</li>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Update User's Preferences`
-
-<a id="opIdUsers_Update User's Preferences"></a>
-
-Updates preferences for a user.
-
-### Request
-```text 
-PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|Inline|Updated user preferences|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing preferences|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-
-#### Example response body
-> 400 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
@@ -559,7 +494,7 @@ Allowed for these roles:
 
 <a id="opIdUsers_Get User's Invitation Status"></a>
 
-Gets invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+Returns invitation status for a user. It can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
 
 ### Request
 ```text 
@@ -569,21 +504,21 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[UserStatus](#schemauserstatus)|User status for user specified|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([UserStatus](#schemauserstatus))
 
 ```json
 {
@@ -616,138 +551,45 @@ Allowed for these roles:
 
 ---
 
-## `List Users' Invitation Status`
+## `Get User's Preferences`
 
-<a id="opIdUsers_List Users' Invitation Status"></a>
+<a id="opIdUsers_Get User's Preferences"></a>
 
-Gets invitation statuses for multiple users. Optionally restrict it only to users of a specific invitation status. The user status can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
+Returns preferences from a user. User preferences can be any valid JSON object. A common use case is to store UI preferences for the user.
 
 ### Request
 ```text 
-GET /api/v1/Tenants/{tenantId}/Users/Status
-?id={id}&query={query}&skip={skip}&count={count}&status={status}
+GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
-`[optional] array id`
-<br/>Unordered list of user Ids to get<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Number of users to skip. Ignored if a list of Ids is passed<br/><br/>`[optional] integer count`
-<br/>Maximum number of users to return. Ignored if a list of Ids is passed.<br/><br/>`[optional] array status`
-<br/>Only return statuses that match these values. Possible user statuses are: InvitationAccepted, NoInvitation, InvitationNotSent, InvitationSent, InvitationExpired.<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|200|Inline|User preferences for specified user|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
+|422|[ErrorResponse](#schemaerrorresponse)|Unprocessable entity|
 
 #### Example response body
-> 200 Response
-
-```json
-[
-  {
-    "InvitationStatus": 0,
-    "User": {
-      "Id": "string",
-      "GivenName": "string",
-      "Surname": "string",
-      "Name": "string",
-      "Email": "string",
-      "ContactEmail": "string",
-      "ContactGivenName": "string",
-      "ContactSurname": "string",
-      "ExternalUserId": "string",
-      "IdentityProviderId": "string",
-      "RoleIds": [
-        "string"
-      ]
-    }
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Member</li>
-</ul>
-
----
-
-## `Create User (`v1-preview` path)`
-
-<a id="opIdUsers_Create User (`v1-preview` path)"></a>
-
-Creates a `User`.
-
-### Request
-```text 
-POST /api/v1-preview/Tenants/{tenantId}/Users
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier<br/><br/>
-
-### Request Body
-
-User values to use during creating<br/>
+> 401 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
-  "UserId": "string",
-  "ContactGivenName": "string",
-  "ContactSurname": "string",
-  "ContactEmail": "user@example.com",
-  "RoleIds": [
-    "string"
-  ],
-  "IdentityProviderId": "string"
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|201|[User](#schemauser)|User created|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or user limit exceeded|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-#### Example response body
-> 201 Response
-
-```json
-{
-  "Id": "string",
-  "GivenName": "string",
-  "Surname": "string",
-  "Name": "string",
-  "Email": "string",
-  "ContactEmail": "string",
-  "ContactGivenName": "string",
-  "ContactSurname": "string",
-  "ExternalUserId": "string",
-  "IdentityProviderId": "string",
-  "RoleIds": [
-    "string"
-  ]
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "EventId": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -755,75 +597,89 @@ User values to use during creating<br/>
 
 Allowed for these roles: 
 <ul>
+<li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
 ---
 
-## `Update User`
+## `Get Header for User's Preferences`
 
-<a id="opIdUsers_Update User"></a>
+<a id="opIdUsers_Get Header for User's Preferences"></a>
 
-Create or Update a user.
+Validates that there are preferences for a user. This method is identical to the GET method, but it does not return any objects in the body.
 
 ### Request
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
+HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 ```
 
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User unique identifier<br/><br/>
-
-### Request Body
-
-A UserStatus object<br/>
-
-```json
-{
-  "UserId": "string",
-  "ContactGivenName": "string",
-  "ContactSurname": "string",
-  "ContactEmail": "user@example.com",
-  "RoleIds": [
-    "string"
-  ],
-  "IdentityProviderId": "string"
-}
-```
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
 
 ### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[User](#schemauser)|Updated user|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|200|None|Header for specified user's preferences|
+|401|None|Unauthorized.<br/>|
+|403|None|Forbidden.<br/>|
+|404|None|User or tenant not found|
+|500|None|Internal server error.<br/>|
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Self</li>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## `Update User's Preferences`
+
+<a id="opIdUsers_Update User's Preferences"></a>
+
+Updates preferences for a user.
+
+### Request
+```text 
+PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|Inline|Updated user preferences|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
 
 #### Example response body
-> 200 Response
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
 
 ```json
 {
-  "Id": "string",
-  "GivenName": "string",
-  "Surname": "string",
-  "Name": "string",
-  "Email": "string",
-  "ContactEmail": "string",
-  "ContactGivenName": "string",
-  "ContactSurname": "string",
-  "ExternalUserId": "string",
-  "IdentityProviderId": "string",
-  "RoleIds": [
-    "string"
-  ]
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "EventId": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
@@ -831,6 +687,7 @@ A UserStatus object<br/>
 
 Allowed for these roles: 
 <ul>
+<li>Self</li>
 <li>Tenant Administrator</li>
 </ul>
 
@@ -851,12 +708,12 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>
 `[optional] array userId`
-<br/>Unordered list of Ids for all users to get<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
-<br/>Maximum items to return. Currently not supported.<br/><br/>
+<br/>Unordered list of identifiers of all users to return<br/><br/>`[optional] string query`
+<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "skip.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>`[optional] integer count`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "count.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>
 
 ### Response
 
@@ -864,14 +721,14 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
 |---|---|---|
 |200|[User](#schemauser)[]|List of users found|
 |207|[UserMultiStatusResponse](#schemausermultistatusresponse)|List of users found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([User](#schemauser)[])
 
 ```json
 [
@@ -917,12 +774,12 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
 #### Parameters
 
 `string tenantId`
-<br/>Tenant identifier<br/><br/>
+<br/>Tenant identifier.<br/><br/><br/>
 `[optional] array userId`
-<br/>Unordered list of Ids for all users<br/><br/>`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Items to skip. Currently not supported.<br/><br/>`[optional] integer count`
-<br/>Maximum number of items to retrieve. Currently not supported.<br/><br/>
+<br/>Unordered list of identifiers for all users<br/><br/>`[optional] string query`
+<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "skip.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>`[optional] integer count`
+<br/><span style="background-color:red;color:white">ERROR: Parameter "count.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>
 
 ### Response
 
@@ -930,14 +787,14 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
 |---|---|---|
 |200|[UserStatus](#schemauserstatus)[]|List of user statuses found|
 |207|[UserStatusMultiStatusResponse](#schemauserstatusmultistatusresponse)|List of user statuses found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
 
 #### Example response body
-> 200 Response
+> 200 Response ([UserStatus](#schemauserstatus)[])
 
 ```json
 [
@@ -970,6 +827,157 @@ Allowed for these roles:
 </ul>
 
 ---
+
+## `Create User (v1-preview path)`
+
+<a id="opIdUsers_Create User (v1-preview path)"></a>
+
+Creates a user.
+
+### Request
+```text 
+POST /api/v1-preview/Tenants/{tenantId}/Users
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/><br/>
+
+### Request Body
+
+User values to use during creating<br/>
+
+```json
+{
+  "UserId": "string",
+  "ContactGivenName": "string",
+  "ContactSurname": "string",
+  "ContactEmail": "user@example.com",
+  "RoleIds": [
+    "string"
+  ],
+  "IdentityProviderId": "string"
+}
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|201|[User](#schemauser)|User created|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid input, or user limit exceeded|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+
+#### Example response body
+> 201 Response ([User](#schemauser))
+
+```json
+{
+  "Id": "string",
+  "GivenName": "string",
+  "Surname": "string",
+  "Name": "string",
+  "Email": "string",
+  "ContactEmail": "string",
+  "ContactGivenName": "string",
+  "ContactSurname": "string",
+  "ExternalUserId": "string",
+  "IdentityProviderId": "string",
+  "RoleIds": [
+    "string"
+  ]
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## `Update User`
+
+<a id="opIdUsers_Update User"></a>
+
+Creates or updates a user.
+
+### Request
+```text 
+PUT /api/v1-preview/Tenants/{tenantId}/Users/{userId}
+```
+
+#### Parameters
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/><br/>`string userId`
+<br/>User identifier.<br/><br/><br/>
+
+### Request Body
+
+A UserStatus object<br/>
+
+```json
+{
+  "UserId": "string",
+  "ContactGivenName": "string",
+  "ContactSurname": "string",
+  "ContactEmail": "user@example.com",
+  "RoleIds": [
+    "string"
+  ],
+  "IdentityProviderId": "string"
+}
+```
+
+### Response
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[User](#schemauser)|Updated user|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|404|[ErrorResponse](#schemaerrorresponse)|User or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+
+#### Example response body
+> 200 Response ([User](#schemauser))
+
+```json
+{
+  "Id": "string",
+  "GivenName": "string",
+  "Surname": "string",
+  "Name": "string",
+  "Email": "string",
+  "ContactEmail": "string",
+  "ContactGivenName": "string",
+  "ContactSurname": "string",
+  "ExternalUserId": "string",
+  "IdentityProviderId": "string",
+  "RoleIds": [
+    "string"
+  ]
+}
+```
+
+### Authorization
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
 ## Definitions
 
 ### User
@@ -985,7 +993,7 @@ Object for retrieving a user
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|false|User unique identifier|
+|Id|guid|false|false|User identifier|
 |GivenName|string|false|true|Given name of the user|
 |Surname|string|false|true|Surname of the user|
 |Name|string|false|true|Name of the user|
@@ -993,8 +1001,8 @@ Object for retrieving a user
 |ContactEmail|string|false|true|Contact email for the user. User will only be contacted through this email.|
 |ContactGivenName|string|false|true|Preferred given name for the user|
 |ContactSurname|string|false|true|Preferred contact surname for the user|
-|ExternalUserId|string|false|true|Provider unique identifier for the user. This is the unique identifier we get from the identity provider.|
-|IdentityProviderId|guid|false|true|Identity provider unique identifier used to authenticate the user. This cannot be set to null and must be set when creating a new User.|
+|ExternalUserId|string|false|true|Provider identifier for the user. This is the identifier we get from the identity provider.|
+|IdentityProviderId|guid|false|true|Identity provider identifier used to authenticate the user. This cannot be set to null, and must be set when creating a new user.|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons we advise against assigning administrator role to a client.|
 
 ```json
@@ -1025,29 +1033,32 @@ Object for retrieving a user
 <a id="tocSusermultistatusresponse"></a>
 <a id="tocsusermultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+MultiStatusResponse objects returned in a 207 response
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets operationId that resulted in this error.|
-|Error|string|false|true|Gets or sets string message describing the error.|
-|Reason|string|false|true|Gets or sets reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|Gets or sets list of ChildErrors.|
-|Data|[[User](#schemauser)]|false|true|Gets or sets data.|
+|OperationId|string|false|true|Identifier of the operation that resulted in this error|
+|Error|string|false|true|Message describing the error|
+|Reason|string|false|true|Reason that caused the error|
+|EventId|string|false|true|Event identifier of the error|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors|
+|Data|[[User](#schemauser)]|false|true|Data representing users|
 
 ```json
 {
   "OperationId": "string",
   "Error": "string",
   "Reason": "string",
+  "EventId": "string",
   "ChildErrors": [
     {
       "OperationId": "string",
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
+      "EventId": "string",
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1084,18 +1095,19 @@ MultiStatusResponse objects returned in a 207 response. TODO: Remove this intern
 <a id="tocSmultistatusresponsechilderror"></a>
 <a id="tocsmultistatusresponsechilderror"></a>
 
-ChildError objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+ChildError objects returned in a 207 response
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
-|StatusCode|int32|false|false|Gets or sets hTTP status code.|
-|ModelId|string|false|true|Gets or sets model ID.|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
+|StatusCode|int32|false|false|Http status code|
+|ModelId|string|false|true|Model identifier|
 
 ```json
 {
@@ -1103,6 +1115,7 @@ ChildError objects returned in a 207 response. TODO: Remove this internal model 
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "EventId": "string",
   "StatusCode": 0,
   "ModelId": "string",
   "property1": null,
@@ -1120,16 +1133,17 @@ ChildError objects returned in a 207 response. TODO: Remove this internal model 
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned whenever there is an error TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+Object returned when there is an error
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
-|Error|string|true|false|Gets or sets error description.|
-|Reason|string|true|false|Gets or sets reason for the Error.|
-|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
 
 ```json
 {
@@ -1137,6 +1151,7 @@ Object returned whenever there is an error TODO: Remove this internal model and 
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "EventId": "string",
   "property1": null,
   "property2": null
 }
@@ -1152,14 +1167,14 @@ Object returned whenever there is an error TODO: Remove this internal model and 
 <a id="tocSuserstatus"></a>
 <a id="tocsuserstatus"></a>
 
-Object used when getting user status.
+Object used when returning user status
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |InvitationStatus|[UserInvitationStatus](#schemauserinvitationstatus)|false|false|Status of user invitation. Can be: InvitationAccepted (0), NoInvitation (1), InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).|
-|User|[User](#schemauser)|false|true|User information.|
+|User|[User](#schemauser)|false|true|User information|
 
 ```json
 {
@@ -1192,7 +1207,7 @@ Object used when getting user status.
 <a id="tocSuserinvitationstatus"></a>
 <a id="tocsuserinvitationstatus"></a>
 
-User Invitation Status.
+User Invitation Status
 
 #### Enumerated Values
 
@@ -1213,20 +1228,20 @@ User Invitation Status.
 <a id="tocSusercreateorupdate"></a>
 <a id="tocsusercreateorupdate"></a>
 
-Object when updating a user.
+Object when updating a user
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|guid|false|true|User unique identifier. When creating a user, if user unique identifier is not specified, one will be generated.|
+|Id|guid|false|true|User identifier. When creating a user, if user identifier is not specified, one will be generated.|
 |ExternalUserId|string|false|true|User ExternalUserId for the user. Must be specified if the identity provider is Windows Active Directory.|
-|ContactGivenName|string|false|true|Preferred name to be used when contacting user.|
-|ContactSurname|string|false|true|Preferred surname to be used when contacting user.|
+|ContactGivenName|string|false|true|Preferred name to be used when contacting user|
+|ContactSurname|string|false|true|Preferred surname to be used when contacting user|
 |ContactEmail|email|false|true|Preferred contact email to be used. This does not have to be the same as the user's identity provider email.|
-|IdentityProviderId|guid|false|true|Identity Provider this user will be required to use to log in. This value cannot be null when creating a new user. When updating, this value must match what is currently assigned to user. This cannot be updated via update user.|
-|IdentityProviderSpecificUserId|string|false|true|Identity provider specific user unique identifier. For example, object Id for AD and AAD.|
-|RoleIds|string[]|false|true|List of strings of role Ids.|
+|IdentityProviderId|guid|false|true|Identity provider this user will be required to use to log in. This value cannot be null when creating a new user. When updating, this value must match what is currently assigned to user. This cannot be updated via update user.|
+|IdentityProviderSpecificUserId|string|false|true|Identity provider specific user identifier. For example, object Id for Active Directory and Azure Active Directory.|
+|RoleIds|string[]|false|true|List of strings of role identifiers|
 
 ```json
 {
@@ -1253,29 +1268,32 @@ Object when updating a user.
 <a id="tocSuserstatusmultistatusresponse"></a>
 <a id="tocsuserstatusmultistatusresponse"></a>
 
-MultiStatusResponse objects returned in a 207 response. TODO: Remove this internal model and re-adopt public model when moving to System.Text.Json in WI 202168.
+MultiStatusResponse objects returned in a 207 response
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|Gets or sets operationId that resulted in this error.|
-|Error|string|false|true|Gets or sets string message describing the error.|
-|Reason|string|false|true|Gets or sets reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|Gets or sets list of ChildErrors.|
-|Data|[[UserStatus](#schemauserstatus)]|false|true|Gets or sets data.|
+|OperationId|string|false|true|Identifier of the operation that resulted in this error|
+|Error|string|false|true|Message describing the error|
+|Reason|string|false|true|Reason that caused the error|
+|EventId|string|false|true|Even identifier of the error|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors|
+|Data|[[UserStatus](#schemauserstatus)]|false|true|Data representing user statuses|
 
 ```json
 {
   "OperationId": "string",
   "Error": "string",
   "Reason": "string",
+  "EventId": "string",
   "ChildErrors": [
     {
       "OperationId": "string",
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
+      "EventId": "string",
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1315,17 +1333,17 @@ MultiStatusResponse objects returned in a 207 response. TODO: Remove this intern
 <a id="tocSusercreateorupdate2"></a>
 <a id="tocsusercreateorupdate2"></a>
 
-Object when updating an user.
+Object when updating an user
 
 #### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|UserId|guid|false|true|User unique identifier for the user. When creating a user, if user unique identifier is not specified, one will be generated.|
-|ContactGivenName|string|false|true|Preferred name to be used when contacting user.|
-|ContactSurname|string|false|true|Preferred surname to be used when contacting user.|
-|ContactEmail|email|false|true|Preferred email to be used when contacting user.|
-|RoleIds|string[]|false|true|List of role Ids.|
+|UserId|guid|false|true|User identifier for the user. When creating a user, if user identifier is not specified, one will be generated.|
+|ContactGivenName|string|false|true|Preferred name to be used when contacting user|
+|ContactSurname|string|false|true|Preferred surname to be used when contacting user|
+|ContactEmail|email|false|true|Preferred email to be used when contacting user|
+|RoleIds|string[]|false|true|List of role identifiers|
 |IdentityProviderId|guid|false|true|Identity Provider this user will be required to use to log in. This value cannot be null when creating a new user. When updating, this value must match what is currently assigned to user. This cannot be updated via update user.|
 
 ```json

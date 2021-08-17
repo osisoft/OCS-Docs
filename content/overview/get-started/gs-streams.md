@@ -4,7 +4,7 @@ uid: gsStreams
 
 # Get started with streams
 
-After creating your types, you can add streams and associate a type with the stream. For more information on streams, see the following:
+After creating your types, you can add streams and associate a type with the stream. For more information on streams, see the following topics:
 
 - [Streams](xref:ccStreams)
 - [PI Server counterpart](xref:ccStreams#streams-pi-server)
@@ -68,9 +68,10 @@ After creating your types, you can add streams and associate a type with the str
 
 1. In the `Add Event` window, complete the following fields: 
 
-   - `Status` &ndash; Enter **Running**. 
-   - `Value` &ndash; Enter **3.14**.
-   - `Timestamp` &ndash; Leave this setting as it appears, displaying the current time.
+    - `Status` &ndash; Enter **Running**. 
+    - `Pressure` &ndash; Enter **325**.
+    - `Temperature` &ndash; Enter **21**.
+    - `Timestamp` &ndash; Leave this setting as it appears, displaying the current time.
 
 1. Click **Save**. 
 

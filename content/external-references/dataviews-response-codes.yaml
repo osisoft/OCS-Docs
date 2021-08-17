@@ -8,12 +8,12 @@
 200-dataview-accessrights-get:
   type: text/plain
   value: |
-    A list of access rights to the requested data view
+    A list of access rights to the requested data view.
 
 200-dataview-acl-get:
   type: text/plain
   value: |
-    The access control list of the requested data view
+    The access control list of the requested data view.
 
 200-dataitems-get:
   type: markdown
@@ -28,17 +28,17 @@
 200-dataview-owner-get:
   type: text/plain
   value: |
-    The owner of the requested data view
+    The owner of the requested data view.
 
 200-dataviews-acl-get:
   type: text/plain
   value: |
-    The default access control list of the data views collection
+    The default access control list of the data views collection.
 
 200-dataviews-accessrights-get:
   type: text/plain
   value: |
-    A list of access rights to the data views collection
+    A list of access rights to the data views collection.
 
 200-dataviews-get:
   type: text/plain
@@ -53,7 +53,7 @@
 200-fieldsets-get:
   type: markdown
   value: |
-    An object with a "TimeOfResolution" and a collection of "Items", the `FieldSet`s that resolved and which are still available
+    An object with a "TimeOfResolution" and a collection of "Items", the `FieldSet`s that resolved and which are still available.
 
 200-groups-get:
   type: markdown
@@ -75,28 +75,28 @@
 204-dataview-update-standard-message:
   type: text/plain
   value: |
-    Successfully updated the data view
+    Successfully updated the data view.
 
 204-dataview-acl-update:
   type: text/plain
   value: |
-    Successfully updated the data view access control list
+    Successfully updated the data view access control list.
 
 204-dataviews-acl-update:
   type: text/plain
   value: |
-    Successfully updated the default access control list of the data views collection
+    Successfully updated the default access control list of the data views collection.
 
 204-dataviews-owner-update:
   type: text/plain
   value: |
-    Successfully updated the data view owner
+    Successfully updated the data view owner.
 
 # Response Code: 302 Found
 302-data-get:
   type: markup
   value: |
-    The specified data view already exists. A response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb
+    The specified data view already exists. A response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb.
 
 # Response Code: 400 Bad Request
 400-data-get:
@@ -112,85 +112,85 @@
 400-standard-message:
   type: text/plain
   value: |
-    The request is not valid. See the response body for details
+    The request is not valid. See the response body for details.
 
 # Response Code: 403 Forbidden
 403-dataview-acl-get:
   type: text/plain
   value: |
-    You are not authorized to view the requested data view's access control list
+    You are not authorized to view the requested data view's access control list.
 
 403-dataview-acl-update:
   type: text/plain
   value: |
-    You are not authorized to update the requested data view's access control list
+    You are not authorized to update the requested data view's access control list.
 
 403-dataview-create:
   type: text/plain
   value: |
-    You are not authorized to create a data view
+    You are not authorized to create a data view.
 
 403-dataview-get:
   type: text/plain
   value: |
-    You are not authorized to view the requested data view
+    You are not authorized to view the requested data view.
 
 403-dataview-owner-get:
   type: text/plain
   value: |
-    You are not authorized to view the requested data view's owner
+    You are not authorized to view the requested data view's owner.
 
 403-dataview-owner-update:
   type: text/plain
   value: |
-    You are not authorized to update the requested data view's owner
+    You are not authorized to update the requested data view's owner.
 
 403-dataviews-accessrights-get:
   type: text/plain
   value: |
-    You are not authorized to view the requested data view collection's access control list
+    You are not authorized to view the requested data view collection's access control list.
 
 403-dataviews-acl-get:
   type: text/plain
   value: |
-    You are not authorized to view the requested data view collection's access control list
+    You are not authorized to view the requested data view collection's access control list.
 
 403-dataviews-acl-update:
   type: text/plain
   value: |
-    You are not authorized to update the data views collection's default access control list
+    You are not authorized to update the data views collection's default access control list.
 
 403-standard-message:
   type: text/plain
   value: |
-    You are not authorized for this operation
+    You are not authorized for this operation.
 
 # Response Code: 404 Not Found
 404-dataitems-get:
   type: text/plain
   value: |
-    The data view or query does not exist
+    The data view or query does not exist.
 
 404-dataview-standard-message:
   type: text/plain
   value: |
-    The requested data view was not found
+    The requested data view was not found.
 
 404-dataviewid-standard-message:
   type: text/plain
   value: |
-    The specified data view identifier is not found
+    The specified data view identifier is not found.
 
 404-fieldmappings-get:
   type: text/plain
   value: |
-    The data view or query does not exist
+    The data view or query does not exist.
 
 # Response Code: 409 Conflict
 409-data-get:
   type: text/plain
   value: |
-    The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*
+    The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*.
 
 # Response Code: 500 Internal Server Error
 500-standard-message:

@@ -4,7 +4,7 @@ uid: TrendUserInterface
 
 # Trend page
 
-The screen capture and table below identify the important elements of the Trend user interface and how to use these elements to interact with the application. For more information on how to use the Trend page to analyze traces, see [Get Started with Trend Data](xref:GettingStartedWithTrendData).
+The following image shows the important elements of the Trend page, and the corresponding table describes how to use these elements. For more information on how to use the Trend page to analyze traces, see [Get Started with Trend Data](xref:GettingStartedWithTrendData).
 
 ![Trend page](images/Trend_full_page.png)
 
@@ -21,5 +21,5 @@ The screen capture and table below identify the important elements of the Trend 
 | 9      | Cursor &ndash; Place cursors to get minimum, maximum, average, and delta values between two points in time. |
 | 10     | Time range picker &ndash; Specify the time range by selecting a time range, specifying a custom range, or using the step forward and step backward arrows. |
 | 11     | Reset &ndash; Clears the workspace.                          |
-| 12     | Link &ndash; Copies the workspace URL. Use this to share your workspace with others. |
+| 12     | Share &ndash; Copies the workspace URL. Use this to share your workspace with others. |
 | 13     | Notifications &ndash; Click to display error messages.       |

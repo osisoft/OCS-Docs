@@ -4,3 +4,9 @@
 - name: Identity and access management
   href: identity-dev/toc.yml
   topicHref: identity-dev/dev-guide-identity-access-management.md
+- name: Sequential Data Store
+  href: sequential-data-store-dev/toc.yml
+  topicHref: sequential-data-store-dev/sds-lp-dev.md
+- name: OSIsoft Message Format
+  href: omf-dev/toc.yml
+  topicHref: omf-dev/omf-lp.md

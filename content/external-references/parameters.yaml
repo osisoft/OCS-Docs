@@ -2,15 +2,15 @@
 namespaceId:
   type: text/plain
   value: |
-    Namespace identifier
+    Namespace identifier.
 tenantId:
   type: text/plain
   value: |
-    Tenant identifier
+    Tenant identifier.
 query:
   type: text/plain
   value: |
-    Query identifier
+    Query identifier.
 count:
   type: text/plain
   value: |
@@ -22,92 +22,92 @@ skip:
 key:
   type: text/plain
   value: |
-    Key specifying the metadata value of interest
+    Key specifying the metadata value of interest.
 cancellation-token:
   type: text/plain
   value: |
-    Cancellation token
+    Cancellation token.
 scheme:
   type: text/plain
   value: |
-    Scheme name (for example, AAD or Google)
+    Scheme name (for example, AAD or Google).
 # Community parameters
 tenantId-community:
   type: text/plain
   value: |
-    Owning tenant identifier
+    Owning tenant identifier.
 communityId:
   type: text/plain
   value: |
-    Community identifier
+    Community identifier.
 query-community:
   type: text/plain
   value: |
-    (Not supported) Query identifier
+    (Not supported) Query identifier.
 # Tenant identifier parameters for AAD when there are different types of tenants to have to consider and distinguish
 tenantId-OCS:
   type: text/plain
   value: |
-    OCS tenant identifier
+    OCS tenant identifier.
 tenantId-aad:
   type: text/plain
   value: |
-    Azure Active Directory tenant identifier
+    Azure Active Directory tenant identifier.
 groupId:
   type: text/plain
   value: |
-    Group identifier
+    Group identifier.
 clientId:
   type: text/plain
   value: |
-    Client identifier
+    Client identifier.
 streamId:
   type: text/plain
   value: |
-    Stream identifier
+    Stream identifier.
 # Identity provider focused identifiers
 identityProviderId:
   type: text/plain
   value: |
-    Identity provider identifier
+    Identity provider identifier.
 identityProviderClaimId:
   type: text/plain
   value: |
-    Identity provider claim identifier
+    Identity provider claim identifier.
 identityProviderTypeNameClaimId:
   type: text/plain
   value: |
-    Identity provider claim type name identifier
+    Identity provider claim type name identifier.
 # Other types of identifiers
 invitationId:
   type: text/plain
   value: |
-    Invitation identifier
+    Invitation identifier.
 userId:
   type: text/plain
   value: |
-    User identifier
+    User identifier.
 datasourceId:
   type: text/plain
   value: |
-    Data source identifier
+    Data source identifier.
 dataViewId:
   type: text/plain
   value: |
-    Data view identifier
+    Data view identifier.
 # OMF parameters
 subscriptionId:
   type: text/plain
   value: |
-    Subscription identifier
+    Subscription identifier.
 topicId:
   type: text/plain
   value: |
-    Topic identifier
+    Topic identifier.
 secretId:
   type: text/plain
   value: |
-    Secret identifier
+    Secret identifier.
 # Used for getting a list of identifiers in a GET method
 id:
   type: text/plain
@@ -116,9 +116,9 @@ id:
 tag:
   type: text/plain
   value: |
-    Only return clients that have these tags
+    Only return clients that have these tags.
 # Query for wildcard search 
 query-searchstring:
   type: text/plain
   value: |
-    (Not supported) Search string identifier
+    (Not supported) Search string identifier.

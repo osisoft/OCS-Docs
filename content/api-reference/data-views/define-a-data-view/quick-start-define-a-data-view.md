@@ -118,7 +118,7 @@ For fields that derive data from a data item (e.g. a stream or asset), the `Fiel
 ### SdsTypeCode enumeration
 `SdsTypeCode` enumeration is the name of a data type. It is used when defining a data view, where the only supported `.IndexTypeCode` is "DateTime".
 
-See [Sds documentation](xref:sdsTypes#sdstypecode) for details.
+See [SdsTypeCode](xref:sdsTypes#sdstypecode) for details.
 
 ### DataViewShape enumeration
 `DataViewShape` enumeration describes possible output shapes for a data view.

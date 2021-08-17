@@ -1,0 +1,10 @@
+- name: Namespaces
+  href: tenant-namespaces.md
+- name: Root access control
+  href: tenant-root-access-control.md
+- name: Service blog
+  href: tenant-service-blog.md
+- name: Tenants
+  href: tenant-tenants.md
+- name: Tenant feature states
+  href: tenant-features.md

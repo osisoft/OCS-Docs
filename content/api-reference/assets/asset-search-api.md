@@ -12,15 +12,15 @@ Returns an array of assets that meet the search criteria.
 ### Searchable Properties
 Assets can be searched on the following asset properties:
 
-- Asset Top-level Fields
+- Asset Top-level Properties
   - Id, Name, Description, AssetTypeId, AssetTypeName
 
-- Metadata Fields
+- Metadata Properties
   - Name, Description, Value
 
-- Stream Reference Fields
+- Stream Reference Properties
   - StreamReferenceName - Stream Reference Name
-  - StreamPropertyId - Sds Stream Property Ids, not including indices
+  - StreamPropertyId - SDS Stream Property Ids, not including indices
 
 Search criteria can be chained together using an **AND**. See examples below. 
 
@@ -34,28 +34,28 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets?skip={skip
 
 ### Parameters  
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`  
-The namespace identifier
+Namespace identifier
 
 `string queryString`  
-The asset query string. Search strings are not case-sensitive.
+Asset query string. Search strings are not case sensitive.
 
 `string filterString`  
-String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset AssetTypeName property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).
+String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset `AssetTypeName` property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).
 
 [optional] `int skip`   
-An optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
+Optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
 
 [optional] `int count`   
-An optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of assets to retrieve. If not specified, the default is 100.
+Optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of assets to retrieve. If not specified, the default is 100.
 
 [optional] `[id|name] [asc|desc|] orderby`  
-An optional parameter which returns assets ordered either by the asset `Id` or the asset `name`. Specify asc or desc to return the results in ascending or descending order. If not specified, the default is ascending order.
+Optional parameter which returns assets ordered either by the asset `Id` or the asset `Name`. Specify `asc` or `desc` to return the results in ascending or descending order. If not specified, the default is ascending order.
 
 ### Response 
-Returns an array of assets matching the search query and the total number of assets returned specified as Total-Count in the HTTP response header. 
+Returns an array of assets matching the search query and the total number of assets returned specified as `Total-Count` in the HTTP response header. 
 
 | Status Code | Body Type | Description |
 |--|--|--|
@@ -66,34 +66,34 @@ Returns an array of assets matching the search query and the total number of ass
 
 
 ## `Search Matched Fields Asset` 
-Searches all assets and returns a list of asset Ids and their matched fields. Use this API to identify the fields in the asset that match your query string.
+Searches all assets and returns a list of asset identifiers and their matched fields. Use this API to identify the fields in the asset that match your query string.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/search/Assets?skip={skip}&count={count}&orderby={orderby}&query={queryString}&{filterString}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets?skip={skip}&count={count}&orderby={orderby}&query={queryString}&{filterString}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}
 ```
 
 ### Parameters  
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`  
-The namespace identifier
+Namespace identifier
 
 `string queryString`  
-The asset query string. Search strings are not case-sensitive.
+Asset query string. Search strings are not case-sensitive.
 
 `string filterString`  
-String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset AssetTypeName property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).
+String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset `AssetTypeName` property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).
 
 [optional] `int skip`   
-An optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
+Optional parameter representing the zero-based offset of the first asset to retrieve. If not specified, a default value of 0 is used.
 
 [optional] `int count`   
-An optional parameter, between 1 and 1000 (inclusive), representing the maximum number of retrieved assets. If not specified, the default is 100.
+Optional parameter, between 1 and 1000 (inclusive), representing the maximum number of retrieved assets. If not specified, the default is 100.
 
 [optional] `[id|name] [asc|desc|] orderby`  
-An optional parameter which returns assets ordered either by the asset `Id` or the asset `name`. Specify asc or desc to return the results in ascending or descending order. If not specified, the default is ascending order.
+Optional parameter which returns assets ordered either by the asset `Id` or the asset `Name`. Specify `asc` or `desc` to return the results in ascending or descending order. If not specified, the default is ascending order.
 
 ### Response 
 A list of asset Ids and their matched fields.
@@ -106,25 +106,25 @@ A list of asset Ids and their matched fields.
 | 403 Forbidden | error | You are not authorized to view the requested asset. |
 
 #### Example response body
-Below is a response when query string is "Name:*Tracer*".
+Below is a response when query string is "Name:Tracer".
 
-`Count` represents the number of matched assets in the given query.
+- `TotalCount` represents the number of matched assets in the database which matched the given query.
 
-Also returned is a list of `Results`. Each result contains  
-- The `MatchProperties` - a list of matched property objects. Each `MatchProperties` object contains the matched fields and their values.
-- `Id` - Id of the matched asset.
-- `TypeId` - asset type Id of the asset. This is null if the asset does not reference an asset type.
+ A list of results is returned. Each result contains:  
+-  `MatchProperties` - a list of matched property objects. Each `MatchProperties` object contains the matched fields and their values.
+- `Id` - Identifier of the matched asset.
+- `TypeId` - asset type identifier of the asset. This is null if the asset does not reference an asset type.
 - `Name` - asset name.
 - `Description` - asset description.
-- `ETag` - Version tag.
-- `CreatedDate` - Asset creation date.
-- `LastModifiedDate` - Last modified date of the asset.
+- `ETag` - version tag.
+- `CreatedDate` - asset creation date.
+- `LastModifiedDate` - last modified date of the asset.
 
 ```json 
 HTTP 200 OK 
 Content-Type: application/json
 {
-    "Count": 2,
+    "TotalCount": 2,
     "Results": [
         {
             "MatchedProperties": [
@@ -192,14 +192,14 @@ The following are examples of using the escape character in query strings.
 
 ### Examples of asset filter strings
 
-Filter strings are not case sensitive. Numeric types must be passed as strings according to English locale. For example, a double of 1.1 must be sent as "1.1".
+Filter strings are not case sensitive. Numeric types must be passed as strings according to English locale. For example, a double of 1.1 must be sent as **"1.1"**.
 
 | Query String                                 | Description                                                  |
 | -------------------------------------------- | ------------------------------------------------------------ |
 | filter[location]=Earth                       | Filter that only returns assets that contain the metadata name = **location** with **Earth** as the metadata value. |
 | filter[location]=Earth&filter[device]=tracer | Filter that only returns assets that contain both of the following metadata. The first metadata name = **location** with **Earth** as the metadata value, and the second metadata is name = **device** with **tracer** as the metadata value. |
-| filter[AssetTypeName]=HeaterType             | Filter that only returns assets with an AssetTypeName of "HeaterType." |
-| filter[status]=Bad                           | Filter that returns only assets with a bad status. Status filters can have the values "Good", "Bad", Warning", and "Unknown". |
+| filter[AssetTypeName]=HeaterType             | Filter that only returns assets with an AssetTypeName of **HeaterType**. |
+| filter[status]=Bad                           | Filter that returns only assets with a bad status. Status filters can have the values **Good**, **Bad**, **Warning**, and **Unknown**. |
 
 ## `Asset Faceted Search` 
 
@@ -208,22 +208,22 @@ Asset faceted search allows for searching using asset facets. Asset facets are n
 ### Request 
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/search/Assets/facets?name={category}&count={count}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Facets?name={category}&count={count}
 ```
 
 ### Parameters  
 
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`  
-The namespace identifier
+Namespace identifier
 
 `string category`  
-The name of the asset metadata for which you want to retrieve the facet values.
+Name of the asset metadata for which you want to retrieve the facet values.
 
 [optional] `int count`   
-An optional parameter, between 1 and 1000 (inclusive), representing the maximum number of retrieved assets. If not specified, the default is 100.
+Optional parameter, between 1 and 1000 (inclusive), representing the maximum number of retrieved assets. If not specified, the default is 100.
 
 ### Response 
 
@@ -281,29 +281,29 @@ Asset autocomplete allows you to query assets and retrieve a list of suggested a
 ### Request 
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/search/Assets/autocomplete?term={term}&facetCount={facetCount}&termCount={termCount}
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Autocomplete?term={term}&facetCount={facetCount}&termCount={termCount}
 ```
 
 ### Parameters  
 
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`  
-The namespace identifier
+Namespace identifier
 
 `string term`  
-The search term that you want to search for.
+Search term that you want to search for.
 
 [optional] `int facetCount`  
-The maximum number of facet autocompleted items to return. The default is 0 which means you will not get any facet suggestions.
+Maximum number of facet autocompleted items to return. The default is 0 which means you will not get any facet suggestions.
 
 [optional] `int termCount`  
-The maximum number of token autocompleted items to return. The default is 0 which means you will not get any token suggestions.
+Maximum number of token autocompleted items to return. The default is 0 which means you will not get any token suggestions.
 
 ### Example 
 
-If you have the following assets in your system:
+Assume you have the following assets in your system.
 
 | Assets in System                                             |
 | ------------------------------------------------------------ |
@@ -311,7 +311,7 @@ If you have the following assets in your system:
 | "Id": "AutoCompletedAsset_2", "Name": "tracerRound", "Description": "None", "Metadata": [{ "Id": "2", "Name": "tractorNumber", "Value": "tractor3",        "SdsTypeCode": "String"}] |
 | "Id": "AutoCompletedAsset_3", "Name": "tracerRound_Type2", "Description": "None", "Metadata": {"Id": "17", "Name": "track", "SdsTypeCode": "String", "Value": "100"}] |
 
-Performing a `GET search/assets/autocomplete?term=t&termcount=10&facetcount=10` returns the following response. 
+Performing a `GET Search/Assets/Autocomplete?term=t&termcount=10&facetcount=10` returns the following response. 
 
 
 ```json 
@@ -361,7 +361,7 @@ Performing a `GET search/assets/autocomplete?term=t&termcount=10&facetcount=10` 
 }
 ```
 
-Performing a `GET search/assets/autocomplete?term=t&facetcount=10` returns the following response. 
+Performing a `GET Search/Assets/Autocomplete?term=t&facetcount=10` returns the following response. 
 
 
 ```json 

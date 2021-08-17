@@ -35,8 +35,8 @@ The response includes a status code and a response body.
 |--|--|--|
 | 200 OK | `DataView` | The requested data view |
 | 403 Forbidden | error | You are not authorized to view the requested data view |
-| 404 Not Found | error | The specified data view identifier is not found |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 404 Not found | error | The specified data view identifier is not found |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Example response body
 ```json
@@ -90,8 +90,8 @@ The response includes a status code and a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `DataView[]` | A page of data views. A response header, `Total-Count`, indicates the total size of the collection. |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 200 OK | `DataView[]` | A page of data views including a response header, `Total-Count`, which indicates the total size of the collection |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -159,10 +159,10 @@ The response includes a status code and a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 201 Created | `DataView` | The data view as persisted, including values for optional parameters that were omitted in the request. |
-| 400 Bad Request | error | The request is not valid. See the response body for details |
+| 201 Created | `DataView` | The data view as persisted, including values for optional parameters that were omitted in the request |
+| 400 Bad request | error | The request is not valid: see the response body for details |
 | 403 Forbidden | error | You are not authorized to create a data view |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Example response body
 ```json
@@ -226,12 +226,12 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 201 Created | `DataView` | The data view as persisted, including values for optional parameters that were omitted in the request. |
-| 302 Found | (empty) | The specified data view already exists. A response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb
-| 400 Bad Request | error | The request is not valid. See the response body for details |
+| 201 Created | `DataView` | The data view as persisted, including values for optional parameters that were omitted in the request |
+| 302 Found | (empty) | The specified data view already exists: response header, `Location`, indicates the URL where the data view may be retrieved with the `GET` verb
+| 400 Bad request | error | The request is not valid: see the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 409 Conflict | error | The specified data view conflicts with an existing data view that is not identical. To forcibly update the data view, see *Create Or Update Data View*
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 409 Conflict | error | The specified data view conflicts with an existing data view that is not identical
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Example response body
 
@@ -297,10 +297,10 @@ The response includes a status code and, in some cases, a body.
 | Status code | Body Type | Description |
 |--|--|--|
 | 201 Created | `DataView` | The data view as persisted, including values for optional parameters that were omitted in the request |
-| 204 No Content | (empty) | Successfully updated the data view |
-| 400 Bad Request | error | The request is not valid. See the response body for details |
+| 204 No content | (empty) | Successfully updated the data view |
+| 400 Bad request | error | The request is not valid: see the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 ### .NET client libraries method
 ```csharp
@@ -329,10 +329,10 @@ The response includes a status code and, in some cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 204 No Content | (empty) | Successfully deleted the data view |
+| 204 No content | (empty) | Successfully deleted the data view |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The specified data view identifier is not found |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 404 Not found | error | The specified data view identifier is not found |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 ### .NET client libraries method
 ```csharp
