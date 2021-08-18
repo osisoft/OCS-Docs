@@ -6,3 +6,5 @@ obj/
 /api-reference/Status_Codes.pdf
 /content/.vs/content/v16/TestStore/0
 /content/.vs
+/**/.DS_Store
+/OCS-Docs
