@@ -2,8 +2,8 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-*       @GiselleLeeOSI @digitaljoshua
-content/api-reference/sequential-data-store @GiselleLeeOSI
+*       @digitaljoshua
+content/api-reference/sequential-data-store  @digitaljoshua
 content/api-reference/identity @digitaljoshua
 content/api-reference/management @digitaljoshua
 content/api-reference/data-views @osimarkrogers
@@ -15,7 +15,7 @@ content/api-reference/asset-rules @lassato-OSI
 content/add-organize-data @VictoriaTouati-AVEVA @afloresOSI
 content/communities @dwicinas-osisoft
 content/visualize-data @lassato-OSI @afloresOSI
-ontent/rom @lassato-OSI @afloresOSI
+content/rom @lassato-OSI @afloresOSI
 content/overview @lassato-OSI @afloresOSI
 content/set-up @lassato-OSI @digitaljoshua
 
