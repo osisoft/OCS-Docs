@@ -6,7 +6,7 @@ uid: DataViewsQuickStartGetData
 You retrieve data view data with the [Data API](xref:DataViewsDataAPI). This topic explains the concepts and workflow to retrieve data view data.
 
 ## General concepts
-The supported modes of retrieval are interpolated and stored values within a user-specified range. Several formats are available, such as JSON and CSV.
+The supported mode of retrieval is interpolated values within a user-specified range. Several formats are available, such as JSON and CSV.
 
 ### Index
 All data in a data view is associated with an index value, i.e. a timestamp. If there are multiple groups in the data view, the index and grouping field values together form a unique identifier for each data record.
@@ -23,14 +23,14 @@ Three parameters control the range and granularity of data returned:
 |--|--|--|--|
 | Start index | `startIndex` | `DefaultStartIndex` | The inclusive start boundary of the data view data
 | End index | `endIndex` | `DefaultEndIndex` | The inclusive end boundary of the data view data
-| Interval | `interval` | `DefaultInterval` | The interval between index values: only applies to interpolated retrieval mode
+| Interval | `interval` | `DefaultInterval` | The interval between index values
 
 Default values may, optionally, be defined on the data view itself. It is not necessary to define defaults for all three properties. 
 
 Index parameters may be specified at query time. These take precedence over any defaults that are set.
 
 ### Retrieval mode
-There are two supported mode of retrieval modes: `interpolated` and `stored`.
+The supported mode of retrieval is `interpolated`.
 
 #### Interpolated retrieval
 Required index parameters when requesting interpolated data are:
@@ -41,38 +41,6 @@ Required index parameters when requesting interpolated data are:
 If one or more of these parameters is not specified at query time or as a default, the data query is not valid.
 
 Streams in SDS may be configured to have non-default interpolation and extrapolation behavior. These behaviors are observed when stream data is included in data views. Data view data is always treated as dense, even if SDS returns sparse data. See the following section on empty or missing values for details.
-
-#### Stored retrieval
-Stored retrieval mode returns stored or window data. The resulting data view data will include only index values that exist in the underlying data items' data. If an index exists on one data item but not another, a null will appear for all data fields where the index does not exist. For example:
-
-```json
-[
-    {
-        "Time": "2018-01-01T00:00:03Z",
-        "Temperature": 24,
-        "Flowrate": null,
-        "Volume": 245
-    },
-    {
-        "Time": "2018-01-01T00:00:14Z",
-        "Temperature": 24,
-        "Flowrate": 44,
-        "Volume": null
-    },
-    {
-        "Time": "2018-01-01T00:00:32Z",
-        "Temperature": null,
-        "Flowrate": null,
-        "Volume": 245
-    }
-]
-```
-
-Required index parameters when requesting stored data are:
-- Start index
-- End index
-
-If one or more of these parameters is not specified at query time or as a default, the data query is not valid. If default interval is set in the data view, it will be ignored.
 
 #### Empty or missing values
 SDS stream properties may be of nullable (e.g. `NullableInt32`) or non-nullable (e.g. `Int32`) types. Data views treats all fields as nullable, as is necessary for its fundamental goal of aligning large datasets.

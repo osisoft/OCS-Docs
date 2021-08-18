@@ -2,12 +2,12 @@
 class-collectionaccessrightscontroller:
   type: text/plain
   value: |
-    APIs for retrieving access rights on the data views collection.
+    APIs for retrieving access rights on the data views collection
 
 class-collectionaclcontroller:
   type: text/plain
   value: |
-    APIs for working with the Access Control List of the data view collection.
+    APIs for working with the Access Control List of the data view collection
 
 class-dataviewsdatacontroller:
   type: markdown
@@ -47,12 +47,12 @@ class-dataviewsresolvedcontroller:
 dataview-accessrights-get:
   type: text/plain
   value: |
-    Returns the access rights to the requested data view for the calling user or client.
+    Gets the access rights to the requested data view for the calling user or client.
 
 dataview-acl-get:
   type: markdown
   value: |
-    Returns the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
+    Gets the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
 
 dataview-acl-update:
   type: markdown
@@ -62,7 +62,7 @@ dataview-acl-update:
 dataview-owner-get:
   type: markdown
   value: |
-    Returns the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+    Gets the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
 
 dataview-owner-update:
   type: markdown
@@ -72,12 +72,12 @@ dataview-owner-update:
 dataviews-accessrights-get:
   type: text/plain
   value: |
-    Returns the access rights to the data views collection for the calling user or client.
+    Gets the access rights to the data views collection for the calling user or client
 
 dataviews-acl-get:
   type: markdown
   value: |
-    Returns the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+    Gets the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 dataviews-acl-update:
   type: markdown
@@ -85,25 +85,15 @@ dataviews-acl-update:
     Updates the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
 
 # method summaries: requesting data
-data-interpolated-get:
+data-get:
   type: markdown
   value: |
-    Returns interpolated data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Gets data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
-data-interpolated-get-preview:
+data-get-preview:
   type: markdown
   value: |
-    Returns interpolated data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
-
-data-stored-get:
-  type: markdown
-  value: |
-    Returns stored data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
-
-data-stored-get-preview:
-  type: markdown
-  value: |
-    Returns stored data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Gets data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
 
 # method summaries: data views
 dataview-create:
@@ -114,7 +104,7 @@ dataview-create:
 dataview-createorupdate:
   type: text/plain
   value: |
-    If a data view with the same identifier already exists, it is updated to the specified value. Otherwise, a new data view is created.
+    If a data view with the same id already exists, it is updated to the specified value. Otherwise, a new data view is created.
 
 dataview-delete:
   type: text/plain
@@ -129,7 +119,7 @@ dataview-get:
 dataview-getorcreate:
   type: markdown
   value: |
-    This method creates the specified data view. If a data view with the same identifier already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
+    This method creates the specified data view. If a data view with the same id already exists, the existing data view is compared with the specified data view. If they are identical, a redirect (`302 Found`) is returned with the `Location` response header indicating the URL where the data view may be retrieved using a Get function. If the data views do not match, the request fails with `409 Conflict`.
 
 dataviews-get:
   type: text/plain
@@ -140,29 +130,29 @@ dataviews-get:
 availablefieldsets-get:
   type: text/plain
   value: |
-    Returns the collection of field sets that are available for use in the data view, and which are not already included in the data view.
+    Gets the collection of field sets that are available for use in the data view, and which are not already included in the data view.
 
 dataitems-get:
   type: text/plain
   value: |
-    Returns the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+    Gets the paged collection of data items that are the results of an individual query, and which are eligible for use in the current data view. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
     
 fieldmappings-get:
   type: text/plain
   value: |
-    Returns the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
+    Gets the collection of field mappings resolved for the data view. These show the exact data behind every field, for each data item, for each group.
 
 groups-get:
   type: markdown
   value: |
-    Returns the collection of `Group`s that resolved for the data view.
+    Gets the collection of `Group`s that resolved for the data view.
 
 ineligibledataitems-get:
   type: text/plain
   value: |
-    Returns the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
+    Gets the paged collection of data items that are the results of an individual query, but which are not eligible for use in the current data view. A common reason for ineligibility is that the item's index property is of a different type than the data view expects. A data view has a collection of zero or more queries. Each query has an identifier. Those identifiers are used here as part of the request path.
 
 statistics-get:
   type: text/plain
   value: |
-    Returns the statistics about the size and shape on how the data view resolved. 
+    Gets the statistics about the size and shape on how the data view resolved. 

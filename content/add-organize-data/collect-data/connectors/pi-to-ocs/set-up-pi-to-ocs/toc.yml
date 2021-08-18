@@ -1,6 +1,10 @@
-- name: Disable Internet Explorer enhanced security
-  href: disable-ie-security.md
+- name: Access the OCS portal
+  href: access-ocs-portal.md
+- name: Create a PI System connection
+  href: create-a-pi-to-ocs-connection.md
 - name: Install the PI to OCS Agent
   href: install-agent.md
 - name: Run the PI to OCS Agent Configuration Utility
   href: config-utility.md
+- name: Confirm PI to OCS Agent is running
+  href: confirm-agent-run.md

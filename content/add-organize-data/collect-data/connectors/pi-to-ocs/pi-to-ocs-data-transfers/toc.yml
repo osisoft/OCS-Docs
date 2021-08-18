@@ -1,12 +1,14 @@
 - name: Overview of data transfers
   href: overview-data-transfers.md
+- name: Create a data transfer
+  href: create-a-data-transfer.md
 - name: Transfer PI System data to OCS
   href: transfer-data-to-ocs.md
 - name: Data transfer statuses
   href: data-transfer-statuses.md
-- name: Export transfer details
-  href: export-transfer-details.md  
 - name: Point type change
   href: pi-point-change.md
 - name: Confirm data retrieval
   href: confirm-data-retrieval.md
+- name: Delete a data transfer
+  href: delete-data-transfer.md

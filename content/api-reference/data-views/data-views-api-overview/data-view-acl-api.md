@@ -28,7 +28,7 @@ The response includes a status code and a body.
 |--|--|--|
 | 200 OK | `AccessControlList` | The default access control list of the data views collection |
 | 403 Forbidden | error | You are not authorized to view the requested data view collection's access control list |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
 ```json
@@ -125,9 +125,9 @@ The response includes a status code and, in some cases, a body.
 | Status code | Body Type | Description |
 |--|--|--|
 | 204 No Content | (empty) | Successfully updated the default access control list of the data views collection |
-| 400 Bad request | error | The request is not valid: see the response body for details |
+| 400 Bad Request | error | The request is not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized to update the data views collection's default access control list |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 ### .NET client libraries method
 ```csharp
@@ -155,7 +155,7 @@ The response includes a status code and a body.
 |--|--|--|
 | 200 OK | `string[]` | A list of access rights to the data views collection |
 | 403 Forbidden | error | You are not authorized to view the requested data view collection's access control list |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details. |
 
 #### Example response body
 ```json
@@ -197,8 +197,8 @@ The response includes a status code and a body.
 |--|--|--|
 | 200 OK | `AccessControlList` | The access control list of the requested data view |
 | 403 Forbidden | error | You are not authorized to view the requested data view's access control list |
-| 404 Not found | error | The requested data view was not found
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 404 Not Found | error | The requested data view was not found
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
 ```json
@@ -297,11 +297,11 @@ The response includes a status code and, in some cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 204 No content | (empty) | Successfully updated the data view access control list |
-| 400 Bad request | error | The request is not valid: see the response body for details |
+| 204 No Content | (empty) | Successfully updated the data view access control list |
+| 400 Bad Request | error | The request is not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized to update the requested data view's access control list |
-| 404 Not found | error | The requested data view was not found |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 404 Not Found | error | The requested data view was not found
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 ### .NET client libraries method
 ```csharp
@@ -332,8 +332,8 @@ The response includes a status code and a body.
 |--|--|--|
 | 200 OK | `string[]` | A list of access rights to the requested data view |
 | 403 Forbidden | error | You are not authorized to make this request |
-| 404 Not found | error | The requested data view was not found |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 404 Not Found | error | The requested data view was not found
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
 ```json
@@ -376,8 +376,8 @@ The response includes a status code and a body.
 |--|--|--|
 | 200 OK | `Trustee` | The owner of the requested data view |
 | 403 Forbidden | error | You are not authorized to view the requested data view's owner |
-| 404 Not found | error | The requested data view was not found |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 404 Not Found | error | The requested data view was not found
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 #### Example response body
 ```json
@@ -429,11 +429,11 @@ The response includes a status code and, in some cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 204 No content | (empty) | Successfully updated the data view owner |
-| 400 Bad request | error | The request is not valid: see the response body for details |
+| 204 No Content | (empty) | Successfully updated the data view owner |
+| 400 Bad Request | error | The request is not valid. See the response body for details |
 | 403 Forbidden | error | You are not authorized to update the requested data view's owner |
-| 404 Not found | error | The requested data view was not found |
-| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
+| 404 Not Found | error | The requested data view was not found
+| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
 
 ### .NET client libraries method
 ```csharp

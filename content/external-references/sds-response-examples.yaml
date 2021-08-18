@@ -260,7 +260,7 @@ get-or-create-type:
         "InterpolationMode": 0,
         "ExtrapolationMode": 0
         }
-    ```
+        ```
 get-type-access-rights:
   type: markdown
   value: |

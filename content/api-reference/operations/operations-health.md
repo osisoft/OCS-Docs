@@ -1,52 +1,90 @@
 ---
-uid: operations-health
-
+uid: operationsHealth
 ---
 
 # Health
-APIs related to querying OCS service health states
+
+APIs related to querying OCS Service health states.
+
+## Authentication
+
+All endpoints referenced in this documentation require authenticated access. You must set the Authorization header to the access token you retrieved from a successful authentication request.
+
+`Authorization: Bearer <token>`
+
+Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
+Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
+Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) to learn how to authenticate against OCS with the various clients and receive an access token in response.
+
+## Error handling
+
+All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will appear as follows:
+
+```json
+{
+    "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c", 
+    "Error": "Error message.", 
+    "Reason": "Reason that caused error.", 
+    "Resolution": "Possible solution for the error." 
+}
+```
+
+If and when contacting OSIsoft support about this error, please provide the OperationId.
 
 ## `Get Tenant Health`
 
-<a id="opIdQuery_Get Tenant Health"></a>
-
-Returns tenant health data. Data contains an aggregated health state and list of tenant related services.
+Get **tenant** health data containing an aggregated health state and a list of services related to the tenant.
 
 ### Request
-```text 
-GET /api/v1/tenants/{tenantId}/health
+
+`GET api/v1/tenants/{tenantId}/health`
+
+### Parameters
+
+```csharp
+[Required]
+string tenantId
 ```
 
-#### Parameters
+Id of the Tenant
 
-`string tenantId`
-<br/>Tenant identifer<br/><br/>
+### Authorization
+
+Allowed for these roles:
+
+- `Tenant Member`
+- `Tenant Administrator`
 
 ### Response
 
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[TenantViewModel](#schematenantviewmodel)|Health data for the requested **tenant**|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs|
-|401|None|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+#### 200
 
-#### Example response body
-> 200 Response
+Success
+
+##### Type:
+
+ `Health`
 
 ```json
 {
-  "HealthState": 0,
+  "HealthState": "Ok",
   "Namespaces": [
     {
-      "NamespaceId": "string",
-      "Region": "string",
-      "HealthState": 0,
+      "NamespaceId": "MyNamespace",
+      "Region": "WestUS",
+      "HealthState": "Ok",
       "Services": [
         {
-          "Name": "string",
-          "HealthState": null
+            "Name": "OMF Ingress",
+            "HealthState": "Ok"
+        },
+        {
+            "Name": "PI to OCS",
+            "HealthState": "Ok"
+        },
+        {
+            "Name": "Sequential Data Store",
+            "HealthState": "Ok"
         }
       ]
     }
@@ -54,156 +92,19 @@ GET /api/v1/tenants/{tenantId}/health
 }
 ```
 
----
-## Definitions
+#### 400
 
-### TenantViewModel
+Missing or invalid inputs
 
-<a id="schematenantviewmodel"></a>
-<a id="schema_TenantViewModel"></a>
-<a id="tocStenantviewmodel"></a>
-<a id="tocstenantviewmodel"></a>
+#### 401
 
-This represents a view model of a TenantDbo
+Unauthorized
 
-#### Properties
+#### 403
 
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|HealthState|[State](#schemastate)|false|false|Health state of the tenant|
-|Namespaces|[[NamespaceViewModel](#schemanamespaceviewmodel)]|false|true|Namespaces scoped to this tenant|
+Forbidden
 
-```json
-{
-  "HealthState": 0,
-  "Namespaces": [
-    {
-      "NamespaceId": "string",
-      "Region": "string",
-      "HealthState": 0,
-      "Services": [
-        {
-          "Name": "string",
-          "HealthState": null
-        }
-      ]
-    }
-  ]
-}
+#### 500
 
-```
-
----
-
-### State
-
-<a id="schemastate"></a>
-<a id="schema_State"></a>
-<a id="tocSstate"></a>
-<a id="tocsstate"></a>
-
-Represents the various health states a HealthEventViewModel can represent.
-
-#### Enumerated Values
-
-|Property|Value|
-|---|---|
-|Invalid|0|
-|Ok|1|
-|Warning|2|
-|Error|3|
-|Unknown|65535|
-
----
-
-### NamespaceViewModel
-
-<a id="schemanamespaceviewmodel"></a>
-<a id="schema_NamespaceViewModel"></a>
-<a id="tocSnamespaceviewmodel"></a>
-<a id="tocsnamespaceviewmodel"></a>
-
-Object for a namespace and underlying services
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|NamespaceId|string|false|true|Namespace identifier|
-|Region|string|false|true|Namespace region|
-|HealthState|[State](#schemastate)|false|false|Health state of the namespace|
-|Services|[[ServiceForTenantViewModel](#schemaservicefortenantviewmodel)]|false|true|Services scoped to the namespace|
-
-```json
-{
-  "NamespaceId": "string",
-  "Region": "string",
-  "HealthState": 0,
-  "Services": [
-    {
-      "Name": "string",
-      "HealthState": 0
-    }
-  ]
-}
-
-```
-
----
-
-### ServiceForTenantViewModel
-
-<a id="schemaservicefortenantviewmodel"></a>
-<a id="schema_ServiceForTenantViewModel"></a>
-<a id="tocSservicefortenantviewmodel"></a>
-<a id="tocsservicefortenantviewmodel"></a>
-
-This represents a view model of a ServiceForTenantDbo
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Name|string|false|true|Name of the service|
-|HealthState|[State](#schemastate)|false|false|Health state of the service|
-
-```json
-{
-  "Name": "string",
-  "HealthState": 0
-}
-
-```
-
----
-
-### ErrorResponse
-
-<a id="schemaerrorresponse"></a>
-<a id="schema_ErrorResponse"></a>
-<a id="tocSerrorresponse"></a>
-<a id="tocserrorresponse"></a>
-
-Object used to represent error information
-
-#### Properties
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|Operation Id of the action that caused the error|
-|Error|string|false|true|Error description|
-|Reason|string|false|true|Reason for the error|
-|Resolution|string|false|true|Resolution for the error|
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string"
-}
-
-```
-
----
+Internal server error
 

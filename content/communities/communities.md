@@ -4,9 +4,9 @@ uid: communities
 
 # Communities
 
-OCS Communities allows industrial companies share their operational data with external business partners, service providers, and analytics providers. <!-- Angela Flores 6/15/21 Why is communities capitalized? -->
+OCS Communities helps industrial companies share their operational data with external business partners, service providers, and analytics providers.
 
-For example, with Communities, OCS tenants can perform the following actions:
+For example, with Communities, OCS tenants can:
 
 - Share data with external partners without bringing their users inside the corporate firewall or taking extra security precautions.
 - Share data without requiring external users to be onsite.
