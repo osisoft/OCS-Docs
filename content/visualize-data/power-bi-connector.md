@@ -4,7 +4,7 @@ uid: PowerBI
 
 # OSIsoft Cloud Services Power BI Connector
 
-The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install and retrieve data views with the connector for use with Microsoft Power BI as described in this section.<br>
+The OSIsoft Cloud Services Power BI Connector retrieves Data Views from OCS and makes them available in Microsoft Power BI for advanced data visualization and analysis. Install OSIsoft Cloud Services Power BI Connector to retrieve Data Views for use with Microsoft Power BI as described in this section.<br>
 
 ## Install OSIsoft Cloud Services Power BI Connector
 
@@ -24,11 +24,11 @@ The OSIsoft Cloud Services Power BI Connector retrieves data views from OCS and 
 
              **Note:** OSIsoft Cloud Services Power BI Connector supports silent installation for on-premises data gateway installations.
 
-## Retrieve data views with OSIsoft Cloud Services Power BI Connector
+## Retrieve Data Views with OSIsoft Cloud Services Power BI Connector
 
-Use OSIsoft Cloud Services Power BI Connector to retrieve OCS data views for use in Microsoft Power BI.
+Use OSIsoft Cloud Services Power BI Connector to retrieve OCS Data Views for use in Microsoft Power BI.
 
-1. In Microsoft Power BI Desktop, in the entry field of the `Get Data` window, type *OSI*.<br>The OSIsoft Cloud Services Data Views connector file displays in the `All` pane.
+1. In Microsoft Power BI Desktop, in the entry field of the `Get Data` window, type `OSI`.<br>The OSIsoft Cloud Services Data Views connector file displays in the `All` pane.
 
    ![Get Data](./images/get-data.png)
 
@@ -36,25 +36,25 @@ Use OSIsoft Cloud Services Power BI Connector to retrieve OCS data views for use
 
 1. Click **Continue** in the `Connecting to a third-party service` warning.
 
-1. In the `OSIsoft Cloud Services Data Views` window, enter the OCS tenant and namespace for the data views you want to access, and then click **OK**.<br>The OSIsoft Cloud Services sign-in window displays if you have not already signed into OCS.
+1. In the `OSIsoft Cloud Services Data Views` window, enter the OCS tenant and namespace for the Data Views you want to access, and then click **OK**.<br>The OSIsoft Cloud Services sign-in window displays if you have not already signed into OCS.
 
     - If you have not already signed into OCS, click **Sign in as different user** and complete the OCS user authentication process.
 
 1. In the `OSIsoft Cloud Services Data Views` sign-in window, click **Connect**.<br>The `Navigator` pane displays.
 
-1. In the `Navigator` pane, click on either Interpolated Data Views or Stored Data Views, and select the data view you want to work with in Microsoft Power BI.
+1. In the `Navigator` pane, click on either **Interpolated Data Views** or **Stored Data Views**, and select the Data View you want to work with in Microsoft Power BI.
 
    ![Select Data Views](./images/click-data-view-box.png)
 
-1. For Stored Data Views, specify a Start Index and End Index in `YYYY-MM-DDTHH:mm:ss` format for the selected data view, and click **Apply** to save the values. For Interpolated data views, also specify an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
+1. For stored Data Views, specify a Start Index and End Index in `YYYY-MM-DDTHH:mm:ss` format for the selected data view, and click **Apply** to save the values. For interpolated Data Views, also specify an Interpolation Interval in `dd.hh:mm:ss` format. Repeat for each additional data view as needed.
 
     **Note**: If a data view has default values, enter new values and click **Apply** to accept the defaults.
 
    ![Specify Data View Values](./images/specify-values.png)
 
-1. Click **Load** at the bottom of the `Navigator` pane to load all selected data views to Microsoft Power BI.<br>
+1. Click **Load** at the bottom of the `Navigator` pane to load all selected Data Views to Microsoft Power BI.<br>
 
-## Edit the data view query in Microsoft Power BI
+## Edit the Data View query in Microsoft Power BI
 
 Use Microsoft Power BI to edit the query generated from the connector to modify the Start Index and End Index to fixed dates or relative dates, as well as edit the Interpolation Interval (if applicable). You can also use Microsoft Power BI to enable an incremental refresh of data.
 
@@ -76,8 +76,7 @@ Use Microsoft Power BI to edit the query generated from the connector to modify 
         |-------------------------------------------------------------------------------------------------|-------------------------------|
         | Rolling 2 month period<br>Start Index: 2 months ago<br>End Index: Now | `Date.AddMonths(DateTimeZone.LocalNow(), -2), DateTimeZone.LocalNow()` |
         | Rolling 1 day period<br>Start Index: 1 day ago<br>End Index: Now | `Date.AddDays(DateTimeZone.LocalNow(), -1), DateTimeZone.LocalNow()` |
-        | Start of last month through now<br>Start Index: First day of last month at midnight<br>End Index: Now | `Date.StartOfMonth(Date.AddMonths(DateTimeZone.LocalNow(), -1)), DateTimeZone.LocalNow()` |
-        | Incremental refresh<br>Rolling 3 year period  | `Date.AddYears(DateTimeZone.LocalNow(), -3), DateTimeZone.LocalNow()` |<br>
+        | Start of last month through now<br>Start Index: First day of last month at midnight<br>End Index: Now | `Date.StartOfMonth(Date.AddMonths(DateTimeZone.LocalNow(), -1)), DateTimeZone.LocalNow()` |<br>
 
 1. Click **Close & Apply**, and then select `Close & Apply` in Power Query Editor to save your query.
 1. Optional. Use Microsoft Power BI Desktop to enable an incremental refresh of data.<br><br>
