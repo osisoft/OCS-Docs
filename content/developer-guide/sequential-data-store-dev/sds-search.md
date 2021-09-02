@@ -87,7 +87,7 @@ For more information on stream properties, see [Streams](xref:sdsStreams#streamp
 | Owner | No		  |
 
 > [!Note]
-> You can access stream metadata and tags through Metadata API and Tags API respectively. Metadata and tags are associated with streeams and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
+> You can access stream metadata and tags through Metadata API and Tags API respectively. Metadata and tags are associated with streams and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
 
 #### Request
 Search for streams using the REST API and specifying the optional `query` parameter:
