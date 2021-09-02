@@ -28,7 +28,7 @@ For a role to perform any actions on a stream, you must grant that role permissi
 
 ## Add tags or metadata
 
-Tags and metadata allow you to associate additional information with a stream. For example, tags can denote special attributes for a stream. Metadata consists of keys and values associated with those keys.
+Tags and metadata allow you to associate additional information with a stream. For example, tags can denote special attributes for a stream. Metadata consists of keys and their associated values.
 
 1. Click the ![Menu icon](../images/menu-icon.png) icon, and then click **Sequential Data Store** under Data Management.
 
