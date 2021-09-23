@@ -1,0 +1,26 @@
+# class summaries
+class-collectionaccessrightscontroller:
+  type: markdown
+  value: |
+    A `Storage Account Backup` describes the process of backing up an Azure storage account. Every backup is represented by a backup job.
+
+    ## Enabling storage account for backup
+    The provided storage account must be enabled for backup. If the storage account is in the SDS resource group, it must be a global account (tag `Global` set to `True`), it must not be excluded from backup (tag `BackupEnabled` set to `False`) and it must not be a telemetry account. If the storage account is not in the SDS resource group, it must tagged appropriately (tag `BackupEnabled` set to `True`).
+
+    ## Storage account backup methods
+    There are two ways how storage accounts can be backed up:
+    * Full backup - containers of the storage account are fully copied into the daily backup storage account; this the default method.
+    * Incremental backup - only blobs that have been modified since the previous backup are copied into a dedicated backup storage account; this backup method must enabled by tagging the account with tag `BackupMethod` set to `Incremental`.
+
+    The incremental backup should be used only for storage accounts that contain append-only blobs, i.e. no data is ever deleted or modified in the blobs.
+
+    ### Forcing a new incremental backup
+    The incremental backup method generates ever growing backup storage accounts. If there is a blob retention policy for a source storage account (old blobs are deleted periodically), the deleted blobs are not detected by the backup service and are kept in the backup storage account forever. Therefore, it might be beneficial to start backing up some storage accounts from scratch.
+
+    These are the recommended steps how to accomplish that:
+     1. Locate the backup storage account - it is in the backup subscription and it has a tag 'Source' set to the name of the source storage account.
+     2. Delete the `Source` tag from the backup storage account.
+     3. Trigger a new backup of the source storage account. Since the `Source` tag has been removed from previous backup storage account, a new backup account will be automatically created. The backup will also create new entries in the Manifest database.
+     4. Wait until the backup is finished.
+        * If the backup succeeded the old backup account can be deleted.
+        * If the backup failed because of timeout it is necessary to perform the initial copy of the storage account into the backup manually (for example, by using [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10)) - copy it into the backup storage account that was created in step 3. After that, it is necessary to update the Manifest database so that all the failed container manifests from step 3. appear to be successful - in the appropriate Manifest database update the table `dbo.BlobStorageContainerManifests` and change the value of `Status` from `CopyAborted` to `CopyCompleted` for the affected rows. You may need assistance from the team supporting the Backup-Restore service.

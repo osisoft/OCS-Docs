@@ -2,14 +2,14 @@
 acl:
   type: markdown
   value: |
-    An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists)
+    An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists).
 
 # cache
 cache:
   type: text/plain
   value: |
     "Refresh" to force the resource to re-resolve.
-    "Preserve" to use cached information, if available. This is the default value
+    "Preserve" to use cached information, if available. This is the default value.
 
 cache-data:
   type: markdown
@@ -20,6 +20,16 @@ cache-data:
     |--|--|
     | `Refresh` | Force the resource to re-resolve.  This is the default value for this API route.  
     | `Preserve`| Use cached information, if available.
+    
+cache-data-preview:
+  type: markdown
+  value: |
+    Controls when the data view backing resources are to be forcibly refreshed. Used only when requesting the first page of data. Ignored if used with the continuationToken. Values are:
+
+    | Value | Description | 
+    |--|--|
+    | `Refresh` | Force the resource to re-resolve.
+    | `Preserve`| Use cached information, if available.  This is the default value for this API route.  
 # continutation-token
 continuation-token:
   type: markdown
@@ -98,7 +108,7 @@ interval:
 owner:
   type: markdown
   value: |
-    A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner)
+    A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner).
 
 # skip
 skip-dataitems:
@@ -122,4 +132,4 @@ skip-groups:
 start-index:
   type: markdown
   value: |
-    The requested start index, inclusive. The default value is the ```.DefaultStartIndex``` of the data view. Optional if a default value is specified
+    The requested start index, inclusive. The default value is the ```.DefaultStartIndex``` of the data view. Optional if a default value is specified.

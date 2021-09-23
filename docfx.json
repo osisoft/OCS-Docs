@@ -16,7 +16,10 @@
   ],
   "build": {
 	"globalMetadata": {
-		"_enableSearch": true
+		"_enableSearch": true,
+    "_gitContribute": {
+      "branch": "main"
+    }
 	},
     "content": [
       {
@@ -27,7 +30,7 @@
           "**.md"
         ],
 	"exclude":[
-         "content/api-reference/identity/identity-implicit-client.md",
+         "content/api-reference/identity/identity-implicit-clients.md",
 	 "content/external-references/**.yaml"     
       ]      
       }
@@ -43,6 +46,7 @@
             "content/add-organize-data/organize-data/assets/images/**",
             "content/add-organize-data/organize-data/metadata-rules/images/**",
             "content/add-organize-data/store-data/images/**",
+            "content/communities/images/**",
             "content/set-up/images/**",
             "content/visualize-data/images/**",
             "content/overview/images/**",

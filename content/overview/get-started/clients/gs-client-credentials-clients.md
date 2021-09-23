@@ -3,7 +3,7 @@ uid: gsClientCredentialsClients
 ---
 # Get started with client-credentials clients
 
-Client-credentials clients are used for server-to-server communication where no user interaction is required. See the following for more information about client-credentials clients:
+Client-credentials clients are used for server-to-server communication where no user interaction is required. See the following topics for more information about client-credentials clients:
 
 - [Introduction to client-credentials clients](xref:ccClients#client-credentials-client)
 - [Client-credentials client PI Server counterpart](xref:ccClients#client-credentials-pi-server)
@@ -35,8 +35,9 @@ Client-credentials clients are used for server-to-server communication where no 
 
 1. Click **Add**.  
     A window opens with the `Client Id` and `Client Secret`.
-    **IMPORTANT**:  Click the **Copy** buttons to the right of these fields and save the client secret and client Id. You will need to reference these in your applications. Once the window is closed, the client secret cannot be accessed or retrieved.
-
+    
+**IMPORTANT**:  Click the **Copy** buttons to the right of these fields and save the client secret and client Id. You will need to reference these in your applications. Once the window is closed, the client secret cannot be accessed or retrieved.
+    
 1. Click **Close**.  
    **Note:** In the list of secrets, the `Client Id` is still visible. If you did not save the client secret, select the client in the list and use the `Details`pane to remove the old secret and add a new secret.
 

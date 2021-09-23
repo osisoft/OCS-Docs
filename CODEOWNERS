@@ -2,15 +2,22 @@
 # Each line is a file pattern followed by one or more owners.
 
 # These owners will be the default owners for everything in the repo.
-*       @GiselleLeeOSI
-content/api-reference/SequentialDataStore @GiselleLeeOSI @afloresOSI
-content/api-reference/Identity @digitaljoshua
-content/api-reference/Management @digitaljoshua
-content/api-reference/DataViews @osimarkrogers
-content/api-reference/Metadata @osimarkrogers
-content/api-reference/Operations @osimarkrogers
-content/api-reference/DataIngress @osimarkrogers
-content/api-reference/Assets @lassato-OSI
+*       @digitaljoshua
+content/api-reference/sequential-data-store  @digitaljoshua
+content/api-reference/identity @digitaljoshua
+content/api-reference/management @digitaljoshua
+content/api-reference/data-views @osimarkrogers
+content/api-reference/metadata @osimarkrogers
+content/api-reference/operations @osimarkrogers
+content/api-reference/data-ingress @osimarkrogers
+content/api-reference/assets @lassato-OSI
+content/api-reference/asset-rules @lassato-OSI
+content/add-organize-data @VictoriaTouati-AVEVA @afloresOSI
+content/communities @dwicinas-osisoft
+content/visualize-data @lassato-OSI @afloresOSI
+content/rom @lassato-OSI @afloresOSI
+content/overview @lassato-OSI @afloresOSI
+content/set-up @lassato-OSI @digitaljoshua
 
 # Order is important. The last matching pattern has the most precedence.
 # So if a pull request only touches javascript files, only these owners

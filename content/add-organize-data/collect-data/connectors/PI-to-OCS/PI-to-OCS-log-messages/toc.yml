@@ -1,6 +1,0 @@
-- name: Tenant log messages
-  href: download-tenant-log.md
-- name: View PI to OCS Agent logs
-  href: view-logs.md
-- name: Common Event Viewer log messages
-  href: log-messages.md

@@ -60,11 +60,11 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved. |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
+| 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation |
-| 404 Not Found | error | The query does not exist |
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 404 Not found | error | The query does not exist |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -186,11 +186,11 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved. |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
+| 200 OK | `ResolvedItems<DataItem>` | An object with a "TimeOfResolution" and a collection of "Items", the `DataItem`s that resolved |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
 | 403 Forbidden | error | You are not authorized for this operation
-| 404 Not Found | error | The query does not exist
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 404 Not found | error | The query does not exist
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -300,10 +300,10 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `ResolvedItems<Group>` | An object with a "TimeOfResolution" and a collection of "Items", the `Groups`s that resolved. |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
-| 403 Forbidden | error | You are not authorized for this operation
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 200 OK | `ResolvedItems<Group>` | An object with a "TimeOfResolution" and a collection of "Items", the `Groups`s that resolved |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -426,9 +426,9 @@ The response includes a status code and, in most cases, a body.
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<FieldSet>` | An object with a "TimeOfResolution" and a collection of "Items", the `FieldSets`s that resolved and which are still available |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
-| 403 Forbidden | error | You are not authorized for this operation
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Example response body
 
@@ -555,9 +555,9 @@ The response includes a status code and, in most cases, a body.
 | Status code | Body Type | Description |
 |--|--|--|
 | 200 OK | `ResolvedItems<FieldMapping>` | An object with a "TimeOfResolution" and a collection of "Items", the `FieldMapping`s resolved |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
-| 403 Forbidden | error | You are not authorized for this operation
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
+| 403 Forbidden | error | You are not authorized for this operation |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Response headers
 Successful (200 OK) responses include:
@@ -696,10 +696,10 @@ The response includes a status code and, in most cases, a body.
 
 | Status code | Body Type | Description |
 |--|--|--|
-| 200 OK | `ResolvedItem<Statistics>` | Successfully retrieved data. |
-| 400 Bad Request | error | The data view or the query parameters are not valid. See the response body for details |
-| 403 Forbidden | error | User is not authorized for this operation.
-| 500 Internal Server Error | error | An error occurred while processing the request. See the response body for details |
+| 200 OK | `ResolvedItem<Statistics>` | Successfully retrieved data |
+| 400 Bad request | error | The data view or the query parameters are not valid: see the response body for details |
+| 403 Forbidden | error | User is not authorized for this operation |
+| 500 Internal server error | error | An error occurred while processing the request: see the response body for details |
 
 #### Example response body
 

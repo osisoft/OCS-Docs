@@ -1,23 +1,23 @@
 tenant:
   type: text/plain
   value: |
-    Tenant identifier
+    Tenant identifier.
 namespace:
   type: text/plain
   value: |
-    Namespace identifier
+    Namespace identifier.
 stream:
   type: text/plain
   value: |
-    Stream identifier
+    Stream identifier.
 type:
   type: text/plain
   value: |
-    Type identifier
+    Type identifier.
 view:
   type: text/plain
   value: |
-    Stream view identifier
+    Stream view identifier.
 count:
   type: text/plain
   value: |
@@ -42,19 +42,19 @@ query:
 filter:
   type: text/plain
   value: |
-    Filter expression
+    Filter expression.
 startindex:
   type: text/plain
   value: |
-    Index identifying the beginning of the series of events to return
+    Index identifying the beginning of the series of events to return.
 endindex:
   type: text/plain
   value: |
-    Index identifying the end of the series of events to return
+    Index identifying the end of the series of events to return.
 boundaryType:
   type: text/plain
   value: |
-    SdsBoundaryType specifying the handling of events at or near the start and end indexes
+    SdsBoundaryType specifying the handling of events at or near the start and end indexes.
 startBoundaryType:
   type: text/plain
   value: |
@@ -67,4 +67,8 @@ continuationToken:
   type: text/plain
   value: |
     Token used to retrieve the next page of data. If count is specified, a continuationToken must also be specified.
-    
+ifMatch:
+  type: text/plain
+  value: |
+    The entity tag header from a previous read of the Access Control List (ACL). If provided, the ACL will not be 
+    patched unless the current ETag of the ACL, on the server, matches the value passed into the If-Match header.  

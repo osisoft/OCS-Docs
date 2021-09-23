@@ -11,7 +11,7 @@ There are two types of OSIsoft Cloud Services (OCS) connections that allow you t
 
 ### PI System counterpart
 
-<!-- I renamed this section PI System rather than PI Server because the second paragraph referred to "PI System connections." Please verify  -->
+<!-- I renamed this section PI System rather than PI Server because the second paragraph referred to "PI System connections." Please verify  --> <!-- VT: In response to previous comment, the change to "PI System" is correct.-->
 
 Connections do not have a direct equivalent in PI System, but they are similar to PI trusts in PI Data Archive because both are required for an application that writes data to the PI System.
 

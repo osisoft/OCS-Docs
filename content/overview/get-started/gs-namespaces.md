@@ -5,7 +5,7 @@ uid: gsNamespaces
 
 # Get started with namespaces
 
-The first task is to create a namespace, a logical unit of organization for data within a tenant. For more information on namespaces, see the following:
+The first task is to create a namespace, a logical unit of organization for data within a tenant. For more information on namespaces, see the following topics:
 
 - [Namespaces](xref:ccNamespaces)
 - [PI Server counterpart](xref:ccNamespaces#pi-server-counterpart) 
@@ -20,7 +20,7 @@ Creating a namespace is a resource-intensive operation. Therefore, you may prefe
 1. Click the ![Menu icon](images/menu-icon.png) icon and click **Namespaces** (under Data Management).
 
 
-2. In the `Manage Namespaces` pane, click **Add Namespace**. 
+2. In the left pane, click **Add Namespace**. 
 
 3. In the `Namespace Id` field, enter **MyOCS** for your namespace Id, enter a description, and select a region. 
 

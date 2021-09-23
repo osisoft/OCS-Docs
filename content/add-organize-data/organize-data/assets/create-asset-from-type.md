@@ -1,5 +1,5 @@
 ---
-Puid: CreateAssetFromAssetType
+uid: CreateAssetFromAssetType
 ---
 
 # Create an asset from an asset type

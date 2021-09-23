@@ -1,12 +1,12 @@
 - name: Data view API
-  href: data-view-api.md
+  href: data-views-data-views.md
 - name: Resolved data view API
-  href: resolved-data-view-api.md
+  href: data-views-data-views-resolved.md
 - name: Resolved data view preview API
-  href: resolved-data-view-preview-api.md
+  href: data-views-preview-data-views-resolved.md
 - name: Data API
-  href: data-api.md
+  href: data-views-data-views-data.md
 - name: Preview data API
-  href: preview-data-api.md
+  href: data-views-preview-data-views-data.md
 - name: Data view ACL API
-  href: data-view-acl-api.md
+  href: data-views-access-control.md

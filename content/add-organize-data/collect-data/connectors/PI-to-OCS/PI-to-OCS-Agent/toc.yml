@@ -1,8 +1,0 @@
-- name: PI to OCS Agent maintenance
-  href: update-agent.md
-- name: Uninstall an agent
-  href: uninstall-pi-to-ocs-agent.md
-- name: Repair an agent
-  href: repair-pi-to-ocs-agent.md
-- name: Disable IE enhanced security
-  href: disable-ie-security.md

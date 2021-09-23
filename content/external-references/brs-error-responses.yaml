@@ -1,0 +1,31 @@
+class-collectionaccessrightscontroller:
+  type: markdown
+  value: |
+    ```json
+    {
+        "OperationId": "string",
+        "Error": "string",
+        "Reason": "string",
+        "Resolution": "string",
+        "Parameters": {
+    	  "property1": "string",
+    	  "property2": "string"
+        }
+    }
+    ```
+    
+brs-notfound:
+  type: markdown
+  value: |
+    ```json
+    {
+        "OperationId": "string",
+        "Error": "string",
+        "Reason": "string",
+        "Resolution": "string",
+        "Parameters": {
+    	  "property1": "string",
+    	  "property2": "string"
+        }
+    }
+    ```

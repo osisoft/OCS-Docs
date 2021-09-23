@@ -2,13 +2,14 @@
 uid: AssetTypesAPI
 ---
 
-# Asset types API
+# Asset Types API
 
 The asset type API provides methods to create, read, update, and delete asset types. An asset type can be used to build many similar assets. Some of the key benefits of using an asset type as the base model for assets are:
 
 - Multiple similar assets can be created more quickly and with less effort.
 - Maintaining assets is simplified. 
 
+***
 ## `Get AssetType by Id`
 Returns the specified asset type.
 
@@ -19,13 +20,13 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{asset
 
 ### Parameters
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetTypeId`  
-The asset type identifier
+Asset type identifier
 
 ### Response 
 The response includes a status code and a response body.
@@ -50,13 +51,13 @@ Content-Type: application/json
             "Id": "MetadataId1",
             "Name": "ModelNumber",
             "Description": "This metadata indicates the model number of a given Asset.",
-            "SdsTypeCode": 14,
+            "SdsTypeCode": "Double",
         }
     ],
     "TypeReferences": [
         {
-            "Id": "TypeReferenceId1",
-            "Name": "TemperatureData",
+            "StreamReferenceId": "TypeReferenceId1",
+            "StreamReferenceName": "TemperatureData",
             "TypeId": "PI-Float32"
         }
     ]
@@ -64,10 +65,11 @@ Content-Type: application/json
 
 ```
 
+***
 
 ## `Get AssetTypes` 
 
-Returns a list of asset types and the total number of returned asset types, specified as Total-Count in the HTTP response header.
+Returns a list of asset types and the total number of returned asset types, specified as `Total-Count` in the HTTP response header.
 
 ### Request 
 
@@ -78,16 +80,16 @@ GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes?skip={
 ### Parameters
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 [Optional] `int skip`   
-Maximum number of asset types to retrieve. If unspecified, the default (100) is used.
+Optional parameter representing the zero-based offset of the first asset type to retrieve. If not specified, a default value of 0 is used.
 
 [Optional] `int count`  
-An optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of retrieved assets. If not specified, the default is 100.
+Optional parameter, between 1 and 1000 (inclusive), that represents the maximum number of retrieved asset types. If not specified, the default is 100.
 
 ### Response 
 
@@ -99,10 +101,11 @@ The response includes a status code and a body.
 | 204 No Content          | none          | No asset types found or the user does not have permissions to view  the asset types. |
 | 400 Bad Request         | error         | The request is not valid. See the response body for additional details. |
 | 503 Service Unavailable | error         | An error occurred while processing the request. See the response body for additional details. |
+***
 
 ## `Create AssetType` 
 
-Create a new asset type with a specified `Id`.
+Creates a new asset type with a specified identifier.
 
 ### Request 
 
@@ -113,13 +116,13 @@ POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{asse
 ### Parameters
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetTypeId`   
-The asset type identifier
+Asset type identifier
 
 #### Request body 
 
@@ -127,7 +130,7 @@ An `AssetType` object
 
 #### Example request body 
 
-To create an asset type with a specific `Id`, use the API route with `Id`. If this is used, you must specify a matching `Id` field for the `AssetType` object in the JSON object below.
+To create an asset type with a specific identifier, use the API route with identifier. If this is used, you must specify a matching `Id` field for the `AssetType` object in the JSON object below.
 
 ```json 
  {
@@ -139,7 +142,7 @@ To create an asset type with a specific `Id`, use the API route with `Id`. If th
             "Id": "MetadataId1",
             "Name": "ModelNumber",
             "Description": "This metadata indicates the model number of a given Asset.",
-            "SdsTypeCode": 14
+            "SdsTypeCode": "Double"
         }
     ],
     "TypeReferences": [
@@ -159,28 +162,30 @@ The response includes a status code and a body.
 | Status Code     | Response Type | Description                                                  |
 | --------------- | ------------- | ------------------------------------------------------------ |
 | 200 OK          | `AssetType`   | The `AssetType` as persisted, including values for optional parameters that were omitted in the request. |
+| 302 Found       | Redirect      | The `AssetType` you attempted to create is identical to one that already exists. |
 | 400 Bad Request | error         | The request is not valid. See the response body for additional details. |
 | 403 Forbidden   | error         | You are not authorized to create an `AssetType` object.      |
-| 409 Conflict    | error         | The `AssetType` update (?) or create has a conflict. See the response body for additional details. |
+| 409 Conflict    | error         | The `AssetType` create has a conflict. See the response body for additional details. |
 
+***
 
 ## `Create AssetTypes (Bulk create)`
 
-Create a new `AssetTypes` object
+Creates a new `AssetTypes` object.
 
 ### Request 
 
 ```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
+POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
 ```
 
 ### Parameters
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 #### Request body 
 
@@ -193,18 +198,19 @@ The response includes a status code and a body.
 | Status Code     | Response Type | Description                                                  |
 | --------------- | ------------- | ------------------------------------------------------------ |
 | 200 OK          | `AssetTypes`  | A list of `AssetType` objects, as persisted, including values for optional parameters that were omitted in the request. |
-| 400 Bad Request | error         | The request is not valid. The response will include which `AssetType` objects fail validation checks. See the response body for additional details. |
+| 400 Bad Request | error         | The request is not valid. The response includes which `AssetType` objects fail validation checks. See the response body for additional details. |
 | 403 Forbidden   | error         | You are not authorized to create `AssetType` objects.        |
 | 409 Conflict    | error         | The asset type update or create has a conflict. See the response body for additional details. |
 
+***
 ## `Create or Update AssetType`
 
-Create or update an asset type with a specified `Id`.
+Creates or updates an asset type with a specified identifer.
 
 When updating an asset type which is referenced by assets, the following behaviors may apply:
-- Deleting a metadata value on the asset type removes the metadata value on the resolved asset of referenced asset​s.
-- Renaming a metadata value on the asset type renames the metadata value on the resolved asset of referenced assets​.
-- Renaming the stream reference name on the asset type will rename the stream reference on resolved asset of referenced assets.
+- Deleting a metadata value on the asset type removes the metadata value on the resolved asset of any referenced asset​s.
+- Renaming a metadata value on the asset type renames the metadata value on the resolved asset of any referenced assets​.
+- Renaming the stream reference name on the asset type renames the stream reference on the resolved asset of any referenced assets.
 
 ### Request 
 
@@ -215,13 +221,13 @@ PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{asset
 ### Parameters
 
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetTypeId`   
-The asset type identifier
+Asset type identifier
 
 #### Request body 
 
@@ -238,26 +244,32 @@ The response includes a status code and a body.
 | 404 Not Found | error         | The specified asset type with identifier is not found.       |
 | 409 Conflict  | error         | The asset type update or create has a conflict. See the response body for additional details. |
 
+***
 ## `Delete AssetType` 
 
-Delete an asset type with a specified `Id`. Note: An `AssetType` object cannot be deleted if it is referenced by an asset. To delete an `AssetType` object, you must first delete all assets that are mapped to it. 
+Deletes an asset type with a specified identifier. An `AssetType` resource cannot be deleted if it is referenced by any assets unless the `deleteAssets` parameter is explicitly set to true. 
 
 ### Request 
 
 ```text 
-DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}?deleteAssets={true|false}
 ```
 
 ### Parameters  
 
 `string tenantId`     
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetTypeId`   
-The asset type identifier
+Asset type identifier
+
+`[optional] bool deleteAssets`   
+By default, this value is false and if there are assets based on this asset type, a 409 code is returned.  If this value is set to true, then any assets based on this asset type will be deleted along with the asset type in this one call. 
+
+**Caution: This action is not reversible**.  
 
 #### Request body 
 
@@ -269,7 +281,7 @@ The response includes a status code and a body.
 
 | Status Code     | Response Type | Description                                                  |
 | --------------- | ------------- | ------------------------------------------------------------ |
-| 200 No Content  | none          | The `AssetType` object with the specified `Id` has been deleted. |
+| 200 No Content  | none          | The `AssetType` object with the specified identifier has been deleted. |
 | 400 Bad Request | error         | The request is not valid. The response will include which items fail validation checks. See the response body for additional details. |
 | 403 Forbidden   | error         | You are not authorized to delete this asset type.            |
 | 404 Not Found   | error         | The specified asset type object with identifier is not found. |

@@ -1,299 +1,123 @@
 ---
-uid: operationsLogs
+uid: operations-logs
+
 ---
 
 # Logs
-
-APIs related to querying logs. A log is a record of events that occur in operation of OCS.
-
-## Authentication
-
-All endpoints referenced in this documentation require authenticated access. Authorization header must be set to the access token you retrieved after a successful authentication request.
-
-`Authorization: Bearer <token>`
-
-Requests made without an access token or an invalid/expired token will fail with a 401 Unauthorized response.
-Requests made with an access token which does not have the correct permissions (see security subsection on every endpoint) will fail with a 403 Forbidden.
-Read [OCS Authentication documentation](https://github.com/osisoft/OSI-Samples-OCS/blob/master/docs/AUTHENTICATION_README.md) on how to authenticate against OCS with the various clients and receive an access token in response.
-
-## Error handling
-
-All responses will have an error message in the body. The exceptions are 200 responses and the 401 Unauthorized response. The error message will appear as follows:
-
-```json
-{
-    "OperationId": "1b2af18e-8b27-4f86-93e0-6caa3e59b90c", 
-    "Error": "Error message.", 
-    "Reason": "Reason that caused error.", 
-    "Resolution": "Possible solution for the error." 
-}
-```
-
-If and when contacting OSIsoft support about this error, please provide the OperationId.
+APIs related to querying log data
 
 ## `Get Tenant Logs`
 
-Get customer facing logs for a **tenant**.
+<a id="opIdLog_Get Tenant Logs"></a>
+
+Returns logs for a tenant. The source parameter can be repeated multiple times. Valid sources are Account Management and Identity Management. Omit the source parameter to retrieve all sources. The severity parameter can be repeated multiple times. Valid severities are: - Critical - Error - Warning - Information - Verbose Omit the severity parameter to retrieve all severities.
 
 ### Request
-
-`GET api/v1/tenants/{tenantId}/logs`
-
-### Parameters
-
-```csharp
-[Required]
-string tenantId
+```text 
+GET /api/v1/tenants/{tenantId}/logs
+?start={start}&end={end}&source={source}&severity={severity}&skip={skip}&count={count}
 ```
 
-Id of the tenant.
+#### Parameters
 
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-DateTime start
-```
+`string tenantId`
+<br/>Tenant identifier<br/><br/>
+`[optional] string start`
+<br/>Start timestamp of tenant logs<br/><br/>`[optional] string end`
+<br/>End timestamp of tenant logs<br/><br/>`[optional] array source`
+<br/>One or more valid sources to filter tenant logs<br/><br/>`[optional] array severity`
+<br/>One or more severities to filter tenant logs<br/><br/>`[optional] integer skip`
+<br/>Number of logs to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of logs to return<br/><br/>
 
-Start timestamp of logs.
+#### Enumerated Values
 
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-DateTime end
-```
-
-End timestamp of logs.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-string[] source
-```
-
-Filter the logs by one or more sources. This parameter
-                can be repeated multiple times. Valid sources are:
-                *Account Management* and *Identity Management*.
-                Omit this parameter to retrieve all sources.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-SeverityLevel[] severity
-```
-
-Filter the logs by one or more severities. This parameter
-                can be repeated multiple times. Valid severities are:
-                *Critical*, *Error*, *Warning*, *Information*, and *Verbose*.
-                Omit this parameter to retrieve all severities.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 0]
-int32 skip
-```
-
-Number of logs to skip.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 1000]
-int32 count
-```
-
-Maximum number of logs to return.
-
-### Authorization
-
-Allowed for these roles:
-
-- `Tenant Administrator`
+|Parameter|Value|
+|---|---|
+|severity|0|
+|severity|1|
+|severity|2|
+|severity|3|
+|severity|4|
 
 ### Response
 
-#### 200
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Customer facing logs for provided tenant Id|
+|400|None|Missing or invalid inputs|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|500|None|Internal server error|
 
-Success.
-
-##### Type:
-
- `List`
-
-```json
-[
-  {
-    "Message": "Message",
-    "Timestamp": "2020-03-25T12:03:15.041014-07:00",
-    "Severity": 0,
-    "Source": "Source",
-    "OperationId": "OperationId",
-    "EventId": 0
-  },
-  {
-    "Message": "Message",
-    "Timestamp": "2020-03-25T12:03:15.0436848-07:00",
-    "Severity": 0,
-    "Source": "Source",
-    "OperationId": "OperationId",
-    "EventId": 0
-  }
-]
-```
-
-#### 400
-
-Missing or invalid inputs.
-
-#### 401
-
-Unauthorized
-
-#### 403
-
-Forbidden.
-
-#### 500
-
-Internal server error.
+---
 
 ## `Get Namespace Logs`
 
-Get logs for a **Namespace**.
+<a id="opIdLog_Get Namespace Logs"></a>
+
+Returns logs for a namespace. The source parameter can be repeated multiple times. Valid sources are: - Data ingress - Data storage - Data views - Metadata - PI to OCS Omit the source parameter to retrieve all sources. The severity parameter can be repeated multiple times. Valid severities are: - Critical - Error - Warning - Information - Verbose Omit the severity parameter to retrieve all severities.
 
 ### Request
-
-`GET api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs`
-
-### Parameters
-
-```csharp
-[Required]
-string tenantId
+```text 
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs
+?start={start}&end={end}&source={source}&severity={severity}&skip={skip}&count={count}
 ```
 
-Id of the tenant.
+#### Parameters
 
-```csharp
-[Required]
-string namespaceId
-```
+`string tenantId`
+<br/>Tenant identifier<br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/>
+`[optional] string start`
+<br/>Start timestamp of namespace logs<br/><br/>`[optional] string end`
+<br/>End timestamp of namespace logs<br/><br/>`[optional] array source`
+<br/>One or more sources to filter namespace logs<br/><br/>`[optional] array severity`
+<br/>One or more severities to filter namespace logs<br/><br/>`[optional] integer skip`
+<br/>Number of logs to skip<br/><br/>`[optional] integer count`
+<br/>Maximum number of logs to return<br/><br/>
 
-Id of the namespace.
+#### Enumerated Values
 
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-DateTime start
-```
-
-Start timestamp of logs.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-DateTime end
-```
-
-End timestamp of logs.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-string[] source
-```
-
-Filter the logs by one or more sources. This parameter
-                can be repeated multiple times. Valid sources are:
-                *Data Ingress*, *Data Storage*, *Data Views*, *Metadata*, *PI to OCS*.
-                Omit this parameter to retrieve all sources.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = ""]
-SeverityLevel[] severity
-```
-
-Filter the logs by one or more severities. This parameter
-                can be repeated multiple times. Valid severities are:
-                *Critical*, *Error*, *Warning*, *Information*, and *Verbose*.
-                Omit this parameter to retrieve all severities.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 0]
-int32 skip
-```
-
-Number of logs to skip.
-
-```csharp
-[FromQuery]
-[Optional]
-[Default = 1000]
-int32 count
-```
-
-Maximum number of logs to return.
-
-### Authorization
-
-Allowed for these roles:
-
-- `Tenant Administrator`
+|Parameter|Value|
+|---|---|
+|severity|0|
+|severity|1|
+|severity|2|
+|severity|3|
+|severity|4|
 
 ### Response
 
-#### 200
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Customer facing logs for provided namespace Id.|
+|400|None|Missing or invalid inputs|
+|401|None|Unauthorized|
+|403|None|Forbidden|
+|500|None|Internal server error|
 
-Success.
+---
+## Definitions
 
-##### Type:
+### SeverityLevel
 
- `List`
+<a id="schemaseveritylevel"></a>
+<a id="schema_SeverityLevel"></a>
+<a id="tocSseveritylevel"></a>
+<a id="tocsseveritylevel"></a>
 
-```json
-[
-  {
-    "Message": "Message",
-    "Timestamp": "2020-03-25T12:03:15.5643366-07:00",
-    "Severity": 0,
-    "Source": "Source",
-    "OperationId": "OperationId",
-    "EventId": 0
-  },
-  {
-    "Message": "Message",
-    "Timestamp": "2020-03-25T12:03:15.564347-07:00",
-    "Severity": 0,
-    "Source": "Source",
-    "OperationId": "OperationId",
-    "EventId": 0
-  }
-]
-```
+Object describing the Severity Level of customer logs.
 
-#### 400
+#### Enumerated Values
 
-Missing or invalid inputs.
+|Property|Value|
+|---|---|
+|Verbose|0|
+|Information|1|
+|Warning|2|
+|Error|3|
+|Critical|4|
 
-#### 401
+---
 
-Unauthorized
-
-#### 403
-
-Forbidden.
-
-#### 500
-
-Internal server error.

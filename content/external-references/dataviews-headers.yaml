@@ -2,7 +2,7 @@
 first-page-standard-message:
   type: text/plain
   value: |
-    Hyperlink to the first page of results
+    Hyperlink to the first page of results.
 
 # Link 
 link-data-get:
@@ -13,31 +13,31 @@ link-data-get:
 link-standard-message:
   type: text/plain
   value: |
-    Hyperlinks to the first page and next page of results as applicable
+    Hyperlinks to the first page and next page of results as applicable.
 
 # Next-Page
 next-page-standard-message:
   type: text/plain
   value: |
-    Hyperlink to the next page of results
+    Hyperlink to the next page of results.
 
 # Total-Count 
 total-count-dataitems:
   type: text/plain
   value: |
-    The total count of data items visible to the current user
+    The total count of data items visible to the current user.
 
 total-count-dataviews:
   type: text/plain
   value: |
-    The total count of data views visible to the current user
+    The total count of data views visible to the current user.
 
 total-count-fieldmappings:
   type: text/plain
   value: |
-    The total count of field mappings
+    The total count of field mappings.
 
 total-count-groups:
   type: text/plain
   value: |
-    The total count of groups
+    The total count of groups.

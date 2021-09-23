@@ -6,7 +6,7 @@ uid: CreateConfigureAsset
 
 Follow the procedures to create an asset, add and configure its metadata and properties, and select and configure a property whose status will be visible in the card or table view.
 
-### Create the asset
+## Create the asset
 
 1. Click the menu icon ![menu icon](images/icon_navigation_bigger.png) and click **Asset Explorer**.
    
@@ -28,7 +28,7 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
 1. Enter a name and description for the asset.
 
-### Add metadata to the asset
+## Add metadata to the asset
 
 1. Click the **Metadata** tab and click **Add Metadata**.
 
@@ -52,7 +52,7 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 5. Continue adding metadata for the asset. 
 
 
-### Add properties to the asset
+## Add properties to the asset
 
 1. Click the **Properties** tab. 
 
@@ -80,7 +80,7 @@ Follow the procedures to create an asset, add and configure its metadata and pro
     **Note:** Once you click **Save**, any changes are immediately made to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are not reversed if you click **Cancel** on the **Properties** tab or if you delete the asset.
 
 
-### Add status tracking to the asset
+## Add status tracking to the asset
 
 1. Click the **Status** tab.
 
@@ -100,7 +100,7 @@ Follow the procedures to create an asset, add and configure its metadata and pro
     
     **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
 
-### Save the asset
+## Save the asset
 
 1. Click **Save**. 
 

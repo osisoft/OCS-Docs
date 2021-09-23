@@ -1,0 +1,14 @@
+- name: Community roles
+  href: community-roles.md
+- name: Create a community
+  href: create-a-community.md
+- name: Manage tenants in a community
+  href: manage-a-community.md
+- name: Manage users in a community
+  href: manage-users.md
+- name: Add and remove community clients
+  href: manage-clients.md
+- name: Share and unshare streams
+  href: share-unshare-streams.md  
+- name: Delete a community
+  href: delete-a-community.md

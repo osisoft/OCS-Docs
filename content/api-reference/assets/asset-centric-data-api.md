@@ -2,20 +2,21 @@
 uid: AssetCentricDataAPI
 ---
 
-# Asset centric data API
-The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams. 
+# Assets Data API
+
+The asset data API provides a quick way to retrieve data stored in an asset's referenced streams. 
 
 In order to retrieve stream data from an asset, you must first set up stream references for a given asset. The data that is retrieved is based on the resolved asset. By default, data calls return data for all stream references. 
 
-If you are only interested in data from a subset of streams, you must specify the streams encoded as a URL parameter. The format is to add stream={streamName} for each stream you are interested in.
+If you are only interested in data from a subset of streams, you must specify the streams encoded as a URL parameter. The format is to add `stream={streamReferennceName}` for each stream reference separated by ampersands (&).
 
 For example, if a given asset has the following definition and you are only interested in HeaterA and PressureB for the last data call, you would send:
 
 ```text 
-GET ...Namespaces/{namespaceId}/Assets/AssetStreamFilter/Data/Last?Stream={HeaterA},Stream={PressureB}
+GET ...Namespaces/{namespaceId}/Assets/AssetStreamFilter/Data/Last?Stream={HeaterA}&Stream={PressureB}
 ```
 
-Note: Asset stream references can contain commas. In this case, the comma must be properly escaped.
+**Note:** Asset stream references can contain commas. In this case, the comma must be properly escaped.
 
 ```
 {
@@ -54,7 +55,7 @@ The following asset is used in all of the sample output in the output below.
             "Id": "b47c9529-7fbf-4b2d-810b-fe79d7fdb2b0",
             "Name": "RoomLocation",
             "Description": "This is what room number the asset is located.",
-            "SdsTypeCode": 14,
+            "SdsTypeCode": "Double",
             "Value": 1.0
         }
     ],
@@ -68,27 +69,28 @@ The following asset is used in all of the sample output in the output below.
     ]
 }
 ```
+***
 
 ## `Get Asset Last Data` 
 Returns the last stored value for SDS streams in the resolved asset.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?stream={stream 1}[,stream={stream n}]
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?stream={stream 1}[&stream={stream n}]
 ```
 
 ### Parameters  
 `string tenantId`   
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
-[optional] string[] streams
-An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+[optional] `string[] stream`
+Optional parameter consisting of the streams that you want data from.
 
 ### Response 
 The response includes a status code and a response body.
@@ -119,38 +121,39 @@ Content-Type: application/json
 }
 ```
 
+***
 
 ## `Get Asset Sampled Data` 
-Returns sampled data for referenced Sds streams. 
+Returns sampled data for referenced streams. 
 
-Note: The inputs to this API matches the SDS stream Get samples values data call.  
+**Note:** The inputs to this API matches the SDS stream Get sampled values data call.  
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&stream={stream 1}[,stream={stream n}]
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&stream={stream 1}[&stream={stream n}]
 ```
 
 ### Parameters  
 `string tenantId`   
-The tenant identifier 
+Tenant identifier 
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 `string startIndex`   
-The start index for the intervals
+Start index for the intervals
 
 `string endIndex`   
-The end index for the intervals
+End index for the intervals
 
 `int intervals`  
-The number of requested intervals
+Number of requested intervals
 
-[optional] string[] streams
-An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+[optional] `string[] stream`
+Optional parameter consisting of the streams that you want data from.
 
 ### Response 
 The response includes a status code and a response body.
@@ -190,36 +193,37 @@ Content-Type: application/json
 }
 ```
 
+***
 
 ## `Get Asset Summary Data` 
 Returns summary data for referenced SDS streams. 
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[,stream={stream n}]
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[&stream={stream n}]
 ```
 
 ###  Parameters  
 `string tenantId`   
-The tenant identifier 
+Tenant identifier 
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 `string startIndex`   
-The start index for the intervals
+Start index for the intervals
 
 `string endIndex`   
-The end index for the intervals
+End index for the intervals
 
 `int count`   
-The number of requested intervals
+Number of requested intervals
 
-[optional] string[] streams
-An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+[optional] `string[] stream`
+Optional parameter consisting of the streams that you want data from.
 
 ### Response 
 The response includes a status code and a response body.
@@ -378,33 +382,35 @@ Content-Type: application/json
 }
 ```
 
+***
+
 ## `Get Asset Window Data`
 Returns window data for referenced SDS streams.
 
 ### Request
 
 ```
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&stream={stream 1}[,stream={stream n}]
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&stream={stream 1}[&stream={stream n}]
 ```
 
 ### Parameters
 `string tenantId`  
-The tenant identifier
+Tenant identifier
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 `string startIndex`   
-The start index for the intervals
+Start index for the intervals
 
 `string endIndex`   
-The end index for the intervals
+End index for the intervals
 
-[optional] string[] streams
-An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+[optional] `string[] stream`
+Optional parameter consisting of the streams that you want data from.
 
 ### Response
 The response includes a status code and a response body.
@@ -473,36 +479,37 @@ Content-Type: application/json
 }
 
 ```
+***
 
 ## `Get Asset Interpolated Data` 
 Returns interpolated data for referenced SDS streams. 
 
 ### Request 
 ``` 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[,stream={stream n}]
+GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[&stream={stream n}]
 ```
 
 ###  Parameters  
 `string tenantId`   
-The tenant identifier 
+Tenant identifier 
 
 `string namespaceId`   
-The namespace identifier
+Namespace identifier
 
 `string assetId`  
-The asset identifier
+Asset identifier
 
 `string startIndex`   
-The start index for the intervals
+Start index for the intervals
 
 `string endIndex`   
-The end index for the intervals
+End index for the intervals
 
 `int count`   
 The number of requested intervals
 
-[optional] string[] streams
-An optional parameter consisting of a comma-separated list of stream reference names that you are interested in. By default, all data calls return data for all stream references.
+[optional] `string[] stream`
+Optional parameter consisting of the streams that you want data from.
 
 ### Response 
 The response includes a status code and a response body.

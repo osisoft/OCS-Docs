@@ -1,0 +1,8 @@
+- name: Troubleshoot failed AF indexing
+  href: troubleshoot-failed-af-indexing.md
+- name: Troubleshoot failed PI mapping
+  href: troubleshoot-failed-pi-mapping.md
+- name: Troubleshoot missing PI Data Archive
+  href: troubleshoot-missing-pida.md
+- name: Troubleshoot PI point errors
+  href: troubleshoot-pi-point-errors.md

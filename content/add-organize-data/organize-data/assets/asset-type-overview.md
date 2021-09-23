@@ -4,22 +4,23 @@ uid: AssetTypes
 
 # Asset types
 
-Asset types are a template that is used to create multiple assets with similar properties. Assets created from asset types have the following characteristics:
+An asset type is a template for creating assets that share a common structure or type. When you create an asset type, you define the expected metadata and stream references for assets created from that asset type. Using asset types to create assets makes it easier to compare assets of the same type and to ensure consistency across similar assets. Note these guidelines when creating an asset from an asset types:
 
-* Metadata - A collection of properties that asset instances of this asset type are expected to provide. The type and units of measure for the value can be defined.
-
-* Stream Type references - A collection of named references to streams that asset instances of the asset type are expected to provide. The name functions as a key identifying the relationship between asset of the referenced Stream. The stream type and unit of measure override define constraints on the referenced stream that instances will comply with.
-
-Note the following characteristics of an asset created from an asset type:  
-
-- The metadata associated with the asset is determined by the asset type. Therefore, you cannot add or remove metadata from the asset; however, you can edit the values of the metadata.
-- The stream type for the asset is determined by the asset type. However, you must select the stream that is associated with the asset.
-- The status mapping is determined by the asset type. You cannot change the mappings or select another measurement.
-- You must assign a name to the asset and, optionally, a description.
+- Configure the asset name, and, optionally, the description.
+- Do not add or remove metadata from the asset; however, you can edit metadata values. The asset type determines the metadata and stream type associated with the asset. 
+- Configure stream references to point at streams of the type defined by the asset type. 
+- Do not change the mappings or select another measurement. Status mapping is determined by asset type.
+- Asset configuration is read-only and inherited from an asset type.
 
 There are two ways to create an asset type:
 
-- Take an existing asset and convert it to an asset type. For more information, refer to [Convert an asset to an asset type](xref:ConvertAssetToAssetType).
+- Take an existing asset and convert it to an asset type. For more information, see [Convert an asset to an asset type](xref:ConvertAssetToAssetType).
+- Create a new asset type. For more information, see [Create an asset type with the asset type editor](xref:CreateAssetTypeWithEditor).
 
-- Create an asset type from the start. For more information, refer to [Create an asset type with the asset type editor](xref:CreateAssetType).
+## PI Server counterpart
 
+Asset types are comparable to element templates in the PI AF server. Like element templates, asset types are templates for creating assets. Using asset types ensures consistency and makes it easier to compare assets of the same type. 
+
+## Asset types best practices 
+
+When deciding whether or not to use asset types, consider whether all assets of a given type are similar enough that they can be modeled by a type. Additional metadata and stream references cannot be added to assets that are created from an asset type.

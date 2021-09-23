@@ -1,8 +1,3 @@
-- name: OMF ingress to OCS
-  href: omf-ingress-to-ocs.md
-- name: Use OMF with OCS
-  href: omf-ingress-specification.md
-- name: OMF ingress topics 
-  href: omf-ingress-topics.md
-- name: OMF ingress subscriptions 
-  href: omf-ingress-subscriptions.md
+- name: OSIsoft Message Format
+  href: omf-ingress/toc.yml
+  topicHref: omf-ingress/omf-ingress-omf.md

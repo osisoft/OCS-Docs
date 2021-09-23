@@ -1,8 +1,8 @@
 ---
-uid: CreateAssetType
+uid: CreateAssetTypeWithEditor
 ---
 
-# Create an asset type with the asset types editor
+# Create an asset type
 
 For more information on asset types, see [Asset types](xref:AssetTypes).
 
@@ -25,7 +25,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 6. Enter an Id and description for the asset type.
 
-### Add metadata to the asset type
+## Add metadata to the asset type
 
 1. Click the **Metadata** tab to add asset metadata.
 
@@ -50,7 +50,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 7. Continue adding metadata for the asset. 
 
-### Add properties to the asset type
+## Add properties to the asset type
 
 1. Click the **Properties** tab. 
 
@@ -66,7 +66,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
     The properties associated with the stream type are displayed.
     ![Stream type reference](images/stream-type-reference-properties.png)
 
-### Add status tracking to the asset
+## Add status tracking to the asset
 
 1. Click the **Status** tab.
 2. Click **Add Status Configuration**.
@@ -82,7 +82,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
     
     **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
     
-### Save the asset type
+## Save the asset type
 
 1. Click **Save**. 
 

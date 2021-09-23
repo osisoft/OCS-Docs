@@ -6,7 +6,7 @@
   topicHref: get-data-view-data/quick-start-get-data-view-data.md
 - name: Get resolved data view
   topicHref: get-resolved-data-view/resolved-data-view.md
-- name: Preview data view API
+- name: Preview data view
   topicHref: preview-data-view-api/preview-data-view-api.md
 - name: Secure data views
   topicHref: secure-data-views/securing-data-views.md

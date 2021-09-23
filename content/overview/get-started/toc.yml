@@ -1,4 +1,4 @@
-- name: Introduction to the portal interface
+- name: Introduction to the OCS portal
   topicHref: introduction-portal-interface.md
 - name: Get started with namespaces
   topicHref: gs-namespaces.md
@@ -16,3 +16,11 @@
 - name: Get started with clients
   href: clients/toc.yml
   topicHref: gs-clients.md
+- name: Get started with assets
+  topicHref: gs-assets.md
+- name: Get started with asset types
+  topicHref: gs-asset-types.md
+- name: Get started with metadata rules
+  topicHref: gs-metadata-rules.md
+- name: Get started with stream views
+  topicHref: gs-stream-views.md
