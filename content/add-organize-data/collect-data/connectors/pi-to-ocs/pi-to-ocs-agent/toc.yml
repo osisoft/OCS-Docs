@@ -1,6 +1,8 @@
-- name: Filter, uninstall, or repair an agent
-  href: filter-remove-agents.md
-- name: Remove an agent from the OCS portal
-  href: remove-agent-portal.md
 - name: View PI to OCS Agent metrics
   href: view-pi-to-ocs-agent-metrics.md
+- name: Repair an agent 
+  href: repair-agent.md
+- name: Search for an agent
+  href: search-agents.md
+- name: Remove an agent
+  href: remove-agent-portal.md

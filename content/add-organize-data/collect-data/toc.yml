@@ -1,4 +1,4 @@
-- name: PI to OCS
+- name: PI to OCS (Preview)
   href: connectors/pi-to-ocs/toc.yml
   topicHref: connectors/pi-to-ocs/main-landing-page.md
 - name: OMF

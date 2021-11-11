@@ -37,7 +37,8 @@ and code samples in various languages which are shown on tabs in the right panel
 
 ## Step 1: Acquire namespace
 
-In the portal, open the navigation menu ![navigation menu](../images/icon-navigation.png) and select **Data Management** > **Namespaces**.
+Log into the portal. In the left pane, select **Data Management** > **Namespaces**.
+
 You can use an existing namespace or create a new one.
 
 ## Step 2: Create data types
@@ -190,9 +191,8 @@ Host: dat-b.osisoft.com
     "ExtrapolationMode": 0
 }
 ```
-To help users develop .NET client applications for SDS, OSIsoft provides OCS client libraries through NuGet packages, 
-[OCSClients](https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients consists of necessary libraries
-to connect to OCS and manage data. Note that SDS client libraries are only available in .NET.
+To help users develop .NET client applications for SDS, OSIsoft provides client libraries through NuGet packages, 
+[OCSClients](https://www.nuget.org/packages/OSIsoft.OCSClients/). OCSClients consists of necessary libraries to connect to OCS and manage data. Note that SDS client libraries are only available in .NET.
 
 You can use ``SdsTypeBuilder`` in .NET client libraries to create types:
 
@@ -381,3 +381,9 @@ header, you can tell the server how long to spend on a particular request before
 terminates the request if the time it takes to process the request exceeds the timeout value set in the header.
 
 To specify the request timeout value, include the Request-Timeout header and specify the value in seconds.
+
+> [!NOTE]
+>
+> For write data requests, the `Request-Timeout` header may not be acknowledged by SDS.
+> It is to allow ample time for a large amount of data to be written. 
+> [Write data APIs](xref:sdsWritingDataApi) adhere to an internal timeout setting of 5 minutes (300 seconds.)

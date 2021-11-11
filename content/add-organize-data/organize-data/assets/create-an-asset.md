@@ -8,13 +8,9 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
 ## Create the asset
 
-1. Click the menu icon ![menu icon](images/icon_navigation_bigger.png) and click **Asset Explorer**.
-   
-1. To change the [namespace](xref:ccNamespaces), click on the namespace to open the `Select a Namespace` window.
-
-    ![Namespace icon](images/namespace-icon.png)
-
-4. Select the namespace and click **Continue**.
+1. In the left pane, select **Visualization** > **Asset Explorer**.
+ 
+1. Click the **Change Namespace** button in the upper-right toolbar, then select the desired namespace.
 
 5. Verify that the **Assets/Asset Type** selector is set to **Assets**.
 
@@ -34,15 +30,14 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
     **Note:** Metadata is static attributes about assets, for example, model or region.
 
-    The fields for entering the metadata details appear. 
-
-    ![Metadata fields](images/metadata-fields.png)
+    Result: The fields for entering the metadata details appear. 
 
     <!-- We need a definition for metadata that covers its use in different OCS contexts. --> 
 
 2. Enter a name for the metadata.
 
-3. (Optional) Enter a value for the metadata and select a type.  
+3. Optional: Enter a value for the metadata and select a type.
+   
     **Note:** The value must match the selected type. The following date/time format is supported: MM/DD/(YY)YY hh:mm(:ss).
 
     <!--WRITER NOTE: What date/time formats are supported? Is this the same as for PI Server? i.e., Microsoft standard date/time formats? -->
@@ -56,29 +51,27 @@ Follow the procedures to create an asset, add and configure its metadata and pro
 
 1. Click the **Properties** tab. 
 
-2. Click **Add Stream References** to add a property.
+1. Click **Add Stream References** to add a property.
 
-3. In the `Select Streams` window, select the stream you want.  
+1. In the `Select Streams` window, select the stream you want.
+   
      **Note:** Use the search box to find the stream. You can search on the stream name, description, or the type. Use the asterisk (*)  as a wildcard character.
 
-4. Click **Add**.  
-     The stream reference appears in the right pane. This is the automatically generated user-friendly stream name. You can edit this name.
-     ![Stream reference properties](images/stream-reference.png)
-     
-5. Click the scroll bar to display the properties for the stream reference.
+1. Click **Add**. 
+  
+   **Result:** The stream reference appears in the right pane. This is the automatically generated user-friendly stream name. You can edit this name.
+         
+1. Click the scroll bar to display the properties for the stream reference.
    
-    ![Stream reference properties](images/stream-reference-properties.png)
+1. Click **Configure UOMs**. 
 
-8. Click **Configure UOMs**. 
-
-9. On the `Configure UOMs` page, make any changes to the property UOMs.
+1. On the `Configure UOMs` page, make any changes to the property UOMs.
 
     **Note:** UOMs can be set only on numeric types.
 
 1. When you are done, click **Save**.
 
     **Note:** Once you click **Save**, any changes are immediately made to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are not reversed if you click **Cancel** on the **Properties** tab or if you delete the asset.
-
 
 ## Add status tracking to the asset
 
@@ -93,10 +86,6 @@ Follow the procedures to create an asset, add and configure its metadata and pro
     You can only specify one property as the asset's status. 
 
 1. Click the status icons to map the icon for each value.
-    ![Mapping status icons](images/map-status-values.png)
-    
-    All the values have been mapped in the following screen capture.
-    ![Mapped status](images/mapped-status-values.png)
     
     **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
 

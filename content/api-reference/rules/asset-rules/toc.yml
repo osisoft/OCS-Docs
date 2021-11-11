@@ -1,2 +1,12 @@
 - name: Asset rules
-  topicHref: asset-rules-api.md
+  topicHref: asset-asset-rules.md
+- name: Asset rules preview
+  topicHref: asset-asset-rule-preview.md
+- name: Asset rules errors
+  topicHref: asset-asset-rule-errors.md
+- name: Asset change data 
+  topicHref: asset-asset-change-data.md
+- name: Asset rule suggestion 
+  topicHref: asset-asset-rule-suggestion.md
+- name: Asset access control list 
+  topicHref: asset-access-control-list.md

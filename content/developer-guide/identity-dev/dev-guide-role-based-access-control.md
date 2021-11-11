@@ -4,15 +4,15 @@ uid: accessControl
 
 # Role-based access control
 
-Use an Access Control List (ACL) to manage role-based access control to entities such as namespaces and streams. ACLs control user access to entities based on their OCS roles. Each entity has an owner, who has access for all operations regardless of the contents of the ACL. Not all entities in the OCS system support role-based access control.  <!--Angela Flores 6/23/21 We should not talk about unreleased functionality or future functionality in the end-user documentation. Original text "Not all entities in the OCS system support role-based access control at this time, but the list will quickly grow and currently includes Namespaces and several unreleased entities." We should list all the entities that do support an ACL. How does access work for entities that don't support an ACL? -->
+Use an Access Control List (ACL) to manage role-based access control to entities such as namespaces and streams. ACLs control user access to entities based on their roles. Each entity has an owner, who has access for all operations regardless of the contents of the ACL. Not all entities support role-based access control.  <!--Angela Flores 6/23/21 We should not talk about unreleased functionality or future functionality in the end-user documentation. Original text "Not all entities in the OCS system support role-based access control at this time, but the list will quickly grow and currently includes Namespaces and several unreleased entities." We should list all the entities that do support an ACL. How does access work for entities that don't support an ACL? -->
 
 ## Access Control Lists
 
 Access Control Lists (ACLs) contain sets of Access Control Entries (ACEs), which contain the following information:
 
-- TrusteeType - the role, user, or application for whom access is set 
+- TrusteeType - the role for whom access is set 
 - AccessType - the access permitted, either allowed or denied
-- AccessRights - the 
+- AccessRights - the access rights allowed or denied to the Trustee specified 
 
 A user or application that attempts to read, write, delete, or manage access control of an entity assigned an ACL must be assigned a trustee that has `AccessType` set to `Allowed` for the AccessRight corresponding to that operation.
 

@@ -12,34 +12,36 @@ An identity provider claim provides a mechanism to map a claim from an identity 
 
 Returns all identity provider claims for an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ?query={query}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>
 `[optional] string query`
-<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/><br/>
+<br/>(Not supported) Search string identifier.<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[IdentityProviderClaim](#schemaidentityproviderclaim)[]|List of identity provider claims found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant or identity provider not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim)[])
 
 ```json
@@ -50,12 +52,13 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
     "Value": "string",
     "RoleIds": [
       "string"
-    ]
+    ],
+    "IsBuiltIn": true
   }
 ]
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -70,28 +73,29 @@ Allowed for these roles:
 
 Returns the header information for all identity provider claims for an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Identity provider claim header information|
-|401|None|Unauthorized.<br/>|
-|403|None|Forbidden.<br/>|
+|401|None|Unauthorized.|
+|403|None|Forbidden.|
 |404|None|Tenant or identity provider not found|
-|500|None|Internal server error.<br/>|
+|500|None|Internal server error.|
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -106,18 +110,19 @@ Allowed for these roles:
 
 Creates a new identity provider claim for an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>
 
-### Request Body
+<h4>Request Body</h4>
 
 Identity provider claim to create<br/>
 
@@ -127,25 +132,27 @@ Identity provider claim to create<br/>
   "IdentityProviderClaimTypeNameId": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 ```
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim created|
 |302|None|Found|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or roles not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |409|[ErrorResponse](#schemaerrorresponse)|Identity provider claim configuration already exists|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 201 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
@@ -155,11 +162,12 @@ Identity provider claim to create<br/>
   "Value": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -174,29 +182,31 @@ Allowed for these roles:
 
 Returns an identity provider claim from an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Identity provider claim specified|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or identity provider claim not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
@@ -206,11 +216,12 @@ GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{id
   "Value": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -225,29 +236,30 @@ Allowed for these roles:
 
 Returns an identity provider claim header from an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Identity provider claim specified header|
-|401|None|Unauthorized.<br/>|
-|403|None|Forbidden.<br/>|
+|401|None|Unauthorized.|
+|403|None|Forbidden.|
 |404|None|Tenant, identity provider, or identity provider claim not found|
-|500|None|Internal server error.<br/>|
+|500|None|Internal server error.|
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -262,19 +274,20 @@ Allowed for these roles:
 
 Updates a new identity provider claim for an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 PUT /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim identifier.<br/><br/>
 
-### Request Body
+<h4>Request Body</h4>
 
 Updated identity provider claim values<br/>
 
@@ -287,20 +300,21 @@ Updated identity provider claim values<br/>
 }
 ```
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[IdentityProviderClaim](#schemaidentityproviderclaim)|Updated identity provider claim|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, identity provider claim, or roles not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |409|[ErrorResponse](#schemaerrorresponse)|Identity provider claim configuration already exists|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([IdentityProviderClaim](#schemaidentityproviderclaim))
 
 ```json
@@ -310,11 +324,12 @@ Updated identity provider claim values<br/>
   "Value": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -329,45 +344,31 @@ Allowed for these roles:
 
 Deletes an identity provider claim for an identity provider on a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Claims/{identityProviderClaimId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string identityProviderId`
-<br/>Identity provider identifier.<br/><br/><br/>`string identityProviderClaimId`
-<br/>Identity provider claim identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>`string identityProviderClaimId`
+<br/>Identity provider claim identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No content|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant, identity provider, or identity provider claim not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
-> 401 Response ([ErrorResponse](#schemaerrorresponse))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "EventId": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -386,7 +387,7 @@ Allowed for these roles:
 
 Object representing a claim from an identity provider to map to a role
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -394,6 +395,7 @@ Object representing a claim from an identity provider to map to a role
 |TypeName|string|false|true|Type name for this identity provider claim|
 |Value|string|false|true|Value for this identity provider claim|
 |RoleIds|string[]|false|true|List of role identifiers that this claim on this identity provider will map|
+|IsBuiltIn|boolean|false|false|Indicates if this claim entry is built-in. When this value is true, callers cannot modify or delete the claim.|
 
 ```json
 {
@@ -402,7 +404,8 @@ Object representing a claim from an identity provider to map to a role
   "Value": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 
 ```
@@ -416,17 +419,17 @@ Object representing a claim from an identity provider to map to a role
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -434,7 +437,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -452,13 +458,14 @@ Object returned when there is an error
 
 Identity provider claim to create
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Value|string|false|true|Value for this identity provider claim|
 |IdentityProviderClaimTypeNameId|guid|false|false|Identity provider claim type name identifier for this identity provider claim|
 |RoleIds|string[]|false|true|List of role identifiers associated with this identity provider claim|
+|IsBuiltIn|boolean|false|false|Indicates if this claim entry is built-in. This value must be set to false or not specified.|
 
 ```json
 {
@@ -466,7 +473,8 @@ Identity provider claim to create
   "IdentityProviderClaimTypeNameId": "string",
   "RoleIds": [
     "string"
-  ]
+  ],
+  "IsBuiltIn": true
 }
 
 ```
@@ -482,7 +490,7 @@ Identity provider claim to create
 
 Update information for an identity provider claim
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

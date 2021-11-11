@@ -4,7 +4,7 @@ uid: identityHybridClient
 ---
 
 # Hybrid Clients
-Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
+Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued a unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
 
 ## `List All Hybrid Clients (v1 path)`
 
@@ -12,34 +12,36 @@ Hybrid clients are used in typical, thick MVC clients with the presence of a use
 
 Returns a list of hybrid clients from a tenant. Optionally, returns a list of requested clients. Total number of clients in the tenant set in the Total-Count header
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}&query={query}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>
 `[optional] array id`
-<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/><br/>`[optional] array tag`
-<br/>Only return clients that have these tags.<br/><br/><br/>`[optional] string query`
-<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/><br/>
+<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/>`[optional] array tag`
+<br/>Only return clients that have these tags.<br/><br/>`[optional] string query`
+<br/>(Not supported) Search string identifier.<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[HybridClient](#schemahybridclient)[]|List of all hybrid clients found|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([HybridClient](#schemahybridclient)[])
 
 ```json
@@ -66,7 +68,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 ]
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -82,31 +84,32 @@ Allowed for these roles:
 
 Returns the total number of hybrid clients in a tenant. Optionally, checks based on a list of requested clients. The value will be set in the Total-Count header. This method is identical to the GET method but it does not return any objects in the body.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients
 ?id={id}&tag={tag}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>
 `[optional] array id`
-<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/><br/>`[optional] array tag`
-<br/>Only return clients that have these tags.<br/><br/><br/>
+<br/>Unordered list of identifiers for all clients to get. Empty or whitespace identifiers will be ignored.<br/><br/>`[optional] array tag`
+<br/>Only return clients that have these tags.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Hybrid client secrets found|
-|401|None|Unauthorized.<br/>|
-|403|None|Forbidden.<br/>|
+|401|None|Unauthorized.|
+|403|None|Forbidden.|
 |404|None|Client or tenant not found|
-|500|None|Internal server error.<br/>|
+|500|None|Internal server error.|
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -122,17 +125,18 @@ Allowed for these roles:
 
 Creates a hybrid client. A client unique identifier and client secret will be generated to perform authentication. Make sure to store the secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique identifiers in a tenant. Currently there is a limit of 50000 clients (of all types) per tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 POST /api/v1/Tenants/{tenantId}/HybridClients
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>
 
-### Request Body
+<h4>Request Body</h4>
 
 HybridClientCreate object<br/>
 
@@ -160,20 +164,21 @@ HybridClientCreate object<br/>
 }
 ```
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[HybridClientCreateResponse](#schemahybridclientcreateresponse)|Information about created hybrid client|
 |400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs, or client limit exceeded|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
 |409|[ErrorResponse](#schemaerrorresponse)|Client identifier already exists|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 201 Response ([HybridClientCreateResponse](#schemahybridclientcreateresponse))
 
 ```json
@@ -204,7 +209,7 @@ HybridClientCreate object<br/>
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -219,28 +224,30 @@ Allowed for these roles:
 
 Returns a hybrid client from a tenant.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[HybridClient](#schemahybridclient)|Information about specified hybrid client|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([HybridClient](#schemahybridclient))
 
 ```json
@@ -265,7 +272,7 @@ GET /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -281,28 +288,29 @@ Allowed for these roles:
 
 Validates that a hybrid client exists. This method is identical to the GET method but it does not return any objects in the body.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 HEAD /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Header for specified hybrid client|
-|401|None|Unauthorized.<br/>|
-|403|None|Forbidden.<br/>|
+|401|None|Unauthorized.|
+|403|None|Forbidden.|
 |404|None|Client or tenant not found|
-|500|None|Internal server error.<br/>|
+|500|None|Internal server error.|
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -318,18 +326,19 @@ Allowed for these roles:
 
 Updates a hybrid client. It can take up to one hour for these values to manifest in the authentication process.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 PUT /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
-### Request Body
+<h4>Request Body</h4>
 
 HybridClient object. Properties that are not set or are null will not be changed.<br/>
 
@@ -355,19 +364,20 @@ HybridClient object. Properties that are not set or are null will not be changed
 }
 ```
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[HybridClient](#schemahybridclient)|Information about updated hybrid client|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response ([HybridClient](#schemahybridclient))
 
 ```json
@@ -392,7 +402,7 @@ HybridClient object. Properties that are not set or are null will not be changed
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -407,357 +417,30 @@ Allowed for these roles:
 
 Deletes a hybrid client. It can take up to one hour for deletion to manifest in the authentication process. Access tokens issued to this client will be valid until their expiration. Refresh tokens issued to this will be valid up to one hour after deletion.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
+<br/>Tenant identifier.<br/><br/>`string clientId`
+<br/>Client identifier.<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No content|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
-#### Example response body
-> 401 Response ([ErrorResponse](#schemaerrorresponse))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "EventId": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `List All Hybrid Clients (v1-preview path)`
-
-<a id="opIdHybridClients_List All Hybrid Clients (v1-preview path)"></a>
-
-Returns all hybrid clients.
-
-### Request
-```text 
-GET /api/v1-preview/Tenants/{tenantId}/HybridClients
-?tag={tag}&query={query}&skip={skip}&count={count}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>
-`[optional] array tag`
-<br/>Only return clients that have these tags.<br/><br/><br/>`[optional] string query`
-<br/>(Not supported) Search string identifier.<br/><br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[HybridClient2](#schemahybridclient2)[]|List of hybrid clients found|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
-
-#### Example response body
-> 200 Response ([HybridClient2](#schemahybridclient2)[])
-
-```json
-[
-  {
-    "RedirectUris": [
-      "string"
-    ],
-    "PostLogoutRedirectUris": [
-      "string"
-    ],
-    "ClientUri": "string",
-    "LogoUri": "string",
-    "ClientId": "string",
-    "Id": "string",
-    "Name": "string",
-    "Enabled": true,
-    "Tags": [
-      "string"
-    ],
-    "AllowOfflineAccess": true,
-    "AllowAccessTokensViaBrowser": true
-  }
-]
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Create Hybrid Client (v1-preview path)`
-
-<a id="opIdHybridClients_Create Hybrid Client (v1-preview path)"></a>
-
-Creates a hybrid flow client.
-
-### Request
-```text 
-POST /api/v1-preview/Tenants/{tenantId}/HybridClients
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>
-
-### Request Body
-
-New HybridClientCreate object<br/>
-
-```json
-{
-  "AllowOfflineAccess": true,
-  "AllowAccessTokensViaBrowser": true,
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "ClientId": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "Tags": [
-    "string"
-  ],
-  "SecretDescription": "string",
-  "SecretExpirationDate": "2019-08-24T14:15:22Z"
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|201|[HybridClientResponse](#schemahybridclientresponse)|Hybrid Client created|
-|400|[ErrorResponse](#schemaerrorresponse)|Client limit exceeded|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
-|409|[ErrorResponse](#schemaerrorresponse)|Client identifier already exists|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
-
-#### Example response body
-> 201 Response ([HybridClientResponse](#schemahybridclientresponse))
-
-```json
-{
-  "SecretDescription": "string",
-  "SecretExpirationDate": "2019-08-24T14:15:22Z",
-  "AllowOfflineAccess": true,
-  "AllowAccessTokensViaBrowser": true,
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "ClientId": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "Tags": [
-    "string"
-  ],
-  "ClientSecret": "string",
-  "SecretId": "string"
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Get Hybrid Client (v1-preview path)`
-
-<a id="opIdHybridClients_Get Hybrid Client (v1-preview path)"></a>
-
-Returns a hybrid client.
-
-### Request
-```text 
-GET /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[HybridClient2](#schemahybridclient2)|Hybrid client specified|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
-
-#### Example response body
-> 200 Response ([HybridClient2](#schemahybridclient2))
-
-```json
-{
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "ClientId": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "Tags": [
-    "string"
-  ],
-  "AllowOfflineAccess": true,
-  "AllowAccessTokensViaBrowser": true
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Update Hybrid Client (v1-preview path)`
-
-<a id="opIdHybridClients_Update Hybrid Client (v1-preview path)"></a>
-
-Updates a hybrid client.
-
-### Request
-```text 
-PUT /api/v1-preview/Tenants/{tenantId}/HybridClients/{clientId}
-```
-
-#### Parameters
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/><br/>`string clientId`
-<br/>Client identifier.<br/><br/><br/>
-
-### Request Body
-
-Updated Hybrid Client values<br/>
-
-```json
-{
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "ClientId": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "Tags": [
-    "string"
-  ],
-  "AllowOfflineAccess": true,
-  "AllowAccessTokensViaBrowser": true
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[HybridClient2](#schemahybridclient2)|Updated hybrid client|
-|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.<br/>|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.<br/>|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.<br/>|
-|404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
-|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.<br/>|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.<br/>|
-
-#### Example response body
-> 200 Response ([HybridClient2](#schemahybridclient2))
-
-```json
-{
-  "RedirectUris": [
-    "string"
-  ],
-  "PostLogoutRedirectUris": [
-    "string"
-  ],
-  "ClientUri": "string",
-  "LogoUri": "string",
-  "ClientId": "string",
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "Tags": [
-    "string"
-  ],
-  "AllowOfflineAccess": true,
-  "AllowAccessTokensViaBrowser": true
-}
-```
-
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -776,7 +459,7 @@ Allowed for these roles:
 
 Secret information returned after a hybrid client is created
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -826,7 +509,7 @@ Secret information returned after a hybrid client is created
 
 Object used for hybrid clients
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -874,17 +557,17 @@ Object used for hybrid clients
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -892,7 +575,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -910,7 +596,7 @@ Object returned when there is an error
 
 Object used during hybrid client creation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -964,7 +650,7 @@ Object used during hybrid client creation
 
 Object returned after a hybrid client is created
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1013,6 +699,40 @@ Object returned after a hybrid client is created
 
 ---
 
+### ErrorResponse2
+
+<a id="schemaerrorresponse2"></a>
+<a id="schema_ErrorResponse2"></a>
+<a id="tocSerrorresponse2"></a>
+<a id="tocserrorresponse2"></a>
+
+Object returned when there is an error
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "EventId": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
 ### HybridClientCreate2
 
 <a id="schemahybridclientcreate2"></a>
@@ -1022,7 +742,7 @@ Object returned after a hybrid client is created
 
 Object used during hybrid client creation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -1076,7 +796,7 @@ Object used during hybrid client creation
 
 Object used for hybrid clients
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

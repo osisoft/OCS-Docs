@@ -12,14 +12,14 @@
   topicHref: data-ingress/data-ingress.md
 - name: Data views
   href: data-views/toc.yml
-  topicHref: data-views/data-views-overview.md
+  topicHref: data-views/data-views-api-overview.md
 - name: Operations
   href: operations/toc.yml
   topicHref: operations/operations-overview.md
 - name: Rules
   href: rules/toc.yml
   topicHref: rules/rules-overview.md
-- name: Asset store (Preview)
+- name: Asset store
   href: assets/toc.yml
   topicHref: Assets/assets.md
 - name: Communities (Preview)

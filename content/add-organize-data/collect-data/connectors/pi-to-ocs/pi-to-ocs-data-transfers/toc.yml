@@ -1,11 +1,17 @@
 - name: Overview of data transfers
   href: overview-data-transfers.md
+- name: Support for slow moving data
+  href: slow-moving-data.md
+- name: What AF data is transferred to OCS?
+  href: af-data-transferred.md  
 - name: Transfer PI System data to OCS
   href: transfer-data-to-ocs.md
 - name: Data transfer statuses
   href: data-transfer-statuses.md
 - name: Export transfer details
-  href: export-transfer-details.md  
+  href: export-transfer-details.md
+- name: Export a list of missing PI points
+  href: export-missing-pi-points.md    
 - name: Point type change
   href: pi-point-change.md
 - name: Confirm data retrieval

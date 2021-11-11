@@ -8,12 +8,12 @@ OSIsoft Cloud Services (OCS) is a cloud data platform for storing, retrieving, a
 
 OCS offers the following capabilities: 
 
-* [Easy data collection](#easy-data-collection)
-* [Integration with external tools and applications](#integration-with-external-tools-and-applications) 
-* [Secure and robust data infrastructure](#secure-and-robust-data-infrastructure) 
-* [Elastic resource allocation](#elastic-resource-allocation) 
-* [Interruption resilience](#interruption-resilience) 
-* [Easy management and maintenance](#easy-management-and-maintenance )
+- [Easy data collection](#easy-data-collection)
+- [Integration with external tools and applications](#integration-with-external-tools-and-applications) 
+- [Secure and robust data infrastructure](#secure-and-robust-data-infrastructure) 
+- [Elastic resource allocation](#elastic-resource-allocation) 
+- [Interruption resilience](#interruption-resilience) 
+- [Easy management and maintenance](#easy-management-and-maintenance )
 
 ## Easy data collection
 

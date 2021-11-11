@@ -43,7 +43,7 @@ A ``GetStreamsAsync`` call with different queries will return below:
 [Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. The number of matched items to skip over before returning. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used.
 
 `string orderby`  
 [Optional] Parameter representing the sorted order in which streams are returned. Requires a field name (``orderby=name``, for example). Default order is ascending (``asc``). Add ``desc`` for descending order (``orderby=name desc``, for example). If unspecified, there is no sorting of results.
@@ -87,7 +87,7 @@ For more information on stream properties, see [Streams](xref:sdsStreams#streamp
 | Owner | No		  |
 
 > [!Note]
-> You can access stream metadata and tags through Metadata API and Tags API respectively. Metadata and tags are associated with streeams and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
+> You can access stream metadata and tags through Metadata API and Tags API respectively. Metadata and tags are associated with streams and can be used as search criteria. See [below](#Stream_Metadata_search_topic) for more information.
 
 #### Request
 Search for streams using the REST API and specifying the optional `query` parameter:
@@ -102,7 +102,7 @@ Search for streams using the REST API and specifying the optional `query` parame
 [Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetStreamsAsync`` is used to search for and return streams. 
@@ -148,7 +148,7 @@ Search for types using the REST API and specifying the optional `query` paramete
 [Optional] Parameter representing the zero-based offset of the first type to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameterr representing the maximum number of types to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameterr representing the maximum number of types to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetTypesAsync`` is used to search for and return types. 
@@ -216,7 +216,7 @@ Search for stream views using the REST API and specifying the optional `query` p
 [Optional] Parameter representing the zero-based offset of the first stream view to retrieve.If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of stream views to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of stream views to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetStreamViewsAsync`` is used to search for and return stream views. 
@@ -384,3 +384,14 @@ Wildcard (``*``) character can be used both in metadata keys and values with one
 	GetStreamsAsync(query:"manufa*turer:compan*");
 ```
 
+### Special characters in search queries
+<!--- This section is an exact replication of the same titled section in asset-search-api.md -->
+
+Add the backslash escape character ( \ ) before any special characters in search queries. The following special characters require an escape character:   " |  /  *  \  ( )  : 
+
+The following are examples of using the escape character in query strings.
+
+| Example Field Value                    | Query String                               |
+| -------------------------------------- | ------------------------------------------ |
+| Austin\Dallas\Fort Worth               | Austin\\\Dallas\\\Fort Worth               |
+| 1:100                                  | 1\\:100                                    |

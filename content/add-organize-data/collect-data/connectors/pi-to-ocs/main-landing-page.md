@@ -1,16 +1,25 @@
 ---
-uid: main-landing-page
+uid: main-ldg-page
 ---
 
+# Welcome to PI to OCS
 
-## PI to OCS
-<br>
-This section of the OCS Content portal contains documentation on how to use PI to OCS to transfer data from your on-prem PI Server to OCS. The PI to OCS content contains the following sections:
-<br>
-<br>
+The PI to OCS lighthouse release enables you to transfer both on-prem PI data and AF data to OCS. This guide is divided into the following sections:
 
-* [PI to OCS introduction](xref:landing-page1)
-* [Set up PI to OCS](xref:landing-page2)
-* [Transfer PI System data into OCS](xref:landing-page3)
-* [PI to OCS Agent maintenance](xref:landing-page4)
-* [View PI to OCS log messages](xref:landing-page5)
+* [Overview of PI to OCS](xref:pi-to-ocs-overview)
+
+* [Set up PI to OCS](xref:install-agent)
+
+* [Transfer data to OCS](xref:transfer-data)
+
+* [PI to OCS Agent maintenance](xref:remove-agent-portal)
+
+* [PI to OCS log messages](xref:view-logs)
+
+* [Troubleshoot PI to OCS](xref:troubleshoot-pi-pt-errors)
+
+* [PI to OCS known issues](xref:known-issues)
+
+* [PI to OCS release summary](xref:pi2ocs-rel-summary)
+
+If you are interested in participating in the PI to OCS Lighthouse program, send an email to lighthouse@osisoft.com. 

@@ -1,120 +1,10 @@
 ---
 uid: community-invitations
+
 ---
 
 # Invitations
 Defines the public API methods that are used to manage community invitations. Using this API you can, for example, create, retrieve, update and process invitations. You can also resend an invitation email.
-
-## `Process a Community Invitation Based on the Requested Action`
-
-<a id="opIdCommunityInvitations_Process a Community Invitation Based on the Requested Action"></a>
-
-Processes an action against a particular community invitation. The available actions include accept, decline and resend.
-
-### Request
-```text 
-PUT /api/v1-preview/communityinvitations/{invitationId}
-```
-
-#### Parameters
-
-`string invitationId`
-<br/>Invitation identifier<br/><br/>
-
-### Request Body
-
-Invitation action<br/>
-
-```json
-{
-  "Action": "Accept"
-}
-```
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Created. The invitation was processed.|
-|202|None|Accepted. The invitation action was processed and the notification accepted.|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
-
-#### Example response body
-> 400 Response
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Community Administrator</li>
-<li>Tenant Administrator</li>
-</ul>
-
----
-
-## `Get details of an Invitation`
-
-<a id="opIdCommunityInvitations_Get details of an Invitation"></a>
-
-Gets details for a community invitation
-
-### Request
-```text 
-GET /api/v1-preview/communityinvitations/{invitationId}/details
-```
-
-#### Parameters
-
-`string invitationId`
-<br/>Invitation identifier<br/><br/>
-
-### Response
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[CommunityInvitationDetails](#schemacommunityinvitationdetails)|The `CommunityInvitationDetails`|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
-|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
-|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
-
-#### Example response body
-> 200 Response
-
-```json
-{
-  "CommunityName": "string",
-  "CommunityId": "string",
-  "InvitationState": "None"
-}
-```
-
-### Authorization
-
-Allowed for these roles: 
-<ul>
-<li>Tenant Administrator</li>
-</ul>
-
----
 
 ## `List a Community Invitation by Tenant and Community`
 
@@ -122,25 +12,24 @@ Allowed for these roles:
 
 Get invitations associated with a specific issuing tenant and community
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 ?query={query}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>The identifier of the tenant that issued invitations. The tenant must belong to the community.<br/><br/>`string communityId`
 <br/>The identifier of the community to which the recipient of the invitation is being invited.<br/><br/>
-`[optional] string query `
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count `
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
-
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -152,8 +41,9 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
-#### Example response body
-> 200 Response
+<h4>Example response body</h4>
+
+> 200 Response ([CommunityInvitation](#schemacommunityinvitation)[])
 
 ```json
 [
@@ -167,12 +57,14 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
     "InvitedTenantId": "string",
     "CommunityId": "string",
     "CommunityName": "string",
-    "InvitationRecipient": "string"
+    "InvitationRecipient": "string",
+    "AcceptedUserEmail": "string",
+    "AcceptedTenantName": "string"
   }
 ]
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -187,18 +79,19 @@ Allowed for these roles:
 
 Creates a community invitation for a specific community
 
-### Request
+<h3>Request</h3>
+
 ```text 
 POST /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Owning tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
 
-### Request Body
+<h4>Request Body</h4>
 
 Invitation to create<br/>
 
@@ -208,7 +101,7 @@ Invitation to create<br/>
 }
 ```
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -220,8 +113,9 @@ Invitation to create<br/>
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
-#### Example response body
-> 201 Response
+<h4>Example response body</h4>
+
+> 201 Response ([CommunityInvitation](#schemacommunityinvitation))
 
 ```json
 {
@@ -234,11 +128,13 @@ Invitation to create<br/>
   "InvitedTenantId": "string",
   "CommunityId": "string",
   "CommunityName": "string",
-  "InvitationRecipient": "string"
+  "InvitationRecipient": "string",
+  "AcceptedUserEmail": "string",
+  "AcceptedTenantName": "string"
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -254,21 +150,20 @@ Allowed for these roles:
 
 Gets a community invitation by Id
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{invitationId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>`string invitationId`
 <br/>Invitation identifier<br/><br/>
 
-
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -280,8 +175,9 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{in
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
-#### Example response body
-> 200 Response
+<h4>Example response body</h4>
+
+> 200 Response ([CommunityInvitation](#schemacommunityinvitation))
 
 ```json
 {
@@ -294,11 +190,13 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{in
   "InvitedTenantId": "string",
   "CommunityId": "string",
   "CommunityName": "string",
-  "InvitationRecipient": "string"
+  "InvitationRecipient": "string",
+  "AcceptedUserEmail": "string",
+  "AcceptedTenantName": "string"
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -311,22 +209,22 @@ Allowed for these roles:
 
 <a id="opIdCommunityInvitations_Delete a Community Invitation"></a>
 
-Deletes a community invitation by invitation Id
+Deletes a community invitation by invitation identifier
 
-### Request
+<h3>Request</h3>
+
 ```text 
 DELETE /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{invitationId}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>`string invitationId`
 <br/>Invitation identifier<br/><br/>
 
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -338,21 +236,107 @@ DELETE /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
-#### Example response body
-> 400 Response
+<h3>Authorization</h3>
+
+Allowed for these roles: 
+<ul>
+<li>Community Administrator</li>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## `Get details of an Invitation`
+
+<a id="opIdCommunityInvitations_Get details of an Invitation"></a>
+
+Gets details for a community invitation
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1-preview/communityinvitations/{invitationId}/details
+```
+
+<h4>Parameters</h4>
+
+`string invitationId`
+<br/>Invitation identifier<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[CommunityInvitationDetails](#schemacommunityinvitationdetails)|The `CommunityInvitationDetails`|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
+|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
+|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([CommunityInvitationDetails](#schemacommunityinvitationdetails))
 
 ```json
 {
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "property1": null,
-  "property2": null
+  "CommunityName": "string",
+  "CommunityId": "string",
+  "InvitationState": "None"
 }
 ```
 
-### Authorization
+<h3>Authorization</h3>
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
+
+## `Process a Community Invitation Based on the Requested Action`
+
+<a id="opIdCommunityInvitations_Process a Community Invitation Based on the Requested Action"></a>
+
+Processes an action against a particular community invitation. The available actions include accept, decline and resend.
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1-preview/communityinvitations/{invitationId}
+```
+
+<h4>Parameters</h4>
+
+`string invitationId`
+<br/>Invitation identifier<br/><br/>
+
+<h4>Request Body</h4>
+
+Invitation action<br/>
+
+```json
+{
+  "Action": "Accept"
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Created. The invitation was processed.|
+|202|None|Accepted. The invitation action was processed and the notification accepted.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
+|404|[ErrorResponse](#schemaerrorresponse)|Not Found. The requested item was not found.|
+|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -368,23 +352,23 @@ Allowed for these roles:
 
 Gets invitations associated with a specific invited tenant. Only invitations in the accepted state are returned. Using this method, you can identify the communities to which a tenant has been invited by means of the returned CommunityInvitation.CommunityId attribute.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/communityinvitations
 ?query={query}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>
-`[optional] string query `
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -396,8 +380,9 @@ GET /api/v1-preview/tenants/{tenantId}/communityinvitations
 |408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it does not know how to handle.|
 
-#### Example response body
-> 200 Response
+<h4>Example response body</h4>
+
+> 200 Response ([CommunityInvitation](#schemacommunityinvitation)[])
 
 ```json
 [
@@ -411,12 +396,14 @@ GET /api/v1-preview/tenants/{tenantId}/communityinvitations
     "InvitedTenantId": "string",
     "CommunityId": "string",
     "CommunityName": "string",
-    "InvitationRecipient": "string"
+    "InvitationRecipient": "string",
+    "AcceptedUserEmail": "string",
+    "AcceptedTenantName": "string"
   }
 ]
 ```
 
-### Authorization
+<h3>Authorization</h3>
 
 Allowed for these roles: 
 <ul>
@@ -435,7 +422,7 @@ Allowed for these roles:
 
 Representation of the community invitation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -449,6 +436,8 @@ Representation of the community invitation
 |CommunityId|guid|false|false|Identifier of the community from which the invitation was issued|
 |CommunityName|string|false|true|Name of the community from which the invitation was issued|
 |InvitationRecipient|string|false|true|Email address of the recipient who will be notified to accept the invitation|
+|AcceptedUserEmail|string|false|true|Email address of the recipient who accepts the invitation|
+|AcceptedTenantName|string|false|true|Name of the tenant accepting the invitation|
 
 ```json
 {
@@ -461,7 +450,9 @@ Representation of the community invitation
   "InvitedTenantId": "string",
   "CommunityId": "string",
   "CommunityName": "string",
-  "InvitationRecipient": "string"
+  "InvitationRecipient": "string",
+  "AcceptedUserEmail": "string",
+  "AcceptedTenantName": "string"
 }
 
 ```
@@ -477,16 +468,16 @@ Representation of the community invitation
 
 Enum for Community invitation state.
 
-#### Enumerated Values
+<h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|None|None|
-|InvitationCreated|InvitationCreated|
-|InvitationAccepted|InvitationAccepted|
-|InvitationDeclined|InvitationDeclined|
-|InvitationExpired|InvitationExpired|
-|InvitationCompleted|InvitationCompleted|
+|Property|Value|Description|
+|---|---|---|
+|None|None|No Invitation state specified.|
+|InvitationCreated|InvitationCreated|Invitation email has been sent.|
+|InvitationAccepted|InvitationAccepted|Invitation has been accepted.|
+|InvitationDeclined|InvitationDeclined|Invitation has been declined.|
+|InvitationExpired|InvitationExpired|Invitation has expired.|
+|InvitationCompleted|InvitationCompleted|Invitation has been completed.|
 
 ---
 
@@ -497,16 +488,17 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -514,6 +506,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -531,7 +527,7 @@ Object returned when there is an error
 
 The input object to create invitation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -555,7 +551,7 @@ The input object to create invitation
 
 Summary of a community invitation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -583,7 +579,7 @@ Summary of a community invitation
 
 The input object to process invitation
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -607,14 +603,14 @@ The input object to process invitation
 
 Enumeration of actions taken on community invitations
 
-#### Enumerated Values
+<h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|Accept|Accept|
-|Decline|Decline|
-|Confirm|Confirm|
-|Resend|Resend|
+|Property|Value|Description|
+|---|---|---|
+|Accept|Accept|Accept the invitation.|
+|Decline|Decline|Decline the invitation.|
+|Confirm|Confirm|Confirm the invitation.|
+|Resend|Resend|Resend the invitation.|
 
 ---
 

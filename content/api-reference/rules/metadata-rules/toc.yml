@@ -1,0 +1,8 @@
+- name: Metadata rules
+  topicHref: metadata-metadata-rules.md
+- name: Metadata rules preview
+  topicHref: metadata-metadata-rule-preview.md
+- name: Metadata rule suggestion 
+  topicHref: metadata-metadata-rule-suggestion.md
+- name: Metadata access control list 
+  topicHref: metadata-access-control-list.md

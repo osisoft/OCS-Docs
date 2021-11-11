@@ -1,8 +1,12 @@
 - name: OSIsoft Cloud Services
   href: ocs-content-portal-overview.md
+  items:
+   - topicUid: WhatIsOCS
+   - topicUid: WhoUsesOCS
+   - topicUid: WhatOCSdoes
 - name: Get started
-  href: overview/toc.yml
-  topicHref: overview/get-started-overview.md
+  href: overview/get-started/toc.yml
+  topicHref: overview/get-started/gs-getting-started-intro.md
 - name: Set up the environment
   href: set-up/toc.yml
   topicHref: set-up/set-up-overview.md

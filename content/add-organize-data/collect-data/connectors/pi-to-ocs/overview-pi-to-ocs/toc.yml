@@ -1,5 +1,7 @@
 - name: Overview of PI to OCS
   href: pi-to-ocs-overview.md
+- name: PI to OCS architecture
+  href: pi-to-ocs-architecture.md  
 - name: PI System connections best practices
   href: pi-to-ocs-best-practices.md
 - name: PI to OCS minimum system requirements
