@@ -11,14 +11,12 @@ Use data views to specify the OSIsoft Cloud Services (OCS) data to use in extern
 
 ## <a name="data-views-pi-integrators"></a>PI Server counterpart
 
-Data views in OCS are comparable to asset, event, and streaming views in PI Integrators. Like PI Integrator views, data views shape complex data into a consistent tabular format so it can be used more easily with external tools.
+Data views in OCS are comparable to asset, event, and streaming views in PI Integrators. Like PI Integrator views, data views shape complex data into a consistent tabular format so it can be used more easily with external tools. Unlike PI Integrators, data views do not copy data to an external target. You can access data views directly from OCS using the REST API.
 
 ## <a name="data-views-bp"></a>Data views best practices
 
 Follow these best practices when creating data views:
 
-- Use the Identify By or Group By features of data views to identify which columns and rows correspond to which streams. Use Identify By to associate columns, and use Group By to associate rows. Generally, you use only one method in a single data view. 
+- Use the **Index Field** or **Grouping  Fields** to identify which columns and rows correspond to which streams. Use Identify By to associate columns, and use Group By to associate rows. Generally, you use only one method in a single data view. 
 
 - Consider the data shape that your application requires in order to accomplish your goals before you start building a data view. Consider how the columns should be organized and labeled.
-
-- Remove any default fields from your data views that will not be used in the data analysis to improve overall performance.
