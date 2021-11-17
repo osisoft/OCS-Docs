@@ -4,4 +4,4 @@ uid: lp-logs
 
 # PI to OCS logs
 
-PI to OCS logs allow you to view information about tenant-related activity, errors, and system messages for both on-prem and cloud components.
+PI to OCS logs help you troubleshoot errors, and view information about account-related activity for both on-prem and cloud components.
