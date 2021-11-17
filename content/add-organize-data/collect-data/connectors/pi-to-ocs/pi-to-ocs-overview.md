@@ -4,7 +4,7 @@ uid: pi-to-ocs-overview
 
 # Overview of PI to OCS
 
-PI to OCS enables data transfer from an on-premises PI Server to OSIsoft Cloud Services (OCS). Transferring PI System data allows your organization to have data available wherever you go, so you can connect with the best in-class analytics, and with your community of vendors, service providers, and business partners. PI to OCS includes the following features:
+The PI to OCS lighthouse release enables you to transfer both on-prem PI data and AF data to OCS. Transferring PI System data allows your organization to have data available wherever you go, so you can connect with the best in-class analytics, and with your community of vendors, service providers, and business partners. PI to OCS includes the following features:
 
 * Transfer of a selection of Data Archive PI points and AF elements from PI Servers to OCS Sequential Data Store (SDS) [streams](xref:sdsStreams). Some of the PI point attributes and asset information is transferred as SDS stream [metadata](xref:sds-streams-metadata) and properties.
 
@@ -25,3 +25,5 @@ PI to OCS has the following components:
 The deployment of a PI to OCS Agent establishes a one-to-one connection from an on-premises Data Archive and optional AF server to OCS. The following diagram shows a deployment of PI to OCS Agents that transfer data to OCS PI System connections.
 
 ![PI to OCS](../../images/ocs-diagram.png)
+
+If you are interested in participating in the PI to OCS Lighthouse program, send an email to lighthouse@osisoft.com.
