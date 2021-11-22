@@ -32,11 +32,11 @@ After creating your types, you can add streams and associate a type with the str
 
 1. In the `Add Stream` window, enter the following values for these fields:
 
-   - **Id** &ndash; *MyOCS.NorthAmerica.SLTC.PumpA*
+   - **Id** &ndash; *MyData.NorthAmerica.SLTC.PumpA*
 
-   - **Description** &ndash; *SDS Stream used by My OCS*
+   - **Description** &ndash; *SDS Stream used by MyData*
 
-   - **Type** &ndash; *MyOCS.PumpState*
+   - **Type** &ndash; *MyData.PumpState*
 
     **Note:** Leave the **Name** field blank. By default, it will take the value of the Stream Id.
 
@@ -56,15 +56,15 @@ After creating your types, you can add streams and associate a type with the str
 
 1. In the **Search** field, enter *Site:SLTC*
 
-    This search query searches for streams that have the metadata key *Site* and the value *SLTC*, and returns the MyOCS stream. 
+    This search query searches for streams that have the metadata key *Site* and the value *SLTC*, and returns the MyData stream. 
    
     **Note:** 
     
     - Use quotation marks around the value if there are spaces in the text.
     
-    - You can also search by the Type Id. If you enter *TypeId:MyOCS.PumpState*, it returns the `MyOCS.NorthAmerica.SLTC.PumpA` stream.
+    - You can also search by the Type Id. If you enter *TypeId:MyData.PumpState*, it returns the `MyData.NorthAmerica.SLTC.PumpA` stream.
     
-1. Select the **MyOCS.NorthAmerica.SLTC.PumpA** stream and click **Manage Data**. 
+1. Select the **MyData.NorthAmerica.SLTC.PumpA** stream and click **Manage Data**. 
 
     This allows you to run queries against the data in the stream and to add, edit, and remove events.
 

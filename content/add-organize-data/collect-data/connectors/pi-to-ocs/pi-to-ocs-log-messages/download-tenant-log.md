@@ -4,7 +4,7 @@ uid: download-tenant-log
 
 # Tenant log messages
 
-Troubleshooting information can be found in logs. Logs contain messages about tenant-related activity, errors, and system messages. By default, logs report on activities that occurred within the past hour.
+Troubleshooting information can be found in the OCS logs. Logs contain messages about tenant-related activity, errors, and system messages. By default, logs report on activities that occurred within the past hour.
 
 ## Download a tenant log
 

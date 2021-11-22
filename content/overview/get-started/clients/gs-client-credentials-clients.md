@@ -24,7 +24,7 @@ Client-credentials clients are used for server-to-server communication where no 
 
    Use this name to identify the device or application that will use this client.
 
-1. Select the **MyOCS.Role** role for the client.
+1. Select the **MyData.Role** role for the client.
    By default, the client is assigned the Tenant Member role which cannot be removed. Roles can be modified after the client is created.
 
 1. (Optional) Set the **Token Lifetime**.  

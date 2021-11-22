@@ -1,5 +1,6 @@
 ---
 uid: community-summary
+
 ---
 
 # Summary
@@ -149,3 +150,4 @@ The CommunitySummaryInformationForTenant object. Contains information about the 
 ```
 
 ---
+

@@ -102,7 +102,7 @@ The type of data, the location of that data, and the way that a particular sourc
 
 The PI to OCS collection method transfers PI time series data from a local PI Server to OCS. The PI to OCS Agent is installed and configured directly on a designated device. The PI to OCS Agent creates types and streams in OCS based on the PI tags mapped from PI Data Archive. 
 
-**Note**: OSIsoft recommends installing the PI to OCS Agent and PI Server on separate devices to avoid the two systems competing for resources.
+**Note**: Install the PI to OCS Agent and PI Server on separate devices to avoid the two systems competing for resources.
 <!--Angela Flores 6/29/21 Too much detail for an overview.-->
 
 #### Custom OMF applications
@@ -121,7 +121,7 @@ Refer to [OMF Message Format](https://omf-docs.osisoft.com/) for additional info
 
 The Edge Data Store (EDS) is a software component that collects sequential data from edge devices and stores it locally until it can be transferred to permanent storage in OCS. You can access the data on the edge device for queries and for displaying data trends.
 
-Configure EDS to send data to OCS using the OSIsoft Message Format (OMF). Edge Data Store currently includes two built-in protocol adapter components, Modbus and OPC UA, and a storage component that also collects and sends OMF. Multiple data sources, referred to as adapter component instances, are supported in protocol components. <!--Angela Flores 6/29/21 Too much detail for an overview. -->
+Configure EDS to send data to OCS using the OMF. Edge Data Store currently includes two built-in protocol adapter components, Modbus and OPC UA, and a storage component that also collects and sends OMF. Multiple data sources, referred to as adapter component instances, are supported in protocol components. <!--Angela Flores 6/29/21 Too much detail for an overview. -->
 
 #### PI Adapters 
 
@@ -212,7 +212,7 @@ Use API calls to define asset rules, which bulk create or update assets accordin
 
 ## Data science enablement
 
-OCS allows you to group and organize operational PI, IoT, and OCS data. By arranging data into forms that can be consumed by third-party data science applications, data scientists can conduct deep analysis to detect unrealized patterns and insights. OSIsoft data science enablement efforts allow for better informed planning, predictive maintenance, and operational optimization. 
+You can group and organize operational PI, IoT, and OCS data. By arranging data into forms that can be consumed by third-party data science applications, data scientists can conduct deep analysis to detect unrealized patterns and insights. Data science enablement efforts allow for better informed planning, predictive maintenance, and operational optimization. 
 
 Two dynamic methods are available to allow you to filter and order data after they are in place. These methods include the following: 
 

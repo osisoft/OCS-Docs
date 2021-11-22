@@ -60,7 +60,7 @@ This topic contains these sections:
 
    **Note:** You are logged on to your tenant account.  The account used to log on must be assigned to the Tenant Administrator role to complete the PI to OCS Agent installation.
 
-   **Result:** The PI to OCS Agent setup kit advances to the **Browser Login** page. An message opens in your web browser regarding the status of the user authentication process. 
+   **Result:** The PI to OCS Agent setup kit advances to the **Browser Login** page. A message opens in your web browser regarding the status of the user authentication process. 
 
 9. Close the browser window, then click **Next** in the PI to OCS Agent wizard.
 

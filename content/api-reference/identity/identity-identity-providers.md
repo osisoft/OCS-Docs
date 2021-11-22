@@ -1029,6 +1029,77 @@ Allowed for these roles:
 </ul>
 
 ---
+
+## `Get a List of All Users Belonging to Group on an Identity Provider`
+
+<a id="opIdIdentityProviders_Get a List of All Users Belonging to Group on an Identity Provider"></a>
+
+Returns a list of all users belonging to a specific group on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/groups/{groupId}/members
+?count={count}&skipToken={skipToken}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string identityProviderId`
+<br/>Identity provider identifier.<br/><br/>`string groupId`
+<br/>Group identifier.<br/><br/>
+`[optional] integer count`
+<br/>Maximum number of users to return<br/><br/>`[optional] string skipToken`
+<br/>An encoded string that identifies the set of users that was not returned For example, if you request a count of the first 50 users matching your query, the skipToken identifies the 51st user.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[IdentityProviderMembers](#schemaidentityprovidermembers)|List of members|
+|400|[ErrorResponse](#schemaerrorresponse)|Missing or invalid inputs.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
+|404|[ErrorResponse](#schemaerrorresponse)|Identity provider or tenant not found|
+|408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([IdentityProviderMembers](#schemaidentityprovidermembers))
+
+```json
+{
+  "Users": [
+    {
+      "Id": "string",
+      "GivenName": "string",
+      "Surname": "string",
+      "Name": "string",
+      "Email": "user@example.com"
+    }
+  ],
+  "Groups": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
+    }
+  ],
+  "SkipToken": "string"
+}
+```
+
+<h3>Authorization</h3>
+
+Allowed for these roles: 
+<ul>
+<li>Tenant Administrator</li>
+</ul>
+
+---
 ## Definitions
 
 ### IdentityProvider
@@ -1422,7 +1493,10 @@ MultiStatusResponse objects returned in a 207 response
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
-      "EventId": "string",
+      "DynamicProperties": {
+        "property1": null,
+        "property2": null
+      },
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1456,11 +1530,11 @@ ChildError objects returned in a 207 response
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 |StatusCode|int32|false|false|Http status code|
 |ModelId|string|false|true|Model identifier|
 
@@ -1470,11 +1544,57 @@ ChildError objects returned in a 207 response
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "StatusCode": 0,
   "ModelId": "string",
   "property1": null,
   "property2": null
+}
+
+```
+
+---
+
+### IdentityProviderMembers
+
+<a id="schemaidentityprovidermembers"></a>
+<a id="schema_IdentityProviderMembers"></a>
+<a id="tocSidentityprovidermembers"></a>
+<a id="tocsidentityprovidermembers"></a>
+
+Class to hold members in a group
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Users|[[IdentityProviderUser](#schemaidentityprovideruser)]|false|false|List of users|
+|Groups|[[IdentityProviderGroup](#schemaidentityprovidergroup)]|false|false|List of groups|
+|SkipToken|string|false|true|Skip token for paging|
+
+```json
+{
+  "Users": [
+    {
+      "Id": "string",
+      "GivenName": "string",
+      "Surname": "string",
+      "Name": "string",
+      "Email": "user@example.com"
+    }
+  ],
+  "Groups": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Email": "user@example.com",
+      "IsClusterManagementAllowed": true
+    }
+  ],
+  "SkipToken": "string"
 }
 
 ```

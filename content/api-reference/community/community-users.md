@@ -1,5 +1,6 @@
 ---
 uid: community-users
+
 ---
 
 # Users
@@ -97,7 +98,12 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userI
 <br/>Community identifier<br/><br/>`string userId`
 <br/>User identifier<br/><br/>
 
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
 |204|None|Removed|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
@@ -272,17 +278,17 @@ Object for retrieving a user
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -290,7 +296,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

@@ -18,7 +18,7 @@ Follow the procedure to create an asset.
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
-1. Click the **Change Namespace** button in the upper-right toolbar, then click **MyOCS** or another namespace in which you created your stream. 
+1. Click the **Change Namespace** button in the upper-right toolbar, then click **MyData** or another namespace in which you created your stream. 
 
 1. From the **Asset/Asset Types Selector** dropdown list, ensure that **Assets** is selected.
 
@@ -28,7 +28,7 @@ Follow the procedure to create an asset.
 
 1. A panel appears on the right. Enter the values in the fields:
 
-   - **Asset** &ndash; *MyOCS.Tank*
+   - **Asset** &ndash; *MyData.Tank*
 
    - **Description** &ndash; Optionally, add a description for this asset.
    
@@ -46,9 +46,9 @@ Follow the procedure to create an asset.
 
 1. Click the **Properties** tab, and click **Add Stream References**.
 
-1. In the `Select Streams` window, enter *MyOCS.\** in the search box.
+1. In the `Select Streams` window, enter *MyData.\** in the search box.
 
-1. Select **MyOCS.NorthAmerica.SLTC.PumpA** from the list and click **Add**.
+1. Select **MyData.NorthAmerica.SLTC.PumpA** from the list and click **Add**.
 
 1. In the text box below the **Stream References** label, enter *Output Pump State*. This is the user-friendly name for the stream reference.
 

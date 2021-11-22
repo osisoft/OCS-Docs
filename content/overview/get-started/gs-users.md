@@ -24,9 +24,9 @@ Follow the procedure to invite a user to your tenant.
 
 4. In the **User Name** text box, enter a first and last name for the user.  
 
-5. Enter the contact email. The invitation to your OCS tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
+5. Enter the contact email. The invitation to your tenant is sent to the user at this address. Ensure that it is correct so that the invitation is not sent to an unintended recipient.
 
-6. (Optional) Select the **MyOCS.Role** role for the user.
+6. (Optional) Select the **MyData.Role** role for the user.
 
     By default, the user is assigned the Tenant Member role which cannot be removed. Roles can be modified after the user is invited.
 

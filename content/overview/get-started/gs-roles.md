@@ -22,7 +22,7 @@ Follow the procedure to create role.
 
 1. In the `Add Role` window, complete the fields:
 
-   - **Name**  &ndash; Enter *MyOCS.Role*.
+   - **Name**  &ndash; Enter *MyData.Role*.
 
    - **Description** &ndash; Optionally, add a description for this role.
    
@@ -32,9 +32,9 @@ Follow the procedure to create role.
     
     **Note:** By default, the new role will not have any access granted or denied.
     
-1. Select the *MyOCS.Role* role and click **Manage Identities**.
+1. Select the *MyData.Role* role and click **Manage Identities**.
 
-1. In the `Manage identities for MyOCS.Role Role` window, click the **Add Identity** dropdown list. 
+1. In the `Manage identities for MyData.Role Role` window, click the **Add Identity** dropdown list. 
 
     The list displays all users and clients in the tenant. Click **+** to add any users or clients in the list to the role.
 

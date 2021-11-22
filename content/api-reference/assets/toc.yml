@@ -1,5 +1,5 @@
 - name: Assets
-  href: assets-asset.md
+  href: assets-assets.md
 - name: Asset types 
   href: assets-asset-type.md
 - name: Resolved asset
@@ -9,6 +9,6 @@
 - name: Asset and asset type status
   href: assets-asset-status.md
 - name: Assets search
-  href: assets-search-asset.md
+  href: assets-assets-search.md
 - name: Asset and AssetType ACL
   href: assets-access-control-list.md

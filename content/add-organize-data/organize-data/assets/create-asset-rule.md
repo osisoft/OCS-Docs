@@ -4,17 +4,7 @@ uid: CreateAssetRules
 
 # Create an asset rule
 
-An asset rule identifies patterns in a stream name and uses this information to automatically create assets. In order to generate assets, the stream names must have the following characteristics:
-
-- A pattern that can be mapped for configuration.
-
-- A set of characters that uniquely identify the asset.
-
-- A unique set of characters that identifies one stream from another for the same asset. For example, the stream name could include an abbreviation for the stream measurement. 
-
-The asset rule identifies the pattern and the parts of the stream name and stream metadata that provide information about the asset. A token is created for each part of the pattern and piece of information. The tokens are used to construct the asset and add references to the relevant streams. For more information, see [How tokens are used in the Asset Rule Builder to generate assets](xref:TokensGenerateAssets).
-
-Depending on the definition and consistency of the stream names, you may have to create multiple rules to capture all the relevant streams for your asset. For more information, see [Using multiple asset rules to create assets](xref:UsingMultipleRules).
+Use the following procedure to create an asset rule.
 
 ## <a name="tank"></a>Tank Rule A example
 
@@ -35,7 +25,7 @@ We will construct an asset rule, named `Tank Rule A`, that creates three assets,
 
 ## Add an asset rule and select the stream
 
-1. In the left pane, select **Data Management** > **Asset Management**.
+1. In the left pane, select **Data Management** > **Asset Rules**.
 
 1. Click the **Change Namespace** button in the upper-right toolbar, then select the desired namespace.
 

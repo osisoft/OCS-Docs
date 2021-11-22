@@ -1,5 +1,6 @@
 ---
 uid: community-invitations
+
 ---
 
 # Invitations
@@ -23,9 +24,9 @@ GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations
 `string tenantId`
 <br/>The identifier of the tenant that issued invitations. The tenant must belong to the community.<br/><br/>`string communityId`
 <br/>The identifier of the community to which the recipient of the invitation is being invited.<br/><br/>
-`[optional] string query `
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count `
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
 <h3>Response</h3>
@@ -139,7 +140,26 @@ Allowed for these roles:
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
+</ul>
+
+---
+
+## `Get a Community Invitation by Tenant, Community, and Id`
+
+<a id="opIdCommunityInvitations_Get a Community Invitation by Tenant, Community, and Id"></a>
+
+Gets a community invitation by Id
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/invitations/{invitationId}
+```
+
+<h4>Parameters</h4>
+
 `string tenantId`
+<br/>Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>`string invitationId`
 <br/>Invitation identifier<br/><br/>
 
@@ -343,8 +363,8 @@ GET /api/v1-preview/tenants/{tenantId}/communityinvitations
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>
-`[optional] string query `
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip `
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
@@ -468,22 +488,28 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
+```json
+{
   "OperationId": "string",
+  "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

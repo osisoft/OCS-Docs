@@ -43,7 +43,7 @@ A ``GetStreamsAsync`` call with different queries will return below:
 [Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. The number of matched items to skip over before returning. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used.
 
 `string orderby`  
 [Optional] Parameter representing the sorted order in which streams are returned. Requires a field name (``orderby=name``, for example). Default order is ascending (``asc``). Add ``desc`` for descending order (``orderby=name desc``, for example). If unspecified, there is no sorting of results.
@@ -102,7 +102,7 @@ Search for streams using the REST API and specifying the optional `query` parame
 [Optional] Parameter representing the zero-based offset of the first SdsStream to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of streams to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetStreamsAsync`` is used to search for and return streams. 
@@ -148,7 +148,7 @@ Search for types using the REST API and specifying the optional `query` paramete
 [Optional] Parameter representing the zero-based offset of the first type to retrieve. If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameterr representing the maximum number of types to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameterr representing the maximum number of types to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetTypesAsync`` is used to search for and return types. 
@@ -216,7 +216,7 @@ Search for stream views using the REST API and specifying the optional `query` p
 [Optional] Parameter representing the zero-based offset of the first stream view to retrieve.If unspecified, a default value of 0 is used. Use when more items match the search criteria than can be returned in a single call.
 
 `int count`  
-[Optional] Parameter representing the maximum number of stream views to retrieve. If unspecified, a default value of 100 is used. The maximum value is 1,000. 
+[Optional] Parameter representing the maximum number of stream views to retrieve. If unspecified, a default value of 100 is used.
 
 #### .NET client libraries method
 ``GetStreamViewsAsync`` is used to search for and return stream views. 

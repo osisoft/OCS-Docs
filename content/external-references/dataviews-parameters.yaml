@@ -2,7 +2,7 @@
 acl:
   type: markdown
   value: |
-    An [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists).
+    An [`AccessControlList`](xref:accessControl#access-control-lists).
 
 # cache
 cache:
@@ -34,13 +34,13 @@ cache-data-preview:
 continuation-token:
   type: markdown
   value: |
-    Used only when [paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging). Not specified when requesting the first page of data.
+    Used only when [paging](xref:DataViewsQuickStartGetData#paging). Not specified when requesting the first page of data.
 
 # count
 count-data:
   type: markdown
   value: |
-    The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#page-size).
+    The requested page size. The maximum is 250,000. If the parameter is not provided, [an optimal page size will be calculated](xref:DataViewsQuickStartGetData#page-size).
 count-dataitems:
   type: text/plain
   value: |
@@ -90,7 +90,7 @@ end-index:
 form:
   type: markdown
   value: |
-    The requested data [output format](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
+    The requested data [output format](xref:DataViewsQuickStartGetData#format). Output formats: `default`, `table`, `tableh`, `csv`, `csvh`.
  
 # group-count
 group-count:
@@ -108,7 +108,7 @@ interval:
 owner:
   type: markdown
   value: |
-    A [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner).
+    A [`Trustee`](xref:accessControl#owner).
 
 # skip
 skip-dataitems:

@@ -18,7 +18,7 @@ To create a new metadata rule, follow these steps:
 
 1. Expand the `Streams` pane if necessary to copy the full name of the stream that will be the basis for your metadata rule.
 
-1. In the left pane, click **Data Management** > **Metadata Management**.
+1. In the left pane, click **Data Management** > **Metadata Rules**.
  
    **Result:** The `Metadata Management` page opens.
  

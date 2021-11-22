@@ -12,7 +12,7 @@
   topicHref: data-ingress/data-ingress.md
 - name: Data views
   href: data-views/toc.yml
-  topicHref: data-views/data-views-api-overview/data-views-overview.md
+  topicHref: data-views/data-views-api-overview.md
 - name: Operations
   href: operations/toc.yml
   topicHref: operations/operations-overview.md

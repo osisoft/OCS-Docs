@@ -12,36 +12,36 @@ class-collectionaclcontroller:
 class-dataviewsdatacontroller:
   type: markdown
   value: |
-    The Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
+    The Data API allows users to [retrieve data](xref:DataViewsQuickStartGetData) for a specified data view.  This API is one portion of the [data views API](xref:DataViewsAPIOverview).
 
 class-dataviewscontroller:
   type: markdown
   value: |
-    The `DataView` API provides mechanisms to create, read, update, and delete data views. This is one portion of the whole [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
+    The `DataView` API provides mechanisms to create, read, update, and delete data views. This is one portion of the whole [data views API](xref:DataViewsAPIOverview).
 
-    For a description of the `DataView` object type, see the [DataView documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/Data_Views_Overview.html).
+    For a description of the `DataView` object type, see the [DataView documentation](xref:DataViewsAPIOverview).
 
-    Other sections of documentation describe how to [secure data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions, and the corresponding [API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Access_Control_API.html).
+    Other sections of documentation describe how to [secure data views](xref:DataViewsSecuringDataViews) by setting their ownership and permissions, and the corresponding [API](xref:data-views-access-control).
 
 class-dataviewspermissionscontroller:
   type: markdown
   value: |
-    This portion of the [overall data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) focuses on [securing data views](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/SecureDataViews/Securing_Data_Views.html) by setting their ownership and permissions.
+    This portion of the [overall data views API](xref:DataViewsAPIOverview) focuses on [securing data views](xref:DataViewsSecuringDataViews) by setting their ownership and permissions.
 
 class-previewdataviewsresolvedcontroller:
   type: markdown
   value: |
-    This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) specifies the resources that resolve per-user for an input data view. The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.
+    This portion of the overall [data views API](xref:DataViewsAPIOverview) specifies the resources that resolve per-user for an input data view. The preview APIs require a data view to be passed in the request body for each request, which provides the user the flexibility to change the data view on the fly without saving/updating it.
 
 class-previewdataviewsdatacontroller:
   type: markdown
   value: |
-    The Preview Data API allows users to [retrieve data](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html) for a specified data view.  This API is one portion of the [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html).
+    The Preview Data API allows users to [retrieve data](xref:DataViewsQuickStartGetData) for a specified data view.  This API is one portion of the [data views API](xref:DataViewsAPIOverview).
 
 class-dataviewsresolvedcontroller:
   type: markdown
   value: |
-    This portion of the overall [data views API](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/DataViewsAPIOverview/Data_Views_API_Overview.html) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetResolvedDataView/Resolved_Data_View.html) for resolved data views.
+    This portion of the overall [data views API](xref:DataViewsAPIOverview) is the resources that resolve per-user for each data view. For a description of what this information is, and how to use it, see the [documentation](xref:ResolvedDataView) for resolved data views.
 
 # method summaries: access control
 dataview-accessrights-get:
@@ -52,22 +52,22 @@ dataview-accessrights-get:
 dataview-acl-get:
   type: markdown
   value: |
-    Returns the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
+    Returns the [`AccessControlList`](xref:accessControl#access-control-lists) of the specified data view.
 
 dataview-acl-update:
   type: markdown
   value: |
-    Updates the [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) of the specified data view.
+    Updates the [`AccessControlList`](xref:accessControl#access-control-lists) of the specified data view.
 
 dataview-owner-get:
   type: markdown
   value: |
-    Returns the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+    Returns the owner [`Trustee`](xref:accessControl#owner) of the specified data view.
 
 dataview-owner-update:
   type: markdown
   value: |
-    Updates the owner [`Trustee`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#owner) of the specified data view.
+    Updates the owner [`Trustee`](xref:accessControl#owner) of the specified data view.
 
 dataviews-accessrights-get:
   type: text/plain
@@ -77,33 +77,33 @@ dataviews-accessrights-get:
 dataviews-acl-get:
   type: markdown
   value: |
-    Returns the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+    Returns the default [`AccessControlList`](xref:accessControl#access-control-lists) for the DataViews collection.
 
 dataviews-acl-update:
   type: markdown
   value: |
-    Updates the default [`AccessControlList`](https://ocs-docs.osisoft.com/Content_Portal/Documentation/Access_Control.html#access-control-lists) for the DataViews collection.
+    Updates the default [`AccessControlList`](xref:accessControl#access-control-lists) for the DataViews collection.
 
 # method summaries: requesting data
 data-interpolated-get:
   type: markdown
   value: |
-    Returns interpolated data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Returns interpolated data for the provided index parameters with paging. See [documentation on paging](xref:DataViewsQuickStartGetData#paging) for further information.
 
 data-interpolated-get-preview:
   type: markdown
   value: |
-    Returns interpolated data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Returns interpolated data for the provided data view and index parameters with paging. See [documentation on paging](xref:DataViewsQuickStartGetData#paging) for further information.
 
 data-stored-get:
   type: markdown
   value: |
-    Returns stored data for the provided index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Returns stored data for the provided index parameters with paging. See [documentation on paging](xref:DataViewsQuickStartGetData#paging) for further information.
 
 data-stored-get-preview:
   type: markdown
   value: |
-    Returns stored data for the provided data view and index parameters with paging. See [documentation on paging](https://ocs-docs.osisoft.com/Content_Portal/Documentation/DataViews/GetDataViewData/Quick_Start_Get_Data_View_Data.html#paging) for further information.
+    Returns stored data for the provided data view and index parameters with paging. See [documentation on paging](xref:DataViewsQuickStartGetData#paging) for further information.
 
 # method summaries: data views
 dataview-create:
@@ -137,6 +137,11 @@ dataviews-get:
     Returns a list of data views.
 
 # method summaries: resolved routes
+allfieldsets-get:
+  type: text/plain
+  value: |
+    Returns the collection of all field sets eligible for use in the data view, including fields which are currently included in the data view.
+
 availablefieldsets-get:
   type: text/plain
   value: |

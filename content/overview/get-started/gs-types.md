@@ -32,11 +32,11 @@ After creating the namespace, the next step is to add one or more types. For mor
 
 1. In the `Add Type` window, enter the values for these fields:
 
-   - **Id** &ndash; *MyOCS.PumpState*
+   - **Id** &ndash; *MyData.PumpState*
 
-   - **Name** &ndash; *MyOCS.PumpState*
+   - **Name** &ndash; *MyData.PumpState*
 
-   - **Description** &ndash; *SDS Type used by My OCS*
+   - **Description** &ndash; *SDS Type used by MyData*
 
     **Note:** You can use an existing SDS type as the starting point for the new type by selecting an existing SDS type from the **Base Type** list. When you add a base type, its properties populate the **Properties** list. You can then add other properties to the type.
 
@@ -84,15 +84,15 @@ After creating the namespace, the next step is to add one or more types. For mor
 
 The following steps explore information about the type you just created.
 
-1. Click the checkbox to select the `MyOCS.PumpState` type in the list. Click the ![More Options button](images/more-options.png) icon, then click **Manage Permissions**.
+1. Click the checkbox to select the `MyData.PumpState` type in the list. Click the ![More Options button](images/more-options.png) icon, then click **Manage Permissions**.
 
-    This opens the `Manage Permissions for MyOCS.PumpState` window where you can override the default permissions and set permissions for the specific type. You must be assigned the Tenant Administrator role to configure the type permissions.
+    This opens the `Manage Permissions for MyData.PumpState` window where you can override the default permissions and set permissions for the specific type. You must be assigned the Tenant Administrator role to configure the type permissions.
 
-    Review the permissions for the MyOCS.PumpState type, and when you have finished exploring this window, click **Cancel** to continue. 
+    Review the permissions for the MyData.PumpState type, and when you have finished exploring this window, click **Cancel** to continue. 
 
 1. Click the ![More Options button](images/more-options.png) icon, then click **Get Type Streams**.
 
-   This takes you to the **Streams** list and, by default, the typeId:MyOCS.PumpState query is used to filter any streams with the MyOCS.PumpState type. The list is currently empty, because streams have not yet been created with this type.
+   This takes you to the **Streams** list and, by default, the typeId:MyData.PumpState query is used to filter any streams with the MyData.PumpState type. The list is currently empty, because streams have not yet been created with this type.
 
 ## Next step
 

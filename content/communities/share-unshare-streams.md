@@ -36,7 +36,7 @@ To perform this procedure you must have already defined streams.
 
     All members of the selected communities are able to read data from the shared streams.
 
-## Unshare streams from `Community Details`
+## Unshare streams from Community Details
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -50,7 +50,9 @@ To perform this procedure you must have already defined streams.
 
 4. On the **Streams** tab, select the streams you want to unshare, then click **Unshare Streams**. When prompted for confirmation, click **Unshare**.
 
-## Unshare streams from the `Sequential Data Store`
+## Unshare streams from the Sequential Data Store
+
+In addition to unsharing streams, the Sequential Data Store provides many capabilities for managing streams. For more information, see [Manage streams](xref:manage-streams).
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
 

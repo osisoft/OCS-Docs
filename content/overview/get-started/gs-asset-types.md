@@ -24,7 +24,7 @@ Follow the procedure to use the asset explorer to create an asset type.
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
-1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyOCS**.
+1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyData**.
 
 1. From the **Asset/Asset Types Selector** list, select **Asset Types**.
 
@@ -32,7 +32,7 @@ Follow the procedure to use the asset explorer to create an asset type.
 
 1. In the new asset type panel, enter the following:
 
-   - **Asset Type** &ndash; *MyOCS.PumpType*
+   - **Asset Type** &ndash; *MyData.PumpType*
 
    - **Description** &ndash; (Optional) Add a description for the asset. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
    
@@ -50,7 +50,7 @@ Follow the procedure to use the asset explorer to create an asset type.
    
 1. Click the **Properties** tab, and click **Add Stream Type Reference**.
 
-1. In the `Select Stream Type` window, click **MyOCS.PumpState** in the list, and then click **Add**.
+1. In the `Select Stream Type` window, click **MyData.PumpState** in the list, and then click **Add**.
 
 1. Click the **Status** tab, and click **Add Status Configuration**.
 
@@ -72,22 +72,22 @@ You can take an existing asset and use it as the basis for creating an asset typ
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
  
-1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyOCS**.
+1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyData**.
 
-1. Select the **MyOCS.Asset** asset.
+1. Select the **MyData.Asset** asset.
 
    **Note:** In the upper-right corner of the right pane, **Asset Type** is set to *< None >* indicating that this asset is not based on an asset type. 
 
 1. Click the ![More Options button](images/more-options.png) icon, then click **Save as Asset Type**.
 
-1. In the `Create an Asset Type for MyOCS.Asset` window, enter the following:
+1. In the `Create an Asset Type for MyData.Asset` window, enter the following:
    
-   - `Name` &ndash; **MyOCS.TankType**
+   - `Name` &ndash; **MyData.TankType**
    - `Description` &ndash; (Optional) Add a description for the asset type. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
 
 1. Click **Create**. 
 
-   The MyOCS.TankType asset type is added to the asset type list. Note that the **Asset Type** for the MyOCS.Asset asset is now set to `MyOCS.TankType`. 
+   The MyData.TankType asset type is added to the asset type list. Note that the **Asset Type** for the MyData.Asset asset is now set to `MyData.TankType`. 
 
 ## Next step
 

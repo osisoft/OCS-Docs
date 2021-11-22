@@ -7,6 +7,9 @@
 - name: Sequential Data Store
   href: sequential-data-store-dev/toc.yml
   topicHref: sequential-data-store-dev/sds-lp-dev.md
+- name: Data Views
+  href: data-views-dev/toc.yml
+  topicHref: data-views-dev/data-views-lp-dev.md
 - name: OSIsoft Message Format
   href: omf-dev/toc.yml
   topicHref: omf-dev/omf-lp.md
