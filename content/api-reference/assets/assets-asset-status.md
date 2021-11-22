@@ -20,8 +20,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -79,8 +79,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>`string startIndex`
 <br/>Start index.<br/><br/>`string endIndex`
 <br/>End index.<br/><br/>`integer intervals`
@@ -171,8 +171,8 @@ POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Sta
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>
 
 <h4>Request Body</h4>
 

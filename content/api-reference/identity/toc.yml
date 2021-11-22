@@ -22,6 +22,8 @@
   topicUid: accessControl 
 - name: Secrets
   href: identity-secrets.md
+- name: Role-based access control
+  topicUid: accessControl 
 - name: Tenants roles
   href: identity-tenants-roles.md
 - name: Tenants users

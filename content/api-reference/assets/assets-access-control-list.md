@@ -21,8 +21,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{r
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string resource`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string resource`
 <br/>Assets or AssetTypes.<br/><br/>
 
 <h3>Response</h3>
@@ -31,7 +31,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{r
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|OK.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|##403|
 
 <h4>Example response body</h4>
 
@@ -88,8 +88,8 @@ PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{r
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string resource`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string resource`
 <br/>Assets or AssetTypes.<br/><br/>
 
 <h4>Request Body</h4>
@@ -123,7 +123,7 @@ Updated ACL.<br/>
 |---|---|---|
 |204|None|No Content.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|##403|
 
 ---
 
@@ -142,8 +142,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/{re
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string resource`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string resource`
 <br/>Assets or AssetTypes.<br/><br/>
 
 <h3>Response</h3>
@@ -152,7 +152,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/{re
 |---|---|---|
 |200|Inline|OK.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|##403|
 
 ---
 ## Definitions
