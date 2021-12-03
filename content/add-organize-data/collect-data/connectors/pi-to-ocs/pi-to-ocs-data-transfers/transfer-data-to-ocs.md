@@ -73,6 +73,21 @@ During transfer creation, you will need to perform the following tasks:
    * **Low**: Sends no metadata from the data source namespace. Locally configured metadata such as point source and local aliases is allowed (point name, point ID and point source only).
    * **None**: Only the point ID and point name is sent; no metadata is included in the transfer.
 
+   **What PI point attributes are transferred with each Stream Metadata Replication Policy (data privacy) setting?**
+
+    |   | High | Medium | Low | None |
+    | ------------- | ----------------- | ----------------- |----------------- | ----------------- |
+    | Name | X | X  | X || X |
+    | Descriptor | X | X |  
+    | EngUnits | X | X |  |  |  |
+    | ExDesc | X |  |  |  |
+    | InstrumentTag | X  |  |  |  |
+    | PointId | X | X | X | X |
+    | Pointsource | X | X | X |  |
+    | PointType | X | X |  |  |
+    | SourceTag | X | X |  |  |
+    |Step | X | X |  |  |
+
 1. Click **Ok**.
 
    **Result:** The transfer is created and the `Transfer` page opens.
