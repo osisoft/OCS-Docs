@@ -11,6 +11,7 @@
 - name: Add and remove community clients
   href: manage-clients.md
 - name: Share and unshare streams
-  href: share-unshare-streams.md  
+  href: share-unshare-streams.md
+- topicUid: view-community-data
 - name: Delete a community
   href: delete-a-community.md

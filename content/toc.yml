@@ -28,3 +28,5 @@
 - name: API reference
   href: api-reference/toc.yml
   topicHref: api-reference/ocs-api-reference.md
+- name: Technical support and other resources
+  topicHref: support.md

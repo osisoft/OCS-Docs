@@ -6,13 +6,15 @@ uid: osisoftCloudServices
 
 The information in the sections that follow document the APIs and usage for each of the following:
 
-* [Tenant Management](xref:AccountManagementOverview) - Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
-* [Identity and Access Management](xref:identityandaccessmanagement) - Use the information in this section to create, manage and administer users and clients.
-* [Sequential Data Store (SDS)](xref:sds) - Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
-* [Data Collection and OSIsoft Message Format](xref:dataIngress) - You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
-* [Metadata Rules](xref:MetadataRulesOverview) - The metadata rules feature in the OCS Portal simplifies the process of assigning metadata to streams.
-* [Data Views](xref:DataViewsOverview) - Use the information in this section to create user-selected subsets of data stored in OSIsoft Cloud Services which are mapped into customizable table formats.
-* [Operations](xref:operationsOverview) - Use the information in this section to get metrics on OCS operation. 
+* [Asset store](xref:Assets)—Use the information in this section to create or find assets of different types, along with their data and status.
+* [Communities (Preview)](xref:communityOverview)—OCS Communities helps industrial companies share their operational data with external business partners, service providers, and analytics providers. 
+* [Data collection](xref:dataIngress)—You use OSIsoft Message Format (OMF) to achieve high-throughput asynchronous data ingress into the OCS Sequential Data Store.
+* [Data views](xref:DataViewsOverview)—Use the information in this section to create user-selected subsets of data stored in OSIsoft Cloud Services which are mapped into customizable table formats.
+* [Identity and access management](xref:identityandaccessmanagement)—Use the information in this section to create, manage and administer users and clients.
+* [Operations](xref:operationsOverview)—Use the information in this section to get metrics on OCS operation. 
+* [Rules](xref:rules-lp)—The metadata rules feature in the OCS Portal simplifies the process of assigning metadata to streams.
+* [Sequential Data Store (SDS)](xref:sds)—Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
+* [Tenant Management](xref:AccountManagementOverview)—Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
 
 ## Access to OCS
 

@@ -16,3 +16,5 @@
 - name: Asset store
   href: asset-dev/toc.yml
   topicHref: asset-dev/asset-dev-guide.md
+- name: Samples
+  topicHref: samples.md

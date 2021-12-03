@@ -21,13 +21,13 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>
 `[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>`[optional] string orderBy`
+<br/>##skip<br/><br/>`[optional] integer count`
+<br/>##count<br/><br/>`[optional] string orderBy`
 <br/>Optional parameter which returns assets ordered either by the asset `Id` or the asset `Name`. Specify `asc` or `desc` to return the results in ascending or descending order. If not specified, the default is ascending order.<br/><br/>`[optional] string query`
-<br/>Query identifier.<br/><br/>`[optional] string filter`
+<br/>##query<br/><br/>`[optional] string filter`
 <br/>String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset `AssetTypeName` property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).<br/><br/>
 
 <h3>Response</h3>
@@ -35,7 +35,6 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[SearchResultsOfSearchResult](#schemasearchresultsofsearchresult)|OK.|
-|204|None|No assets match your query.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 
 <h4>Example response body</h4>
@@ -96,10 +95,10 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Fa
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>
 `[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>`[optional] string name`
+<br/>##count<br/><br/>`[optional] string name`
 <br/>Name of the asset metadata for which you want to retrieve the facet values.<br/><br/>
 
 <h3>Response</h3>
@@ -163,8 +162,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Au
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string term`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string term`
 <br/>Search term that you want to search for<br/><br/>`integer termCount`
 <br/>Maximum number of facet autocompleted items to return. Default is 0.<br/><br/>`integer facetCount`
 <br/>Maximum number of token autocompleted items to return. Default is 0.<br/><br/>

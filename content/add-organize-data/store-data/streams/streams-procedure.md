@@ -4,45 +4,32 @@ uid: gpStreams
 
 # Add a stream
 
-Sequential Data Store (SDS) stream data are values or events of the same SDS type. SDS stream data are stored in the Sequential Data Store and indexed by one or more properties defined by the stream's SDS type. See the following for more information about streams:
+Sequential Data Store (SDS) stream data are values or events of the same SDS type. SDS stream data are stored in the Sequential Data Store and indexed by one or more properties defined by the stream's SDS type. 
 
-- [Streams](xref:ccStreams)
-- [Streams best practices](xref:bpStreams)
-
-## Procedure
+To add a stream, follow these steps:
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
-
-1. Click the **Change Namespace** button in the upper-right toolbar, then select the namespace in which you want to create the stream.
    
-1. From the **Streams** dropdown list, select **Streams** if it is not already selected.
+1. From the **Streams** dropdown, select **Streams**.
  
-1. Click **Add Stream**.
+1. Select **Add Stream**.
 
-1. In the `Add Stream` window, enter the following:
+1. In the `Add Stream` pane, complete the following fields:
 
-   `Id` &ndash; (Optional) Identifier for referencing the stream. If you do not provide an Id, a GUID is generated.
+ - **Id** &ndash; (Optional) Enter an identifier for referencing the stream. If you do not enter an Id, a GUID is generated.
    
-   `Name` &ndash; (Optional) User-friendly name for the stream. If you do not provide a name, it takes the value of the `Id`. 
+ - **Name** &ndash; (Optional) Enter a user-friendly name for the stream. If you do not enter a name, the **Id** is used as the name. 
    
-   `Description` &ndash; (Optional) User-friendly description of the stream
+ - **Description** &ndash; (Optional) Enter a user-friendly description of the stream.
    
-   `Type` &ndash; SDS type identifier of the type used in this stream 
+ - **Type** &ndash; SDS type identifier of the type used in this stream.
 
-1. Click the **Tags** tab, if it is not already selected.
+1. To add tags to the stream, select the **Tags** tab.
 
-1. In the `New Tag` field, type the name of the metadata tag and click **+** to add the tag. 
+1. For each tag you want to add, enter the name of the tag in the **New Tag** field, and then click **+**. 
 
-1. Continue adding tags to your stream.
+1. Select the **Metadata** tab.
 
-1. Click the **Metadata** tab and click **Add Metadata**.
+1. For each metadata you want to add, select **Add Metadata**, and then in the **Metadata Key** and **Metadata Value** fields, enter the key and corresponding value for the metadata.
 
-1. In the `Metadata Key` and `Metadata Value` fields, enter the key and value of your metadata.
-
-1. Continue adding metadata to your stream.
-
-1. When you are done, click **Save**.
-
-## Related links
-
-- [Streams](xref:sds-streams) API
+1. To save the stream, select **Save**.

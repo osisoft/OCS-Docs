@@ -4,28 +4,28 @@ uid: gpOMFConnection
 
 # Configure an OMF connection
 
-To send OSIsoft Message Format (OMF) data to OCS, you must first configure an OMF connection.
+You must configure an OMF connection to send OSIsoft Message Format (OMF) data to OCS. Follow this procedure to configure an OMF connection.
 
-## Procedure
+**Note:** An OMF connection requires a client credentials client.
 
-1. In the left pane, select **Security** > **Clients**.
+1. In the left pane, select **Data Collection** > **OMF Connections**.
 
-1. Verify that there is at least one client credentials client to use in the OMF connection. If you need to create one, refer to the Clients section.
+1. In the toolbar, select **Add Connection**.
 
-1. Click on the menu and click **Connections** (under Data Management).
+  The `Add OMF Connection` window appears.
 
-1. From the **Namespace** field, select the namespace in which you want the OMF data written.
+1. In the `Add OMF Connection` window, complete the following fields, and then select **Next**:
 
-1. From the **Type** dropdown list, select **OMF**.
+ - **Name** - Enter a name for the OMF connection.
 
-1. Click **Add Connection** to open the `Add PI System Connection` window.
+ - **Description** - (Optional) Enter a description for the connection.
 
-1. In the **Name** field, enter a name for the OMF connection, and click **Next**.
+1. In the **Clients** tab, select each client that can be used in the connection from the **Available** list to add it to the **Selected** list. 
 
-1. In the **Clients** tab, click one of the clients in the **Available** list to add it to the **Selected List**. Click **Next**.
+1. Select **Next**.
 
-1. In the **Namespaces** tab, verify that the namespace where you want the data written appears in the **Selected** list. Click **Next**.
+1. In the **Namespaces** tab, verify that the namespace where you want write data appears in the **Selected** list, and then select **Next**.
    
-1. In the **Review** tab, verify that the **Clients** list shows the client credentials client you chose. Verify that the **Namespace** list displays the namespace where you want the data written. Click **Save**.  
+1. In the **Review** tab, verify that the information is correct, and then select **Save**.  
 
 An application can now use the selected client credentials client to write OMF data to the specified namespace.

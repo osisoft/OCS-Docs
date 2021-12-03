@@ -20,8 +20,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -30,7 +30,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|[ResolvedAsset](#schemaresolvedasset)|Resolved asset with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|None|##403|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 <h4>Example response body</h4>
@@ -133,8 +133,8 @@ POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Res
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>##tenantId<br/><br/>`string namespaceId`
+<br/>##namespaceId<br/><br/>
 
 <h4>Request Body</h4>
 

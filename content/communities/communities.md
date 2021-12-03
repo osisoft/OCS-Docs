@@ -45,7 +45,7 @@ Communities allow you to share your data streams with multiple business partners
 
 Communities support multi-tenant management of users and permissions. 
 
-Within each tenant, [community administrators](xref:communityroles#tenant-administrator#community-administrator) can independently [invite or remove users](xref:managecommunityusers), keeping user and permissions separate from other tenants in the community. Each tenant within the community has individual control over which of its users can access the community or share data within it. Community administrators cannot control users or permission in other tenants.
+Within each tenant, [community administrators](xref:communityroles#community-administrator) can independently [invite or remove users](xref:managecommunityusers), keeping user and permissions separate from other tenants in the community. Each tenant within the community has individual control over which of its users can access the community or share data within it. Community administrators cannot control users or permission in other tenants.
 
 Additionally, OCS provides [community roles](xref:communityroles) that allow each tenant to manage users and roles specifically for communities. Users can be assigned granular permissions to view community data, share data streams within the community, or invite other tenants to the community.
 
