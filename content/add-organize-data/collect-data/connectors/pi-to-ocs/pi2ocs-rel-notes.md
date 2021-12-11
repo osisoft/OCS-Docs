@@ -25,6 +25,7 @@ The 1.6.1204.0 and 1.7.0.0 versions of the PI To OCS Agent will fail to register
 
 This has been fixed. Customers must upgrade to the latest version of the PI to OCS Agent to enable the fix.
 
+
 **During installation, the agent description not properly set in OCS.**
 
 Previously, the agent description specified during PI to OCS Agent installation wasn’t properly replicated to OCS. This has been fixed.

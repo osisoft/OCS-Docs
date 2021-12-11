@@ -2,9 +2,11 @@
 uid: TrendUserInterface
 ---
 
-# Trend page
+# Trend
 
-The following image shows the important elements of the Trend page, and the table below describes how to use these elements. For more information on how to use the Trend page to analyze traces, see [Get Started with Trend Data](xref:GettingStartedWithTrendData).
+Use the `Trend` page to show data from assets and streams in a graphical format that traces the data over a specified period of time. Use trace data in a trend to monitor assets, anticipate problems, and proactively perform preventative maintenance. Display traces in a trend to better understand the data and gather useful information from it.
+
+The following image shows the important elements of the `Trend` page, and the table below describes how to use these elements. For more information on how to use the `Trend` page to analyze traces, see [View trend data](xref:GettingStartedWithTrendData).
 
 ![Trend page](images/Trend_full_page.png)
 

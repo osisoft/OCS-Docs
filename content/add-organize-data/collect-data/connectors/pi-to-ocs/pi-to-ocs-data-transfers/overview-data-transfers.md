@@ -3,13 +3,16 @@ uid: overview-data-transfers
 ---
 
 # Overview of data transfers
-
+<!--AF 11/15/21 This topic should be the first one in the data transfers section. --> 
+<!--VT, 11/29/21: According to the toc.yml for this section, it is the first topic. I think the edits I made in PR #764 address your concern. :) -->
 To transfer AF elements and PI System data to OCS, you must set filter criteria and select the data for the transfer. Then, you can stream the selected AF elements and PI points from your on-premises PI System to OCS.
 
 The following tasks must be performed before you can complete a data transfer:
 
 1. Download and install the PI to OCS Agent.
+
 2. Configure your PI System data source connections by adding the desired Data Archive and optional AF server.
+
 3. Create a data transfer by adding the desired AF elements and/or PI points.
 
 ## Historical transfer
