@@ -19,13 +19,13 @@ This is a Lighthouse Release. Prior to this, select customers had access to the 
 
 *PI to OCS Agent*
 
-**PI to OCS Agent Fails to register, and agent status remains in “Retrieving State”**
+**PI to OCS Agent Fails to register, and agent status remains in “Retrieving State”.**
 
 The 1.6.1204.0 and 1.7.0.0 versions of the PI To OCS Agent will fail to register and fail to appear in the OSIsoft Cloud Service portal on new installations. The PI to OCS Configuration Utility will also display an agent status of "Retrieving State".
 
 This has been fixed. Customers must upgrade to the latest version of the PI to OCS Agent to enable the fix.
 
-**During installation, the agent description not properly set in OCS**
+**During installation, the agent description not properly set in OCS.**
 
 Previously, the agent description specified during PI to OCS Agent installation wasn’t properly replicated to OCS. This has been fixed.
 
@@ -33,9 +33,11 @@ Previously, the agent description specified during PI to OCS Agent installation 
 
 This has been fixed.
 
+### Enhancements
+
 *PI to OCS Configuration Utility Improvements*
 
-Several improvements were made to the PI to OCS Configuration Utility to improve the user experience, including the following list:
+Several improvements were made to the PI to OCS Configuration Utility to improve the user experience, including the following items:
  
 •	Only allow supported versions of PI Data Archive and AF Servers to be configured as data sources
 •	Improve misleading error messaging
