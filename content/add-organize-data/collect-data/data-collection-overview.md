@@ -4,7 +4,7 @@ uid: lpdatacollection
 
 # Collect data
 
-Collect data from external sources and send it directly to AVEVA™ Data Hub using the following methods:
+Collect data from external sources and send it directly to OCS using the following methods:
 
 * Use PI to OCS to set up a transfer of data from an on-premises PI Server to OCS.
 
