@@ -177,7 +177,7 @@ To create a PI mapping, follow these steps:
 
 ## Set data privacy and add an agent description
 
-Use the PI to OCS Agent Settings to add a descriptive name for the agent and to configure data privacy. This description appears where the agent is referenced and allows you to search by agent description. Data privacy settings control whether a host name of a PI Data Archive is published and displayed in AVEVA Data Hub. By default, AVEVA Data Hub does not publish host names. If you opt to have a host name published, it appears in the portal on the `PI to OCS Agents` window as shown below: 
+Use the PI to OCS Agent Settings to add a descriptive name for the agent and to configure data privacy. This description appears where the agent is referenced and allows you to search by agent description. Data privacy settings control whether a host name of a PI Data Archive is published and displayed in OCS. By default, host names are not published. If you opt to have a host name published, it appears in the portal on the `PI to OCS Agents` window as shown below: 
 
 ![Agent description and hostname displayed in PI to OCS Agents window](../../images/pi-to-ocs-agents-hostname.png)
 <!--AF 11/12/21 I would change the callouts in the image to be minimal, like "Agent description" and "host name". Then add any additional explanation here in text. It will be easier to read and easier to maintain. -->
