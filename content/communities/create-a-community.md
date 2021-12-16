@@ -12,22 +12,20 @@ For information about adding or deleting tenants from an existing community, see
 
 **Note:** Only a [Tenant Administrator](xref:communityroles#tenant-administrator) can perform this procedure.
 
+To create a community, follow these steps:
+
 1. In the left pane, select **Data Management** > **Communities**.
 
-2. On the `Communities` page, click **Add Community**.
+1. On the `Communities` page, select **Add Community**.
 
-3. Enter a **Name** and **Description** for the new community and click **Next**.
+1. Enter a **Name** and **Description** for the new community and select **Next**.
 
-    A dialog opens that allows you to assign a Community Administrator from your tenant.
+1. To assign a Community Administrator from your tenant, select **Add User**.
 
-4. Click **Add User**.
+1. In the list of users, select **Add User** ![Add User](images\add-button-white-background.png "Add User") beside each user who should be a Community Administrator. If necessary, you can filter the list of users by typing in the **Filter by name or e-mail** field.
 
-    A list of users appears.
+    **Note:** If you do not assign yourself the Community Administrator role, you cannot access details about the new community unless you use the [Users](xref:ccUsers) feature to assign yourself the `new_community_name` Community Member Role.
 
-5. Click **Add User** ![Add User](images\add-button-white-background.png "Add User") beside each user who should be an Community Administrator. If necessary, you can filter the list of users by typing in the **Filter by name or e-mail** box.
-
-    **Note:** If you do not assign yourself the Community Administrator role, you cannot access details about the new community unless you use the [Users](xref:ccUsers) feature to assign yourself the _new_community_name_ Community Member Role.
-
-6. Click **Create**.
+1. Select **Create**.
 
     The community is added to the `Communities` page.

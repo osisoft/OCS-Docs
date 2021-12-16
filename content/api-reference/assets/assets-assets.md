@@ -14,14 +14,14 @@ Returns the owner of specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -30,7 +30,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|[Trustee](#schematrustee)|OK.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 <h4>Example response body</h4>
@@ -69,14 +69,14 @@ Updates the owner of specified asset.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h4>Request Body</h4>
@@ -97,7 +97,7 @@ Updated owner.<br/>
 |---|---|---|
 |204|None|Asset owner updated.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found|
 
 ---
@@ -111,14 +111,14 @@ Returns the access control list of the specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -127,7 +127,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|Access control list of the asset with given identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 <h4>Example response body</h4>
@@ -178,14 +178,14 @@ Updates the access control of specified asset.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h4>Request Body</h4>
@@ -218,7 +218,7 @@ Updated ACL.<br/>
 |---|---|---|
 |204|None|Update success.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 ---
@@ -232,14 +232,14 @@ Returns the access rights of specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessRights
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessRights
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -248,7 +248,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|Inline|Access control list of the asset with given identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 <h4>Example response body</h4>
@@ -288,14 +288,14 @@ Returns specified asset and the version ETag in the HTTP response header.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -304,7 +304,7 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|[Asset](#schemaasset)|Assets with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
 <h4>Response Headers</h4>
@@ -365,14 +365,14 @@ Creates a new asset. If the asset you are trying to create references an asset t
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h4>Request Body</h4>
@@ -411,7 +411,7 @@ Asset to create.<br/>
 |201|[Asset](#schemaasset)|Asset created.|
 |302|None|Asset you attempted to create is identical to one that already exists.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|[ErrorTemplate](#schemaerrortemplate)|##403|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Asset you attempted to create has a conflict. See the response body for additional details.|
 
@@ -501,14 +501,14 @@ Creates or updates an asset with a specified identifier. If the asset already ex
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h4>Request Body</h4>
@@ -546,7 +546,7 @@ Asset to create or update.<br/>
 |200|[Asset](#schemaasset)|OK.|
 |201|[Asset](#schemaasset)|Asset created with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
 
@@ -635,14 +635,14 @@ Deletes the asset with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -651,7 +651,7 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{asset
 |---|---|---|
 |204|None|Asset with specified identifier has been deleted.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|##403|
+|403|None|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not Found.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
@@ -667,20 +667,20 @@ Returns an array of assets in a given namespace and the total number of assets r
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}&filter={filter}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 `[optional] integer skip`
-<br/>##skip<br/><br/>`[optional] integer count`
-<br/>##count<br/><br/>`[optional] string orderBy`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>`[optional] string orderBy`
 <br/>Optional parameter which returns assets ordered either by the asset `Id` or the asset `Name`. Specify `asc` or `desc` to return the results in ascending or descending order. If not specified, the default is ascending order.<br/><br/>`[optional] string query`
-<br/>##query<br/><br/>`[optional] string filter`
+<br/>Query identifier.<br/><br/>`[optional] string filter`
 <br/>String used to filter the asset search results. Filter strings are not case-sensitive. Filters can be applied for the `AssetTypeName` property, the `Status` property, and the asset metadata properties, using the syntax filter[*property_name*]=*property_value*.<br/><br/>
 
 <h3>Response</h3>
@@ -772,15 +772,15 @@ Returns the Headers corresponding to the GET Assets call, including a collection
 <h3>Request</h3>
 
 ```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ?query={query}&includeTotalCount={includeTotalCount}&filter={filter}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 `[optional] string query`
 <br/>Search query. Defaults to all assets if unspecified.<br/><br/>`[optional] boolean includeTotalCount`
 <br/>Optional parameter. If set to false, Total-Count header will not be included.<br/><br/>`[optional] string filter`
@@ -811,14 +811,14 @@ Creates a new asset. If the asset you are trying to create references an asset t
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -914,14 +914,14 @@ Creates assets in bulk. Creates multiple assets in a single call.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -1018,15 +1018,15 @@ Deletes all assets with the specified identifiers. This API can delete up to a m
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 ?id={id}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 `[optional] array id`
 <br/>Comma separated asset identifiers in the form of id={assetId_1},id={assetId_2}<br/><br/>
 

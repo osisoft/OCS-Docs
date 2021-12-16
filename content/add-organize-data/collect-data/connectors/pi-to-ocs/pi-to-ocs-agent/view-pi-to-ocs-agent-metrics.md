@@ -6,15 +6,21 @@ uid: kpi-tile
 
 You can quickly view key performance indicator (KPI) metrics for installed PI to OCS Agents on the home page.
 
-## Procedure
+To view PI to OCS Agent metrics, follow these steps:
 
-1. Click **Home** on the menu. 
-
-   **Result:** The portal home page opens.
+1. To opent the portal home page, select **Home** on the portal menu. 
 
    ![](../../images/kpi-tile.png)
 
-1. View the information in the PI to OCS Agents tile to see the current state of your agent(s) (**Good**, **Warning**, **Bad**, **Stopped**).
+1. View the information in the `PI to OCS Agents` tile to see the current state of your agents. States are:
 
-1. Click an agent state (**Good**, **Warning**, **Bad**, **Stopped**) to display agents by filter state on the `PI to OCS Agent` page.
+ - **Good**
+
+ - **Warning**
+
+ - **Bad**
+ 
+ - **Stopped**
+
+1. To see the agents on the `PI to OCS Agent` page filtered by state, select the state on the `PI to OCS Agents` tile.
   

@@ -14,20 +14,20 @@ Searches all assets and returns a list of asset Ids and their matched fields. Us
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}&filter={filter}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 `[optional] integer skip`
-<br/>##skip<br/><br/>`[optional] integer count`
-<br/>##count<br/><br/>`[optional] string orderBy`
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>`[optional] string orderBy`
 <br/>Optional parameter which returns assets ordered either by the asset `Id` or the asset `Name`. Specify `asc` or `desc` to return the results in ascending or descending order. If not specified, the default is ascending order.<br/><br/>`[optional] string query`
-<br/>##query<br/><br/>`[optional] string filter`
+<br/>Query identifier.<br/><br/>`[optional] string filter`
 <br/>String used to filter the asset search results. Filter strings are not case sensitive. The strings on which you can filter results are limited to the asset `AssetTypeName` property and the asset metadata properties (using the syntax filter[*property_name*]=*property_value*).<br/><br/>
 
 <h3>Response</h3>
@@ -88,17 +88,17 @@ Searches for assets using facets. Asset facets are not case-sensitive. Only asse
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Facets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Facets
 ?count={count}&name={name}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 `[optional] integer count`
-<br/>##count<br/><br/>`[optional] string name`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>`[optional] string name`
 <br/>Name of the asset metadata for which you want to retrieve the facet values.<br/><br/>
 
 <h3>Response</h3>
@@ -155,15 +155,15 @@ Returns a list of suggested assets based on your search criteria. The autocomple
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Autocomplete
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Search/Assets/Autocomplete
 ?term={term}&termCount={termCount}&facetCount={facetCount}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string term`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string term`
 <br/>Search term that you want to search for<br/><br/>`integer termCount`
 <br/>Maximum number of facet autocompleted items to return. Default is 0.<br/><br/>`integer facetCount`
 <br/>Maximum number of token autocompleted items to return. Default is 0.<br/><br/>

@@ -4,7 +4,7 @@ uid: pi2ocs-rel-summary
 
 # PI to OCS release summary
 
-## Release 1.7.0: September 20, 2021
+## Release 1.8.0: December 10, 2021
 
 
 ## Overview
@@ -17,47 +17,39 @@ This is a Lighthouse Release. Prior to this, select customers had access to the 
 
 ### Fixes
 
+*PI to OCS Agent*
+
+**PI to OCS Agent Fails to register, and agent status remains in “Retrieving State”.**
+
+The 1.6.1204.0 and 1.7.0.0 versions of the PI To OCS Agent will fail to register and fail to appear in the OSIsoft Cloud Service portal on new installations. The PI to OCS Configuration Utility will also display an agent status of "Retrieving State".
+
+This has been fixed. Customers must upgrade to the latest version of the PI to OCS Agent to enable the fix.
+
+**During installation, the agent description not properly set in OCS.**
+
+Previously, the agent description specified during PI to OCS Agent installation wasn't properly replicated to OCS. This has been fixed.
+
+**Indexing Status may not change from "InProgress" to "Succeeded" after indexing is complete.**
+
+This has been fixed.
+
+### Enhancements
+
 *PI to OCS Configuration Utility Improvements*
 
-**Respect OCS feature flags**
-
-If a user is not authorized for a specific OCS feature, the PI to OCS configuration utility will respect that setting. Previously, it didn’t check if a user was authorized to configure an AF server for PI to OCS.
+Several improvements were made to the PI to OCS Configuration Utility to improve the user experience, including the following items:
  
-**Improve experience when searching for referenced Data Archives**
-
-The PI to OCS Configuration Utility now displays more information while the tool is searching for referenced Data Archives. Previously, that area was blank until one or more Data Archives were found. 
-
-**Editing a PI Mapping crashed the Configuration Utility**
-
-The PI to OCS Configuration Utility could crash if a user attempted to edit a PI mapping from within the tool. This has been fixed.
-
-*PI to OCS Transfer Improvements*
-
-**PI to OCS Transfer stops streaming data if a delete event is processed**
-
-If an event was deleted from Sequential Data Store to which a stream PI to OCS wrote, the transfer would stop streaming data. This has been fixed.
-Enhancements
-
-**AF support added to PI to OCS**
-
-PI to OCS is now able to transfer AF elements and attributes to OCS and create them as assets and metadata. PI to OCS will transfer the following AF objects to OCS:
-
-* Elements
-* Attributes
-* PI point references
-* Constant values/strings
-* Excluded attributes
-
-Please consult the PI to OCS User Guide for more details on how to configure a transfer with AF elements and attributes.
- 
-**PI to OCS supports Data Privacy Settings**
-
-When configuring a transfer, you may now select the data privacy level for stream metadata replication. Please consult the PI to OCS User Guide for more details on how to configure data privacy settings.
+*	Only allow supported versions of PI Data Archive and AF Servers to be configured as data sources
+*	Improve misleading error messaging
+*	Add tool tips to provide more information about Agent Hostname, Description and Service Account 
 
 **Known issues**
 
 * Query search results that contain a very large number of PI points (> 1 million) will generate an exception error and not be processed. 
 * The AF Server must have a default Data Archive server specified for PI to OCS to operate properly.
+* The configuration utility can become unresponsive on some systems. There are two workaround options:
+  - Download and install a newer version of .NET Desktop Runtime (3.1.21 or later) from here 
+  - Go to C:\Program Files\OSIsoft\PIToOCS, right-click the PIToOcsConfigurationUtility.exe file and select **Properties** > **Compatibility** > **Change high DPI settings**, select "Use this setting to fix scaling problems for this program instead of the one in Settings", then select **Ok** > **Apply**.
 
 ## System requirements
 
@@ -73,7 +65,7 @@ Minimum requirements:
 
 | Product  | Software Version |
 |------------- | ------------ |
-| PI to OCS Agent Installation | 1.7.0 |
+| PI to OCS Agent Installation | 1.8.0 |
 
 ## Installation and upgrade
 
@@ -86,14 +78,14 @@ Uninstall the package "PI To OCS Agent".
 
 ## Security information and guidance
 
-### OSIsoft’s commitment
+### OSIsoft's commitment
 
 Because the PI System often serves as a barrier protecting control system networks and mission-critical infrastructure assets, OSIsoft is committed to (1) delivering a high-quality product and (2) communicating clearly what security issues have been addressed. This release of PI to OCS Agent is the highest quality and most secure version of the PI to OCS Agent released to date. OSIsoft's commitment to improving the PI System is ongoing, and each future version should raise the quality and security bar even further.
 
 ### Vulnerability communication
 
 The practice of publicly disclosing internally discovered vulnerabilities is consistent with the [Common Industrial Control System Vulnerability Disclosure Framework](https://ics-cert.us-cert.gov/sites/default/files/ICSJWG-Archive/ICSJWG_Vulnerability_Disclosure_Framework_Final_1.pdf)  developed by the [Industrial Control Systems Joint Working Group (ICSJWG)](https://ics-cert.us-cert.gov/Industrial-Control-Systems-Joint-Working-Group-ICSJWG). Despite the increased risk posed by greater transparency, OSIsoft is sharing this information to help you make an informed decision about when to upgrade to ensure your PI System has the best available protection.
-For more information, refer to [OSIsoft’s Ethical Disclosure Policy](https://www.osisoft.com/ethical-disclosure-policy).
+For more information, refer to [OSIsoft's Ethical Disclosure Policy](https://www.osisoft.com/ethical-disclosure-policy).
 
 To report a security vulnerability, refer to [OSIsoft's Report a Security Vulnerability](https://www.osisoft.com/report-a-security-vulnerability).
 
@@ -107,7 +99,7 @@ No security-related information is applicable to this release.
 
 ### Documentation overview
 
-See the [PI to OCS documentation](https://docs.osisoft.com/bundle/ocs/page/add-organize-data/collect-data/connectors/pi-to-ocs/main-landing-page.html).
+See the [PI to OCS documentation](https://docs.osisoft.com/bundle/ocs/page/add-organize-data/collect-data/connectors/pi-to-ocs/main-lp.html).
 
 #### Technical Support and Resources
 
@@ -129,7 +121,7 @@ The [PI Square](https://pisquare.osisoft.com/) community has resources to help y
 OSIsoft, LLC 1600 Alvarado Street San Leandro, CA 94577 USA Tel: (01) 510-297-5800 Fax: (01) 510-357-8136 Web: https://www.osisoft.com 
 PI to OCS Agent
 
-© 2021 by OSIsoft, LLC.
+&copy; 2021 by OSIsoft, LLC.
 
 All rights reserved. No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, mechanical, photocopying, recording, or otherwise, without the prior written permission of OSIsoft, LLC.
 

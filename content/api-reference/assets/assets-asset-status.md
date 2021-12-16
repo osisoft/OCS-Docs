@@ -14,14 +14,14 @@ Returns status of an asset. Status of an asset is determined by an exact match o
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Last
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Last
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>
 
 <h3>Response</h3>
@@ -72,15 +72,15 @@ Returns status summary of an asset. Statistics are computed using 'StepwiseConti
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Summary
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Summary
 ?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>`string assetId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
 <br/>Asset identifier.<br/><br/>`string startIndex`
 <br/>Start index.<br/><br/>`string endIndex`
 <br/>End index.<br/><br/>`integer intervals`
@@ -165,14 +165,14 @@ Returns status of multiple assets.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Status/Last
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Status/Last
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>##tenantId<br/><br/>`string namespaceId`
-<br/>##namespaceId<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -298,10 +298,10 @@ Pre-defined asset status values.
 
 |Property|Value|Description|
 |---|---|---|
-|Unknown|0||
-|Good|1||
-|Warning|2||
-|Bad|3||
+|Unknown|0|Pre-defined asset status values.|
+|Good|1|Pre-defined asset status values.|
+|Warning|2|Pre-defined asset status values.|
+|Bad|3|Pre-defined asset status values.|
 
 ---
 
