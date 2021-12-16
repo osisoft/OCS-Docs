@@ -17,7 +17,7 @@ The following table list the system requirements of PI to OCS.
 
 | System component | Requirement |
 | ------------- | ----------------- |
-| PI Server | <ul><li>Use PI Data Archive 2017 SP2 and PI AF 2017 R2 or later for full support of PI to OCS features (transfer out of order events)<br><li>Minimum version: PI Data Archive 2016 R2</li>**Note:** PI AF is only required if you wish to connect to an AF server.</li></ul> |
+| PI Server | <ul><li><p>Use PI Data Archive 2017 SP2 and PI AF 2017 R2 or later for full support of PI to OCS features (transfer out of order events).</p></li><li><p>Minimum version: PI Data Archive 2016 R2</p><p><strong>Note:</strong> PI AF is only required if you wish to connect to an AF server.</p></li></ul>|
 | PI to OCS Agent | <ul><li> Install on a different computer than your PI Server deployment.</li><li>Use a domain account on a machine registered to the same domain.<br>**Note:** Windows Active Directory (AD) is required.</li> |
 |Operating system: |<ul><li>64-bit version of Windows (v. 1809 or later) or 64-bit version of Windows Server 2016 Standard (v. 1803)<br>**Note:** 32-bit operating systems are not supported.</li><li>Processor: 1 gigahertz (GHz) or faster compatible processor or System on a Chip (SoC)</li><li>RAM: 2 gigabyte (GB for 64-bit)</li><li>Hard drive size: 32GB or larger hard disk</li><li>An Internet connection that allows outbound connections over port 443 and a secure network connection to the PI Data Archive computer</li></ul> |
 
