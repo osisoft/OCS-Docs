@@ -121,7 +121,7 @@ To build an AF element
 
    A check mark appears next to each selected AF element.
 
-   **Tip:** To select a range of elements, select an element and then hold Shift and select a non-adjacent element. To advance through multiple-paged query results, click the back and forward arrows or enter a page number in the **Page** field.
+   **Tip:** To select a range of elements, select an element and then hold Shift and select a non-adjacent element. To advance through multiple-paged query results, select the back and forward arrows or enter a page number in the **Page** field.
 
 1. When you are done selecting elements, select **Add AF Elements To Transfer**.
     
@@ -179,7 +179,7 @@ To build a PI points transfer list, follow these steps:
 
    A check mark appears next to each selected PI point.
 
-   **Tip:** To select a range of PI points, select a PI point and then hold Shift and select a non-adjacent PI point. To advance through multiple-paged query results, click the back and forward arrows or enter a page number in the **Page** field.
+   **Tip:** To select a range of PI points, select a PI point and then hold Shift and select a non-adjacent PI point. To advance through multiple-paged query results, select the back and forward arrows or enter a page number in the **Page** field.
 
 1. When you are done selecting PI points, select **Add PI Points to Transfer**.
 
@@ -201,7 +201,7 @@ You can view attribute details for selected PI points in a transfer. Implicit PI
 
 To view PI point details, follow these steps:
 
-1. In the `Transfer` pane, click the **PI Points** tab.
+1. In the `Transfer` pane, select the **PI Points** tab.
 
 1. Select a PI point and select **View Details**.
 
@@ -215,7 +215,7 @@ To view PI point details, follow these steps:
 
 1. (Optional) To show hidden implicit PI points, turn on the **Show Implicit PI Points** toggle.
 
-1. To view another PI point's details, click to select a different PI point in the transfer list.
+1. To view another PI point's details, select to select a different PI point in the transfer list.
 
 1. To close the `PI Point Information` pane, select **View Details** or **x**.
 
@@ -273,7 +273,7 @@ To start a data transfer, follow these steps:
 
 1. In the `Details` pane, expand the `Data Source` section to view the status of a transfer as data is sent.
 
-   **Note:** The rate at which data transfers varies and depends on the density of data in the source PI Data Archive and/or AF server. See [Data transfer statuses](xref:data-transfer-statuses) for a list of transfer statuses and descriptions. To find out more information about an asset error, agent status, or asset create/update error, click the **Logs** button above the list of agents to access more information. Possible statuses that appear in the **Current Activity** field may indicate an issue include Uncategorized Error, PI Point Type Change Detected, and No Valid PI Points In Transfer.   
+   **Note:** The rate at which data transfers varies and depends on the density of data in the source PI Data Archive and/or AF server. See [Data transfer statuses](xref:data-transfer-statuses) for a list of transfer statuses and descriptions. To find out more information about an asset error, agent status, or asset create/update error, select the **Logs** button above the list of agents to access more information. Possible statuses that appear in the **Current Activity** field may indicate an issue include Uncategorized Error, PI Point Type Change Detected, and No Valid PI Points In Transfer.   
 
 1. (Optional) If the fields in the `Details` pane indicate there are issues with the transfer or agent, select **Logs** to open the `Logs` window and view more information.
     
