@@ -4,7 +4,7 @@ uid: operations-health
 ---
 
 # Health
-APIs related to querying OCS service health states
+APIs related to querying service health states
 
 ## `Get Tenant Health`
 
@@ -12,17 +12,18 @@ APIs related to querying OCS service health states
 
 Returns tenant health data. Data contains an aggregated health state and list of tenant related services.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/tenants/{tenantId}/health
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifer<br/><br/>
 
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -32,8 +33,9 @@ GET /api/v1/tenants/{tenantId}/health
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
-#### Example response body
-> 200 Response
+<h4>Example response body</h4>
+
+> 200 Response ([TenantViewModel](#schematenantviewmodel))
 
 ```json
 {
@@ -46,7 +48,7 @@ GET /api/v1/tenants/{tenantId}/health
       "Services": [
         {
           "Name": "string",
-          "HealthState": null
+          "HealthState": 0
         }
       ]
     }
@@ -66,7 +68,7 @@ GET /api/v1/tenants/{tenantId}/health
 
 This represents a view model of a TenantDbo
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -84,7 +86,7 @@ This represents a view model of a TenantDbo
       "Services": [
         {
           "Name": "string",
-          "HealthState": null
+          "HealthState": 0
         }
       ]
     }
@@ -104,15 +106,15 @@ This represents a view model of a TenantDbo
 
 Represents the various health states a HealthEventViewModel can represent.
 
-#### Enumerated Values
+<h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|Invalid|0|
-|Ok|1|
-|Warning|2|
-|Error|3|
-|Unknown|65535|
+|Property|Value|Description|
+|---|---|---|
+|Invalid|0|Represents the various health states a HealthEventViewModel can represent.|
+|Ok|1|Represents the various health states a HealthEventViewModel can represent.|
+|Warning|2|Represents the various health states a HealthEventViewModel can represent.|
+|Error|3|Represents the various health states a HealthEventViewModel can represent.|
+|Unknown|65535|Represents the various health states a HealthEventViewModel can represent.|
 
 ---
 
@@ -125,7 +127,7 @@ Represents the various health states a HealthEventViewModel can represent.
 
 Object for a namespace and underlying services
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -160,7 +162,7 @@ Object for a namespace and underlying services
 
 This represents a view model of a ServiceForTenantDbo
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -186,7 +188,7 @@ This represents a view model of a ServiceForTenantDbo
 
 Object used to represent error information
 
-#### Properties
+<h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
