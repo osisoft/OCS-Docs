@@ -8,12 +8,12 @@
   href: sds-streams-dev.md
 - name: Stream views
   href: sds-stream-views-dev.md
+- name: Streams write data
+  href: sds-write-data.md
 - name: Search in SDS
   href: sds-search.md
-- name: Read data
+- name: Streams read data
   href: read-data/toc.yml
   topicHref: sds-read-data.md
-- name: Write data
-  href: sds-write-data.md
 - name: UoM and quantities
   href: sds-uom.md

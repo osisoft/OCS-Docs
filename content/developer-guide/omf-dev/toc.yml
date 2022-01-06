@@ -1,8 +1,8 @@
-- name: OMF ingress specification
-  href: omf-ingress-specification.md
-- name: Topics 
-  href: omf-ingress-topics.md
 - name: OMF editor
   href: omf-editor.md  
+- name: OMF ingress specification
+  href: omf-ingress-specification.md
 - name: Subscriptions 
   href: omf-ingress-subscriptions.md
+- name: Topics 
+  href: omf-ingress-topics.md
