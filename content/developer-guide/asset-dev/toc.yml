@@ -1,10 +1,10 @@
-- name: Asset and Asset Types
+- name: Asset and asset types
   href: asset-and-asset-types-dev-guide.md
-- name: Asset Search
-  href: asset-search-dev-guide.md
-- name: Asset Status
-  href: asset-status-dev-guide.md
-- name: Resolved Asset
-  href: asset-resolved-dev-guide.md
-- name: Asset Centric Data
+- name: Asset-centric data
   href: asset-centric-dev-guide.md
+- name: Asset search
+  href: asset-search-dev-guide.md
+- name: Asset status
+  href: asset-status-dev-guide.md
+- name: Resolved asset
+  href: asset-resolved-dev-guide.md
