@@ -129,20 +129,6 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 
 Updates roles list<br/>
 
-```json
-[
-  {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "RoleScope": 0,
-    "TenantId": "string",
-    "CommunityId": "string",
-    "RoleTypeId": "string"
-  }
-]
-```
-
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
@@ -304,20 +290,6 @@ PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 <h4>Request Body</h4>
 
 Updates roles list<br/>
-
-```json
-[
-  {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "RoleScope": 0,
-    "TenantId": "string",
-    "CommunityId": "string",
-    "RoleTypeId": "string"
-  }
-]
-```
 
 <h3>Response</h3>
 

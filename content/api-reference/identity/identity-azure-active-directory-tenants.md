@@ -364,8 +364,8 @@ Azure Active Directory tenant consent state
 
 |Property|Value|Description|
 |---|---|---|
-|NotConsented|0|Azure Active Directory tenant consent has not been completed.|
-|Consented|1|Azure Active Directory tenant consent has been completed.|
+|NotConsented|0|Azure Active Directory tenant consent state|
+|Consented|1|Azure Active Directory tenant consent state|
 
 ---
 

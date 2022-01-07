@@ -4,7 +4,7 @@ uid: identity-secrets
 ---
 
 # Secrets
-Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires, it can no longer be used to authenticate the client. While a secret is still valid, any access token issued will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. OCS does not store secret values, so once lost, there is no way to retrieve the value of a secret.
+Secrets are used to authenticate both client credential clients and hybrid clients. A secret has an expiration date or can be created to never expire. We advise to avoid creating secrets that do not expire. After a secret expires, it can no longer be used to authenticate the client. While a secret is still valid, any access token issued will be active until the token itself expires. The same applies to refresh tokens, which are issued to hybrid clients. Safe storage of secrets is your responsibility. Data Hub does not store secret values, so once lost, there is no way to retrieve the value of a secret.
 
 ## `List Client Credential Client Secrets (v1 path)`
 

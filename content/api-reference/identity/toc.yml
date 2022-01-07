@@ -2,27 +2,35 @@
   href: identity-authorization-code-clients.md
 - name: Azure Active Directory tenants
   href: identity-azure-active-directory-tenants.md
-- name: Claims
-  href: identity-claims.md
 - name: Claim type names
   href: identity-claim-type-names.md
+- name: Claims
+  href: identity-claims.md
 - name: Client credential clients
   href: identity-client-credential-clients.md
 - name: Client credential clients roles
   href: identity-client-credential-clients-roles.md
+- name: Community client credential clients
+  href: community-client-credential-clients.md
+- name: Community roles
+  href: community-roles.md
+- name: Community users
+  href: community-users.md
 - name: Device code clients
   href: identity-device-code-clients.md
 - name: Hybrid clients
   href: identity-hybrid-clients.md
 - name: Identity providers
   href: identity-identity-providers.md
+- name: Implicit clients
+  href: identity-implicit-clients.md
 - name: Invitations
   href: identity-invitations.md
 - name: Secrets
   href: identity-secrets.md
 - name: Tenants roles
   href: identity-tenants-roles.md
+- name: Tenants Users
+  href: identity-tenants-users.md
 - name: Users roles
   href: identity-users-roles.md
-- name: Tenants Users
-  href: identity-tenants-users.md 

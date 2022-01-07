@@ -4,7 +4,7 @@ uid: identity-tenants-users
 ---
 
 # Tenants Users
-Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in, the user cannot change the identity provider with which it signed up. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
+Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in Data Hub only after they have accepted the invitation and successfully logged in with an identity provider. Data Hub does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in, the user cannot change the identity provider with which it signed up. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding Data Hub. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
 
 ## `List Users from a Tenant`
 
@@ -609,7 +609,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 |200|None|Header for specified user's preferences|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|User or tenant not found|
+|404|None|User or tenant or user's preferences not found.|
 |500|None|Internal server error.|
 
 <h3>Authorization</h3>
@@ -681,8 +681,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Ids
 `[optional] array userId`
 <br/>Unordered list of identifiers of all users to return<br/><br/>`[optional] string query`
 <br/>(Not supported) Search string identifier.<br/><br/>`[optional] integer skip`
-<br/><span style="background-color:red;color:white">ERROR: Parameter "skip.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>`[optional] integer count`
-<br/><span style="background-color:red;color:white">ERROR: Parameter "count.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
 <h3>Response</h3>
 
@@ -749,8 +749,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Users/Status/Ids
 `[optional] array userId`
 <br/>Unordered list of identifiers for all users<br/><br/>`[optional] string query`
 <br/>(Not supported) Search string identifier.<br/><br/>`[optional] integer skip`
-<br/><span style="background-color:red;color:white">ERROR: Parameter "skip.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>`[optional] integer count`
-<br/><span style="background-color:red;color:white">ERROR: Parameter "count.%20Currently%20not%20supported" could not be found in external reference file</span><br/><br/>
+<br/>Parameter representing the zero-based offset of the first object to retrieve.  If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
 <h3>Response</h3>
 

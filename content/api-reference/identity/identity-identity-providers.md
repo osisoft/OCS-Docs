@@ -4,7 +4,7 @@ uid: identity-identity-providers
 ---
 
 # Identity Providers
-An identity provider provides authentication services and maintains credentials for users that have been provisioned in OCS. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider with which they signed up.
+An identity provider provides authentication services and maintains credentials for users that have been provisioned in Data Hub. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider with which they signed up.
 
 ## `Get Identity Provider`
 
@@ -629,7 +629,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get an Identity Provider Consent from a Tenant"></a>
 
-Returns the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the OCS tenant. For example, the expected ConsentState's for AAD include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
+Returns the consent information for an identity provider for a tenant. The ConsentState property, if returned, determines whether an identity provider consents to sharing access to its directory with the Data Hub tenant. For example, the expected ConsentState's for AAD include (Pending_)SignIn and (Pending_)ReadAllUsersGroups.
 
 <h3>Request</h3>
 
@@ -715,7 +715,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Update Identity Provider Consent of a Tenant"></a>
 
-Updates the identity provider consent of a tenant. Currently only supports Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
+Updates the identity provider consent of a tenant. Currently only supports Azure Active Directory. The consent grants User.Read.All and GroupMember.Read.All permissions to the Data Hub tenant.
 
 <h3>Request</h3>
 
@@ -778,7 +778,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get a List of All Users on an Identity Provider"></a>
 
-Returns a list of users that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant.
+Returns a list of users that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the Data Hub tenant.
 
 <h3>Request</h3>
 
@@ -841,7 +841,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get a List of all Groups on an Identity Provider"></a>
 
-Returns a list of groups that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
+Returns a list of groups that matches the query string on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the Data Hub tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the Data Hub tenant.
 
 <h3>Request</h3>
 
@@ -903,7 +903,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get a List of All Groups that a User Belongs to on an Identity Provider"></a>
 
-Returns a list of all groups that the specified user belongs to on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the OCS tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the OCS tenant.
+Returns a list of all groups that the specified user belongs to on an identity provider that supports advanced integration, such as Azure Active Directory. The prerequisite is that the identity provider must have already consented to sharing access to its directory with the Data Hub tenant. The consent grants User.Read.All and GroupMember.Read.All permissions to the Data Hub tenant.
 
 <h3>Request</h3>
 
@@ -966,7 +966,7 @@ Allowed for these roles:
 
 <a id="opIdIdentityProviders_Get Identity Provider Groups"></a>
 
-Returns the groups based on the identifiers. Only Deeper Integration Identity providers such as Azure Active Directory and AVEVA Connect support this method.
+Returns the groups based on the identifiers. Only Advanced Integration Identity providers such as Azure Active Directory and AVEVA Connect support this method.
 
 <h3>Request</h3>
 
@@ -983,12 +983,6 @@ POST /api/v1/Tenants/{tenantId}/IdentityProviders/{identityProviderId}/Groups
 <h4>Request Body</h4>
 
 Group identifier.<br/>
-
-```json
-[
-  "string"
-]
-```
 
 <h3>Response</h3>
 
@@ -1422,10 +1416,7 @@ MultiStatusResponse objects returned in a 207 response
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
-      "DynamicProperties": {
-        "property1": null,
-        "property2": null
-      },
+      "EventId": "string",
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1459,11 +1450,11 @@ ChildError objects returned in a 207 response
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|Operation identifier of action that caused the error|
+|OperationId|string|true|false|OperationId of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution to resolve the error|
-|DynamicProperties|object|false|true|Additional properties|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
 |StatusCode|int32|false|false|Http status code|
 |ModelId|string|false|true|Model identifier|
 
@@ -1473,10 +1464,7 @@ ChildError objects returned in a 207 response
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "DynamicProperties": {
-    "property1": null,
-    "property2": null
-  },
+  "EventId": "string",
   "StatusCode": 0,
   "ModelId": "string",
   "property1": null,

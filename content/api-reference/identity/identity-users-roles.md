@@ -128,20 +128,6 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Roles
 
 Updates roles list<br/>
 
-```json
-[
-  {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "RoleScope": 0,
-    "TenantId": "string",
-    "CommunityId": "string",
-    "RoleTypeId": "string"
-  }
-]
-```
-
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
