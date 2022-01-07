@@ -472,12 +472,12 @@ Enum for Community invitation state.
 
 |Property|Value|Description|
 |---|---|---|
-|None|None|No Invitation state specified.|
-|InvitationCreated|InvitationCreated|Invitation email has been sent.|
-|InvitationAccepted|InvitationAccepted|Invitation has been accepted.|
-|InvitationDeclined|InvitationDeclined|Invitation has been declined.|
-|InvitationExpired|InvitationExpired|Invitation has expired.|
-|InvitationCompleted|InvitationCompleted|Invitation has been completed.|
+|None|None|Enum for Community invitation state.|
+|InvitationCreated|InvitationCreated|Enum for Community invitation state.|
+|InvitationAccepted|InvitationAccepted|Enum for Community invitation state.|
+|InvitationDeclined|InvitationDeclined|Enum for Community invitation state.|
+|InvitationExpired|InvitationExpired|Enum for Community invitation state.|
+|InvitationCompleted|InvitationCompleted|Enum for Community invitation state.|
 
 ---
 
@@ -488,17 +488,17 @@ Enum for Community invitation state.
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -506,7 +506,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -604,10 +607,10 @@ Enumeration of actions taken on community invitations
 
 |Property|Value|Description|
 |---|---|---|
-|Accept|Accept|Accept the invitation.|
-|Decline|Decline|Decline the invitation.|
-|Confirm|Confirm|Confirm the invitation.|
-|Resend|Resend|Resend the invitation.|
+|Accept|Accept|Enumeration of actions taken on community invitations|
+|Decline|Decline|Enumeration of actions taken on community invitations|
+|Confirm|Confirm|Enumeration of actions taken on community invitations|
+|Resend|Resend|Enumeration of actions taken on community invitations|
 
 ---
 
