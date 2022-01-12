@@ -4,7 +4,7 @@ uid: install-agent
 
 # Install the PI to OCS Agent
 
-When you install the PI to OCS Agent, make sure to follow these guidelines:<!--Angela Flores 11/12/21 - This topic appears in the TOC twice once as Set up PI to OCS and once as Install the PI to OCS agent.>
+When you install the PI to OCS Agent, make sure to follow these guidelines:
 
 * Install the agent on a host computer separate from your PI Server deployment.
 
@@ -98,7 +98,7 @@ After installation, check that the PI to OCS Agent Windows service is running on
 
 To verify the installation, follow these steps:
 
-1. On the computer where the agent is installed, open the Microsoft Management Console (MMC) snap-in for Services. <!--Angela Flores 11/12/21 there is no mention of selecting a host machine for this installation before this point.>
+1. On the computer where the agent is installed, open the Microsoft Management Console (MMC) snap-in for Services. <!--Angela Flores 11/12/21 there is no mention of selecting a host machine for this installation before this point.-->
 
   **Tip:** Enter *services.msc* in Windows search to locate the application.
 
