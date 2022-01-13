@@ -8,7 +8,7 @@ APIs for getting, adding, or removing client credential clients from communities
 
 ## `List Client Credential Clients for a Community`
 
-<a id="opIdClientCredentialClients_List Client Credential Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_List Client Credential Clients for a Community"></a>
 
 Gets clients associated with a specific tenant and community
 
@@ -72,7 +72,7 @@ Allowed for these roles:
 
 ## `Get Count of Clients for a Community`
 
-<a id="opIdClientCredentialClients_Get Count of Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Get Count of Clients for a Community"></a>
 
 Gets a count of client credential clients for a community
 
@@ -110,7 +110,7 @@ Allowed for these roles:
 
 ## `Add Client Credential Client to a Community`
 
-<a id="opIdClientCredentialClients_Add Client Credential Client to a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Add Client Credential Client to a Community"></a>
 
 Adds a client credential client to a community, providing a list of community roles to be assigned to the client
 
@@ -130,12 +130,6 @@ PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 <h4>Request Body</h4>
 
 Community role identifiers to be assigned to the client<br/>
-
-```json
-[
-  "string"
-]
-```
 
 <h3>Response</h3>
 
@@ -180,7 +174,7 @@ Allowed for these roles:
 
 ## `Remove Client Credential Client from a Community`
 
-<a id="opIdClientCredentialClients_Remove Client Credential Client from a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Remove Client Credential Client from a Community"></a>
 
 Removes a client credential client from a community
 
@@ -226,17 +220,17 @@ Allowed for these roles:
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -244,7 +238,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }

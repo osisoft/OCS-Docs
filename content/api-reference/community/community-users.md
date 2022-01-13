@@ -8,7 +8,7 @@ APIs for getting, updating, and deleting users from communities
 
 ## `Add User to a Community`
 
-<a id="opIdUsers_Add User to a Community"></a>
+<a id="opIdCommunityUsers_Add User to a Community"></a>
 
 Adds a user to a community and provides a list of community role identifiers to be assigned to the user
 
@@ -28,12 +28,6 @@ PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 <h4>Request Body</h4>
 
 List of community roles Ids to assign to the user<br/>
-
-```json
-[
-  "string"
-]
-```
 
 <h3>Response</h3>
 
@@ -81,7 +75,7 @@ Allowed for these roles:
 
 ## `Remove User from a Community`
 
-<a id="opIdUsers_Remove User from a Community"></a>
+<a id="opIdCommunityUsers_Remove User from a Community"></a>
 
 Removes a user from a community
 
@@ -121,7 +115,7 @@ Allowed for these roles:
 
 ## `List Users of a Tenant in a Community`
 
-<a id="opIdUsers_List Users of a Tenant in a Community"></a>
+<a id="opIdCommunityUsers_List Users of a Tenant in a Community"></a>
 
 Gets users that are associated with a specific tenant and community
 
@@ -188,7 +182,7 @@ Allowed for these roles:
 
 ## `Get Count of Users of a Tenant in a Community`
 
-<a id="opIdUsers_Get Count of Users of a Tenant in a Community"></a>
+<a id="opIdCommunityUsers_Get Count of Users of a Tenant in a Community"></a>
 
 Gets the count of users of the tenant in a community. This method is identical to the `GetCommunityUsersByTenantAndCommunity` endpoint except it does not return a body.
 
@@ -278,17 +272,17 @@ Object for retrieving a user
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -296,7 +290,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
