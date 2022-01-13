@@ -11,7 +11,7 @@ Use data views to specify the OSIsoft Cloud Services (OCS) data to use in extern
 
 ## <a name="data-views-pi-integrators"></a>PI Server counterpart
 
-Data views in OCS are comparable to asset, event, and streaming views in PI Integrators. Like PI Integrator views, data views shape complex data into a consistent tabular format so it can be used more easily with external tools.
+Data views in OCS are comparable to asset, event, and streaming views in PI Integrators. Like PI Integrator views, data views shape complex data into a consistent tabular format so it can be used more easily with external tools. Unlike PI Integrators, data views do not copy to data to an external target. Data views can be accessed directly from OCS using the REST API.
 
 ## <a name="data-views-bp"></a>Data views best practices
 
