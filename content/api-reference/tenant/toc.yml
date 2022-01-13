@@ -4,7 +4,11 @@
   href: tenant-namespaces.md
 - name: Service blog
   href: tenant-service-blog.md
-- name: Tenants
-  href: tenant-tenants.md
+- name: Tenant feature state
+  href: tenant-feature-state.md
 - name: Tenant features
   href: tenant-features.md
+- name: Tenant namespace
+  href: tenant-namespace.md
+- name: Tenants
+  href: tenant-tenants.md
