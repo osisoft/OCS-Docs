@@ -42,7 +42,7 @@ Some tenant roles are assigned permissions by default (Tenant Administrator, Ten
 
 For any resource, you can set access to it for specific roles rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions. When managing permissions for the Sequential Data Store, an additional access type is available: Share. This permission allows users to share data streams from their tenant with a [community](xref:communities).
 
-### Tenant Custom roles 
+### Tenant custom roles 
 
 In addition to the default tenant roles, you can create tenant custom roles for further access control. By default, tenant custom roles do not have any specific permissions assigned following their creation. You must add or remove permissions for each resource.
 
