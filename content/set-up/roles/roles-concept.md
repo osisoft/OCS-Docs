@@ -40,9 +40,9 @@ The default tenant roles are:
 
 Some tenant roles are assigned permissions by default (Tenant Administrator, Tenant Contributor, Tenant Member). However, others are not (Tenant Contributor, Tenant Data Steward, Tenant Viewer, and Community Administrator). These roles without default permissions are intended to be customized; you must assign these roles permissions for individual system resources to best suit your organization.
 
-For any resource, you can set access to it for specific roles rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions.
+For any resource, you can set access to it for specific roles rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions. When managing permissions for the Sequential Data Store, an additional access type is available: Share. This permission allows users to share data streams from their tenant with a [community](xref:communities).
 
-### Tenant custom roles 
+### Tenant Custom roles 
 
 In addition to the default tenant roles, you can create tenant custom roles for further access control. By default, tenant custom roles do not have any specific permissions assigned following their creation. You must add or remove permissions for each resource.
 
@@ -56,7 +56,7 @@ When a new community is created, the founding tenant automatically adds a new Co
 
 This new role is also shared with other tenants that join the community. For example, a tenant that joins "TEST COMMUNITY" will have the "TEST COMMUNITY Community Member" role added to their tenant as well. 
 
-Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams with a community, you must assign the Share permission for streams to their assigned tenant role.
+Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams within a community, you must assign the Share permission for streams to their assigned tenant role.
 
 #### Community administrators (Preview)
 
