@@ -48,19 +48,19 @@ In addition to the default tenant roles, you can create tenant custom roles for 
 
 You must have the Tenant Administrator role to add and manage tenant custom roles.
 
-### Community Member roles (Preview)
+### Community Member role (Preview)
 
 The Community Member role is a role that can be shared among multiple tenants. It allows users from different tenants to access a [community](communities).
 
-When a new community is created, the founding tenant automatically adds a new Community Member role to the system, which is named using the following convention:"_<Community Name>_ Community Member". For example, if you create a new community named "TEST COMMUNITY", a new community role is added to the tenant named "TEST COMMUNITY Community Member".
+When a new community is created, the founding tenant automatically adds a new Community Member role to the system, which is named using the following convention:"_<Community Name>_ Community Member". For example, if you create a new community named "TEST COMM----UNITY", a new community role is added to the tenant named "TEST COMMUNITY Community Member".
 
 This new role is also shared with other tenants that join the community. For example, a tenant that joins "TEST COMMUNITY" will have the "TEST COMMUNITY Community Member" role added to their tenant as well. 
 
-Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams within a community, you must assign the Share permission for streams to their assigned tenant role.
+Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams within a community, you must assign the Share permission for streams to their assigned tenant roles.
 
 #### Community administrators (Preview)
 
-When a user creates or joins a new community, they are prompted to assign new community administration permissions to one or more existing roles. All users for your tenant assigned these roles inherit administrative permissions within the community, including the following actions:
+When a user creates or joins a new community, they are prompted to assign new community administration permissions to one or more existing roles. All users from your tenant that are assigned these roles inherit administrative permissions within the community, including the following actions:
 
 - Modify the community name and description.
 
