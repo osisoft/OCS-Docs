@@ -36,11 +36,11 @@ The default tenant roles are:
 
 - Community Administrator – This role has no specific permissions by default.
 
-  **Note:** Although this role is assigned no permissions by default, it is designed to be assigned community administration permissions. See [Community administrators](#community-administrators-preview) for more information.
+  **Note:** Although this role has no permissions by default, it is intended for use with community administration permissions. See [Community administrators](#community-administrators-preview) for more information.
 
 Some tenant roles are assigned permissions by default (Tenant Administrator, Tenant Contributor, Tenant Member). However, others are not (Tenant Contributor, Tenant Data Steward, Tenant Viewer, and Community Administrator). These roles without default permissions are intended to be customized; you must assign these roles permissions for individual system resources to best suit your organization.
 
-For any resource, you set access to it for specific roles, rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions.
+For any resource, you can set access to it for specific roles rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions.
 
 ### Tenant custom roles 
 
@@ -48,21 +48,19 @@ In addition to the default tenant roles, you can create tenant custom roles for 
 
 You must have the Tenant Administrator role to add and manage tenant custom roles.
 
-### Community roles (Preview)
+### Community Member roles (Preview)
 
-A community role is a role that can be shared among multiple tenants. Community roles allow for data sharing within a [community](communities).
+The Community Member role is a role that can be shared among multiple tenants. It allows users from different tenants to access a [community](communities).
 
-When a new community is created, the tenant automatically adds a new community role to the system, which is named using the following convention:"_<Community Name>_ Community Member". For example, if you created a new community named "TEST COMMUNITY", a new community role would be added to your tenant named "TEST COMMUNITY Community Member".
+When a new community is created, the founding tenant automatically adds a new Community Member role to the system, which is named using the following convention:"_<Community Name>_ Community Member". For example, if you create a new community named "TEST COMMUNITY", a new community role is added to the tenant named "TEST COMMUNITY Community Member".
 
 This new role is also shared with other tenants that join the community. For example, a tenant that joins "TEST COMMUNITY" will have the "TEST COMMUNITY Community Member" role added to their tenant as well. 
 
-There is a single community role:
-
-- Community Member – This role has read permissions by default. However, like all 
+Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams with a community, you must assign the Share permission for streams to their assigned tenant role.
 
 #### Community administrators (Preview)
 
-When a tenant administrator creates or joins a new community, they are prompted to assign new community administration permissions to one or more existing roles. All users assigned these roles inherit administrative permissions within the community for their tenant, including the following actions:
+When a user creates or joins a new community, they are prompted to assign new community administration permissions to one or more existing roles. All users for your tenant assigned these roles inherit administrative permissions within the community, including the following actions:
 
 - Modify the community name and description.
 
@@ -72,9 +70,9 @@ When a tenant administrator creates or joins a new community, they are prompted 
 
 - Pause the sharing of data from your tenant into the community.
 
-- Delete the community.
+- Withdraw from the community.
 
-OCS includes a tenant role named **Community Administrator** that is assigned no permissions by default. Assigning community administrator permissions to this role is recommended.
+OCS includes a tenant role named Community Administrator that is assigned no permissions by default. Assigning community administrator permissions to this role is recommended.
 
 #### Community owner (Preview)
 
