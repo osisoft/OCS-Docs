@@ -1,7 +1,5 @@
 - name: Get started with communities
   topicUid: gsCommunities
-- name: Community roles
-  href: community-roles.md
 - name: Create a community
   href: create-a-community.md
 - name: Manage tenants in a community
