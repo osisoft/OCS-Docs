@@ -38,19 +38,19 @@ The default tenant roles are:
 
   **Note:** Although this role is assigned no permissions by default, it is designed to be assigned community administration permissions. See [Community administrators](#community-administrators-preview) for more information.
 
-Although most tenant roles are assigned permission sets by default, you can edit these roles to add or remove permissions. For example, OCS assigns no permissions to the Tenant Contributor, Tenant Data Steward, or Tenant Viewer roles. For these roles, you can add or remove permissions to best suit your organization.
+Some tenant roles are assigned permissions by default (Tenant Administrator, Tenant Contributor, Tenant Member). However, others are not (Tenant Contributor, Tenant Data Steward, Tenant Viewer, and Community Administrator). These roles without default permissions are intended to be customized; you must assign these roles permissions for individual system resources to best suit your organization.
 
 For any resource, you set access to it for specific roles, rather than for specific users or clients. Manage access using Manage Permissions for the given resource. For each role, you set access to the following access types: Read, Write, Delete, and Manage Permissions.
 
 ### Tenant custom roles 
 
-In addition to the default tenant roles, you can create tenant custom roles for further access control. By default, tenant custom roles do not have any specific permissions after you create one. You must add or remove permissions for each resource.
+In addition to the default tenant roles, you can create tenant custom roles for further access control. By default, tenant custom roles do not have any specific permissions assigned following their creation. You must add or remove permissions for each resource.
 
 You must have the Tenant Administrator role to add and manage tenant custom roles.
 
 ### Community roles (Preview)
 
-A community role is a role that is shared among multiple tenants. Community roles allow for sharing data within a [community](communities).
+A community role is a role that can be shared among multiple tenants. Community roles allow for data sharing within a [community](communities).
 
 When a new community is created, the tenant automatically adds a new community role to the system, which is named using the following convention:"_<Community Name>_ Community Member". For example, if you created a new community named "TEST COMMUNITY", a new community role would be added to your tenant named "TEST COMMUNITY Community Member".
 
