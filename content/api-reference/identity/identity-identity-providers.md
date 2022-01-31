@@ -4,7 +4,7 @@ uid: identity-identity-providers
 ---
 
 # Identity Providers
-An identity provider provides authentication services and maintains credentials for users that have been provisioned in Data Hub. Each tenant can have one or more identity providers. Each user is either assigned one of the available identity providers in the tenant or chooses one in the Home Realm Discovery page when accepting the invitation. A user can only log in with the same identity provider with which they signed up.
+An identity provider provides authentication services and maintains credentials for users that have been provisioned in Data Hub. Each tenant can have one or more identity providers. Each user is associated with one of the available identity providers in the tenant. A user can only log in with the same identity provider with which they signed up. Note: Identity Provider options differ by platform. OSIsoft Cloud Services supports multiple Identity Providers. AVEVA Data Hub supports only a single Identity Provider: AVEVA Connect.
 
 ## `Get Identity Provider`
 
