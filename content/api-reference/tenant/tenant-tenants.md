@@ -442,6 +442,9 @@ Status codes describing a tenant's current provisioning state.
 |Deleted|6|Status codes describing a tenant's current provisioning state.|
 |Purging|7|Status codes describing a tenant's current provisioning state.|
 |IsHomeTenant|8|Status codes describing a tenant's current provisioning state.|
+|Locking|9|Status codes describing a tenant's current provisioning state.|
+|Locked|10|Status codes describing a tenant's current provisioning state.|
+|Unlocking|11|Status codes describing a tenant's current provisioning state.|
 
 ---
 

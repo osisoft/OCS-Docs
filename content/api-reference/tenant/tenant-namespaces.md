@@ -713,7 +713,12 @@ Status codes describing a namespace's current provisioning state.
 |Active|1|
 |Deleting|2|
 |Deleted|3|
-|Suspended|4|
+|Deactivated|4|
+|Deactivating|5|
+|Reactivating|6|
+|Locking|7|
+|Locked|8|
+|Unlocking|9|
 
 ---
 
