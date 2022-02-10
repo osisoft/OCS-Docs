@@ -12,7 +12,7 @@ Repeat the steps in [Get started with types](xref:gsTypes) and create a type wit
 
 ## Add a stream view
 
-This procedure creates a stream view that maps the `MyData.PumpState` type to this new type, `MyData.Pump.State.Temperature`.
+This procedure creates a stream view that maps the `MyData.Pump.State` type to this new type, `MyData.Pump.State.Temperature`.
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
 
@@ -26,9 +26,9 @@ This procedure creates a stream view that maps the `MyData.PumpState` type to th
 
    - **Name** - (Optional) Give the stream view a different name. Leave this field blank to use the Id as the name.
 
-   - **SourceType** - From the list, select *MyData.PumpState*.
+   - **SourceType** - From the list, select *MyData.Pump.State*.
 
-   - **TargetType** - From the list, select *MyData.PumpState.Temperature*.
+   - **TargetType** - From the list, select *MyData.Pump.State.Temperature*.
 
    - **Description** - (Optional) Add a description for this stream view.
 
