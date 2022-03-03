@@ -16,9 +16,10 @@ A point change can occur for the following reasons:
 
 * The source PI point had an incorrect configuration of data and type. The data and point must be deleted and recreated.
 * The source PI point was misconfigured initially. For example, the point needed to be updated from `Float32` to `Float64`. The data is still relevant and should be kept.
+* A point assigned the Float64 type with historical data on Data Archive, but has a current point type of Float32 will have the historical Float64 data coerced (losing decimals/precision in the process) to fit the point's current type prior to being sent to SDS where it would be stored as a Float32 type. In this example, the coercion would not affect points that have identical data values for both types. For example, a point change between Int32 and Int64 on Data Archive in which the full range of values for Int64 is not required, in which case no precision is lost and values are identical.
 * Other reasons
 <!--Angela Flores 6/28/21 This list is oddly specific. Also, what is PI to OCS Services? And PI to OCS service? This topic still needs work. --> 
-<!--VT, 11/29/21: PI to OCS Services/service is the PI to OCS Agent. I had a discussion w/one of the Bonsai developers, Zane Odeh & he confirmed this info. They have been removed from this topic. This topic was updated recently. What other work is needed?-->
+<!--VT, 11/29/21: PI to OCS Services/service is the PI to OCS Agent. I had a discussion w/one of the Bonsai developers, Zane Odeh & he confirmed this info. The reference has been removed from this topic. This topic was updated recently.-->
 
 After you create an SDS stream, its underlying SdsType cannot change. As a result, new data from the PI point in question cannot be stored in the same stream. You can resume streaming data from the PI point to the existing SDS stream by taking the following corrective actions:
 
