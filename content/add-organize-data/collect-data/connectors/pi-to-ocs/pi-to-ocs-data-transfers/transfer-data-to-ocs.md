@@ -64,7 +64,7 @@ To name the data transfer, follow these steps:
 
     |   | High | Medium | Low | None |
     | ------------- | ----------------- | ----------------- |----------------- | ----------------- |
-    | Name | X | X  | X || X |
+    | Name | X | X  | X | X | X |
     | Descriptor | X | X |  
     | EngUnits | X | X |  |  |  |
     | ExDesc | X |  |  |  |
