@@ -12,6 +12,8 @@
   href: identity-client-credential-clients-roles.md
 - name: Community client credential clients
   href: community-client-credential-clients.md
+- name: Community identity provider
+  href: community-identity-provider.md
 - name: Community roles
   href: community-roles.md
 - name: Community users

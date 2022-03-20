@@ -64,7 +64,8 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients
     ],
     "AllowedCorsOrigins": [
       "string"
-    ]
+    ],
+    "AllowOfflineAccess": true
   }
 ]
 ```
@@ -160,7 +161,8 @@ New AuthorizationCodeClient object<br/>
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 ```
 
@@ -200,7 +202,8 @@ New AuthorizationCodeClient object<br/>
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 ```
 
@@ -264,7 +267,8 @@ GET /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 ```
 
@@ -300,30 +304,11 @@ HEAD /api/v1/Tenants/{tenantId}/AuthorizationCodeClients/{clientId}
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[ClientCredentialClient](#schemaclientcredentialclient)|Header for specified authorization code client|
+|200|string|Header for specified authorization code client|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
-
-<h4>Example response body</h4>
-
-> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient))
-
-```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "AccessTokenLifetime": 0,
-  "Tags": [
-    "string"
-  ],
-  "RoleIds": [
-    "string"
-  ]
-}
-```
 
 <h3>Authorization</h3>
 
@@ -376,7 +361,8 @@ Updated authorization code client values. Properties that are not set or are nul
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 ```
 
@@ -415,7 +401,8 @@ Updated authorization code client values. Properties that are not set or are nul
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 ```
 
@@ -488,8 +475,9 @@ Object used during AuthorizationCodeClient creation
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|Tags|string[]|false|true|Tags for AVEVA internal use only|
 |AllowedCorsOrigins|string[]|false|true|Values used by the default CORS policy service implementations to build a CORS policy for JavaScript clients|
+|AllowOfflineAccess|boolean|false|true|Whether this client can request refresh tokens, by providing the *offline_access* scope.|
 
 ```json
 {
@@ -510,7 +498,8 @@ Object used during AuthorizationCodeClient creation
   ],
   "AllowedCorsOrigins": [
     "string"
-  ]
+  ],
+  "AllowOfflineAccess": true
 }
 
 ```
@@ -548,44 +537,6 @@ Object returned whenever there is an error
   },
   "property1": null,
   "property2": null
-}
-
-```
-
----
-
-### ClientCredentialClient
-
-<a id="schemaclientcredentialclient"></a>
-<a id="schema_ClientCredentialClient"></a>
-<a id="tocSclientcredentialclient"></a>
-<a id="tocsclientcredentialclient"></a>
-
-Object to return or update a ClientCredentialClient
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
-|Name|string|false|true|Name of client|
-|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
-|AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only|
-|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
-
-```json
-{
-  "Id": "string",
-  "Name": "string",
-  "Enabled": true,
-  "AccessTokenLifetime": 0,
-  "Tags": [
-    "string"
-  ],
-  "RoleIds": [
-    "string"
-  ]
 }
 
 ```

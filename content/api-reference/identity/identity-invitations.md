@@ -4,7 +4,7 @@ uid: identity-invitations
 ---
 
 # Invitations
-Note: Invitations are for OSIsoft Cloud Services platform, not the Data Hub platform. Data Hub users do not require invitations. Invitations are issued after the creation of a user object in Data Hub, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
+Note: Invitations are for OSIsoft Cloud Services platform, not the Data Hub platform. Data Hub users do not require invitations. Invitations are issued after the creation of a user object in the platform, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
 ## `Get Invitation`
 
@@ -303,7 +303,7 @@ Allowed for these roles:
 </ul>
 
 # Invitations
-Note: Invitations are for OSIsoft Cloud Services platform, not the Data Hub platform. Data Hub users do not require invitations. Invitations are issued after the creation of a user object in Data Hub, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
+Note: Invitations are for OSIsoft Cloud Services platform, not the Data Hub platform. Data Hub users do not require invitations. Invitations are issued after the creation of a user object in the platform, to begin the provisioning process for a user with one of the identity providers in a tenant. There can only be one invitation for a user at a time. An invitation can expire, at which time the administrator can either delete it, or extend it. When creating an invitation a tenant administrator has the option to resend the invitation email to the contact email configured for the user the invitation is attached to. The email can be re-sent by updating the invitation. When an invitation expires the user cannot accept it. If the expiration date is extended the user can accept an invitation. Invitations that are past of their expiration date by more than two weeks will be deleted. The only way to provision a user after this, is to send a new invitation.
 
 ## `Get User's Invitation`
 
@@ -684,7 +684,7 @@ Object used to create or update an invitation
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |ExpiresDateTime|date-time|false|true|Invitation expiration date. Must be in the future. Maximum allowed is two months in the future. Defaults to 21 days on creation. It should be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html) and either include a *Z* at the end to represent UTC time zone or include the offset in hours. If neither is present, time will be treated in the local time zone of the server.|
-|State|[InvitationStates](#schemainvitationstates)|false|true|State of invitation. For OSIsoft internal use only.|
+|State|[InvitationStates](#schemainvitationstates)|false|true|State of invitation. For AVEVA internal use only.|
 |SendInvitation|boolean|false|true|Send an invitation email. Invitation will be sent to the contact email for the user this invitation is attached. Default is true.|
 |IdentityProviderId|guid|false|true|Identity provider to use for accepting this invitation. Required when creating an invitation.|
 

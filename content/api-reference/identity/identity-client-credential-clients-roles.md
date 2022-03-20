@@ -64,7 +64,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -102,7 +102,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -226,7 +226,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
@@ -264,7 +264,7 @@ HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
+<li>Tenant Member</li>
 </ul>
 
 ---
