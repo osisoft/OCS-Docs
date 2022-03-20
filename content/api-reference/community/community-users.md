@@ -29,6 +29,12 @@ PUT /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userId}
 
 List of community roles Ids to assign to the user<br/>
 
+```json
+[
+  "string"
+]
+```
+
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
