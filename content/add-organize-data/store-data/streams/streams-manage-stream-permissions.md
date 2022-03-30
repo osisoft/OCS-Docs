@@ -36,6 +36,7 @@ To manage default permissions added when a [new stream is created](xref:streams-
 		<ul>
 			<li><p>If you want to deny a permission for user role, leaving it undefined is recommended.</p></li>
 			<li><p>To clear all permission settings for a role, select <strong>Refresh</strong>.</p></li>
+			<li><p>For a description of each permission, mouse over each column <strong>Info</strong> <img src="../../../_icons/info.svg"/> icon.</p></li>
 		</ul>
 	</details>
 
