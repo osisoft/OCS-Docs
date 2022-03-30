@@ -34,7 +34,7 @@ To manage default permissions added when a [new stream is created](xref:streams-
 
 	Tab content-2-1.
 
-	***
+***
 
 	<details>
 		<summary><strong>Tips:</strong></summary>
