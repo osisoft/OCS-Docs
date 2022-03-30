@@ -31,6 +31,8 @@ To manage default permissions added when a [new stream is created](xref:streams-
 
 	Tab content-2-1.
 
+	***
+
 1. Select **Save**.
 
 ## Manage permissions for a single stream
