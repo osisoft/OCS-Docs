@@ -28,7 +28,7 @@ To manage default permissions added when a [new stream is created](xref:streams-
 
 	- To allow a permission for a role, select ![allow](../../../_icons/check.svg)**Allow**.
 
-	- To explicitly deny a permission for a role, select <!-- TODO: add icon -->**Deny**.
+	- To explicitly deny a permission for a role, select **Deny**.
 
 	### [To add a new role](#tab/add-role)
 
