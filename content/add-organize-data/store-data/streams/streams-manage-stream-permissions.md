@@ -20,21 +20,15 @@ To manage default permissions added when a [new stream is created](xref:streams-
 
 1. Select **More options** ![More options icon](../../../_icons/dots-vertical.svg) > **Manage Default Permissions**.
 
-1. Configure permissions for each role.
+1. (Optional) If you want to add more roles to the **Manage Permissions** dialog, select **Add Role** > ![Add Role](../../../_icons/plus-thick-alt.svg) for each role that you want to add.
 
-	### [To add permissions to a role](#tab/add-permissions)
+1. Configure permissions for each role.
 
 	For each **Role**, select whether each stream permission is allowed or denied. Permissions that are undefined default to a setting of **Deny**. For more information on each permission, see [Stream permissions](#stream-permissions).
 
 	- To allow a permission for a role, select ![allow](../../../_icons/check.svg)**Allow**.
 
 	- To explicitly deny a permission for a role, select **Deny**.
-
-	### [To add a new role](#tab/add-role)
-
-	Tab content-2-1.
-
-***
 
 	<details>
 		<summary><strong>Tips:</strong></summary>
@@ -46,6 +40,8 @@ To manage default permissions added when a [new stream is created](xref:streams-
 	</details>
 
 1. Select **Save**.
+
+	The default permissions for new streams are saved. The next time you add a data stream to the platform, it applies your default permissions to the stream.
 
 ## Manage permissions for a single stream
 
