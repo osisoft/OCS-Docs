@@ -12,7 +12,26 @@ To manage data stream permissions, your user role must be assigned the **Manage 
 
 ## Manage default permissions for new streams
 
-Enim esse et reprehenderit eiusmod veniam commodo ea ipsum ut cupidatat. Ad quis eiusmod duis labore elit occaecat minim id tempor sint pariatur laborum pariatur. Aliquip commodo est non nulla est dolor amet ex nulla id. Consequat fugiat non consectetur magna esse deserunt consectetur aliquip. Tempor dolor qui minim officia mollit non quis nulla eu eu esse nisi ullamco.
+Each time that a user adds a new stream to the `Sequential Data Store`, that stream is automatically assigned a profile of default permissions for each user role in your tenant. You can edit these default permissions from the `Sequential Data Store`. 
+
+To manage default permissions added when a [new stream is created](xref:streams-manage-streams#add-a-stream), complete the following steps:
+
+1. From the left pane, select **Data Management** > **Sequential Data Store**.
+
+1. Select **More options** ![More options icon](../../../_icons/dots-vertical.svg) > **Manage Default Permissions**.
+
+1. Configure permissions for each role.
+
+	<!-- TODO: add more information when it becomes available -->
+	### [To add permissions to a role](#tab/add-permissions)
+
+	Tab content-1-1.
+
+	### [To add a new role](#tab/add-role)
+
+	Tab content-2-1.
+
+1. Select **Save**.
 
 ## Manage permissions for a single stream
 
