@@ -24,11 +24,17 @@ To manage default permissions added when a [new stream is created](xref:streams-
 
 	### [To add permissions to a role](#tab/add-permissions)
 
-	For each **Role**, select whether each [stream permission](#stream-permission) is allowed or denied. Permissions that are undefined default to a setting of **Deny**.
+	For each **Role**, select whether each stream permission is allowed or denied. Permissions that are undefined default to a setting of **Deny**. For more information on each permission, see [Stream permissions](#stream-permissions).
 
 	- To allow a permission for a role, select ![allow](../../../_icons/check.svg)**Allow**.
 
 	- To explicitly deny a permission for a role, select <!-- TODO: add icon -->**Deny**.
+
+	### [To add a new role](#tab/add-role)
+
+	Tab content-2-1.
+
+	***
 
 	<details>
 		<summary><strong>Tips:</strong></summary>
@@ -38,12 +44,6 @@ To manage default permissions added when a [new stream is created](xref:streams-
 			<li><p>For a description of each permission, mouse over each column <strong>Info</strong> <img src="../../../_icons/info.svg"/> icon.</p></li>
 		</ul>
 	</details>
-
-	### [To add a new role](#tab/add-role)
-
-	Tab content-2-1.
-
-	***
 
 1. Select **Save**.
 
