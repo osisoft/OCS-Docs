@@ -31,12 +31,12 @@ To manage default permissions added when a [new stream is created](xref:streams-
 	- To explicitly deny a permission for a role, select **Deny**.
 
 	<details>
-		<summary><strong>Tips:</strong></summary>
-		<ul>
-			<li><p>If you want to deny a permission for user role, leaving it undefined is recommended.</p></li>
-			<li><p>To clear all permission settings for a role, select <strong>Refresh</strong>.</p></li>
-			<li><p>For a description of each permission, mouse over each column <strong>Info</strong> <img src="../../../_icons/info.svg"/> icon.</p></li>
-		</ul>
+	<summary><strong>Tips:</strong></summary>
+	<ul>
+		<li><p>If you want to deny a permission for user role, leaving it undefined is recommended.</p></li>
+		<li><p>To clear all permission settings for a role, select <strong>Refresh</strong>.</p></li>
+		<li><p>For a description of each permission, mouse over each column <strong>Info</strong> <img src="../../../_icons/info.svg"/> icon.</p></li>
+	</ul>
 	</details>
 
 1. Select **Save**.
