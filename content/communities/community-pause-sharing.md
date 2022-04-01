@@ -2,7 +2,7 @@
 uid: community-pause-sharing
 ---
 
-# Pause sharing
+# Pause sharing a community
 
 Community Administrators can temporarily pause all data streams that their tenant is sharing with a community.
 
@@ -10,7 +10,9 @@ Community Administrators can temporarily pause all data streams that their tenan
 
 [!include[prereq-community-admin](includes/prereq-community-admin.md)]
 
-## To pause sharing
+## Pause sharing
+
+To pause all data sharing with a community, follow these steps:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -20,7 +22,11 @@ Community Administrators can temporarily pause all data streams that their tenan
 
 1. In the confirmation window, select **Pause Sharing**.<!-- TODO: Confirm step-->
 
-## To resume sharing
+	Your tenant pauses sharing for all shared data streams and the tenant status updates to **Sharing Paused**.
+
+## Resume sharing
+
+To resume sharing all shared data streams with a community, follow these steps:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -29,3 +35,5 @@ Community Administrators can temporarily pause all data streams that their tenan
 1. Select **More Options** ![More Options](../_icons/dots-vertical.svg) > **Resume Sharing**.<!-- TODO: Confirm button-->
 
 1. In the confirmation window, select **Resume Sharing**.<!-- TODO: Confirm step-->
+
+	Your tenant resumes sharing for all shared data streams and the tenant status updates to **Sharing Active**.
