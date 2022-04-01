@@ -16,7 +16,11 @@ Users assigned a community administrator role can perform the following tasks:
 
 - <xref:community-remove-your-tenant>
 
-	Remove your own tenant from the community.  
+	Remove your own tenant from the community.
+
+- <xref:community-pause-sharing>
+
+	Pause or resume sharing all data streams that your tenant shares with a community.
 
 - <xref:community-manage-users>
 

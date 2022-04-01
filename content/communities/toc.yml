@@ -23,6 +23,7 @@
 - topicUid: community-tenant-administration
   items:
   - topicUid: community-remove-your-tenant
+  - topicUid: community-pause-sharing
   - topicUid: community-manage-users
   - topicUid: community-manage-groups
   - topicUid: community-manage-clients
