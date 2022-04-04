@@ -26,13 +26,13 @@ To manage permissions for a single data stream, complete the following steps:
 
 1. In the `Manage Permissions` window, edit permissions for each role that has permissions on the streams (or add a new role).
 
-	- To add a role with permissions on the stream, select **Add Role** > **Add Role** ![Add Role](../../../_icons/plus-thick-alt.svg).
+	- To add a role with permissions on the stream, select **Add Role** > **Add Role** ![Add Role](../../../_icons/plus.svg).
 
 	- To enable a permission for a role, select ![Allow](../../../_icons/check-circle.svg) **Allow** from each applicable dropdown list.
 
 	- To disable a permission for a role, select ![Deny](../../../_icons/cancel.svg) **Deny** from each applicable dropdown list.
 
-	- To reset all permissions for a role, select the ![Refresh](../../../_icons/refresh.svg) **Refresh** icon for the role.
+	- To clear all permissions for a role, select the ![Clear](../../../_icons/refresh.svg) **Clear** icon for the role.
 
 	- To view more information about a permission, mouse over its ![Information](../../../_icons/information.svg) **Information** icon.
 
