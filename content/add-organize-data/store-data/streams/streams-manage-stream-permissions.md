@@ -30,9 +30,11 @@ To manage permissions for a single data stream, complete the following steps:
 
 	- To enable a permission for a role, select ![Allow](../../../_icons/check-circle.svg) **Allow** from each applicable dropdown list.
 
-	- To disable a permission for a role, select ![Deny](../../../_icons/check-circle.svg) **Deny** from each applicable dropdown list.
+	- To disable a permission for a role, select ![Deny](../../../_icons/cancel.svg) **Deny** from each applicable dropdown list.
 
-	- To reset all permissions for a role, select the ![Refresh](TBD) **Refresh** icon for the role.
+	- To reset all permissions for a role, select the ![Refresh](../../../_icons/refresh.svg) **Refresh** icon for the role.
+
+	- To view more information about a permission, mouse over its ![Information](../../../_icons/information.svg) **Information** icon.
 
 1. Select **Save**.
 

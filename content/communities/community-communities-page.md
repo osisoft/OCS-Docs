@@ -25,7 +25,7 @@ The following table describes each field in a community tile:
 | **Tenants** | The number of tenants participating in the community. |
 | **Date Created** | The date that the community was created. |
 | **Sharing Status** | Indicates whether on or more tenant in the community is sharing a data stream. Statuses include: <ul><li><img src="../_icons/check.svg"/><strong>Sharing Active</strong>: The community currently allows its members to view shared data streams in <code>Sequential Data Store</code>.</li><!--<li> TODO: Add another status for pausing?</li>--></ul> |
-| **Member Status** | Indicates whether you are [Community Member](xref:community-community-roles#community-member) and can view data shared to the community within `Sequential Data Store`. If the field displays a status of ![information](../_icons/info.svg)**Cannot view shared data**, then you are not a Community Member. If you are a Community Member, this field is omitted.<br><br>For more information on adding a Community Member, see <xref:community-manage-users>. |
+| **Member Status** | Indicates whether you are [Community Member](xref:community-community-roles#community-member) and can view data shared to the community within `Sequential Data Store`. If the field displays a status of ![information](../_icons/information.svg)**Cannot view shared data**, then you are not a Community Member. If you are a Community Member, this field is omitted.<br><br>For more information on adding a Community Member, see <xref:community-manage-users>. |
 
 Select **Details** to administrate the community. For more information on administrative actions, see the following topics:
 
