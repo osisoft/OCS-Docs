@@ -21,8 +21,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/agents
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/><br/>`string namespaceId`
+<br/><br/>
 
 <h3>Response</h3>
 
@@ -169,15 +169,15 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}/capabi
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string agentId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string agentId`
 <br/>The Id of the specified on-prem agent.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|A Dictionary object.|
+|200|Inline|A `Dictionary`2` object.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h3>Authorization</h3>
@@ -204,8 +204,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}/capab
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string agentId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string agentId`
 <br/>The Id of the specified on-prem agent.<br/><br/>
 
 <h4>Request Body</h4>
@@ -216,8 +216,7 @@ List of capabilities being published.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The capabilities published by the agent specified by `agentId` have been received and cached.|
-|401|None|Unauthorized|
+|204|None|A Task|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h3>Authorization</h3>
@@ -244,16 +243,15 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}/logs
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string agentId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string agentId`
 <br/>The Id of the specified on-prem agent.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|Log messages from the specified on-prem `agentId` have been forwarded to Application Insights.|
-|401|None|Unauthorized|
+|204|None|A Task|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h3>Authorization</h3>
@@ -291,7 +289,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/sync/{agentId}
 |200|None|Sync route for specified `agentId` has been posted - OK.|
 |202|None|Sync route for specified `agentId` has been posted - Accepted.|
 |204|None|Sync route for specified `agentId` has been posted - No Content.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h3>Authorization</h3>
@@ -311,8 +308,6 @@ Allowed for these roles:
 <a id="tocSagentdto"></a>
 <a id="tocsagentdto"></a>
 
-Data Transfer Object for an Agent.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -323,11 +318,11 @@ Data Transfer Object for an Agent.
 |Status|[AgentStatus](#schemaagentstatus)|false|false|None|
 |Description|string|false|true|None|
 |HostName|string|false|true|None|
-|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System.|
+|PISystem|[PISystemDto](#schemapisystemdto)|false|true|None|
 |Namespace|string|false|true|None|
 |Region|string|false|true|None|
 |IsDeprecated|boolean|false|false|None|
-|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer.|
+|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 
 ```json
 {
@@ -471,8 +466,6 @@ Data Transfer Object for an Agent.
 <a id="tocSpisystemdto"></a>
 <a id="tocspisystemdto"></a>
 
-Data Transfer Object for a PI System.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -484,7 +477,7 @@ Data Transfer Object for a PI System.
 |AFName|string|false|true|None|
 |AFVersion|string|false|true|None|
 |LastCommunicationTime|date-time|false|false|None|
-|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer.]|
+|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
 |AFIndexProgress|[AFIndexProgress](#schemaafindexprogress)|false|false|None|
 |PIPointCacheProgress|[PIPointAttributeCacheProgress](#schemapipointattributecacheprogress)|false|false|None|
 |ElementsIndexed|int64|false|false|None|
@@ -577,7 +570,7 @@ Data Transfer Object for a PI System.
 <a id="tocStransfersummarydto"></a>
 <a id="tocstransfersummarydto"></a>
 
-Data Transfer Object summarizing a Transfer.
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -590,9 +583,9 @@ Data Transfer Object summarizing a Transfer.
 |LatestStreamingRead|date-time|false|false|None|
 |OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
 |PIPointCount|int32|false|false|None|
-|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer.|
+|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 |Name|string|false|true|None|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |TransferRevisionNumber|int32|false|false|None|
 |LastEditDate|date-time|false|false|None|
 |LastEditBy|guid|false|false|None|
@@ -718,8 +711,6 @@ Data Transfer Object summarizing a Transfer.
 <a id="tocStransfermetricsdto"></a>
 <a id="tocstransfermetricsdto"></a>
 
-Data Transfer Object for tracking metrics of a Transfer.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -778,7 +769,7 @@ Data Transfer Object for tracking metrics of a Transfer.
 <a id="tocSdataprivacy"></a>
 <a id="tocsdataprivacy"></a>
 
-None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.
+None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out
 
 <h4>Enumerated Values</h4>
 

@@ -27,7 +27,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[DataSourceDto](#schemadatasourcedto)[]|The requested collection of `DataSourceDto` objects.|
+|200|[DataSourceDto](#schemadatasourcedto)[]|The requested collection of `DataSourceDto`.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -473,8 +473,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource to replace.<br/><br/>
 
 <h4>Request Body</h4>
@@ -642,7 +642,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|The DataSource was deleted.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -756,11 +755,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/PISystems
 
 ---
 
-## `List Data Privacy Agents Information`
+## `Get Data Privacy Agents Information`
 
-<a id="opIdDataSources_List Data Privacy Agents Information"></a>
-
-Get the agent information for each of the data sources retrieved.
+<a id="opIdDataSources_Get Data Privacy Agents Information"></a>
 
 <h3>Request</h3>
 
@@ -771,37 +768,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/DataPriva
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/><br/>`string namespaceId`
+<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[DataPrivacyAgentsInformationDto](#schemadataprivacyagentsinformationdto)[]|The requested collection of agent information for `DataSourceDto` objects.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([DataPrivacyAgentsInformationDto](#schemadataprivacyagentsinformationdto)[])
-
-```json
-[
-  {
-    "AgentVersion": "string",
-    "Namespace": "string",
-    "TenantId": "string",
-    "AgentLastCommTime": "2019-08-24T14:15:22Z",
-    "IsDeprecated": true,
-    "DataArchiveVersion": "string",
-    "AFVersion": "string",
-    "TransferExists": true,
-    "TransferLatestStreamRead": "2019-08-24T14:15:22Z",
-    "TransferStatus": "string",
-    "TransferLastEditDate": "2019-08-24T14:15:22Z"
-  }
-]
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h3>Authorization</h3>
 
@@ -979,7 +953,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|The Agent was deleted.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -999,8 +972,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>
 
@@ -1110,8 +1083,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -1299,8 +1272,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>`string piSystemId`
 <br/>PI System ID<br/><br/>
@@ -1410,8 +1383,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>
 
@@ -1493,14 +1466,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>
 `[optional] any healthEventCategory`
 <br/>Health event category to filter by<br/><br/>`[optional] integer pointId`
-<br/>Point ID to filter by<br/><br/>`[optional] string elementId`
-<br/>Element ID to filter by<br/><br/>
+<br/>Health event category to filter by<br/><br/>`[optional] string elementId`
+<br/>Health event category to filter by<br/><br/>
 
 <h3>Response</h3>
 
@@ -1535,7 +1508,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 <a id="opIdDataSources_Add Health Event"></a>
 
-Add a health event to the specified `agentId`.
+Gets the List of transfers associated with the specified `agentId`.
 
 <h3>Request</h3>
 
@@ -1546,8 +1519,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>
 
@@ -1573,7 +1546,7 @@ Health Event to record<br/>
 |---|---|---|
 |201|None|Created.|
 |404|None|Client or tenant not found.|
-|422|None|Unprocessable Entity; invalid `HealthEventDto` in request body|
+|422|None|Unprocessable Entity; invalid Health Event DTO in request body|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ---
@@ -1594,13 +1567,13 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>`string transfer`
-<br/>Optional. If provided, will only delete health events with this Transfer ID.<br/><br/>`any category`
-<br/>Optional. If provided, will only delete health events with this category.<br/><br/>`any eventId`
-<br/>Optional. If provided, will only delete health events with this eventId.<br/><br/>
+<br/>Optional; If provided: will only delete health events with this Transfer ID<br/><br/>`any category`
+<br/>Optional; If provided: will only delete health events with this category<br/><br/>`any eventId`
+<br/>Optional; If provided: will only delete health events with this eventId<br/><br/>
 
 <h3>Response</h3>
 
@@ -1626,8 +1599,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>`string healthEventId`
 <br/>Unique identifier for a Health Event<br/><br/>
@@ -1675,8 +1648,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>`string healthEventId`
 <br/>Unique identifier for a Health Event<br/><br/>
@@ -1707,7 +1680,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string DataSourceId`
-<br/>Data source identifier.<br/><br/>`string agentId`
+<br/><br/>`string agentId`
 <br/>The Id of the requested Agent.<br/><br/>
 
 <h3>Response</h3>
@@ -1749,11 +1722,9 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 ---
 
-## `List Transfers`
+## `Get Transfers`
 
-<a id="opIdDataSources_List Transfers"></a>
-
-Get the list of `TransferDto` objects associated with the `agentId`.
+<a id="opIdDataSources_Get Transfers"></a>
 
 <h3>Request</h3>
 
@@ -1764,8 +1735,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>Data source identifier.<br/><br/>`string agentId`
 <br/>Agent identifier.<br/><br/>
 
@@ -1773,68 +1744,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[TransferDto](#schematransferdto)[]|A collection of `TransferDto` objects.|
-|401|None|Unauthorized|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([TransferDto](#schematransferdto)[])
-
-```json
-[
-  {
-    "Id": "string",
-    "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-    "Description": "string",
-    "Status": 0,
-    "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
-    "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
-    "LatestStreamingRead": "2019-08-24T14:15:22Z",
-    "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
-    "TransferredElementsCount": 0,
-    "AssetsCreatedCount": 0,
-    "AssetsUpdatedCount": 0,
-    "AssetsFailedCount": 0,
-    "OnPremTransferStatus": 0,
-    "DesiredStatus": 0,
-    "PIPointIds": [
-      0
-    ],
-    "AFElementIds": [
-      "string"
-    ],
-    "PIPointsReferencedByAF": [
-      0
-    ],
-    "PIPointsWithHealthEvents": {
-      "property1": 0,
-      "property2": 0
-    },
-    "AFElementsWithHealthEvents": {
-      "property1": 0,
-      "property2": 0
-    },
-    "Name": "string",
-    "MetadataPrivacy": 0,
-    "TransferRevisionNumber": 0,
-    "LastEditDate": "2019-08-24T14:15:22Z",
-    "LastEditBy": "string",
-    "PointEdits": 0,
-    "AutoDeleteCloudObjects": true,
-    "TotalPointsInTransfer": 0,
-    "StreamCreationStatus": {
-      "TransferId": "string",
-      "Status": 0,
-      "TotalPointStreamsExpected": 0,
-      "VerifiedPointStreamsCreated": 0,
-      "LastUpdateAttempt": "2019-08-24T14:15:22Z",
-      "LastSuccessfulUpdate": "2019-08-24T14:15:22Z",
-      "LastMessage": 0
-    }
-  }
-]
-```
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
@@ -1962,8 +1872,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the dataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the transfer belongs to.<br/><br/>`string transferId`
 <br/>The Id of the Transfer that the Stream Ids belong to.<br/><br/>
@@ -1994,8 +1904,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the Query collection belongs to.<br/><br/>
 
@@ -2345,7 +2255,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|The Query was deleted.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -2365,8 +2274,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the PIPointQuery collection belongs to.<br/><br/>
 
@@ -2515,14 +2424,13 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <br/>Namespace identifier.<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string piPointQueryId`
-<br/>The Id of the PIPointQuery to be deleted.<br/><br/>
+<br/>The Id of the PIPointQuery" to be deleted.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|The PIPointQuery was deleted.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -2689,8 +2597,8 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource associated with the resource.<br/><br/>`string agentId`
 <br/>The Id of the Agent the Capability collection belongs to.<br/><br/>
 
@@ -2698,7 +2606,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Capability](#schemacapability)[]|Success: returns a collection of `Capability` objects.|
+|200|[Capability](#schemacapability)[]|200: A collection of `Capability` objects.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
@@ -2734,11 +2642,11 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string transferId`
-<br/>The Id of the Transfer to be replaced.<br/><br/>
+<br/>The Id of the Transfer" to be replaced.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -2844,8 +2752,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string transferId`
 <br/>The Id of the Transfer to be deleted.<br/><br/>
@@ -2855,7 +2763,6 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|The Transfer was deleted.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -2875,11 +2782,11 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string transferId`
-<br/>The Id of the Transfer to be replaced.<br/><br/>
+<br/>The Id of the Transfer" to be replaced.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -2974,8 +2881,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -3163,8 +3070,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -3252,7 +3159,6 @@ The PiSystem properties to update.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[PISystemDto](#schemapisystemdto)|A `PISystemDto` object representing the PiSystem that was updated.|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 <h4>Example response body</h4>
@@ -3351,11 +3257,11 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>`string transferId`
-<br/>The Id of the Transfer to be updated.<br/><br/>
+<br/>The Id of the Transfer" to be updated.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -3439,8 +3345,6 @@ The updated set of points referenced by AF.<br/>
 
 <a id="opIdDataSources_Delete PISystem"></a>
 
-Delete the PI System specified by `piSystemName`.
-
 <h3>Request</h3>
 
 ```text 
@@ -3450,8 +3354,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the requested DataSource.<br/><br/>`string agentId`
 <br/>The Id of the requested Agent.<br/><br/>`string piSystemName`
 <br/>The name of the requested PI System<br/><br/>
@@ -3460,16 +3364,13 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The PI System was deleted.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
 ## `Delete PISystem By Server Id`
 
 <a id="opIdDataSources_Delete PISystem By Server Id"></a>
-
-Delete the PI System associated with the `piServerId`.
 
 <h3>Request</h3>
 
@@ -3480,8 +3381,8 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the requested DataSource.<br/><br/>`string agentId`
 <br/>The Id of the requested Agent.<br/><br/>`string piServerId`
 <br/>The id of the requested PI server<br/><br/>
@@ -3490,8 +3391,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataS
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|The PI System was deleted.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
+|500|[ErrorResponse](#schemaerrorresponse)|None|
 
 ---
 
@@ -3510,8 +3410,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -3520,7 +3420,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Success|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -3540,8 +3439,8 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string dataSourceId`
 <br/>The Id of the DataSource the resource belongs to.<br/><br/>`string agentId`
 <br/>The Id of the Agent the resource belongs to.<br/><br/>
 
@@ -3550,7 +3449,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Success|
-|401|None|Unauthorized|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
 ---
@@ -3563,8 +3461,6 @@ POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSou
 <a id="tocSdatasourcedto"></a>
 <a id="tocsdatasourcedto"></a>
 
-Data Transfer Object for a Data Source.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -3574,7 +3470,7 @@ Data Transfer Object for a Data Source.
 |Description|string|false|true|None|
 |TenantId|guid|false|false|None|
 |OcsNamespace|string|false|true|None|
-|Agent|[AgentDto](#schemaagentdto)|false|true|Data Transfer Object for an Agent.|
+|Agent|[AgentDto](#schemaagentdto)|false|true|None|
 
 ```json
 {
@@ -3701,8 +3597,6 @@ Data Transfer Object for a Data Source.
 <a id="tocSagentdto"></a>
 <a id="tocsagentdto"></a>
 
-Data Transfer Object for an Agent.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -3713,11 +3607,11 @@ Data Transfer Object for an Agent.
 |Status|[AgentStatus](#schemaagentstatus)|false|false|None|
 |Description|string|false|true|None|
 |HostName|string|false|true|None|
-|PISystem|[PISystemDto](#schemapisystemdto)|false|true|Data Transfer Object for a PI System.|
+|PISystem|[PISystemDto](#schemapisystemdto)|false|true|None|
 |Namespace|string|false|true|None|
 |Region|string|false|true|None|
 |IsDeprecated|boolean|false|false|None|
-|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer.|
+|TransferMetrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 
 ```json
 {
@@ -3861,8 +3755,6 @@ Data Transfer Object for an Agent.
 <a id="tocSpisystemdto"></a>
 <a id="tocspisystemdto"></a>
 
-Data Transfer Object for a PI System.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -3874,7 +3766,7 @@ Data Transfer Object for a PI System.
 |AFName|string|false|true|None|
 |AFVersion|string|false|true|None|
 |LastCommunicationTime|date-time|false|false|None|
-|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Data Transfer Object summarizing a Transfer.]|
+|Transfers|[[TransferSummaryDto](#schematransfersummarydto)]|false|true|[Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability]|
 |AFIndexProgress|[AFIndexProgress](#schemaafindexprogress)|false|false|None|
 |PIPointCacheProgress|[PIPointAttributeCacheProgress](#schemapipointattributecacheprogress)|false|false|None|
 |ElementsIndexed|int64|false|false|None|
@@ -3967,7 +3859,7 @@ Data Transfer Object for a PI System.
 <a id="tocStransfersummarydto"></a>
 <a id="tocstransfersummarydto"></a>
 
-Data Transfer Object summarizing a Transfer.
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -3980,9 +3872,9 @@ Data Transfer Object summarizing a Transfer.
 |LatestStreamingRead|date-time|false|false|None|
 |OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
 |PIPointCount|int32|false|false|None|
-|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|Data Transfer Object for tracking metrics of a Transfer.|
+|Metrics|[TransferMetricsDto](#schematransfermetricsdto)|false|true|None|
 |Name|string|false|true|None|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |TransferRevisionNumber|int32|false|false|None|
 |LastEditDate|date-time|false|false|None|
 |LastEditBy|guid|false|false|None|
@@ -4080,24 +3972,24 @@ Data Transfer Object summarizing a Transfer.
 
 <h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|Idle|0|
-|SendingHistoricalData|1|
-|SendingStreamingData|2|
-|BackfillingStreamingGap|4|
-|Done|8|
-|UncategorizedError|16|
-|StreamingErrorConsumerRemoved|32|
-|StreamingErrorUpdateQueueOverflow|64|
-|StreamingErrorSignupDropped|128|
-|StreamingErrorProducerRemoved|256|
-|StreamingErrorUnknown|512|
-|PIPointTypeChangeDetected|1024|
-|CreatingStreams|2048|
-|NoValidPIPointsInTransfer|4096|
-|UpdatingTransfer|8192|
-|LastEditFailed|16384|
+|Property|Value|Description|
+|---|---|---|
+|Idle|0||
+|SendingHistoricalData|1||
+|SendingStreamingData|2||
+|BackfillingStreamingGap|4||
+|Done|8||
+|UncategorizedError|16||
+|StreamingErrorConsumerRemoved|32||
+|StreamingErrorUpdateQueueOverflow|64||
+|StreamingErrorSignupDropped|128||
+|StreamingErrorProducerRemoved|256||
+|StreamingErrorUnknown|512||
+|PIPointTypeChangeDetected|1024||
+|CreatingStreams|2048||
+|NoValidPIPointsInTransfer|4096||
+|UpdatingTransfer|8192||
+|LastEditFailed|16384||
 
 ---
 
@@ -4107,8 +3999,6 @@ Data Transfer Object summarizing a Transfer.
 <a id="schema_TransferMetricsDto"></a>
 <a id="tocStransfermetricsdto"></a>
 <a id="tocstransfermetricsdto"></a>
-
-Data Transfer Object for tracking metrics of a Transfer.
 
 <h4>Properties</h4>
 
@@ -4168,17 +4058,17 @@ Data Transfer Object for tracking metrics of a Transfer.
 <a id="tocSdataprivacy"></a>
 <a id="tocsdataprivacy"></a>
 
-None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.
+None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out
 
 <h4>Enumerated Values</h4>
 
 |Property|Value|Description|
 |---|---|---|
-|Undefined|0|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
-|Medium|1|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
-|None|2|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
-|High|3|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
-|Low|4|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|Undefined|0|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|Medium|1|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|None|2|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|High|3|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|Low|4|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 
 ---
 
@@ -4347,48 +4237,6 @@ None means all metadata is filtered out. Low filters all but 3 metadata items. M
 
 ---
 
-### DataPrivacyAgentsInformationDto
-
-<a id="schemadataprivacyagentsinformationdto"></a>
-<a id="schema_DataPrivacyAgentsInformationDto"></a>
-<a id="tocSdataprivacyagentsinformationdto"></a>
-<a id="tocsdataprivacyagentsinformationdto"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|AgentVersion|string|false|true|None|
-|Namespace|string|false|true|None|
-|TenantId|guid|false|false|None|
-|AgentLastCommTime|date-time|false|false|None|
-|IsDeprecated|boolean|false|false|None|
-|DataArchiveVersion|string|false|true|None|
-|AFVersion|string|false|true|None|
-|TransferExists|boolean|false|false|None|
-|TransferLatestStreamRead|date-time|false|true|None|
-|TransferStatus|string|false|true|None|
-|TransferLastEditDate|date-time|false|true|None|
-
-```json
-{
-  "AgentVersion": "string",
-  "Namespace": "string",
-  "TenantId": "string",
-  "AgentLastCommTime": "2019-08-24T14:15:22Z",
-  "IsDeprecated": true,
-  "DataArchiveVersion": "string",
-  "AFVersion": "string",
-  "TransferExists": true,
-  "TransferLatestStreamRead": "2019-08-24T14:15:22Z",
-  "TransferStatus": "string",
-  "TransferLastEditDate": "2019-08-24T14:15:22Z"
-}
-
-```
-
----
-
 ### AgentStatusDto
 
 <a id="schemaagentstatusdto"></a>
@@ -4396,15 +4244,13 @@ None means all metadata is filtered out. Low filters all but 3 metadata items. M
 <a id="tocSagentstatusdto"></a>
 <a id="tocsagentstatusdto"></a>
 
-Data Transfer Object for different aspects of an Agent's status.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Agent|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information.|
+|Agent|[HealthDto](#schemahealthdto)|false|true|None|
 |AFIndexing|[HealthDto](#schemahealthdto)|false|true|Status of any/all indexing tasks of the Agent (e.g. Asset Framework Indexing)|
-|PIPointIndexing|[HealthDto](#schemahealthdto)|false|true|Data Transfer Object for Health information.|
+|PIPointIndexing|[HealthDto](#schemahealthdto)|false|true|None|
 |Transfers|object|false|true|Status of each Transfer, keyed on the Transfer's ID|
 
 ```json
@@ -4465,8 +4311,6 @@ Data Transfer Object for different aspects of an Agent's status.
 <a id="tocShealthdto"></a>
 <a id="tocshealthdto"></a>
 
-Data Transfer Object for Health information.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -4512,8 +4356,6 @@ Data Transfer Object for Health information.
 <a id="tocStransferhealthdto"></a>
 <a id="tocstransferhealthdto"></a>
 
-Data Transfer Object for Transfer edit information.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -4547,8 +4389,6 @@ Data Transfer Object for Transfer edit information.
 <a id="schema_HealthEventDto"></a>
 <a id="tocShealtheventdto"></a>
 <a id="tocshealtheventdto"></a>
-
-Data Transfer Object for a Health Event.
 
 <h4>Properties</h4>
 
@@ -5279,104 +5119,6 @@ Data Transfer Object for a Health Event.
 
 ---
 
-### TransferDto
-
-<a id="schematransferdto"></a>
-<a id="schema_TransferDto"></a>
-<a id="tocStransferdto"></a>
-<a id="tocstransferdto"></a>
-
-Data Transfer Object for a Transfer.
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|Id|guid|false|false|None|
-|HistoricalDataStartTime|date-time|false|false|None|
-|Description|string|false|true|None|
-|Status|[TransferStatus](#schematransferstatus)|false|false|None|
-|PreviousHistoricChunkStart|date-time|false|false|None|
-|CurrentHistoricChunkStart|date-time|false|false|None|
-|LatestStreamingRead|date-time|false|false|None|
-|HistoricalDataEndTime|date-time|false|false|None|
-|TransferredElementsCount|int32|false|false|None|
-|AssetsCreatedCount|int32|false|false|None|
-|AssetsUpdatedCount|int32|false|false|None|
-|AssetsFailedCount|int32|false|false|None|
-|OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
-|DesiredStatus|[TransferStatus](#schematransferstatus)|false|false|None|
-|PIPointIds|[integer]|false|true|None|
-|AFElementIds|string[]|false|true|None|
-|PIPointsReferencedByAF|[integer]|false|true|None|
-|PIPointsWithHealthEvents|object|false|true|None|
-|AFElementsWithHealthEvents|object|false|true|None|
-|Name|string|false|true|None|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
-|TransferRevisionNumber|int32|false|false|None|
-|LastEditDate|date-time|false|false|None|
-|LastEditBy|guid|false|false|None|
-|PointEdits|int64|false|false|None|
-|AutoDeleteCloudObjects|boolean|false|false|None|
-|TotalPointsInTransfer|int64|false|false|None|
-|StreamCreationStatus|[DetailedStreamCreationStatus](#schemadetailedstreamcreationstatus)|false|true|None|
-
-```json
-{
-  "Id": "string",
-  "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
-  "Description": "string",
-  "Status": 0,
-  "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
-  "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
-  "LatestStreamingRead": "2019-08-24T14:15:22Z",
-  "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
-  "TransferredElementsCount": 0,
-  "AssetsCreatedCount": 0,
-  "AssetsUpdatedCount": 0,
-  "AssetsFailedCount": 0,
-  "OnPremTransferStatus": 0,
-  "DesiredStatus": 0,
-  "PIPointIds": [
-    0
-  ],
-  "AFElementIds": [
-    "string"
-  ],
-  "PIPointsReferencedByAF": [
-    0
-  ],
-  "PIPointsWithHealthEvents": {
-    "property1": 0,
-    "property2": 0
-  },
-  "AFElementsWithHealthEvents": {
-    "property1": 0,
-    "property2": 0
-  },
-  "Name": "string",
-  "MetadataPrivacy": 0,
-  "TransferRevisionNumber": 0,
-  "LastEditDate": "2019-08-24T14:15:22Z",
-  "LastEditBy": "string",
-  "PointEdits": 0,
-  "AutoDeleteCloudObjects": true,
-  "TotalPointsInTransfer": 0,
-  "StreamCreationStatus": {
-    "TransferId": "string",
-    "Status": 0,
-    "TotalPointStreamsExpected": 0,
-    "VerifiedPointStreamsCreated": 0,
-    "LastUpdateAttempt": "2019-08-24T14:15:22Z",
-    "LastSuccessfulUpdate": "2019-08-24T14:15:22Z",
-    "LastMessage": 0
-  }
-}
-
-```
-
----
-
 ### QueryDto
 
 <a id="schemaquerydto"></a>
@@ -5384,16 +5126,14 @@ Data Transfer Object for a Transfer.
 <a id="tocSquerydto"></a>
 <a id="tocsquerydto"></a>
 
-Data Transfer Object for a Query.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|guid|false|false|None|
 |QueryType|[QueryTypes](#schemaquerytypes)|false|false|None|
-|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query.|
-|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query.|
+|PI|[QueryPIDto](#schemaquerypidto)|false|true|None|
+|AF|[QueryAFDto](#schemaqueryafdto)|false|true|None|
 |Status|[QueryStatus](#schemaquerystatus)|false|false|None|
 |Skip|int32|false|false|None|
 |Count|int32|false|false|None|
@@ -5471,15 +5211,13 @@ Data Transfer Object for a Query.
 <a id="tocSquerypidto"></a>
 <a id="tocsquerypidto"></a>
 
-Data Transfer Object for PI information for a Query.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |PointMasks|object|false|true|None|
 |PointIds|[integer]|false|true|None|
-|PointList|[QueryPIPointListExDto](#schemaquerypipointlistexdto)|false|true|Data Transfer Object for PI Point Lists.|
+|PointList|[QueryPIPointListExDto](#schemaquerypipointlistexdto)|false|true|None|
 
 ```json
 {
@@ -5509,13 +5247,11 @@ Data Transfer Object for PI information for a Query.
 <a id="tocSquerypipointlistexdto"></a>
 <a id="tocsquerypipointlistexdto"></a>
 
-Data Transfer Object for PI Point Lists.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |PointIds|[integer]|false|true|None|
 
 ```json
@@ -5536,8 +5272,6 @@ Data Transfer Object for PI Point Lists.
 <a id="schema_QueryAFDto"></a>
 <a id="tocSqueryafdto"></a>
 <a id="tocsqueryafdto"></a>
-
-Data Transfer Object for AF Information for a Query.
 
 <h4>Properties</h4>
 
@@ -5632,8 +5366,6 @@ Data Transfer Object for AF Information for a Query.
 <a id="tocSpipointquerydto"></a>
 <a id="tocspipointquerydto"></a>
 
-Data Transfer Object for a PI Point Query.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -5680,8 +5412,6 @@ Data Transfer Object for a PI Point Query.
 <a id="tocSqueryresultpagedto"></a>
 <a id="tocsqueryresultpagedto"></a>
 
-Data Transfer Object for a Query Result.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -5710,8 +5440,6 @@ Data Transfer Object for a Query Result.
 <a id="schema_QueryStatusDto"></a>
 <a id="tocSquerystatusdto"></a>
 <a id="tocsquerystatusdto"></a>
-
-Data Transfer Object for the status of a Query.
 
 <h4>Properties</h4>
 
@@ -5748,8 +5476,6 @@ Data Transfer Object for the status of a Query.
 <a id="schema_PIPointQueryResultDto"></a>
 <a id="tocSpipointqueryresultdto"></a>
 <a id="tocspipointqueryresultdto"></a>
-
-Data Transfer Object for a PI Point Query Result.
 
 <h4>Properties</h4>
 
@@ -5837,8 +5563,6 @@ Data Transfer Object for a PI Point Query Result.
 <a id="tocSdatasourcecreateupdatedto"></a>
 <a id="tocsdatasourcecreateupdatedto"></a>
 
-Data Transfer Object for creating or updating a Data Source.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -5856,6 +5580,104 @@ Data Transfer Object for creating or updating a Data Source.
 
 ---
 
+### TransferDto
+
+<a id="schematransferdto"></a>
+<a id="schema_TransferDto"></a>
+<a id="tocStransferdto"></a>
+<a id="tocstransferdto"></a>
+
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|guid|false|false|None|
+|HistoricalDataStartTime|date-time|false|false|None|
+|Description|string|false|true|None|
+|Status|[TransferStatus](#schematransferstatus)|false|false|None|
+|PreviousHistoricChunkStart|date-time|false|false|None|
+|CurrentHistoricChunkStart|date-time|false|false|None|
+|LatestStreamingRead|date-time|false|false|None|
+|HistoricalDataEndTime|date-time|false|false|None|
+|TransferredElementsCount|int32|false|false|None|
+|AssetsCreatedCount|int32|false|false|None|
+|AssetsUpdatedCount|int32|false|false|None|
+|AssetsFailedCount|int32|false|false|None|
+|OnPremTransferStatus|[TransferJobStatus](#schematransferjobstatus)|false|false|None|
+|DesiredStatus|[TransferStatus](#schematransferstatus)|false|false|None|
+|PIPointIds|[integer]|false|true|None|
+|AFElementIds|string[]|false|true|None|
+|PIPointsReferencedByAF|[integer]|false|true|None|
+|PIPointsWithHealthEvents|object|false|true|None|
+|AFElementsWithHealthEvents|object|false|true|None|
+|Name|string|false|true|None|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
+|TransferRevisionNumber|int32|false|false|None|
+|LastEditDate|date-time|false|false|None|
+|LastEditBy|guid|false|false|None|
+|PointEdits|int64|false|false|None|
+|AutoDeleteCloudObjects|boolean|false|false|None|
+|TotalPointsInTransfer|int64|false|false|None|
+|StreamCreationStatus|[DetailedStreamCreationStatus](#schemadetailedstreamcreationstatus)|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "HistoricalDataStartTime": "2019-08-24T14:15:22Z",
+  "Description": "string",
+  "Status": 0,
+  "PreviousHistoricChunkStart": "2019-08-24T14:15:22Z",
+  "CurrentHistoricChunkStart": "2019-08-24T14:15:22Z",
+  "LatestStreamingRead": "2019-08-24T14:15:22Z",
+  "HistoricalDataEndTime": "2019-08-24T14:15:22Z",
+  "TransferredElementsCount": 0,
+  "AssetsCreatedCount": 0,
+  "AssetsUpdatedCount": 0,
+  "AssetsFailedCount": 0,
+  "OnPremTransferStatus": 0,
+  "DesiredStatus": 0,
+  "PIPointIds": [
+    0
+  ],
+  "AFElementIds": [
+    "string"
+  ],
+  "PIPointsReferencedByAF": [
+    0
+  ],
+  "PIPointsWithHealthEvents": {
+    "property1": 0,
+    "property2": 0
+  },
+  "AFElementsWithHealthEvents": {
+    "property1": 0,
+    "property2": 0
+  },
+  "Name": "string",
+  "MetadataPrivacy": 0,
+  "TransferRevisionNumber": 0,
+  "LastEditDate": "2019-08-24T14:15:22Z",
+  "LastEditBy": "string",
+  "PointEdits": 0,
+  "AutoDeleteCloudObjects": true,
+  "TotalPointsInTransfer": 0,
+  "StreamCreationStatus": {
+    "TransferId": "string",
+    "Status": 0,
+    "TotalPointStreamsExpected": 0,
+    "VerifiedPointStreamsCreated": 0,
+    "LastUpdateAttempt": "2019-08-24T14:15:22Z",
+    "LastSuccessfulUpdate": "2019-08-24T14:15:22Z",
+    "LastMessage": 0
+  }
+}
+
+```
+
+---
+
 ### TransferCreateDto
 
 <a id="schematransfercreatedto"></a>
@@ -5863,7 +5685,7 @@ Data Transfer Object for creating or updating a Data Source.
 <a id="tocStransfercreatedto"></a>
 <a id="tocstransfercreatedto"></a>
 
-Data Transfer Object for creating a Transfer.
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -5874,7 +5696,7 @@ Data Transfer Object for creating a Transfer.
 |PIPointIds|[integer]|false|true|None|
 |AFElementIds|string[]|false|true|None|
 |Name|string|false|true|None|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |TotalPointsInTransfer|int64|false|false|None|
 |AutoDeleteCloudObjects|boolean|false|false|None|
 
@@ -5905,15 +5727,13 @@ Data Transfer Object for creating a Transfer.
 <a id="tocSquerycreateupdatedto"></a>
 <a id="tocsquerycreateupdatedto"></a>
 
-Data Transfer Object for creating or updating a Query.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |QueryType|[QueryTypes](#schemaquerytypes)|false|true|None|
-|PI|[QueryPIDto](#schemaquerypidto)|false|true|Data Transfer Object for PI information for a Query.|
-|AF|[QueryAFDto](#schemaqueryafdto)|false|true|Data Transfer Object for AF Information for a Query.|
+|PI|[QueryPIDto](#schemaquerypidto)|false|true|None|
+|AF|[QueryAFDto](#schemaqueryafdto)|false|true|None|
 |Skip|int32|false|false|None|
 |Count|int32|false|false|None|
 
@@ -5963,8 +5783,6 @@ Data Transfer Object for creating or updating a Query.
 <a id="tocSpatchdto"></a>
 <a id="tocspatchdto"></a>
 
-Data Transfer Object for a Patch.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -6011,8 +5829,6 @@ Data Transfer Object for a Patch.
 <a id="tocSpipointquerycreateupdatedto"></a>
 <a id="tocspipointquerycreateupdatedto"></a>
 
-Data Transfer Object to create or update a PI Point Query.
-
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -6037,7 +5853,7 @@ Data Transfer Object to create or update a PI Point Query.
 <a id="tocStransferupdatedto"></a>
 <a id="tocstransferupdatedto"></a>
 
-Data Transfer Object for a Transfer Update.
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
@@ -6045,7 +5861,7 @@ Data Transfer Object for a Transfer Update.
 |---|---|---|---|---|
 |Description|string|false|true|None|
 |Name|string|false|true|None|
-|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out. Low filters all but 3 metadata items. Medium only filters out 2 metadata items. High means no data is filtered out.|
+|MetadataPrivacy|[DataPrivacy](#schemadataprivacy)|false|false|None means all metadata is filtered out Low filters all but 3 metadata items Medium only filters out 2 metadata items High means no data is filtered out|
 |PIPointIds|[integer]|false|true|None|
 |AFElementIds|string[]|false|true|None|
 |HistoricalDataStartTime|date-time|false|true|None|
@@ -6079,7 +5895,7 @@ Data Transfer Object for a Transfer Update.
 <a id="tocStransferupdatestatusdto"></a>
 <a id="tocstransferupdatestatusdto"></a>
 
-Data Transfer Object for the status of a Transfer Update.
+Before making additions or any modifications to this class, please consult the following article to maintain best practice: https://dev.azure.com/osieng/engineering/_wiki/wikis/pitoocs.wiki/17354/Models-and-Backwards-Compatability
 
 <h4>Properties</h4>
 
