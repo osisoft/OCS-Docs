@@ -18,6 +18,9 @@
 - name: Operations
   href: operations/toc.yml
   topicHref: operations/operations-overview.md
+- name: PI to OCS
+  href: pi-to-ocs/toc.yml
+  topicHref:
 - name: Rules
   href: rules/toc.yml
   topicHref: rules/rules-overview.md
