@@ -20,14 +20,14 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/AccessControl/DataSou
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|AccessControlList|
+|200|[AccessControlList](#schemaaccesscontrollist)|The `AccessControlList` object for the DataSources collection.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -69,7 +69,7 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/AccessControl/DataSou
 
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/><br/>
+<br/>Namespace identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -95,7 +95,7 @@ The new Access Control List that the DataSources collection will be updated with
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|IActionResult|
+|204|None|The Datasources collection `AccessControlList` has been updated with `newAccessControlList`.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
 
@@ -116,15 +116,16 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string dataSourceId`
-<br/>The Id of the specified DataSource.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[AccessControlList](#schemaaccesscontrollist)|AccessControlList|
+|200|[AccessControlList](#schemaaccesscontrollist)|`AccessControlList` object for the DataSource specified by `dataSourceId`.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
@@ -167,8 +168,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/><br/>`string dataSourceId`
-<br/>The Id of the specified DataSource.<br/><br/>
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -194,7 +195,8 @@ The new Access Control List that the specified DataSource will be updated with.<
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|IActionResult|
+|204|None|The `AccessControlList` for the DataSource specified by `dataSourceId` has been updated with `newAcl`.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
@@ -205,7 +207,7 @@ The new Access Control List that the specified DataSource will be updated with.<
 
 <a id="opIdAccessControl_Get Data Source Owner"></a>
 
-Get `Trustee` object for the DataSource specified by `dataSourceId`.
+Get `Trustee` object owner of the DataSource specified by `dataSourceId`.
 
 <h3>Request</h3>
 
@@ -216,15 +218,16 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/><br/>`string namespaceId`
-<br/><br/>`string dataSourceId`
-<br/>The Id of the specified DataSource.<br/><br/>
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Trustee](#schematrustee)|Trustee|
+|200|[Trustee](#schematrustee)|The `Trustee` object for the DataSource specified by `dataSourceId`.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
@@ -259,8 +262,8 @@ PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/pi/DataSources/{DataSour
 
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/><br/>`string dataSourceId`
-<br/>The Id of the specified DataSource.<br/><br/>
+<br/>Namespace identifier.<br/><br/>`string dataSourceId`
+<br/>Data source identifier.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -278,7 +281,8 @@ The new Owner that the specified DataSource will be updated with.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|IActionResult|
+|204|None|The Owner for the DataSource specified by `dataSourceId` has been updated with `newOwner`.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
 |404|[ErrorResponse](#schemaerrorresponse)|Not Found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error|
