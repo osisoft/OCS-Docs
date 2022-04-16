@@ -27,17 +27,19 @@ To create a community, follow these steps:
 
     <details>
         <summary><strong>To add roles</strong></summary>
-        <video controls>
+        <video controls width="400">
             <source src="./video/create-community-add-role.mp4"
                     type="video/mp4">
         </video>
     </details>
-
-    
+    <details>
+        <summary><strong>To add roles</strong></summary>
+        <img src="./images/create-community-add-role.gif"/>
+    </details>
     <details>
         <summary><strong>To remove roles</strong></summary>
-        <video controls>
-            <source src="./video/create-community-add-role.mp4"
+        <video controls width="400">
+            <source src="./video/create-community-remove-role.mp4"
                     type="video/mp4">
         </video>
     </details>
