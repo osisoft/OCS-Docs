@@ -44,14 +44,15 @@ To create a community, follow these steps:
     
     <details>
         <summary><strong>To add members</strong></summary>
-        <img src="./images/create-community-create.gif"/>
+        <img src="./images/create-community-add-user.gif"/>
     </details>
 
 1. After you finish, select **Create**.
 
-    The community is created and added to the `Communities` page.
-    
-    ![Tile for new community](images/confirmed.png)
+    <details>
+        <summary><strong>GIF</strong></summary>
+        <img src="./images/create-community-create.gif"/>
+    </details>
 
 ## Next steps
 
