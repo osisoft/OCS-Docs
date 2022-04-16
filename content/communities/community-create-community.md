@@ -50,7 +50,7 @@ To create a community, follow these steps:
 1. After you finish, select **Create**.
 
     <details>
-        <summary><strong>GIF</strong></summary>
+        <summary><strong>Result</strong></summary>
         <img src="./images/create-community-create.gif"/>
     </details>
 
