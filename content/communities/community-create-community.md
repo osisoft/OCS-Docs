@@ -27,20 +27,6 @@ To create a community, follow these steps:
 
     <details>
         <summary><strong>To add roles</strong></summary>
-        <video controls width="800">
-            <source src="./video/create-community-add-role.mp4"
-                    type="video/mp4">
-        </video>
-    </details>
-    <details>
-        <summary><strong>To remove roles</strong></summary>
-        <video controls width="800">
-            <source src="./video/create-community-remove-role.mp4"
-                    type="video/mp4">
-        </video>
-    </details>
-    <details>
-        <summary><strong>To add roles</strong></summary>
         <img src="./images/create-community-add-role.gif"/>
     </details>
     <details>
@@ -54,15 +40,18 @@ To create a community, follow these steps:
 
 1. On the `Community Members` page, add [Community Members](xref:community-community-roles#community-member), which are users within your tenant that have read access to the community and its data.
     
-    To add new Community Members, select **Add Members** > ![Add]![Add Role](../_icons/branded/plus.svg) for each user or group that you want to add.
+    <details>
+        <summary><strong>To add members</strong></summary>
+        <img src="./images/create-community-add-user.gif"/>
+    </details>
 
     **Note:** Community Administrators are not automatically added as Community Members. If you want your Community Administrators to also be Community Members with access to shared resources, you must manually add them.
 
 1. After you finish, select **Create**.
 
-The community is created and added to the `Communities` page.
-
-![Tile for new community](images/confirmed.png)
+    The community is created and added to the `Communities` page.
+    
+    ![Tile for new community](images/confirmed.png)
 
 ## Next steps
 
