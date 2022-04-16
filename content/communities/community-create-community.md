@@ -40,12 +40,12 @@ To create a community, follow these steps:
 
 1. On the `Community Members` page, add [Community Members](xref:community-community-roles#community-member), which are users within your tenant that have read access to the community and its data.
     
+    **Note:** Community Administrators are not automatically added as Community Members. If you want your Community Administrators to also be Community Members with access to shared resources, you must manually add them.
+    
     <details>
         <summary><strong>To add members</strong></summary>
-        <img src="./images/create-community-add-user.gif"/>
+        <img src="./images/create-community-create.gif"/>
     </details>
-
-    **Note:** Community Administrators are not automatically added as Community Members. If you want your Community Administrators to also be Community Members with access to shared resources, you must manually add them.
 
 1. After you finish, select **Create**.
 
