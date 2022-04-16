@@ -27,8 +27,15 @@ To create a community, follow these steps:
 
     <details>
         <summary><strong>To add roles</strong></summary>
-        <video controls width="400">
+        <video controls width="800">
             <source src="./video/create-community-add-role.mp4"
+                    type="video/mp4">
+        </video>
+    </details>
+    <details>
+        <summary><strong>To remove roles</strong></summary>
+        <video controls width="800">
+            <source src="./video/create-community-remove-role.mp4"
                     type="video/mp4">
         </video>
     </details>
@@ -38,10 +45,7 @@ To create a community, follow these steps:
     </details>
     <details>
         <summary><strong>To remove roles</strong></summary>
-        <video controls width="400">
-            <source src="./video/create-community-remove-role.mp4"
-                    type="video/mp4">
-        </video>
+        <img src="./images/create-community-remove-role.gif"/>
     </details>
 
     **Tip:** You can edit the default roles that are listed. For more information, see <xref:communities-manage-default-admins>.
