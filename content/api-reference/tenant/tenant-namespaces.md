@@ -65,7 +65,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces
       ]
     },
     "RegionId": "string",
-    "InstanceId": "string"
+    "InstanceId": "string",
+    "Name": "string",
+    "AllowCrossRegionProcessing": true
   }
 ]
 ```
@@ -136,7 +138,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 ```
 
@@ -200,7 +204,9 @@ The new Namespace to be created.<br/>
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 ```
 
@@ -245,7 +251,9 @@ The new Namespace to be created.<br/>
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 ```
 
@@ -262,7 +270,7 @@ Allowed for these roles:
 
 <a id="opIdNamespace_Update"></a>
 
-Updates the `Namespace` information: description; the `AccessControlList` and owner's `Trustee` can only be updated through their own routes.
+Updates the `Namespace` information for an active namespace: name, description, and cross-region processing opt-in; the `AccessControlList` and owner's `Trustee` can only be updated through their own routes.
 
 <h3>Request</h3>
 
@@ -306,7 +314,9 @@ The new details to store for the Namespace.<br/>
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 ```
 
@@ -349,7 +359,9 @@ The new details to store for the Namespace.<br/>
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 ```
 
@@ -653,7 +665,7 @@ Representation of a server-side database interpretation of a namespace.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Name of this namespace; unique within a tenant's namespaces.|
+|Id|string|false|true|Identifier for this namespace; unique within a tenant's namespaces.|
 |Region|string|false|true|Region in which the namespace is provisioned.|
 |Self|string|false|true|Namespace's URI.|
 |Description|string|false|true|Description of this namespace.|
@@ -662,6 +674,8 @@ Representation of a server-side database interpretation of a namespace.
 |AccessControl|[AccessControlList](#schemaaccesscontrollist)|false|true|AccessControlList that defines access control for this Namespace.|
 |RegionId|string|false|true|Geographic region of deployment in which the namespace is provisioned.|
 |InstanceId|string|false|true|Instance ID for this Namespace.|
+|Name|string|false|true|Name of this namespace.|
+|AllowCrossRegionProcessing|boolean|false|true|Indicates whether or not cross-region processing is allowed for this Namespace.|
 
 ```json
 {
@@ -689,7 +703,9 @@ Representation of a server-side database interpretation of a namespace.
     ]
   },
   "RegionId": "string",
-  "InstanceId": "string"
+  "InstanceId": "string",
+  "Name": "string",
+  "AllowCrossRegionProcessing": true
 }
 
 ```
