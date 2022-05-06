@@ -1,11 +1,21 @@
 - name: Access control
-  href: data-views-access-control-api.md
+  href: data-views-access-control.md
 - name: Data view
   href: data-views-data-view-api.md
+- name: Data views
+  href: data-views-data-views.md
 - name: Data views data
   href: data-views-data-api.md
+- name: Data views data
+  href: data-views-data-views-data.md
+- name: Data views resolved
+  href: data-views-data-views-resolved.md
 - name: Preview data views data
   href: data-views-preview-data-api.md
+- name: Preview data views data
+  href: data-views-preview-data-views-data.md
+- name: Preview data views resolved
+  href: data-views-preview-data-views-resolved.md
 - name: Preview resolved data view
   href: data-views-resolved-data-view-preview-api.md
 - name: Resolved data views
