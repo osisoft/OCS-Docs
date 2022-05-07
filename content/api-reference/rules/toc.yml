@@ -1,6 +1,6 @@
-- name: Metadata rules
-  href: metadata-rules/toc.yml 
-  topicHref: metadata-rules/metadata-rules-overview.md
 - name: Asset rules
   href: asset-rules/toc.yml
   topicHref: asset-rules/asset-rules.md
+- name: Metadata rules
+  href: metadata-rules/toc.yml 
+  topicHref: metadata-rules/metadata-rules-overview.md

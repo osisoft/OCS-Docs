@@ -1,6 +1,0 @@
-- name: Add a client-credentials client
-  topicHref: client-credentials-client-procedure.md
-- name: Add an authorization code client
-  topicHref: authorization-code-client-procedure.md
-- name: Add a hybrid client
-  topicHref: hybrid-client-procedure.md

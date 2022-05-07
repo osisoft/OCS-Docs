@@ -833,7 +833,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessRig
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|Returns the `CommonAccessRights`|
+|200|[CommonAccessRights](#schemacommonaccessrights)|Returns a list of `CommonAccessRights`|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
 |401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
@@ -841,7 +841,8 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Types/{typeId}/AccessRig
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
 |503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
 
-#### Example response body
+<h4>Example response body</h4>
+
 > 200 Response
 
 ```json
@@ -850,6 +851,8 @@ Content-Type: application/json
 
 ["Read", "Write"]
 ```
+
+
 > 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
 
 ```json
@@ -1131,7 +1134,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Acces
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|Returns the `CommonAccessRights`|
+|200|[CommonAccessRights](#schemacommonaccessrights)|Returns a list of `CommonAccessRights`|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
 |401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
@@ -1139,7 +1142,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Acces
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
 |503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
 
-#### Example response body
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
 > 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
 
 ```json
@@ -1419,7 +1431,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewI
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|Returns the `CommonAccessRights`|
+|200|[CommonAccessRights](#schemacommonaccessrights)|Returns a list of `CommonAccessRights`|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
 |401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
@@ -1427,7 +1439,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/StreamViews/{streamViewI
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
 |503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
 
-#### Example response body
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
 > 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
 
 ```json
@@ -1712,7 +1733,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|Returns the `CommonAccessRights`|
+|200|[CommonAccessRights](#schemacommonaccessrights)|Returns a list of `CommonAccessRights`|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
 |401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
@@ -2008,7 +2029,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|Inline|Returns the `CommonAccessRights`|
+|200|[CommonAccessRights](#schemacommonaccessrights)|Returns a list of `CommonAccessRights`|
 |400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
 |401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
 |403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
@@ -2016,7 +2037,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Quantities/{quantityId}/
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
 |503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
 
-#### Example response body
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+HTTP/1.1 200
+Content-Type: application/json
+
+["Read", "Write"]
+```
 > 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
 
 ```json
@@ -2188,6 +2218,27 @@ Contains the error message format that follows the OCS error standards
 }
 
 ```
+
+---
+
+### CommonAccessRights
+
+<a id="schemacommonaccessrights"></a>
+<a id="schema_CommonAccessRights"></a>
+<a id="tocScommonaccessrights"></a>
+<a id="tocscommonaccessrights"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|None|0|
+|Read|1|
+|Write|2|
+|Delete|4|
+|ManageAccessControl|8|
+|Share|16|
+|All|31|
 
 ---
 

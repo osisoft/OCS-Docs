@@ -261,7 +261,7 @@ get-or-create-type:
         "ExtrapolationMode": 0
         }
     ```
-get-type-access-rights:
+get-access-rights:
   type: markdown
   value: |
     ```json

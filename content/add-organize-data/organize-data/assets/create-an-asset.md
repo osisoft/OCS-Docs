@@ -2,98 +2,66 @@
 uid: CreateConfigureAsset
 ---
 
-# Create and configure an asset
+# Add an asset
 
-Follow the procedures to create an asset, add and configure its metadata and properties, and select and configure a property whose status will be visible in the card or table view.
+Follow this procedure to create an asset, add and configure its metadata and properties, and select and configure a property whose status will be visible in the card or table view.
 
-## Create the asset
+To create an asset, follow these steps:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
- 
-1. Click the **Change Namespace** button in the upper-right toolbar, then select the desired namespace.
 
-5. Verify that the **Assets/Asset Type** selector is set to **Assets**.
+1. From the **Asset/Asset Types** selector, select **Assets**.
 
-5. Click the **+** in the toolbar to create a new asset.
+1. In the toolbar, select **Add Asset**. 
 
-     The `Select Type for New Asset` window opens. By default, the type selected is  <None>.
+1. In the `Select Type for New Asset` window, select **None** and select **Continue**.
 
-6. Accept the default and click **Continue**.
+1. In the right pane, complete the following fields:
 
-    The details blade opens on the right side. 
+   - **Asset** - Enter a name to identify the asset.
 
-1. Enter a name and description for the asset.
+   - **Description** - (Optional) Add a description for the asset. 
 
-## Add metadata to the asset
+1. Select the **Metadata** tab.
 
-1. Click the **Metadata** tab and click **Add Metadata**.
+1. For each metadata to add to the asset, select **Add Metadata** and complete the following fields:
 
-    **Note:** Metadata is static attributes about assets, for example, model or region.
+   - **Metadata** - Enter an identifier for the metadata.
 
-    Result: The fields for entering the metadata details appear. 
+   - **Value** - Enter the value for the metadata.
 
-    <!-- We need a definition for metadata that covers its use in different OCS contexts. --> 
+      **Note:** The value must match the selected type. The following date/time format is supported: MM/DD/(YY)YY hh:mm(:ss)
 
-2. Enter a name for the metadata.
+   - **Type** - Select the value type from the dropdown list.
 
-3. Optional: Enter a value for the metadata and select a type.
+   - **UOM** - If the type is `Integer` or `Double`, select the unit of measure for the value.
+
+1. Select the **Properties** tab. 
+
+1. Select **Add Stream References**, select the stream in the `Select Streams` window, and then select **Add**.
    
-    **Note:** The value must match the selected type. The following date/time format is supported: MM/DD/(YY)YY hh:mm(:ss).
+     **Tips:** To search for streams based on the stream name, description, or the type, enter the text to search for in the **Enter search query** field. Use the asterisk (*) as a wildcard character. To select multiple streams, hold the Ctrl key and select each stream or hold the Shift key and select the first and last stream in a group.
 
-    <!--WRITER NOTE: What date/time formats are supported? Is this the same as for PI Server? i.e., Microsoft standard date/time formats? -->
+   Selected streams and their properties are listed in the **Properties** tab.
 
-4. (Optional) Select a UOM.
-
-5. Continue adding metadata for the asset. 
-
-
-## Add properties to the asset
-
-1. Click the **Properties** tab. 
-
-1. Click **Add Stream References** to add a property.
-
-1. In the `Select Streams` window, select the stream you want.
+1. If needed, modify the stream names to make them easier to identify.
    
-     **Note:** Use the search box to find the stream. You can search on the stream name, description, or the type. Use the asterisk (*)  as a wildcard character.
+1. To update the property units of measure for a stream, select **Configure UOMs** for the stream. 
 
-1. Click **Add**. 
-  
-   **Result:** The stream reference appears in the right pane. This is the automatically generated user-friendly stream name. You can edit this name.
-         
-1. Click the scroll bar to display the properties for the stream reference.
-   
-1. Click **Configure UOMs**. 
+    **Note:** Units of measure can be set only on numeric types.
 
-1. On the `Configure UOMs` page, make any changes to the property UOMs.
+1. On the `Configure UOMs` page, update the property units of measure as needed and select **Save**.
 
-    **Note:** UOMs can be set only on numeric types.
+    **Note:** When you select **Save**, any changes are immediately saved to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are still saved even if you do not save the new asset.
 
-1. When you are done, click **Save**.
+1. To configure statuses for the asset, select the **Status** tab and select **Add Status Configuration**.
 
-    **Note:** Once you click **Save**, any changes are immediately made to the UOMs on the stream, regardless of any other actions you take on this asset. For example, the UOM changes to the stream are not reversed if you click **Cancel** on the **Properties** tab or if you delete the asset.
+1. In the `Select Property` window, select the property that determines the asset status and select **Continue**.
 
-## Add status tracking to the asset
+    You can only specify one property to determine the asset status, and that property must have enumerated states or string values.
 
-1. Click the **Status** tab.
-
-2. Click **Add Status Configuration**.
-
-3. In the `Select Property` window, click the property that you want to display status for. Click **Continue**.
-
-    **Note:** Only properties with enumerated states or string values can be selected for the asset status;  therefore, only these properties are displayed. 
-
-    You can only specify one property as the asset's status. 
-
-1. Click the status icons to map the icon for each value.
-    
     **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
 
-## Save the asset
+1. For each value listed, select the status icon to map the value to a status. To add other values, select **Add Value Mapping**, enter the value, and select the corresponding status.
 
-1. Click **Save**. 
-
-## Related links
-
-- [Assets](xref:AssetsProperties) Properties
-- [Assets API](xref:AssetsAPI)
+1. To save the asset type, select **Save**. 

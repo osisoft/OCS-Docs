@@ -29,43 +29,43 @@ When a resource is shared in a community, users with the **Community Member** ro
 
 ```text
 
-GET  api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}
 
 ```
 
 ```text
 
-GET  api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/{*more}
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/{*more}
 
 ```
 
 ```text
 
-POST api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Transform/{*more}
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Transform/{*more}
 
 ```
 
 ```text
 
-POST api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Join/{*more}
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Join/{*more}
 
 ```
 
 ```text
 
-GET  api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata
 
 ```
 
 ```text
 
-POST api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata/{key}
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata/{key}
 
 ```
 
 ```text
 
-POST api/v1/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/tags
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/tags
 
 ```
 

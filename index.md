@@ -6,7 +6,7 @@ uid: index
 
 ## [Overview](xref:WhatIsOCS)
 
-## [Quickstarts](xref:GettingStartedWithTrendData)
+## [Quickstarts](xref:CreateTrendSession)
 
 ## [How-To Guides](xref:CreateConfigureAsset)
 

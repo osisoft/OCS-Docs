@@ -14,7 +14,7 @@ Returns the owner of specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 <h4>Parameters</h4>
@@ -69,7 +69,7 @@ Updates the owner of specified asset.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 ```
 
 <h4>Parameters</h4>
@@ -111,7 +111,7 @@ Returns the access control list of the specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 <h4>Parameters</h4>
@@ -178,7 +178,7 @@ Updates the access control of specified asset.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessControl
 ```
 
 <h4>Parameters</h4>
@@ -232,7 +232,7 @@ Returns the access rights of specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessRights
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessRights
 ```
 
 <h4>Parameters</h4>
@@ -288,7 +288,7 @@ Returns specified asset and the version ETag in the HTTP response header.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
@@ -365,7 +365,7 @@ Creates a new asset. If the asset you are trying to create references an asset t
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
@@ -501,7 +501,7 @@ Creates or updates an asset with a specified identifier. If the asset already ex
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
@@ -635,7 +635,7 @@ Deletes the asset with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 ```
 
 <h4>Parameters</h4>
@@ -667,7 +667,7 @@ Returns an array of assets in a given namespace and the total number of assets r
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}&filter={filter}
 ```
 
@@ -772,7 +772,7 @@ Returns the Headers corresponding to the GET Assets call, including a collection
 <h3>Request</h3>
 
 ```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ?query={query}&includeTotalCount={includeTotalCount}&filter={filter}
 ```
 
@@ -791,7 +791,7 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Call succeeded.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Invalid query syntax.|
+|400|None|Invalid query syntax.|
 
 <h4>Response Headers</h4>
 
@@ -811,7 +811,7 @@ Creates a new asset. If the asset you are trying to create references an asset t
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 ```
 
 <h4>Parameters</h4>
@@ -914,7 +914,7 @@ Creates assets in bulk. Creates multiple assets in a single call.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 ```
 
 <h4>Parameters</h4>
@@ -1018,7 +1018,7 @@ Deletes all assets with the specified identifiers. This API can delete up to a m
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 ?id={id}
 ```
 

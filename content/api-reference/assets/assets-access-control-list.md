@@ -15,7 +15,7 @@ Returns the default AccessControlList for the assets collection and asset type c
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{resource}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{resource}
 ```
 
 <h4>Parameters</h4>
@@ -82,7 +82,7 @@ Updates default AccessControlList for the assets collection and asset type colle
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{resource}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{resource}
 ```
 
 <h4>Parameters</h4>
@@ -136,7 +136,7 @@ Returns the default access rights for the assets collection and asset type colle
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/{resource}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/{resource}
 ```
 
 <h4>Parameters</h4>

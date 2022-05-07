@@ -4,7 +4,7 @@ uid: tenant-tenants
 ---
 
 # Tenants
-APIs to manage an OCS Customer Tenant. A tenant represents the set of services, applications, data, and configuration state available to a customer. Users are associated with a tenant via at least one configured identity provider and access to resources can be managed for those users via the assignment of roles. Data and services provided by a tenant may also span geographical regions. A tenant has APIs to manage an OCS customer tenant. Unlike namespaces, tenants are not scoped to a region. Tenant level information, such as users and clients, is stored in all supported regions for read-only purposes. Write operations for tenant management and identity and access management are only supported through the global base URL, such as https://dat-b.osisoft.com/Tenants/{tenantId}. Requests to local URLs will return a status of Method Not Allowed (405). Tenant level information, such as users and clients, is stored in all supported regions for read-only purposes.
+APIs to manage a Customer Tenant. A tenant represents the set of services, applications, data, and configuration state available to a customer. Users are associated with a tenant via at least one configured identity provider and access to resources can be managed for those users via the assignment of roles. Data and services provided by a tenant may also span geographical regions. A tenant has APIs to manage a customer tenant. Unlike namespaces, tenants are not scoped to a region. Tenant level information, such as users and clients, is stored in all supported regions for read-only purposes. Write operations for tenant management and identity and access management are only supported through the global base URL, such as https://dat-b.osisoft.com/Tenants/{tenantId}. Requests to local URLs will return a status of Method Not Allowed (405). Tenant level information, such as users and clients, is stored in all supported regions for read-only purposes.
 
 ## `Get Tenant`
 
@@ -416,17 +416,17 @@ Status codes describing a tenant's current provisioning state.
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|Creating|0|
-|Active|1|
-|Deactivating|2|
-|Deactivated|3|
-|Reactivating|4|
-|Deleting|5|
-|Deleted|6|
-|Purging|7|
-|IsHomeTenant|8|
+|Property|Value|Description|
+|---|---|---|
+|Creating|0|Status codes describing a tenant's current provisioning state.|
+|Active|1|Status codes describing a tenant's current provisioning state.|
+|Deactivating|2|Status codes describing a tenant's current provisioning state.|
+|Deactivated|3|Status codes describing a tenant's current provisioning state.|
+|Reactivating|4|Status codes describing a tenant's current provisioning state.|
+|Deleting|5|Status codes describing a tenant's current provisioning state.|
+|Deleted|6|Status codes describing a tenant's current provisioning state.|
+|Purging|7|Status codes describing a tenant's current provisioning state.|
+|IsHomeTenant|8|Status codes describing a tenant's current provisioning state.|
 
 ---
 
@@ -615,7 +615,7 @@ Representation of a server-side database interpretation of a tenant.
 <a id="tocSregionbase"></a>
 <a id="tocsregionbase"></a>
 
-Represents a region within an OCS environment for OCS customers to see.
+Represents a region within an environment for customers to see.
 
 #### Properties
 

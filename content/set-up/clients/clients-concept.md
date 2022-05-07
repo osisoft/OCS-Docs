@@ -4,10 +4,12 @@ uid: ccClients
 
 # Clients
 
-Clients allow applications to authenticate against OCS from outside the portal. The following types of clients are supported, and each support different types of applications:
+Clients allow applications to authenticate against OCS from outside the portal. OCS supports the following types of clients, and each supports different types of applications:
 
 - [Client-credentials clients](#client-credentials-client)
+
 - [Authorization code clients](#authorization-code-client)
+
 - [Hybrid clients](#hybrid-client) <!-- Josh Kim Mar19021: Similar to the comment as before where we should ask if Hybrid Clients are still worth mentioning?. -->
 
 You must have the Tenant Administrator role to add and manage clients in a tenant.
@@ -32,7 +34,7 @@ We recommend the following best practices with a client credentials client:
 
 ##  <a name="authorization-code-client"></a>Authorization code clients
 
-Authorization code clients are used with customer web applications that use OCS as their backend. They provide a secure means of authenticating users of the website to view assets. The authorization code client is paired with a client ID. The web application that is using the client to authenticate users must include the client ID in its code.
+Use authorization code clients with customer web applications that use OCS as their backend. They provide a secure means of authenticating users of the website to view assets. OCS pairs the authorization code client with a client ID. The web application that is using the client to authenticate users must include the client ID in its code.
 
 Authorization code clients are used to authenticate using any browser. Upon successful authentication, an authorization code is provided to the client. This authorization code is exchanged for an access token using PKCE (Proof Code for Code Exchange) which is a more secure authentication flow. No refresh token is provided.
 
@@ -50,7 +52,7 @@ We recommend the following best practices for an authorization code client:
 
 ## <a name="hybrid-client"></a>Hybrid clients
 
-Hybrid clients are used by native and server-side web applications. This client utilizes the user credentials to authenticate with the identity provider. Once the user is authenticated, then the server-side client steps in and server-to-server communication commences. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided.
+Use hybrid clients for native and server-side web applications. This client utilizes the user credentials to authenticate with the identity provider. Once the user is authenticated, then the server-side client steps in and server-to-server communication commences. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided.
 
 ### <a name="hybrid-client-pi-server"></a>Hybrid client PI Server counterpart
 

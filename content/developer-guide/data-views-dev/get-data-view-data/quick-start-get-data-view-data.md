@@ -113,6 +113,12 @@ The view data is available in several formats. A format can be specified using t
 | CSV | `csv` | 3 | Comma-separated values. Each row describes one data record. |
 | CSV with header | `csvh` | 4 | Similar to `csv`. The first row contains the identifier of its corresponding field mapping. |
 
+#### Response format
+
+By default, the value of the header `Accept-Verbosity` is `verbose` for the response format. Verbose responses include all values in the returned JSON payload, including defaults. When set to `non-verbose`, properties with null values are omitted from the response to reduce bandwidth. This behavior is only applicable to the JSON format, as all other formats represent a table which cannot have omitted values.
+
+Note that the `Accept-Verbosity` header for SDS differs as its default is set to `non-verbose`.
+
 ### Paging
 
 Data retrieval operations are paged. Data for a requested index range may span multiple pages.

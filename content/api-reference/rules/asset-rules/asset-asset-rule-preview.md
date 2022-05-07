@@ -14,7 +14,7 @@ Returns a `AssetRulePreviewResult`.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
 ?token={token}&skip={skip}&count={count}
 ```
 
@@ -166,7 +166,7 @@ Creates a `RulePreviewResponse` of a `RuleModel` object.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
 ?KeepOldMetadata={KeepOldMetadata}&Skip={Skip}&Count={Count}
 ```
 
@@ -237,7 +237,7 @@ The RuleModel object to preview.<br/>
 
 ```json
 {
-  "PreviewLink": "/api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules?Token=00000000-0000-0000-0000-000000000000",
+  "PreviewLink": "/api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules?Token=00000000-0000-0000-0000-000000000000",
   "Expires": 7200
 }
 ```
@@ -328,7 +328,7 @@ Cancels a running preview.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/preview/assetrules
 ?token={token}
 ```
 

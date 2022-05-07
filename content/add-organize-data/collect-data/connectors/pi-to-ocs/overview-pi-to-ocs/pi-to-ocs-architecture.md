@@ -4,7 +4,7 @@ uid: pi-to-ocs-architecture
 
 # PI to OCS architecture
 
-PI to OCS enables you to connect and transfer your on-prem data to OCS from one PI Data Archive and one optional Asset Framework (AF) server using one PI to OCS Agent. The PI to OCS Agent creates and sends a transfer that contains the requested PI point data (metadata and PI events) and assets (AF elements and attributes) to OCS. <!--What else do we want to say here?-->
+PI to OCS enables you to connect and transfer your on-prem data to OCS from one PI Data Archive and one optional Asset Framework (AF) server using one PI to OCS Agent. The PI to OCS Agent creates and sends a transfer that contains the requested PI point data (metadata and PI events) and assets (AF elements and attributes) to OCS. <!--What else do we want to say here? This topic was requested by Allograft TPM.-->
 
 ![ ](../../images/pi-ocs-architecture.png)
 

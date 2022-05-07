@@ -10,7 +10,7 @@ Returns the specified asset type.
 
 ### Request 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ```
 
 ### Parameters
@@ -69,7 +69,7 @@ Returns a list of asset types and the total number of returned asset types, spec
 ### Request 
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes?skip={skip}&count={count}
+GET api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes?skip={skip}&count={count}
 ```
 
 ### Parameters
@@ -105,7 +105,7 @@ Creates a new asset type with a specified identifier.
 ### Request 
 
 ```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ```
 
 ### Parameters
@@ -171,7 +171,7 @@ Creates a new `AssetTypes` object.
 ### Request 
 
 ```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
+POST api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
 ```
 
 ### Parameters
@@ -210,7 +210,7 @@ When updating an asset type which is referenced by assets, the following behavio
 ### Request 
 
 ```text 
-PUT api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId} 
+PUT api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId} 
 ```
 
 ### Parameters
@@ -247,7 +247,7 @@ Deletes an asset type with a specified identifier. An `AssetType` resource canno
 ### Request 
 
 ```text 
-DELETE api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}?deleteAssets={true|false}
+DELETE api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}?deleteAssets={true|false}
 ```
 
 ### Parameters  

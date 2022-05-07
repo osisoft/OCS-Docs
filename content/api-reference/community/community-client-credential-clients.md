@@ -8,7 +8,7 @@ APIs for getting, adding, or removing client credential clients from communities
 
 ## `List Client Credential Clients for a Community`
 
-<a id="opIdClientCredentialClients_List Client Credential Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_List Client Credential Clients for a Community"></a>
 
 Gets clients associated with a specific tenant and community
 
@@ -72,7 +72,7 @@ Allowed for these roles:
 
 ## `Get Count of Clients for a Community`
 
-<a id="opIdClientCredentialClients_Get Count of Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Get Count of Clients for a Community"></a>
 
 Gets a count of client credential clients for a community
 
@@ -110,7 +110,7 @@ Allowed for these roles:
 
 ## `Add Client Credential Client to a Community`
 
-<a id="opIdClientCredentialClients_Add Client Credential Client to a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Add Client Credential Client to a Community"></a>
 
 Adds a client credential client to a community, providing a list of community roles to be assigned to the client
 
@@ -180,7 +180,7 @@ Allowed for these roles:
 
 ## `Remove Client Credential Client from a Community`
 
-<a id="opIdClientCredentialClients_Remove Client Credential Client from a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Remove Client Credential Client from a Community"></a>
 
 Removes a client credential client from a community
 
@@ -273,7 +273,7 @@ Object to return or update a ClientCredentialClient
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|Tags|string[]|false|true|Tags for AVEVA internal use only|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
 
 ```json

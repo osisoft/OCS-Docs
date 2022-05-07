@@ -14,7 +14,7 @@ Returns resolved view of specified asset.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Resolved
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Resolved
 ```
 
 <h4>Parameters</h4>
@@ -127,7 +127,7 @@ Returns multiple resolved assets.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Resolved
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Resolved
 ```
 
 <h4>Parameters</h4>
@@ -260,7 +260,7 @@ Asset identifiers<br/>
 <a id="tocSresolvedasset"></a>
 <a id="tocsresolvedasset"></a>
 
-The resolved asset describes the consumption-oriented aspects of an OCS resource rather than describing how the resource is configured. The resolved asset corresponds to its metadata and referenced stream which define how the data is interpreted (that is, SdsTypeCode, InterpolationMode, and Uom).
+The resolved asset describes the consumption-oriented aspects of a resource rather than describing how the resource is configured. The resolved asset corresponds to its metadata and referenced stream which define how the data is interpreted (that is, SdsTypeCode, InterpolationMode, and Uom).
 
 <h4>Properties</h4>
 
@@ -788,8 +788,8 @@ Status definition type. Currently, only StreamPropertyMapping is supported.
 
 |Property|Value|Description|
 |---|---|---|
-|Unspecified|0||
-|StreamPropertyMapping|1||
+|Unspecified|0|Status definition type. Currently, only StreamPropertyMapping is supported.|
+|StreamPropertyMapping|1|Status definition type. Currently, only StreamPropertyMapping is supported.|
 
 ---
 

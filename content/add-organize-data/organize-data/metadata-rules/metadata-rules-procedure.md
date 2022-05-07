@@ -6,63 +6,60 @@ uid: gpMetadataRules
 
 Use metadata rules to identify groups of similar streams for analytical purposes. You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule. Metadata rules assign defined metadata to all streams in a given namespace matching the stream name pattern defined in the rule.  
 
-## Procedure
-
-To create a new metadata rule, follow these steps:
+(Optional) To copy a stream name for the basis of the metadata rule:
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
 
-1. On the `Sequential Data Store` page, click **Streams**.
+1. On the `Sequential Data Store` page, select **Streams**.
  
-1. Click the **Change Namespace** button in the upper-right toolbar, then select the namespace in which you want to create the stream.
+1. Select the stream to use as the basis for the metadata rule and from the **Details** tab, copy its name.
 
-1. Expand the `Streams` pane if necessary to copy the full name of the stream that will be the basis for your metadata rule.
+To create a new metadata rule:
 
-1. In the left pane, click **Data Management** > **Metadata Rules**.
- 
-   **Result:** The `Metadata Management` page opens.
- 
-1. Click the **Change Namespace** button in the upper-right toolbar, then select the namespace in which the model stream resides and where the metadata rule is to be created.
+1. In the left pane, select **Data Management** > **Stream Metadata Rules**.
 
-1. Click **Add Metadata Rule**.
+1. Select **Add Metadata Rule**.
  
-   **Result:** The `Select Stream` page displays.
- 
-1. Paste the copied stream name into the `Search` field. All streams in the namespace that share the name pattern of the stream you selected display.
+1. On the `Select Stream` page in the **Search** field, enter the stream name to use as a model for the stream name pattern. You can use wild cards (*). If you copied a stream name, paste it in the field. 
 
-    **Note**: You can also search for a stream name by entering the first few characters of a name followed by the wild card symbol (*) in the `Search` field.
+   All streams that match the name pattern display.
    
-1. Click the row of the stream name to use for the metadata rule and click **Next**.
+1. Select the stream name to use for the metadata rule and select **Next**.
 
-1. In the `Create Pattern` page, click the **+** sign above each selected delimiter to separate sections of the stream name.
+1. On the `Create Pattern` page, select the **+** sign above each selected delimiter to separate sections of the stream name.
 
-1. For each delimited section of the stream name you select, use the dropdown list to assign a metadata type: Metadata, String Literal, or Wildcard. See the table following this procedure for a description of these metadata types. 
+   **Note:** Select the minus sign (-) to ignore a delimiter.
 
-1. After entering all metadata type entries, click **Next**.
+1. For each delimited section of the stream name you select, use the dropdown list to assign a metadata type. The following table describes the available metadata types. 
 
-    **Note**: If you select metadata type **Metadata**, you must also enter a metadata key. A metadata key is the key portion of a key-value pair, typically the type of data provided, such as Measurement. This is helpful when streams that match the rule provide different types of data. Entries in the **Map To** portion of mapping represent the value part of the key-value pair. For example, Power would be the defined key, while different types of data could be Demand, TOTAL/Electricity, or Metering. The mapping entries specify the labels you want to display for each of those values.
+   | Metadata type                       | Description                                        |
+   |---------------------------------|------------------------------------------------------------|
+   | **Metadata**     | Assigned to the data values provided by each stream matching the name pattern of the metadata rule. At least one section must have this type. <br>**Note**: If you select metadata type **Metadata**, you must also enter a metadata key. A metadata key is the key portion of a key-value pair, typically the type of data provided, such as Measurement. This is helpful when streams that match the rule provide different types of data. Entries in the **Map To** portion of mapping represent the value part of the key-value pair. For example, *Power* would be the defined key, while different types of data could be *Demand*, *TOTAL/Electricity*, or *Metering*. The mapping entries specify the labels you want to display for each of those values.|
+   | **String Literal**      | Only stream names with the specified string in the part designated will match the name pattern of this metadata rule. |
+   | **Wildcard**       | Designates a part of the stream name pattern in which any value is accepted by this metadata rule. | 
+
+1. After assigning all metadata type entries, select **Next**.
     
-1. In the `Define Mappings` page, choose one of the following options:
+1. On the `Define Mappings` page, for each metadata key do one of the following:
 
      - To display the raw stream data for the specified metadata key, select **Copy Values** under **Mapping Type**.
      
-     - To assign a label to data values, select **Map Values** and click **Generate Mappings**.
+     - To assign a label to data values:
 
-1. If you selected **Map Values**, then do the following: In the **Map To** field, enter the label you want to display for each defined metadata key, and click **Next**.
+       - Select **Map Values** and select **Generate Mappings**. 
+       
+       - In the **Map To** field, enter the label to display for each defined metadata key.
+    
+       - (Optional) Select **Add Mapping** to define a mapping for any other stream name part.
+      
+    When you have defined mappings for a metadata key, a green check mark appears next to the key.
 
-1. Optional: Click **Add Mapping** to define a mapping for any other stream name part.
+1. Select **Next**. All matching streams for the rule are displayed.
 
-1. Click **Next**. All matching streams for the rule are displayed.
+1. On the `Preview and Run` page, complete the following fields:
 
-1. Enter the metadata rule **Name** and **Description** in the `Preview and Run` page.
+   - **Name** - Enter a name to identify the metadata rule.
 
-1. Click **Save & Execute**.
+   - **Description** - Enter a description for the metadata rule.
 
-## Metadata types
-The table below provides a list of metadata types and descriptions.<!--Vicki T. 6/25/21 -Is there anything else we want the user to know about these metadata types? It seemed odd that this table appears at the end of the procedure since metadata types are discussed/selected in steps 11 and 12. I recommend moving the table after the "Create a metadata rule" section. Angela Flores - Will hold off until we finalize guidelines for procedure.-->
-
-| Metadata type                       | Description                                        |
-|---------------------------------|------------------------------------------------------------|
-| **Metadata**     | Assigned to the data values provided by each stream matching the name pattern of the metadata rule. |
-| **String Literal**      | Only stream names with the specified string in the part designated will match the name pattern of this metadata rule. |
-| **Wildcard**       | Designates a part of the stream name pattern in which any value is accepted by this metadata rule. |
+1. Select **Save & Execute**.

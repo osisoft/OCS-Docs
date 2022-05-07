@@ -11,9 +11,9 @@ Follow the [Get started with streams](xref:gsStreams) procedure and create a sec
 
 ## Procedure
 
-Follow the procedure below to create a data view and customize how the data is displayed and organized:
+Follow the procedure below to create a data view and customize how the data is displayed and organized.
 
-### Step 1: Add the data view
+## Step 1: Add the data view
 
 In this step, add the streams that you want to include in your data view.
 
@@ -23,12 +23,12 @@ In this step, add the streams that you want to include in your data view.
 
 1. In the toolbar, click **Add Data View**.
 
-4. Enter the following in these fields:
+1. Enter the following in these fields:
 
    - `Name` &ndash; **MyOCS.DataView**
    - `Description` &ndash; (Optional) Enter a description for the data view
 
-5. In the middle pane, enter the following to search for streams that match the query value:
+1. In the middle pane, enter the following to search for streams that match the query value:
 
     - `Query Id` &ndash; **MyOCS**
     - `Query Value` &ndash; **MyOCS.***
@@ -45,11 +45,9 @@ In this step, add the streams that you want to include in your data view.
 
     ![Add Data View](images/add-data-view.png)
 
-    
+1. Click **Save** to save the data view and open the <!--`Configure Data View` --> next page where you configure the data view.
 
-6. Click **Save** to save the data view and open the <!--`Configure Data View` --> next page where you configure the data view.
-
-    ![](images/configure-data-view-page.png)
+    ![Configure Data View](images/configure-data-view-page.png)
 
     A preview of your data view results appears in a table in the right pane: 
 
@@ -58,12 +56,11 @@ In this step, add the streams that you want to include in your data view.
     - The remaining columns are the value properties of the stream. The column name is the value property name, followed by the unit of measure, if applicable. In this example, the columns are named Pressure kg/m3, Status, and Temperature °C. 
     - Each row displays data for either the MyOCS.NorthAmerica.SLTC.PumpA stream or the MyOCS.NorthAmerica.SLTC.PumpB stream.
 
-
-7. Click **Auto Refresh**.
+1. Click **Auto Refresh**.
 
     As you configure your data view in the left pane, the preview in the right pane automatically updates to reflect the choices you make.
 
-###  <a name="change-shape"></a>Step 2: Change the data view shape
+## Step 2: Change the data view shape
 
 By changing the data view shape, you can create a consistent table format for your data views. This step describes how to display the minimum properties or the full set of properties.
 
@@ -71,13 +68,13 @@ By changing the data view shape, you can create a consistent table format for yo
 
    The **Narrow** option removes all other columns from the table and displays only the following columns: Timestamp, Name, Field, and Value. The narrow data shape may be useful in ensuring a consistent table format for any data view. 
 
-2. Click **Standard** before continuing to the next step. 
+1. Click **Standard** before continuing to the next step. 
 
    To edit the query or add additional streams with another query, click **Manage Queries.** <!-- This returns you to the `Manage Queries` page. -->
 
-3. After you are finished editing or adding a query, click **Apply** or **Cancel and Return** to return to the<!-- `Configure Data View`--> configuration page. 
+1. After you are finished editing or adding a query, click **Apply** or **Cancel and Return** to return to the<!-- `Configure Data View`--> configuration page. 
 
-### <a name="add-data-fields"></a>Step 3: Add data fields to the data view
+## Step 3: Add data fields to the data view
 
 In this step, you add the data fields to the data view and specify that the UOM is displayed.
 
@@ -89,23 +86,23 @@ In this step, you add the data fields to the data view and specify that the UOM 
 
     The number in the **Apply (2)** indicates the number of pending changes to the data fields and increments as you make additional changes.
 
-3. The **Value** box indicates that the fields are filtered to display only value fields, and summary fields are not displayed. Click the **X** in the **Value** box to remove the filter.
+1. The **Value** box indicates that the fields are filtered to display only value fields, and summary fields are not displayed. Click the **X** in the **Value** box to remove the filter.
 
     ![Add Data Fields](images/add-data-fields.png)
 
     The data fields list expands to include data summary options.
 
-4. Select the **Pressure | Maximum** checkbox, and then click **Next** to go to the Edit Data Fields step.
+1. Select the **Pressure | Maximum** checkbox, and then click **Next** to go to the Edit Data Fields step.
 
     ![Edit Data Fields](images/edit-data-fields.png)
 
     In this step, you can give the column a user-friendly name, different from the field name in the source. You can select the **Include UoM as a column** checkbox to add a column for the UoM of each data field, if it is applicable. 
 
-5. Click **Apply (3)** to add the three fields with the default options.
+1. Click **Apply (3)** to add the three fields with the default options.
 
     Three new columns are added to the data view.
 
-### <a name="remove-data-fields"></a>Step 4: Remove data fields from the data view
+## Step 4: Remove data fields from the data view
 
 In this step, you remove the Id field from the data view.
 
@@ -119,7 +116,7 @@ In this step, you remove the Id field from the data view.
 
      The **Id** column is removed from the preview. 
 
-### <a name="rename-column-heading"></a>Step 5: Rename a column heading
+## Step 5: Rename a column heading
 
 In this procedure, you change the Site column label. Before you begin, scroll through the preview and locate the Site column.
 
@@ -135,7 +132,7 @@ In this procedure, you change the Site column label. Before you begin, scroll th
 
     The column heading changes from *Site* to *City* and a City Uom column is added to the preview.
 
-### <a name="add-stream-names"></a>Step 6: Add stream names to the column headings
+## Step 6: Add stream names to the column headings
 
 Notice the number of rows in the data view preview displayed at the bottom of the table. 
 
@@ -165,24 +162,23 @@ In this step, you remove the grouping field and decrease the total number of row
 
     ![Identifying Field](images/identifying-field.png)
 
-
 The column labels are prepended with the stream name. In the screen capture below, the *Name* column is prepended with the stream name *MyOCS.NorthAmerica.SLTC.PumpB*. 
 
 ![Identifying field](images/identifying-field-column.png)
 
 By default, data views are grouped by the stream name. However, if no grouping field is used, appending an identifying label to the column labels makes it easier to see which columns are associated with which stream. 
 
-### <a name="change-field-order"></a>Step 7: Change the order of the fields
+## Step 7: Change the order of the fields
 
 In this step, you reorder the fields in the data view. 
 
 1. In the **MyOCS** section, click the **IdentifyingValue City** field. 
 
-2. Click the ![Up arrow](images/up-arrow.png)in the toolbar until the field is moved to the top of the list.
+1. Click the ![Up arrow](images/up-arrow.png)in the toolbar until the field is moved to the top of the list.
 
     The Site column is moved to the left side of the table, following the Timestamp column.
 
-### <a name="specify-time-range"></a>Step 8: Specify the data view time range 
+## Step 8: Specify the data view time range 
 
 The time range for the data in the table is displayed below the preview.
 
@@ -215,4 +211,3 @@ In this step, you set a default time range for the data view.
 ## Next step
 
 [Get started with stream views](xref:gsStreamviews)
-

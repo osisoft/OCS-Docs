@@ -1,30 +1,216 @@
-- name: OSIsoft Cloud Services
-  href: ocs-content-portal-overview.md
+- topicUid: ocs-content-portal-overview
   items:
    - topicUid: WhatIsOCS
    - topicUid: WhoUsesOCS
    - topicUid: WhatOCSdoes
-- name: Get started
-  href: overview/get-started/toc.yml
-  topicHref: overview/get-started/gs-getting-started-intro.md
-- name: Set up the environment
-  href: set-up/toc.yml
-  topicHref: set-up/set-up-overview.md
-- name: Add and organize data
-  href: add-organize-data/toc.yml
-  topicHref: add-organize-data/add-org-data-overview.md
-- name: Visualize data
-  href: visualize-data/toc.yml
-  topicHref: visualize-data/visualize-data-overview.md
-- name: Remote operations monitoring
-  href: rom/toc.yml
-  topicHref: rom/rom-overview.md
-- name: Communities (Preview)
-  href: communities/toc.yml
-  topicHref: communities/communities.md
+- topicUid: gsGetStartedOCS
+  items:
+  - topicUid: introPortalInterface
+    items:
+    - topicUid: viewProfile
+    - topicUid: TenantDetails
+    - topicUid: ResourceUsage
+  - topicUid: gsNamespaces
+  - topicUid: gsConnections
+    items:
+    - topicUid: gsPItoOCS
+    - topicUid: gsOMF
+  - topicUid: gsTypes
+  - topicUid: gsStreams
+  - topicUid: gsRoles
+  - topicUid: gsUsers
+  - topicUid: gsClients
+    items:
+    - topicUid: gsClientCredentialsClients
+    - topicUid: gsAuthorizationCodeClients
+    - topicUid: gsHybridClients
+  - topicUid: gsAssets
+  - topicUid: gsAssetTypes
+  - topicUid: gsMetadataRules
+  - topicUid: gsStreamviews
+  - topicUid: gsAssetRules
+- topicUid: DataManagement
+  items:
+    - topicUid: ccNamespaces
+      items:
+      - topicUid: bpNamespaces
+      - topicUid: gpNamespaces
+    - topicUid: lpstoredata
+      items:
+      - topicUid: ccStreams
+        items:
+        - topicUid: bpStreams
+        - topicUid: gpStreams
+        - topicUid: manage-streams
+      - topicUid: ccTypes
+        items:
+        - topicUid: bpTypes
+        - topicUid: gpTypes
+      - topicUid: ccStreamviews
+    - topicUid: communities
+      items:
+      - topicUid: community-communities-page
+      - topicUid: community-setup
+        items:
+        - topicUid: community-community-roles
+        - topicUid: community-workflow-create
+          items:
+          - topicUid: community-create-community
+          - topicUid: community-invite
+          - topicUid: community-manage-sds-permissions-create 
+        - topicUid: community-workflow-join
+          items: 
+          - topicUid: community-accept-invite
+          - topicUid: community-manage-sds-permissions-join
+      - topicUid: community-community-administration
+        items:
+        - topicUid: community-invite-tenant
+        - topicUid: community-resend-invitation
+        - topicUid: community-remove-tenants
+        - topicUid: community-edit
+        - topicUid: community-delete
+        - topicUid: communities-manage-default-admins
+      - topicUid: community-tenant-administration
+        items:
+        - topicUid: community-remove-your-tenant
+        - topicUid: community-manage-users
+        - topicUid: community-manage-groups
+        - topicUid: community-manage-clients
+        - topicUid: community-manage-administrators
+      - topicUid: community-data-sharing
+        items: 
+        - topicUid: community-manage-shared-streams
+        - topicUid: community-view-shared-streams
+        - topicUid: community-view-shared-data
+        - topicUid: community-enable-stream-sharing-permissions
+    - topicUid: ccMetadataRules
+      items:
+      - topicUid: gpMetadataRules
+      - topicUid: MetadataMaintenance
+    - topicUid: AssetRulesCC
+      items:
+        - topicUid: CreateAssetRules
+        - topicUid: TokensGenerateAssets
+        - topicUid: UsingMultipleRules
+- topicUid: lpdatacollection
+  items:
+  - topicUid: SoftwareMgmt
+    items:
+    - topicUid: ViewEdgeSystem
+    - topicUid: AddBaseConfiguration
+    - topicUid: DeployConfig
+    - topicUid: ManageConfigurations
+  - topicUid: main-lp
+    items:
+    - topicUid: lp-intro
+      items:
+      - topicUid: bpPISystemConnection
+      - topicUid: min-sys-reqmnts
+      - topicUid: pi-to-ocs-limitations
+      - topicUid: pi-to-ocs-architecture
+    - topicUid: lp-setup
+      items:
+      - topicUid: disable-ie-security
+      - topicUid: install-agent
+      - topicUid: pi-to-ocs-utility
+    - topicUid: lp-transfer
+      items:
+      - topicUid: overview-data-transfers
+      - topicUid: slow-moving-data
+      - topicUid: af-data-transferred
+      - topicUid: transfer-data
+      - topicUid: data-transfer-statuses
+      - topicUid: export-transfer-details
+      - topicUid: export-missing-points
+      - topicUid: pi-point-change
+      - topicUid: confirm-data-retrieval
+    - topicUid: lp-agent-maint
+      items:
+      - topicUid: kpi-tile
+      - topicUid: repair-agent 
+      - topicUid: search-agent
+      - topicUid: remove-agent-portal
+    - topicUid: lp-logs
+      items:
+      - topicUid: view-logs
+      - topicUid: config-utility-logs
+      - topicUid: log-messages
+    - topicUid: lp-troubleshoot
+      items: 
+      - topicUid: troubleshoot-failed-af-indexing
+      - topicUid: troubleshoot-failed-mapping
+      - topicUid: troubleshoot-missing-pida
+      - topicUid: troubleshoot-pi-pt-errors
+    - topicUid: known-issues
+    - topicUid: pi2ocs-rel-summary
+  - topicUid: lpomfoverview
+    items:
+    - topicUid: bpOMFConnection
+    - topicUid: gpOMFConnection
+    - topicUid: OMFMaintenance
+- topicUid: lpvisualizedata
+  items:
+  - topicUid: CreateTrendSession
+  - topicUid: TrendUserInterface
+    items:
+    - topicUid: LegendTableReference
+    - topicUid: URLparameters
+    - topicUid: ContextSwitch
+  - topicUid: AssetExplorer
+    items:
+    - topicUid: ccAssets
+      items: 
+      - topicUid: CreateConfigureAsset
+      - topicUid: CreateAssetFromAssetType
+    - topicUid: AssetTypes
+      items:
+      - topicUid: CreateAssetTypeWithEditor
+      - topicUid: ConvertAssetToAssetType
+    - topicUid: lprom
+      items:
+      - topicUid: GetStartedROM
+      - topicUid: FilterAssets
+      - topicUid: ShareAViewOfYourFleet
+- topicUid: Analytics
+  items:
+    - topicUid: DataViews
+      items:
+      - topicUid: CreateDataView
+      - topicUid: DataViewMaintenance
+    - topicUid: PowerBI
+      items:
+      - topicUid: PowerBIReleaseNotes
+- topicUid: Security
+  items:
+    - topicUid: identityProviders
+    - topicUid: Groups
+    - topicUid: ccUsers
+      items:
+      - topicUid: gpUsers
+      - topicUid: UserMaintenance
+    - topicUid: ccRoles
+      items:
+      - topicUid: gpRoles
+      - topicUid: RolesMaintenance
+    - topicUid: ccClients
+      items:
+      - topicUid: gpClientCredentialsClient
+      - topicUid: gpHybridClient
+      - topicUid: gpAuthorizationCodeClient
+      - topicUid: ClientMaintenance
+- topicUid: DeveloperTools
+  items:
+    - topicUid: samples
+    - topicUid: apiConsole
+    - topicUid: omfEditor
+- topicUid: lpSupport
+  items:
+    - topicUid: download-tenant-log
+    - topicUid: ServiceBlog
 - name: Developer guide
   href: developer-guide/toc.yml
-  topicHref: developer-guide/dev-guide-introduction.md
+  topicHref:  developer-guide/dev-guide-introduction.md
 - name: API reference
   href: api-reference/toc.yml
   topicHref: api-reference/ocs-api-reference.md
+- topicUid: support

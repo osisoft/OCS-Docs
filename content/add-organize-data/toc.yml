@@ -1,9 +1,0 @@
-- name: Collect data
-  href: collect-data/toc.yml
-  topicHref: collect-data/data-collection-overview.md
-- name: Store data
-  href: store-data/toc.yml
-  topicHref: store-data/store-data-overview.md
-- name: Organize data
-  href: organize-data/toc.yml
-  topicHref: organize-data/data-context-overview.md

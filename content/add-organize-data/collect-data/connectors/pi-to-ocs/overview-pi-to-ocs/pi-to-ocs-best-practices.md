@@ -8,4 +8,6 @@ Only one PI to OCS Agent per connection is allowed to transfer data from a speci
 
 - Install the PI to OCS Agent on a host computer that is separate from the PI Data Archive deployment, so it does not add to the load on the server.
 
-- Keep the PI to OCS Agent software version up-to-date for the best performance. The portal indicates when an agent is out of date and needs to be updated. 
+- Keep the PI to OCS Agent software version up-to-date for the best performance. The portal indicates when an agent is out of date and needs to be updated.
+ 
+**Note:** Multiple PI to OCS Agents can connect to and transfer data from the same PI Server if the agents are installed on different machines and assigned to different namespaces within the same tenant.  

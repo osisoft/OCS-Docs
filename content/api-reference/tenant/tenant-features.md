@@ -4,7 +4,7 @@ uid: tenant-features
 ---
 
 # Features
-APIs for managing the feature states of an OCS Tenant.
+APIs for managing the feature states of a Tenant.
 
 ## `List All`
 

@@ -19,10 +19,15 @@ A namespace is similar to a full PI Server. Much like a PI Server, a namespace h
 The namespace ID must be unique across the tenant and meet these requirements:
 
 - Contains 100 or fewer characters
+
 - Can include alphanumeric characters, underscores (\_), dashes (-), spaces, and periods
+
 - May not contain two consecutive periods or two consecutive underscores
+
 - May not begin or end with a period
+
 - May not start with two consecutive underscores
+
 - May not include leading or trailing white spaces
 
 ## Querying data across namespaces

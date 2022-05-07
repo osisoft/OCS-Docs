@@ -15,7 +15,7 @@ Returns an array of asset types in a given namespace and the total number of ass
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
 ?skip={skip}&count={count}
 ```
 
@@ -114,7 +114,7 @@ Returns the Headers corresponding to the GET AssetTypes call, including a collec
 <h3>Request</h3>
 
 ```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
+HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
 ?includeTotalCount={includeTotalCount}
 ```
 
@@ -151,7 +151,7 @@ Create or update an asset type with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
 ```
 
 <h4>Parameters</h4>
@@ -252,7 +252,7 @@ Returns an array of asset types in a given namespace and the total number of ass
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ```
 
 <h4>Parameters</h4>
@@ -327,7 +327,7 @@ Creates or updates an asset type with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ```
 
 <h4>Parameters</h4>
@@ -457,7 +457,7 @@ Creates or updates an asset type with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ```
 
 <h4>Parameters</h4>
@@ -587,7 +587,7 @@ Deletes asset type with a specified identifier.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 ?deleteAssets={deleteAssets}
 ```
 
@@ -622,7 +622,7 @@ Bulk creates asset types. Creates multiple asset types in a single call.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
 ```
 
 <h4>Parameters</h4>
@@ -724,7 +724,7 @@ Returns the owner of specified asset type.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
 ```
 
 <h4>Parameters</h4>
@@ -779,7 +779,7 @@ Updates the owner of specified asset type.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/Owner
 ```
 
 <h4>Parameters</h4>
@@ -821,7 +821,7 @@ Returns the access control list of the specified asset type.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessControl
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessControl
 ```
 
 <h4>Parameters</h4>
@@ -888,7 +888,7 @@ Updates the access control of the specified asset type.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessControl
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessControl
 ```
 
 <h4>Parameters</h4>
@@ -942,7 +942,7 @@ Returns the access rights of specified asset type.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessRights
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}/AccessRights
 ```
 
 <h4>Parameters</h4>

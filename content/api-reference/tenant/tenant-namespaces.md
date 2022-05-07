@@ -4,7 +4,7 @@ uid: tenant-namespaces
 ---
 
 # Namespaces
-A Namespace is a logical unit of organization for data within a tenant. It is a collection of types, streams, and stream views. Each tenant may contain more than one namespace. Before you can put any data into OCS for a given tenant, a namespace must be created within the scope of that tenant. Namespace identifiers are unique within an account. A namespace is a collection of SDS types, streams, and stream views. Namespace identifiers are unique within a tenant. Requirements for namespace identifiers must meet the following critieria: contain 100 characters or fewer, contain only alphanumeric characters, underscores, dashes, spaces, and periods; not contain two consecutive periods, not start or end with a period, not start with two consecutive underscores. In practice, namespaces may correspond to a specific set of infrastructure assets, but more commonly correspond to virtual partitions within a single set of assets. You can create one or more namespaces within a tenant. Each namespace is effectively an instance of SDS, within which you create types and streams, stream views, data views, and metadata.
+A Namespace is a logical unit of organization for data within a tenant. It is a collection of types, streams, and stream views. Each tenant may contain more than one namespace. Before you can put any data into the system for a given tenant, a namespace must be created within the scope of that tenant. Namespace identifiers are unique within an account. A namespace is a collection of SDS types, streams, and stream views. Namespace identifiers are unique within a tenant. Requirements for namespace identifiers must meet the following critieria: contain 100 characters or fewer, contain only alphanumeric characters, underscores, dashes, spaces, and periods; not contain two consecutive periods, not start or end with a period, not start with two consecutive underscores. In practice, namespaces may correspond to a specific set of infrastructure assets, but more commonly correspond to virtual partitions within a single set of assets. You can create one or more namespaces within a tenant. Each namespace is effectively an instance of SDS, within which you create types and streams, stream views, data views, and metadata.
 
 ## `List All`
 
@@ -696,6 +696,7 @@ Status codes describing a namespace's current provisioning state.
 |Active|1|
 |Deleting|2|
 |Deleted|3|
+|Suspended|4|
 
 ---
 

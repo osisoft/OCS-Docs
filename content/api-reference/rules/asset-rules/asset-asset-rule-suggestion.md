@@ -14,7 +14,7 @@ Returns a `SuggestionResult`.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
 ?token={token}
 ```
 
@@ -126,7 +126,7 @@ Creates a `SuggestionResponse` for a `RuleModel` object.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
+POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
 ```
 
 <h4>Parameters</h4>
@@ -282,7 +282,7 @@ Cancels a running suggestion query.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/suggestion/assetrules
 ?token={token}
 ```
 

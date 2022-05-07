@@ -2,7 +2,7 @@
 uid: AssetRulesCC
 ---
 
-# Asset Rules
+# Asset rules
 
 An asset rule identifies patterns in a stream name and uses this information to automatically create assets. In order to generate assets, the stream names must have the following characteristics:
 

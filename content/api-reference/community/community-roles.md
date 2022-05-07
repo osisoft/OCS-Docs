@@ -8,7 +8,7 @@ Cluster APIs for getting community roles
 
 ## `List instanced Roles for a Community`
 
-<a id="opIdRoles_List instanced Roles for a Community"></a>
+<a id="opIdCommunityRoles_List instanced Roles for a Community"></a>
 
 Get community roles associated with a specific community
 
