@@ -13,25 +13,32 @@ Follow the [Get started with streams](xref:gsStreams) procedure and create a sec
 
 Follow the procedure below to create a data view and customize how the data is displayed and organized.
 
+1. [Add the data view](#step-1-add-the-data-view)
+1. [Change the data view shape](#step-2-change-the-data-view-shape)
+1. [Add data fields to the data view](#step-3-add-data-fields-to-the-data-view)
+1. [Remove data fields from the data view](#step-4-remove-data-fields-from-the-data-view)
+1. [Rename a column heading](#step-5-rename-a-column-heading)
+1. [Add stream names to the column headings](#step-6-add-stream-names-to-the-column-headings)
+1. [Change the order of the fields](#step-7-change-the-order-of-the-fields)
+1. [Specify the data view time range](#step-8-specify-the-data-view-time-range)
+
 ## Step 1: Add the data view
 
 In this step, add the streams that you want to include in your data view.
 
-1. Click the ![Menu icon](images/menu-icon.png) icon and click **Data Views** (under Analytics).
-
-1. Click the **Namespace** selection button to open the `Select a Namespace` window. Click **MyOCS**.
+1. In the left pane, select **Analytics** > **Data Views**.
 
 1. In the toolbar, click **Add Data View**.
 
 1. Enter the following in these fields:
 
-   - `Name` &ndash; **MyOCS.DataView**
-   - `Description` &ndash; (Optional) Enter a description for the data view
+   - `Name`  – **MyOCS.DataView**
+   - `Description` – (Optional) Enter a description for the data view
 
 1. In the middle pane, enter the following to search for streams that match the query value:
 
-    - `Query Id` &ndash; **MyOCS**
-    - `Query Value` &ndash; **MyOCS.***
+   - `Query Id` – **MyOCS**
+   - `Query Value` – **MyOCS.***
 
     A list of streams that match the query value populates the table below the Query Value field. Two streams appear in the table:
 
@@ -40,7 +47,8 @@ In this step, add the streams that you want to include in your data view.
 
     **Note:** 
 
-    - You can switch to searching for assets instead of streams by choosing **Assets** as the **Query Type**. 
+    - You can switch to searching for assets instead of streams by choosing **Assets** as the **Query Type**.
+     
     - It is possible to define additional queries to include other streams by clicking **Add Query**. For the purpose of this exercise, we will not add more streams.
 
     ![Add Data View](images/add-data-view.png)
