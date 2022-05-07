@@ -3,11 +3,7 @@ uid: gsDataViews
 ---
 # Get started with data views
 
-Data  views allow you to use OSIsoft Cloud Services (OCS) data in external applications for visualization, data science, and analytics. For more information about data views, see the following:
-
-- [Data views](xref:ccDataViews)
-- [PI Integrators counterpart](xref:ccDataViews#data-views-pi-integrators)
-- [Data views best practices](xref:ccDataViews#data-views-bp)
+Data views allow you to use OSIsoft Cloud Services (OCS) data in external applications for visualization, data science, and analytics.
 
 ## Prerequisites 
 
@@ -17,18 +13,9 @@ Follow the [Get started with streams](xref:gsStreams) procedure and create a sec
 
 Follow the procedure below to create a data view and customize how the data is displayed and organized:
 
-1. [Add the data view](#add-data-view)
-2. [Change the data view shape](#change-shape)
-3. [Add data fields to the data view](#add-data-fields)
-4. [Remove data fields from the data view](#remove-data-fields)
-5. [Rename a column heading](#rename-column-heading)
-6. [Add stream names to the column headings](#add-stream-names)
-7. [Change the order of the fields](#change-field-order)
-8. [Specify the data view time range](#specify-time-range)
+### Step 1: Add the data view
 
-### <a name="add-data-view"></a>Step 1: Add the data view
-
-In this step, you add the streams that you want to include in your data view.
+In this step, add the streams that you want to include in your data view.
 
 1. Click the ![Menu icon](images/menu-icon.png) icon and click **Data Views** (under Analytics).
 
@@ -218,6 +205,12 @@ In this step, you set a default time range for the data view.
 1. Explore the different options to display your data. When you are satisfied with the data view preview, click **Save**. 
 
     You return to the `Data Views` page where you can see your new data view in the list.
+
+## Related links
+
+- [Data views](xref:ccDataViews)
+- [PI Integrators counterpart](xref:ccDataViews#data-views-pi-integrators)
+- [Data views best practices](xref:ccDataViews#data-views-bp)
     
 ## Next step
 
