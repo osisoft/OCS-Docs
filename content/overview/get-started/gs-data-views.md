@@ -7,7 +7,7 @@ Data views allow you to use OSIsoft Cloud Services (OCS) data in external applic
 
 ## Prerequisites 
 
-Follow the [Get started with streams](xref:gsStreams) procedure and create a second stream. Use the MyOCS.PumpState SDS type and name the stream *MyOCS.NorthAmerica.SLTC.PumpB*.
+Follow the <xref:gsStreams> procedure and create a second stream. Use the MyOCS.PumpState SDS type and name the stream `MyOCS.NorthAmerica.SLTC.PumpB`.
 
 ## Procedure
 
@@ -30,17 +30,18 @@ In this step, add the streams that you want to include in your data view.
 
 1. In the toolbar, click **Add Data View**.
 
-1. Enter the following in these fields:
+1. Enter the **Name** and **Description** for the data view:
 
-   - `Name`  – **MyOCS.DataView**
-   - `Description` – (Optional) Enter a description for the data view
+   - **Name**  – `MyOCS.DataView`
+   - **Description** – (Optional) Enter a description for the data view
 
-1. In the middle pane, enter the following to search for streams that match the query value:
+1. Enter a **Query Id**.
 
-   - `Query Id` – **MyOCS**
-   - `Query Value` – **MyOCS.***
+1. From **Query Type**, select **Streams**.
 
-    A list of streams that match the query value populates the table below the Query Value field. Two streams appear in the table:
+1. Query for the `MyOCS.NorthAmerica.SLTC.PumpA` and `MyOCS.NorthAmerica.SLTC.PumpB` streams by entering the following **Query Value**: `MyOCS.*`. Then select **Search**.
+
+    This query searches for streams that start with `MyOCS.` and end with any other string, as defined using the wildcard (`*`). A list of streams that match the query value populates the table below the Query Value field. Two streams appear in the table:
 
     - MyOCS.NorthAmerica.SLTC.PumpA
     - MyOCS.NorthAmerica.SLTC.PumpB
