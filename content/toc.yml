@@ -27,6 +27,7 @@
   - topicUid: gsAssets
   - topicUid: gsAssetTypes
   - topicUid: gsMetadataRules
+  - topicUid: gsDataViews
   - topicUid: gsStreamviews
   - topicUid: gsAssetRules
 - topicUid: DataManagement
