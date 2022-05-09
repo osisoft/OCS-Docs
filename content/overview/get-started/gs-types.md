@@ -16,13 +16,19 @@ To add a type, follow these steps:
 
 1. From the **Streams** dropdown list, select **Types**.
 
+1. Select **Add Stream**.
+
+1. Enter an **Id**.
+
+1. (Optional) Enter a **Name** and **Description**.
+
 1. Add four properties to the type. 
 
    Click **Add Property** to add a property to the type. Update each new property using the values from the table below.
 
    | Property | Key | Id | Name | Type | UOM | 
    |----------|-----|------|----|--|-----|
-   | Property One | &#10004;<sup>1</sup> | Timestamp | Timestamp | DateTime | -<sup>2</sup> | 
+   | Property One | &#10004; <sup>1</sup> | Timestamp | Timestamp | DateTime | - <sup>2</sup> | 
    | Property Two | - | Temperature | Temperature | Double | degree Celsius | 
    | Property Three | - | Pressure | Pressure | Double | kilogram per cubic meter | 
    | Property Four | - | Status | Status | String | - | 
