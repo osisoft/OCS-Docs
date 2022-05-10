@@ -18,7 +18,7 @@ To add a type, follow these steps:
 
 1. Select **Add Stream**.
 
-1. Enter an **Id**.
+1. Enter the following value as the **Id**: `MyData.PumpState`.
 
 1. (Optional) Enter a **Name** and **Description**.
 
@@ -41,9 +41,9 @@ To add a type, follow these steps:
 
 To explore information about the type you just created, follow these steps:
 
-1. Select the `MyData.PumpState` type, select **More Options** ![More Options](../../_icons/default/dots-vertical.svg) > **Manage Permissions**.
+1. Select the `MyData.PumpState` type. Then select **More Options** ![More Options](../../_icons/default/dots-vertical.svg) > **Manage Permissions**.
 
-    The `Manage Permissions for MyData.PumpState` window opens where you can override the default permissions and set permissions for the specific type. You must be assigned the Tenant Administrator role to configure the type permissions.
+    The `Manage Permissions for Type MyData.PumpState` window opens where you can override the default permissions and set permissions for the specific type. You must be assigned the Tenant Administrator role to configure the type permissions.
 
     Review the permissions for the `MyData.PumpState` type, and when you have finished exploring this window, select **Cancel** to continue. 
 

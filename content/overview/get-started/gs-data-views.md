@@ -7,7 +7,7 @@ Data views allow you to use OSIsoft Cloud Services (OCS) data in external applic
 
 ## Prerequisites 
 
-Follow the <xref:gsStreams> procedure and create a second stream. Use the MyOCS.PumpState SDS type and name the stream `MyOCS.NorthAmerica.SLTC.PumpB`.
+Follow the <xref:gsStreams> procedure and create a second stream. Use the `MyOCS.PumpState` SDS type and name the stream `MyOCS.NorthAmerica.SLTC.PumpB`.
 
 ## Procedure
 
@@ -21,6 +21,8 @@ Follow the procedure below to create a data view and customize how the data is d
 1. [Add stream names to the column headings](#step-6-add-stream-names-to-the-column-headings)
 1. [Change the order of the fields](#step-7-change-the-order-of-the-fields)
 1. [Specify the data view time range](#step-8-specify-the-data-view-time-range)
+<br>
+<br>
 
 ## Step 1: Add the data view
 
@@ -35,6 +37,20 @@ In this step, add the streams that you want to include in your data view.
    - **Name**  – `MyOCS.DataView`
    - **Description** – (Optional) Enter a description for the data view
 
+1. Select a **Data View Shape**.
+
+   By changing the data view shape, you can create a consistent table format for your data views. This step describes how to display the minimum properties or the full set of properties.
+
+   1. In the upper pane, find the **Data View Shape** field. Click **Narrow**.
+
+        The **Narrow** option removes all other columns from the table and displays only the following columns: Timestamp, Name, Field, and Value. The narrow data shape may be useful in ensuring a consistent table format for any data view. 
+
+   1. Click **Standard** before continuing to the next step. 
+
+      To edit the query or add additional streams with another query, click **Manage Queries.** <!-- This returns you to the `Manage Queries` page. -->
+
+   1. After you are finished editing or adding a query, click **Apply** or **Cancel and Return** to return to the<!-- `Configure Data View`--> configuration page. 
+
 1. Enter a **Query Id**.
 
 1. From **Query Type**, select **Streams**.
@@ -43,15 +59,16 @@ In this step, add the streams that you want to include in your data view.
 
     This query searches for streams that start with `MyOCS.` and end with any other string, as defined using the wildcard (`*`). A list of streams that match the query value populates the table below the Query Value field. Two streams appear in the table:
 
-    - MyOCS.NorthAmerica.SLTC.PumpA
-    - MyOCS.NorthAmerica.SLTC.PumpB
+    - `MyOCS.NorthAmerica.SLTC.PumpA`
+    - `MyOCS.NorthAmerica.SLTC.PumpB`
 
-    **Note:** 
+    **Notes:** 
 
     - You can switch to searching for assets instead of streams by choosing **Assets** as the **Query Type**.
      
     - It is possible to define additional queries to include other streams by clicking **Add Query**. For the purpose of this exercise, we will not add more streams.
 
+    <!-- Update image -->
     ![Add Data View](images/add-data-view.png)
 
 1. Click **Save** to save the data view and open the <!--`Configure Data View` --> next page where you configure the data view.
