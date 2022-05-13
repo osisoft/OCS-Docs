@@ -1,24 +1,26 @@
-- name: Recommended workflow - Define a data view
-  topicHref: rec-workflow.md
-- name: Define queries
-  topicHref: define-queries.md
-- name: Identify data items
-  topicHref: data-items-and-groups.md
-- name: Retrieve available field sets
-  topicHref: available-field-sets.md
-- name: Define data field sets
-  topicHref: field-sets.md
-- name: Data view shape
-  topicHref: data-view-shape.md
-- name: Group data items
-  topicHref: group-data-items.md
 - name: Add identifying field
   topicHref: add-identifying-field.md
 - name: Consolidate data fields
   topicHref: consolidate-data-fields.md
-- name: View field mappings
-  topicHref: field-mappings.md
-- name: Display units of measure
-  topicHref: units-of-measure.md
+- name: Data view shape
+  topicHref: data-view-shape.md
+- name: Define data field sets
+  topicHref: field-sets.md
+- name: Define queries
+  topicHref: define-queries.md
 - name: Display calculated summaries
   topicHref: display-calculated-summaries.md
+- name: Display units of measure
+  topicHref: units-of-measure.md
+- name: Group data items
+  topicHref: group-data-items.md
+- name: Identify data items
+  topicHref: data-items-and-groups.md
+- name: Quick start define a data view
+  href: quick-start-define-a-data-view.md
+- name: Recommended workflow - Define a data view
+  topicHref: rec-workflow.md
+- name: Retrieve available field sets
+  topicHref: available-field-sets.md
+- name: View field mappings
+  topicHref: field-mappings.md
