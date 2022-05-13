@@ -26,7 +26,7 @@ The following table shows whether endpoint collections have an endpoint for acce
 | [Communities: Communities](xref:community-communities#accesscontrollist)<sup>1</sup> | &#10004; |
 | [Communities: Tenants](xref:community-tenants)<sup>1</sup> | &#10004; |
 | [Data collection](xref:omf-ingress-access-control) | &#10004; |
-| [Data views](xref:DataViewsAccessControlAPI) | &#10004; |
+| [Data views](xref:data-views-access-control) | &#10004; |
 | Identity and access management | ✘ |
 | Operations | ✘ |
 | [Rules: Asset rules](xref:assets-access-control-list) | &#10004; |
