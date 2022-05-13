@@ -30,11 +30,9 @@ and namespaces to your tenant.
 You must acquire an account before interacting with the OCS. 
 Go to the [OCS page on OSIsoft website](https://www.osisoft.com/pi-system/pi-cloud/osisoft-cloud-services), click [Contact Us](https://www.osisoft.com/contact) and request an OCS account.
 
-
 ## API console
 
 For information on the graphical interface for using the REST API within OCS, see [API console](xref:apiConsole).
-
 
 ## Architecture
 
@@ -43,7 +41,7 @@ A tenant represents the set of services, applications, data, and configuration s
 Tenants are divided into one or more logical units called Namespaces. Each Namespace is distinct and separate from 
 other Namespaces with its own instances of the various OSIsoft Cloud Services and data stores. Namespaces provide isolation of resources. 
 
-Namespaces are provisioned within a region. The Namespace's services and data stores all exist in the Namespace's region. Resources allocated to a Namespace are isolated to the Namespace's region. For more information on regions see the [Namespace](xref:AccountNamespace_1) documentation.  Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
+Namespaces are provisioned within a region. The Namespace's services and data stores all exist in the Namespace's region. Resources allocated to a Namespace are isolated to the Namespace's region. For more information on regions see the [Namespace](xref:tenant-namespaces) documentation.  Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
 
 OSIsoft Cloud Services provides data residency via namespaces in the following regions:
 
@@ -52,22 +50,24 @@ OSIsoft Cloud Services provides data residency via namespaces in the following r
 | WestUS | Americas | California |
 | WestEurope | Europe | Netherlands |
 
-Tenant account information is stored in all regions for read-only purposes. Write operations are only supported through the global base URL. See the [Tenant](xref:AccountTenant) documentation for information on how to access this data.
-
+Tenant account information is stored in all regions for read-only purposes. Write operations are only supported through the global base URL. See the <xref:regional-endpoints-ocs> documentation for information on how to access this data.
 
 ## OCS API versioning
 
 New versions of the API are released when major changes occur in the OCS API. When a newer version of the API is released, 
 the legacy version of the API will only be supported for a period of time. We encourage all users to switch to the 
 newer version as soon as possible. Versions are inline in the routes, following the host:
-```text
-    api/v{version}/Tenants/{tenantId}/Namespaces/{namespaceId}/...  
-```
-Where:  
-* version is an incrementally (singular) increasing integer value 
 
-* v{version}-preview will be used to expose beta functionality
+```text
+api/v{version}/Tenants/{tenantId}/Namespaces/{namespaceId}/...  
+```
+
+Where:  
+
+- version is an incrementally (singular) increasing integer value 
+- v{version}-preview will be used to expose beta functionality
 
 The currently supported versions are:
-* v1
-* v1-preview
+
+- v1
+- v1-preview
