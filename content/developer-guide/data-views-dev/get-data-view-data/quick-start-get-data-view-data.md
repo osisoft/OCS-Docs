@@ -4,7 +4,7 @@ uid: DataViewsQuickStartGetData
 
 # Get data view data
 
-You retrieve data view data with the [Data API](xref:DataViewsDataAPI). This topic explains the concepts and workflow to retrieve data view data.
+You retrieve data view data with the <xref:data-views-data-views-data> endpoint. This topic explains the concepts and workflow to retrieve data view data.
 
 ## General concepts
 

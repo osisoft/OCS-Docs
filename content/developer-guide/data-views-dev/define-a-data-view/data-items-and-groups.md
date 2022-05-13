@@ -35,11 +35,11 @@ The resource type `asset` has the following available fields:
 
 ### Adding or removing data items
 
-When requesting for [resolved data items](xref:ResolvedDataViewAPI) or when [getting the data view data](xref:DataViewsDataAPI), the list of data items reflects the list of OCS resources that match one or more queries when the data view was last resolved. This means that if new data items, such as new streams or assets, were added or existing data items were removed, the list of data items will only reflect the latest changes if the data view is re-resolved. For more information, refer to the caching section in the [Get resolved data view](xref:ResolvedDataView) topic.
+When requesting for [resolved data items](xref:data-views-data-views-resolved) or when [getting the data view data](xref:data-views-data-views-data), the list of data items reflects the list of OCS resources that match one or more queries when the data view was last resolved. This means that if new data items, such as new streams or assets, were added or existing data items were removed, the list of data items will only reflect the latest changes if the data view is re-resolved. For more information, refer to the caching section in <xref:data-views-data-views-resolved>.
 
 ## Ineligible data items
 
-The collection of ineligible data items represents OCS resources that match the queries but cannot be included in the data view. A data item is ineligible if it does not contain at least one eligible non-key [data item field](xref:ResolvedDataView#dataitemfield).
+The collection of ineligible data items represents OCS resources that match the queries but cannot be included in the data view. A data item is ineligible if it does not contain at least one eligible non-key [data item field](xref:data-views-data-views-resolved#dataitemfield).
 
 A data item field is ineligible if its index is not appropriate for the data view, or if the field has an SdsTypeCode that may not be included in data views.
 

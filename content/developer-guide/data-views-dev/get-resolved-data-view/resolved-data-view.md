@@ -9,17 +9,25 @@ A resolved data view is used to describe the output of a data view at the time i
 ## General concepts
 
 ### What does resolving mean?
+
 A data view specifies `.Queries` to find data items, `.GroupingFields` (optionally) to group those data items into groups, and `.FieldSets` to include fields of data into the data view. *Resolving* the data view means the data views engine executes those queries and computes how the resulting data items will form a data view.
 
 ### What resolved information is available?
-- [Data items, ineligible data items, and the groups they form](xref:DataViewsDataItemsandGroups) - OCS resources retrieved by the data view query
+
+- [Data items, ineligible data items, and the groups they form](xref:DataViewsDataItemsandGroups) 
+
+- OCS resources retrieved by the data view query
+
 - [Available field sets](xref:DataViewsAvailableFieldSets) - fields which are present on the data items but not included in the data view
+
 - [Field mappings](xref:DataViewsFieldMappings) - details of the data behind each group of each field
+
 - [Statistics](xref:ResolvedDataView#statistics) about how the view resolved
 
-These are available via the [Resolved Data View API](xref:ResolvedDataViewAPI). The relevant [object types](xref:ResolvedDataView#object-types) are described below.
+These are available from the <xref:data-views-data-views-resolved> endpoint. The relevant [object types](xref:ResolvedDataView#object-types) are described below.
 
 #### Paged collections
+
 Some of this information is exposed as paged collections, which accept parameters controlling `skip` and `count` within the collection. 
 
 Paged responses include a `Link` header, with a hyperlink to the first page of results. If the results extend into an additional page, a hyperlink to the next page will also be included in the `Link` header.
@@ -27,36 +35,45 @@ Paged responses include a `Link` header, with a hyperlink to the first page of r
 Using these hyperlinks is the recommended method of paging. Alternatively, constructing paging links by manually incrementing the `skip` is allowable, though in this case it is recommended to specify cache behavior of "preserve". In addition, `Next-Page` and `First-Page` headers are provided for applications that do not support the `Link` header. The values for these headers are identical to the hyperlinks from the `Link` header.
 
 ### How is a data view resolved?
+
 Data views resolve on a per user basis. Data views respect the permissions on underlying data items such as streams and assets. For example, if a user does not have read access to a particular stream in SDS, then that stream is not visible from data views.
 
 As a consequence, different users may see different collections of data items resolve for a data view. This is by design.
 
 ### When is a data view resolved?
+
 Each data view is resolved as needed for each user: upon request of any resolved information or data view data. In certain cases, a cached version is retrieved if available. 
 
 This is evident when accessing the resolved information. It is contained in `ResolvedItem<T>/ResolvedItems<T>` container types which have a `.TimeOfResolution` property.
 
 #### Controlling the cache behavior
+
 By default: 
+
 - accessing resolved information will retrieve a cached version if available: *preserve* the cache
+
 - requesting a first page of data will cause the data view to re-resolve: *refresh* the cache
 
 These defaults are overridable on each API call.
-See the [Resolved Data View API](xref:ResolvedDataViewAPI) and [Getting Data](xref:DataViewsQuickStartGetData) for details.
+
+See <xref:data-views-preview-data-views-resolved> and [Getting Data](xref:DataViewsQuickStartGetData) for details.
 
 The defaults are intended to strike a balance between predictability and freshness. When retrieving the various resolved information that is available, you will not cause regeneration (and possible changes) simply by viewing the resolved information. This is useful when diagnosing a data view that is not returning the data you expect.
 
 #### Invalidation
+
 If the data view is modified, any cached information is reset. The data view will be re-resolved the next time that information is requested.
 
 No guarantee is made of the durability or lifespan of cached information. It may be reset by the system for maintenance reasons.
 
 #### Paging through data
-When using the [Data API](xref:DataViewsDataAPI) to page through data view data, the cache is automatically preserved on all pages after the first. This ensures consistency while paging through view data: if the view were re-resolved between pages, it might resolve differently (e.g. new streams just added to SDS) and return unpredictable results. The documentation on [Getting Data](xref:DataViewsQuickStartGetData) describes how the paging token helps guarantee consistency.
+
+When using [Data Views](xref:data-views-data-views) endpoint to page through data view data, the cache is automatically preserved on all pages after the first. This ensures consistency while paging through view data: if the view were re-resolved between pages, it might resolve differently (e.g. new streams just added to SDS) and return unpredictable results. The documentation on [Getting Data](xref:DataViewsQuickStartGetData) describes how the paging token helps guarantee consistency.
 
 ## Object types
 
 ### ResolvedItems<T>
+
 Holds a collection of items that were resolved at a specific time
 |Property | Type | Details |
 |--|--|--|--|--|
@@ -64,6 +81,7 @@ Holds a collection of items that were resolved at a specific time
 | TimeOfResolution | DateTimeOffset | The time the collection of items was resolved |
 
 ### ResolvedItem<T>
+
 Holds an item that was resolved at a specific time.
 
 |Property | Type | Details |
@@ -72,12 +90,14 @@ Holds an item that was resolved at a specific time.
 | TimeOfResolution | DateTimeOffset | The time the item was resolved |
 
 ### CacheBehavior enumeration
+
 |Name| Enumeration Id | Description  |
 |--|--|--|
 | Preserve | 1 | Use cached resource values |
 | Refresh | 2 | Re-resolve the resource values |
 
 ### DataItem
+
 An OCS resource retrieved by the data view query.
 
 |Property | Type | Details |
@@ -93,6 +113,7 @@ An OCS resource retrieved by the data view query.
 | IneligibleDataItemFields | IReadOnlyList<DataItemField> | Data fields assigned to the data item that are not supported by data views
 
 ### MetadataValue
+
 Individual metadata value from the metadata list of a `DataItem`.
 
 |Property | Type | Details |
@@ -104,6 +125,7 @@ Individual metadata value from the metadata list of a `DataItem`.
 | Uom | string | The metadata value's unit of measurement identifier
 
 ### DataItemResourceType enumeration
+
 Describes the resource type of a data item.
 
 |Name| Enumeration Id | Description  |
@@ -112,6 +134,7 @@ Describes the resource type of a data item.
 | Asset | 2 | An asset |
 
 ### DataItemField
+
 A field of a data item where values come from.  
 Within a data item of resource kind `.Stream`, this corresponds to a stream property. For a data item of resource kind `.Asset`, this corresponds to a property associated with an asset stream reference.
 
