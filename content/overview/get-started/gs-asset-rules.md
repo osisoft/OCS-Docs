@@ -36,7 +36,7 @@ To create a new asset rule, follow the steps in the these procedures.
 
 5. [Preview assets](#preview-assets): Display a preview of the assets that will be created by this rule. 
 
-For more information about asset rules, see [Asset rules](xref:ccAssetRules).
+For more information about asset rules, see [Asset rules](xref:AssetRules).
 
 ## Create a new asset rule 
 

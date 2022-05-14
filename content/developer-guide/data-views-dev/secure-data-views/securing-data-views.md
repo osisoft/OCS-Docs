@@ -13,7 +13,7 @@ The data views collection access control list is used to control which users and
 
 The data views collection access control list also determines the default access control list for individual data views. Note that changing the collection level access control list does not affect existing data views as the collection level access control list is only used when the data view is first created. Once the data view exists, data view level access control is managed independently of collection level access control. See Data Views Access Control for more information on securing individual data views.
 
-When a namespace is first created, the data views collection access control list will default to the access control list for the entire namespace. Use the API routes in [Access Control API](xref:DataViewsAccessControlAPI) to view and update the data views collection access control list. Only users and clients with `ManageAccessControl` rights on the data views collection are authorized to view and update the collection-level access control list.
+When a namespace is first created, the data views collection access control list will default to the access control list for the entire namespace. Use the API routes in <xref:data-views-access-control> to view and update the data views collection access control list. Only users and clients with `ManageAccessControl` rights on the data views collection are authorized to view and update the collection-level access control list.
 
 ## Data view access control
 Data views are secured individually. This allows granular control over who can see which data view, in order to restrict access to sensitive or compartmentalized information.
@@ -36,4 +36,4 @@ The access control rights of each data item, such as a [stream](xref:sdsStreams)
 
 When you inspect the _data items_ that resolve for a data view, you see only the data items that you have `Read` access to.
 
-Configuring access control for streams and assets is similar to configuring data views. See the [Role-based access control](xref:accessControl), [streams](xref:sdsStreams), and [assets](xref:AssetOrAssetTypeAccessControlAPI) sections for more information.
+Configuring access control for streams and assets is similar to configuring data views. See the [Role-based access control](xref:accessControl), [streams](xref:sdsStreams), and [assets access control list](xref:assets-access-control-list) for more information.

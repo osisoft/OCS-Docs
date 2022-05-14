@@ -4,7 +4,7 @@ uid: GetDataViewDataRecommendedWorkflow
 
 # Recommended workflow: Get data view data
 This is an introduction to the recommended workflow to get data from a data view. The following sections show how to carry out each required step.
-For detailed information about the source behind each data field, see the [Data API reference](xref:DataViewsDataAPI). For detailed information about the source of each field's data, see the data view's resolved field mappings.
+For detailed information about the source behind each data field, see <xref:data-views-data-views-data>. For detailed information about the source of each field's data, see the data view's resolved field mappings.
 
 To get data view data:
 

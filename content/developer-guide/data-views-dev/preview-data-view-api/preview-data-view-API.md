@@ -12,13 +12,13 @@ The preview data view API provides the users with the flexibility to work and qu
 Below data view API routes are available to be used as preview routes:
 
 1. Resolved preview routes
-    - See [Get Data Items by Query](xref:ResolvedDataViewPreviewAPI#get-data-items-by-query).
-    - See [Get Ineligible Data Items by Query](xref:ResolvedDataViewPreviewAPI#get-ineligible-data-items-by-query).
-    - See [Get Groups](xref:ResolvedDataViewPreviewAPI#get-groups).
-    - See [Get Available Field Sets](xref:ResolvedDataViewPreviewAPI#get-available-field-sets).
-    - See [Get Field Mappings](xref:ResolvedDataViewPreviewAPI#get-field-mappings).
-    - See [Get Statistics](xref:ResolvedDataViewPreviewAPI#get-statistics).
-2. See [Get Data View Data](xref:data-views-preview-data-views-data).
+    - See [Get Data Items by Query](xref:data-views-preview-data-views-resolved#get-data-items-by-query).
+    - See [Get Ineligible Data Items by Query](xref:data-views-preview-data-views-resolved#get-ineligible-data-items-by-query).
+    - See [Get Groups](xref:data-views-preview-data-views-resolved#get-groups).
+    - See [Get Available Field Sets](xref:data-views-preview-data-views-resolved#get-available-field-sets).
+    - See [Get Field Mappings](xref:data-views-preview-data-views-resolved#get-field-mappings).
+    - See [Get Statistics](xref:data-views-preview-data-views-resolved#get-statistics).
+2. See [Get Data View Data](xref:data-views-data-views-data).
 
 ### When to use the preview routes?
 * The preview API is useful for testing how all resources will resolve for the data view. These include data included in the data view, its source, and its destination. 
