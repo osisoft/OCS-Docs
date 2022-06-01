@@ -8,7 +8,7 @@ The **Health** page displays the health status of each service, namespace, and c
 
 ## Service Health
 
-**Service Health** includes a health status for each service and namespace includes in your OCS tenant. For more information about each icon, see [Statuses](#statuses).
+**Service Health** includes a health status for each service and namespace included in your OCS tenant. For more information about each icon, see [Statuses](#statuses).
 
 ## Community Health
 
