@@ -20,6 +20,6 @@ The **Health** page, accessible from the **Home** page by selecting **System Hea
 |--|--|
 | ![Okay icon](../_icons/custom/check-circle.svg) | Ok |
 | ![Warning icon](../_icons/custom/alert.svg) | Warning |
-| ![Alarm icon](../_icons/custom/close-octagon.svg) | Bad |
-| ![Unknown icon](../_icons/branded/help-box.svg) | Unknown |
+| ![Alarm icon](../_icons/custom/close-circle.svg) | Bad |
+| ![Unknown icon](../_icons/custom/help-circle.svg) | Unknown |
 | **N/A** | Service not detected |
