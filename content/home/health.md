@@ -12,7 +12,7 @@ The **Health** page displays the health status of each service, namespace, and c
 
 ## Community Health
 
-**Community Health** includes a health status for [communities](xref:communities). This table indicates whether you can successfully share or view community data in a geographical region. For more information about each icon, see [Statuses](#statuses).
+**Community Health** includes a health status for [communities](xref:communities). For more information about each icon, see [Statuses](#statuses).
 
 ## Statuses
 
