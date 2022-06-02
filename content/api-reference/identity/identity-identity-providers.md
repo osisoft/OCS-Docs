@@ -1632,7 +1632,7 @@ MultiStatusResponse objects returned in a 207 response.
 |OperationId|string|false|true|Identifier of the operation that resulted in this error.|
 |Error|string|false|true|Message describing the error.|
 |Reason|string|false|true|Reason that caused the error.|
-|ChildErrors|[[MultiStatusResponseChildError2](#schemamultistatusresponsechilderror2)]|false|true|List of child errors.|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors.|
 |Data|[[IdentityProviderGroupMappings](#schemaidentityprovidergroupmappings)]|false|true|Data representing groups.|
 
 ```json
@@ -1646,10 +1646,7 @@ MultiStatusResponse objects returned in a 207 response.
       "Error": "string",
       "Reason": "string",
       "Resolution": "string",
-      "DynamicProperties": {
-        "property1": null,
-        "property2": null
-      },
+      "EventId": "string",
       "StatusCode": 0,
       "ModelId": "string",
       "property1": null,
@@ -1668,47 +1665,6 @@ MultiStatusResponse objects returned in a 207 response.
       ]
     }
   ]
-}
-
-```
-
----
-
-### MultiStatusResponseChildError2
-
-<a id="schemamultistatusresponsechilderror2"></a>
-<a id="schema_MultiStatusResponseChildError2"></a>
-<a id="tocSmultistatusresponsechilderror2"></a>
-<a id="tocsmultistatusresponsechilderror2"></a>
-
-ChildError objects returned in a 207 response
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|true|false|Operation identifier of action that caused the error|
-|Error|string|true|false|Error description|
-|Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution to resolve the error|
-|DynamicProperties|object|false|true|Additional properties|
-|StatusCode|int32|false|false|Http status code|
-|ModelId|string|false|true|Model identifier|
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "DynamicProperties": {
-    "property1": null,
-    "property2": null
-  },
-  "StatusCode": 0,
-  "ModelId": "string",
-  "property1": null,
-  "property2": null
 }
 
 ```

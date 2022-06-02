@@ -407,6 +407,7 @@ DELETE /api/v1/Tenants/{tenantId}/DeviceCodeClients/{clientId}
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
+|409|[ErrorResponse](#schemaerrorresponse)|Found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 <h3>Authorization</h3>
