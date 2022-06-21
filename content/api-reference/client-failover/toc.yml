@@ -1,6 +1,10 @@
-- href: client-failover.md 
-- href: client-failover-groups.md 
-- href: client-sessions.md 
-- href: collection-access-control.md 
-- href: group-access-control.md 
-
+- name: Client failover
+  href: client-failover.md
+- name: Client failover groups
+  href: client-failover-groups.md
+- name: Client sessions
+  href: client-sessions.md
+- name: Collection access control
+  href: collection-access-control.md
+- name: Group access control
+  href: group-access-control.md
