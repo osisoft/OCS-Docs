@@ -21,15 +21,15 @@ GET /api/v1/Tenants/{tenantId}/Features
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)[]|An array of all `Feature`s for the tenant with identifier `tenantId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not retrieve the specified `FeatureState`s due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
@@ -73,16 +73,16 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string id`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#featurestateId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string id`
+<br/>The identifier of the `FeatureState`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)|The state of the `Feature` for the tenant with identifier `tenantId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not retrieve the specified `FeatureState` due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
