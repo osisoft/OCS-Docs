@@ -66,7 +66,7 @@ GET /api/v1/ServiceBlog/Entries/{id}
 <h4>Parameters</h4>
 
 `string id`
-<br/>Service blog identifier.<br/><br/>
+<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#blogId<br/><br/>
 
 <h3>Response</h3>
 
@@ -105,12 +105,12 @@ Representation of a server-side database interpretation of a blog.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|IsDeleted|boolean|false|false|Value indicating whether boolean flag that represents the blog entry's soft delete status.|
-|Id|int32|false|false|Identifier for the blog entry.|
-|TimePosted|date-time|false|false|Recorded timestamp managed by the blog editor.|
-|Title|string|false|true|Title of the blog entry.|
-|Content|string|false|true|Content body of the blog entry. This is where the details of the blog entry are located.|
-|Author|string|false|true|Author who created the blog entry.|
+|IsDeleted|boolean|false|false|Gets or sets a value indicating whether this instance is deleted.|
+|Id|int32|false|false|Gets or sets the identifier.|
+|TimePosted|date-time|false|false|Gets or sets the time posted.|
+|Title|string|false|true|Gets or sets the title.|
+|Content|string|false|true|Gets or sets the content.|
+|Author|string|false|true|Gets or sets the author.|
 
 ```json
 {

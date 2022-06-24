@@ -21,15 +21,15 @@ GET /api/v1/Tenants/{tenantId}/Features
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)[]|An array of all `Feature`s for the tenant with identifier `tenantId`.|
-|400|None|Missing or invalid inputs.|
-|403|None|Forbidden.|
+|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
+|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
 
 <h4>Example response body</h4>
 
@@ -73,16 +73,16 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string id`
-<br/>Feature state identifier.<br/><br/>
+<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string id`
+<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#featurestateId<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)|The state of the `Feature` for the tenant with identifier `tenantId`.|
-|400|None|Missing or invalid inputs.|
-|403|None|Forbidden.|
+|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
+|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
 
 <h4>Example response body</h4>
 
@@ -123,8 +123,8 @@ Representation of a server-side database interpretation of a feature state.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Feature|[Feature](#schemafeature)|false|true|The feature to which the feature state corresponds.|
-|CurrentState|int32|false|false|Current state of the feature.|
+|Feature|[Feature](#schemafeature)|false|true|Gets or sets the feature.|
+|CurrentState|int32|false|false|Gets or sets the current state of the feature.|
 
 ```json
 {
@@ -154,10 +154,10 @@ Representation of a server-side database interpretation of a feature.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Identifier of this feature.|
-|Name|string|false|true|Name of the feature.|
-|Description|string|false|true|Description of the feature.|
-|DefaultState|int32|false|false|Default state of the feature.|
+|Id|string|false|true|Gets or sets the identifier.|
+|Name|string|false|true|Gets or sets the name.|
+|Description|string|false|true|Gets or sets the description.|
+|DefaultState|int32|false|false|Gets or sets the default state.|
 
 ```json
 {

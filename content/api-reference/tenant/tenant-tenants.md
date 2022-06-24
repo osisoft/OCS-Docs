@@ -21,14 +21,14 @@ GET /api/v1/Tenants/{tenantId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[TenantWithProperties](#schematenantwithproperties)|The `Tenant` with Id `tenantId`.|
-|400|None|Missing or invalid inputs.|
+|400|None|Could not retrieve the specified `TenantWithProperties`s due to missing or invalid input.|
 |403|None|Forbidden.|
 
 <h4>Example response body</h4>
@@ -92,15 +92,15 @@ HEAD /api/v1/Tenants/{tenantId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|HTTP 200 status code if a `Tenant` with `tenantId` exists.|
-|400|None|Missing or invalid inputs.|
-|404|None|Client or tenant not found.|
+|204|None|HTTP 204 status code if a `Tenant` with `tenantId` exists.|
+|400|None|Could not check the `Tenant` due to missing or invalid input.|
+|404|None|Not Found.|
 
 <h3>Authorization</h3>
 
@@ -126,7 +126,7 @@ PUT /api/v1/Tenants/{tenantId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -161,7 +161,7 @@ The updated details of the Tenant.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Tenant](#schematenant)|The updated `Tenant` with Id `tenantId`.|
-|400|None|Missing or invalid inputs.|
+|400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
@@ -217,14 +217,14 @@ GET /api/v1/Tenants/{tenantId}/Icon
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|The icon associated with the `Tenant`.|
-|400|None|Missing or invalid inputs.|
+|400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 
 <h3>Authorization</h3>
@@ -240,7 +240,7 @@ Allowed for these roles:
 
 <a id="opIdTenant_Create Or Update Tenant Icon"></a>
 
-Creates or updates the icon for a `Tenant`. Note that the icon size must be less than `65536`.
+Creates or updates the icon for a `Tenant`. Note that the icon size must be less than ExtendedSystemController.MaxIconSizeInBytes bytes in size.
 
 <h3>Request</h3>
 
@@ -251,7 +251,7 @@ PUT /api/v1/Tenants/{tenantId}/Icon
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -266,7 +266,7 @@ The Base64 encoded PNG icon for the Tenant.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|string|The updated icon associated with the `Tenant`.|
-|400|None|Missing or invalid inputs.|
+|400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
@@ -294,14 +294,14 @@ DELETE /api/v1/Tenants/{tenantId}/Icon
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|string|HTTP status code: 200 on successful deletion or another HTTP status codes on failure.|
-|400|None|Missing or invalid inputs.|
+|204|string|HTTP status code: 204 on successful deletion or another HTTP status codes on failure.|
+|400|None|Could not delete the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
@@ -329,7 +329,7 @@ GET /api/v1/Tenants/{tenantId}/Regions
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
@@ -337,7 +337,7 @@ GET /api/v1/Tenants/{tenantId}/Regions
 |---|---|---|
 |200|[RegionBase](#schemaregionbase)|The `RegionBase` list associated with the `Tenant`.|
 |403|None|Forbidden.|
-|404|None|Client or tenant not found.|
+|404|None|Not Found.|
 
 <h4>Example response body</h4>
 
@@ -369,20 +369,22 @@ Allowed for these roles:
 <a id="tocStenantwithproperties"></a>
 <a id="tocstenantwithproperties"></a>
 
+Tenant with entitlements.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Identifier of this tenant.|
-|CompanyName|string|false|true|Company name of this tenant.|
-|State|[TenantProvisioningState](#schematenantprovisioningstate)|false|false|Current tenant provisioning state for this tenant.|
-|Created|date-time|false|false|Date and time this tenant was added to the system.|
-|LastUpdated|date-time|false|false|Date this tenant was last updated.|
-|Alias|string|false|true|Specifies a unique alias for this tenant.|
-|Features|[[FeatureState](#schemafeaturestate)]|false|true|List of feature states for this tenant. Returned during GET methods.|
-|ExternalAccountId|string|false|true|External account identifier for this tenant.|
+|Id|string|false|true|Gets or sets the identifier.|
+|CompanyName|string|false|true|Gets or sets the name of the company.|
+|State|[TenantProvisioningState](#schematenantprovisioningstate)|false|false|Gets or sets the state.|
+|Created|date-time|false|false|Gets or sets the date of tenant creation in database.|
+|LastUpdated|date-time|false|false|Gets or sets the last updated.|
+|Alias|string|false|true|Gets or sets the alias.|
+|Features|[[FeatureState](#schemafeaturestate)]|false|true|Gets or sets the features.|
+|ExternalAccountId|string|false|true|Gets or sets the external account identifier.|
 |TenantType|string|false|true|Gets or sets tenant type.|
-|Entitlements|[[TenantEntitlementInstance](#schematenantentitlementinstance)]|false|true|[An instance of an entitlement.]|
+|Entitlements|[[TenantEntitlementInstance](#schematenantentitlementinstance)]|false|true|Gets or sets the entitlements.|
 
 ```json
 {
@@ -461,8 +463,8 @@ Representation of a server-side database interpretation of a feature state.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Feature|[Feature](#schemafeature)|false|true|The feature to which the feature state corresponds.|
-|CurrentState|int32|false|false|Current state of the feature.|
+|Feature|[Feature](#schemafeature)|false|true|Gets or sets the feature.|
+|CurrentState|int32|false|false|Gets or sets the current state of the feature.|
 
 ```json
 {
@@ -492,10 +494,10 @@ Representation of a server-side database interpretation of a feature.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Identifier of this feature.|
-|Name|string|false|true|Name of the feature.|
-|Description|string|false|true|Description of the feature.|
-|DefaultState|int32|false|false|Default state of the feature.|
+|Id|string|false|true|Gets or sets the identifier.|
+|Name|string|false|true|Gets or sets the name.|
+|Description|string|false|true|Gets or sets the description.|
+|DefaultState|int32|false|false|Gets or sets the default state.|
 
 ```json
 {
@@ -526,7 +528,7 @@ An instance of an entitlement.
 |EntitlementType|[EntitlementType](#schemaentitlementtype)|false|false|Gets or sets the EntitlementType.|
 |LimitType|[LimitType](#schemalimittype)|false|false|Gets or sets the Limit type.|
 |Value|int32|false|false|Gets or sets the value.|
-|ManualBlockStatus|boolean|false|false|Gets or sets the status.|
+|ManualBlockStatus|boolean|false|false|Gets or sets a value indicating whether or not there is a manual block.|
 
 ```json
 {
@@ -591,14 +593,14 @@ Representation of a server-side database interpretation of a tenant.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Identifier of this tenant.|
-|CompanyName|string|false|true|Company name of this tenant.|
-|State|[TenantProvisioningState](#schematenantprovisioningstate)|false|false|Current tenant provisioning state for this tenant.|
-|Created|date-time|false|false|Date and time this tenant was added to the system.|
-|LastUpdated|date-time|false|false|Date this tenant was last updated.|
-|Alias|string|false|true|Specifies a unique alias for this tenant.|
-|Features|[[FeatureState](#schemafeaturestate)]|false|true|List of feature states for this tenant. Returned during GET methods.|
-|ExternalAccountId|string|false|true|External account identifier for this tenant.|
+|Id|string|false|true|Gets or sets the identifier.|
+|CompanyName|string|false|true|Gets or sets the name of the company.|
+|State|[TenantProvisioningState](#schematenantprovisioningstate)|false|false|Gets or sets the state.|
+|Created|date-time|false|false|Gets or sets the date of tenant creation in database.|
+|LastUpdated|date-time|false|false|Gets or sets the last updated.|
+|Alias|string|false|true|Gets or sets the alias.|
+|Features|[[FeatureState](#schemafeaturestate)]|false|true|Gets or sets the features.|
+|ExternalAccountId|string|false|true|Gets or sets the external account identifier.|
 |TenantType|string|false|true|Gets or sets tenant type.|
 
 ```json
@@ -641,10 +643,10 @@ Represents a region within an environment for customers to see.
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|Identifier for the region.|
-|Name|string|false|true|Name associated with the region.|
-|AdministrativeEndpointsWritable|boolean|false|false|Value indicating whether administrative endpoints are writable in the region.|
-|BaseAddress|string|false|true|Base address for the region.|
+|Id|string|false|true|Gets or sets the identifier.|
+|Name|string|false|true|Gets or sets the name.|
+|AdministrativeEndpointsWritable|boolean|false|false|Gets or sets a value indicating whether administrative endpoints are writable in a region.|
+|BaseAddress|string|false|true|Gets or sets the base address.|
 
 ```json
 {
