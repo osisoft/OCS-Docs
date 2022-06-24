@@ -66,7 +66,7 @@ GET /api/v1/ServiceBlog/Entries/{id}
 <h4>Parameters</h4>
 
 `string id`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#blogId<br/><br/>
+<br/>Used to identify which blog entry to return.<br/><br/>
 
 <h3>Response</h3>
 

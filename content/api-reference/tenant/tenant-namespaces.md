@@ -22,17 +22,17 @@ GET /api/v1/Tenants/{tenantId}/Namespaces
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 `[optional] string region`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#regionId<br/><br/>
+<br/>The identifier for the `RegionWithEntitlement`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Namespace](#schemanamespace)[]|An array of `Namespace` objects for the namespaces that belong to a tenant with `tenantId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not return the namespaces due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
@@ -96,16 +96,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Namespace](#schemanamespace)|The `Namespace` with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not return the namespace due to missing or invalid input.|
+|403|None|Forbidden.|
 |404|None|`Namespace` not found in the specified tenant.|
 
 <h4>Example response body</h4>
@@ -169,8 +169,8 @@ POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 `[optional] boolean isServerTest`
 <br/>This parameter is unused and will be removed in the next API version.<br/><br/>
 
@@ -216,8 +216,8 @@ The new Namespace to be created.<br/>
 |---|---|---|
 |201|[Namespace](#schemanamespace)|The created `Namespace`.|
 |302|None|Returns the location of the existing `Namespace` object.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not create the namespace due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 |409|None|A `Namespace` already exists with different values.|
 
@@ -281,8 +281,8 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -325,8 +325,8 @@ The new details to store for the Namespace.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Namespace](#schemanamespace)|The updated `Namespace` with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not udpate the namespace due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
@@ -390,8 +390,8 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 `[optional] boolean isServerTest`
 <br/>This parameter is unused and will be removed in the next API version.<br/><br/>
 
@@ -400,8 +400,8 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|HTTP status code: 200 on successful deletion or another HTTP status codes on failure.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#403.|
+|400|None|Could not delete the namespace due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h3>Authorization</h3>
@@ -428,16 +428,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The `AccessControlList` for the namespace with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not return the access control list due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
@@ -483,8 +483,8 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -511,8 +511,8 @@ The updated AccessControlList for the Namespace.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The updated `AccessControlList` for the namespace with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not update the access control list due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
@@ -559,16 +559,16 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Trustee](#schematrustee)|The `Trustee` for the namespace with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not return the namespace owner due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
@@ -606,8 +606,8 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>`string namespaceId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#namespaceId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
+<br/>The identifier of the `Namespace`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -626,8 +626,8 @@ The new owner's Trustee of the Namespace.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Trustee](#schematrustee)|The updated `Trustee` for the namespace with identifier `namespaceId`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not udpate the namespace owner due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>

@@ -21,15 +21,15 @@ GET /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The root `AccessControlList` for `Namespace`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not retrieve the `AccessControlList` due to missing or invalid input.|
+|403|None|Forbidden.|
 
 <h4>Example response body</h4>
 
@@ -68,7 +68,7 @@ PUT /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#tenantId<br/><br/>
+<br/>The identifier of the `Tenant`.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -95,8 +95,8 @@ The new root AccessControlList for Namespace s.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The new `AccessControlList` for `Namespace`.|
-|400|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#400|
-|403|None|#https://raw.githubusercontent.com/osisoft/OCS-Docs/main/content/external-references/common.yaml#403|
+|400|None|Could not udpate the `AccessControlList` due to missing or invalid input.|
+|403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
