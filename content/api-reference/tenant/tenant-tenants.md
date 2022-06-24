@@ -300,7 +300,7 @@ DELETE /api/v1/Tenants/{tenantId}/Icon
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|string|HTTP status code: 204 on successful deletion or another HTTP status codes on failure.|
+|204|None|HTTP status code: 204 on successful deletion or another HTTP status codes on failure.|
 |400|None|Could not delete the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
