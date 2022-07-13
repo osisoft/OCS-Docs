@@ -276,6 +276,7 @@ Updates the `Namespace` information for an active namespace: name, description, 
 
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
+?isServerTest={isServerTest}
 ```
 
 <h4>Parameters</h4>
@@ -283,6 +284,8 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
 <br/>The identifier of the `Namespace`.<br/><br/>
+`[optional] boolean isServerTest`
+<br/><br/>
 
 <h4>Request Body</h4>
 
