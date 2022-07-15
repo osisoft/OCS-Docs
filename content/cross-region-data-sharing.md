@@ -53,8 +53,6 @@ When you disable cross-region data sharing, any queries for namespace data are r
 
 1. Select the **Data Sharing** tab.
 
-1. Select **Edit**.
-
 1. Enable **Opt-out for Namespace** and select **Save**.
 
 	**Important!** If you opt out of cross-region data sharing for a namespace that includes streams shared with a community, you should also update the community preferred region setting. Using this setting, you can override the default region to explicitly choose where operational data is processed. For more information, see <xref:community-manage-preferred-region>.
