@@ -31,6 +31,8 @@ GET /api/v1/ServiceBlog/Entries
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ServiceBlogEntry](#schemaserviceblogentry)[]|An array of `ServiceBlogEntry` objects.|
+|400|None|Could not return the service blog entry due to missing or invalid input.|
+|422|None|Could not retrieve the specified `ServiceBlogEntry`s due to an inappropriate request (should not specify includeDeleted).|
 
 <h4>Example response body</h4>
 
@@ -73,6 +75,9 @@ GET /api/v1/ServiceBlog/Entries/{id}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[ServiceBlogEntry](#schemaserviceblogentry)|The `ServiceBlogEntry` with Id `id`.|
+|400|None|Could not return the service blog entry due to missing or invalid input.|
+|403|None|Forbidden.|
+|404|None|`ServiceBlogEntry` not found.|
 
 <h4>Example response body</h4>
 

@@ -285,7 +285,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 <br/>The identifier of the `Tenant`.<br/><br/>`string namespaceId`
 <br/>The identifier of the `Namespace`.<br/><br/>
 `[optional] boolean isServerTest`
-<br/><br/>
+<br/>Check if this request is just a test.<br/><br/>
 
 <h4>Request Body</h4>
 
