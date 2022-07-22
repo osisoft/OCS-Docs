@@ -4,5 +4,6 @@
         "MD025": {
             "front_matter_title": ""
         }
-    }
+    },
+    "workbench.experimental.editor.dropIntoEditor.enabled": true
 }

@@ -10,6 +10,7 @@
     - topicUid: viewProfile
     - topicUid: TenantDetails
     - topicUid: ResourceUsage
+    - topicUid: home-health
   - topicUid: gsNamespaces
   - topicUid: gsConnections
     items:
@@ -36,17 +37,20 @@
       items:
       - topicUid: bpNamespaces
       - topicUid: gpNamespaces
+      - topicUid: namespaces-manage-permissions
     - topicUid: lpstoredata
       items:
       - topicUid: ccStreams
         items:
-        - topicUid: bpStreams
-        - topicUid: gpStreams
-        - topicUid: manage-streams
+        - topicUid: streams-manage-streams
+        - topicUid: streams-add-tags-or-metadata
+        - topicUid: streams-share-streams
+        - topicUid: streams-manage-stream-permissions
       - topicUid: ccTypes
         items:
         - topicUid: bpTypes
         - topicUid: gpTypes
+        - topicUid: types-manage-permissions
       - topicUid: ccStreamviews
     - topicUid: communities
       items:
@@ -70,7 +74,7 @@
         - topicUid: community-remove-tenants
         - topicUid: community-edit
         - topicUid: community-delete
-        - topicUid: communities-manage-default-admins
+        - topicUid: community-manage-preferred-region
       - topicUid: community-tenant-administration
         items:
         - topicUid: community-remove-your-tenant
@@ -78,6 +82,7 @@
         - topicUid: community-manage-groups
         - topicUid: community-manage-clients
         - topicUid: community-manage-administrators
+        - topicUid: communities-manage-default-admins
       - topicUid: community-data-sharing
         items: 
         - topicUid: community-manage-shared-streams
@@ -93,6 +98,7 @@
         - topicUid: CreateAssetRules
         - topicUid: TokensGenerateAssets
         - topicUid: UsingMultipleRules
+        - topicUid: manage-asset-rules-permissions
 - topicUid: lpdatacollection
   items:
   - topicUid: SoftwareMgmt
@@ -134,6 +140,7 @@
       - topicUid: repair-agent 
       - topicUid: search-agent
       - topicUid: remove-agent-portal
+      - topicUid: manage-agent-permissions
     - topicUid: lp-logs
       items:
       - topicUid: view-logs
@@ -166,10 +173,12 @@
       items: 
       - topicUid: CreateConfigureAsset
       - topicUid: CreateAssetFromAssetType
+      - topicUid: manage-asset-permissions
     - topicUid: AssetTypes
       items:
       - topicUid: CreateAssetTypeWithEditor
       - topicUid: ConvertAssetToAssetType
+      - topicUid: manage-asset-type-permissions
     - topicUid: lprom
       items:
       - topicUid: GetStartedROM
@@ -181,27 +190,31 @@
       items:
       - topicUid: CreateDataView
       - topicUid: DataViewMaintenance
+      - topicUid: manage-data-views-permissions
     - topicUid: PowerBI
       items:
       - topicUid: PowerBIReleaseNotes
 - topicUid: Security
   items:
-    - topicUid: identityProviders
-    - topicUid: Groups
-    - topicUid: ccUsers
-      items:
-      - topicUid: gpUsers
-      - topicUid: UserMaintenance
-    - topicUid: ccRoles
-      items:
-      - topicUid: gpRoles
-      - topicUid: RolesMaintenance
-    - topicUid: ccClients
-      items:
-      - topicUid: gpClientCredentialsClient
-      - topicUid: gpHybridClient
-      - topicUid: gpAuthorizationCodeClient
-      - topicUid: ClientMaintenance
+  - topicUid: identityProviders
+  - topicUid: Groups
+  - topicUid: ccUsers
+    items:
+    - topicUid: gpUsers
+    - topicUid: UserMaintenance
+  - topicUid: ccRoles
+    items:
+    - topicUid: gpRoles
+    - topicUid: RolesMaintenance
+    - topicUid: roles-manage-permissions
+  - topicUid: ccClients
+    items:
+    - topicUid: gpClientCredentialsClient
+    - topicUid: gpHybridClient
+    - topicUid: gpAuthorizationCodeClient
+    - topicUid: ClientMaintenance
+  - topicUid: permissions-management
+  - topicUid: cross-region-data-sharing
 - topicUid: DeveloperTools
   items:
     - topicUid: samples

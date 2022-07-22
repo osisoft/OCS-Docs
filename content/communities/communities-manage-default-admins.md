@@ -6,6 +6,10 @@ uid: communities-manage-default-admins
 
 When you create or join a community, you are prompted to assign community administration permissions to one or more role within your tenant. By default, these permissions are assigned to two default system roles: Community Administrator and Tenant Administrator. However, you can update these default roles to any system role. For example, you can configure a custom system role named `Community Manager` as the default community administrator.
 
+## Prerequisites
+
+[!include[prereq-community-admin](includes/prereq-community-admin.md)]
+
 ## To manage default community administrators
 
 To manage default community administrators:

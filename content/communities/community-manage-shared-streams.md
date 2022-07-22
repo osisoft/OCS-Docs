@@ -18,23 +18,29 @@ User with permissions to share a data stream within a community can do so from t
 
 1. If it is not already selected, select **Streams** at the upper left.
 
-1. Select each stream that you want to share, and then select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Share Stream**.
+1. Select one or more stream to share with a community.
 
-    **Tips:** 
+1. From the right pane, select **Share Permissions**.
 
-    * Use the **Search for streams** field to search for specific streams. Use the wildcard operator (`*`) to return results that start or end with a particular phrase. For more information, see [Search in SDS](xref:sdsSearching).
+	**Tips:**
 
-    * When sharing a large numbers of streams, edit the **Items per page** dropdown to a value that accommodates the number of streams that you want to share.
+    - If you only have one stream selected, select **More options** ![More options icon](../_icons/default/dots-vertical.svg) > **Manage Permissions** instead.
 
-1. Select one or more community to share your streams with.
+    - If **Manage Permissions** is unavailable, you do not have permissions to share a selected stream. You must request permissions from a user that can manage stream permissions. For more information, see <xref:community-enable-stream-sharing-permissions>.
+
+    - Use the **Search for streams** field to search for specific streams. Use the wildcard operator (`*`) to return results that start or end with a particular phrase. For more information, see [Search in SDS](xref:sdsSearching).
+
+    - When sharing a large numbers of streams, edit the **Items per page** dropdown to a value that accommodates the number of streams that you want to share.
 
 1. Select **Select Communities**.
 
-1. From the list of communities, select the communities with which you want to share streams and select **Continue**. 
+    The `Communities` window opens.
+
+1. From the `Communities` window, select the communities that you want to share streams with and select **Continue**. 
 
     **Tip:** Use the **Filter Communities** field to find a specific community.
     
-1. To confirm that you want to share the streams with the chosen communities, select **Share**. From the **Share stream** window, select **Confirm**. Then select **Close**.
+1. To confirm that you want to share the streams with the chosen communities, select **Share**. From the **Share stream** window, select **Share**.
 
 The chosen streams are shared with the chosen communities. All members of the selected communities are able to read data from the shared streams.
 
@@ -74,9 +80,9 @@ To stop sharing streams with a community from `Sequential Data Store`:
 
 1. From the list of streams, select one or more to streams unshare. 
 
-1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Unshare Stream**. 
+1. Select the **Unshare Streams** button available in the right pane.
 
-    **Tip:** You can also unshare streams using the **Unshare Streams** buttons available in the right pane.
+    **Tip:** You can also unshare streams by selecting **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Unshare Stream**.
 
 1. When prompted for confirmation, select **Unshare**.
 

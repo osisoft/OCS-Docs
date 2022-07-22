@@ -14,9 +14,17 @@ Before data can be shared into a community and accessed by external tenants, a u
 
 	**Note:** If you only have one stream selected, select **More options** ![More options icon](../../_icons/default/dots-vertical.svg) > **Manage Permissions** instead.
 
-1. From **Select Role**, choose a role that you want to modify permissions for. Using the **Tenant Data Steward** role is recommended, but you can use any role.
+	The the `Manage Permissions for Streams` window opens.
 
-1. Select the **Allow** checkbox for the **Share** access type.
+1. For user roles that you want to have the ability to share data, update each **Share** permission dropdown list to **Allow**.
+
+	![Share permissions: Allow](../images/stream-permissions-share.png)
+
+	**Tips:**
+
+	- Using the **Tenant Data Steward** role is recommended, but you can use any role.
+
+	- For more information on this window, see [Manage Permissions window](xref:permissions-management#manage-permissions-window).
 
 1. Select **Save**.
 

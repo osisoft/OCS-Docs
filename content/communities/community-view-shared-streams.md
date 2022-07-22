@@ -32,6 +32,7 @@ From the `Communities` page **Tenants** tab, you can view which data streams eac
 
 1. From the right pane, select the **Streams** tab.
     
+214
     ![Tenant shared streams](images/communities-shared-streams.png)
 
     The **Streams** tab lists each data stream that the tenant shares with the community. 
@@ -46,7 +47,11 @@ When working from `Sequential Data Store`, you can view which data streams are s
 
 1. From the left panel, select **Data Management** > **Sequential Data Store**.
 
+<<<<<<< HEAD
+1. If necessary, enable the **Filter Communities** panel by selecting the **Filter** icon ![Filter icon](../_icons/branded/filter.svg).
+=======
 1. If necessary, enable the **Filter Communities** panel by selecting the **Filter** icon ![filter icon](../_icons/branded/filter.svg).
+>>>>>>> 00ef49f341c13ec8998d3698f03afb4b0f0ca7e2
 
 1. Select a community to filter for.
 

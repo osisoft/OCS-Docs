@@ -16,8 +16,9 @@ Roles are used to manage access to assets, resources, and services. By default, 
 
    **Note:** The Role Type is Tenant Custom for all custom (or non-default) roles. 
 
-You can now specify permissions for this role when managing permissions on assets, resources, and services.
+You can now specify permissions for this role when managing permissions on assets, resources, and services. For more information, see <xref:roles-manage-permissions>.
 
 ## Related links
 
-- [Tenants Roles](xref:identity-tenants-roles) API
+- <xref:roles-manage-permissions>
+- <xref:identity-tenants-roles>
