@@ -124,6 +124,10 @@ agentId:
   value: |
     Agent identifier.
 # OMF parameters
+omfConnectionId:
+  type: text/plain
+  value: |
+    OMF connection identifier.
 subscriptionId:
   type: text/plain
   value: |
