@@ -6,7 +6,7 @@ uid: CreateAssetTypeWithEditor
 
 For more information on asset types, see [Asset types](xref:AssetTypes).
 
-To create an asset type, follow these steps:
+To create an asset type:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
@@ -46,7 +46,7 @@ To create an asset type, follow these steps:
 
     You can only specify one property to determine the asset status, and that property must have enumerated states or string values.
 
-    **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
+    **Tip:** You can switch to a different property by clicking the ![Change property icon](../../../_icons/branded/swap-horizontal.svg) icon.
 
 1. For each value listed, select the status icon to map the value to a status. To add other values, select **Add Value Mapping**, enter the value, and select the corresponding status.
 
@@ -60,7 +60,7 @@ To create an asset type, follow these steps:
 
 1. Click the status icons to map the status (Good, Warning, Bad) for each value.
     
-    **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
+    **Tip:** You can switch to a different property by clicking the ![Change property icon](../../../_icons/branded/swap-horizontal.svg) icon.
     
 ## Save the asset type
 

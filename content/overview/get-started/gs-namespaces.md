@@ -12,7 +12,7 @@ The first task is to create a namespace, a logical unit of organization for data
 
 Creating a namespace is a resource-intensive operation. Therefore, you may prefer to use an existing namespace. In this procedure, the ID assigned to the namespace is *MyData*. Throughout the get started exercises, we refer to the namespace with this name. Substitute MyData with the name of an existing namespace or any other name you prefer.
 
-To create the *MyData* namespace, follow these steps:
+To create the *MyData* namespace:
 
 1. In the left pane, select **Data Management** > **Namespaces**.
 
@@ -26,7 +26,7 @@ To create the *MyData* namespace, follow these steps:
 
    **Note:** Once the namespace is created, the **Namespace Id** and **Region** fields cannot be changed.
 
-1. To see information about the namesplace, select the namespace, and then select the **Details** tab.  
+1. To see information about the namespace, select the namespace, and then select the **Details** tab.  
 
    - The tab shows the tenant Id, namespace Id, description, and region of the namespace. It also displays zero (0) in the **Type Count** and **Stream Count** fields.
 

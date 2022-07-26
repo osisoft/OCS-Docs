@@ -251,6 +251,6 @@ The following diagram depicts multiple streams organized into a data view that a
 
 1. Ordered and normalized data is then consumable by data science applications for in-depth analysis. 
 
-![](images/how-does-ocs-work/dataviews.jpg)
+![Data stream diagram](images/how-does-ocs-work/dataviews.png)
 
 **Note**: You can reference metadata defined in a metadata rule when creating a data view. This action will include all streams containing the specified metadata.

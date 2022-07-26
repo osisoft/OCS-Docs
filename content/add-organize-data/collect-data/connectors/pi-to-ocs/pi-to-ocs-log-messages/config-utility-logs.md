@@ -6,7 +6,7 @@ uid: config-utility-logs
 
 To view information about account related activity for PI to OCS Configuration Utility, you can view log information in the Windows Event Viewer. 
 
-To view the PI to OCS Configuration Utility logs, follow these steps:
+To view the PI to OCS Configuration Utility logs:
 
 1. Select Windows **Start**, then select **Windows Administrative Tools** > **Event Viewer**.
  

@@ -6,17 +6,17 @@ uid: gpMetadataRules
 
 Use metadata rules to identify groups of similar streams for analytical purposes. You select a stream name to use as a name pattern and assign metadata to selected stream name parts, such as a plant location or device category. The resulting stream name pattern with assigned metadata parts defines a metadata rule. Metadata rules assign defined metadata to all streams in a given namespace matching the stream name pattern defined in the rule.  
 
-(Optional) To copy a stream name for the basis of the metadata rule, follow these steps
+(Optional) To copy a stream name for the basis of the metadata rule:
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
 
 1. On the `Sequential Data Store` page, select **Streams**.
  
-1. Select the stream to use as the basis for the metadata rule and from the `Details` tab, copy its name.
+1. Select the stream to use as the basis for the metadata rule and from the **Details** tab, copy its name.
 
-To create a new metadata rule, follow these steps:
+To create a new metadata rule:
 
-1. In the left pane, select **Data Management** > **Metadata Rules**.
+1. In the left pane, select **Data Management** > **Stream Metadata Rules**.
 
 1. Select **Add Metadata Rule**.
  

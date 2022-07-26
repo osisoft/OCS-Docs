@@ -16,7 +16,7 @@ To use PI to OCS to transfer data from a PI System to OCS, you must complete the
 
 **Prerequisite:** The exercise below assumes that your organization has a PI System with default PI points (for example, `sinusoid`) stored on Data Archive.
 
-To set up a PI to OCS transfer, follow these steps:
+To set up a PI to OCS transfer:
 
 1. In the left pane, select **Data Collection** > **PI to OCS Agents**.
 

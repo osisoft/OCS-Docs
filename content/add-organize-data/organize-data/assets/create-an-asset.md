@@ -6,7 +6,7 @@ uid: CreateConfigureAsset
 
 Follow this procedure to create an asset, add and configure its metadata and properties, and select and configure a property whose status will be visible in the card or table view.
 
-To create an asset, follow these steps:
+To create an asset:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
@@ -60,7 +60,7 @@ To create an asset, follow these steps:
 
     You can only specify one property to determine the asset status, and that property must have enumerated states or string values.
 
-    **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
+    **Tip:** You can switch to a different property by clicking the ![Change property icon](../../../_icons/branded/swap-horizontal.svg) icon.
 
 1. For each value listed, select the status icon to map the value to a status. To add other values, select **Add Value Mapping**, enter the value, and select the corresponding status.
 

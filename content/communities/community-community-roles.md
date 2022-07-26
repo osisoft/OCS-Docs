@@ -12,13 +12,13 @@ Communities include the following roles, ordered from least privileged to most p
 
 The Community Member role is a role that can be shared among multiple tenants. This role is authorized to read any data shared in the community.
 
-When a new community is created, the founding tenant automatically adds a new Community Member role to the system, which is named using the following convention: **_\<Community Name\>_ Community Member**. For example, if you create a new community named **TEST COMMUNITY**, a new community role is added to the tenant named **TEST COMMUNITY Community Member**.
+When a new community is created, a new Community Member role is automatically added to the system, which is named using the following convention: `<Community Name> Community Member`. For example, if you create a new community named `Test Community`, a new community role is added to the tenant named `Test Community Community Member`.
 
-This new role is also shared with other tenants that join the community. For example, a tenant that joins **TEST COMMUNITY** will have the **TEST COMMUNITY Community Member** role added to their tenant as well. 
+This new role is also shared with other tenants that join the community. For example, a tenant that joins `Test Community` will have the `Test Community Community Member` role added to their tenant as well. 
 
 Users assigned the Community Member role have read permissions within the community by default. However, to allow community members to share data streams within a community, you must assign the Share permission for streams to their assigned tenant roles.
 
-- For more information on assigning the Community Member role to users (or un-assigning it), see <xref:community-manage-users>.
+- For more information on assigning the Community Member role to users (or unassigning it), see <xref:community-manage-users>.
 
 - For more information on the actions Community Members can perform, see <xref:community-data-sharing>.
 

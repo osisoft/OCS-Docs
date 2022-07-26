@@ -119,7 +119,15 @@ blogId:
   type: text/plain
   value: |
     Service blog identifier.
+agentId:
+  type: text/plain
+  value: |
+    Agent identifier.
 # OMF parameters
+omfConnectionId:
+  type: text/plain
+  value: |
+    OMF connection identifier.
 subscriptionId:
   type: text/plain
   value: |

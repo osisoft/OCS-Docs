@@ -58,7 +58,7 @@ Create a new asset rule.
 
 1. Select **Continue** to proceed to the **Select Stream** window.
 
-1. In the **Enter search query** field, enter the query string **MyData.\*** and select **Search**. 
+1. In the **Enter search query** field, enter the query string **MyData._*_** and select **Search**. 
 
    The window should display the **MyData.NorthAmerica.SLTC.PumpA** and **MyData.NorthAmerica.SLTC.PumpB** streams. 
 

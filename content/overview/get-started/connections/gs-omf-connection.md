@@ -8,7 +8,7 @@ To send OSIsoft Message Format (OMF) data to OCS, you must first configure an OM
 
 Use this get started procedure to become familiar with OMF connections.
 
-To create an OMF connection, follow these steps:
+To create an OMF connection:
 
 1. In the left pane, select **Security** > **Clients**.
 
@@ -24,24 +24,21 @@ To create an OMF connection, follow these steps:
 
 1. In the **Clients** tab, select a client in the `Available` list to add it to the `Selected` list. Select **Next**.
 
-
-    **Note:** For the purposes of this exercise, you may choose any client.
+   **Note:** For the purposes of this exercise, you may choose any client.
 
 1. In the **Namespaces** tab, verify that the `MyData` namespace appears in the `Selected` list, and then select **Next**.
 
-
 1. In the **Review** tab, verify that the `Clients` list shows the client-credentials client you chose, and the `Namespaces` list shows the `MyData` namespace. Select **Save**.
 
-
-    An application can now use the selected client-credentials client to write OMF data to the `MyData` namespace.
+   An application can now use the selected client-credentials client to write OMF data to the `MyData` namespace.
 
 1. To learn more about OMF connections, do the following:
 
-  - Select **Manage Permissions** to open the `Manage Permissions` window.
+   - Select **Manage Permissions** to open the `Manage Permissions` window.
 
      In this window, you configure permissions only on the connection object itself. Select **Cancel** to continue.
 
-  - Select **Edit Connection** to open the `Edit` window.
+   - Select **Edit Connection** to open the `Edit` window.
 
      Use this window to edit the name and description of the connection. Enter the new name *MyDataEdit* and enter the description *OMF Connection used by MyData*. When you are done, select **Next** until you get to the **Review** tab, and then select **Save**.
 

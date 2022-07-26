@@ -413,11 +413,11 @@ Represents a status of a community tenant
 
 |Property|Value|Description|
 |---|---|---|
-|None|None|No community tenant status specified.|
-|AwaitingConfirmation|AwaitingConfirmation|After invite, awaiting confirmation from owner.|
-|Paused|Paused|Community Tenant paused from actively sharing.|
-|Active|Active|Resume sharing from pause or after confirm.|
-|Remove|Remove|Owner removes Tenant or Community Tenant leaves community.|
+|None|None|Represents a status of a community tenant|
+|AwaitingConfirmation|AwaitingConfirmation|Represents a status of a community tenant|
+|Paused|Paused|Represents a status of a community tenant|
+|Active|Active|Represents a status of a community tenant|
+|Remove|Remove|Represents a status of a community tenant|
 
 ---
 

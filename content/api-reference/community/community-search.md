@@ -15,14 +15,13 @@ Searches for streams within a community by query
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/search/communities/{communityId}/streams
+GET /api/v1-preview/search/communities/{communityId}/streams
 ?query={query}&skip={skip}&count={count}&pageSize={pageSize}&maxPages={maxPages}&continuationToken={continuationToken}&orderBy={orderBy}
 ```
 
 <h4>Parameters</h4>
 
-`string tenantId`
-<br/>Calling tenant identifier<br/><br/>`string communityId`
+`string communityId`
 <br/>Community identifier<br/><br/>
 `[optional] string query`
 <br/>Query to execute. The query uses the same format as SDS. See [Search in SDS](xref:sdsSearching).<br/><br/>`[optional] integer skip`
@@ -82,7 +81,7 @@ Searches for shared streams within a namespace by query.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/shared/streams
+GET /api/v1-preview/tenants/{tenantId}/search/namespaces/{namespaceId}/streams
 ?query={query}&skip={skip}&count={count}&orderBy={orderBy}
 ```
 
@@ -143,7 +142,7 @@ Searches for shared streams within a namespace by query.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/shared/streams
+POST /api/v1-preview/tenants/{tenantId}/search/namespaces/{namespaceId}/streams
 ?query={query}&skip={skip}&count={count}&orderBy={orderBy}
 ```
 

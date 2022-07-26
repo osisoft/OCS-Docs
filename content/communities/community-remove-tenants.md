@@ -12,7 +12,7 @@ Use this procedure to remove a tenant from a community. This action might be nec
 
 ## To remove a tenant from a community
 
-To remove a tenant from a community, follow these steps:
+To remove a tenant from a community:
 
 1. In the left pane, select **Data Management** > **Communities**.
 

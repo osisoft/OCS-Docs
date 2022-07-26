@@ -6,7 +6,7 @@ uid: gsAssets
 
 An asset is a container that includes metadata and references to streams related to a logical asset. For more information about assets, see [Assets](xref:ccAssets).
 
-To create an asset, follow these steps:
+To create an asset:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
@@ -14,7 +14,7 @@ To create an asset, follow these steps:
 
 1. In the toolbar, select **Add Asset**. 
 
-1. In the `Select Type for New Asset` window, select **<None>** and select **Continue**.
+1. In the `Select Type for New Asset` window, select **None** and select **Continue**.
 
 1. In the right pane, complete the following fields:
 
@@ -36,11 +36,11 @@ To create an asset, follow these steps:
 
 1. Select the **Properties** tab, and select **Add Stream References**.
 
-1. In the `Select Streams` window, enter *MyData.\** in the search field and press Enter.
+1. In the `Select Streams` window, enter *MyData*_*_ in the search field and press Enter.
 
 1. Select **MyData.NorthAmerica.SLTC.PumpA** from the list and select **Add**.
 
-1. In the text box below the **Stream References** label, enter *Output Pump State* as the user-friendly name for the stream reference.
+1. In the **Stream References** field, enter *Output Pump State* as the user-friendly name for the stream reference.
 
 1. Assign a unit of measure (UoM) to the stream properties, select **Configure UOMs**.  
 
@@ -54,15 +54,15 @@ To create an asset, follow these steps:
 
    If there are no values in the stream, there will be no eligible values to choose from. If there are eligible values that can be mapped to different statuses, 
    
-1. For each value listed, select the associated status, Good, Warning, or Bad. 
+1. For each value listed, select the associated status, **Good**, **Warning**, or **Bad**.  
 
 1. To save the asset, select **Save**. 
 
 1. In the `Assets` pane, use the icons in the upper-right to switch between the following views:
 
-   - ![Card view](images/card-view.png) - Card view displays the assets as a series of tiles.
+   - ![Card view](../../_icons/branded/view-grid.svg) - Card view displays the assets as a series of tiles.
     
-   - ![Table view](images/table-view.png) - Table view displays the assets in a table format. 
+   - ![Table view](../../_icons/branded/view-list.svg) - Table view displays the assets in a table format. 
 
 ## Next step
 

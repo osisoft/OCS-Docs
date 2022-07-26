@@ -26,9 +26,10 @@ In this situation, an asset type can be used to create multiple similar assets. 
 | Description   | String            | Yes         | User-provided description                                   | Yes  | Yes            |
 | AssetTypeId   | String            | No          | Identifier for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
 | Metadata      | Metadata List     | Yes         | Asset and asset type metadata                               | Yes  | Yes            |
-| StreamReferences   | Stream Reference List  | No       | Asset stream references                                             | Yes  | No            |
+| StreamReferences   | Stream Reference List  | No| Asset stream references                                             | Yes  | No            |
+| Status        | Status            | No          | Asset and asset type status configuration | Yes | Yes            |
+| Tags| String[] | Yes        | Asset tag | Yes | No|
 | TypeReferences | Type Reference List | No        | Asset type type references                                     | No | Yes            |
-| Status | Status | No        | Asset and asset type status configuration | Yes | Yes            |
 
 ## Asset and asset type name and id
 The asset and asset type resource has name and Id properties. The Id property cannot be changed; it remains constant. All asset and asset type API calls depend on the Id. The purpose of the name is be a user-friendly way of displaying a given asset or asset type. This can be changed freely without effecting data egress from assets.

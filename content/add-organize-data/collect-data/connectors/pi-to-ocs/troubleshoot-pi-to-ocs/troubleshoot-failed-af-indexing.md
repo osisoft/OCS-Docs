@@ -4,11 +4,11 @@ uid: troubleshoot-failed-af-indexing
 
 # Troubleshoot failed AF indexing
 
-Immediately after PI to OCS Agent registration, AF indexing is initiated and must finish successfully before a new transfer can be defined. The progress of AF indexing is displayed next to the **AF Server Index Progress** field on the **Agent Overview** pane, as shown in the image below.
+Immediately after PI to OCS Agent registration, AF indexing is initiated and must finish successfully before a new transfer can be defined. The progress of AF indexing is displayed next to **AF Server Index Progress** on the **Agent Overview** pane, as shown in the image below.
 
 ![  ](../../images/failed-af-indexing.png)
 
-If the  **"AF Indexing Failed!"** message appears next to this field, follow these steps to reinitiate AF indexing:
+If the  **"AF Indexing Failed!"** message appears, follow these steps to reinitiate AF indexing:
 
 1. Navigate to the cache files on the local PC where the agent runs: `C:\ProgramData\OSIsoft\PIToOCS\Cache`.
 

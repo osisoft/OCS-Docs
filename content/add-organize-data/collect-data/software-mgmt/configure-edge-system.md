@@ -22,9 +22,9 @@ Configuration is available for the following edge system types:
 
 ## Import an edge system configuration
 
-To import an edge system configuration from the field to the corresponding edge system digital twin, follow these steps:
+To import an edge system configuration from the field to the corresponding edge system digital twin:
 
-1. In the left pane, select **Data Management** > **Software Management**.
+1. In the left pane, select **Data Collection** > **Software Management**.
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
@@ -32,43 +32,43 @@ To import an edge system configuration from the field to the corresponding edge 
 
 ## Edit an edge system configuration
 
-To edit an edge system configuration and export it for use, follow these steps:
+To edit an edge system configuration and export it for use:
 
-1. In the left pane, select **Data Management** > **Edge Systems**.
+1. In the left pane, select **Data Collection** > **Software Management**.
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
 1. Find and select the edge device to configure.
 
-1. In the right pane, select **Edit Edge System** or ![Edit](images/pencil-icon.png).
+1. In the right pane, select **Edit Edge System** or ![Edit](../../../_icons/default/pencil.svg).
 
-1. To manage the tags for an edge system, select **Add Tag** ![Add Tag](images/edge-system-add-tag.png) and then do the following:
+1. To manage the tags for an edge system, select **Add Tag** ![Add Tag](../../../_icons/default/plus.svg) and then do the following:
 
- - To add a tag, enter the tag text in the **New Tag** field and press Enter.
+   - To add a tag, enter the tag text in the **New Tag** field and press Enter.
 
- - To delete a tag, select **X** in the tag bubble.
+   - To delete a tag, select **X** in the tag bubble.
 
 1. To create the configuration, do one of the following:
 
- - To use the default configuration for the edge system type, select **Start With Default**. 
+   - To use the default configuration for the edge system type, select **Start With Default**. 
  
- - To select a JSON file that contains the configuration, select **Start With Default**. 
+   - To select a JSON file that contains the configuration, select **Start With Default**. 
 
-1. **Optional:** In the **Section Select** field, select the section of the configuration to modify. The default option of `JSON Configuration` shows the entire configuration.
+1. **Optional:** In the **Section Select** dropdown list, select the section of the configuration to modify. The default option of `JSON Configuration` shows the entire configuration.
 
 1. Modify the JSON as needed. For configuration guidelines, refer to the specific edge system documentation. 
 
- Do not include secrets in the configuration. Secrets cannot be stored or exported in a configuration.
+   Do not include secrets in the configuration. Secrets cannot be stored or exported in a configuration.
 
- Errors in the JSON syntax are underlined. To see an explanation of the issue, hold the mouse over the underlined text. The overall status of the JSON syntax is displayed over the right pane.  
+   Errors in the JSON syntax are underlined. To see an explanation of the issue, hold the mouse over the underlined text. The overall status of the JSON syntax is displayed over the right pane.  
 
 1. To export the completed configuration, do one of the following:
 
- - To export just the selected section, select **Export Section** in the right pane.  
+   - To export just the selected section, select **Export Section** in the right pane.  
 
- - To export the entire configuration in one file, select **Export Configuration**.
+   - To export the entire configuration in one file, select **Export Configuration**.
 
- The JSON file is downloaded to your browser.
+   The JSON file is downloaded to your browser.
 
 1. When you have finished, select **Save & Close**.
 

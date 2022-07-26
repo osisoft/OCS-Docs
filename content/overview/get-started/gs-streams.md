@@ -8,7 +8,7 @@ After creating types, you can add streams and associate a type with the stream. 
 
 - [Streams](xref:ccStreams)
 
-- [Streams best practices](xref:bpStreams)
+- [Streams best practices](xref:streams-manage-streams#streams-best-practices)
 
 ## Procedure
 
@@ -27,7 +27,6 @@ After creating types, you can add streams and associate a type with the stream. 
    - **Description** - *SDS Stream used by MyData*
 
    - **Type** - *MyData.PumpState*
-
 
 1. Select the **Tags** tab.
 

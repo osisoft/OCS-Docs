@@ -16,7 +16,7 @@ To manage clients in a community:
 
 ## Add clients to a community
 
-To add a client to a community, follow these steps:
+To add a client to a community:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -32,7 +32,7 @@ To add a client to a community, follow these steps:
 
 ## Remove clients from a community
 
-Remove a client from a community to remove an application's access to the REST API. To remove a client from a community, follow these steps:
+Remove a client from a community to remove an application's access to the REST API. To remove a client from a community:
 
 1. In the left pane, select **Data Management** > **Communities**.
 

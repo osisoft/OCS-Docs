@@ -6,7 +6,7 @@ uid: repair-agent
 
 An agent installed on a host machine may need to be repaired to fix and update files.
 
-To repair an agent, follow these steps:
+To repair an agent:
 
 1. Select Windows **Start**, then select **Settings** > **Apps** > **Apps & features**.
 

@@ -10,26 +10,26 @@ For example, a fleet manager of a mining truck dealer sells trucks to companies 
 
 The following procedure describes how to use the portal to monitor assets and quickly identify problems. The screen captures are taken from the scenario described in the example above.
 
-To use the portal to monitor assets and identify problems, follow these steps:
+To use the portal to monitor assets and identify problems:
 
 1. From the left pane, select **Visualization** > **Asset Explorer**. 
    
     The asset explorer displays the available assets. In this example, it provides an overview of the health of the fleet of trucks.
 
-    **Tip:** Select the ![asset editor](images/AssetEditor_icons.png) icons in the toolbar to toggle between the card and table views of the assets.
+    **Tip:** Select the ![View grid](../_icons/branded/view-grid.svg) or ![View list](../_icons/branded/view-list.svg) icons in the toolbar to toggle between the card and table views of the assets.
 
 1. Verify that the **Assets/Asset Type** selector is set to **Assets**.
 
-1. To identify any assets with a problematic status, select the Metadata filters icon ![asset editor](images/metadata-filter-icon.png), and then select the checkbox for the status to review.
+1. To identify any assets with a problematic status, select the Metadata filters icon ![Filter](../_icons/branded/filter.svg), and then select the checkbox for the status to review.
 
     Each asset is identified with one of the following statuses:
 
     | Icon   | Status  |
     | ------ | ------- |
-    | ![Okay icon](images/okay-icon.png) | Good    |
-    | ![Warning icon](images/warning-icon.png) | Warning |
-    | ![Alarm icon](images/alarm-icon.png)    | Bad |
-    | ![Unknown icon](images/unknown-icon.png)    | Unknown |
+    | ![Okay icon](../_icons/custom/check-circle.svg) | Good    |
+    | ![Warning icon](../_icons/custom/alert.svg) | Warning |
+    | ![Alarm icon](../_icons/custom/close-octagon.svg)    | Bad |
+    | ![Unknown icon](../_icons/branded/help-box.svg)    | Unknown |
 
 1. Select an asset to open the `Asset Details` pane.
 
@@ -49,7 +49,7 @@ To use the portal to monitor assets and identify problems, follow these steps:
 
     By default, the trend shows the property data for the last 8-hour period. Use the navigational arrows on the Time picker ![Time picker](images/Time-picker.png) to pick another time-range option or specify a custom time range.
 
-1. To see the details of these properties, select the **View full trend** icon ![View full trend icon](images/View_full_trend_icon.png) to see the `Trend` page.
+1. To see the details of these properties, select the **View full trend** icon ![View full trend icon](../_icons/branded/launch.svg) to see the `Trend` page.
 
     The `Trend` page shows the properties for the same time range shown in the `Details` pane of the Asset Editor.
     <!--AF 11/19/21 From this point on, the topic repeats the Get started with trend data topic. I think it would be better to link to that topic for instructions, so we don't have to maintain the information twice. -->
@@ -60,7 +60,7 @@ To use the portal to monitor assets and identify problems, follow these steps:
 
     ![Legend Table](images/Legend_Table_Med.png)
     
-1. (Optional) If the error did not occur in the time range currently in view, select **Step backward** or **Step forward** to move the time range backward or forward.
+1. (Optional) If the error did not occur in the time range currently in view, select **Step backward** ![Step backward](../_icons/branded/skip-backward.svg) or **Step forward** ![Step forward](../_icons/branded/skip-forward.svg) to move the time range backward or forward.
 
     **Note:** The trace will move in increments of time that are displayed in the trend. If the trend displays the last 12 hours, use the step backward arrow in the Time picker to show the previous 12-hour period. If it displays the last 30 days, the step forward arrow shows the next 30-day period.
 
@@ -76,6 +76,6 @@ To use the portal to monitor assets and identify problems, follow these steps:
 
     **Note:** When two cursors are locked, the legend table displays summary calculations for the values between the two cursors.
 
-1. Select the **Share Trending Session** icon ![Copy link icon](images/share-icon.png) in the menu bar to copy the URL of the workspace.
+1. Select the **Share Trending Session** icon ![Share](../_icons/default/share.svg) in the menu bar to copy the URL of the workspace.
 
     Share this link to give others the same view of the trend that they can then use to troubleshoot problems.

@@ -1,12 +1,12 @@
 ---
-uid: Dataviews1
+uid: CreateDataView
 ---
 
 # Create and configure a data view
 
-Data views are subsets of data from one or more streams. You create and configure a data view by defining the target namespace, and then specifying the source stream or asset, data fields, time period, and interpolation interval.
+You create and configure a data view by defining the target namespace, and then specifying the source stream or asset, data fields, time period, and interpolation interval.
 
-To create a data view, follow these steps:
+To create a data view:
 
 1. In the left pane, select **Analytics** > **Data Views**.
 
@@ -15,12 +15,12 @@ To create a data view, follow these steps:
 1. Complete the following fields:
 
    - **Name** - Enter a name to identify the data view.
-   
+
    - **Description** - (Optional) Enter a description for the data view.
 
-1. Select the **Data View Shape** from the following options to specify the general shape of the data display: 
+1. Select the **Data View Shape** from the following options to specify the general shape of the data display:
 
-   - **Standard** - a typical wide table. 
+   - **Standard** - a typical wide table.
 
    - **Narrow** - pivot the data into a Field, Value pair format.
 
@@ -32,7 +32,7 @@ To create a data view, follow these steps:
 
    **Note**: Assets are available for use through specific licensing only. If you are interested in using Assets, contact your account team for more details.
 
-1. For the **Query Value** search field, enter a portion of the name of any known stream or asset preceded or followed by the wildcard operator (*), and then select **Search** to search for available streams or assets.
+1. For the **Query Value** search field, enter a portion of the name of any known stream or asset preceded or followed by the wildcard operator (_*_), and then select **Search** to search for available streams or assets.
 
 1. Select any stream or asset in the query results to display and view the individual data fields to the pane on the right.
 

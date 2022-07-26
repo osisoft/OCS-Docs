@@ -6,7 +6,7 @@ uid: ContextSwitch
 
 On the `Trend` page, you can switch between assets that are created with the same asset type. Instead of searching for and adding the traces for each asset, use the Swap Asset feature to streamline this process. You add the traces for a single asset, and then you use the Swap Asset feature to replace the asset in the trend with another asset.  
 
-To switch assets in a trend, follow these steps:
+To switch assets in a trend:
 
 1. In the left pane, select **Visualization** > **Trend**.
 
@@ -20,7 +20,7 @@ To switch assets in a trend, follow these steps:
 
    ![Asset in trend](images/asset-trend.png)
 
-1. Select the **Swap Asset** icon ![Swap asset icon](images/swap-asset-icon.png) next to the asset name in the legend table to open the `Swap Asset` window, which displays a list of assets of the same asset type. 
+1. Select the **Swap Asset** icon ![Swap Asset](../_icons/branded/swap-horizontal.svg) next to the asset name in the legend table to open the `Swap Asset` window, which displays a list of assets of the same asset type. 
 
 1. Select the asset to view and select **Continue**.
 
@@ -30,7 +30,7 @@ To switch assets in a trend, follow these steps:
 
 Switching between assets is useful in performance testing and benchmarking. For example, assume Asset A provides the standard against which other assets are compared. You add Asset A and Asset B to the trend and compare B against A. Then use the Asset Swap feature to replace Asset B with Asset C, and compare C to A.
 
-To switch assets while performance testing, follow these steps:
+To switch assets while performance testing:
 
 1. In the left pane, select **Visualization** > **Trend**.
 
@@ -44,9 +44,9 @@ To switch assets while performance testing, follow these steps:
 
    ![](images/testing-one.png)
 
-1. Select the **Swap Asset** icon ![Swap asset icon](images/swap-asset-icon.png) for the asset you are comparing with the standard.
+1. Select the **Swap Asset** icon ![Swap Asset](../_icons/branded/swap-horizontal.svg) for the asset you are comparing with the standard.
 
-   In this example, select the ![Swap asset icon](images/swap-asset-icon.png) icon for the `Scottsdale Weather Station`.
+   In this example, select the ![Swap Asset](../_icons/branded/swap-horizontal.svg) icon for the `Scottsdale Weather Station`.
 
 1. In the `Swap Asset` window, select another asset and click **Continue**. 
 

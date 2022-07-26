@@ -6,11 +6,11 @@ uid: gsHybridClients
 
 Hybrid clients are used by native and server-side web applications. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided. For more information about hybrid clients, see [Hybrid clients](xref:ccClients#hybrid-client).
 
-To create a hybrid client, follow these steps:
+To create a hybrid client:
 
 1. In the left pane, select **Security** > **Clients**.
 
-1. From the **Client Type** field, select **Hybrid**.
+1. In the **Client Type** dropdown list, select **Hybrid**.
 
 1. In the toolbar, select **Add Client**.
 
@@ -20,11 +20,11 @@ To create a hybrid client, follow these steps:
 
 1. (Optional) Select the **Allow Refresh Token** checkbox if the application uses refresh tokens to keep users logged in.
 
-1. In the **Allowed Redirect URL(s)** box, enter a URL and select **+** to add it to the list.  
+1. In the **Allowed Redirect URL(s)** field, enter a URL and select **+** to add it to the list.  
    
    The application specifies one of the URLs in this list when it authenticates against OCS, and the identity server returns the results of the authentication to this URL.
 
-1. (Optional) In the **Allowed Logout Redirect URL(s)** box, enter a URL and select **+** to add it to the list.  
+1. (Optional) In the **Allowed Logout Redirect URL(s)** field, enter a URL and select **+** to add it to the list.  
    
    The application specifies one of the URLs from this list when it logs a user out of OCS, and the identity server sends the user to that URL after a successful log out.
 

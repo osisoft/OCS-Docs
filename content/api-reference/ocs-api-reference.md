@@ -22,6 +22,11 @@ You must acquire an account before interacting with the OCS.
 Go to the [OCS page on OSIsoft website](https://www.osisoft.com/pi-system/pi-cloud/osisoft-cloud-services), click [Contact Us](https://www.osisoft.com/contact) and request an OCS account.
 
 
+## API console
+
+For information on the graphical interface for using the REST API within OCS, see [API console](xref:apiConsole).
+
+
 ## Architecture
 
 A tenant represents the set of services, applications, data, and configuration states available to a customer in OSIsoft Cloud Services (OCS). Users are associated with a tenant via at least one configured identity provider, a database of user records that allows for authentication, and access to resources can be managed for those users via the assignment of roles. 

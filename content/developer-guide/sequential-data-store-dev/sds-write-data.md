@@ -13,6 +13,8 @@ When working in .NET, convenient SDS Client libraries are available. The `ISdsDa
 All writes rely on a stream's key or primary index. The primary index determines the order of events in the stream. Secondary indexes are updated, but they do not contribute 
 to the request. All references to indexes are to the primary index.
 
+The maximum size of the payload for a single write request is 28.6 MB. Additionally, compressed requests are limited to a maximum inflated payload size of 190 MB. Requests that exceed these limits will be rejected with an HTTP status code of `413 Payload Too Large`.
+
 > [!NOTE]
 > Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:30:00-08:00` for February 20, 2020 at 8:30 AM PST, for example.
 SDS returns timestamps in UTC if the timestamp is of property `DateTime` and in local time if it is of `DateTimeOffset`. 

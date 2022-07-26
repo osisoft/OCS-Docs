@@ -18,7 +18,10 @@ Below data view API routes are available to be used as preview routes:
     - See [Get Available Field Sets](xref:ResolvedDataViewPreviewAPI#get-available-field-sets).
     - See [Get Field Mappings](xref:ResolvedDataViewPreviewAPI#get-field-mappings).
     - See [Get Statistics](xref:ResolvedDataViewPreviewAPI#get-statistics).
-2. See [Get Data View Data](xref:DataViewsPreviewDataAPI#get-data-view-data).
+
+1. Get data view data
+    - See [Get Data View Interpolated Data](xref:DataViewsPreviewDataAPI#get-data-view-interpolated-data).
+    - See [Get Data View Stored Data](xref:DataViewsPreviewDataAPI#get-data-view-stored-data).
 
 ### When to use the preview routes?
 * The preview API is useful for testing how all resources will resolve for the data view. These include data included in the data view, its source, and its destination. 

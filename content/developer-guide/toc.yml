@@ -10,11 +10,13 @@
 - name: Data Views
   href: data-views-dev/toc.yml
   topicHref: data-views-dev/data-views-lp-dev.md
-- name: OSIsoft Message Format
-  href: omf-dev/toc.yml
-  topicHref: omf-dev/omf-lp.md
+- name: Data collection
+  items:
+  - topicUid: omfVsSds
+  - name: OSIsoft Message Format
+    href: omf-dev/toc.yml
+    topicHref: omf-dev/omf-lp.md
 - name: Asset store
   href: asset-dev/toc.yml
   topicHref: asset-dev/asset-dev-guide.md
-- name: Samples
-  topicHref: samples.md
+

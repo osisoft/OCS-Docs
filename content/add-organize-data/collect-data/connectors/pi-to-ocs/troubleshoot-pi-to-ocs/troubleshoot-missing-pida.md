@@ -6,9 +6,9 @@ uid: troubleshoot-missing-pida
 
 If a PI to OCS agent's status appears as `No PI Data Archive Configured` in the `PI to OCS Agent` window, you may be missing a PI mapping from the Data Archive server to the agent service account. You can correct this issue in the PI to OCS Agent Configuration Utility.
 
-**Note:** There may be different reasons why the `No PI Data Archive Configured` status appears under the **Data Archive Connection Status** field in the PI to OCS Agent Configuration Utility. This topic addresses troubleshooting due to a missing PI mapping.
+**Note:** There may be different reasons why the `No PI Data Archive Configured` status appears under **Data Archive Connection Status** in the PI to OCS Agent Configuration Utility. This topic addresses troubleshooting due to a missing PI mapping.
 
-To add a missing PI Data Archive mapping, follow these steps:
+To add a missing PI Data Archive mapping:
 
 1. Open the [PI to OCS Agent Configuration Utility](xref:pi-to-ocs-utility) and connect to the portal.
 
@@ -18,7 +18,7 @@ To add a missing PI Data Archive mapping, follow these steps:
 
 1. Select **Create**.
 
-    **Result:** The PI mapping is created for the selected identity, group, or user.
+   The PI mapping is created for the selected identity, group, or user.
 
 1. To close the `Configure Mapping` window, select **Close**. 
 

@@ -6,7 +6,7 @@ uid: confirm-data-retrieval
 
 Confirm that SDS streams have been created and your data has transferred by viewing the streams and types created in the portal.
 
-To review the data, follow these steps:
+To review the data:
 
 1. In the left pane, select **Data Management** > **Sequential Data Store**.
 

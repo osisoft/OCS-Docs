@@ -2,7 +2,7 @@
 uid: community-workflow-create
 ---
 
-# Workflow to create community
+# Workflow to create a community
 
 To begin the process of sharing data, create a new community and invite other tenants to join.
 

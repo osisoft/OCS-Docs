@@ -6,7 +6,7 @@ uid: export-transfer-details
 
 You can export a list of all the PI points added to a transfer for your records. Exported details are saved to a .csv file and contain the transfer name as well as the PI point path and name.
 
-To export transfer details, follow these steps:
+To export transfer details:
 
 1. In the left pane, select **Data Collection** > **PI to OCS Agents**.
 

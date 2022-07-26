@@ -6,7 +6,7 @@ uid: CreateAssetFromAssetType
 
 An asset type is a template for creating assets that share a common structure or type. When you create an asset based on an asset type, the metadata and stream references are created from the asset type.
 
-To create an asset based on an asset type, follow these steps:
+To create an asset based on an asset type:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
@@ -32,6 +32,6 @@ To create an asset based on an asset type, follow these steps:
 
 1. Select the **Properties** tab.
 
-1. To see the stream reference configuration details, select the caret ![](images/caret.png) icon. 
+1. To see the stream reference configuration details, select the caret ![](../../../_icons/default/chevron-up.svg) icon. 
 
 1. To save the asset, select **Save**.

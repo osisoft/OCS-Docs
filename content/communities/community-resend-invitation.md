@@ -12,7 +12,7 @@ If you invite another tenant to the community but it does not receive the invita
 
 ## To resend an invitation
 
-To resend an invitation, follow these steps:
+To resend an invitation:
 
 1. In the left pane, select **Data Management** > **Communities**.
 

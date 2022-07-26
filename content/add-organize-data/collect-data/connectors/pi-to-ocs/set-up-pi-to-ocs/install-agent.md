@@ -40,7 +40,7 @@ Complete the following procedures to install the PI to OCS Agent:
 
 ## Install the PI to OCS Agent
 
-To install the PI to OCS Agent, follow these steps:
+To install the PI to OCS Agent:
 
 1. In the left pane, select **Data Collection** > **PI to OCS Agents**.
 
@@ -74,7 +74,7 @@ To install the PI to OCS Agent, follow these steps:
 
     * **Agent Description** - Enter an optional name for the agent.
 
-      **Result:** The **Service Account** page opens.
+    The `Service Account` page opens.
 
 1. On the `Servive Account` page, select the service account type for the connection:
 
@@ -96,7 +96,7 @@ To install the PI to OCS Agent, follow these steps:
 
 After installation, check that the PI to OCS Agent Windows service is running on the machine where the agent is installed. You also should confirm the agent is registered in OCS. 
 
-To verify the installation, follow these steps:
+To verify the installation:
 
 1. On the computer where the agent is installed, open the Microsoft Management Console (MMC) snap-in for Services. <!--Angela Flores 11/12/21 there is no mention of selecting a host machine for this installation before this point.-->
 
@@ -106,12 +106,12 @@ To verify the installation, follow these steps:
 
    ![](../../images/services-window.png)
 
-1. In the AVEVA Data Hub portal, in the left pane, select **Data Collection** > **PI to OCS Agents**.
+1. In the OCS portal, in the left pane, select **Data Collection** > **PI to OCS Agents**.
 
 1. On the `PI to OCS Agents` page, select the connection you created.
 
-1. On the `Details` pane, verify that Registered appears next to the **Agent Status** field.
+1. On the `Details` pane, verify that Registered appears next to **Agent Status**.
 
    ![Agent status](../../images/details-pane.png)
 
-   **Note:** The agent status is also displayed in the PI to OCS Configuration Utility. For a list of states and descriptions that explain why an agent may not be running, see [List of agent status states](xref:pi-to-ocs-utility#list-of-agent-status-states).
+   **Note:** The agent status is also displayed in the PI to OCS Configuration Utility. For a list of states and descriptions that explain why an agent may not be running, see [List of agent status states](xref:pi-to-ocs-utility#list-of-agent-states).

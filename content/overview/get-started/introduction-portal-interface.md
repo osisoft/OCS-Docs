@@ -58,11 +58,12 @@ The portal toolbar is located in the upper-right corner of the portal window.
 
 The following table provides a list and descriptions of these toolbar commands.
 
-| Numbered Item | Function |
+| Item          | Function |
 |---------------|----------|
-| 1 - Change Namespace dropdown menu | Select to pick a different namespace. |
-| 2 - View Notifications icon | Select to view OCS-generated notifications. | 
-| 3 - Question mark icon | Select to access the online documentation. |
-| 4 - User profile icon  | Select to view a menu of the following commands: current user profile, tenant details, resource usage, feedback page, and sign out of the portal. |
-| 5 - Customize link | Select to customize the layout of the portal dashboard. |
+| ![Manage permissions icon](../../_icons/default/account-lock.svg) Manage permissions | Select to change role-based access to portal resources. |
+| Change namespace | Select to pick a different namespace. |
+| ![View notifications icon](../../_icons/custom/bell.svg) View notifications | Select to view OCS-generated notifications. | 
+| ![Documentation icon](../../_icons/custom/help-circle.svg) Help | Select to access the online documentation. |
+| ![User Profile icon](../../_icons/custom/account-circle.svg) User profile | Select to view a menu of the following commands: current user profile, tenant details, resource usage, feedback page, and sign out of the portal. |
+| ![Customize icon](../../_icons/branded/pencil.svg) Customize | Select to customize the layout of the portal dashboard. |
 

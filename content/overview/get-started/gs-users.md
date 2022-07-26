@@ -6,13 +6,13 @@ uid: gsUsers
 
 A user is an identity that has access to a tenant. Roles assigned to a user determine what permissions the user has on resources. For more information about users, see [Users](xref:ccUsers).
 
-To invite a user to your tenant, follow these steps:
+To invite a user to your tenant:
 
 1. In the left pane, select **Security** > **Users**.
 
 1. In the toolbar, select **Add User**.
 
-1. In the **Identity Provider** field, select the appropriate identity provider for the user you are adding. You can switch to a different option later. For tenants with a single identity provider enabled, the field is disabled.
+1. In the **Identity Provider** dropdown list, select the appropriate identity provider for the user you are adding. You can switch to a different option later. For tenants with a single identity provider enabled, this is disabled.
 
 1. In the **Contact First Name** and **Contact Last Name** fields, enter a first and last name for the user.  
 

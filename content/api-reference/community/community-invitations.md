@@ -472,12 +472,12 @@ Enum for Community invitation state.
 
 |Property|Value|Description|
 |---|---|---|
-|None|None|No Invitation state specified.|
-|InvitationCreated|InvitationCreated|Invitation email has been sent.|
-|InvitationAccepted|InvitationAccepted|Invitation has been accepted.|
-|InvitationDeclined|InvitationDeclined|Invitation has been declined.|
-|InvitationExpired|InvitationExpired|Invitation has expired.|
-|InvitationCompleted|InvitationCompleted|Invitation has been completed.|
+|None|None|Enum for Community invitation state.|
+|InvitationCreated|InvitationCreated|Enum for Community invitation state.|
+|InvitationAccepted|InvitationAccepted|Enum for Community invitation state.|
+|InvitationDeclined|InvitationDeclined|Enum for Community invitation state.|
+|InvitationExpired|InvitationExpired|Enum for Community invitation state.|
+|InvitationCompleted|InvitationCompleted|Enum for Community invitation state.|
 
 ---
 
@@ -607,10 +607,10 @@ Enumeration of actions taken on community invitations
 
 |Property|Value|Description|
 |---|---|---|
-|Accept|Accept|Accept the invitation.|
-|Decline|Decline|Decline the invitation.|
-|Confirm|Confirm|Confirm the invitation.|
-|Resend|Resend|Resend the invitation.|
+|Accept|Accept|Enumeration of actions taken on community invitations|
+|Decline|Decline|Enumeration of actions taken on community invitations|
+|Confirm|Confirm|Enumeration of actions taken on community invitations|
+|Resend|Resend|Enumeration of actions taken on community invitations|
 
 ---
 

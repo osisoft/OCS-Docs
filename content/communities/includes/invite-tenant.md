@@ -6,7 +6,7 @@
 
 ## Step 1: Invite a tenant to the community
 
-To invite another tenant to the community, follow these steps:
+To invite another tenant to the community:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -20,13 +20,13 @@ An email is sent to the community administrator.
 
 ## Step 2: Wait for invited tenant to accept invitation
 
-After you invite another tenant, wait for its community administrator to accept the email invitation. To monitor whether the invitation is accepted, select the **Invitations** tab and view the invitation recipient for a status of **Invitation Accepted**. You may need to refresh the page to see an updated status.
+After you invite another tenant, wait for its community administrator to accept the email invitation. To monitor whether the invitation is accepted, select the **Invitations** tab and view the invitation recipient for a status of `Invitation Accepted`. You may need to refresh the page to see an updated status.
 
 Invitations are valid for 14 days before they expire. If the invitation is not accepted within that time, you must [resend the invitation](xref:community-resend-invitation). You must also resend the invitation if the invited tenant does not receive the initial email.
 
 ## Step 3: Confirm the invitation
 
-To confirm an invitation, follow these steps:
+To confirm an invitation:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -34,7 +34,7 @@ To confirm an invitation, follow these steps:
 
 1. On the `Community Details` page, select the **Invitations** tab.
 
-1. Select an invitation with a status of **Invitation Accepted**.
+1. Select an invitation with a status of `Invitation Accepted`.
 
 1. On the `Invitation Details` pane, select **Confirm Tenant**. 
 

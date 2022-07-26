@@ -8,7 +8,7 @@ APIs for getting, updating, and deleting users from communities
 
 ## `Add User to a Community`
 
-<a id="opIdUsers_Add User to a Community"></a>
+<a id="opIdCommunityUsers_Add User to a Community"></a>
 
 Adds a user to a community and provides a list of community role identifiers to be assigned to the user
 
@@ -81,7 +81,7 @@ Allowed for these roles:
 
 ## `Remove User from a Community`
 
-<a id="opIdUsers_Remove User from a Community"></a>
+<a id="opIdCommunityUsers_Remove User from a Community"></a>
 
 Removes a user from a community
 
@@ -121,7 +121,7 @@ Allowed for these roles:
 
 ## `List Users of a Tenant in a Community`
 
-<a id="opIdUsers_List Users of a Tenant in a Community"></a>
+<a id="opIdCommunityUsers_List Users of a Tenant in a Community"></a>
 
 Gets users that are associated with a specific tenant and community
 
@@ -188,7 +188,7 @@ Allowed for these roles:
 
 ## `Get Count of Users of a Tenant in a Community`
 
-<a id="opIdUsers_Get Count of Users of a Tenant in a Community"></a>
+<a id="opIdCommunityUsers_Get Count of Users of a Tenant in a Community"></a>
 
 Gets the count of users of the tenant in a community. This method is identical to the `GetCommunityUsersByTenantAndCommunity` endpoint except it does not return a body.
 

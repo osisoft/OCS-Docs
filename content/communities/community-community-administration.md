@@ -30,8 +30,12 @@ The following tasks can only be performed by community administrators on the adm
 
 - <xref:community-edit>
 
-	Edit the community description.
+	Edit the community name and description.
 
 - <xref:community-delete>
 
 	Delete the community.
+
+- <xref:community-manage-preferred-region>
+
+	Each community includes settings to manage the preferred region, which controls the geographical regions where operational data shared within a community is processed.

@@ -4,19 +4,26 @@ uid: omfEditor
 
 # OMF editor
 
-The Open Message Format (OMF) defines a set of message headers and message bodies. You write messages in JSON format that generate compliant messages for data ingress. The OMF specification is generic in that it does not specify a particular back-end system. You can use OMF to create types, create streams, and populate streams with data.
+The Open Message Format (OMF) defines a set of message headers and message bodies. You write messages in JSON format that generate compliant messages for data ingress. The OMF specification is generic in that it does not specify a particular back-end system. You can use OMF to create types, create streams, and populate streams with data. There are three message formats you can use to accomplish these tasks: type messages, container messages, and data messages. 
 
-To access the OMF Editor, select **Developer Tools** > **OMF Editor** from the left pane. Use the editor to build and validate OMF messages to send to the Sequential Data Store.
+Use the OMF Editor to build and validate OMF messages to send to the Sequential Data Store.
 
-There are three message formats you can use to accomplish these tasks: type messages, container messages, and data messages. In the editor choose the message type from the **OMF Type** selector: **Type**, **Container** or **Data**.
+To build a message using the OMF Editor:
 
-You can edit your message and utilize the following options for each message format provided:
+1. Select **Developer Tools** > **OMF Editor** from the left pane. 
 
-- Select **Copy OMF** to copy the message content to the clipboard. 
+1. Choose the message type from the **OMF Type** selector: **Type**, **Container** or **Data**.
 
-- Select **More Options** ![More Options](..\images\more-options.png "More Options") > **Format OMF** to reset template content alignment after making changes. 
+1. Select the OMF version from the **OMF Version** selector.
 
-- Select **More Options** ![More Options](..\images\more-options.png "More Options") > **Download OMF** to download the message content to your local drive. 
+1. Edit your message and use the following options:
 
-- Select **More Options** ![More Options](..\images\more-options.png "More Options") > **Reset Template** to delete any changes you have made to the message content. 
+   - Select **Copy OMF** to copy the message content to the clipboard. 
 
+   - Select **More Options** ![More Options](../../_icons/default/dots-vertical.svg "More Options") > **Format OMF** to reset template content alignment after making changes. 
+
+   - Select **More Options** ![More Options](../../_icons/default/dots-vertical.svg "More Options") > **Download OMF** to download the message content to your local drive. 
+
+   - Select **More Options** ![More Options](../../_icons/default/dots-vertical.svg "More Options") > **Reset Template** to delete any changes you have made to the message content. 
+
+   As you edit a message, the editor indicates whether it is valid in the upper right and displays any errors in the `Errors` pane.
