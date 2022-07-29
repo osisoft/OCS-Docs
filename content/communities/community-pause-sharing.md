@@ -24,6 +24,8 @@ To pause all data sharing with a community, follow these steps:
 
 	Your tenant pauses sharing for all shared data streams and the tenant status updates to **Sharing Paused**.
 
+	**Note:** It may take up to 30 minutes for pausing to take effect.
+
 ## Resume sharing
 
 To resume sharing all shared data streams with a community, follow these steps:
