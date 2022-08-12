@@ -18,11 +18,7 @@ Configuration is available for the following edge system types:
 
 - PI Adapter for OPC UA
 
-- PI Adapter for MQTT
-
-The `namespaceId` in the data and health endpoint URLs defaults to the namespace where the base configuration is created. For example, if the namespace of the base configuration is MyData, the endpoint URL would be `https://website.com/api/v1/Tenants/{tenantId}/Namespaces/MyData/Omf`. 
-
-An edge system appears on the `Software Management Edge Systems` page once it is writing health data to AVEVA Data Hub. For information on configuring health endpoints, see the specific edge system product documentation.
+**Note:** An edge system appears on the `Software Management Edge Systems` page once it is writing health data to AVEVA Data Hub. For information on configuring health endpoints, see the specific edge system product documentation.
 
 ## Import an edge system configuration
 
@@ -34,18 +30,6 @@ To import an edge system configuration from the field to the corresponding edge 
 
 1. Find and select the edge device to configure.
 
-<!-- **Tip:** Select the ![View grid](../_icons/branded/view-grid.svg) or ![View list](../_icons/branded/view-list.svg) icons in the toolbar to toggle between the card and table views of the assets. -->
-
-1. Select **Edit Edge System**.
-
-1. Select **Import Configuration**.
-
-1. In the `Import Configuration` window, select **Select File** to locate the configuration file and select **Open**, then select **Import**.
-
-1. When you have finished, select **Save & Close**.
-
-1. To confirm the changes, select **Save & Close**. 
-
 ## Edit an edge system configuration
 
 To edit an edge system configuration and export it for use:
@@ -55,8 +39,6 @@ To edit an edge system configuration and export it for use:
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
 1. Find and select the edge device to configure.
-
-<!-- **Tip:** Select the ![View grid](../_icons/branded/view-grid.svg) or ![View list](../_icons/branded/view-list.svg) icons in the toolbar to toggle between the card and table views of the assets. -->
 
 1. In the right pane, select **Edit Edge System** or ![Edit](../../../_icons/default/pencil.svg).
 
