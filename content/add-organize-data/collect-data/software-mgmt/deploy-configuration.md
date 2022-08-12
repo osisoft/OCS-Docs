@@ -20,9 +20,11 @@ For details on how to deploy a configuration manually, see the specific edge sys
 
  - [PI Adapter for MQTT](https://docs.osisoft.com/bundle/pi-adapter-mqtt/page/configuration/configuration.html)
 
-After deploying the configuration, manually update the configuration file on the device to replace any mustache tokens used as place holders for secrets with the actual secrets.
+After deploying the configuration, do the following 
 
-After deploying the configuration, to have an accurate record of the configuration, import the configuration file, including any modifications made in the field, to the corresponding edge system twin in AVEVA Data Hub.
+ - Manually update the configuration file on the device to replace any mustache tokens used as place holders for secrets with the actual secrets.
+
+ - To have an accurate record of the configuration, import the configuration file, including any modifications made in the field without the secrets, to the corresponding edge system twin in OCS.
 
 # Data source scenarios
 
