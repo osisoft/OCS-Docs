@@ -16,8 +16,6 @@ To view an edge system:
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
-  **Tip:** Select the ![View grid](../_icons/branded/view-grid.svg) or ![View list](../_icons/branded/view-list.svg) icons in the toolbar to toggle between the card and table views of the assets.
-
 1. (Optional) To sort by a column in descending order, select the column header. To sort in ascending order, select the header again.
 
 1. (Optional) To filter the edge systems shown based on a specific column, select the filter icon in the column header. 
