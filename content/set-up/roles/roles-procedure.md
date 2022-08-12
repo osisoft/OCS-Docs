@@ -24,9 +24,8 @@ To create a role:
 
    **Note:** The Role Type is Tenant Custom for all custom (or non-default) roles. 
 
-You can now specify permissions for this role when managing permissions on assets, resources, and services. For more information, see <xref:roles-manage-permissions>.
+You can now specify permissions for this role when managing permissions on assets, resources, and services.
 
 ## Related links
 
-- <xref:roles-manage-permissions>
-- <xref:identity-tenants-roles>
+- [Tenants Roles](xref:identity-tenants-roles) API

@@ -14,10 +14,6 @@ After a community is established, users assigned a community administrator role 
 
 Users assigned a community administrator role can perform the following tasks:
 
-- <xref:community-view-invitations>
-
-	You can view the status of all pending community invitations that your tenant has accepted, but have not yet been confirmed by the issuing tenant.
-
 - <xref:community-remove-your-tenant>
 
 	Remove your own tenant from the community.  
@@ -34,14 +30,6 @@ Users assigned a community administrator role can perform the following tasks:
 
 	Add or remove programmatic access for an application to shared community data and resources using REST API.
 
-- <xref:community-contact-email>
-
-	After your tenant provides an initial contact email during the invitation process, you can later the contact email for the tenant if it changes.
-
 - <xref:community-manage-administrators>
 
 	Add or remove roles that have community administration permissions within your tenant.
-
-- <xref:communities-manage-default-admins>
-
-    Update the default system roles added as community administrators when you create or join a community.
