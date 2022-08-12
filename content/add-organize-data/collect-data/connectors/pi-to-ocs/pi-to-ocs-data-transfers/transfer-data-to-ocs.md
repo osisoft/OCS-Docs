@@ -104,7 +104,7 @@ To build an AF element:
 
 1. (Optional) In the **Attribute Value** fields, filter attribute values by specifying the following information:
 
-   **Note:** Custom units of measure (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their corresponding asset's UOM property set.
+   **Note:** Custom unit of measurements (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their corresponding asset's UOM property set.
    
       * In the first field, enter an attribute name.
 
@@ -112,7 +112,7 @@ To build an AF element:
 
       * In the last field, enter an attribute value.
 
-   **Note:** Custom units of measure (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their UOM property set.
+   **Note:** Custom unit of measurements (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their UOM property set.
    
 1. (Optional) To narrow your search by template name, in the **Template** field, select a template from the dropdown list.
 
@@ -161,6 +161,7 @@ You build a PI points transfer list by setting query criteria and then adding th
 To build a PI points transfer list:
 
 1. Select the **PI Point Search** tab.
+
 
 1. To filter the results, do the following:
 

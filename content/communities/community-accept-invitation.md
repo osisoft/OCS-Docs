@@ -30,9 +30,9 @@ To accept an invitation:
 
 1. Wait for a Community Administrator from the inviting tenant to confirm your tenant. Your tenant does not officially join the community until the inviting tenant confirms the invitation.
 
-  When the administrative tenant confirms your tenant, you receive a notification email.
+  ![await confirmation](images/await-confirmation.png)
 
-  **Tip:** You can view or cancel your invitations that are pending confirmation from the `Communities` page. For more information, see <xref:community-view-invitations>.
+  When the administrative tenant confirms your tenant, you receive a notification email.
  
 1. After your tenant is confirmed for the community, select **Details** to set up Community Administrators and Community Members for your tenant.
 
@@ -56,7 +56,7 @@ To accept an invitation:
 
 1. On the `Community Members` page, add [Community Members](xref:community-community-roles#community-member), which are members within your tenant that have read access to the community and its data.
       
-  To add new Community Members, select **Add Members** > **Add User** ![Add](../_icons/branded/plus.svg) for each user or group that you want to add.
+  To add new Community Members, select **Add Members** > ![Add](../_icons/branded/plus.svg) for each user or group that you want to add.
 
   **Note:** Community Administrators are not automatically added as Community Members. If you want your Community Administrators to also be Community Members with access to shared resources, you must manually add them.
 
