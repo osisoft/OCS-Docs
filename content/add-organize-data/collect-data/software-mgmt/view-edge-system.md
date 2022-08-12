@@ -6,7 +6,7 @@ uid: ViewEdgeSystem
 
 View and monitor the health status and configuration information for edge systems, including Edge Data Store and PI Adapters, for a selected namespace. You can filter and sort the list of edge devices, and open a trend displaying diagnostic data for a specific device or component. 
 
-**Note:** An edge system appears on the `Software Management Edge Systems` page once it is writing health data to OCS. For information on configuring health endpoints, see the specific edge system product documentation.
+**Note:** An edge system appears on the `Software Management Edge Systems` page once it is writing health data to AVEVA Data Hub. For information on configuring health endpoints, see the specific edge system product documentation.
 
 ## View an edge system
 
@@ -42,7 +42,7 @@ To view an edge system:
 
 ## Remove an edge system
 
-You can remove edge systems from the list of edge systems in OCS, but the edge system remains on the device. After an edge system is removed from OCS and it is no longer sending data to OCS, you can no longer see or manage it from OCS. If an edge system sends health data to OCS after it has been removed from the list of edge systems, it will reappear in the list of edge systems.
+You can remove edge systems from the list of edge systems in AVEVA Data Hub, but the edge system remains on the device. After an edge system is removed from AVEVA Data Hub and it is no longer sending data to AVEVA Data Hub, you can no longer see or manage it from AVEVA Data Hub. If an edge system sends health data to AVEVA Data Hub after it has been removed from the list of edge systems, it will reappear in the list of edge systems.
 
 To remove an edge system:
 
