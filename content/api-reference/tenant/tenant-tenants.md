@@ -47,17 +47,13 @@ GET /api/v1/Tenants/{tenantId}
     {
       "Feature": {
         "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-        "Name": "Internal",
-        "Description": "Internal OSIsoft account"
+        "Name": "FeatureName",
+        "Description": "Feature Description"
       },
       "CurrentState": 1
     }
   ],
   "Entitlements": [
-    {
-      "EntitlementDefinitionId": "Community",
-      "Value": 1
-    },
     {
       "EntitlementDefinitionId": "NamespaceCount",
       "EntitlementType": 1,
@@ -197,17 +193,13 @@ The updated details of the Tenant.<br/>
     {
       "Feature": {
         "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-        "Name": "Internal",
-        "Description": "Internal OSIsoft account"
+        "Name": "FeatureName",
+        "Description": "Feature Description"
       },
       "CurrentState": 1
     }
   ],
   "Entitlements": [
-    {
-      "EntitlementDefinitionId": "Community",
-      "Value": 1
-    },
     {
       "EntitlementDefinitionId": "NamespaceCount",
       "EntitlementType": 1,
