@@ -24,7 +24,13 @@ The following are required before you install and use OSIsoft Cloud Services Pow
 
 To install the OSIsoft Cloud Services Power BI Connector:
 
-1. Download the `OCSPowerBIConnector.exe` file from the [OSIsoft Customer portal](https://customers.osisoft.com/s/products).
+1. In the left pane, select **Analytics** > **Data Views**.
+
+1. Select any data view.
+
+1. Select **Edit Data View**.
+
+1. Download the `OCSPowerBIConnector.exe` file by clicking on the OCS Power BI Connector banner.
 
 1. Install OSIsoft Cloud Services Power BI Connector by either the setup wizard or silent installation.
 
