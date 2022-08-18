@@ -173,7 +173,7 @@ The updated details of the Tenant.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Tenant](#schematenant)|The updated `Tenant` with Id `tenantId`.|
-|400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
+|400|None|Could not return the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
