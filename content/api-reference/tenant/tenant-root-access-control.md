@@ -33,19 +33,31 @@ GET /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 
 <h4>Example response body</h4>
 
-> 200 Response ([AccessControlList](#schemaaccesscontrollist))
+> 200 Response
 
 ```json
 {
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
+        "Type": 3,
+        "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
       },
-      "AccessType": 0,
-      "AccessRights": 0
+      "AccessRights": 1
+    },
+    {
+      "Trustee": {
+        "Type": 3,
+        "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
+      },
+      "AccessRights": 3
+    },
+    {
+      "Trustee": {
+        "Type": 3,
+        "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
+      },
+      "AccessRights": 31
     }
   ]
 }
@@ -95,25 +107,37 @@ The new root AccessControlList for Namespace s.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|The new `AccessControlList` for `Namespace`.|
-|400|None|Could not udpate the `AccessControlList` due to missing or invalid input.|
+|400|None|Could not update the `AccessControlList` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
 
-> 200 Response ([AccessControlList](#schemaaccesscontrollist))
+> 200 Response
 
 ```json
 {
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": 1,
-        "ObjectId": "string",
-        "TenantId": "string"
+        "Type": 3,
+        "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
       },
-      "AccessType": 0,
-      "AccessRights": 0
+      "AccessRights": 1
+    },
+    {
+      "Trustee": {
+        "Type": 3,
+        "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
+      },
+      "AccessRights": 3
+    },
+    {
+      "Trustee": {
+        "Type": 3,
+        "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
+      },
+      "AccessRights": 31
     }
   ]
 }
