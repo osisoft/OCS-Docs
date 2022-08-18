@@ -93,18 +93,10 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 
 <h4>Example response body</h4>
 
-> 200 Response ([FeatureState](#schemafeaturestate))
+> 200 Response
 
 ```json
-{
-  "Feature": {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "DefaultState": 0
-  },
-  "CurrentState": 0
-}
+{}
 ```
 
 <h3>Authorization</h3>
