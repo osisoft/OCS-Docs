@@ -33,23 +33,16 @@ GET /api/v1/Tenants/{tenantId}/Features
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([FeatureState](#schemafeaturestate)[])
 
 ```json
 [
   {
     "Feature": {
-      "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-      "Name": "Feature1",
-      "Description": "Feature Description"
-    },
-    "CurrentState": 1
-  },
-  {
-    "Feature": {
-      "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-      "Name": "Feature2",
-      "Description": "Feature Description"
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "DefaultState": 0
     },
     "CurrentState": 0
   }
@@ -93,10 +86,18 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([FeatureState](#schemafeaturestate))
 
 ```json
-{}
+{
+  "Feature": {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "DefaultState": 0
+  },
+  "CurrentState": 0
+}
 ```
 
 <h3>Authorization</h3>
