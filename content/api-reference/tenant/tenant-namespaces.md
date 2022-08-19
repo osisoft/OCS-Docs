@@ -36,37 +36,29 @@ GET /api/v1/Tenants/{tenantId}/Namespaces
 
 <h4>Example response body</h4>
 
-> 200 Response ([Namespace](#schemanamespace)[])
+> 200 Response
 
 ```json
 [
   {
-    "Id": "string",
-    "Region": "string",
-    "RegionId": "string",
-    "Self": "string",
-    "Name": "string",
-    "Description": "string",
-    "State": 0,
-    "Owner": {
-      "Type": 1,
-      "ObjectId": "string",
-      "TenantId": "string"
-    },
-    "AccessControl": {
-      "RoleTrusteeAccessControlEntries": [
-        {
-          "Trustee": {
-            "Type": 1,
-            "ObjectId": "string",
-            "TenantId": "string"
-          },
-          "AccessType": 0,
-          "AccessRights": 0
-        }
-      ]
-    },
-    "InstanceId": "string",
+    "Id": "Namespace1",
+    "Region": "WestUS",
+    "Self": "https://dat-b.osipi.com/api/v1/tenants/00c97c8b-8f60-4f29-af71-3178c414e7a0/namespaces/Namespace1",
+    "Description": "Namespace Description 1",
+    "RegionId": "WestUS",
+    "InstanceId": "00f602d6-0999-42e8-9ae6-e06854fdcf31",
+    "Name": "Namespace1",
+    "AllowCrossRegionProcessing": true
+  },
+  {
+    "Id": "Namespace2",
+    "Region": "WestUS",
+    "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/Namespace2",
+    "Description": "Namespace Description 2",
+    "State": 1,
+    "RegionId": "WestUS",
+    "InstanceId": "007df91e-b838-4c55-b43f-17560cf4ab87",
+    "Name": "Namespace2",
     "AllowCrossRegionProcessing": true
   }
 ]
@@ -114,10 +106,10 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 
 ```json
 {
-  "Id": "NamespaceId",
+  "Id": "Namespace1",
   "Region": "WestUS",
-  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/NamesapceId",
-  "Description": "Namespace 1",
+  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namesapceId",
+  "Description": "Namespace Description 1",
   "State": 1,
   "RegionId": "WestUS",
   "InstanceId": "8e997ea5-4b69-4486-b38c-22c73e8acfc7",
@@ -211,7 +203,7 @@ The new Namespace to be created.<br/>
 {
   "Id": "NamespaceId",
   "Region": "WestUS",
-  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/NamespaceId",
+  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namespaceId",
   "Description": "Namespace Description",
   "Owner": {
     "Type": 1,
@@ -330,7 +322,7 @@ The new details to store for the Namespace.<br/>
 {
   "Id": "NamespaceId",
   "Region": "WestUS",
-  "Self": "https://dat-d.osipi.com/api/v1/tenants/tenantId/namespaces/NamespaceId",
+  "Self": "https://dat-d.osipi.com/api/v1/tenants/tenantId/namespaces/namespaceId",
   "Description": "New Namespace 1",
   "State": 1,
   "Owner": {
