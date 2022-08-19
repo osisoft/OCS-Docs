@@ -96,7 +96,14 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 > 200 Response
 
 ```json
-{}
+{
+  "Feature": {
+    "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
+    "Name": "Feature1",
+    "Description": "Feature Description"
+  },
+  "CurrentState": 1
+}
 ```
 
 <h3>Authorization</h3>
