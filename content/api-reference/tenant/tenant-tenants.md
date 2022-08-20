@@ -199,29 +199,6 @@ The updated details of the Tenant.<br/>
       "CurrentState": 1
     }
   ],
-  "Entitlements": [
-    {
-      "EntitlementDefinitionId": "NamespaceCount",
-      "EntitlementType": 1,
-      "Value": 5
-    },
-    {
-      "EntitlementDefinitionId": "Region-NA",
-      "Value": 1
-    },
-    {
-      "EntitlementDefinitionId": "StreamAccessCount",
-      "EntitlementType": 2,
-      "LimitType": 1,
-      "Value": 1000
-    },
-    {
-      "EntitlementDefinitionId": "StreamCount",
-      "EntitlementType": 1,
-      "LimitType": 1,
-      "Value": 1000
-    }
-  ],
   "TenantType": "Unlinked"
 }
 ```
