@@ -36,29 +36,37 @@ GET /api/v1/Tenants/{tenantId}/Namespaces
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Namespace](#schemanamespace)[])
 
 ```json
 [
   {
-    "Id": "Namespace1",
-    "Region": "WestUS",
-    "Self": "https://dat-b.osipi.com/api/v1/tenants/00c97c8b-8f60-4f29-af71-3178c414e7a0/namespaces/Namespace1",
-    "Description": "Namespace Description 1",
-    "RegionId": "WestUS",
-    "InstanceId": "00f602d6-0999-42e8-9ae6-e06854fdcf31",
-    "Name": "Namespace1",
-    "AllowCrossRegionProcessing": true
-  },
-  {
-    "Id": "Namespace2",
-    "Region": "WestUS",
-    "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/Namespace2",
-    "Description": "Namespace Description 2",
-    "State": 1,
-    "RegionId": "WestUS",
-    "InstanceId": "007df91e-b838-4c55-b43f-17560cf4ab87",
-    "Name": "Namespace2",
+    "Id": "string",
+    "Region": "string",
+    "RegionId": "string",
+    "Self": "string",
+    "Name": "string",
+    "Description": "string",
+    "State": 0,
+    "Owner": {
+      "Type": 1,
+      "ObjectId": "string",
+      "TenantId": "string"
+    },
+    "AccessControl": {
+      "RoleTrusteeAccessControlEntries": [
+        {
+          "Trustee": {
+            "Type": 1,
+            "ObjectId": "string",
+            "TenantId": "string"
+          },
+          "AccessType": 0,
+          "AccessRights": 0
+        }
+      ]
+    },
+    "InstanceId": "string",
     "AllowCrossRegionProcessing": true
   }
 ]
@@ -102,18 +110,36 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Namespace](#schemanamespace))
 
 ```json
 {
-  "Id": "Namespace1",
-  "Region": "WestUS",
-  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namesapceId",
-  "Description": "Namespace Description 1",
-  "State": 1,
-  "RegionId": "WestUS",
-  "InstanceId": "8e997ea5-4b69-4486-b38c-22c73e8acfc7",
-  "Name": "NamespaceName",
+  "Id": "string",
+  "Region": "string",
+  "RegionId": "string",
+  "Self": "string",
+  "Name": "string",
+  "Description": "string",
+  "State": 0,
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  },
+  "AccessControl": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  },
+  "InstanceId": "string",
   "AllowCrossRegionProcessing": true
 }
 ```
@@ -197,47 +223,36 @@ The new Namespace to be created.<br/>
 
 <h4>Example response body</h4>
 
-> 201 Response
+> 201 Response ([Namespace](#schemanamespace))
 
 ```json
 {
-  "Id": "NamespaceId",
-  "Region": "WestUS",
-  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namespaceId",
-  "Description": "Namespace Description",
+  "Id": "string",
+  "Region": "string",
+  "RegionId": "string",
+  "Self": "string",
+  "Name": "string",
+  "Description": "string",
+  "State": 0,
   "Owner": {
     "Type": 1,
-    "ObjectId": "4f9f79e2-e4e3-4cef-b302-6c4713baed5c",
-    "TenantId": "7fc97c8b-8f60-4f29-af71-3178c414e7a0"
+    "ObjectId": "string",
+    "TenantId": "string"
   },
   "AccessControl": {
     "RoleTrusteeAccessControlEntries": [
       {
         "Trustee": {
-          "Type": 3,
-          "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
         },
-        "AccessRights": 1
-      },
-      {
-        "Trustee": {
-          "Type": 3,
-          "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
-        },
-        "AccessRights": 3
-      },
-      {
-        "Trustee": {
-          "Type": 3,
-          "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
-        },
-        "AccessRights": 31
+        "AccessType": 0,
+        "AccessRights": 0
       }
     ]
   },
-  "RegionId": "WestUS",
-  "InstanceId": "cd7df91e-b838-4c55-b43f-17560cf4ab87",
-  "Name": "NamespaceName",
+  "InstanceId": "string",
   "AllowCrossRegionProcessing": true
 }
 ```
@@ -310,54 +325,42 @@ The new details to store for the Namespace.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Namespace](#schemanamespace)|The updated `Namespace` with identifier `namespaceId`.|
-|400|None|Could not update the namespace due to missing or invalid input.|
+|400|None|Could not udpate the namespace due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Namespace](#schemanamespace))
 
 ```json
 {
-  "Id": "NamespaceId",
-  "Region": "WestUS",
-  "Self": "https://dat-d.osipi.com/api/v1/tenants/tenantId/namespaces/namespaceId",
-  "Description": "New Namespace 1",
-  "State": 1,
+  "Id": "string",
+  "Region": "string",
+  "RegionId": "string",
+  "Self": "string",
+  "Name": "string",
+  "Description": "string",
+  "State": 0,
   "Owner": {
     "Type": 1,
-    "ObjectId": "4f9f79e2-e4e3-4cef-b302-6c4713baed5c",
-    "TenantId": "7fc97c8b-8f60-4f29-af71-3178c414e7a0"
+    "ObjectId": "string",
+    "TenantId": "string"
   },
   "AccessControl": {
     "RoleTrusteeAccessControlEntries": [
       {
         "Trustee": {
-          "Type": 3,
-          "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
         },
-        "AccessRights": 1
-      },
-      {
-        "Trustee": {
-          "Type": 3,
-          "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
-        },
-        "AccessRights": 3
-      },
-      {
-        "Trustee": {
-          "Type": 3,
-          "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
-        },
-        "AccessRights": 31
+        "AccessType": 0,
+        "AccessRights": 0
       }
     ]
   },
-  "RegionId": "WestUS",
-  "InstanceId": "8e997ea5-4b69-4486-b38c-22c73e8acfc7",
-  "Name": "NamespaceName",
+  "InstanceId": "string",
   "AllowCrossRegionProcessing": true
 }
 ```
@@ -438,31 +441,19 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([AccessControlList](#schemaaccesscontrollist))
 
 ```json
 {
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": 3,
-        "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
       },
-      "AccessRights": 1
-    },
-    {
-      "Trustee": {
-        "Type": 3,
-        "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
-      },
-      "AccessRights": 3
-    },
-    {
-      "Trustee": {
-        "Type": 3,
-        "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
-      },
-      "AccessRights": 31
+      "AccessType": 0,
+      "AccessRights": 0
     }
   ]
 }
@@ -526,31 +517,19 @@ The updated AccessControlList for the Namespace.<br/>
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([AccessControlList](#schemaaccesscontrollist))
 
 ```json
 {
   "RoleTrusteeAccessControlEntries": [
     {
       "Trustee": {
-        "Type": 3,
-        "ObjectId": "a4e06a18-9a0e-4721-9772-524c937bdb5c"
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
       },
-      "AccessRights": 1
-    },
-    {
-      "Trustee": {
-        "Type": 3,
-        "ObjectId": "a9a3b01b-e0d3-49c9-b931-72433152c192"
-      },
-      "AccessRights": 3
-    },
-    {
-      "Trustee": {
-        "Type": 3,
-        "ObjectId": "e1aaf6ac-3416-4db2-bd5d-d62b13340f4d"
-      },
-      "AccessRights": 31
+      "AccessType": 0,
+      "AccessRights": 0
     }
   ]
 }
@@ -593,13 +572,13 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/owner
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Trustee](#schematrustee))
 
 ```json
 {
   "Type": 1,
-  "ObjectId": "4f9f79e2-e4e3-4cef-b302-6c4713baed5c",
-  "TenantId": "tenantId"
+  "ObjectId": "string",
+  "TenantId": "string"
 }
 ```
 
@@ -647,19 +626,19 @@ The new owner's Trustee of the Namespace.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Trustee](#schematrustee)|The updated `Trustee` for the namespace with identifier `namespaceId`.|
-|400|None|Could not update the namespace owner due to missing or invalid input.|
+|400|None|Could not udpate the namespace owner due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Trustee](#schematrustee))
 
 ```json
 {
   "Type": 1,
-  "ObjectId": "4f9f79e2-e4e3-4cef-b302-6c4713baed5c",
-  "TenantId": "tenantId"
+  "ObjectId": "string",
+  "TenantId": "string"
 }
 ```
 

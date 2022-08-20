@@ -36,23 +36,17 @@ GET /api/v1/ServiceBlog/Entries
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([ServiceBlogEntry](#schemaserviceblogentry)[])
 
 ```json
 [
   {
-    "Id": 2147483586,
-    "TimePosted": "2021-11-22T15:54:34.477Z",
-    "Title": "Blog Entry for Example 1",
-    "Content": "This entry is here for to show the example.",
-    "Author": "Joe Developer"
-  },
-  {
-    "Id": 2147483587,
-    "TimePosted": "2021-09-15T20:48:36.293Z",
-    "Title": "Blog Entry for Example 2",
-    "Content": "This entry is here for to show another example.",
-    "Author": "Joe Developer"
+    "IsDeleted": true,
+    "Id": 0,
+    "TimePosted": "2019-08-24T14:15:22Z",
+    "Title": "string",
+    "Content": "string",
+    "Author": "string"
   }
 ]
 ```
@@ -87,15 +81,16 @@ GET /api/v1/ServiceBlog/Entries/{id}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([ServiceBlogEntry](#schemaserviceblogentry))
 
 ```json
 {
-  "Id": 2147483587,
-  "TimePosted": "2021-09-15T20:48:36.293Z",
-  "Title": "Blog Entry for Example 2",
-  "Content": "This entry is here for to show another example.",
-  "Author": "Joe Developer"
+  "IsDeleted": true,
+  "Id": 0,
+  "TimePosted": "2019-08-24T14:15:22Z",
+  "Title": "string",
+  "Content": "string",
+  "Author": "string"
 }
 ```
 
