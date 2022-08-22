@@ -44,6 +44,8 @@ To create a data view:
 
 ## Add data fields to display as identifying fields for the data view
 
+[!include[data view banner](../../../visualize-data/includes/banner.md)]
+
 1. In the `Add Data Fields` window, select each data field or **Select All** data fields to use as an identifying field. **Show Included Fields** highlights identifying fields already included in the data field.
 
 1. (Optional) To edit data field label, select **Next** and enter `{` to display tokens to use as a data field label.
