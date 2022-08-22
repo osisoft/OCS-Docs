@@ -93,7 +93,7 @@ GET /api/v1/ServiceBlog/Entries/{id}
 {
   "Id": 2147483587,
   "TimePosted": "2021-09-15T20:48:36.293Z",
-  "Title": "Blog Entry for Example 2",
+  "Title": "Blog Entry for Example",
   "Content": "This entry is here for to show another example.",
   "Author": "Joe Developer"
 }
