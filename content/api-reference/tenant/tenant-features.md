@@ -28,21 +28,28 @@ GET /api/v1/Tenants/{tenantId}/Features
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)[]|An array of all `Feature`s for the tenant with identifier `tenantId`.|
-|400|None|Could not retrieve the specified `FeatureState`s due to missing or invalid input.|
 |403|None|Forbidden.|
+|404|None|Could not retrieve the specified `FeatureState`s due to missing or invalid data.|
 
 <h4>Example response body</h4>
 
-> 200 Response ([FeatureState](#schemafeaturestate)[])
+> 200 Response
 
 ```json
 [
   {
     "Feature": {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "DefaultState": 0
+      "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
+      "Name": "Feature1",
+      "Description": "Feature Description"
+    },
+    "CurrentState": 1
+  },
+  {
+    "Feature": {
+      "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
+      "Name": "Feature2",
+      "Description": "Feature Description"
     },
     "CurrentState": 0
   }
@@ -81,22 +88,20 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[FeatureState](#schemafeaturestate)|The state of the `Feature` for the tenant with identifier `tenantId`.|
-|400|None|Could not retrieve the specified `FeatureState` due to missing or invalid input.|
-|403|None|Forbidden.|
+|404|None|Could not retrieve the specified `FeatureState` due to missing or invalid input.|
 
 <h4>Example response body</h4>
 
-> 200 Response ([FeatureState](#schemafeaturestate))
+> 200 Response
 
 ```json
 {
   "Feature": {
-    "Id": "string",
-    "Name": "string",
-    "Description": "string",
-    "DefaultState": 0
+    "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
+    "Name": "Feature1",
+    "Description": "Feature Description"
   },
-  "CurrentState": 0
+  "CurrentState": 1
 }
 ```
 
