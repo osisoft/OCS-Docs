@@ -38,7 +38,7 @@ Add roles that have permissions for the resource by selecting **Add Role** > **A
 
 ### Remove roles
 
-Remove newly added roles by selecting the **Remove** ![Remove](../_icons/branded/trash-can.svg) icon. Roles that were added previously cannot be removed because they already have permissions assigned that must be cleared first. For more information, see [Clear permissions](#clear-permissions).
+Remove newly added roles by selecting **Remove** ![Remove](../_icons/branded/trash-can.svg). Roles that were added previously cannot be removed because they already have permissions assigned that must be cleared first. For more information, see [Clear permissions](#clear-permissions).
 
 ### Edit permissions
 
@@ -54,7 +54,7 @@ Remove newly added roles by selecting the **Remove** ![Remove](../_icons/branded
 
 ### Clear permissions
     
-Clear the permissions applied to a role by selecting **Backspace** ![Backspace](../_icons/branded/backspace.svg).
+Clear the permissions applied to a role by selecting **Remove** ![Remove](../_icons/branded/trash-can.svg).
 
 **Notes:**
 

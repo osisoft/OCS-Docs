@@ -44,7 +44,7 @@ An asset or asset type metadata is static information associated with a given as
 | Name        | String | Optional | User-friendly name for the metadata value. If not null, must be unique within an asset or asset type. |
 | Description | String | Optional  | User-provided description.                                   |
 | SdsTypeCode | Int    | Optional | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer or string values: 11 ("Int64"), 14 ("Double"), 16 ("DateTime"), and 18 ("String"). |
-| Uom         | String | Optional  | Asset metadata unit of measurement (UOM). Select from the list of supported UOM types. |
+| Uom         | String | Optional  | Asset metadata unit of measure (UOM). Select from the list of supported UOM types. |
 | Value       | String | Optional  | String representation of the metadata.                      |
 
 \* The`Id` property is not required if the `Name` property matches a `Name` on the asset type metadata. In this case, the `Id` of the metadata on the asset is inherited from the metadata `Id` of the asset type. This also applies when an asset is updated.

@@ -101,7 +101,7 @@ Individual metadata value from the metadata list of a `DataItem`.
 | Value | object | Static value assigned to the metadata value
 | Description | string | Extended text description
 | TypeCode | SdsTypeCode| The name of the metadata value's data type
-| Uom | string | The metadata value's unit of measurement identifier
+| Uom | string | The metadata value's unit of measure identifier
 
 ### DataItemResourceType enumeration
 Describes the resource type of a data item.
@@ -148,7 +148,7 @@ The individual group value from the list of `Groups`.
 |--|--|--|
 | Value | object | This groups's value of each `.GroupingFields` defined on the `DataView`
 | TypeCode | SdsTypeCode | The name of the group's type code
-| Uom | string | The group's unit of measurement identifier
+| Uom | string | The group's unit of measure identifier
 
 ### FieldMapping
 Details on the provenance on every field of data:
@@ -161,7 +161,7 @@ Details on the provenance on every field of data:
 | TypeCode | SdsTypeCode | The primary data type of the mapping
 | SummaryType | SdsSummaryType  |The summary type calculation. Null unless all data mappings' SummaryType within the field mappings are identical. |
 | SummaryDirection | SummaryDirection Enumeration |SummaryDirection controls whether the start or end index of the summary is used by the data view to calculate the summary values. Null unless all data mappings' SummaryDirection within the field mappings are identical. |
-| Uom | string | The unit of measure id. Null unless all data mappings' unit of measures within the field mapping are identical.
+| Uom | string | The unit of measure id. Null unless all data mappings' units of measure within the field mapping are identical.
 | DataMappings | IReadOnlyList<DataMapping> | Per-group details of what this field resolved to
 
 ### FieldKind enumeration

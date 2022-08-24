@@ -113,7 +113,7 @@ To build an AF element
 
       * In the last field, enter an attribute value.
 
-   **Note:** Custom unit of measurements (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their UOM property set.<br></br>
+   **Note:** Custom units of measure (UOMs) are not supported. During the transfer of AF element data, AF elements with custom UOMs will not have their UOM property set.<br></br>
    
 1. (Optional) To narrow your search by template name, in the **Template** field, select a template from the dropdown list.
 

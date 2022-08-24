@@ -10,7 +10,7 @@ Communities include the following roles, ordered from least privileged to most p
 
 ## Community Member
 
-The Community Member role is a role that can be shared among multiple tenants. This role is authorized to read any data shared in the community.
+The Community Member is a role that is shared among multiple tenants participating in a community. This role is authorized to read any data shared in the community.
 
 When a new community is created, a new Community Member role is automatically added to the system, which is named using the following convention: `<Community Name> Community Member`. For example, if you create a new community named `Test Community`, a new community role is added to the tenant named `Test Community Community Member`.
 

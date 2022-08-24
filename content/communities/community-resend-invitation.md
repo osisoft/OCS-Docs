@@ -6,6 +6,8 @@ uid: community-resend-invitation
 
 If you invite another tenant to the community but it does not receive the invitation email, you can resend it. 
 
+**Note:** Invitations are valid for 14 days before they expire. If the invitation is not accepted within that time, you must resend the invitation.
+
 ## Prerequisites
 
 [!include[prereq-administrative-tenant](includes/prereq-administrative-tenant.md)]

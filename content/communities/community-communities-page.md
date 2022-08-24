@@ -10,9 +10,9 @@ The `Communities` page, accessible at **Data Management** > **Communities**, is 
 
 - If you are a [Community Member](xref:community-community-roles#community-member), this page lists only the communities that you hold membership in, along with their high-level details.  
 
-## Community view
+## Community list
 
-For each community that your tenant participates in OCS, it is listed on the `Communities` page. From this page, you can review high level details for the community and view if you have access to view data streams from the community.
+Each OCS community that your tenant participates in is listed on the `Communities` page. From this page, you can review high level details for the community and view if you have access to view data streams from the community.
 
 The following table describes each field listed for a community:
 
@@ -29,21 +29,22 @@ Select **Details** to administrate the community. For more information on admini
 - <xref:community-community-administration>
 - <xref:community-tenant-administration>
 
-You can also toggle the `Communities` page between two views using the view toggle.
+You can also toggle the `Communities` page between the default list view and a card view.
 
 | View | Icon | Description |
 |--|--|--|
-| Card view | ![card view](../_icons/branded/view-grid.svg) | Lists each community your tenant participates in as cards. |
-| List view | ![list view](../_icons/branded/view-list.svg) | Lists each community your tenant participates in as list items. |
+| **List view** | ![list view](../_icons/branded/view-list.svg) | Lists each community your tenant participates in as list items. |
+| **Card view** | ![card view](../_icons/branded/view-grid.svg) | Lists each community your tenant participates in as cards. |
 
-## Filter communities
+## Community toolbar
 
-Use the **Filter communities** field to find a specific community.
+Use the controls available in the toolbar find, create, or manage a community.
 
-## Add community
+| Control | Description |
+|--------|-------------|
+| **Filter Communities** | Type criteria to find a specific community. |
+| **Add community**<sup>1</sup> | Creates a new community. For more information on this process, see <xref:community-workflow-create>. |
+| **View invitations**<sup>1</sup> | View any invitations that your tenant has pending to join a community. For more information on pending invitations, see <xref:community-view-invitations>.
+| **More options** ![More options](../_icons/default/dots-vertical.svg) > **Manage Default Community Administrators**<sup>1</sup> | Configures which roles are automatically added as the default Community Administrators while you are creating or joining a community. For more information, see <xref:communities-manage-default-admins>. |
 
-If you are a [Community Administrator](xref:community-community-roles#community-administrators), you can use **Add Community** to create a new community. For more information on this process, see <xref:community-workflow-create>.
-
-## Manage default community administrators
-
-If you are a Community Administrator, you can configure which roles are automatically added as the default Community Administrators while you are creating or joining a community. To set default Community Administrators, select **More options** ![More options](../_icons/default/dots-vertical.svg) > **Manage Default Community Administrators**. For more information, see <xref:communities-manage-default-admins>.
+<sup>1</sup>Requires [Community Administrator](xref:community-community-roles#community-administrators) permissions.

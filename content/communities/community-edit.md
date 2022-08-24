@@ -4,7 +4,7 @@ uid: community-edit
 
 # Edit community
 
-After you create a community, you can edit its name and description at any time.
+After you create a community, you can edit its name and description at any time. You can also edit your contact email. 
 
 ## Prerequisites
 
@@ -20,4 +20,8 @@ To edit a community:
 
 1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Edit Community**.
 
-1. In **Edit Community**, edit the community **Name** and **Description**. Then select **Update**.
+1. In **Edit Community**, edit the community **Name** and **Description**. 
+
+1. (Optional) Edit the community **Contact Email**.
+
+1. Select **Update**.

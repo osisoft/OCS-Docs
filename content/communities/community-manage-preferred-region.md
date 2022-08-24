@@ -6,6 +6,10 @@ uid: community-manage-preferred-region
 
 Each community includes settings to manage the preferred region, which controls the geographical regions where operational data shared within a community is processed. By default, operational data is primarily processed in the `West-US` region for most requests, but data can be processed in other regions as well. Using the preferred region settings, you can override the default region to explicitly choose where operational data is processed.
 
+## Why would I want to manage my preferred region?
+
+For more information, see <xref:cross-region-data-sharing>.
+
 ## Prerequisites
 
 - To manage the **Community Preferred Region** setting, you must be assigned a user role with [community administration permissions](xref:community-community-roles#community-administrators) on the [administrative tenant](xref:community-community-roles#administrative-tenant).

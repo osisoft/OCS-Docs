@@ -14,7 +14,7 @@ The following best practices are recommended for types and streams:
 
    **Note:** You may use the REST API or client libraries to define additional optional fields, including Value, Order, and InterpolationMode for each property. Therefore, it may be preferable to create types programmatically.
 
-- Ensure that each property is defined completely. A common error is to add a Unit of Measure (UOM) to the type definition after its creation, but a UOM can only be defined for the type during creation. InterpolationMode and UOM on the type are inherited by the stream; however, these fields can be overridden. If they are not defined on the type, they can be added on the stream.
+- Ensure that each property is defined completely. A common error is to add a unit of measure (UOM) to the type definition after its creation, but a UOM can only be defined for the type during creation. InterpolationMode and UOM on the type are inherited by the stream; however, these fields can be overridden. If they are not defined on the type, they can be added on the stream.
 
 - If properties are added to a type later, you must create a new type that includes all the properties of the original type, plus the new properties. Use a stream view to convert the existing streams to the new stream type and migrate the data. There are no values for the new properties for the existing streams, and null values are assigned. Before you migrate your data, consider the effect of the null values on your application and ensure that the application will not break if it encounters null values.
 

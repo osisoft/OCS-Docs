@@ -30,9 +30,9 @@ To accept an invitation:
 
 1. Wait for a Community Administrator from the inviting tenant to confirm your tenant. Your tenant does not officially join the community until the inviting tenant confirms the invitation.
 
-  ![await confirmation](images/await-confirmation.png)
-
   When the administrative tenant confirms your tenant, you receive a notification email.
+
+  **Tip:** You can view or cancel your invitations that are pending confirmation from the `Communities` page. For more information, see <xref:community-view-invitations>.
  
 1. After your tenant is confirmed for the community, select **Details** to set up Community Administrators and Community Members for your tenant.
 
@@ -40,9 +40,11 @@ To accept an invitation:
 
   A setup wizard opens.
 
-1. From the **Welcome** page, select **Next**.
+1. From the **Welcome** page, verify the **Contact Email** address and then select **Next**.
 
-   ![Setup Wizard: Welcome](images/setup-wizard.png)
+  The **Contact Email** is an email address that your business partners can use to contact you for any questions or issues related to this community. This field defaults to the email address for your user account, but you can override it by selecting ![close](../_icons/default/close.svg) and entering a new address. 
+
+  **Tip:** You can update your **Contact Email** later. For more information, see <xref:community-contact-email>.
 
 1. On the `Community Administrators` page, choose the [roles](xref:ccRoles) that are assigned [community administration permissions](xref:community-community-roles#community-administrators). Users assigned these roles can perform administration tasks within their own tenant, but not the entire community. You can either accept the default roles or add new ones. 
    
@@ -56,7 +58,7 @@ To accept an invitation:
 
 1. On the `Community Members` page, add [Community Members](xref:community-community-roles#community-member), which are members within your tenant that have read access to the community and its data.
       
-  To add new Community Members, select **Add Members** > ![Add](../_icons/branded/plus.svg) for each user or group that you want to add.
+  To add new Community Members, select **Add Members** > **Add User** ![Add](../_icons/branded/plus.svg) for each user or group that you want to add.
 
   **Note:** Community Administrators are not automatically added as Community Members. If you want your Community Administrators to also be Community Members with access to shared resources, you must manually add them.
 

@@ -34,7 +34,7 @@ To confirm an invitation:
 
 1. On the `Community Details` page, select the **Invitations** tab.
 
-1. Select an invitation with a status of `Invitation Accepted`.
+1. Select an invitation with a status of `Pending Confirmation`.
 
 1. On the `Invitation Details` pane, select **Confirm Tenant**. 
 

@@ -39,7 +39,7 @@ The following table shows the required and optional SdsUomQuantity fields.
 
 ## Supported system-defined unit quantities
 
-A list of the supported quantities and their base unit of measures is below. Supported quantities are read-only.
+A list of the supported quantities and their base units of measure is below. Supported quantities are read-only.
 
 | Quantity Id                                 | Base Uom Id               |
 | ------------------------------------------- | ------------------------- |
