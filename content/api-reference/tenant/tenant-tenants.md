@@ -33,50 +33,38 @@ GET /api/v1/Tenants/{tenantId}
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([TenantWithProperties](#schematenantwithproperties))
 
 ```json
 {
-  "Id": "7fc97c8b-8f60-4f29-af71-3178c414e7a0",
-  "CompanyName": "CompanyName",
-  "State": 1,
-  "Created": "2021-07-23T15:54:07.523Z",
-  "LastUpdated": "2021-07-23T15:54:10.873Z",
-  "Alias": "CompanyAlias",
+  "Id": "string",
+  "CompanyName": "string",
+  "State": 0,
+  "Created": "2019-08-24T14:15:22Z",
+  "LastUpdated": "2019-08-24T14:15:22Z",
+  "Alias": "string",
   "Features": [
     {
       "Feature": {
-        "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-        "Name": "FeatureName",
-        "Description": "Feature Description"
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "DefaultState": 0
       },
-      "CurrentState": 1
+      "CurrentState": 0
     }
   ],
+  "ExternalAccountId": "string",
+  "TenantType": "string",
   "Entitlements": [
     {
-      "EntitlementDefinitionId": "NamespaceCount",
-      "EntitlementType": 1,
-      "Value": 5
-    },
-    {
-      "EntitlementDefinitionId": "Region-NA",
-      "Value": 1
-    },
-    {
-      "EntitlementDefinitionId": "StreamAccessCount",
-      "EntitlementType": 2,
-      "LimitType": 1,
-      "Value": 1000
-    },
-    {
-      "EntitlementDefinitionId": "StreamCount",
-      "EntitlementType": 1,
-      "LimitType": 1,
-      "Value": 1000
+      "EntitlementDefinitionId": "string",
+      "EntitlementType": 0,
+      "LimitType": 0,
+      "Value": 0,
+      "ManualBlockStatus": true
     }
-  ],
-  "TenantType": "Unlinked"
+  ]
 }
 ```
 
@@ -173,33 +161,35 @@ The updated details of the Tenant.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Tenant](#schematenant)|The updated `Tenant` with Id `tenantId`.|
-|400|None|Could not return the `Tenant` due to missing or invalid input.|
+|400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([Tenant](#schematenant))
 
 ```json
 {
-  "Id": "7fc97c8b-8f60-4f29-af71-3178c414e7a0",
-  "CompanyName": "CompanyName",
-  "State": 1,
-  "Created": "2021-07-23T15:54:07.523Z",
-  "LastUpdated": "2021-07-23T15:54:10.873Z",
-  "Alias": "CompanyAlias",
+  "Id": "string",
+  "CompanyName": "string",
+  "State": 0,
+  "Created": "2019-08-24T14:15:22Z",
+  "LastUpdated": "2019-08-24T14:15:22Z",
+  "Alias": "string",
   "Features": [
     {
       "Feature": {
-        "Id": "95c2b5fe-355d-4b33-a748-b738707e0648",
-        "Name": "FeatureName",
-        "Description": "Feature Description"
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "DefaultState": 0
       },
-      "CurrentState": 1
+      "CurrentState": 0
     }
   ],
-  "TenantType": "Unlinked"
+  "ExternalAccountId": "string",
+  "TenantType": "string"
 }
 ```
 
@@ -236,16 +226,6 @@ GET /api/v1/Tenants/{tenantId}/Icon
 |200|string|The icon associated with the `Tenant`.|
 |400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
-
-<h4>Example response body</h4>
-
-> 200 Response
-
-```json
-{
-  "Icon": "iconimagestring"
-}
-```
 
 <h3>Authorization</h3>
 
@@ -289,16 +269,6 @@ The Base64 encoded PNG icon for the Tenant.<br/>
 |400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
-
-<h4>Example response body</h4>
-
-> 200 Response
-
-```json
-{
-  "Icon": "iconimagestring"
-}
-```
 
 <h3>Authorization</h3>
 
@@ -371,22 +341,15 @@ GET /api/v1/Tenants/{tenantId}/Regions
 
 <h4>Example response body</h4>
 
-> 200 Response
+> 200 Response ([RegionBase](#schemaregionbase))
 
 ```json
-[
-  {
-    "Id": "WestEurope",
-    "Name": "West Europe",
-    "BaseAddress": "https://dat-d.osisoft.com"
-  },
-  {
-    "Id": "WestUS",
-    "Name": "West US",
-    "AdministrativeEndpointsWritable": true,
-    "BaseAddress": "https://dat-b.osisoft.com"
-  }
-]
+{
+  "Id": "string",
+  "Name": "string",
+  "AdministrativeEndpointsWritable": true,
+  "BaseAddress": "string"
+}
 ```
 
 <h3>Authorization</h3>
