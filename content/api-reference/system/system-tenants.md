@@ -237,6 +237,14 @@ GET /api/v1/Tenants/{tenantId}/Icon
 |400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+"IconImageString"
+```
+
 <h3>Authorization</h3>
 
 Allowed for these roles: 
@@ -279,6 +287,14 @@ The Base64 encoded PNG icon for the Tenant.<br/>
 |400|None|Could not return the icon for the `Tenant` due to missing or invalid input.|
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
+
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+"IconImageString"
+```
 
 <h3>Authorization</h3>
 
