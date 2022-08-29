@@ -34,10 +34,10 @@ To create a edge system base configuration and export it for use:
 
 1. You can toggle `Base Configurations` between two views using the view toggle.
 
-| View | Icon | Description |
-|--|--|--|
-| **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
-| **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
 
 1. Select **New Base Configuration**.
 
@@ -79,10 +79,10 @@ To modify a base configuration and export it for use:
 
 1. You can toggle `Base Configurations` between two views using the view toggle.
 
-| View | Icon | Description |
-|--|--|--|
-| **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
-| **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
 
 1. Find and select the template to modify.
 

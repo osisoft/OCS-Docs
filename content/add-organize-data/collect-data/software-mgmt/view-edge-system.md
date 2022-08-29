@@ -18,10 +18,10 @@ To view an edge system:
 
 1. You can toggle `Edge Systems` between two views using the view toggle.
 
-| View | Icon | Description |
-|--|--|--|
-| **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
-| **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
 
 1. (Optional) To sort by a column in descending order, select the column header. To sort in ascending order, select the header again.
 
@@ -57,10 +57,10 @@ To remove an edge system:
 
 1. You can toggle `Edge Systems` between two views using the view toggle.
 
-| View | Icon | Description |
-|--|--|--|
-| **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
-| **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
 
 1. Find and select the edge device to remove.
 
