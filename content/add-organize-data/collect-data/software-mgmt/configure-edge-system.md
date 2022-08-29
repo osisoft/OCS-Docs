@@ -38,6 +38,13 @@ To import an edge system configuration from the field to the corresponding edge 
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
+1. You can toggle `Edge Systems` between two views using the view toggle.
+
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
+
 1. Find and select the edge device to configure.
 
 1. Select **Edit Edge System**.
@@ -61,6 +68,13 @@ To edit an edge system configuration and export it for use:
 1. In the left pane, select **Data Collection** > **Software Management**.
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
+
+1. You can toggle `Edge Systems` between two views using the view toggle.
+
+  | View | Icon | Description |
+  |--|--|--|
+  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
+  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
 
 1. Find and select the edge device to configure.
 
