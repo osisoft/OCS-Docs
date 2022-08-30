@@ -42,7 +42,7 @@ To resume sharing all shared data streams from your tenant with the community, f
 
 	**Note:** It may take up to five minutes for the stream to resume sharing.
 
-## Where can I view that tenants have sharing paused?
+## Where can I view tenants that have sharing paused?
 
 You can view that tenants have paused sharing into a community from either the `Communities` page or the `Community Details` page.
 
