@@ -54,7 +54,7 @@ From the `Communities` page, each tile displays if there is one or more tenant i
 
 The `Community Details` page **Tenants** tab displays:
 
-1. The total number of tenants that have paused data sharing within the community.
+1. The total number of tenants that have pau`sed data sharing within the community.
 
 1. The sharing status for each tenant, listed within the **Status** column.
 
