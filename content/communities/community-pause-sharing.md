@@ -12,30 +12,52 @@ Community Administrators can temporarily pause all data streams that their tenan
 
 ## Pause sharing
 
-To pause all data sharing with a community, follow these steps:
+To pause sharing data streams from your tenant into a community, follow these steps:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
 1. Find the community that you want to pause sharing for and select **Details**.
 
-1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Pause Sharing**.<!-- TODO: Confirm button-->
+1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Pause Sharing**.
 
-1. In the confirmation window, select **Pause Sharing**.<!-- TODO: Confirm step-->
+1. In the confirmation window, select **Pause**.
 
 	Your tenant pauses sharing for all shared data streams and the tenant status updates to **Sharing Paused**.
 
-	**Note:** It may take up to 20 minutes for pausing to take effect.
+	**Note:** It may take up to five minutes for the pause to take effect.
 
 ## Resume sharing
 
-To resume sharing all shared data streams with a community, follow these steps:
+To resume sharing all shared data streams from your tenant with the community, follow these steps:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
 1. Find the community that you want to resume sharing for and select **Details**.
 
-1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Resume Sharing**.<!-- TODO: Confirm button-->
+1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Resume Sharing**.
 
-1. In the confirmation window, select **Resume Sharing**.<!-- TODO: Confirm step-->
+1. In the confirmation window, select **Resume**.
 
 	Your tenant resumes sharing for all shared data streams and the tenant status updates to **Sharing Active**.
+
+	**Note:** It may take up to five minutes for the stream to resume sharing.
+
+## Where can I view that tenants have sharing paused?
+
+You can view that tenants have paused sharing into a community from either the `Communities` page or the `Community Details` page.
+
+From the `Communities` page, each tile displays if there is one or more tenant in the community that has paused sharing.
+
+**Communities page tile: Paused tenants**
+
+![paused tenants](images/pause-tile.png)
+
+The `Community Details` page **Tenants** tab displays:
+
+1. The total number of tenants that have paused data sharing within the community.
+
+1. The sharing status for each tenant, listed within the **Status** column.
+
+	**Community Detail page: Paused tenants**
+
+	![paused tenants](images/community-details-pause.png)
