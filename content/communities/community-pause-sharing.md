@@ -4,7 +4,7 @@ uid: community-pause-sharing
 
 # Pause sharing a community
 
-Community Administrators can temporarily pause all data streams that their tenant is sharing with a community.
+Community Administrators can temporarily pause the data streams that their tenant is sharing into a community so that other tenants cannot access them.
 
 ## Prerequisites
 
