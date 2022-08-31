@@ -22,9 +22,9 @@ To pause sharing data streams from your tenant into a community, follow these st
 
 1. In the confirmation window, select **Pause**.
 
-	Your tenant pauses sharing for all shared data streams and the tenant status updates to **Sharing Paused**.
+	Your tenant pauses sharing for all shared data streams and the tenant status updates to `Sharing Paused`.
 
-	**Note:** It may take up to five minutes for the pause to take effect.
+	**Note:** The status immediately updates to `Sharing Paused`, but it may take up to five minutes to take effect.
 
 ## Resume sharing
 
@@ -40,7 +40,7 @@ To resume sharing all shared data streams from your tenant with the community, f
 
 	Your tenant resumes sharing for all shared data streams and the tenant status updates to **Sharing Active**.
 
-	**Note:** It may take up to five minutes for the stream to resume sharing.
+	**Note:** The status immediately updates to `Sharing Paused`, but it may take up to five minutes to take effect.
 
 ## Where can I view tenants that have sharing paused?
 
@@ -54,7 +54,7 @@ From the `Communities` page, each tile displays if there is one or more tenant i
 
 The `Community Details` page **Tenants** tab displays:
 
-1. The total number of tenants that have pau`sed data sharing within the community.
+1. The total number of tenants that have paused data sharing within the community.
 
 1. The sharing status for each tenant, listed within the **Status** column.
 
