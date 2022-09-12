@@ -12,18 +12,17 @@ APIs for managing the feature states of a Tenant.
 
 Returns all `FeatureState`s for the specified `Tenant`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Features
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -56,7 +55,7 @@ GET /api/v1/Tenants/{tenantId}/Features
 ]
 ```
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -71,19 +70,18 @@ Allowed for these roles:
 
 Returns a `FeatureState` with the specified identifier from a `Tenant`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Features/{id}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>`string id`
 <br/>The identifier of the `FeatureState`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -105,7 +103,7 @@ GET /api/v1/Tenants/{tenantId}/Features/{id}
 }
 ```
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -124,7 +122,7 @@ Allowed for these roles:
 
 Representation of a server-side database interpretation of a feature state.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -155,7 +153,7 @@ Representation of a server-side database interpretation of a feature state.
 
 Representation of a server-side database interpretation of a feature.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

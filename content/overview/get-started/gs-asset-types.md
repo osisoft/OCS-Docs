@@ -4,91 +4,82 @@ uid: gsAssetTypes
 
 # Get started with asset types
 
-An asset type is a template for creating assets that share a common structure or type. For more information about asset types, see the following topics:
-
-- [Asset types](xref:AssetTypes)
-
-- [PI Server counterpart](xref:AssetTypes#pi-server-counterpart)
-
-- [Asset types best practices](xref:AssetTypes#asset-types-best-practices)
+An asset type is a template for creating assets that share a common structure or type. For more information about asset types, see [Asset types](xref:AssetTypes).
 
 You can create an asset type in one of the following ways:
 
-- [Create an asset type from the beginning](#create-an-asset-type-with-the-asset-explorer) 
+- [Create an asset type from the beginning](#create-an-asset-type-with-the-asset-explorer)
 
 - [Convert an existing asset to an asset type](#create-an-asset-type-from-an-asset)
 
 ## Create an asset type with the asset explorer
 
-Follow the procedure to use the asset explorer to create an asset type.
+To use the asset explorer to create an asset type:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
-1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyOCS**.
+1. From the **Asset/Asset Types** selector, select **Asset Types**.
 
-1. From the **Asset/Asset Types Selector** list, select **Asset Types**.
+1. In the toolbar, select **Add Asset Type**.
 
-1. In the menu bar, click **Add Asset Type** to open a panel on the right side.
+1. In the right pane, complete the following fields:
 
-1. In the new asset type panel, enter the following:
+   - **Asset Type** - Enter *MyData.PumpType*.
 
-   - **Asset Type** &ndash; *MyOCS.PumpType*
+   - **Description** - (Optional) Add a description for the asset type. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
 
-   - **Description** &ndash; (Optional) Add a description for the asset. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
-   
-1. Click the **Metadata** tab, and then click **Add Metadata**.
+1. Select the **Metadata** tab, and then select **Add Metadata**.
 
-1. Enter the following metadata values:
+1. Complete the following fields:
 
-   - **Metadata** &ndash; *Maximum Flow Rate*
+   - **Metadata** - Enter *Maximum Flow Rate*.
 
-   - **Value** &ndash; *2* 
+   - **Value** - Enter *2*.
 
-   - **Type** &ndash; *Double*
+   - **Type** - Select *Double*.
 
-   - **UOM** &ndash; *US gallon per minute (Volume Flow rate)*
-   
-1. Click the **Properties** tab, and click **Add Stream Type Reference**.
+   - **UOM** - Select *US gallon per minute (Volume Flow rate)*.
 
-1. In the `Select Stream Type` window, click **MyOCS.PumpState** in the list, and then click **Add**.
+1. Select the **Properties** tab, and select **Add Stream Type Reference**.
 
-1. Click the **Status** tab, and click **Add Status Configuration**.
+1. In the `Select Stream Type` window, select **MyData.PumpState** in the list, and then select **Add**.
 
-    The `Select Property` window opens with a list of properties that can be represented as a status. For a property to be configured as a status, the property must be an enumerated state. Click **Cancel** to exit the window.
-    
-1. When you are finished adding Metadata, Properties, and Status to the asset type, click **Save**. 
+1. Select the **Status** tab, and select **Add Status Configuration**.
 
-    The asset type is added to the asset type list on the left.
-    
-1. In the asset type pane, use the icons in the upper right of the toolbar to switch between the following:
+    The `Select Property` window opens with a list of properties that can be represented as a status. For a property to be configured as a status, the property must be an enumerated state. To exit the window, select **Cancel**.
 
-     -  ![Card view](images/card-view.png) &ndash; Card view displays the asset types as a series of tiles. 
-     -  ![Table view](images/table-view.png) &ndash; Table view displays the asset types in a table format.
-     -  ![Autorefresh](images/autorefresh-btn.png) &ndash; Autorefresh checks for updates and refreshes the screen with new results. 
+1. To save the asset type, select **Save**.
+
+1. In the `Asset Type` pane, use the icons in the upper right of the toolbar to switch between the following:
+
+     -  ![Card view](../../_icons/branded/view-grid.svg) - Card view displays the asset types as a series of tiles.
+
+     -  ![Table view](../../_icons/branded/view-list.svg) - Table view displays the asset types in a table format.
 
 ## Create an asset type from an asset
 
-You can take an existing asset and use it as the basis for creating an asset type.
+To create an asset type based on an existing asset:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
- 
-1. Click the **Change Namespace** button in the upper-right toolbar, then select **MyOCS**.
 
-1. Select the **MyOCS.Asset** asset.
+1. From the **Asset/Asset Types** selector, select **Assets**.
 
-   **Note:** In the upper-right corner of the right pane, **Asset Type** is set to *< None >* indicating that this asset is not based on an asset type. 
+1. Select the **MyData.Asset** asset.
 
-1. Click the ![More Options button](images/more-options.png) icon, then click **Save as Asset Type**.
+   **Note:** In the upper-right corner of the right pane, **Asset Type** is set to *<None>* indicating that this asset is not based on an asset type.
 
-1. In the `Create an Asset Type for MyOCS.Asset` window, enter the following:
-   
-   - `Name` &ndash; **MyOCS.TankType**
-   - `Description` &ndash; (Optional) Add a description for the asset type. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
+1. Select the **More Options** icon ![More Options](../../_icons/default/dots-vertical.svg), then select **Save as Asset Type**.
 
-1. Click **Create**. 
+1. In the `Create an Asset Type for MyData.Asset` window, complete the following fields:
 
-   The MyOCS.TankType asset type is added to the asset type list. Note that the **Asset Type** for the MyOCS.Asset asset is now set to `MyOCS.TankType`. 
+   - `Name` - Enter **MyData.TankType**.
+
+   - `Description` - (Optional) Add a description for the asset type. By default, this description is inherited by assets created with this asset type, but it can be overwritten on the individual assets.
+
+1. Select **Create**.
+
+   The MyData.TankType asset type is added to the asset type list and the **Asset Type** for the MyData.Asset asset is now set to `MyData.TankType`.
 
 ## Next step
 
-Continue with [Get started with metadata rules](xref:gsMetadataRules).
+Continue with [Get started with data views](xref:gsDataViews).

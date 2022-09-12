@@ -16,8 +16,8 @@ A user is comparable to a mapping in PI Data Archive. For example, in PI Data Ar
 
 ## <a name="users-bp"></a>Users best practices
 
-The following best practices are recommended when you add users:
+Consider the following best practices when you add users:
 
-- Send the invitation to the user at the email address specified in the Contact Email field. Verify that the user's email address is correct to ensure the invitation was received, and not sent to an unintended recipient, unintentionally giving access to the portal.
+- Send the invitation to the user at the email address specified in the Contact Email field. Verify that the user's email address is correct to ensure the invitation is received, and not sent to an unintended recipient, unintentionally giving access to the portal.
 
 - Ensure a user has been granted the correct permissions through role assignment before sending the invitation. In particular, consider the access granted to the Tenant Member role, which, by default, grants read access to everything in the tenant. If a user should not have read access to some resources, the Tenant Member role can be limited.

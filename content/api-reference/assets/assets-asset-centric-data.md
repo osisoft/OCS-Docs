@@ -1,485 +1,556 @@
 ---
-uid: AssetCentricDataAPI
+uid: assets-asset-centric-data
+
 ---
 
-# Assets Data API
+# Asset Centric Data
+The asset centric data API provides a quick way to retrieve data stored in an asset's referenced streams.
 
-***
+## `Get Last Data`
 
-## `Get Asset Last Data` 
+<a id="opIdResolvedAssetData_Get Last Data"></a>
+
 Returns the last stored value for SDS streams in the resolved asset.
 
-### Request 
+<h3>Request</h3>
+
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last?stream={stream 1}[&stream={stream n}]
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Last
+?stream={stream}
 ```
 
-### Parameters  
-`string tenantId`   
-Tenant identifier
+<h4>Parameters</h4>
 
-`string namespaceId`   
-Namespace identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>
+`[optional] array stream`
+<br/>Optional parameter consisting of a comma-separated list of stream reference names in form of `stream={streamReferenceName}` for each stream you are interested in. By default, all data calls return data for all stream references.<br/><br/>
 
-`string assetId`  
-Asset identifier
+<h3>Response</h3>
 
-[optional] `string[] stream`
-Optional parameter consisting of the streams that you want data from.
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[DataResults](#schemadataresults)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
-### Response 
-The response includes a status code and a response body.
+<h4>Example response body</h4>
 
-| Status Code | Body Type | Description |
-|--|--|--|
-| 200 OK | OK | Array of last values for all references. |
-| 207 Multi-Status | partial success | Array of last values for references. Look at child errors for those that are unsuccessful. |
-| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
-| 403 Forbidden | error | You are not authorized to view the requested asset. |
-| 404 Not Found | error | The specified asset is not found. |
+> 200 Response
 
-#### Example response body
-```json 
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-    "Results": {
-        "StreamReferenceWithEventsName": [
-            {
-                "Timestamp": "2019-01-02T01:00:00Z",
-                "Temp": 155.5,
-                "Pres": 1
-            }
-        ],
-    },
-    "Errors": null
+  "Results": {
+    "StreamReferenceWithEventsName": [
+      {
+        "Timestamp": "2019-01-02T01:00:00Z",
+        "Temp": 155.5,
+        "Pres": 1
+      }
+    ]
+  },
+  "Errors": null
 }
 ```
 
-***
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
 
-## `Get Asset Sampled Data` 
-Returns sampled data for referenced streams. 
-
-**Note:** The inputs to this API matches the SDS stream Get sampled values data call.  
-
-### Request 
-```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&stream={stream 1}[&stream={stream n}]
-```
-
-### Parameters  
-`string tenantId`   
-Tenant identifier 
-
-`string namespaceId`   
-Namespace identifier
-
-`string assetId`  
-Asset identifier
-
-`string startIndex`   
-Start index for the intervals
-
-`string endIndex`   
-End index for the intervals
-
-`int intervals`  
-Number of requested intervals
-
-[optional] `string[] stream`
-Optional parameter consisting of the streams that you want data from.
-
-### Response 
-The response includes a status code and a response body.
-
-| Status Code | Body Type | Description |
-|--|--|--|
-| 200 OK | OK | Array of sampled values for all references. |
-| 207 Multi-Status | partial success | Array of sampled values for  references. Look at child errors for those that are unsuccessful. |
-| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
-| 403 Forbidden | error | You are not authorized to view the requested asset. |
-| 404 Not Found | error | The specified asset with identifier is not found. |
-
-```json 
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-    "Results": {
-        "StreamReferenceWithEventsName": [
-            {
-                "Timestamp": "2019-01-02T00:00:00Z",
-                "Temp": 0.044,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:16:38Z",
-                "Temp": 998.046,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T01:00:00Z",
-                "Temp": 155.5,
-                "Pres": 1
-            }
-        ],
-    },
-    "Errors": null
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
 }
 ```
 
-***
+---
 
-## `Get Asset Summary Data` 
-Returns summary data for referenced SDS streams. 
+## `Get Sampled Data`
 
-### Request 
+<a id="opIdResolvedAssetData_Get Sampled Data"></a>
+
+Returns sampled data for referenced SDS streams.
+
+<h3>Request</h3>
+
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[&stream={stream n}]
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Sampled
+?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}&stream={stream}&boundaryType={boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}
 ```
 
-###  Parameters  
-`string tenantId`   
-Tenant identifier 
+<h4>Parameters</h4>
 
-`string namespaceId`   
-Namespace identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>`string startIndex`
+<br/>The start index for the intervals.<br/><br/>`string endIndex`
+<br/>The end index for the intervals.<br/><br/>`integer intervals`
+<br/>Number of intervals requested.<br/><br/>
+`[optional] array stream`
+<br/>Optional parameter consisting of a comma-separated list of stream reference names in form of `stream={streamReferenceName}` for each stream you are interested in. By default, all data calls return data for all stream references.<br/><br/>`[optional] any boundaryType`
+<br/>Optional SdsBoundaryType specifies the handling of events at or near the startIndex and endIndex.<br/><br/>`[optional] any startBoundaryType`
+<br/>Optional SdsBoundaryType specifies the handling of events at or near the startIndex.<br/><br/>`[optional] any endBoundaryType`
+<br/>Optional SdsBoundaryType specifies the handling of events at or near the endIndex.<br/><br/>
 
-`string assetId`  
-Asset identifier
+<h3>Response</h3>
 
-`string startIndex`   
-Start index for the intervals
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[DataResults](#schemadataresults)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
-`string endIndex`   
-End index for the intervals
+<h4>Example response body</h4>
 
-`int count`   
-Number of requested intervals
+> 200 Response
 
-[optional] `string[] stream`
-Optional parameter consisting of the streams that you want data from.
-
-### Response 
-The response includes a status code and a response body.
-
-| Status Code | Body Type | Description |
-|--|--|--|
-| 200 OK | OK | Array of summary values for all references. |
-| 207 Multi-Status | partial success | Array of summary values for  references. Look at child errors for those that are unsuccessful. |
-| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
-| 403 Forbidden | error | You are not authorized to view the requested asset. |
-| 404 Not Found | error | The specified asset with identifier is not found. |
-
-```json 
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-    "Results": {
-        "StreamReferenceWithEventsName": [
-            {
-                "Start": {
-                    "Timestamp": "2019-01-01T08:00:00Z",
-                    "Temp": 0.044,
-                    "Pres": 1
-                },
-                "End": {
-                    "Timestamp": "2019-02-06T20:00:00Z",
-                    "Temp": 155.5,
-                    "Pres": 1
-                },
-                "Summaries": {
-                    "Count": {
-                        "Timestamp": 1000,
-                        "Temp": 1000,
-                        "Pres": 1000
-                    },
-                    "Minimum": {
-                        "Temp": 0.044,
-                        "Pres": 1.0
-                    },
-                    "Maximum": {
-                        "Temp": 998.046,
-                        "Pres": 1.0
-                    },
-                    "Range": {
-                        "Temp": 998.0020000000001,
-                        "Pres": 0.0
-                    },
-                    "Total": {
-                        "Temp": 498779.61199999356,
-                        "Pres": 1001.0
-                    },
-                    "Mean": {
-                        "Temp": 498.28133066933077,
-                        "Pres": 1.0
-                    },
-                    "StandardDeviation": {
-                        "Temp": 288.4561823749973,
-                        "Pres": 0.0
-                    },
-                    "PopulationStandardDeviation": {
-                        "Temp": 288.31206236481444,
-                        "Pres": 0.0
-                    },
-                    "WeightedMean": {
-                        "Temp": 153.11692828545156,
-                        "Pres": 1.0
-                    },
-                    "WeightedStandardDeviation": {
-                        "Temp": 25.424619899757136,
-                        "Pres": 0.0
-                    },
-                    "WeightedPopulationStandardDeviation": {
-                        "Temp": 25.411917116101474,
-                        "Pres": 0.0
-                    },
-                    "Skewness": {
-                        "Temp": 0.0011013861675857883,
-                        "Pres": "NaN"
-                    },
-                    "Kurtosis": {
-                        "Temp": -1.19976760290962,
-                        "Pres": "NaN"
-                    }
-                }
-            },
-            {
-                "Start": {
-                    "Timestamp": "2019-03-15T08:00:00Z",
-                    "Temp": 155.5,
-                    "Pres": 1
-                },
-                "End": {
-                    "Timestamp": "2019-04-20T20:00:00Z",
-                    "Temp": 155.5,
-                    "Pres": 1
-                },
-                "Summaries": {
-                    "Count": {
-                        "Timestamp": 0,
-                        "Temp": 0,
-                        "Pres": 0
-                    },
-                    "Minimum": {
-                        "Temp": 155.5,
-                        "Pres": 1.0
-                    },
-                    "Maximum": {
-                        "Temp": 155.5,
-                        "Pres": 1.0
-                    },
-                    "Range": {
-                        "Temp": 0.0,
-                        "Pres": 0.0
-                    },
-                    "Total": {
-                        "Temp": 155.5,
-                        "Pres": 1.0
-                    },
-                    "Mean": {
-                        "Temp": 155.5,
-                        "Pres": 1.0
-                    },
-                    "StandardDeviation": {
-                        "Temp": "NaN",
-                        "Pres": "NaN"
-                    },
-                    "PopulationStandardDeviation": {
-                        "Temp": 0.0,
-                        "Pres": 0.0
-                    },
-                    "WeightedMean": {
-                        "Temp": 155.5,
-                        "Pres": 1.0
-                    },
-                    "WeightedStandardDeviation": {
-                        "Temp": "NaN",
-                        "Pres": "NaN"
-                    },
-                    "WeightedPopulationStandardDeviation": {
-                        "Temp": 0.0,
-                        "Pres": 0.0
-                    },
-                    "Skewness": {
-                        "Temp": "NaN",
-                        "Pres": "NaN"
-                    },
-                    "Kurtosis": {
-                        "Temp": "NaN",
-                        "Pres": "NaN"
-                    }
-                }
-            }
-        ],
-    "Errors": null
-   }
+  "Results": {
+    "StreamReferenceWithEventsName": [
+      {
+        "Timestamp": "2019-01-02T00:00:00Z",
+        "Temp": 0.044,
+        "Pres": 1
+      },
+      {
+        "Timestamp": "2019-01-02T00:16:38Z",
+        "Temp": 998.046,
+        "Pres": 1
+      },
+      {
+        "Timestamp": "2019-01-02T01:00:00Z",
+        "Temp": 155.5,
+        "Pres": 1
+      }
+    ]
+  },
+  "Errors": null
 }
 ```
 
-***
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
 
-## `Get Asset Window Data`
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+---
+
+## `Get Summary Data`
+
+<a id="opIdResolvedAssetData_Get Summary Data"></a>
+
+Returns summary data for referenced SDS streams.
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Summaries
+?startIndex={startIndex}&endIndex={endIndex}&stream={stream}&count={count}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>`string startIndex`
+<br/>The start index for the intervals.<br/><br/>`string endIndex`
+<br/>The end index for the intervals.<br/><br/>
+`[optional] array stream`
+<br/>Optional parameter consisting of a comma-separated list of stream reference names in form of `stream={streamReferenceName}` for each stream you are interested in. By default, all data calls return data for all stream references.<br/><br/>`[optional] integer count`
+<br/>The number of intervals requested.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[DataResults](#schemadataresults)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+{
+  "Results": {
+    "StreamReferenceWithEventsName": [
+      {
+        "Start": {
+          "Timestamp": "2019-01-01T08:00:00Z",
+          "Temp": 0.044,
+          "Pres": 1
+        },
+        "End": {
+          "Timestamp": "2019-02-06T20:00:00Z",
+          "Temp": 155.5,
+          "Pres": 1
+        },
+        "Summaries": {
+          "Count": {
+            "Timestamp": 1000,
+            "Temp": 1000,
+            "Pres": 1000
+          },
+          "Minimum": {
+            "Temp": 0.044,
+            "Pres": 1
+          },
+          "Maximum": {
+            "Temp": 998.046,
+            "Pres": 1
+          },
+          "Range": {
+            "Temp": 998.0020000000001,
+            "Pres": 0
+          },
+          "Total": {
+            "Temp": 498779.61199999356,
+            "Pres": 1001
+          },
+          "Mean": {
+            "Temp": 498.28133066933077,
+            "Pres": 1
+          },
+          "StandardDeviation": {
+            "Temp": 288.4561823749973,
+            "Pres": 0
+          },
+          "PopulationStandardDeviation": {
+            "Temp": 288.31206236481444,
+            "Pres": 0
+          },
+          "WeightedMean": {
+            "Temp": 153.11692828545156,
+            "Pres": 1
+          },
+          "WeightedStandardDeviation": {
+            "Temp": 25.424619899757136,
+            "Pres": 0
+          },
+          "WeightedPopulationStandardDeviation": {
+            "Temp": 25.411917116101474,
+            "Pres": 0
+          },
+          "Skewness": {
+            "Temp": 0.0011013861675857883,
+            "Pres": "NaN"
+          },
+          "Kurtosis": {
+            "Temp": -1.19976760290962,
+            "Pres": "NaN"
+          }
+        }
+      }
+    ]
+  },
+  "Errors": null
+}
+```
+
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+---
+
+## `Get Interpolated Data`
+
+<a id="opIdResolvedAssetData_Get Interpolated Data"></a>
+
+Returns interpolated data for referenced SDS streams.
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated
+?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>`string startIndex`
+<br/>The index defining the beginning of the window.<br/><br/>`string endIndex`
+<br/>The index defining the end of the window.<br/><br/>`integer count`
+<br/>The number of events to return. Read characteristics of the stream determine how the events are constructed.<br/><br/>
+`[optional] array stream`
+<br/>Optional parameter consisting of a comma-separated list of stream reference names in form of `stream={streamReferenceName}` for each stream you are interested in. By default, all data calls return data for all stream references.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[DataResults](#schemadataresults)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+{
+  "Results": {
+    "StreamReferenceWithEventsName": [
+      {
+        "Timestamp": "2019-01-02T00:00:05Z",
+        "Temp": 5.045,
+        "Pres": 1
+      },
+      {
+        "Timestamp": "2020-04-12T08:00:00Z",
+        "Temp": 3.045,
+        "Pres": 11
+      },
+      {
+        "Timestamp": "2020-06-29T05:20:00Z",
+        "Temp": 54.045,
+        "Pres": 11
+      }
+    ]
+  },
+  "Errors": null
+}
+```
+
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+---
+
+## `Get Window Data`
+
+<a id="opIdResolvedAssetData_Get Window Data"></a>
+
 Returns window data for referenced SDS streams.
 
-### Request
+<h3>Request</h3>
 
+```text 
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data
+?startIndex={startIndex}&endIndex={endIndex}&stream={stream}&boundaryType={boundaryType}&startBoundaryType={startBoundaryType}&endBoundaryType={endBoundaryType}
 ```
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data?startIndex={startIndex}&endIndex={endIndex}&stream={stream 1}[&stream={stream n}]
-```
 
-### Parameters
-`string tenantId`  
-Tenant identifier
+<h4>Parameters</h4>
 
-`string namespaceId`   
-Namespace identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>`string startIndex`
+<br/>Index bounding the beginning of the series of events to return.<br/><br/>`string endIndex`
+<br/>Index bounding the end of the series of events to return.<br/><br/>
+`[optional] array stream`
+<br/>Optional parameter consisting of a comma-separated list of stream reference names in form of `stream={streamReferenceName}` for each stream you are interested in. By default, all data calls return data for all stream references.<br/><br/>`[optional] any boundaryType`
+<br/>Optional SdsBoundaryType specifies handling of events at or near the start and end indexes.<br/><br/>`[optional] any startBoundaryType`
+<br/>Optional SdsBoundaryType specifies the first value in the result in relation to the start index. If startBoundaryType is specified, endBoundaryType must be specified.<br/><br/>`[optional] any endBoundaryType`
+<br/>Optional SdsBoundaryType specifies the last value in the result in relation to the end index. If startBoundaryType is specified, endBoundaryType must be specified.<br/><br/>
 
-`string assetId`  
-Asset identifier
+<h3>Response</h3>
 
-`string startIndex`   
-Start index for the intervals
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[DataResults](#schemadataresults)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
 
-`string endIndex`   
-End index for the intervals
+<h4>Example response body</h4>
 
-[optional] `string[] stream`
-Optional parameter consisting of the streams that you want data from.
+> 200 Response
 
-### Response
-The response includes a status code and a response body.
-
-| Status Code | Body Type | Description |
-|--|--|--|
-| 200 OK | OK | Array of window values for all references. |
-| 207 Multi-Status | partial success | Array of window values for  references. Look at child errors for unsuccessful values. |
-| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
-| 403 Forbidden | error | You are not authorized to view the requested asset. |
-| 404 Not Found | error | The specified asset with identifier is not found. |
-
-```json 
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-    "Results": {
-        "StreamReferenceWithEventsName": [
-            {
-                "Timestamp": "2019-01-02T00:00:00Z",
-                "Temp": 0.044,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:01Z",
-                "Temp": 1.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:02Z",
-                "Temp": 2.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:03Z",
-                "Temp": 3.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:04Z",
-                "Temp": 4.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:05Z",
-                "Temp": 5.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:06Z",
-                "Temp": 6.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:07Z",
-                "Temp": 7.045,
-                "Pres": 1
-            },
-            {
-                "Timestamp": "2019-01-02T00:00:08Z",
-                "Temp": 8.045,
-                "Pres": 1
-            },       ],
-    },
-    "Errors": null
+  "Results": {
+    "StreamReferenceWithEventsName": [
+      {
+        "Timestamp": "2019-01-02T00:00:01Z",
+        "Temp": 1.045,
+        "Pres": 1
+      },
+      {
+        "Timestamp": "2019-01-02T00:00:02Z",
+        "Temp": 2.045,
+        "Pres": 1
+      },
+      {
+        "Timestamp": "2019-01-02T00:00:03Z",
+        "Temp": 3.045,
+        "Pres": 1
+      }
+    ]
+  },
+  "Errors": null
+}
+```
+
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+---
+## Definitions
+
+### DataResults
+
+<a id="schemadataresults"></a>
+<a id="schema_DataResults"></a>
+<a id="tocSdataresults"></a>
+<a id="tocsdataresults"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Results|object|false|true|None|
+|Errors|[DataErrors](#schemadataerrors)|false|true|None|
+
+```json
+{
+  "Results": {
+    "property1": [
+      null
+    ],
+    "property2": [
+      null
+    ]
+  },
+  "Errors": {
+    "OperationId": "string",
+    "Error": "string",
+    "Reason": "string",
+    "ChildErrors": {
+      "property1": null,
+      "property2": null
+    }
+  }
 }
 
 ```
-***
 
-## `Get Asset Interpolated Data` 
-Returns interpolated data for referenced SDS streams. 
+---
 
-### Request 
-``` 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Data/Interpolated?startIndex={startIndex}&endIndex={endIndex}&count={count}&stream={stream 1}[&stream={stream n}]
-```
+### DataErrors
 
-###  Parameters  
-`string tenantId`   
-Tenant identifier 
+<a id="schemadataerrors"></a>
+<a id="schema_DataErrors"></a>
+<a id="tocSdataerrors"></a>
+<a id="tocsdataerrors"></a>
 
-`string namespaceId`   
-Namespace identifier
+<h4>Properties</h4>
 
-`string assetId`  
-Asset identifier
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|None|
+|Error|string|false|true|None|
+|Reason|string|false|true|None|
+|ChildErrors|object|false|true|None|
 
-`string startIndex`   
-Start index for the intervals
-
-`string endIndex`   
-End index for the intervals
-
-`int count`   
-The number of requested intervals
-
-[optional] `string[] stream`
-Optional parameter consisting of the streams that you want data from.
-
-### Response 
-The response includes a status code and a response body.
-
-| Status Code | Body Type | Description |
-|--|--|--|
-| 200 OK | OK | Array of summary values for all references. |
-| 207 Multi-Status | partial success | Array of summary values for  references. Look at child errors for those that are unsuccessful. |
-| 400 Bad Request | error | The request is not valid. See the response body for additional details. |
-| 403 Forbidden | error | You are not authorized to view the requested asset. |
-| 404 Not Found | error | The specified asset with identifier is not found. |
-
-```json 
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-	"Results": {
-		"StreamReferenceWithEventsName": [
-			{
-                "Timestamp": "2019-01-02T00:00:05Z",
-                "Temp": 5.045,
-                "Pres": 1
-			},
-			{
-				"Timestamp": "2020-04-12T08:00:00Z",
-                "Temp": 3.045,
-                "Pres": 11
-			},
-			{
-				"Timestamp": "2020-06-29T05:20:00Z",
-                "Temp": 54.045,
-                "Pres": 11
-			}]
-	},
-	"Errors": null
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "ChildErrors": {
+    "property1": null,
+    "property2": null
+  }
 }
 
 ```
+
+---
+
+### ErrorTemplate
+
+<a id="schemaerrortemplate"></a>
+<a id="schema_ErrorTemplate"></a>
+<a id="tocSerrortemplate"></a>
+<a id="tocserrortemplate"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Operation identifier|
+|Error|string|false|true|Error string|
+|Resolution|string|false|true|Resolution string|
+|Reason|string|false|true|Error reason string|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+### SdsBoundaryType
+
+<a id="schemasdsboundarytype"></a>
+<a id="schema_SdsBoundaryType"></a>
+<a id="tocSsdsboundarytype"></a>
+<a id="tocssdsboundarytype"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Exact|0|
+|Inside|1|
+|Outside|2|
+|ExactOrCalculated|3|
+
+---
+

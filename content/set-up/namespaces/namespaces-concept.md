@@ -4,9 +4,9 @@ uid: ccNamespaces
 
 # Namespaces
 
-A namespace is a logical unit of organization for data within a tenant. Each tenant may contain more than one namespace. Before OSIsoft Cloud Services (OCS) can receive data for a given tenant, a namespace must exist within the scope of that tenant. When you create a namespace, you specify the region for storing data within it; for example, West US.
+A namespace is a logical unit of organization for data within a tenant. Each tenant may contain more than one namespace. Before OCS can receive data for a given tenant, a namespace must exist within the scope of that tenant. When you create a namespace, you specify the region for storing data within it; for example, West US.
 
-When you create a namespace, OCS allocates data processing resources, for example, SDS and asset service, and the associated storage resources to support that namespace. Each namespace and its resources are distinct and separate from all other namespaces. The resources are scoped to the namespace. Which means, you can create an SdsType or an SdsStream object with the same name in two different namespaces.
+When you create a namespace, data processing resources are allocated; for example, SDS and asset service, and the associated storage resources to support that namespace. Each namespace and its resources are distinct and separate from all other namespaces. The resources are scoped to the namespace. Which means, you can create an SdsType or an SdsStream object with the same name in two different namespaces.
 
 Data stored within a namespace is tied to that namespace and its region, and you cannot directly transfer the data to any other namespace (or region). To move data between namespaces, you must export the data from the source namespace in OCS, then import it into the destination namespace.
 
@@ -19,10 +19,15 @@ A namespace is similar to a full PI Server. Much like a PI Server, a namespace h
 The namespace ID must be unique across the tenant and meet these requirements:
 
 - Contains 100 or fewer characters
+
 - Can include alphanumeric characters, underscores (\_), dashes (-), spaces, and periods
+
 - May not contain two consecutive periods or two consecutive underscores
+
 - May not begin or end with a period
+
 - May not start with two consecutive underscores
+
 - May not include leading or trailing white spaces
 
 ## Querying data across namespaces

@@ -1,18 +1,18 @@
-- name: Shared access
-  href: community-shared-access.md
+- name: Client credential clients
+  href: community-client-credential-clients.md 
 - name: Communities
   href: community-communities.md
-- name: Summary 
-  href: community-summary.md
-- name: Search 
-  href: community-search.md
 - name: Invitations
   href: community-invitations.md
 - name: Roles
   href: community-roles.md
+- name: Search 
+  href: community-search.md
+- name: Shared access requests
+  href: community-shared-access.md
+- name: Summary 
+  href: community-summary.md
 - name: Tenants
   href: community-tenants.md
 - name: Users
   href: community-users.md
-- name: Client credential clients
-  href: community-client-credential-clients.md 

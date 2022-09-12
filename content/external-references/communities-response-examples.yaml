@@ -1,0 +1,44 @@
+# Community responses
+# See other "collection-response-example.yaml" files in this dir for examples of how to title a yaml node.
+communities-get-search-streams-by-community:
+  type: markdown
+  value: |
+    ```json
+    form=default
+    HTTP 207 OK
+    Content-Type: application/json
+    {
+        "OperationId": "string",
+        "Error": "The request partially failed.",
+        "ReasonPhrase": "At least one of the namespaces provided resulted in an error.",
+        "ChildErrors": [
+            {
+                "OperationId": "string",
+                "Error": "string",
+                "Reason": "string",
+                "Resolution": "string",
+                "StatusCode": 403
+            },
+            {
+                "OperationId": "string",
+                "Error": "string",
+                "Reason": "string",
+                "Resolution": "string",
+                "StatusCode": 503
+            }
+        ],
+        "Data": [
+            {
+                "Name": "string",
+                "Id": "string",
+                "TypeId": "string",
+                "Self": "string",
+                "TenantId": "string",
+                "TenantName": "string",
+                "NamespaceId": "string",
+                "CommunityId": "string"
+            }
+        ]
+    }
+    ```
+# Drop the response JSON in the <JSON> placeholder above.

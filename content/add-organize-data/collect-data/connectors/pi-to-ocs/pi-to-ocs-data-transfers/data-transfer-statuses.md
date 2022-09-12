@@ -4,7 +4,7 @@ uid: data-transfer-statuses
 
 # Data transfer statuses
 
-The status and progress of a data transfer is shown in the Transfer Overview section of the Details pane. The following table lists these data statuses and their meanings.
+The status and progress of a data transfer is shown in the `Transfer Overview` section of the **Manage Agent** tab. The following table lists these data statuses and their meanings.
 
 |Data status | Meaning|
 |---------|-----------|

@@ -26,11 +26,11 @@ This maximum limit applies to [List Values](xref:sds-stream-data#list-values), [
 
 { 
 
-               “Error”: “The request is not valid.”, 
+               "Error": "The request is not valid.", 
 
-               “Reason”: “Exceeded the maximum return count of 250000 events.” 
+               "Reason": "Exceeded the maximum return count of 250000 events." 
 
-               “Resolution”: “Reduce query size and resubmit the request.” 
+               "Resolution": "Reduce query size and resubmit the request." 
 
 } 
 ```
@@ -47,7 +47,21 @@ If multiple calls return ``408 - Operation timed out error`` even after increasi
 - Reduce the range in the request calls of this type 
 - Retry with an exponential back-off policy
 
- 
+### Maximum data read response
+
+Responses are limited to 2<sup>31</sup> bytes, so the number of bytes written during response serialization cannot exceed that value.
+An error message suggesting a smaller read request is returned when the response limit is reached.
+
+
+**400 bad request error**
+
+```json
+{
+	"Error": "Failed to serialize response.",
+	"Reason": "The response size might be too large.",
+	"Resolution": "Try again with a smaller read request."
+}
+```
 
 ### Compression 
 
@@ -114,6 +128,7 @@ The tenant identifier
 ``string namespaceId``  
 The namespace identifier
 
+-->
 
 ### Response format
 
@@ -121,10 +136,11 @@ Supported response formats include JSON, verbose JSON, and SDS.
 
 The default response format for SDS is JSON, which is used in all examples in this document. Default JSON responses do not include any values that are equal to the default value for their type.
 
-Verbose JSON responses include all values, including defaults, in the returned JSON payload. To specify verbose JSON return, add the header ``Accept-Verbosity`` with a value of ``verbose`` to the request.  
+Verbose JSON responses include all values in the returned JSON payload, including defaults. To specify verbose JSON return, add the header ``Accept-Verbosity`` with a value of ``verbose`` to the request. 
+
+Verbose has no impact on writes; writes return only error messages.
 
 To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
--->
 
 ## Indexes and reading data
 

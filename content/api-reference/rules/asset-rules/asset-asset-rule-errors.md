@@ -14,7 +14,7 @@ Returns the `RuleError` objects for the specified ruleId.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
 ```
 
 <h4>Parameters</h4>
@@ -112,7 +112,7 @@ Deletes the `RuleError` objects associated with the specified rule.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
+DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/assetrules/{ruleId}/errors
 ```
 
 <h4>Parameters</h4>

@@ -1,14 +1,14 @@
+- name: Access control
+  href: assets-access-control-list.md
 - name: Assets
-  href: assets-asset.md
+  href: assets-assets.md
+- name: Asset data
+  href: assets-asset-centric-data.md
+- name: Asset search
+  href: assets-assets-search.md
+- name: Asset status
+  href: assets-asset-status.md
 - name: Asset types 
-  href: assets-asset-type.md
+  href: assets-asset-types.md
 - name: Resolved asset
   href: assets-resolved-asset.md
-- name: Assets data
-  href: assets-asset-centric-data.md
-- name: Asset and asset type status
-  href: assets-asset-status.md
-- name: Assets search
-  href: assets-search-asset.md
-- name: Asset and AssetType ACL
-  href: assets-access-control-list.md

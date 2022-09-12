@@ -12,18 +12,17 @@ APIs to manage default access to entities governed by an AccessControlList.
 
 Retrieves the `AccessControlList` that is used to authorize access to a `Namespace` if none is specified during creation.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -71,18 +70,17 @@ GET /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 
 Modifies the `AccessControlList` that is used to authorize access to a `Namespace` if none is specified during creation.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
 The new root AccessControlList for Namespace s.<br/>
 
@@ -102,7 +100,7 @@ The new root AccessControlList for Namespace s.<br/>
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -153,7 +151,7 @@ The new root AccessControlList for Namespace s.<br/>
 <a id="tocSaccesscontrollist"></a>
 <a id="tocsaccesscontrollist"></a>
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -185,7 +183,7 @@ The new root AccessControlList for Namespace s.<br/>
 <a id="tocSaccesscontrolentry"></a>
 <a id="tocsaccesscontrolentry"></a>
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -215,7 +213,7 @@ The new root AccessControlList for Namespace s.<br/>
 <a id="tocStrustee"></a>
 <a id="tocstrustee"></a>
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -241,7 +239,7 @@ The new root AccessControlList for Namespace s.<br/>
 <a id="tocStrusteetype"></a>
 <a id="tocstrusteetype"></a>
 
-<h4>Enumerated Values</h4>
+#### Enumerated Values
 
 |Property|Value|
 |---|---|
@@ -258,7 +256,7 @@ The new root AccessControlList for Namespace s.<br/>
 <a id="tocSaccesstype"></a>
 <a id="tocsaccesstype"></a>
 
-<h4>Enumerated Values</h4>
+#### Enumerated Values
 
 |Property|Value|
 |---|---|

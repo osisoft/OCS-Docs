@@ -12,18 +12,17 @@ APIs to manage a Customer Tenant. A tenant represents the set of services, appli
 
 Returns a specific `Tenant` by the identifier.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -80,7 +79,7 @@ GET /api/v1/Tenants/{tenantId}
 }
 ```
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -95,18 +94,17 @@ Allowed for these roles:
 
 Checks if a `Tenant` with a specific identifier exists.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 HEAD /api/v1/Tenants/{tenantId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -114,7 +112,7 @@ HEAD /api/v1/Tenants/{tenantId}
 |400|None|Could not check the `Tenant` due to missing or invalid input.|
 |404|None|Not Found.|
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -129,18 +127,17 @@ Allowed for these roles:
 
 Updates a specified `Tenant` object.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
 The updated details of the Tenant.<br/>
 
@@ -163,12 +160,11 @@ The updated details of the Tenant.<br/>
       "CurrentState": 0
     }
   ],
-  "ExternalAccountId": "string",
-  "TenantType": "string"
+  "ExternalAccountId": "string"
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -203,7 +199,7 @@ The updated details of the Tenant.<br/>
 }
 ```
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -218,18 +214,17 @@ Allowed for these roles:
 
 Returns an icon specified by its `Tenant` identifier.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Icon
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -260,18 +255,17 @@ Allowed for these roles:
 
 Creates or updates the icon for a `Tenant`. Note that the icon size must be less than ExtendedSystemController.MaxIconSizeInBytes bytes in size.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 PUT /api/v1/Tenants/{tenantId}/Icon
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
 The Base64 encoded PNG icon for the Tenant.<br/>
 
@@ -279,7 +273,7 @@ The Base64 encoded PNG icon for the Tenant.<br/>
 "string"
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -311,18 +305,17 @@ Allowed for these roles:
 
 Deletes the icon for a `Tenant`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 DELETE /api/v1/Tenants/{tenantId}/Icon
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -331,7 +324,7 @@ DELETE /api/v1/Tenants/{tenantId}/Icon
 |403|None|Forbidden.|
 |405|None|Method not allowed at this base URL. Try the request again at the Global base URL.|
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -346,18 +339,17 @@ Allowed for these roles:
 
 Returns the `RegionBase` list for the specified `Tenant`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/Tenants/{tenantId}/Regions
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
 <br/>The identifier of the `Tenant`.<br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -385,7 +377,7 @@ GET /api/v1/Tenants/{tenantId}/Regions
 ]
 ```
 
-<h3>Authorization</h3>
+### Authorization
 
 Allowed for these roles: 
 <ul>
@@ -439,7 +431,6 @@ Tenant with entitlements.
     }
   ],
   "ExternalAccountId": "string",
-  "TenantType": "string",
   "Entitlements": [
     {
       "EntitlementDefinitionId": "string",
@@ -464,7 +455,7 @@ Tenant with entitlements.
 
 Status codes describing a tenant's current provisioning state.
 
-<h4>Enumerated Values</h4>
+#### Enumerated Values
 
 |Property|Value|Description|
 |---|---|---|
@@ -492,7 +483,7 @@ Status codes describing a tenant's current provisioning state.
 
 Representation of a server-side database interpretation of a feature state.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -523,7 +514,7 @@ Representation of a server-side database interpretation of a feature state.
 
 Representation of a server-side database interpretation of a feature.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -553,7 +544,7 @@ Representation of a server-side database interpretation of a feature.
 
 An instance of an entitlement.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -585,7 +576,7 @@ An instance of an entitlement.
 
 The type of entitlement.
 
-<h4>Enumerated Values</h4>
+#### Enumerated Values
 
 |Property|Value|
 |---|---|
@@ -604,7 +595,7 @@ The type of entitlement.
 
 The limit type of entitlement.
 
-<h4>Enumerated Values</h4>
+#### Enumerated Values
 
 |Property|Value|
 |---|---|
@@ -622,7 +613,7 @@ The limit type of entitlement.
 
 Representation of a server-side database interpretation of a tenant.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -655,8 +646,7 @@ Representation of a server-side database interpretation of a tenant.
       "CurrentState": 0
     }
   ],
-  "ExternalAccountId": "string",
-  "TenantType": "string"
+  "ExternalAccountId": "string"
 }
 
 ```
@@ -672,7 +662,7 @@ Representation of a server-side database interpretation of a tenant.
 
 Represents a region within an environment for customers to see.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

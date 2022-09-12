@@ -1,5 +1,6 @@
 ---
 uid: community-tenants
+
 ---
 
 # Tenants
@@ -345,17 +346,17 @@ Input trustee.<br/>
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
-Object returned when there is an error
+Object returned whenever there is an error
 
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|OperationId of action that caused the error|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
 |Error|string|true|false|Error description|
 |Reason|string|true|false|Reason for the error|
-|Resolution|string|true|false|Resolution for the error|
-|EventId|string|true|false|EventId for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
 
 ```json
 {
@@ -363,7 +364,10 @@ Object returned when there is an error
   "Error": "string",
   "Reason": "string",
   "Resolution": "string",
-  "EventId": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
   "property1": null,
   "property2": null
 }
@@ -409,11 +413,11 @@ Represents a status of a community tenant
 
 |Property|Value|Description|
 |---|---|---|
-|None|None|No community tenant status specified.|
-|AwaitingConfirmation|AwaitingConfirmation|After invite, awaiting confirmation from owner.|
-|Paused|Paused|Community Tenant paused from actively sharing.|
-|Active|Active|Resume sharing from pause or after confirm.|
-|Remove|Remove|Owner removes Tenant or Community Tenant leaves community.|
+|None|None|Represents a status of a community tenant|
+|AwaitingConfirmation|AwaitingConfirmation|Represents a status of a community tenant|
+|Paused|Paused|Represents a status of a community tenant|
+|Active|Active|Represents a status of a community tenant|
+|Remove|Remove|Represents a status of a community tenant|
 
 ---
 

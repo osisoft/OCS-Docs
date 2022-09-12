@@ -6,63 +6,51 @@ uid: CreateAssetTypeWithEditor
 
 For more information on asset types, see [Asset types](xref:AssetTypes).
 
-## Procedure
+To create an asset type:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
-2. Optional: Click the **Change Namespace** button in the upper-right toolbar, then select the desired namespace.
+1. From the **Asset/Asset Types** selector, select **Asset Types**.
 
-4. Click the **Assets/Asset Type** selector and click **Assets Types** from the list.
+1. In the toolbar, select **Add Asset Type**. 
 
-5. Click the **+** in the toolbar.
+1. In the right pane, complete the following fields:
 
-    The details blade opens on the right side.
+   - **Asset Type** - Enter a name to identify the asset type.
 
-6. Enter an Id and description for the asset type.
+   - **Description** - (Optional) Add a description for the asset type. 
 
-## Add metadata to the asset type
+1. Select the **Metadata** tab.
 
-1. Click the **Metadata** tab to add asset metadata.
+1. For each metadata to add to the asset type, select **Add Metadata** and complete the following fields:
 
-   **Note:** Metadata is static attributes about assets, for example, model or region.
+   - **Metadata** - Enter an identifier for the metadata.
 
-   <!-- We need a definition for metadata that covers its use in different OCS contexts. --> 
+   - **Value** - Enter the value for the metadata.
 
-2. Click **Add Metadata**.
+      **Note:** The value must match the selected type. The following date/time format is supported: MM/DD/(YY)YY hh:mm(:ss)
 
-   **Result:** The fields for entering the metadata details appear. 
+   - **Type** - Select the value type from the dropdown list.
 
-4. Enter a name for the metadata.
+   - **UOM** - If the type is `Integer` or `Double`, select the unit of measure for the value.
 
-5. Optional: Enter a value for the metadata and select a type.
-  
-   **Note:** The value must match the selected type. The following date/time format is supported: MM/DD/(YY)YY hh:mm(:ss).
+1. Select the **Properties** tab. 
 
-   <!--WRITER NOTE: What date/time formats are supported? Is this the same as for PI Server? i.e., Microsoft standard date/time formats? -->
+1. Select **Add Stream Type Reference**, select the stream in the `Select Stream Type` window, and then select **Add**.
 
-6. Optional: Select a UOM.
+   The stream type reference is listed in the **Properties** tab.
 
-7. Continue adding metadata for the asset. 
+1. To configure statuses for the asset type, select the **Status** tab and select **Add Status Configuration**.
 
-## Add properties to the asset type
+1. In the `Select Property` window, select the property that determines the asset status and select **Continue**.
 
-1. Click the **Properties** tab. 
+    You can only specify one property to determine the asset status, and that property must have enumerated states or string values.
 
-2. Click **Add Stream Type Reference**.
+    **Tip:** You can switch to a different property by clicking the ![Change property icon](../../../_icons/branded/swap-horizontal.svg) icon.
 
-3. In the `Select Stream Type` window, click the stream type you want.
+1. For each value listed, select the status icon to map the value to a status. To add other values, select **Add Value Mapping**, enter the value, and select the corresponding status.
 
-4. Click **Add**.
-   
-   **Result:** The stream type reference appears in the asset type definition in the right pane.
-
-5. Click the scroll bar to display the properties for the stream type reference.
-    
-   **Result:** The properties associated with the stream type are displayed.
-    
-## Add status tracking to the asset
-
-1. Click the **Status** tab.
+1. To save the asset, select **Save**. 
  
 1. Click **Add Status Configuration**.
 
@@ -72,7 +60,7 @@ For more information on asset types, see [Asset types](xref:AssetTypes).
 
 1. Click the status icons to map the status (Good, Warning, Bad) for each value.
     
-    **Tip:** You can switch to a different property by clicking the ![Change property icon](images/change-property-icon.png) icon.
+    **Tip:** You can switch to a different property by clicking the ![Change property icon](../../../_icons/branded/swap-horizontal.svg) icon.
     
 ## Save the asset type
 

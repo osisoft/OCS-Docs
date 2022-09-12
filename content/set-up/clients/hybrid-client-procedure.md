@@ -4,41 +4,61 @@ uid: gpHybridClient
 
 # Add a hybrid client
 
-Hybrid clients are used by native and server-side web applications. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided. See the following topics for more information about hybrid clients:
+Hybrid clients are used by native and server-side web applications. Authentication can be performed using any browser. The server-side code retrieves an access token and a refresh token can also be provided.
 
-- [Introduction to hybrid clients](xref:ccClients#hybrid-client)
-- [Hybrid client PI Server counterpart](xref:ccClients#hybrid-client-pi-server)
-- [Hybrid client best practices](xref:ccClients#hybrid-client-bp)
+## Prerequisite
+
+You must have the role of Tenant Administrator to add and manage clients.
 
 ## Procedure
 
+To add a hybrid client:
+
 1. In the left pane, select **Security** > **Clients**.
 
-1. From the **Client Type** dropdown list, select **Hybrid**.
+1. In the **Client Type** dropdown list, select **Hybrid**.
 
-1. In the toolbar, click **Add Client**.
+1. In the toolbar, select **Add Client**.
 
-1. Enter a name for the client.
+   The `Add Client` window appears.
 
-   Use this name to identify the application that will use this client.
+1. In the **Name** field, enter a name to identify the application that will use this client.
 
-1. Optional: Select the **Allow Refresh Token** check box if the application uses refresh tokens to keep users logged in to the portal.
+1. (Optional) Select the **Allow Refresh Token** checkbox if the application uses refresh tokens to keep users logged in to the portal.
 
-1. Enter the URLs in the **Allowed Redirect URL(s)** text box, and click **+** to add it to the list.   
-   
-   The application will specify one of the URLs in this list during authentication, and the identity server will return the results of the authentication to this URL.
+1. In the **Allowed Redirect URL(s)** field, enter a URL and select **+** to add it to the list.
 
-1. Optional: Enter URLs in the **Allowed Logout Redirect URL(s)** text box, then click **+** to add it to the list. 
-   
-   This is similar to the **Allowed Redirect URL(s)**. The application specifies one of the URLs from this list when it logs a user out, and the identity server sends the user to that URL after a successful log out.
+   The application specifies one of the URLs in this list when it authenticates against OCS, and the OCS identity server returns the results of the authentication to this URL.
 
-1. Optional: Set the **Token Lifetime**.  
-   
-   Token Lifetime represents the length of time (in seconds) the access token is valid before it expires. The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
+1. (Optional) In the **Allowed Logout Redirect URL(s)** field, enter a URL and select **+** to add it to the list. 
 
-1. Click **Add**.  
+   The application specifies a URL from this list when it logs out of OCS, and the OCS identity server sends the user to this URL after a successful log out.
 
-   The `Client Successfully Created` window displays the client Id for the client. The application must specify this client Id when it makes an authentication request. You can copy the client Id by clicking the **Copy** icon. Alternatively, after you close this window, you can also retrieve the client Id from the list of clients.
+1. (Optional) In the **Token Lifetime** field, enter the length of time in seconds that the access token functions before it expires.  
+
+   The default, 3600 seconds (one hour), is the maximum length of time. The minimum value is 60 seconds.
+
+1. Select **Add**.  
+
+   The `Add Secret` window opens.
+
+1. (Optional) In the **Description** field, enter a description for the client secret.
+
+1. In the **Expiration Date** field, enter a date and time that the secret expires.
+
+   Ensure that the expiration date is valid for the secret. By default, the secret is set to expire one year after creation. Select the **Never Expires** checkbox to specify that the secret does not expire. Secrets can be deleted later, including secrets that are set to never expire.
+
+1. Select **Add**.  
+
+   The `Client Successfully Created` window opens and displays the **Client Id** and **Client Secret**.
+
+   **Important:** Select the **Copy** button to the right of each field to save the client secret and client Id. You need this information to connect your applications. Once the window is closed, the client secret cannot be accessed or retrieved.
+
+   The `Client Successfully Created` window displays the client Id for the client. The application must specify this client Id when it makes an authentication request. Copy the client Id by selecting the **Copy** icon. Alternatively, after you close this window, you can also retrieve the client Id from the list of clients.
+
+1. Select **Close**.  
+
+   **Note:** In the list of secrets, the **Client Id** is still visible. If you did not save the client secret, select the client in the list and use the `Details` pane to remove the old secret and add a new secret.
 
 ## Related links
 

@@ -4,7 +4,7 @@ uid: log-messages
 
 # Common Event Viewer log messages
 
-The following table below summarizes the most common messages logged by the Event Viewer.
+The following table summarizes the most common messages logged by the Event Viewer.
 
 Message | ID   | Description
 ---------|----------|---------
@@ -23,5 +23,3 @@ Processing Transfer Job Request | 65 | The PI to OCS Agent has received the new 
 Done Transferring Data To OCS For Transfer Job | 70 | The PI to OCS Agent has completed the given transfer job. At this moment, the only transfer jobs which will complete are the historical and backfilling transfer jobs. By the very nature of streaming data, streaming transfer job will never complete.
 Error Reading From Data Archive | 90 | The PI to OCS Agent was unable to read data from PI Data Archive. The event will contain the exception message.
 Failed To Get Streaming Updates From Data Archive | 96 | The PI to OCS Agent was not unable to get streaming data from PI Data Archive. The message will contain the exception message.
-
-If you have any issues, questions, or comments about deploying or using PI to OCS, please visit [my.osisoft.com](https://my.osisoft.com/) to open a new technical support case.

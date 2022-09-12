@@ -2,26 +2,26 @@
 uid: download-tenant-log
 ---
 
-# Tenant log messages
+# Logs
 
-Troubleshooting information can be found in logs. Logs contain messages about tenant-related activity, errors, and system messages. By default, logs report on activities that occurred within the past hour.
+OSIsoft Cloud Services (OCS) includes logs for tenants and namespaces. These logs contain troubleshooting information, including messages about tenant-related activity, errors, and system messages. By default, logs report on activities that occurred within the past month. 
 
-## Download a tenant log
+To download a tenant log in a .csv file:
 
 1. In the left pane, select **Support** > **Logs**.
    
-1. **Optional:** To view logs by namespace, select the **Namespace** option.
+2. (Optional) To view logs by namespace, select the **Namespace** option.
 
-1. **Optional:** To filter logs by time range, severity, and/or source, enter filter criteria in these fields:
+3. (Optional) To filter logs, complete the following fields, and then select **Apply Filters**:
 
-    * Start and end date time
-    * Severity level
-    * Source
+    * **Start** - Enter the start date and time of messages to include.
+    
+    * **End** - Enter the end date and time of messages to include.
 
-1. To download the logs, click the **Download Logs** button.
+    * **Severity** - Select the severity of messages to include.
 
-1. In the **Save As** dialog, save the log file to the desired location.
+    * **Source** - Select the sources of messages to include.
 
-   **Note:** By default, log files are saved as .csv files.
+4. To download the logs, select **Download Logs**.
 
-1. Open and view the log file.
+   The .csv log file is downloaded to your computer.

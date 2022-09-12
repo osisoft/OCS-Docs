@@ -26,9 +26,10 @@ In this situation, an asset type can be used to create multiple similar assets. 
 | Description   | String            | Yes         | User-provided description                                   | Yes  | Yes            |
 | AssetTypeId   | String            | No          | Identifier for the asset type that this asset is derived from. To get the merged view of the asset, get the resolved asset through the /Assets/{assetId}/Resolved route. | Yes  | No            |
 | Metadata      | Metadata List     | Yes         | Asset and asset type metadata                               | Yes  | Yes            |
-| StreamReferences   | Stream Reference List  | No       | Asset stream references                                             | Yes  | No            |
+| StreamReferences   | Stream Reference List  | No| Asset stream references                                             | Yes  | No            |
+| Status        | Status            | No          | Asset and asset type status configuration | Yes | Yes            |
+| Tags| String[] | Yes        | Asset tag | Yes | No|
 | TypeReferences | Type Reference List | No        | Asset type type references                                     | No | Yes            |
-| Status | Status | No        | Asset and asset type status configuration | Yes | Yes            |
 
 ## Asset and asset type name and id
 The asset and asset type resource has name and Id properties. The Id property cannot be changed; it remains constant. All asset and asset type API calls depend on the Id. The purpose of the name is be a user-friendly way of displaying a given asset or asset type. This can be changed freely without effecting data egress from assets.
@@ -43,7 +44,7 @@ An asset or asset type metadata is static information associated with a given as
 | Name        | String | Optional | User-friendly name for the metadata value. If not null, must be unique within an asset or asset type. |
 | Description | String | Optional  | User-provided description.                                   |
 | SdsTypeCode | Int    | Optional | This integer corresponds to the SdsTypeCode. Asset metadata support the following integer or string values: 11 ("Int64"), 14 ("Double"), 16 ("DateTime"), and 18 ("String"). |
-| Uom         | String | Optional  | Asset metadata unit of measurement (UOM). Select from the list of supported UOM types. |
+| Uom         | String | Optional  | Asset metadata unit of measure (UOM). Select from the list of supported UOM types. |
 | Value       | String | Optional  | String representation of the metadata.                      |
 
 \* The`Id` property is not required if the `Name` property matches a `Name` on the asset type metadata. In this case, the `Id` of the metadata on the asset is inherited from the metadata `Id` of the asset type. This also applies when an asset is updated.

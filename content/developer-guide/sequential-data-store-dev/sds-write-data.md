@@ -10,8 +10,10 @@ things to note when writing to an SdsStream.
 When working in .NET, convenient SDS Client libraries are available. The `ISdsDataService` interface, accessed using the
 ``SdsService.GetDataService()`` helper, defines the available functions.
 
-All writes rely on a stream’s key or primary index. The primary index determines the order of events in the stream. Secondary indexes are updated, but they do not contribute 
+All writes rely on a stream's key or primary index. The primary index determines the order of events in the stream. Secondary indexes are updated, but they do not contribute 
 to the request. All references to indexes are to the primary index.
+
+The maximum size of the payload for a single write request is 28.6 MB. Additionally, compressed requests are limited to a maximum inflated payload size of 190 MB. Requests that exceed these limits will be rejected with an HTTP status code of `413 Payload Too Large`.
 
 > [!NOTE]
 > Use the ISO 8601 representation of dates and times in SDS, `2020-02-20T08:30:00-08:00` for February 20, 2020 at 8:30 AM PST, for example.
@@ -86,21 +88,6 @@ The events must be formatted as a serialized JSON array of the stream's type. JS
 ```
 
 You can serialize your data using one of many available JSON serializers available at [Introducing JSON](http://json.org/index.html). 
-
-
-
-## Response format
-Supported response formats include JSON, verbose JSON, and SDS. 
-
-The default response format for SDS is JSON, which is used in all examples in this document. 
-Default JSON responses do not include any values that are equal to the default value for their type.
-
-Verbose JSON responses include all values in the returned JSON payload, including defaults.
-To specify verbose JSON return, add the header ``Accept-Verbosity`` with a value of ``verbose`` to the request. 
-
-Verbose has no impact on writes; writes return only error messages.
-
-To specify SDS format, set the ``Accept`` header in the request to ``application/sds``.
 
 ## Indexes
 Writing to the SDS relies on the primary index for positioning within the streams and locating existing events. 

@@ -1,0 +1,1 @@
+You must be assigned a user role with [community administration permissions](xref:community-manage-administrators).

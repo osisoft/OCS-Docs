@@ -2,11 +2,13 @@
 uid: shared-access-routes
 ---
 
-***
+---
 
-# Shared Access
+# Shared Access Requests
 
-The Shared Access service brokers all requests for a shared resource in a community. Currently, streams are the only shared resources.
+Shared Access requests are special requests for a shared resource in a community. Currently, streams are the only shared resources.
+
+To request Shared Access, include a `community-id` header with a Community identifier (validated to be a `Guid`). This identifier must be for a valid community that includes the signed in user as a member.
 
 When a resource is shared in a community, users with the **Community Member** role are able to access metadata and data for that resource. Community members are limited to read-only access.
 
@@ -14,63 +16,60 @@ When a resource is shared in a community, users with the **Community Member** ro
 
 > [!IMPORTANT]
 >
-> All routes use the standard SDS service. 
+> All routes use the standard SDS service.
 > See [Streams](xref:sds-streams) and [Read data API](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
-***
+---
 
 > [!NOTE]
 >
 > Any routes that modify a shared resource are unavailable.
 
-### Available Shared Stream Endpoints
+### Example Shared Stream Endpoints
 
 ```text
 
-GET  api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}
 
 ```
 
 ```text
 
-GET  api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/{*more} 
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/{*more}
 
 ```
 
 ```text
 
-POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Transform/{*more} 
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Transform/{*more}
 
 ```
 
 ```text
 
-POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Join/{*more} 
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/data/Join/{*more}
 
 ```
 
 ```text
 
-GET  api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata
+GET  api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata
 
 ```
 
 ```text
 
-POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata/{key}
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/metadata/{key}
 
 ```
 
 ```text
 
-POST api/v1-preview/communities/{communityId}/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/tags
+POST api/v1/tenants/{tenantId}/namespaces/{namespaceId}/streams/{streamId}/tags
 
 ```
 
 ### Parameters
-
-`string communityId`
-Community identifier - validated to be a `Guid`
 
 `string tenantId`
 Tenant identifier - validated to be a `Guid`
@@ -82,17 +81,23 @@ Namespace identifier
 Stream identifier
 
 [Optional] `string key`  
-[Optional] The key specifying the metadata value of interest  
+[Optional] The key specifying the metadata value of interest
+
+#### Request Headers
+
+| Header       | Type   | Required | Description                                     |
+| ------------ | ------ | -------- | ----------------------------------------------- |
+| community-id | string | true     | Community identifier - validated to be a `Guid` |
 
 ## Response
 
 > [!IMPORTANT]
 >
-> All routes use the standard SDS service. 
+> All routes use the standard SDS service.
 > See [Streams](xref:sds-streams) and [Read data API](xref:sdsReadingDataApi) in the [Sequential Data Store](xref:sds) section for specific request and response information.
 
 | Status Code               | Response Type | Description                                                     |
-|---------------------------|---------------|-----------------------------------------------------------------|
+| ------------------------- | ------------- | --------------------------------------------------------------- |
 | 200 OK                    | Multiple      | See [Sequential Data Store](xref:sds) for specific information. |
 | 400 Bad Request           | error         | Missing or invalid inputs                                       |
 | 401 Unauthorized          | error         | You are not authorized for this operation                       |
@@ -115,10 +120,11 @@ Responses are identical to those from the SDS service. See the following example
 ### Get Event Example request
 
 ```text
-GET api/v1-preview/communities/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?index=2017-11-23T13:00:00Z&searchMode=Next
+GET api/v1/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?index=2017-11-23T13:00:00Z&searchMode=Next
+Headers: {community-id, XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 ```
 
-The request has an index that matches the index of an existing event, but because an `SdsSearchMode` of ``next`` was specified, the response contains the next event in the stream after the specified index:
+The request has an index that matches the index of an existing event, but because an `SdsSearchMode` of `next` was specified, the response contains the next event in the stream after the specified index:
 
 #### Get Event Example response body
 
@@ -129,19 +135,20 @@ Content-Type: application/json
 
 ```json
 [
-    {
-        "Time": "2017-11-23T14:00:00Z",
-        "State": 0,
-        "Measurement": 20
-    }
+  {
+    "Time": "2017-11-23T14:00:00Z",
+    "State": 0,
+    "Measurement": 20
+  }
 ]
 ```
 
 ### Filter Example request
 
 ```text
-GET api/v1-preview/communities/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?filter=Measurement gt 10
- ```
+GET api/v1/Tenants/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Namespaces/MyNamespace/Streams/Simple/Data?filter=Measurement gt 10
+Headers: {community-id, XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
+```
 
 The events in the stream with `Measurement` greater than 10 are returned.
 

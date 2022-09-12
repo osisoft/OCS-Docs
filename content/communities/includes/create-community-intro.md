@@ -1,0 +1,1 @@
+The first part of establishing a community is to create it. When you create a community, you are prompted to define a community name and description, the user roles that have administrative permissions within the community for your tenant, and the users and groups considered Community Members within your tenant.

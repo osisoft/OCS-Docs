@@ -705,6 +705,364 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Type
 ```
 
 ---
+
+## `Get Resolved Stream`
+
+<a id="opIdStream_Get Resolved Stream"></a>
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Resolved
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>`string streamId`
+<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[SdsResolvedStream](#schemasdsresolvedstream)|None|
+|400|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|401|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|403|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|404|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|500|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|503|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+
+<h4>Example response body</h4>
+
+> 200 Response ([SdsResolvedStream](#schemasdsresolvedstream))
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "TypeId": "string",
+  "Indexes": [
+    {
+      "SdsTypePropertyId": "string"
+    }
+  ],
+  "InterpolationMode": 0,
+  "ExtrapolationMode": 0,
+  "PropertyOverrides": [
+    {
+      "SdsTypePropertyId": "string",
+      "Uom": "string",
+      "InterpolationMode": 0
+    }
+  ],
+  "Resolved": true,
+  "Type": {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "SdsTypeCode": "Empty",
+    "IsGenericType": true,
+    "IsReferenceType": true,
+    "GenericArguments": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "Properties": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "Order": 0,
+        "IsKey": true,
+        "FixedSize": 0,
+        "SdsType": "<SdsResolvedType>",
+        "Value": null,
+        "Uom": "string",
+        "InterpolationMode": "Continuous",
+        "IsQuality": true
+      }
+    ],
+    "BaseType": {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": 0,
+      "IsGenericType": true,
+      "IsReferenceType": true,
+      "GenericArguments": "[<SdsType>]",
+      "Properties": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "Order": 0,
+          "IsKey": true,
+          "FixedSize": 0,
+          "SdsType": "<SdsType>",
+          "Value": null,
+          "Uom": "string",
+          "InterpolationMode": 0,
+          "IsQuality": true
+        }
+      ],
+      "BaseType": "<SdsType>",
+      "DerivedTypes": "[<SdsType>]",
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0
+    },
+    "DerivedTypes": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "InterpolationMode": "Continuous",
+    "ExtrapolationMode": "All"
+  }
+}
+```
+
+---
+
+## `Get Resolved Streams`
+
+<a id="opIdStream_Get Resolved Streams"></a>
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/Bulk/Streams/Resolved
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/><br/>`string namespaceId`
+<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|207|[SdsResolvedStreamsResponse](#schemasdsresolvedstreamsresponse)|None|
+|400|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|500|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+|503|[ErrorResponseBody](#schemaerrorresponsebody)|None|
+
+<h4>Example response body</h4>
+
+> 207 Response ([SdsResolvedStreamsResponse](#schemasdsresolvedstreamsresponse))
+
+```json
+{
+  "Data": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "TypeId": "string",
+      "Indexes": [
+        {
+          "SdsTypePropertyId": "string"
+        }
+      ],
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0,
+      "PropertyOverrides": [
+        {
+          "SdsTypePropertyId": "string",
+          "Uom": "string",
+          "InterpolationMode": 0
+        }
+      ],
+      "Resolved": true,
+      "Type": {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": "Empty",
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "SdsTypeCode": 0,
+            "IsGenericType": true,
+            "IsReferenceType": true,
+            "GenericArguments": "[<SdsType>]",
+            "Properties": [
+              {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string",
+                "Order": 0,
+                "IsKey": true,
+                "FixedSize": 0,
+                "SdsType": "<SdsType>",
+                "Value": null,
+                "Uom": "string",
+                "InterpolationMode": "[",
+                "IsQuality": true
+              }
+            ],
+            "BaseType": "<SdsType>",
+            "DerivedTypes": "[<SdsType>]",
+            "InterpolationMode": 0,
+            "ExtrapolationMode": 0
+          }
+        ],
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsResolvedType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": "Continuous",
+            "IsQuality": true
+          }
+        ],
+        "BaseType": {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "SdsTypeCode": 0,
+          "IsGenericType": true,
+          "IsReferenceType": true,
+          "GenericArguments": "[<SdsType>]",
+          "Properties": [
+            {
+              "Id": "string",
+              "Name": "string",
+              "Description": "string",
+              "Order": 0,
+              "IsKey": true,
+              "FixedSize": 0,
+              "SdsType": null,
+              "Value": null,
+              "Uom": "string",
+              "InterpolationMode": null,
+              "IsQuality": true
+            }
+          ],
+          "BaseType": "<SdsType>",
+          "DerivedTypes": "[<SdsType>]",
+          "InterpolationMode": 0,
+          "ExtrapolationMode": 0
+        },
+        "DerivedTypes": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "SdsTypeCode": 0,
+            "IsGenericType": true,
+            "IsReferenceType": true,
+            "GenericArguments": "[<SdsType>]",
+            "Properties": [
+              {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string",
+                "Order": 0,
+                "IsKey": true,
+                "FixedSize": 0,
+                "SdsType": "<SdsType>",
+                "Value": null,
+                "Uom": "string",
+                "InterpolationMode": "[",
+                "IsQuality": true
+              }
+            ],
+            "BaseType": "<SdsType>",
+            "DerivedTypes": "[<SdsType>]",
+            "InterpolationMode": 0,
+            "ExtrapolationMode": 0
+          }
+        ],
+        "InterpolationMode": "Continuous",
+        "ExtrapolationMode": "All"
+      }
+    }
+  ],
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "StreamId": "string",
+      "StatusCode": 100
+    }
+  ]
+}
+```
+
+---
 ## Definitions
 
 ### SdsStream
@@ -788,15 +1146,15 @@ Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, 
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|Default|0|
-|Continuous|0|
-|StepwiseContinuousLeading|1|
-|StepwiseContinuousTrailing|2|
-|Discrete|3|
-|ContinuousNullableLeading|4|
-|ContinuousNullableTrailing|5|
+|Property|Value|Description|
+|---|---|---|
+|Default|0|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|Continuous|0|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|StepwiseContinuousLeading|1|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|StepwiseContinuousTrailing|2|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|Discrete|3|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|ContinuousNullableLeading|4|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|ContinuousNullableTrailing|5|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
 
 ---
 
@@ -811,12 +1169,12 @@ Defines how a stream responds to requests with indexes that precede or follow al
 
 #### Enumerated Values
 
-|Property|Value|
-|---|---|
-|All|0|
-|None|1|
-|Forward|2|
-|Backward|3|
+|Property|Value|Description|
+|---|---|---|
+|All|0|Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.|
+|None|1|Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.|
+|Forward|2|Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.|
+|Backward|3|Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.|
 
 ---
 
@@ -1448,6 +1806,896 @@ A contract defining a property of a SdsType
 }
 
 ```
+
+---
+
+### SdsResolvedStream
+
+<a id="schemasdsresolvedstream"></a>
+<a id="schema_SdsResolvedStream"></a>
+<a id="tocSsdsresolvedstream"></a>
+<a id="tocssdsresolvedstream"></a>
+
+A contract defining resolution of SdsStream
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|A unique identifier for the SdsStream object|
+|Name|string|false|true|An optional user-friendly name for the SdsStream object|
+|Description|string|false|true|A brief description of the SdsStream object|
+|TypeId|string|false|true|A unique identifier for the SdsType of the SdsStream object|
+|Indexes|[[SdsStreamIndex](#schemasdsstreamindex)]|false|true|List of SdsStreamIndexs to define secondary indexes for the SdsStream|
+|InterpolationMode|[SdsInterpolationMode](#schemasdsinterpolationmode)|false|true|Defines the SdsInterpolationMode of the SdsStream. Default is null.|
+|ExtrapolationMode|[SdsExtrapolationMode](#schemasdsextrapolationmode)|false|true|Defines the SdsExtrapolationMode of the SdsStream. Default is null.|
+|PropertyOverrides|[[SdsStreamPropertyOverride](#schemasdsstreampropertyoverride)]|false|true|List of SdsStreamPropertyOverrides to define unit of measure and interpolation mode overrides for the SdsStream|
+|Resolved|boolean|false|false|None|
+|Type|[SdsResolvedType](#schemasdsresolvedtype)|false|true|A contract defining the type of data to read or write in a SdsResolvedStream|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "TypeId": "string",
+  "Indexes": [
+    {
+      "SdsTypePropertyId": "string"
+    }
+  ],
+  "InterpolationMode": 0,
+  "ExtrapolationMode": 0,
+  "PropertyOverrides": [
+    {
+      "SdsTypePropertyId": "string",
+      "Uom": "string",
+      "InterpolationMode": 0
+    }
+  ],
+  "Resolved": true,
+  "Type": {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "SdsTypeCode": "Empty",
+    "IsGenericType": true,
+    "IsReferenceType": true,
+    "GenericArguments": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "Properties": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "Order": 0,
+        "IsKey": true,
+        "FixedSize": 0,
+        "SdsType": "<SdsResolvedType>",
+        "Value": null,
+        "Uom": "string",
+        "InterpolationMode": "Continuous",
+        "IsQuality": true
+      }
+    ],
+    "BaseType": {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": 0,
+      "IsGenericType": true,
+      "IsReferenceType": true,
+      "GenericArguments": "[<SdsType>]",
+      "Properties": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "Order": 0,
+          "IsKey": true,
+          "FixedSize": 0,
+          "SdsType": "<SdsType>",
+          "Value": null,
+          "Uom": "string",
+          "InterpolationMode": 0,
+          "IsQuality": true
+        }
+      ],
+      "BaseType": "<SdsType>",
+      "DerivedTypes": "[<SdsType>]",
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0
+    },
+    "DerivedTypes": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "InterpolationMode": "Continuous",
+    "ExtrapolationMode": "All"
+  }
+}
+
+```
+
+---
+
+### SdsResolvedType
+
+<a id="schemasdsresolvedtype"></a>
+<a id="schema_SdsResolvedType"></a>
+<a id="tocSsdsresolvedtype"></a>
+<a id="tocssdsresolvedtype"></a>
+
+A contract defining the type of data to read or write in a SdsResolvedStream
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|A unique identifier for the SdsType object|
+|Name|string|false|true|An optional user-friendly name for the SdsType object|
+|Description|string|false|true|A brief description of the SdsType object|
+|SdsTypeCode|[SdsTypeCode2](#schemasdstypecode2)|false|false|None|
+|IsGenericType|boolean|false|false|A boolean value indicating whether the current SdsType is a generic type This property is only used when using templates or generics. It will be automatically set if the SdsType is generated using SdsTypeBuilder. For further information on generics, please refer, https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/index|
+|IsReferenceType|boolean|false|false|Enabling this property preserves objects as references during serialization/de-serialization of the SdsType data while using the SdsFormatter This property behaves similar to IsReference property for DataContractSerializer and is only valid for serialization if SdsFormatter is used.|
+|GenericArguments|[[SdsType](#schemasdstype)]|false|true|Contains the parameterized SdsTypes of the current generic SdsType This property is only used when using templates or generics. It will be automatically set if the SdsType is generated using SdsTypeBuilder. For further information on generics, please refer to https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/index|
+|Properties|[[SdsResolvedTypeProperty](#schemasdsresolvedtypeproperty)]|false|true|[A contract defining the type of data to read or write in a SdsResolvedType]|
+|BaseType|[SdsType](#schemasdstype)|false|true|Defines the base type of the SdsType Commonly used by SdsTypeBuilder to generate SdsType from contracts not explicitly defined and maintained by the user.|
+|DerivedTypes|[[SdsType](#schemasdstype)]|false|true|List of SdsTypes that should be recognized by SdsFormatter during serialization/de-serialization. This property behaves similar to KnownTypeAttribute attribute for DataContractSerializer and only valid for serialization if SdsFormatter is used.|
+|InterpolationMode|[SdsInterpolationMode2](#schemasdsinterpolationmode2)|false|false|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|ExtrapolationMode|[SdsExtrapolationMode2](#schemasdsextrapolationmode2)|false|false|Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "SdsTypeCode": "Empty",
+  "IsGenericType": true,
+  "IsReferenceType": true,
+  "GenericArguments": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": 0,
+      "IsGenericType": true,
+      "IsReferenceType": true,
+      "GenericArguments": "[<SdsType>]",
+      "Properties": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "Order": 0,
+          "IsKey": true,
+          "FixedSize": 0,
+          "SdsType": "<SdsType>",
+          "Value": null,
+          "Uom": "string",
+          "InterpolationMode": 0,
+          "IsQuality": true
+        }
+      ],
+      "BaseType": "<SdsType>",
+      "DerivedTypes": "[<SdsType>]",
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0
+    }
+  ],
+  "Properties": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "Order": 0,
+      "IsKey": true,
+      "FixedSize": 0,
+      "SdsType": "<SdsResolvedType>",
+      "Value": null,
+      "Uom": "string",
+      "InterpolationMode": "Continuous",
+      "IsQuality": true
+    }
+  ],
+  "BaseType": {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "SdsTypeCode": 0,
+    "IsGenericType": true,
+    "IsReferenceType": true,
+    "GenericArguments": "[<SdsType>]",
+    "Properties": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "Order": 0,
+        "IsKey": true,
+        "FixedSize": 0,
+        "SdsType": "<SdsType>",
+        "Value": null,
+        "Uom": "string",
+        "InterpolationMode": 0,
+        "IsQuality": true
+      }
+    ],
+    "BaseType": "<SdsType>",
+    "DerivedTypes": "[<SdsType>]",
+    "InterpolationMode": 0,
+    "ExtrapolationMode": 0
+  },
+  "DerivedTypes": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": 0,
+      "IsGenericType": true,
+      "IsReferenceType": true,
+      "GenericArguments": "[<SdsType>]",
+      "Properties": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "Order": 0,
+          "IsKey": true,
+          "FixedSize": 0,
+          "SdsType": "<SdsType>",
+          "Value": null,
+          "Uom": "string",
+          "InterpolationMode": 0,
+          "IsQuality": true
+        }
+      ],
+      "BaseType": "<SdsType>",
+      "DerivedTypes": "[<SdsType>]",
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0
+    }
+  ],
+  "InterpolationMode": "Continuous",
+  "ExtrapolationMode": "All"
+}
+
+```
+
+---
+
+### SdsResolvedTypeProperty
+
+<a id="schemasdsresolvedtypeproperty"></a>
+<a id="schema_SdsResolvedTypeProperty"></a>
+<a id="tocSsdsresolvedtypeproperty"></a>
+<a id="tocssdsresolvedtypeproperty"></a>
+
+A contract defining the type of data to read or write in a SdsResolvedType
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|A unique identifier for the SdsTypeProperty object|
+|Name|string|false|true|An optional user-friendly name for the SdsTypeProperty object|
+|Description|string|false|true|A brief description of the SdsTypeProperty object|
+|Order|int32|false|false|The order used for comparison among SdsTypePropertys if a compound index is specified for SdsType|
+|IsKey|boolean|false|false|A boolean value indicating whether the current SdsTypeProperty must be used for indexing Used in combination with property to enable compound indexing|
+|FixedSize|int32|false|false|An optional property specifying the length of string Exclusively used for that is of|
+|SdsType|[SdsResolvedType](#schemasdsresolvedtype)|false|true|A contract defining the type of data to read or write in a SdsResolvedStream|
+|Value|any|false|true|An enum value of the current SdsTypeProperty. Exclusively used for a of an enum|
+|Uom|string|false|true|Indicates the Unit of Measure of the current SdsTypeProperty|
+|InterpolationMode|[SdsInterpolationMode2](#schemasdsinterpolationmode2)|false|true|Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects|
+|IsQuality|boolean|false|false|Indicates whether this property marks data quality|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Description": "string",
+  "Order": 0,
+  "IsKey": true,
+  "FixedSize": 0,
+  "SdsType": {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "SdsTypeCode": "Empty",
+    "IsGenericType": true,
+    "IsReferenceType": true,
+    "GenericArguments": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "Properties": "[<SdsResolvedTypeProperty>]",
+    "BaseType": {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "SdsTypeCode": 0,
+      "IsGenericType": true,
+      "IsReferenceType": true,
+      "GenericArguments": "[<SdsType>]",
+      "Properties": [
+        {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "Order": 0,
+          "IsKey": true,
+          "FixedSize": 0,
+          "SdsType": "<SdsType>",
+          "Value": null,
+          "Uom": "string",
+          "InterpolationMode": 0,
+          "IsQuality": true
+        }
+      ],
+      "BaseType": "<SdsType>",
+      "DerivedTypes": "[<SdsType>]",
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0
+    },
+    "DerivedTypes": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": 0,
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": "[<SdsType>]",
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": 0,
+            "IsQuality": true
+          }
+        ],
+        "BaseType": "<SdsType>",
+        "DerivedTypes": "[<SdsType>]",
+        "InterpolationMode": 0,
+        "ExtrapolationMode": 0
+      }
+    ],
+    "InterpolationMode": "Continuous",
+    "ExtrapolationMode": "All"
+  },
+  "Value": null,
+  "Uom": "string",
+  "InterpolationMode": "Continuous",
+  "IsQuality": true
+}
+
+```
+
+---
+
+### SdsInterpolationMode2
+
+<a id="schemasdsinterpolationmode2"></a>
+<a id="schema_SdsInterpolationMode2"></a>
+<a id="tocSsdsinterpolationmode2"></a>
+<a id="tocssdsinterpolationmode2"></a>
+
+Interpolation modes that can be applied to SdsType, SdsTypeProperty, SdsStream, and SdsStreamPropertyOverride objects
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Default|Continuous|
+|Continuous|Continuous|
+|StepwiseContinuousLeading|StepwiseContinuousLeading|
+|StepwiseContinuousTrailing|StepwiseContinuousTrailing|
+|Discrete|Discrete|
+|ContinuousNullableLeading|ContinuousNullableLeading|
+|ContinuousNullableTrailing|ContinuousNullableTrailing|
+
+---
+
+### SdsTypeCode2
+
+<a id="schemasdstypecode2"></a>
+<a id="schema_SdsTypeCode2"></a>
+<a id="tocSsdstypecode2"></a>
+<a id="tocssdstypecode2"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Empty|Empty|
+|Object|Object|
+|Boolean|Boolean|
+|Char|Char|
+|SByte|SByte|
+|Byte|Byte|
+|Int16|Int16|
+|UInt16|UInt16|
+|Int32|Int32|
+|UInt32|UInt32|
+|Int64|Int64|
+|UInt64|UInt64|
+|Single|Single|
+|Double|Double|
+|Decimal|Decimal|
+|DateTime|DateTime|
+|String|String|
+|Guid|Guid|
+|DateTimeOffset|DateTimeOffset|
+|TimeSpan|TimeSpan|
+|Version|Version|
+|NullableBoolean|NullableBoolean|
+|NullableChar|NullableChar|
+|NullableSByte|NullableSByte|
+|NullableByte|NullableByte|
+|NullableInt16|NullableInt16|
+|NullableUInt16|NullableUInt16|
+|NullableInt32|NullableInt32|
+|NullableUInt32|NullableUInt32|
+|NullableInt64|NullableInt64|
+|NullableUInt64|NullableUInt64|
+|NullableSingle|NullableSingle|
+|NullableDouble|NullableDouble|
+|NullableDecimal|NullableDecimal|
+|NullableDateTime|NullableDateTime|
+|NullableGuid|NullableGuid|
+|NullableDateTimeOffset|NullableDateTimeOffset|
+|NullableTimeSpan|NullableTimeSpan|
+|BooleanArray|BooleanArray|
+|CharArray|CharArray|
+|SByteArray|SByteArray|
+|ByteArray|ByteArray|
+|Int16Array|Int16Array|
+|UInt16Array|UInt16Array|
+|Int32Array|Int32Array|
+|UInt32Array|UInt32Array|
+|Int64Array|Int64Array|
+|UInt64Array|UInt64Array|
+|SingleArray|SingleArray|
+|DoubleArray|DoubleArray|
+|DecimalArray|DecimalArray|
+|DateTimeArray|DateTimeArray|
+|StringArray|StringArray|
+|GuidArray|GuidArray|
+|DateTimeOffsetArray|DateTimeOffsetArray|
+|TimeSpanArray|TimeSpanArray|
+|VersionArray|VersionArray|
+|Array|Array|
+|IList|IList|
+|IDictionary|IDictionary|
+|IEnumerable|IEnumerable|
+|SdsType|SdsType|
+|SdsTypeProperty|SdsTypeProperty|
+|SdsStreamView|SdsStreamView|
+|SdsStreamViewProperty|SdsStreamViewProperty|
+|SdsStreamViewMap|SdsStreamViewMap|
+|SdsStreamViewMapProperty|SdsStreamViewMapProperty|
+|SdsStream|SdsStream|
+|SdsStreamIndex|SdsStreamIndex|
+|SdsTable|SdsTable|
+|SdsColumn|SdsColumn|
+|SdsValues|SdsValues|
+|SdsObject|SdsObject|
+|SByteEnum|SByteEnum|
+|ByteEnum|ByteEnum|
+|Int16Enum|Int16Enum|
+|UInt16Enum|UInt16Enum|
+|Int32Enum|Int32Enum|
+|UInt32Enum|UInt32Enum|
+|Int64Enum|Int64Enum|
+|UInt64Enum|UInt64Enum|
+|NullableSByteEnum|NullableSByteEnum|
+|NullableByteEnum|NullableByteEnum|
+|NullableInt16Enum|NullableInt16Enum|
+|NullableUInt16Enum|NullableUInt16Enum|
+|NullableInt32Enum|NullableInt32Enum|
+|NullableUInt32Enum|NullableUInt32Enum|
+|NullableInt64Enum|NullableInt64Enum|
+|NullableUInt64Enum|NullableUInt64Enum|
+
+---
+
+### SdsExtrapolationMode2
+
+<a id="schemasdsextrapolationmode2"></a>
+<a id="schema_SdsExtrapolationMode2"></a>
+<a id="tocSsdsextrapolationmode2"></a>
+<a id="tocssdsextrapolationmode2"></a>
+
+Defines how a stream responds to requests with indexes that precede or follow all data in the stream. Behavior also depends on the SdsInterpolationMode for a stream. If SdsInterpolationMode is set to Discrete, extrapolation won't occur. If SdsInterpolationMode is set to ContinuousNullableLeading or ContinuousNullableTrailing, default values will be returned instead of actual data.
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|All|All|
+|None|None|
+|Forward|Forward|
+|Backward|Backward|
+
+---
+
+### SdsResolvedStreamsResponse
+
+<a id="schemasdsresolvedstreamsresponse"></a>
+<a id="schema_SdsResolvedStreamsResponse"></a>
+<a id="tocSsdsresolvedstreamsresponse"></a>
+<a id="tocssdsresolvedstreamsresponse"></a>
+
+A contract defining bulk response of SdsResolvedStream
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Data|[[SdsResolvedStream](#schemasdsresolvedstream)]|false|true|[A contract defining resolution of SdsStream]|
+|ChildErrors|[[SdsResolvedStreamErrorResponseBody](#schemasdsresolvedstreamerrorresponsebody)]|false|true|[The error response contains details on the cause of stream resolution failure and resolution of the error.]|
+
+```json
+{
+  "Data": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "TypeId": "string",
+      "Indexes": [
+        {
+          "SdsTypePropertyId": "string"
+        }
+      ],
+      "InterpolationMode": 0,
+      "ExtrapolationMode": 0,
+      "PropertyOverrides": [
+        {
+          "SdsTypePropertyId": "string",
+          "Uom": "string",
+          "InterpolationMode": 0
+        }
+      ],
+      "Resolved": true,
+      "Type": {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "SdsTypeCode": "Empty",
+        "IsGenericType": true,
+        "IsReferenceType": true,
+        "GenericArguments": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "SdsTypeCode": 0,
+            "IsGenericType": true,
+            "IsReferenceType": true,
+            "GenericArguments": "[<SdsType>]",
+            "Properties": [
+              {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string",
+                "Order": 0,
+                "IsKey": true,
+                "FixedSize": 0,
+                "SdsType": "<SdsType>",
+                "Value": null,
+                "Uom": "string",
+                "InterpolationMode": "[",
+                "IsQuality": true
+              }
+            ],
+            "BaseType": "<SdsType>",
+            "DerivedTypes": "[<SdsType>]",
+            "InterpolationMode": 0,
+            "ExtrapolationMode": 0
+          }
+        ],
+        "Properties": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "Order": 0,
+            "IsKey": true,
+            "FixedSize": 0,
+            "SdsType": "<SdsResolvedType>",
+            "Value": null,
+            "Uom": "string",
+            "InterpolationMode": "Continuous",
+            "IsQuality": true
+          }
+        ],
+        "BaseType": {
+          "Id": "string",
+          "Name": "string",
+          "Description": "string",
+          "SdsTypeCode": 0,
+          "IsGenericType": true,
+          "IsReferenceType": true,
+          "GenericArguments": "[<SdsType>]",
+          "Properties": [
+            {
+              "Id": "string",
+              "Name": "string",
+              "Description": "string",
+              "Order": 0,
+              "IsKey": true,
+              "FixedSize": 0,
+              "SdsType": null,
+              "Value": null,
+              "Uom": "string",
+              "InterpolationMode": null,
+              "IsQuality": true
+            }
+          ],
+          "BaseType": "<SdsType>",
+          "DerivedTypes": "[<SdsType>]",
+          "InterpolationMode": 0,
+          "ExtrapolationMode": 0
+        },
+        "DerivedTypes": [
+          {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "SdsTypeCode": 0,
+            "IsGenericType": true,
+            "IsReferenceType": true,
+            "GenericArguments": "[<SdsType>]",
+            "Properties": [
+              {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string",
+                "Order": 0,
+                "IsKey": true,
+                "FixedSize": 0,
+                "SdsType": "<SdsType>",
+                "Value": null,
+                "Uom": "string",
+                "InterpolationMode": "[",
+                "IsQuality": true
+              }
+            ],
+            "BaseType": "<SdsType>",
+            "DerivedTypes": "[<SdsType>]",
+            "InterpolationMode": 0,
+            "ExtrapolationMode": 0
+          }
+        ],
+        "InterpolationMode": "Continuous",
+        "ExtrapolationMode": "All"
+      }
+    }
+  ],
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "Parameters": {
+        "property1": "string",
+        "property2": "string"
+      },
+      "StreamId": "string",
+      "StatusCode": 100
+    }
+  ]
+}
+
+```
+
+---
+
+### SdsResolvedStreamErrorResponseBody
+
+<a id="schemasdsresolvedstreamerrorresponsebody"></a>
+<a id="schema_SdsResolvedStreamErrorResponseBody"></a>
+<a id="tocSsdsresolvedstreamerrorresponsebody"></a>
+<a id="tocssdsresolvedstreamerrorresponsebody"></a>
+
+The error response contains details on the cause of stream resolution failure and resolution of the error.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Operation unique identifier of action that caused the error|
+|Error|string|false|true|Error description|
+|Reason|string|false|true|Reason for the error|
+|Resolution|string|false|true|Resolution to resolve the error|
+|Parameters|object|false|true|IDs or values that are creating or are affected by the error|
+|StreamId|string|false|true|None|
+|StatusCode|[HttpStatusCode](#schemahttpstatuscode)|false|false|None|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  },
+  "StreamId": "string",
+  "StatusCode": 100
+}
+
+```
+
+---
+
+### HttpStatusCode
+
+<a id="schemahttpstatuscode"></a>
+<a id="schema_HttpStatusCode"></a>
+<a id="tocShttpstatuscode"></a>
+<a id="tocshttpstatuscode"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Continue|100|
+|SwitchingProtocols|101|
+|Processing|102|
+|EarlyHints|103|
+|OK|200|
+|Created|201|
+|Accepted|202|
+|NonAuthoritativeInformation|203|
+|NoContent|204|
+|ResetContent|205|
+|PartialContent|206|
+|MultiStatus|207|
+|AlreadyReported|208|
+|IMUsed|226|
+|MultipleChoices|300|
+|Ambiguous|300|
+|MovedPermanently|301|
+|Moved|301|
+|Found|302|
+|Redirect|302|
+|SeeOther|303|
+|RedirectMethod|303|
+|NotModified|304|
+|UseProxy|305|
+|Unused|306|
+|TemporaryRedirect|307|
+|RedirectKeepVerb|307|
+|PermanentRedirect|308|
+|BadRequest|400|
+|Unauthorized|401|
+|PaymentRequired|402|
+|Forbidden|403|
+|NotFound|404|
+|MethodNotAllowed|405|
+|NotAcceptable|406|
+|ProxyAuthenticationRequired|407|
+|RequestTimeout|408|
+|Conflict|409|
+|Gone|410|
+|LengthRequired|411|
+|PreconditionFailed|412|
+|RequestEntityTooLarge|413|
+|RequestUriTooLong|414|
+|UnsupportedMediaType|415|
+|RequestedRangeNotSatisfiable|416|
+|ExpectationFailed|417|
+|MisdirectedRequest|421|
+|UnprocessableEntity|422|
+|Locked|423|
+|FailedDependency|424|
+|UpgradeRequired|426|
+|PreconditionRequired|428|
+|TooManyRequests|429|
+|RequestHeaderFieldsTooLarge|431|
+|UnavailableForLegalReasons|451|
+|InternalServerError|500|
+|NotImplemented|501|
+|BadGateway|502|
+|ServiceUnavailable|503|
+|GatewayTimeout|504|
+|HttpVersionNotSupported|505|
+|VariantAlsoNegotiates|506|
+|InsufficientStorage|507|
+|LoopDetected|508|
+|NotExtended|510|
+|NetworkAuthenticationRequired|511|
 
 ---
 

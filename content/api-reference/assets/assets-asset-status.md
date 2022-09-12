@@ -1,109 +1,106 @@
 ---
-uid: AssetStatus
+uid: assets-asset-status
+
 ---
 
 # Asset Status
 
-## `Get Asset Status`
+## `Get Last Asset Status Data`
 
-Returns the status of an asset. 
+<a id="opIdAssetStatusData_Get Last Asset Status Data"></a>
 
-The status of an asset is determined by an exact match of the SDS stream property value to the value of the `ValueStatusMappings`. If there are no exact matches, the status is a 0 (Unknown).
+Returns status of an asset. Status of an asset is determined by an exact match of the Sds stream property value to the value of the ValueStatusMapping. If there are no exact matches, the status is a 0 (Unknown).
 
-### Request
+<h3>Request</h3>
 
 ```text 
-GET api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Last
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Last
 ```
 
-### Parameters
+<h4>Parameters</h4>
 
-`string tenantId`  
-Tenant identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>
 
-`string namespaceId`  
-Namespace identifier
+<h3>Response</h3>
 
-`string assetId`  
-Asset identifier
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[LastStatusData](#schemalaststatusdata)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|422|[ErrorTemplate](#schemaerrortemplate)|Cannot be processed. See the response body for additional details.|
 
-### Response
+<h4>Example response body</h4>
 
-The response includes a status code and a response body.
-| Status Code       | Body Type    | Description                                                  |
-| ----------------- | ------------ | ------------------------------------------------------------ |
-| 200 OK            | Asset status | The asset status is returned.                                |
-| 400 Bad Request   | error        | The request is not valid. See the response body for additional details. |
-| 403 Forbidden     | error        | You are not authorized to view the requested asset.          |
-| 404 Not Found     | error        | The specified asset with identifier is not found.            |
-| 422 Invalid State | error        | See the response body for details.                           |
+> 200 Response
 
-#### Example response body
-
-```
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
-	"AssetId": "TemperatureSensorAsset",
-	"Status": 1,
-	"Value": "85",
-    "DisplayName": "TemperatureSensorBuild1InF",
-    "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
-    "Index": "2020-05-04T16:55:28.00001Z"
+  "AssetId": "AssetId-1",
+  "Status": "Good",
+  "Value": "85",
+  "DisplayName": "AssetInGoodState",
+  "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
+  "Index": "2019-01-02T00:00:00Z"
 }
 ```
 
-***
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
 
-## `Asset Status Range Summary`
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
 
-Returns the status summary of an asset.
+---
 
-Statistics are computed using 'StepwiseContinuousLeading' for interpolation and ‘Forward’ for extrapolation with regard to the status stream property, without regard to the actual interpolation or extrapolation modes configured in SDS for that property.
+## `Get Asset Status Range Summary Data`
 
-### Request
+<a id="opIdAssetStatusData_Get Asset Status Range Summary Data"></a>
+
+Returns status summary of an asset. Statistics are computed using 'StepwiseContinuousLeading' for interpolation and ‘Forward’ for extrapolation with regard to the status stream property, without regard to the actual interpolation or extrapolation modes configured in SDS for that property.
+
+<h3>Request</h3>
 
 ```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Summary?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/Summary
+?startIndex={startIndex}&endIndex={endIndex}&intervals={intervals}
 ```
 
-### Parameters
+<h4>Parameters</h4>
 
-`string tenantId`  
-Tenant identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>`string startIndex`
+<br/>Start index.<br/><br/>`string endIndex`
+<br/>End index.<br/><br/>`integer intervals`
+<br/>Number of intervals.<br/><br/>
 
-`string namespaceId`  
-Namespace identifier
+<h3>Response</h3>
 
-`string assetId`  
-Asset identifier
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[StatusRangeSummary](#schemastatusrangesummary)|Last status of the specified asset.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|422|[ErrorTemplate](#schemaerrortemplate)|Cannot be processed. See the response body for additional details.|
+|502|None|Bad gateway.|
 
-`string startIndex`  
-Start index
+<h4>Example response body</h4>
 
-`string endIndex`  
-End index
+> 200 Response
 
-`string intervals`  
-Number of intervals
-
-### Response
-
-The response includes a status code and a response body.
-
-| Status Code       | Body Type    | Description                                                  |
-| ----------------- | ------------ | ------------------------------------------------------------ |
-| 200 OK            | Asset status summary | The asset status summary is returned.                                |
-| 400 Bad Request   | error        | The request is not valid. See the response body for additional details. |
-| 403 Forbidden     | error        | You are not authorized to view the requested asset.          |
-| 404 Not Found     | error        | The specified asset with identifier is not found.            |
-| 422 Invalid State | error        | See the response body for details.                           |
-
-#### Example response body
-
-```
-HTTP 200 OK
-Content-Type: application/json
+```json
 {
   "RangeValues": [
     {
@@ -144,80 +141,432 @@ Content-Type: application/json
 }
 ```
 
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
 
-***
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
 
-## `Bulk Asset Status`
+# Asset Status
 
-Returns the status of multiple assets.
+## `Get Bulk Last Status Data For Assets`
 
-### Request
+<a id="opIdRequestManager_Get Bulk Last Status Data For Assets"></a>
+
+Returns status of multiple assets.
+
+<h3>Request</h3>
 
 ```text 
-POST api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Status/Last
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets/Status/Last
 ```
 
-### Parameters
+<h4>Parameters</h4>
 
-`string tenantId`  
-Tenant identifier
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
 
-`string namespaceId`  
-Namespace identifier
+<h4>Request Body</h4>
 
-#### Example POST body
+Asset identifiers<br/>
 
-Lists the asset identifiers whose status you are interested in.
-
-```
-Content-Type: application/json
+```json
 [
-   "AssetId-1",
-   "AssetId-2",
-   "AssetId-3"
+  "AssetId-1",
+  "AssetId-2",
+  "AssetId-3"
 ]
 ```
 
-### Response
+<h3>Response</h3>
 
-The response includes a status code and a response body.
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[MultiStatusResultOfLastStatusDataAndChildErrorTemplate](#schemamultistatusresultoflaststatusdataandchilderrortemplate)|Last status of assets in the body.|
+|207|[MultiStatusResultOfLastStatusDataAndChildErrorTemplate](#schemamultistatusresultoflaststatusdataandchilderrortemplate)|Partial success. Some assets encountered errors. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
 
-| Status Code      | Body Type         | Description                                                  |
-| ---------------- | ----------------- | ------------------------------------------------------------ |
-| 200 OK           | Asset status list | Returns the status of multiple assets. |
-| 207 Multi Status | Multi Status      | Partial success. Not all assets were able to be resolved. See response body for additional details. |
+<h4>Example response body</h4>
 
-#### Example response body
+> 200 Response
 
+```json
+[
+  {
+    "AssetId": "AssetId-1",
+    "Status": 1,
+    "Value": "85",
+    "DisplayName": "TemperatureSensorBuild1InF",
+    "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z"
+  },
+  {
+    "AssetId": "AssetId-2",
+    "Status": 2,
+    "Value": "185",
+    "DisplayName": "DeviceMeasurement",
+    "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z"
+  }
+]
 ```
-HTTP 200 OK
-Content-Type: application/json
+
+> 207 Response ([MultiStatusResultOfLastStatusDataAndChildErrorTemplate](#schemamultistatusresultoflaststatusdataandchilderrortemplate))
+
+```json
 {
-   [
-      {
-         "AssetId": "AssetId-1",
-         "Status": 1, 
-         "Value": "85",
-         "DisplayName": "TemperatureSensorBuild1InF",
-         "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
-         "Index": "2020-05-04T16:55:28.00001Z"
-      },
-      {
-         "AssetId": "AssetId-2",
-         "Status": 2, 
-         "Value": "185",
-         "DisplayName": "DeviceMeasurement",
-         "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z"
-         "Index": "2020-05-04T16:55:29.00001Z"
-      },
-      {
-         "AssetId": "AssetId-3",
-         "Status": 1, 
-         "Value": "75",
-         "DisplayName": "TemperatureSensorBuild5450InF",
-         "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z"
-         "Index": "2020-05-04T16:55:30.00001Z"
-      }
-   ]
+  "Reason": "string",
+  "Error": "string",
+  "OperationId": "string",
+  "Data": [
+    {
+      "AssetId": "AssetId-1",
+      "Status": "Good",
+      "Value": "85",
+      "DisplayName": "AssetInGoodState",
+      "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
+      "Index": "2019-01-02T00:00:00Z"
+    }
+  ],
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Resolution": "string",
+      "Reason": "string",
+      "StatusCode": 0,
+      "property1": null,
+      "property2": null
+    }
+  ]
 }
 ```
+
+---
+## Definitions
+
+### LastStatusData
+
+<a id="schemalaststatusdata"></a>
+<a id="schema_LastStatusData"></a>
+<a id="tocSlaststatusdata"></a>
+<a id="tocslaststatusdata"></a>
+
+Asset's last status
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Index|any|false|true|Index which the status was last updated|
+|Status|[StatusEnum](#schemastatusenum)|false|false|Status enumeration. Valid values are: Unknown, Good, Warning and Bad.|
+|Value|any|false|true|Value of the last data retrieved|
+|DisplayName|string|false|true|Status display name|
+|AssetId|string|false|true|Asset identifier|
+|DataRetrievalTime|date-time|false|false|Date and time when the status was last updated.|
+
+```json
+{
+  "AssetId": "AssetId-1",
+  "Status": "Good",
+  "Value": "85",
+  "DisplayName": "AssetInGoodState",
+  "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
+  "Index": "2019-01-02T00:00:00Z"
+}
+
+```
+
+---
+
+### StatusEnum
+
+<a id="schemastatusenum"></a>
+<a id="schema_StatusEnum"></a>
+<a id="tocSstatusenum"></a>
+<a id="tocsstatusenum"></a>
+
+Pre-defined asset status values.
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|Description|
+|---|---|---|
+|Unknown|0|Pre-defined asset status values.|
+|Good|1|Pre-defined asset status values.|
+|Warning|2|Pre-defined asset status values.|
+|Bad|3|Pre-defined asset status values.|
+
+---
+
+### ErrorTemplate
+
+<a id="schemaerrortemplate"></a>
+<a id="schema_ErrorTemplate"></a>
+<a id="tocSerrortemplate"></a>
+<a id="tocserrortemplate"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Operation identifier|
+|Error|string|false|true|Error string|
+|Resolution|string|false|true|Resolution string|
+|Reason|string|false|true|Error reason string|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+### StatusRangeSummary
+
+<a id="schemastatusrangesummary"></a>
+<a id="schema_StatusRangeSummary"></a>
+<a id="tocSstatusrangesummary"></a>
+<a id="tocsstatusrangesummary"></a>
+
+Returns the status summary of an asset.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RangeValues|[[StatusData](#schemastatusdata)]|false|true|Status values|
+|Statistics|[[StatusValueStatistics](#schemastatusvaluestatistics)]|false|true|Status data statistics|
+
+```json
+{
+  "RangeValues": [
+    {
+      "Index": "2019-01-02T00:00:00Z",
+      "Status": "Warning",
+      "Value": 2,
+      "DisplayName": "AssetInWarning"
+    },
+    {
+      "Index": "2019-01-02T00:30:00Z",
+      "Status": "Bad",
+      "Value": 4,
+      "DisplayName": "AssetInBadState"
+    }
+  ],
+  "Statistics": [
+    {
+      "Status": "Warning",
+      "TotalInterval": "00:30:00",
+      "Values": [
+        {
+          "Value": 2,
+          "Interval": "00:30:00"
+        }
+      ]
+    },
+    {
+      "Status": "Bad",
+      "TotalInterval": "1246.06:30:00",
+      "Values": [
+        {
+          "Value": 4,
+          "Interval": "1246.06:30:00"
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+### StatusData
+
+<a id="schemastatusdata"></a>
+<a id="schema_StatusData"></a>
+<a id="tocSstatusdata"></a>
+<a id="tocsstatusdata"></a>
+
+Status data that is assocated with asset.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Index|any|false|true|Index which the status was last updated|
+|Status|[StatusEnum](#schemastatusenum)|false|false|Status enumeration. Valid values are: Unknown, Good, Warning and Bad.|
+|Value|any|false|true|Value of the last data retrieved|
+|DisplayName|string|false|true|Status display name|
+
+```json
+{
+  "Index": "2019-01-02T00:00:00Z",
+  "Status": "Warning",
+  "Value": 2,
+  "DisplayName": "AssetInWarning"
+}
+
+```
+
+---
+
+### StatusValueStatistics
+
+<a id="schemastatusvaluestatistics"></a>
+<a id="schema_StatusValueStatistics"></a>
+<a id="tocSstatusvaluestatistics"></a>
+<a id="tocsstatusvaluestatistics"></a>
+
+Status value statistics returns asset status statistics
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Status|[StatusEnum](#schemastatusenum)|false|false|Asset status|
+|TotalInterval|any|false|true|Total interval|
+|Values|[[UnderlyingValueStatistics](#schemaunderlyingvaluestatistics)]|false|true|Asset status statistics per interval|
+
+```json
+{
+  "Status": 0,
+  "TotalInterval": null,
+  "Values": [
+    {
+      "Value": null,
+      "Interval": null,
+      "DisplayName": "string"
+    }
+  ]
+}
+
+```
+
+---
+
+### UnderlyingValueStatistics
+
+<a id="schemaunderlyingvaluestatistics"></a>
+<a id="schema_UnderlyingValueStatistics"></a>
+<a id="tocSunderlyingvaluestatistics"></a>
+<a id="tocsunderlyingvaluestatistics"></a>
+
+Underlying value statistics represents statistics for a single interval
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Value|any|false|true|Value of the status mapping.|
+|Interval|any|false|true|Summary interval|
+|DisplayName|string|false|true|User-friendly display name for that status mapping|
+
+```json
+{
+  "Value": null,
+  "Interval": null,
+  "DisplayName": "string"
+}
+
+```
+
+---
+
+### MultiStatusResultOfLastStatusDataAndChildErrorTemplate
+
+<a id="schemamultistatusresultoflaststatusdataandchilderrortemplate"></a>
+<a id="schema_MultiStatusResultOfLastStatusDataAndChildErrorTemplate"></a>
+<a id="tocSmultistatusresultoflaststatusdataandchilderrortemplate"></a>
+<a id="tocsmultistatusresultoflaststatusdataandchilderrortemplate"></a>
+
+A multi status result is returned to indicate a partial success.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Reason|string|false|true|Failure reason.|
+|Error|string|false|true|Error string|
+|OperationId|string|false|true|Operational identifier of the call. Used for support.|
+|Data|[[LastStatusData](#schemalaststatusdata)]|false|true|Requested information from call.|
+|ChildErrors|[[ChildErrorTemplate](#schemachilderrortemplate)]|false|true|Child error pertaining to specific resources.|
+
+```json
+{
+  "Reason": "string",
+  "Error": "string",
+  "OperationId": "string",
+  "Data": [
+    {
+      "AssetId": "AssetId-1",
+      "Status": "Good",
+      "Value": "85",
+      "DisplayName": "AssetInGoodState",
+      "DataRetrievalTime": "2020-05-04T16:55:26.3732693Z",
+      "Index": "2019-01-02T00:00:00Z"
+    }
+  ],
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Resolution": "string",
+      "Reason": "string",
+      "StatusCode": 0,
+      "property1": null,
+      "property2": null
+    }
+  ]
+}
+
+```
+
+---
+
+### ChildErrorTemplate
+
+<a id="schemachilderrortemplate"></a>
+<a id="schema_ChildErrorTemplate"></a>
+<a id="tocSchilderrortemplate"></a>
+<a id="tocschilderrortemplate"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Operation identifier|
+|Error|string|false|true|Error string|
+|Resolution|string|false|true|Resolution string|
+|Reason|string|false|true|Error reason string|
+|StatusCode|int32|false|false|None|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "StatusCode": 0,
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+

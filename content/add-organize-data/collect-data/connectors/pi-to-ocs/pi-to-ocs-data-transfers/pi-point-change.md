@@ -2,19 +2,30 @@
 uid: pi-point-change
 ---
 
-# Point type change
+# What is a PI point type change?
 
-When the source PI Data Archive tag changes point type, PI to OCS Services detects this change and sets the transfer status to `PI Point Type Change Detected`. The SDS stream affected is noted in the log files. You must manually decide what to do with the destination SDS stream as well as data that has already been transferred. The PI to OCS service cannot determine why a point changed and how to resolve the issue. A point change could occur for the following reasons:
+A PI point type change occurs when a PI point's type is changed on the source PI Data Archive after the corresponding stream has been created in the OCS Sequential Data Store (SDS) database. When the PI to OCS Agent detects this change, it takes the following actions:
 
-* The source tag had an incorrect configuration of data and type. The data and tag must be deleted and recreated.
-* The source tag was misconfigured initially. For example, the tag updated from a `Float32` to a `Float64`. The data is still relevant and should be kept.
+- Displays the `PI Point Type Change Detected` message next to **Current Activity** in the `Details` pane as shown in the screen capture below.
+- Prevents data being sent from the source PI point to the SDS stream until the type is changed to match the corresponding SDS Stream type and the transfer is restarted.
+- Logs details about the corresponding SDS stream in both the Windows Event Viewer and OCS logs.
+
+![](../../images/pi-point-type-change.png)
+
+A point change can occur for the following reasons:
+
+* The source PI point had an incorrect configuration of data and type. The data and point must be deleted and recreated.
+* The source PI point was misconfigured initially. For example, the point needed to be updated from `Float32` to `Float64`. The data is still relevant and should be kept.
 * Other reasons.
-<!--Angela Flores 6/28/21 This list is oddly specific. Also, what is PI to OCS Services? And PI to OCS service? This topic still needs work. -->
+<!--Angela Flores 6/28/21 This list is oddly specific. Also, what is PI to OCS Services? And PI to OCS service? This topic still needs work. --> 
+<!--VT, 11/29/21: PI to OCS Services/service is the PI to OCS Agent. I had a discussion w/one of the Bonsai developers, Zane Odeh & he confirmed this info. They have been removed from this topic. This topic was updated recently. What other work is needed?-->
 
-Once an SDS stream is created, its underlying SdsType cannot change. As a result, new data from a tag that is assigned a different type cannot be stored in the same stream, and you must decide what to do with the existing SDS stream and data. You can choose from the following corrective actions:
+After you create an SDS stream, its underlying SdsType cannot change. As a result, new data from the PI point in question cannot be stored in the same stream. You can resume streaming data from the PI point to the existing SDS stream by taking the following corrective actions:
 
-* To maintain the data and continue streaming data for that particular tag, create a new SDS stream and copy the data to that new stream. Then, delete the SDS stream in question and restart the transfer.
-* To maintain the data, but not the streaming data for that particular tag, create a new transfer without the tag in question and start the transfer. 
-* To stream data for that particular tag, but not maintain previously transferred data, delete the SDS stream in question and restart the transfer.
+- View the [Windows Event Viewer logs](xref:view-logs) or [OCS logs](xref:download-tenant-log) to determine which PI point incurred a PI point type change.
 
-To see what types of point coercions are supported in PI Data Archive, refer to the ["Allowable point type coercions"](https://docs.osisoft.com/bundle/pi-server/page/allowable-point-type-coercions.html) topic.<!--Angela Flores 6/28/21 should that be "coercions" or "conversions"? -->
+    **Note:** The Windows Event Viewer logs are the preferred source of information for PI point type changes.
+
+- Change the PI point type to match the SDS stream type and then restart the transfer.
+
+To see what types of point coercions are supported in PI Data Archive, refer to the [Allowable point type coercions](https://docs.osisoft.com/bundle/pi-server/page/allowable-point-type-coercions.html) topic.<!--Angela Flores 6/28/21 should that be "coercions" or "conversions"? --> <!--VTT, 11/29/21: Coercion is the preferred term per the referenced topic.-->

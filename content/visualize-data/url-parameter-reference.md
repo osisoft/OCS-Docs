@@ -21,7 +21,7 @@ To manually create a trend URL, add query string parameters to the base URL path
 The following example trend URL includes multiple streams and cursors: 
 
 ```
-https://{server}/tenant/{tenant id}/trend?namespace={Sample}&trace=Tank%3B123;Temp%3B456&trace=Tank%3B234;Temp%3B789&starttime=2019-10-30T07:06:46.939Z&endtime=2019-10-30T07:06:46.939Z&mode=multiple&cursor=2019-10-30T08:06:46.939Z&cursor=2019-10-30T08:06:46.939Z
+https://{server}/tenant/{tenant id}/trend?origin={Sample}&trace=Tank%3B123;Temp%3B456&trace=Tank%3B234;Temp%3B789&starttime=2019-10-30T07:06:46.939Z&endtime=2019-10-30T07:06:46.939Z&mode=multiple&cursor=2019-10-30T08:06:46.939Z&cursor=2019-10-30T08:06:46.939Z
 ```
 
 ## Parameter reference 
@@ -30,7 +30,7 @@ The following table describes the available URL parameters.
 
 | Parameter         | Description                                |Syntax            |
 |-------------------|--------------------------------------------|------------------|
-| **namespace**     | Namespace that contains the stream properties. Required.  | `namespace={namespace_Id}`   |
+| **origin**     | Source of data that contains the stream properties. Required.  | `origin={namespace_Id}`   |
 | **trace**         | The stream properties to be plotted. Consists of `streamId` and `propertyId`. The properties are separated by a semi-colon (;) and are URL encoded, which encodes the delimiter character, also a semi-colon, as `%3B`. You can add multiple stream properties.  | `trace=Tank%3B123;Temp%3B456`<br>In this example, the decoded `streamId` is `Tank;123` and the decoded `propertyId` is `Temp;456`.   | 
 | **starttime**     | Start time expressed as an ISO 8601 formatted timestamp.   | `starttime=2021-09-22T07:06:46.939Z`   |
 | **endtime**       | End time expressed as an ISO 8601 formatted timestamp. If either the **starttime** or **endtime** parameter is not specified, the default time range is displayed.    | `endtime=2021-09-22T15:06:46.942Z`   |

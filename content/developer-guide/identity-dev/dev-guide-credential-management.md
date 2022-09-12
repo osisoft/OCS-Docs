@@ -22,7 +22,7 @@ OCS generates the secret value using a cryptographically secure, random number g
 
 ### Client secret security
 
-Keep client secrets secure. Do not store client secrets in text or transfer them through insecure channels. OSIsoft recommends developing a strategy for managing and securing client secrets. Consider the following options while developing your security strategy:
+Keep client secrets secure. Do not store client secrets in text or transfer them through insecure channels. We recommend developing a strategy for managing and securing client secrets. Consider the following options while developing your security strategy:
 
 - Use a cloud key management service, such as Azure Key Vault, Windows Credential Manager, Amazon Key Management Service, and Google Cloud Key Management, to persist and access the client secret for the environment where the client application is running.
 - Refer to the Microsoft instructions on how to handle secrets and passwords in applications in the article [Handling Passwords](https://docs.microsoft.com/en-us/windows/win32/secbp/handling-passwords). 
@@ -31,6 +31,6 @@ Keep client secrets secure. Do not store client secrets in text or transfer them
 
 ### Client secret rotation
 
-OSIsoft recommends using a secret rotation pattern to change secrets before they expire. Generate a new secret before the current secret expires and provide it to the client. The client should have logic to start using the new secret. Once the client is using the new secret, delete the old secret. 
+We recommend using a secret rotation pattern to change secrets before they expire. Generate a new secret before the current secret expires and provide it to the client. The client should have logic to start using the new secret. Once the client is using the new secret, delete the old secret. 
 
 **Caution:** Do not extend and reuse client secrets that are close to their expiration date. 

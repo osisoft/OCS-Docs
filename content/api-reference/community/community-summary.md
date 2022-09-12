@@ -1,5 +1,6 @@
 ---
 uid: community-summary
+
 ---
 
 # Summary
@@ -14,14 +15,13 @@ Gets community summary information. This includes counts regarding the number of
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/communities/{communityId}/summary
+GET /api/v1-preview/communities/{communityId}/summary
 ?excludeCrossRegions={excludeCrossRegions}
 ```
 
 <h4>Parameters</h4>
 
-`string tenantId`
-<br/>Calling tenant identifier.<br/><br/>`string communityId`
+`string communityId`
 <br/>Community identifier.<br/><br/>
 `[optional] boolean excludeCrossRegions`
 <br/>A value indicating this request should exclude results from regions that are different from the calling region.<br/><br/>
@@ -149,3 +149,4 @@ The CommunitySummaryInformationForTenant object. Contains information about the 
 ```
 
 ---
+

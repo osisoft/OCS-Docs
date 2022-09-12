@@ -4,75 +4,65 @@ uid: gsAssets
 
 # Get started with assets
 
-An asset is a container that includes metadata and references to streams related to a logical asset. For more information about assets, see the following topics:
+An asset is a container that includes metadata and references to streams related to a logical asset. For more information about assets, see [Assets](xref:ccAssets).
 
-- [Assets](xref:ccAssets)
-
-- [PI Server counterpart](xref:ccAssets#pi-server-counterpart)
-
-- [Assets best practices](xref:ccAssets#assets-best-practices)
-
-## Procedure
-
-Follow the procedure to create an asset.
+To create an asset:
 
 1. In the left pane, select **Visualization** > **Asset Explorer**.
 
-1. Click the **Change Namespace** button in the upper-right toolbar, then click **MyOCS** or another namespace in which you created your stream. 
+1. From the **Asset/Asset Types** selector, select **Assets**.
 
-1. From the **Asset/Asset Types Selector** dropdown list, ensure that **Assets** is selected.
+1. In the toolbar, select **Add Asset**. 
 
-1. In the toolbar, click **Add Asset**. 
+1. In the `Select Type for New Asset` window, select **None** and select **Continue**.
 
-1. In the `Select Type for New Asset` window, select **< None >** and click **Continue**.
+1. In the right pane, complete the following fields:
 
-1. A panel appears on the right. Enter the values in the fields:
+   - **Asset** - Enter *MyData.Tank*.
 
-   - **Asset** &ndash; *MyOCS.Tank*
-
-   - **Description** &ndash; Optionally, add a description for this asset.
+   - **Description** - (Optional) Add a description for the asset. 
    
-1. Click the **Metadata** tab, and click **Add Metadata**.
+1. Select the **Metadata** tab, and select **Add Metadata**.
 
-1. Enter the following:
+1. Complete the following fields:
 
-   - **Metadata** &ndash; *Capacity*
+   - **Metadata** - Enter *Capacity*.
 
-   - **Value** &ndash; *200*
+   - **Value** - Enter *200*.
 
-   - **Type** &ndash; *Double*
+   - **Type** - Select *Double*.
 
-   - **UOM** &dash; *US gallon (Volume)*
+   - **UOM** - Select *US gallon (Volume)*.
 
-1. Click the **Properties** tab, and click **Add Stream References**.
+1. Select the **Properties** tab, and select **Add Stream References**.
 
-1. In the `Select Streams` window, enter *MyOCS.\** in the search box.
+1. In the `Select Streams` window, enter *MyData*_*_ in the search field and press Enter.
 
-1. Select **MyOCS.NorthAmerica.SLTC.PumpA** from the list and click **Add**.
+1. Select **MyData.NorthAmerica.SLTC.PumpA** from the list and select **Add**.
 
-1. In the text box below the **Stream References** label, enter *Output Pump State*. This is the user-friendly name for the stream reference.
+1. In the **Stream References** field, enter *Output Pump State* as the user-friendly name for the stream reference.
 
-1. Click **Configure UOMs** to open a window where you can assign a unit of measure (UoM) to the stream properties.  
+1. Assign a unit of measure (UOM) to the stream properties, select **Configure UOMs**.  
 
-   **Note:** If the properties already have UOMs assigned, the UOM you set here will override this. No data conversion occurs between the two UOMs.
+   **Note:** The UOM set here overrides any UOM assigned to property. No data conversion occurs between the two UOMs.
    
-1. Click the **Status** tab, and click **Add Status Configuration**.
+1. Select the **Status** tab, and select **Add Status Configuration**.
 
    The `Select Property` window lists the properties whose values can be displayed as a status. Only properties with an enumerated state or that have a string value can be displayed.
    
-1. Select the **Output Pump Status | Status** property, and then click **Continue**. 
+1. Select the **Output Pump Status | Status** property, and then select **Continue**. 
 
-   If there are no values in the stream, there will be no eligible values to choose from. If there are eligible values that can be mapped to different statuses, select the value that corresponds to the Good, Warning, and Bad statuses. 
+   If there are no values in the stream, there will be no eligible values to choose from. If there are eligible values that can be mapped to different statuses, 
+   
+1. For each value listed, select the associated status, **Good**, **Warning**, or **Bad**.  
 
-1. When you are done, click **Save**. 
+1. To save the asset, select **Save**. 
 
-   This adds the asset to the left pane.
+1. In the `Assets` pane, use the icons in the upper-right to switch between the following views:
 
-1. In the assets pane, use the icons in the upper-right to switch between the following views:
-
-   - ![Card view](images/card-view.png) &ndash; Card view displays the assets as a series of tiles.
+   - ![Card view](../../_icons/branded/view-grid.svg) - Card view displays the assets as a series of tiles.
     
-   - ![Table view](images/table-view.png) &ndash; Table view displays the assets in a table format. 
+   - ![Table view](../../_icons/branded/view-list.svg) - Table view displays the assets in a table format. 
 
 ## Next step
 

@@ -1,35 +1,31 @@
-- name: Tenant management
-  href: tenant/toc.yml
-  topicHref: tenant/management-overview.md
-- name: Identity and access management
-  href: identity/toc.yml
-  topicHref: identity/identity-and-access-management.md
-- name: Sequential Data Store
-  href: sequential-data-store/toc.yml
-  topicHref: sequential-data-store/sds-lp.md
-- name: Data collection
-  href: data-ingress/toc.yml
-  topicHref: data-ingress/data-ingress.md
-- name: Data views
-  href: data-views/toc.yml
-  topicHref: data-views/data-views-api-overview/data-views-overview.md
-- name: Operations
-  href: operations/toc.yml
-  topicHref: operations/operations-overview.md
-- name: Rules
-  href: rules/toc.yml
-  topicHref: rules/rules-overview.md
+- name: Regional endpoints
+  topicHref: regional-endpoints.md
 - name: Asset store
   href: assets/toc.yml
   topicHref: Assets/assets.md
 - name: Communities (Preview)
   href: community/toc.yml
   topicHref: community/community-overview.md
-- name: Role-based access control
-  topicHref: ../developer-guide/identity-dev/dev-guide-role-based-access-control.md
+- name: Data collection
+  href: data-ingress/toc.yml
+  topicHref: data-ingress/data-ingress.md
+- name: Data views
+  href: data-views/toc.yml
+  topicHref: data-views/data-views-api-overview.md
+- name: Identity and access management
+  href: identity/toc.yml
+  topicHref: identity/identity-and-access-management.md
+- name: Operations
+  href: operations/toc.yml
+  topicHref: operations/operations-overview.md
+- name: Rules
+  href: rules/toc.yml
+  topicHref: rules/rules-overview.md
+- name: Sequential Data Store
+  href: sequential-data-store/toc.yml
+  topicHref: sequential-data-store/sds-lp.md
+- name: Tenant management
+  href: tenant/toc.yml
+  topicHref: tenant/management-overview.md
 - name: HTTP status codes
   topicHref: http-status-codes.md
-- name: Samples
-  topicHref: samples.md
-- name: Technical support and other resources
-  topicHref: support.md

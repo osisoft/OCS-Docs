@@ -8,37 +8,33 @@ Roles are used to manage access to assets, resources, and services in OSIsoft Cl
 
 - [Roles](xref:ccRoles)
 
-- [PI Server counterpart](xref:ccRoles#roles-pi-server)
-
 - [Roles best practices](xref:ccRoles#roles-bp)
 
-## Procedure
-
-Follow the procedure to create role.
+To create a role:
 
 1. In the left pane, select **Security** > **Roles**.
 
-1. In the toolbar, click **Add Role**.
+1. In the toolbar, select **Add Role**.
 
-1. In the `Add Role` window, complete the fields:
+1. In the `Add Role` window, complete the following fields:
 
-   - **Name**  &ndash; Enter *MyOCS.Role*.
-
-   - **Description** &ndash; Optionally, add a description for this role.
+   - **Name**  - Enter *MyData.Role*.
    
-1. Click **Add** to create the new role. 
+   - **Description** - (Optional) Add a description for this role.
 
-    It is added to the table of Roles. Note that Tenant Custom is listed as the Role Type for all custom (or non-default) roles. You can now specify permissions for this role when managing permissions on assets, resources, and services. 
+1. To create the new role, select **Add**. 
+
+    It is added to the table of Roles. Note that the Role Type for all custom roles is `Tenant Custom`. You can now specify permissions for this role when managing permissions on assets, resources, and services. 
     
     **Note:** By default, the new role will not have any access granted or denied.
     
-1. Select the *MyOCS.Role* role and click **Manage Identities**.
+1. Select the `MyData.Role` role and select **Manage Identities**.
 
-1. In the `Manage identities for MyOCS.Role Role` window, click the **Add Identity** dropdown list. 
+1. In the `Manage identities for MyData.Role Role` window, select the **Add Identity** dropdown list. 
 
-    The list displays all users and clients in the tenant. Click **+** to add any users or clients in the list to the role.
+    The list displays all users and clients in the tenant. Select **+** to add any users or clients in the list to the role.
 
-1. When you are done adding users and clients, click **Save**.
+1. When you are finished, select **Save**.
 
 ## Next step
 

@@ -14,7 +14,7 @@ Returns the `AssetRuleStatistics` for the ruleId.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}/statistics
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}/statistics
 ```
 
 <h4>Parameters</h4>
@@ -84,7 +84,7 @@ Returns the collection of `AssetChangeData` for the ruleId.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/rule/{ruleId}
 ?Skip={Skip}&Count={Count}
 ```
 
@@ -256,7 +256,7 @@ Returns the collection of `AssetChangeData` for the assetId.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/asset/{assetId}
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/asset/{assetId}
 ```
 
 <h4>Parameters</h4>
@@ -406,7 +406,7 @@ Returns the collection of `AssetChangeData` for the streamId.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/stream/{streamId}
+GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/admin/assetrules/changedata/stream/{streamId}
 ```
 
 <h4>Parameters</h4>

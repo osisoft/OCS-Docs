@@ -4,7 +4,7 @@ uid: ccTypes
 
 # Types
 
-A Sequential Data Store (SDS) type defines the shape and structure of events and how to associate events within a stream of data. A type is comprised of at least two properties. One property serves as the primary index, most commonly a `timestamp` or `DateTime`. In addition, it has one or more additional properties called value properties which describes the data in each stream event. Each value property can have a different property type. A wide variety of property types are supported. For a list of the supported property types, see [Supported Types](xref:sdsTypes#sdstypecode). 
+A Sequential Data Store (SDS) type defines the shape and structure of events and how to associate events within a stream of data. A type is comprised of at least two properties. One property serves as the primary index, most commonly a `timestamp` or `DateTime`. In addition, it has one or more additional properties called value properties which describe the data in each stream event. Each value property can have a different property type. A wide variety of property types are supported. For a list of the supported property types, see [Supported Types](xref:sdsTypes#sdstypecode). 
 
 **Note:** You can also create complex secondary indexes. 
 

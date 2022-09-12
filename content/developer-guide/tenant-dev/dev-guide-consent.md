@@ -18,7 +18,7 @@ In order to add your AAD tenant as an identity provider for your tenant, your AA
 1. Your AAD administrator will click on the link provided in the email which will bring them to a login page. Your administrator will need to log in as a user with the Global Administrator role on your AAD.
 1. Upon successful login, your administrator will be prompted to grant consent for a single application: OCS Identity.
 1. Your administrator should click Accept in the Permissions requested prompt window to grant consent.
-1. OSIsoft will get a confirmation that the consent process has been completed.
+1. A confirmation that the consent process has been completed is sent.
 1. A final email will be sent to the initial user who either signed up for the account (if this is a new account being provisioned), or who requested that AAD be added as an identity provider (if AAD is being added to an existing account), informing them that the consent has been granted.
 1. At that point, this initial user will be able to use the link provided to activate his profile and sign in to your OCS account (if this is a new account being provisioned), and other users can now be added using credentials from AAD.
 
@@ -34,7 +34,7 @@ Note that this is a two-step consent process. You must first grant consent for b
 1. Your AAD administrator will click on the first link provided in the email which will bring them to a login page. Your administrator will need to log in as a user with the Global Administrator role on your AAD.
 1. Upon successful login, your administrator will be prompted to grant consent for a single application: OCS Identity.
 1. Your administrator should click Accept in the Permissions requested prompt window to grant consent.
-1. OSIsoft will get a confirmation that the consent process has been completed.
+1. A confirmation that the consent process has been completed is sent.
 1. Your AAD administrator will then click on the second link in the original email to grant permission for OCS Identity to sign in and read all users' full profiles and all group memberships.
 1. Your administrator should agree to the advanced integration by clicking the consent button.
 1. A final email will be sent to the initial user who signed up for the account, informing them that they can sign in with their AAD account.
@@ -55,7 +55,7 @@ Note that until this consent for Advanced Integration has been granted, the AAD 
 1. Your AAD administrator will click on the first link provided in the email which will bring them to a login page. Your administrator will need to log in as a user with the Global Administrator role on your AAD.
 1. Upon successful login, your administrator will be prompted to grant consent for a single application: OCS Identity.
 1. Your administrator should click Accept in the Permissions requested prompt window to grant consent.
-1. OSIsoft will get a confirmation that the consent process has been completed.
+1. A confirmation that the consent process has been completed is sent.
 1. Your AAD administrator will then click on the second link in the original email to grant permission for OCS Identity to sign in and read all users' full profiles and all group memberships.
 1. Your administrator should agree to the advanced integration by clicking the consent button.
 1. A final email will be sent to the initial user who either signed up for the account (if this is a new account being provisioned), or who requested that AAD be added as an identity provider (if AAD is being added to an existing account), informing them that the consent has been granted.

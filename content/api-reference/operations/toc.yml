@@ -1,3 +1,5 @@
+- name: Bulk access
+  href: operations-bulk-access.md
 - name: Health
   href: operations-health.md
 - name: Logs

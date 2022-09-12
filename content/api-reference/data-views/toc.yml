@@ -1,18 +1,12 @@
-- name: Define a data view
-  href: define-a-data-view/toc.yml
-  topicHref: define-a-data-view/quick-start-define-a-data-view.md
-- name: Get data view data
-  href: get-data-view-data/toc.yml
-  topicHref: get-data-view-data/quick-start-get-data-view-data.md
-- name: Get resolved data view
-  topicHref: get-resolved-data-view/resolved-data-view.md
-- name: Preview data view
-  topicHref: preview-data-view-api/preview-data-view-api.md
-- name: Secure data views
-  topicHref: secure-data-views/securing-data-views.md
-- name: Data views API reference
-  href: data-views-api-overview/toc.yml
-  topicHref: data-views-api-overview/data-views-api-overview.md
-- name: Examples
-  href: reference/toc.yml
-  topicHref: reference/data-views-examples.md
+- name: Access control
+  href: data-views-access-control-api.md
+- name: Data view
+  href: data-views-data-view-api.md
+- name: Data views data
+  href: data-views-data-api.md
+- name: Preview data views data
+  href: data-views-preview-data-api.md
+- name: Preview resolved data view
+  href: data-views-resolved-data-view-preview-api.md
+- name: Resolved data views
+  href: data-views-resolved-data-view-api.md
