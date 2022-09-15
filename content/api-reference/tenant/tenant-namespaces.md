@@ -106,7 +106,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}
 {
   "Id": "Namespace1",
   "Region": "WestUS",
-  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namesapceId",
+  "Self": "https://dat-b.osipi.com/api/v1/tenants/tenantId/namespaces/namespaceId",
   "Description": "Namespace Description 1",
   "State": 1,
   "RegionId": "WestUS",
