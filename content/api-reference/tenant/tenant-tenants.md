@@ -27,7 +27,7 @@ GET /api/v1/Tenants/{tenantId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[TenantWithProperties](#schematenantwithproperties)|The `Tenant` with Id `tenantId`.|
-|400|None|Could not retrieve the specified `TenantWithProperties`s due to missing or invalid input.|
+|400|None|Could not retrieve the specified `TenantWithProperties` due to missing or invalid input.|
 |403|None|Forbidden.|
 
 <h4>Example response body</h4>
