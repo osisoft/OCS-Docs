@@ -84,7 +84,7 @@ PUT /api/v1/Tenants/{tenantId}/AccessControl/Namespaces
 
 <h4>Request Body</h4>
 
-The new root AccessControlList for Namespace s.<br/>
+The new root AccessControlList for Namespaces.<br/>
 
 ```json
 {
