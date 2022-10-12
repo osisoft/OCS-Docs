@@ -38,7 +38,7 @@ To import an edge system configuration from the field to the corresponding edge 
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
-1. View available **Status** and **Type** filters with the **Filters Panel** ![Filters Panel](../../../_icons/branded/filter.svg) button.
+1. View available **Status** and **Type** filters by selecting **Filters Panel** ![Filters Panel](../../../_icons/branded/filter.svg).
 
 1. You can toggle `Edge Systems` between two views using the view toggle.
 
