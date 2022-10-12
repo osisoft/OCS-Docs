@@ -38,6 +38,8 @@ To import an edge system configuration from the field to the corresponding edge 
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
+1. View available **Status** and **Type** filters with the **Filters Panel** ![Filters Panel](../../../_icons/branded/filter.svg) button.
+
 1. You can toggle `Edge Systems` between two views using the view toggle.
 
   | View | Icon | Description |
@@ -68,6 +70,8 @@ To edit an edge system configuration and export it for use:
 1. In the left pane, select **Data Collection** > **Software Management**.
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
+
+1. View available **Status** and **Type** filters with the **Filters Panel** ![Filters Panel](../../../_icons/branded/filter.svg) button.
 
 1. You can toggle `Edge Systems` between two views using the view toggle.
 
