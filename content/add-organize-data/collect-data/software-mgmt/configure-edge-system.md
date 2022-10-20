@@ -38,7 +38,7 @@ To import an edge system configuration from the field to the corresponding edge 
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
-1. You can toggle `Edge Systems` between two views using the view toggle.
+1. (Optional) To switch the page view, use the view toggle.
 
   | View | Icon | Description |
   |--|--|--|
@@ -69,14 +69,19 @@ To edit an edge system configuration and export it for use:
 
 1. Verify that the **Edge Systems/Base Configurations** selector is set to **Edge Systems**.
 
-1. You can toggle `Edge Systems` between two views using the view toggle.
-
-  | View | Icon | Description |
-  |--|--|--|
-  | **Card view** | ![card view](../../../_icons/branded/view-grid.svg) | Presents each device name as a card. |
-  | **List view** | ![list view](../../../_icons/branded/view-list.svg) | Presents each device name as a list item. |
-
 1. Find and select the edge device to configure.
+
+  - To switch the page view, use the view toggle.
+
+    - To see each device name as a card, select **Card view** ![card view](../../../_icons/branded/view-grid.svg).
+  
+    - To see each device name as a list item, select **List view** ![list view](../../../_icons/branded/view-list.svg).
+
+  - To sort by a column in descending order, select the column header. To sort in ascending order, select the header again.
+
+  - To filter the edge systems shown based on a specific column, select the filter icon in the column header. 
+
+    **Note:** Filter for multiple tags using `and` and `or` syntax to refine the filter.
 
 1. In the right pane, select **Edit Edge System** or ![Edit](../../../_icons/default/pencil.svg).
 
