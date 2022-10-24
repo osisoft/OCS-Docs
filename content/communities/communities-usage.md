@@ -4,7 +4,7 @@ uid: communities-usage
 
 # View community usage
 
-The `Usage` tab displays consumption information for the streams created and viewed within the selected community. You can view these streams by your usage of them within the community or by Community Usage. 
+The `Usage` tab displays consumption information for the streams created and viewed within the selected community. You can view these streams by your usage of them within the community or by Community Usage.
 
 ## To view community usage
 
@@ -22,7 +22,7 @@ To view how your tenant consume data shared by other tenants, select the **My Us
 
 1. From the left dropdown list, select **My Usage**.
 
-1. From the right dropdown list, choose **Monthly View** or a **Daily View** for a given day. For more information, see [View](#view).
+1. From the right dropdown list, choose a **Daily View** for a given day or **Monthly View**. For more information, see [View](#view).
 
 1. (Optional) Select **Download Usage** to download the displayed data as a CSV file.
 
@@ -38,7 +38,7 @@ To view how other tenants in the community consume data, select the **Community 
 
 1. From the left dropdown list, select **Community Usage**.
 
-1. From the right dropdown list, choose **Monthly View** or a **Daily View** for a given day. For more information, see [View](#view).
+1. From the right dropdown list, choose a **Daily View** for a given day or **Monthly View**. For more information, see [View](#view).
 
 1. (Optional) Select **Download Usage** to download the displayed data as a CSV file.
 
@@ -48,13 +48,13 @@ To view how other tenants in the community consume data, select the **Community 
 
 Use the view dropdown to display streams accessed by month or day. Choose between the following options:
 
-- **Monthly**: Displays usage data for the chosen data source for the past seven months, broken down by month.
-
-	![streams accessed monthly](images/streams-accessed-monthly.png)
-
-- **Daily**: Displays usage data for the chosen data source for each day in a chosen month. There is a daily view for each day of the month that shared stream access occurred. 
+- **Daily**: Displays usage data for the chosen data source for each day in a chosen month. There is a daily view for each day of the month that shared stream access occurred.
 
 	![streams accessed daily](images/streams-accessed-daily.png)
+
+- **Monthly**: Displays usage data for the chosen data source for the calendar year, broken down by month.
+
+	![streams accessed monthly](images/streams-accessed-monthly.png)
 
 ## Legend
 

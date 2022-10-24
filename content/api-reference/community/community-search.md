@@ -37,6 +37,7 @@ GET /api/v1-preview/search/communities/{communityId}/streams
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[StreamSearchResult](#schemastreamsearchresult)|Returns the stream information that matches the search criteria. This is a set of objects of type `StreamSearchResult`.|
+|207|[PartialFailureResult](#schemapartialfailureresult)|Returns the stream information that matches the search criteria. This is a set of objects of type `StreamSearchResult`.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
@@ -58,23 +59,22 @@ GET /api/v1-preview/search/communities/{communityId}/streams
   "TenantId": "string",
   "TenantName": "string",
   "NamespaceId": "string",
-  "CommunityId": "string"
+  "CommunityId": "string",
+  "PropertyOverrides": [
+    {
+      "SdsTypePropertyId": "string",
+      "Uom": "string",
+      "InterpolationMode": 0
+    }
+  ]
 }
 ```
 
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-<li>Tenant Member</li>
-</ul>
-
 ---
 
-## `List Streams By Namespace (GET Method)`
+## `List Streams By Namespace 1`
 
-<a id="opIdCommunitySearch_List Streams By Namespace (GET Method)"></a>
+<a id="opIdCommunitySearch_List Streams By Namespace 1"></a>
 
 Searches for shared streams within a namespace by query.
 
@@ -118,24 +118,23 @@ GET /api/v1-preview/tenants/{tenantId}/search/namespaces/{namespaceId}/streams
     "Id": "string",
     "Name": "string",
     "TypeId": "string",
-    "Description": "string"
+    "Description": "string",
+    "PropertyOverrides": [
+      {
+        "SdsTypePropertyId": "string",
+        "Uom": "string",
+        "InterpolationMode": 0
+      }
+    ]
   }
 ]
 ```
 
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-<li>Tenant Member</li>
-</ul>
-
 ---
 
-## `Search Streams By Namespace (POST Method)`
+## `Search Streams By Namespace 2`
 
-<a id="opIdCommunitySearch_Search Streams By Namespace (POST Method)"></a>
+<a id="opIdCommunitySearch_Search Streams By Namespace 2"></a>
 
 Searches for shared streams within a namespace by query.
 
@@ -191,18 +190,17 @@ Input used to search namespace.<br/>
     "Id": "string",
     "Name": "string",
     "TypeId": "string",
-    "Description": "string"
+    "Description": "string",
+    "PropertyOverrides": [
+      {
+        "SdsTypePropertyId": "string",
+        "Uom": "string",
+        "InterpolationMode": 0
+      }
+    ]
   }
 ]
 ```
-
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-<li>Tenant Member</li>
-</ul>
 
 ---
 ## Definitions
@@ -229,6 +227,7 @@ The StreamSearchResult object. This is the model representation exposed to calle
 |TenantName|string|false|true|The Tenant name of stream|
 |NamespaceId|string|false|true|The Namespace ID of stream|
 |CommunityId|string|false|true|The Community Id|
+|PropertyOverrides|[[SdsStreamPropertyOverride](#schemasdsstreampropertyoverride)]|false|true|The Stream PropertyOverrides.|
 
 ```json
 {
@@ -240,7 +239,158 @@ The StreamSearchResult object. This is the model representation exposed to calle
   "TenantId": "string",
   "TenantName": "string",
   "NamespaceId": "string",
-  "CommunityId": "string"
+  "CommunityId": "string",
+  "PropertyOverrides": [
+    {
+      "SdsTypePropertyId": "string",
+      "Uom": "string",
+      "InterpolationMode": 0
+    }
+  ]
+}
+
+```
+
+---
+
+### SdsStreamPropertyOverride
+
+<a id="schemasdsstreampropertyoverride"></a>
+<a id="schema_SdsStreamPropertyOverride"></a>
+<a id="tocSsdsstreampropertyoverride"></a>
+<a id="tocssdsstreampropertyoverride"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SdsTypePropertyId|string|false|true|None|
+|Uom|string|false|true|None|
+|InterpolationMode|[SdsInterpolationMode](#schemasdsinterpolationmode)|false|true|None|
+
+```json
+{
+  "SdsTypePropertyId": "string",
+  "Uom": "string",
+  "InterpolationMode": 0
+}
+
+```
+
+---
+
+### SdsInterpolationMode
+
+<a id="schemasdsinterpolationmode"></a>
+<a id="schema_SdsInterpolationMode"></a>
+<a id="tocSsdsinterpolationmode"></a>
+<a id="tocssdsinterpolationmode"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Default|0|
+|Continuous|0|
+|StepwiseContinuousLeading|1|
+|StepwiseContinuousTrailing|2|
+|Discrete|3|
+|ContinuousNullableLeading|4|
+|ContinuousNullableTrailing|5|
+
+---
+
+### PartialFailureResult
+
+<a id="schemapartialfailureresult"></a>
+<a id="schema_PartialFailureResult"></a>
+<a id="tocSpartialfailureresult"></a>
+<a id="tocspartialfailureresult"></a>
+
+PartialFailureResult object. Used for HTTP status code 207 responses. This is a model representation exposed to callers of the Search Streams By Community controller endpoint.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|The Id for the executed operation.|
+|Error|string|false|true|Error message for 207|
+|ReasonPhrase|string|false|true|Reason for the 207 response|
+|ChildErrors|[[ChildError](#schemachilderror)]|false|true|A list of encountered errors|
+|Data|[[StreamSearchResult](#schemastreamsearchresult)]|false|true|A list of successfully returned content|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "ReasonPhrase": "string",
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "TenantId": "string",
+      "NamespaceId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "StatusCode": 0
+    }
+  ],
+  "Data": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "TypeId": "string",
+      "Description": "string",
+      "Self": "string",
+      "TenantId": "string",
+      "TenantName": "string",
+      "NamespaceId": "string",
+      "CommunityId": "string",
+      "PropertyOverrides": [
+        {
+          "SdsTypePropertyId": "string",
+          "Uom": "string",
+          "InterpolationMode": 0
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+### ChildError
+
+<a id="schemachilderror"></a>
+<a id="schema_ChildError"></a>
+<a id="tocSchilderror"></a>
+<a id="tocschilderror"></a>
+
+The ChildError object. This is a model representation exposed to callers of the Search Streams By Community controller endpoint.
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|The Id for the executed operation.|
+|TenantId|string|false|true|The Tenant Id of stream|
+|NamespaceId|string|false|true|The Namespace Id of stream|
+|Error|string|false|true|The error.|
+|Reason|string|false|true|Reason for the exception.|
+|Resolution|string|false|true|Suggested resolution.|
+|StatusCode|int32|false|false|HTTP Status Code|
+
+```json
+{
+  "OperationId": "string",
+  "TenantId": "string",
+  "NamespaceId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "StatusCode": 0
 }
 
 ```
@@ -292,13 +442,21 @@ The StreamFromSearchByNamespace object. This is the model representation exposed
 |Name|string|false|true|The Stream Name.|
 |TypeId|string|false|true|The Stream TypeId.|
 |Description|string|false|true|The Stream Description.|
+|PropertyOverrides|[[SdsStreamPropertyOverride](#schemasdsstreampropertyoverride)]|false|true|The Stream PropertyOverrides.|
 
 ```json
 {
   "Id": "string",
   "Name": "string",
   "TypeId": "string",
-  "Description": "string"
+  "Description": "string",
+  "PropertyOverrides": [
+    {
+      "SdsTypePropertyId": "string",
+      "Uom": "string",
+      "InterpolationMode": 0
+    }
+  ]
 }
 
 ```

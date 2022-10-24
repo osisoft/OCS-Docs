@@ -54,14 +54,6 @@ GET /api/v1-preview/communities/{communityId}/summary
 }
 ```
 
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-<li>Tenant Member</li>
-</ul>
-
 ---
 ## Definitions
 

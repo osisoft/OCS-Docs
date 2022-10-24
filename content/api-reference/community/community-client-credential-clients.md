@@ -6,9 +6,9 @@ uid: community-client-credential-clients
 # Client Credential Clients
 APIs for getting, adding, or removing client credential clients from communities
 
-## `List Client Credential Clients for a Community`
+## `List Client Credential Clients for a Community 1`
 
-<a id="opIdCommunityClientCredentialClients_List Client Credential Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_List Client Credential Clients for a Community 1"></a>
 
 Gets clients associated with a specific tenant and community
 
@@ -61,18 +61,11 @@ GET /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredentia
 ]
 ```
 
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-</ul>
-
 ---
 
-## `Get Count of Clients for a Community`
+## `Get Count of Clients for a Community 1`
 
-<a id="opIdCommunityClientCredentialClients_Get Count of Clients for a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Get Count of Clients for a Community 1"></a>
 
 Gets a count of client credential clients for a community
 
@@ -99,18 +92,99 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCredenti
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
-<h3>Authorization</h3>
+---
 
-Allowed for these roles: 
-<ul>
-<li>Community Member</li>
-</ul>
+## `List Client Credential Clients for a Community 2`
+
+<a id="opIdCommunityClientCredentialClients_List Client Credential Clients for a Community 2"></a>
+
+Gets clients associated with a specific tenant and community
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/ClientCredentialClients
+?query={query}&skip={skip}&count={count}
+```
+
+<h4>Parameters</h4>
+
+`string communityId`
+<br/>Community identifier<br/><br/>`string tenantId`
+<br/>Tenant identifier<br/><br/>
+`[optional] string query`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)[]|Set of clients ( `ClientCredentialClient`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+<h4>Example response body</h4>
+
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Enabled": true,
+    "AccessTokenLifetime": 0,
+    "Tags": [
+      "string"
+    ],
+    "RoleIds": [
+      "string"
+    ]
+  }
+]
+```
 
 ---
 
-## `Add Client Credential Client to a Community`
+## `Get Count of Clients for a Community 2`
 
-<a id="opIdCommunityClientCredentialClients_Add Client Credential Client to a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Get Count of Clients for a Community 2"></a>
+
+Gets a count of client credential clients for a community
+
+<h3>Request</h3>
+
+```text 
+HEAD /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/ClientCredentialClients
+```
+
+<h4>Parameters</h4>
+
+`string communityId`
+<br/>Community identifier<br/><br/>`string tenantId`
+<br/>Tenant identifier<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+---
+
+## `Add Client Credential Client to a Community 1`
+
+<a id="opIdCommunityClientCredentialClients_Add Client Credential Client to a Community 1"></a>
 
 Adds a client credential client to a community, providing a list of community roles to be assigned to the client
 
@@ -168,19 +242,11 @@ Community role identifiers to be assigned to the client<br/>
 }
 ```
 
-<h3>Authorization</h3>
-
-Allowed for these roles: 
-<ul>
-<li>Community Administrator</li>
-<li>Community Moderator</li>
-</ul>
-
 ---
 
-## `Remove Client Credential Client from a Community`
+## `Remove Client Credential Client from a Community 1`
 
-<a id="opIdCommunityClientCredentialClients_Remove Client Credential Client from a Community"></a>
+<a id="opIdCommunityClientCredentialClients_Remove Client Credential Client from a Community 1"></a>
 
 Removes a client credential client from a community
 
@@ -208,13 +274,99 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/ClientCreden
 |404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
-<h3>Authorization</h3>
+---
 
-Allowed for these roles: 
-<ul>
-<li>Community Administrator</li>
-<li>Community Moderator</li>
-</ul>
+## `Add Client Credential Client to a Community 2`
+
+<a id="opIdCommunityClientCredentialClients_Add Client Credential Client to a Community 2"></a>
+
+Adds a client credential client to a community, providing a list of community roles to be assigned to the client
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/ClientCredentialClients/{clientId}
+```
+
+<h4>Parameters</h4>
+
+`string communityId`
+<br/>Community identifier<br/><br/>`string tenantId`
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client credential client identifier<br/><br/>
+
+<h4>Request Body</h4>
+
+Community role identifiers to be assigned to the client<br/>
+
+```json
+[
+  "string"
+]
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[ClientCredentialClient](#schemaclientcredentialclient)|Ok|
+|201|[ClientCredentialClient](#schemaclientcredentialclient)|Created|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
+
+<h4>Example response body</h4>
+
+> 200 Response ([ClientCredentialClient](#schemaclientcredentialclient))
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "AccessTokenLifetime": 0,
+  "Tags": [
+    "string"
+  ],
+  "RoleIds": [
+    "string"
+  ]
+}
+```
+
+---
+
+## `Remove Client Credential Client from a Community 2`
+
+<a id="opIdCommunityClientCredentialClients_Remove Client Credential Client from a Community 2"></a>
+
+Removes a client credential client from a community
+
+<h3>Request</h3>
+
+```text 
+DELETE /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/ClientCredentialClients/{clientId}
+```
+
+<h4>Parameters</h4>
+
+`string communityId`
+<br/>Community identifier<br/><br/>`string tenantId`
+<br/>Tenant identifier<br/><br/>`string clientId`
+<br/>Client credential client identifier<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|204|None|Removed|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
+|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
 
 ---
 ## Definitions

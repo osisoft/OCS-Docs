@@ -20,16 +20,16 @@ To edit a community:
 
 1. Select **More Options** ![More Options](../_icons/default/dots-vertical.svg) > **Edit Community**.
 
-1. In **Edit Community**, edit the community **Name** and **Description**. 
+1. In **Edit Community**, edit the community **Name** and **Description**.
 
 1. (Optional) Edit the community **Alias**.
 
-	Use this field to provide an alias for the community. This alias appears instead of the community name for your tenant only.
+	Use this field to provide an alias for the community. This alias replaces the community name in all places the name is referenced within OCS. The alias applies to your tenant only; other tenants in the community do not see it.
+
+	**Note:** If you use an alias, the only location that you can see both the community name and the alias is the `Community Detail` page.
 
 1. (Optional) Edit the community **Contact Email**.
 
 	Use this field to provide a contact email address that your business partners can use to communicate with your organization for any questions or issues related to the community.
 
 1. Select **Update**.
-
-Are you sure you want to remove your tenant <TENANT> from the community <COMMUNITY>? This action removes all data your tenant has shared to the community so that it is no longer accessible to other members. Enter the name of your tenant to confirm.
