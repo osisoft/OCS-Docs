@@ -16,9 +16,9 @@ The `Resource Usage` page displays the streams created and viewed within your te
 
 1. Choose a data source: **Streams Accessed** or **Shared Streams Accessed**. For more information, see [data sources](#data-sources).
 
-1. Choose a time increment: **Daily View** or **Monthly View**. For more information, see [View](#view).
+1. Choose a time increment: **Monthly View** or **Daily View**. For more information, see [View](#view).
 
-1. (Optional) Select **Download Usage** to download the displayed data.
+1. (Optional) Select **Download Usage** to download  the displayed data.
 
 ## License usage
 
@@ -26,28 +26,29 @@ Resource usage always displays your license information, regardless of what page
 
 Field | Desription
 --|--
-**Namespaces** | The total number of namespaces in the tenant.
-**Streams stored** | The total number of streams the tenant is licensed for and the number of licenses consumed.
+**Namespaces** | The total number of namespaces the tenant is licensed for and the number of licenses consumed.
+**Created Streams** | The total number of streams the tenant is licensed for and the number of licenses consumed.
+**Current Month Accessed Streams** | The total number of streams the tenant is licensed the access during the month and the number of licenses consumed.
 
-## Data sources
+##  Data sources
 
 For data source, you can view streams from your native tenant namespaces or from communities you are a member of. Choose between the following options:
 
-- **Streams Accessed**: Displays usage data about streams native to your tenant namespaces.
+- **Streams Accessed**: Displays usage data about streams native to your tenant namspaces.
 
 - **Shared Streams Accessed**: Displays usage data about streams shared into communities that your tenant holds membership in.
 
-## View
+##  View
 
-Use the view dropdown to display streams accessed by day or month. Choose between the following options:
+Use the view dropdown to display streams accessed by month or day. Choose between the following options:
 
-- **Daily**: Displays usage data for the chosen data source for each day in a chosen month. This is the default option.
-
-	![streams accessed daily](../../communities/images/streams-accessed-daily.png)
-
-- **Monthly**: Displays usage data for the chosen data source for the calendar year, broken down by month.
+- **Monthly**: Displays usage data for the chosen data source for the past seven months, broken down by month.
 
 	![streams accessed monthly](../../communities/images/streams-accessed-monthly.png)
+
+- **Daily**: Displays usage data for the chosen data source for each day in a chosen month.
+
+	![streams accessed daily](../../communities/images/streams-accessed-daily.png)
 
 ## Legend
 

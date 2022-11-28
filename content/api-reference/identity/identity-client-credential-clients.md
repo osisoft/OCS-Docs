@@ -4,7 +4,7 @@ uid: identityClientCredentialClient
 ---
 
 # Client Credential Clients
-Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an identifier and secret upon creation, which are later used for authentication against the platform. More than one secret can be created for a client. Because they access resources on the platform and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
+Client credential clients are used for machine-to-machine communication without the presence of a user. These clients are issued an identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Because they access resources on OCS and are not associated to users, these clients can be assigned any of the roles in the tenant. We suggest following a least privilege strategy when assigning roles to these clients, as they are more likely to operate in remote machines with a wider attack surface.
 
 ## `List all Client Credential Clients`
 
@@ -111,9 +111,9 @@ Allowed for these roles:
 
 ---
 
-## `Create Client Credential Client`
+## `Create Client Credential Client (v1 path)`
 
-<a id="opIdClientCredentialClients_Create Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Create Client Credential Client (v1 path)"></a>
 
 Creates a client credential client. A client identifier and client secret will be generated to perform authentication. Make sure to store the secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have identifiers in a tenant. Currently there is a limit of 50000 clients (of any type) per tenant.
 
@@ -196,9 +196,9 @@ Allowed for these roles:
 
 ---
 
-## `Get Client Credential Client`
+## `Get Client Credential Client (v1 path)`
 
-<a id="opIdClientCredentialClients_Get Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Get Client Credential Client (v1 path)"></a>
 
 Returns a client credential client.
 
@@ -291,9 +291,9 @@ Allowed for these roles:
 
 ---
 
-## `Update Client Credential Client`
+## `Update Client Credential Client (v1 path)`
 
-<a id="opIdClientCredentialClients_Update Client Credential Client"></a>
+<a id="opIdClientCredentialClients_Update Client Credential Client (v1 path)"></a>
 
 Updates a client credential client. It can take up to one hour for these values to manifest in the authentication process.
 
@@ -395,7 +395,6 @@ DELETE /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 <h3>Authorization</h3>
@@ -406,6 +405,7 @@ Allowed for these roles:
 </ul>
 
 ---
+
 ## Definitions
 
 ### ClientCredentialClientCreateResponse
@@ -468,7 +468,7 @@ Object to return or update a ClientCredentialClient
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for AVEVA internal use only|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
 
 ```json
@@ -544,7 +544,7 @@ Object used during client creation
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for AVEVA internal use only|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |SecretDescription|string|false|true|Description for the initial secret for the client. Ensure that this is descriptive enough, as it will be the only way to distinguish between multiple secrets and their usage for a client.|
 |SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
 
@@ -659,6 +659,267 @@ ChildError objects returned in a 207 response
   "ModelId": "string",
   "property1": null,
   "property2": null
+}
+
+```
+
+---
+
+### ClientCredentialClient2
+
+<a id="schemaclientcredentialclient2"></a>
+<a id="schema_ClientCredentialClient2"></a>
+<a id="tocSclientcredentialclient2"></a>
+<a id="tocsclientcredentialclient2"></a>
+
+Object to return or update the ClientCredentialClient
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
+
+```json
+{
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "RoleIds": [
+    "string"
+  ]
+}
+
+```
+
+---
+
+### ClientCredentialClientMultiStatusResponse2
+
+<a id="schemaclientcredentialclientmultistatusresponse2"></a>
+<a id="schema_ClientCredentialClientMultiStatusResponse2"></a>
+<a id="tocSclientcredentialclientmultistatusresponse2"></a>
+<a id="tocsclientcredentialclientmultistatusresponse2"></a>
+
+MultiStatusResponse objects returned in a 207 response
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Identifier of the operation that resulted in this error|
+|Error|string|false|true|Message describing the error|
+|Reason|string|false|true|Reason that caused the error|
+|ChildErrors|[[MultiStatusResponseChildError2](#schemamultistatusresponsechilderror2)]|false|true|List of child errors|
+|Data|[[ClientCredentialClient2](#schemaclientcredentialclient2)]|false|true|Data representing client credentials|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "DynamicProperties": {
+        "property1": null,
+        "property2": null
+      },
+      "StatusCode": 0,
+      "ModelId": "string",
+      "property1": null,
+      "property2": null
+    }
+  ],
+  "Data": [
+    {
+      "ClientId": "string",
+      "Id": "string",
+      "Name": "string",
+      "Enabled": true,
+      "Tags": [
+        "string"
+      ],
+      "RoleIds": [
+        "string"
+      ]
+    }
+  ]
+}
+
+```
+
+---
+
+### MultiStatusResponseChildError2
+
+<a id="schemamultistatusresponsechilderror2"></a>
+<a id="schema_MultiStatusResponseChildError2"></a>
+<a id="tocSmultistatusresponsechilderror2"></a>
+<a id="tocsmultistatusresponsechilderror2"></a>
+
+ChildError objects returned in a 207 response
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|Operation identifier of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution to resolve the error|
+|DynamicProperties|object|false|true|Additional properties|
+|StatusCode|int32|false|false|Http status code|
+|ModelId|string|false|true|Model identifier|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "DynamicProperties": {
+    "property1": null,
+    "property2": null
+  },
+  "StatusCode": 0,
+  "ModelId": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+### ErrorResponse2
+
+<a id="schemaerrorresponse2"></a>
+<a id="schema_ErrorResponse2"></a>
+<a id="tocSerrorresponse2"></a>
+<a id="tocserrorresponse2"></a>
+
+Object returned when there is an error
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "EventId": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+### ClientCredentialClientResponse
+
+<a id="schemaclientcredentialclientresponse"></a>
+<a id="schema_ClientCredentialClientResponse"></a>
+<a id="tocSclientcredentialclientresponse"></a>
+<a id="tocsclientcredentialclientresponse"></a>
+
+Object returned after a client credential client is created
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SecretDescription|string|false|true|Description for the initial secret for the client. Ensure that this is descriptive enough, as it will be the only way to distinguish between multiple secrets and their usage for a client.|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|ClientSecret|string|false|true|Client secret|
+|SecretId|string|false|true|Secret identifier|
+
+```json
+{
+  "SecretDescription": "string",
+  "SecretExpirationDate": "2019-08-24T14:15:22Z",
+  "RoleIds": [
+    "string"
+  ],
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "ClientSecret": "string",
+  "SecretId": "string"
+}
+
+```
+
+---
+
+### ClientCredentialClientCreate2
+
+<a id="schemaclientcredentialclientcreate2"></a>
+<a id="schema_ClientCredentialClientCreate2"></a>
+<a id="tocSclientcredentialclientcreate2"></a>
+<a id="tocsclientcredentialclientcreate2"></a>
+
+Object used during client creation
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|SecretDescription|string|false|true|Description for the initial secret for the client. Ensure that this is descriptive enough, as it will be the only way to distinguish between multiple secrets and their usage for a client.|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
+
+```json
+{
+  "RoleIds": [
+    "string"
+  ],
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "SecretDescription": "string",
+  "SecretExpirationDate": "2019-08-24T14:15:22Z"
 }
 
 ```

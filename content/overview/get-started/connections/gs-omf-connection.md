@@ -18,17 +18,13 @@ To create an OMF connection:
 
 1. In the **Namespace** field, select `MyData`.
 
-1. Select **Add Connection** to open the `Add OMF Connection` window.
+1. Select **Add Connection** to open the `Add Connection` pane.
 
-1. In the **Name** field, enter *MyData* and select **Next**.
+1. In the **Name** field, enter *MyData*.
 
-1. In the **Clients** tab, select a client in the `Available` list to add it to the `Selected` list. Select **Next**.
+1. In the **Clients** dropdown list, select a client in the list and select **Save**.
 
    **Note:** For the purposes of this exercise, you may choose any client.
-
-1. In the **Namespaces** tab, verify that the `MyData` namespace appears in the `Selected` list, and then select **Next**.
-
-1. In the **Review** tab, verify that the `Clients` list shows the client-credentials client you chose, and the `Namespaces` list shows the `MyData` namespace. Select **Save**.
 
    An application can now use the selected client-credentials client to write OMF data to the `MyData` namespace.
 

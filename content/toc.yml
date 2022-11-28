@@ -47,7 +47,6 @@
         - topicUid: streams-add-tags-or-metadata
         - topicUid: streams-share-streams
         - topicUid: streams-view-in-trend
-        - topicUid: streams-export-csv
         - topicUid: streams-manage-stream-permissions
       - topicUid: ccTypes
         items:

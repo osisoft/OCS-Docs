@@ -16,4 +16,4 @@ You can view the status of all pending community invitations that your tenant ha
 
 1. From the toolbar, select **View invitations**.
 
-1. (Optional) If you want to cancel a pending request, select **Cancel Invitation** for each community that you no longer want to join. Then select **Close**.
+1. (Optional) If you want to cancel a pending request, select the communities that you no longer want to join and select **Cancel Invitations**.

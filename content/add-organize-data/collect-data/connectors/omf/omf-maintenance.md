@@ -14,17 +14,11 @@ To edit an existing connection:
 
 1. Select **Edit Connection**.
 
-1. In the `Edit` window, make any needed changes to the **Name** and **Description** fields and select **Next**.
+1. In the `Edit Connection` pane, edit the **Name** and **Description** fields and select **Next**.
 
-1. In the **Clients** tab, select each client that can be used in the connection from the **Available** list to add it to the **Selected** list, or select a client in the **Selected** list to remove it.
+1. From the **Client** dropdown list, choose a client used for authentication.
 
-1. Select **Next**.
-
-1. In the **Namespaces** tab, select each namespace where you want write data in the **Available** list to add it to the **Selected** list, or select a namespace from the **Selected** list to remove it.
-
-1. Select **Next**.
-
-1. In the **Review** tab, verify that the information is correct, and then select **Save**.  
+1. Select **Save**.
 
 ## Remove a connection
 

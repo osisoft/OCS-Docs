@@ -18,6 +18,6 @@ If you encounter an error message and the PI to OCS Configuration Utility crashe
 
 1. In the PI to OCS Configuration utility, click the pencil icon to the right of **PI Mapping**.
 
-1. Follow the steps in [Create a PI mapping](xref:pi-to-ocs-utility#create-a-pi-mapping) to add a PI mapping.
+1. Follow the steps in [Create a PI mapping section](#pi-to-ocs-utility) to add a PI mapping.
 
 1. After adding the PI mapping, save your changes. 

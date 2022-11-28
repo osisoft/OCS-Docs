@@ -30,7 +30,7 @@ Each user is added to the community and assigned the Community Member role.
 
 ## Remove users from a community
 
-To remove tenant users or yourself from a community:
+To remove tenant users from a community:
 
 1. In the left pane, select **Data Management** > **Communities**.
 
@@ -46,4 +46,4 @@ The users that you remove from the community can no longer view it nor which dat
 
 ## Users from groups
 
-The **Members** tab lists implicit users that hold community membership through a group. These users are denoted by the **From a Group** ![group](../_icons/default/account-group.svg) icon. These implicit users cannot be edited individually. Instead, you must manage them through the group. For more information, see <xref:community-manage-groups>.
+The **Members** tab lists implicit users that hold community membership through a group. These users are denoted by the **From a Group** icon ![group](../_icons/default/account-group.svg). These implicit users cannot be edited individually. Instead, you must manage them through the group. For more information, see <xref:community-manage-groups>.

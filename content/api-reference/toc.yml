@@ -9,7 +9,7 @@
 - name: Content
   href: content/toc.yml
   topicHref: content/content-overview.md
-- name: Communities
+- name: Communities (Preview)
   href: community/toc.yml
   topicHref: community/community-overview.md
 - name: Data collection

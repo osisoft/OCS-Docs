@@ -5,11 +5,11 @@ uid: transfer-data
 # Transfer data to OCS
 <!-- AF 11/15/21 This topic appears in the TOC twice. It could also use to be broken into Define a data transfer and Start a data transfer. -->
 <!-- VT 11/29/21: This has been addressed by PR #764 (edits to PI to OCS landing pages).-->
-**Note:** The ability to transfer Asset Framework data is only available in AVEVA&trade; Data Hub. Please contact your account manager to learn how to switch from OCS to AVEVA Data Hub.
+**Note:** The ability to transfer Asset Framework data is only available in AVEVA™ Data Hub. Please contact your account manager to learn how to switch from OCS to AVEVA Data Hub.
 
 You initiate a data transfer from the `PI to OCS Agents` page. A transfer can consist of PI points and AF elements or AF elements that reference at least one PI point.
 
-PI points can be added to a transfer explicitly using a tag search or implicitly using AF element references. For information, about the difference between implicit and explicit references, see [Explicit versus implicit PI points](#explicit-versus-implicit-pi-points).
+PI points can be added to a transfer explicitly using a tag search or implicitly using AF element references. For information, about the difference between implicit and explicit references, see [Explicit versus implicit PI points](#overview-of-explicit-vs.-implicit-pi-points).
 
 **Before you begin:** Download and install the PI to OCS Agent. Register your PI Data Archive and AF data sources using the PI to OCS Agent Configuration Utility. 
 
@@ -159,7 +159,7 @@ To view AF element details:
 
 ## Build a PI points transfer list
 
-You build a PI points transfer list by setting query criteria and then adding the desired PI points. A PI points transfer list may contain both implicit and explicit PI points. See [Explicit vs. implicit PI points](#explicit-versus-implicit-pi-points) for more information.
+You build a PI points transfer list by setting query criteria and then adding the desired PI points. A PI points transfer list may contain both implicit and explicit PI points. See [Overview of explicit vs. implicit PI points](#overview-of-explicit-vs.-implicit-pi-points) for more information.
 
 To build a PI points transfer list:
 

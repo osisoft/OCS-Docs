@@ -4,7 +4,7 @@ uid: identity-tenants-users
 ---
 
 # Tenants Users
-Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in the platform only after they have accepted the invitation and successfully logged in with an identity provider. The platform does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in, the user cannot change the identity provider with which it signed up. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding users in the platform. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
+Users consume resources in a tenant. They are invited by the administrator of the tenant and should already have a tenant in one of the configured identity providers for this tenant. A user is fully provisioned in OCS only after they have accepted the invitation and successfully logged in with an identity provider. OCS does not maintain user credentials, but it delegates authentication to the identity provider the user logged in with at first. Once logged in, the user cannot change the identity provider with which it signed up. A tenant can only have one user with a given email to an identity provider. If a user has multiple aliases in the same identity provider, they will not be able to create multiple corresponding OCS. Users have roles associated with them. These roles determine what a user is authorized to do in the tenant. Roles are assigned to a user upon creation and can be modified by an administrator. We allow the change of some user fields and the complete deletion of a user.
 
 ## `List Users from a Tenant`
 
@@ -52,8 +52,8 @@ GET /api/v1/Tenants/{tenantId}/Users
     "GivenName": "string",
     "Surname": "string",
     "Name": "string",
-    "Email": "user@example.com",
-    "ContactEmail": "user@example.com",
+    "Email": "string",
+    "ContactEmail": "string",
     "ContactGivenName": "string",
     "ContactSurname": "string",
     "ExternalUserId": "string",
@@ -113,11 +113,11 @@ Allowed for these roles:
 
 ---
 
-## `Create User`
+## `Create User (v1 path)`
 
-<a id="opIdUsers_Create User"></a>
+<a id="opIdUsers_Create User (v1 path)"></a>
 
-Creates a user in the tenant. This method does not create an invitation for the user. You will need to create an invitation with the respective method for this user, otherwise they will not be able to finish the sign-up process. Users have identifiers in a tenant. Currently there is a limit of 50000 users per tenant.
+Creates a user in the tenant. This method does not create an invitation for the user. You will need to create an invitation with the respective method for this user, otherwise they will not be able to finish the sign-up process. Users have identifiers in a tenant. Currently there is a limit of 50000 users per tenant. For Windows Active Directory users, the external user identifier must be specified.
 
 <h3>Request</h3>
 
@@ -171,8 +171,8 @@ UserCreateOrUpdate object<br/>
   "GivenName": "string",
   "Surname": "string",
   "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
+  "Email": "string",
+  "ContactEmail": "string",
   "ContactGivenName": "string",
   "ContactSurname": "string",
   "ExternalUserId": "string",
@@ -240,8 +240,8 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
       "GivenName": "string",
       "Surname": "string",
       "Name": "string",
-      "Email": "user@example.com",
-      "ContactEmail": "user@example.com",
+      "Email": "string",
+      "ContactEmail": "string",
       "ContactGivenName": "string",
       "ContactSurname": "string",
       "ExternalUserId": "string",
@@ -301,8 +301,8 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}
   "GivenName": "string",
   "Surname": "string",
   "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
+  "Email": "string",
+  "ContactEmail": "string",
   "ContactGivenName": "string",
   "ContactSurname": "string",
   "ExternalUserId": "string",
@@ -420,8 +420,8 @@ UserCreateOrUpdate object. Properties that are not set or are null will not be c
   "GivenName": "string",
   "Surname": "string",
   "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
+  "Email": "string",
+  "ContactEmail": "string",
   "ContactGivenName": "string",
   "ContactSurname": "string",
   "ExternalUserId": "string",
@@ -523,8 +523,8 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Status
     "GivenName": "string",
     "Surname": "string",
     "Name": "string",
-    "Email": "user@example.com",
-    "ContactEmail": "user@example.com",
+    "Email": "string",
+    "ContactEmail": "string",
     "ContactGivenName": "string",
     "ContactSurname": "string",
     "ExternalUserId": "string",
@@ -609,7 +609,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 |200|None|Header for specified user's preferences|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
-|404|None|User or tenant or user's preferences not found.|
+|404|None|User or tenant not found|
 |500|None|Internal server error.|
 
 <h3>Authorization</h3>
@@ -679,8 +679,8 @@ Object for retrieving a user
 |GivenName|string|false|true|Given name of the user|
 |Surname|string|false|true|Surname of the user|
 |Name|string|false|true|Name of the user|
-|Email|email|false|true|Email of the user|
-|ContactEmail|email|false|true|Contact email for the user. User will only be contacted through this email.|
+|Email|string|false|true|Email of the user|
+|ContactEmail|string|false|true|Contact email for the user. User will only be contacted through this email.|
 |ContactGivenName|string|false|true|Preferred given name for the user|
 |ContactSurname|string|false|true|Preferred contact surname for the user|
 |ExternalUserId|string|false|true|Provider identifier for the user. This is the identifier we get from the identity provider.|
@@ -693,8 +693,8 @@ Object for retrieving a user
   "GivenName": "string",
   "Surname": "string",
   "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
+  "Email": "string",
+  "ContactEmail": "string",
   "ContactGivenName": "string",
   "ContactSurname": "string",
   "ExternalUserId": "string",
@@ -753,8 +753,8 @@ MultiStatusResponse objects returned in a 207 response
       "GivenName": "string",
       "Surname": "string",
       "Name": "string",
-      "Email": "user@example.com",
-      "ContactEmail": "user@example.com",
+      "Email": "string",
+      "ContactEmail": "string",
       "ContactGivenName": "string",
       "ContactSurname": "string",
       "ExternalUserId": "string",
@@ -869,8 +869,8 @@ Object used when returning user status
     "GivenName": "string",
     "Surname": "string",
     "Name": "string",
-    "Email": "user@example.com",
-    "ContactEmail": "user@example.com",
+    "Email": "string",
+    "ContactEmail": "string",
     "ContactGivenName": "string",
     "ContactSurname": "string",
     "ExternalUserId": "string",
@@ -940,6 +940,107 @@ Object when updating a user
   "RoleIds": [
     "string"
   ]
+}
+
+```
+
+---
+
+### UserStatusMultiStatusResponse
+
+<a id="schemauserstatusmultistatusresponse"></a>
+<a id="schema_UserStatusMultiStatusResponse"></a>
+<a id="tocSuserstatusmultistatusresponse"></a>
+<a id="tocsuserstatusmultistatusresponse"></a>
+
+MultiStatusResponse objects returned in a 207 response
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|false|true|Identifier of the operation that resulted in this error|
+|Error|string|false|true|Message describing the error|
+|Reason|string|false|true|Reason that caused the error|
+|EventId|string|false|true|Even identifier of the error|
+|ChildErrors|[[MultiStatusResponseChildError](#schemamultistatusresponsechilderror)]|false|true|List of child errors|
+|Data|[[UserStatus](#schemauserstatus)]|false|true|Data representing user statuses|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "EventId": "string",
+  "ChildErrors": [
+    {
+      "OperationId": "string",
+      "Error": "string",
+      "Reason": "string",
+      "Resolution": "string",
+      "EventId": "string",
+      "StatusCode": 0,
+      "ModelId": "string",
+      "property1": null,
+      "property2": null
+    }
+  ],
+  "Data": [
+    {
+      "InvitationStatus": 0,
+      "User": {
+        "Id": "string",
+        "GivenName": "string",
+        "Surname": "string",
+        "Name": "string",
+        "Email": "string",
+        "ContactEmail": "string",
+        "ContactGivenName": "string",
+        "ContactSurname": "string",
+        "ExternalUserId": "string",
+        "IdentityProviderId": "string",
+        "RoleIds": [
+          "string"
+        ]
+      }
+    }
+  ]
+}
+
+```
+
+---
+
+### UserCreateOrUpdate2
+
+<a id="schemausercreateorupdate2"></a>
+<a id="schema_UserCreateOrUpdate2"></a>
+<a id="tocSusercreateorupdate2"></a>
+<a id="tocsusercreateorupdate2"></a>
+
+Object when updating an user
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|UserId|guid|false|true|User identifier for the user. When creating a user, if user identifier is not specified, one will be generated.|
+|ContactGivenName|string|false|true|Preferred name to be used when contacting user|
+|ContactSurname|string|false|true|Preferred surname to be used when contacting user|
+|ContactEmail|email|false|true|Preferred email to be used when contacting user|
+|RoleIds|string[]|false|true|List of role identifiers|
+|IdentityProviderId|guid|false|true|Identity Provider this user will be required to use to log in. This value cannot be null when creating a new user. When updating, this value must match what is currently assigned to user. This cannot be updated via update user.|
+
+```json
+{
+  "UserId": "string",
+  "ContactGivenName": "string",
+  "ContactSurname": "string",
+  "ContactEmail": "user@example.com",
+  "RoleIds": [
+    "string"
+  ],
+  "IdentityProviderId": "string"
 }
 
 ```

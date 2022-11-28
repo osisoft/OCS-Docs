@@ -56,7 +56,7 @@ A tenant represents the set of services, applications, data, and configuration s
 
 Tenants are divided into one or more logical units called Namespaces. Each Namespace is distinct and separate from other Namespaces with its own instances of the various OSIsoft Cloud Services and data stores. Namespaces provide isolation of resources. 
 
-Namespaces are provisioned within a region. The Namespace's services and data stores all exist in the Namespace's region. Resources allocated to a Namespace are isolated to the Namespace's region. For more information on regions see the [Namespaces](xref:tenant-namespaces) documentation.  Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
+Namespaces are provisioned within a region. The Namespace's services and data stores all exist in the Namespace's region. Resources allocated to a Namespace are isolated to the Namespace's region. For more information on regions see the [Namespace](xref:AccountNamespace_1) documentation.  Isolation provided by Tenants and Namespaces prevents accidental or malicious data access. 
 
 OSIsoft Cloud Services provides data residency via namespaces in the following regions:
 
@@ -65,7 +65,7 @@ OSIsoft Cloud Services provides data residency via namespaces in the following r
 | WestUS | Americas | California |
 | WestEurope | Europe | Netherlands |
 
-Tenant account information is stored in all regions for read-only purposes. Write operations are only supported through the global base URL. See the <xref:tenant-tenants#get-regions> documentation for information on how to access this data.
+Tenant account information is stored in all regions for read-only purposes. Write operations are only supported through the global base URL. See the [Tenant](xref:AccountTenant) documentation for information on how to access this data.
 
 
 ## OCS API versioning

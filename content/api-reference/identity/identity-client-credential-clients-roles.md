@@ -64,7 +64,7 @@ GET /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -102,7 +102,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -128,6 +128,20 @@ PUT /api/v1/Tenants/{tenantId}/ClientCredentialClients/{clientId}/Roles
 <h4>Request Body</h4>
 
 Updates roles list<br/>
+
+```json
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 0,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
+```
 
 <h3>Response</h3>
 
@@ -226,7 +240,7 @@ GET /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -264,7 +278,7 @@ HEAD /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Member</li>
+<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -290,6 +304,20 @@ PUT /api/v1/Tenants/{tenantId}/Clients/{clientId}/Roles
 <h4>Request Body</h4>
 
 Updates roles list<br/>
+
+```json
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "Description": "string",
+    "RoleScope": 0,
+    "TenantId": "string",
+    "CommunityId": "string",
+    "RoleTypeId": "string"
+  }
+]
+```
 
 <h3>Response</h3>
 

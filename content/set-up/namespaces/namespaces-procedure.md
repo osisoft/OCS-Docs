@@ -52,4 +52,4 @@ A namespace is a logical unit of organization for data within a tenant. Before d
 
 ## Related links
 
-- <xref:tenant-namespaces>
+- [Namespaces](xref:AccountNamespace_1) API

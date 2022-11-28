@@ -23,7 +23,7 @@ The following table shows whether endpoint collections have an endpoint for acce
 | Endpoint Collection | ACL Endpoint |
 |--|:--:|
 | [Asset store](xref:assets-access-control-list) | &#10004; |
-| [Communities: Communities](xref:community-communities)<sup>1</sup> | &#10004; |
+| [Communities: Communities](xref:community-communities#accesscontrollist)<sup>1</sup> | &#10004; |
 | [Communities: Tenants](xref:community-tenants)<sup>1</sup> | &#10004; |
 | [Data collection](xref:omf-ingress-access-control) | &#10004; |
 | [Data views](xref:DataViewsAccessControlAPI) | &#10004; |

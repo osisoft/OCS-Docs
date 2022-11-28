@@ -213,8 +213,8 @@ GET /api/v1/Tenants/{tenantId}/Roles/{roleId}/users
     "GivenName": "string",
     "Surname": "string",
     "Name": "string",
-    "Email": "user@example.com",
-    "ContactEmail": "user@example.com",
+    "Email": "string",
+    "ContactEmail": "string",
     "ContactGivenName": "string",
     "ContactSurname": "string",
     "ExternalUserId": "string",
@@ -678,8 +678,8 @@ Object for retrieving a user
 |GivenName|string|false|true|Given name of the user|
 |Surname|string|false|true|Surname of the user|
 |Name|string|false|true|Name of the user|
-|Email|email|false|true|Email of the user|
-|ContactEmail|email|false|true|Contact email for the user. User will only be contacted through this email.|
+|Email|string|false|true|Email of the user|
+|ContactEmail|string|false|true|Contact email for the user. User will only be contacted through this email.|
 |ContactGivenName|string|false|true|Preferred given name for the user|
 |ContactSurname|string|false|true|Preferred contact surname for the user|
 |ExternalUserId|string|false|true|Provider identifier for the user. This is the identifier we get from the identity provider.|
@@ -692,8 +692,8 @@ Object for retrieving a user
   "GivenName": "string",
   "Surname": "string",
   "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
+  "Email": "string",
+  "ContactEmail": "string",
   "ContactGivenName": "string",
   "ContactSurname": "string",
   "ExternalUserId": "string",
@@ -724,7 +724,7 @@ Object to return or update a ClientCredentialClient
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for AVEVA internal use only|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |RoleIds|string[]|false|true|List of roles to be assigned to this client. Member role is always required. For security reasons, we advise against assigning administrator role to a client.|
 
 ```json

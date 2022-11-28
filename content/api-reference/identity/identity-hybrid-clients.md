@@ -4,11 +4,11 @@ uid: identityHybridClient
 ---
 
 # Hybrid Clients
-Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued an unique identifier and secret upon creation, which are later used for authentication against the platform. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location. Note: Currently the refresh token is not supported for the hybrid clients.
+Hybrid clients are used in typical, thick MVC clients with the presence of a user. These clients are issued a unique identifier and secret upon creation, which are later used for authentication against OCS. More than one secret can be created for a client. Hybrid clients can be issued refresh tokens, if requested, alongside access tokens. Refresh tokens typically have a longer lifetime than access tokens, and are used to request a new access token on behalf of the user without them having to log in. It is highly suggested that both the client secret and the refresh token be stored in a secure location.
 
-## `List All Hybrid Clients`
+## `List All Hybrid Clients (v1 path)`
 
-<a id="opIdHybridClients_List All Hybrid Clients"></a>
+<a id="opIdHybridClients_List All Hybrid Clients (v1 path)"></a>
 
 Returns a list of hybrid clients from a tenant. Optionally, returns a list of requested clients. Total number of clients in the tenant set in the Total-Count header
 
@@ -119,9 +119,9 @@ Allowed for these roles:
 
 ---
 
-## `Create Hybrid Client`
+## `Create Hybrid Client (v1 path)`
 
-<a id="opIdHybridClients_Create Hybrid Client"></a>
+<a id="opIdHybridClients_Create Hybrid Client (v1 path)"></a>
 
 Creates a hybrid client. A client unique identifier and client secret will be generated to perform authentication. Make sure to store the secret somewhere safe as we do not store the actual value after the creation step. If you do not have access to the secret value, we suggest deleting the secret and adding a new one for this client. Clients have unique identifiers in a tenant. Currently there is a limit of 50000 clients (of all types) per tenant.
 
@@ -218,9 +218,9 @@ Allowed for these roles:
 
 ---
 
-## `Get Hybrid Client`
+## `Get Hybrid Client (v1 path)`
 
-<a id="opIdHybridClients_Get Hybrid Client"></a>
+<a id="opIdHybridClients_Get Hybrid Client (v1 path)"></a>
 
 Returns a hybrid client from a tenant.
 
@@ -320,9 +320,9 @@ Allowed for these roles:
 
 ---
 
-## `Update Hybrid Client`
+## `Update Hybrid Client (v1 path)`
 
-<a id="opIdHybridClients_Update Hybrid Client"></a>
+<a id="opIdHybridClients_Update Hybrid Client (v1 path)"></a>
 
 Updates a hybrid client. It can take up to one hour for these values to manifest in the authentication process.
 
@@ -438,7 +438,6 @@ DELETE /api/v1/Tenants/{tenantId}/HybridClients/{clientId}
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden.|
 |404|[ErrorResponse](#schemaerrorresponse)|Client or tenant not found|
 |408|[ErrorResponse](#schemaerrorresponse)|Operation timed out.|
-|409|[ErrorResponse](#schemaerrorresponse)|Found.|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 <h3>Authorization</h3>
@@ -522,7 +521,7 @@ Object used for hybrid clients
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for AVEVA internal use only|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |AllowOfflineAccess|boolean|false|true|Whether this client can request refresh tokens, by providing the *offline_access* scope.|
 |AllowAccessTokensViaBrowser|boolean|false|true|Whether this hybrid client is allowed to receive access tokens through the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
 
@@ -611,7 +610,7 @@ Object used during hybrid client creation
 |Name|string|false|true|Name of client|
 |Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
 |AccessTokenLifetime|int32|false|true|Lifetime of access token issued for this client after authentication. Minimum 60 seconds. Maximum 3600 seconds. Defaults to 3600 seconds.|
-|Tags|string[]|false|true|Tags for AVEVA internal use only|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
 |SecretDescription|string|false|true|Description for the initial secret for the client|
 |SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
 
@@ -636,6 +635,202 @@ Object used during hybrid client creation
   ],
   "SecretDescription": "string",
   "SecretExpirationDate": "2019-08-24T14:15:22Z"
+}
+
+```
+
+---
+
+### HybridClientResponse
+
+<a id="schemahybridclientresponse"></a>
+<a id="schema_HybridClientResponse"></a>
+<a id="tocShybridclientresponse"></a>
+<a id="tocshybridclientresponse"></a>
+
+Object returned after a hybrid client is created
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|SecretDescription|string|false|true|Description for the initial secret for the client|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
+|AllowOfflineAccess|boolean|false|true|Whether client can request refresh tokens, by providing the *offline_access* scopes.|
+|AllowAccessTokensViaBrowser|boolean|false|true|Whether this hybrid client is allowed to receive access tokens through the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+|RedirectUris|string[]|false|true|Note: Required when creating a client, but optional when updating a client. Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen)|
+|LogoUri|string|false|true|URI to client logo (used on consent screen)|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|ClientSecret|string|false|true|Client secret. This is the only time the secret will be available. Please store this secret somewhere safe.|
+|SecretId|string|false|true|Secret identifier|
+
+```json
+{
+  "SecretDescription": "string",
+  "SecretExpirationDate": "2019-08-24T14:15:22Z",
+  "AllowOfflineAccess": true,
+  "AllowAccessTokensViaBrowser": true,
+  "RedirectUris": [
+    "string"
+  ],
+  "PostLogoutRedirectUris": [
+    "string"
+  ],
+  "ClientUri": "string",
+  "LogoUri": "string",
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "ClientSecret": "string",
+  "SecretId": "string"
+}
+
+```
+
+---
+
+### ErrorResponse2
+
+<a id="schemaerrorresponse2"></a>
+<a id="schema_ErrorResponse2"></a>
+<a id="tocSerrorresponse2"></a>
+<a id="tocserrorresponse2"></a>
+
+Object returned when there is an error
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|OperationId|string|true|false|OperationId of action that caused the error|
+|Error|string|true|false|Error description|
+|Reason|string|true|false|Reason for the error|
+|Resolution|string|true|false|Resolution for the error|
+|EventId|string|true|false|EventId for the error|
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "EventId": "string",
+  "property1": null,
+  "property2": null
+}
+
+```
+
+---
+
+### HybridClientCreate2
+
+<a id="schemahybridclientcreate2"></a>
+<a id="schema_HybridClientCreate2"></a>
+<a id="tocShybridclientcreate2"></a>
+<a id="tocshybridclientcreate2"></a>
+
+Object used during hybrid client creation
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|AllowOfflineAccess|boolean|false|true|Whether client can request refresh tokens, by providing the *offline_access* scopes.|
+|AllowAccessTokensViaBrowser|boolean|false|true|Whether this hybrid client is allowed to receive access tokens through the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+|RedirectUris|string[]|false|true|Note: Required when creating a client, but optional when updating a client. Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen)|
+|LogoUri|string|false|true|URI to client logo (used on consent screen)|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|SecretDescription|string|false|true|Description for the initial secret for the client|
+|SecretExpirationDate|date-time|false|true|Expiration date for the initial secret for the client. If set to null the secret will never expire. We advise against such practice.|
+
+```json
+{
+  "AllowOfflineAccess": true,
+  "AllowAccessTokensViaBrowser": true,
+  "RedirectUris": [
+    "string"
+  ],
+  "PostLogoutRedirectUris": [
+    "string"
+  ],
+  "ClientUri": "string",
+  "LogoUri": "string",
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "SecretDescription": "string",
+  "SecretExpirationDate": "2019-08-24T14:15:22Z"
+}
+
+```
+
+---
+
+### HybridClient2
+
+<a id="schemahybridclient2"></a>
+<a id="schema_HybridClient2"></a>
+<a id="tocShybridclient2"></a>
+<a id="tocshybridclient2"></a>
+
+Object used for hybrid clients
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|RedirectUris|string[]|false|true|Note: Required when creating a client, but optional when updating a client. Allowed URIs to which return tokens or authorization codes can be returned. Wildcards are ignored. URIs must match exactly what you are redirecting to after login. If URIs do not match, the authentication process will fail with a bad_client error. Maximum 10 per client.|
+|PostLogoutRedirectUris|string[]|false|true|Allowed URIs to redirect to after logout. Wildcards are ignored. URIs must match exactly what you are redirecting to after logout. Maximum 10 per client.|
+|ClientUri|string|false|true|URI to a page with information about client (used on consent screen)|
+|LogoUri|string|false|true|URI to client logo (used on consent screen)|
+|ClientId|string|false|true|Obsolete: Use identifier.|
+|Id|string|false|true|Client identifier for this client. This identifier should be a GUID.|
+|Name|string|false|true|Name of client|
+|Enabled|boolean|false|true|Whether client is enabled. Client can be used for authentication if set to true. Client cannot be used for authentication if set to false.|
+|Tags|string[]|false|true|Tags for OSIsoft internal use only|
+|AllowOfflineAccess|boolean|false|true|Whether client can request refresh tokens, by providing the *offline_access* scopes.|
+|AllowAccessTokensViaBrowser|boolean|false|true|Whether this hybrid client is allowed to receive access tokens through the browser. This is useful to harden flows that allow multiple response types (for example, by disallowing a hybrid flow client that is supposed to use code *id_token* to add the *token* response type, thus leaking the token to the browser).|
+
+```json
+{
+  "RedirectUris": [
+    "string"
+  ],
+  "PostLogoutRedirectUris": [
+    "string"
+  ],
+  "ClientUri": "string",
+  "LogoUri": "string",
+  "ClientId": "string",
+  "Id": "string",
+  "Name": "string",
+  "Enabled": true,
+  "Tags": [
+    "string"
+  ],
+  "AllowOfflineAccess": true,
+  "AllowAccessTokensViaBrowser": true
 }
 
 ```

@@ -22,9 +22,9 @@ GET /api/v1-preview/tenants/{tenantId}/Communities
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>
+<br/>Owning tenant identifier<br/><br/>
 `[optional] string query`
-<br/>(not supported) Search string identifier.<br/><br/>`[optional] integer skip`
+<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
 <br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
 
@@ -172,10 +172,85 @@ Community information to create<br/>
 
 <h3>Authorization</h3>
 
+<<<<<<< HEAD
+## `List Communities a Tenant is Joined to 1`
+
+<a id="opIdCommunities_List Communities a Tenant is Joined to 1"></a>
+
+Gets all communities a tenant is joined to.
+
+<h3>Request</h3>
+
+```text 
+GET /api/v1-preview/Communities
+?query={query}&skip={skip}&count={count}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+`[optional] string query`
+<br/>(not supported) Search string identifier.<br/><br/>`[optional] integer skip`
+<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[Community](#schemacommunity)[]|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|401|None|Unauthorized. The client has not been authenticated.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
+|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([Community](#schemacommunity)[])
+
+```json
+[
+  {
+    "Id": "string",
+    "MemberRoleId": "string",
+    "Name": "string",
+    "Alias": "string",
+    "Description": "string",
+    "Tenants": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Status": "None",
+        "IsOwner": true,
+        "UserCount": 0,
+        "ClientCount": 0,
+        "PreferredRegionId": "string"
+      }
+    ],
+    "DateCreated": "2019-08-24T14:15:22Z",
+    "PreferredRegionId": "string",
+    "CommunityRoles": [
+      {
+        "Id": "string",
+        "Name": "string",
+        "Description": "string",
+        "RoleScope": 0,
+        "TenantId": "string",
+        "CommunityId": "string",
+        "RoleTypeId": "string"
+      }
+    ]
+  }
+]
+```
+=======
 Allowed for these roles: 
 <ul>
 <li>Tenant Administrator</li>
 </ul>
+>>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 
 ---
 
@@ -189,22 +264,19 @@ Gets a community and related information by Id.
 
 ```text 
 GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}
-?resolveCompanyName={resolveCompanyName}
 ```
 
 <h4>Parameters</h4>
 
 `string tenantId`
-<br/>Tenant unique identifier.<br/><br/>`string communityId`
-<br/>Community unique identifier.<br/><br/>
-`[optional] boolean resolveCompanyName`
-<br/>Parameter to resolve company name for community tenants. Default is to include.<br/><br/>
+<br/>Owning tenant identifier<br/><br/>`string communityId`
+<br/>Community id<br/><br/>
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Community](#schemacommunity)|Returns a specified community for the tenant. This is an object of type `Community`.|
+|200|[Community](#schemacommunity)|Returns the current communities for the tenant. This is a set of objects of type `Community`.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|None|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
@@ -356,20 +428,118 @@ Get the effective access rights for a community resource.
 <h3>Request</h3>
 
 ```text 
+<<<<<<< HEAD
+GET /api/v1-preview/Communities/{communityId}
+?resolveCompanyName={resolveCompanyName}
+=======
 GET /api/v1-preview/tenants/{tenantId}/Communities/{communityId}/accessrights
+>>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 ```
 
 <h4>Parameters</h4>
 
+<<<<<<< HEAD
+`string communityId`
+<br/>Community unique identifier.<br/><br/>`string tenantId`
+<br/>Tenant unique identifier.<br/><br/>
+`[optional] boolean resolveCompanyName`
+<br/>Parameter to resolve company name for community tenants. Default is to include.<br/><br/>
+=======
 `string tenantId`
 <br/>Owning Tenant identifier<br/><br/>`string communityId`
 <br/>Community identifier<br/><br/>
+>>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
+<<<<<<< HEAD
+|200|[Community](#schemacommunity)|Returns a specified community for the tenant. This is an object of type `Community`.|
+|400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
+|401|None|Unauthorized. The client has not been authenticated.|
+|403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
+|408|[ErrorResponse](#schemaerrorresponse)|Request Timeout. The request has timed out.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal Server Error. The server has encountered a situation it doesn't know how to handle.|
+
+<h4>Example response body</h4>
+
+> 200 Response ([Community](#schemacommunity))
+
+```json
+{
+  "Id": "string",
+  "MemberRoleId": "string",
+  "Name": "string",
+  "Alias": "string",
+  "Description": "string",
+  "Tenants": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Status": "None",
+      "IsOwner": true,
+      "UserCount": 0,
+      "ClientCount": 0,
+      "PreferredRegionId": "string"
+    }
+  ],
+  "DateCreated": "2019-08-24T14:15:22Z",
+  "PreferredRegionId": "string",
+  "CommunityRoles": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "Description": "string",
+      "RoleScope": 0,
+      "TenantId": "string",
+      "CommunityId": "string",
+      "RoleTypeId": "string"
+    }
+  ]
+}
+```
+
+---
+
+## `Update Community Info 1`
+
+<a id="opIdCommunities_Update Community Info 1"></a>
+
+Updates attributes of a community such as name and description.
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1-preview/Communities/{communityId}
+```
+
+<h4>Parameters</h4>
+
+`string communityId`
+<br/>Community identifier<br/><br/>`string tenantId`
+<br/>Owning tenant identifier<br/><br/>
+
+<h4>Request Body</h4>
+
+The community object that contains the attributes to use for the update.<br/>
+
+```json
+{
+  "Name": "string",
+  "Description": "string",
+  "PreferredRegionId": "string"
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success. The community tenant was updated.|
+=======
 |200|None|An enumerable of all allowed Access Rights for a Community resource.|
+>>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request.|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized. The client has not been authenticated.|
 |403|[ErrorResponse](#schemaerrorresponse)|Forbidden. The client does not have the required permissions to make the request.|
