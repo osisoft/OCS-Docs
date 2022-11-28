@@ -14,7 +14,7 @@ The following table describes each field listed for a community:
 
 | Field | Description |
 |--|--|
-| **Community Details** | Opens the `Community details` page for the community, displaying more information about the community. | 
+| **Community Details** | Opens the `Community details` page for the community, displaying more information about the community. |
 | **Tenants** | The number of tenants participating in the community. |
 | **Date Created** | The date that the community was created. |
 | **Sharing Status** | Indicates whether one or more tenant in the community is sharing data streams. Statuses include: <ul><li><img src="../_icons/custom/check-circle.svg" alt="Sharing Active"/> <strong>Sharing Active</strong>: No tenants in the community have paused sharing.</li><li><img src="../_icons/default/pause-circle.svg" alt="Sharing Paused"/> <strong>Sharing Paused</strong>: One or more tenant in the community has paused sharing their data streams. The total number of tenants that have sharing paused are also listed.</li></ul> |
@@ -25,18 +25,12 @@ Select **Community Detail** to administrate the community or view more informati
 - <xref:community-community-administration>
 - <xref:community-tenant-administration>
 
-<!-- 
-
-Mark Bishop 10/26/2022: Leave this commented out until ADO work item 325202 is completed.
-
 You can also toggle the `Communities` page between the default list view and a card view.
 
 | View | Icon | Description |
 |-|-|-|
 | **List view** | ![list view](../_icons/branded/view-list.svg) | Lists each community your tenant participates in as list items. |
-| **Card view** | ![card view](../_icons/branded/view-grid.svg) | Lists each community your tenant participates in as cards. | 
-
--->
+| **Card view** | ![card view](../_icons/branded/view-grid.svg) | Lists each community your tenant participates in as cards. |
 
 ## Community toolbar
 
