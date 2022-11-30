@@ -10,7 +10,7 @@ On the `Trend` page, a legend table below the `Trend` pane lists information abo
 
 ## Trend view
 
-The **Trend** ![trend](../_icons/default/chart-line.svg) view lists each trace depicted within the trend session. A trace is a stream or asset property data plotted in the session. 
+The **Trend** ![trend](../_icons/default/chart-line.svg) view lists each trace depicted within the trend session. A trace is a stream or asset property data plotted in the session.
 
 Each trace is listed within the **Trend** ![trend](../_icons/default/chart-line.svg) view. Each trace listed includes chips that display more information about the trace origin. The following table describes each chip.
 
@@ -28,8 +28,10 @@ Name | The name of the trace property depicted within the `Trend` pane. The colo
 Timestamp | The date and time of the trace.
 Value | The value of the property.
 UOM | The unit of measure.
-Min | The lowest value recorded for the property for easy cursors set in the **Trend** view.
-Max | The highest value recorded for the property for easy cursors set in the **Trend** view. 
+Min | The lowest value recorded for the property.
+Max | The highest value recorded for the property.
+Avg | The average value recorded for the property.
+Total | The total value recorded for the property.
 
 Each property also includes controls to edit the trend session visualization:
 
