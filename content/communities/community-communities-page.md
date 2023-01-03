@@ -25,18 +25,12 @@ Select **Community Detail** to administrate the community or view more informati
 - <xref:community-community-administration>
 - <xref:community-tenant-administration>
 
-<!-- 
-
-Mark Bishop 10/26/2022: Leave this commented out until ADO work item 325202 is completed.
-
 You can also toggle the `Communities` page between the default list view and a card view.
 
 | View | Icon | Description |
 |-|-|-|
 | **List view** | ![list view](../_icons/branded/view-list.svg) | Lists each community your tenant participates in as list items. |
 | **Card view** | ![card view](../_icons/branded/view-grid.svg) | Lists each community your tenant participates in as cards. | 
-
--->
 
 **Note:** The view that you select is saved as a user preference.
 
