@@ -38,6 +38,8 @@ You can also toggle the `Communities` page between the default list view and a c
 
 -->
 
+**Note:** The view that you select is saved as a user preference.
+
 ## Community toolbar
 
 Use the controls available in the toolbar find, create, or manage a community.
