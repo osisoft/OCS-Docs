@@ -10,7 +10,7 @@ Use Microsoft Power BI to edit a query generated from the connector to modify th
 
 1. Select **View**, and then select **Formula Bar** to view the query function from the connector.
 
-   ![Transform data](../images/mspowerbi-function.png)
+   ![Transform data](../../analytics/data-views/_images/mspowerbi-function.png)
     
    As shown in the example, the function begins with the first set of code for the Start Index, `#datetimezone(2021, 8, 1, 0, 0, 0, -7, 0)`, followed by the second set for the End Index, `#datetimezone(2021, 8, 2, 0, 0, 0, -7, 0)`, and lastly the Interpolation Interval, `#duration(0, 2, 0, 0)`.
 
@@ -22,7 +22,7 @@ Use Microsoft Power BI to edit a query generated from the connector to modify th
         
      b. Edit the parameter values for Start Index and End Index. If applicable, edit the Interpolation Interval.
         
-     ![Enter Parameters](../images/mspowerbi-enter-parameters.png)
+     ![Enter Parameters](../../analytics/data-views/_images/mspowerbi-enter-parameters.png)
 
    - Modify for relative dates:
     
@@ -63,6 +63,6 @@ Use Microsoft Power BI to edit a query generated from the connector to modify th
 
       This builds a cache of data in Microsoft Power BI so you will not need to re-query the original data view. The following example image shows that incremental refresh is turned on, will cache 30 days of data, and the last 5 days will be a rolling refresh of data.
         
-      ![Transform data](../images/mspowerbi-incremental-refresh.png)
+      ![Transform data](../../analytics/data-views/_images/mspowerbi-incremental-refresh.png)
 
     For more information about incremental refresh, see the Microsoft [Incremental refresh for datasets](https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview) page.

@@ -1,0 +1,1 @@
+Following initial addition of a data view, you can go back to edit its name and description.

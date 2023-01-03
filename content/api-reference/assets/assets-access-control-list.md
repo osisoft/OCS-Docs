@@ -30,8 +30,10 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessControl/{resource}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|OK.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 |403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -122,8 +124,10 @@ Updated ACL.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|No Content.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 |403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -151,8 +155,36 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AccessRights/{resource}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|Inline|OK.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 |403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
+
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+[
+  "Read",
+  "Write",
+  "Delete",
+  "ManageAccessControl"
+]
+```
+
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
 
 ---
 ## Definitions

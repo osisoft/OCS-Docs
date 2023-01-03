@@ -30,8 +30,10 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Resolve
 |---|---|---|
 |200|[ResolvedAsset](#schemaresolvedasset)|Resolved asset with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -99,7 +101,11 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Resolve
   "Status": {
     "StreamId": "SdsStream_id_1",
     "SourcePropertyId": "Count"
-  }
+  },
+  "Tags": [
+    "Tag1",
+    "Tag2"
+  ]
 }
 ```
 
@@ -154,6 +160,8 @@ Asset identifiers<br/>
 |200|[MultiStatusResultOfResolvedAssetAndChildErrorTemplate](#schemamultistatusresultofresolvedassetandchilderrortemplate)|Returns the resolved view of multiple assets.|
 |207|[MultiStatusResultOfStringAndChildErrorTemplate](#schemamultistatusresultofstringandchilderrortemplate)|Partial success. Not all assets were able to be resolved. See response body for additional details.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -345,7 +353,11 @@ The resolved asset describes the consumption-oriented aspects of a resource rath
   "Status": {
     "StreamId": "SdsStream_id_1",
     "SourcePropertyId": "Count"
-  }
+  },
+  "Tags": [
+    "Tag1",
+    "Tag2"
+  ]
 }
 
 ```
@@ -933,7 +945,11 @@ A multi status result is returned to indicate a partial success.
       "Status": {
         "StreamId": "SdsStream_id_1",
         "SourcePropertyId": "Count"
-      }
+      },
+      "Tags": [
+        "Tag1",
+        "Tag2"
+      ]
     }
   ],
   "ChildErrors": [

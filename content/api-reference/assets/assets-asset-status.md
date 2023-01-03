@@ -30,8 +30,11 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/
 |---|---|---|
 |200|[LastStatusData](#schemalaststatusdata)|Last status of the specified asset.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |422|[ErrorTemplate](#schemaerrortemplate)|Cannot be processed. See the response body for additional details.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -92,9 +95,12 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Status/
 |---|---|---|
 |200|[StatusRangeSummary](#schemastatusrangesummary)|Last status of the specified asset.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |422|[ErrorTemplate](#schemaerrortemplate)|Cannot be processed. See the response body for additional details.|
 |502|None|Bad gateway.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -192,7 +198,9 @@ Asset identifiers<br/>
 |---|---|---|
 |200|[MultiStatusResultOfLastStatusDataAndChildErrorTemplate](#schemamultistatusresultoflaststatusdataandchilderrortemplate)|Last status of assets in the body.|
 |207|[MultiStatusResultOfLastStatusDataAndChildErrorTemplate](#schemamultistatusresultoflaststatusdataandchilderrortemplate)|Partial success. Some assets encountered errors. See response body for additional details.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 

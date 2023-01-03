@@ -42,17 +42,19 @@ These AF objects are not included in a PI to Data Hub data transfer:
 
 * Event frames 
 
+* Excluded attributes
+
 * Extended properties and annotations on assets not supporting AF versioning
 
 * Formula data reference attributes 
-
-* Hidden attributes
 
 * Implicit PI points with attributes that reference other attributes
 
 * Implicit PI points with multiple attributes on an AF element (only one attribute will be transferred)
 
 * PI point arrays
+
+* String builder attributes
 
 * Table lookup attributes
 

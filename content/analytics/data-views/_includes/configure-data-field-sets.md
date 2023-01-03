@@ -1,0 +1,3 @@
+<p>A data view includes one or more data field sets, which are collections of data fields originating from the same query. A data field is a property or metadata from the streams or assets included in a query. One field serves as the index while others contain information related to the data items (streams or assets).</p> 
+
+<p>When configuring a data view, you can configure the data field set for each query by choosing which data fields you want to include in the data view.</p>

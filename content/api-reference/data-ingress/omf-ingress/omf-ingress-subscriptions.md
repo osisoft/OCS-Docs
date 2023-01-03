@@ -4,41 +4,31 @@ uid: omf-ingress-subscriptions
 ---
 
 # Subscriptions
-APIs for managing Subscriptions.
 
 ## `List Subscriptions`
 
 <a id="opIdSubscriptions_List Subscriptions"></a>
 
-Gets a list of all `Subscription` objects in the given namespace.
+Lists all `Subscription` objects in the given namespace.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Subscription](#schemasubscription)[]|A list of `Subscription` objects|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Subscription](#schemasubscription)[]|A list of `Subscription` objects.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -70,21 +60,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions
 ]
 ```
 
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Create Subscription`
@@ -93,21 +68,20 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions
 
 Creates a new `Subscription` which reads data from the specified `Topic` and writes data to the Sequential Data Store in the specified namespace.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
-The `CreateSubscription` object to create<br/>
+The `CreateSubscription` object to create.<br/>
 
 ```json
 {
@@ -119,23 +93,13 @@ The `CreateSubscription` object to create<br/>
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[Subscription](#schemasubscription)|The created `Subscription`|
-|400|[ErrorResponseBody](#schemaerrorresponsebody)|Bad request|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|415|[ErrorResponseBody](#schemaerrorresponsebody)|Unsupported media type|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|201|[Subscription](#schemasubscription)|The created `Subscription`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 201 Response
 
 ```json
@@ -153,21 +117,6 @@ The `CreateSubscription` object to create<br/>
 }
 ```
 
-> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Get Subscription`
@@ -176,34 +125,25 @@ The `CreateSubscription` object to create<br/>
 
 Gets the specified `Subscription`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string subscriptionId`
-<br/>Subscription identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string subscriptionId`
+<br/>Subscription identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Subscription](#schemasubscription)|The specified `Subscription`|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Subscription](#schemasubscription)|The specified `Subscription`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -218,21 +158,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscript
   "Description": "Subscription description",
   "CreatedDate": "2021-03-18T23:57:44.6109361Z",
   "Enabled": true
-}
-```
-
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
 }
 ```
 
@@ -244,22 +169,21 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscript
 
 Updates the `Name` and/or `Description` of the specified `Subscription`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string subscriptionId`
-<br/>Subscription identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string subscriptionId`
+<br/>Subscription identifier<br/><br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
-The `UpdateSubscription` with the fields to update<br/>
+The `UpdateSubscription` with the fields to update.<br/>
 
 ```json
 {
@@ -268,22 +192,13 @@ The `UpdateSubscription` with the fields to update<br/>
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Subscription](#schemasubscription)|The updated `Subscription`|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|415|[ErrorResponseBody](#schemaerrorresponsebody)|Unsupported media type|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Subscription](#schemasubscription)|The updated `Subscription`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -301,21 +216,6 @@ The `UpdateSubscription` with the fields to update<br/>
 }
 ```
 
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Delete Subscription`
@@ -324,31 +224,23 @@ The `UpdateSubscription` with the fields to update<br/>
 
 Deletes the specified `Subscription`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscriptionId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string subscriptionId`
-<br/>Subscription identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string subscriptionId`
+<br/>Subscription identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|None|No content|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|204|None|No content.|
 
 ---
 ## Definitions
@@ -362,7 +254,7 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/subscriptions/{subscr
 
 Object returned from `Subscription` routes.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -371,8 +263,8 @@ Object returned from `Subscription` routes.
 |TopicId|string|false|true|The `Topic` identifier that this `Subscription` will read data from.|
 |TopicTenantId|string|false|true|The `Topic` tenant identifier.|
 |TopicNamespaceId|string|false|true|The `Topic` namespace identifier.|
-|TenantId|string|false|true|Tenant identifier.|
-|NamespaceId|string|false|true|Namespace identifier.|
+|TenantId|string|false|true|Tenant identifier<br/>|
+|NamespaceId|string|false|true|Namespace identifier<br/>|
 |Description|string|false|true|A description. Limit 1000 characters.|
 |CreatedDate|date-time|false|false|Server-generated creation timestamp (UTC).|
 |Enabled|boolean|false|false|Indicates if the `Subscription` is enabled. If set to `false` data sent to the specified `Topic` of this `Subscription` will not be written to the Sequential Data Store.|
@@ -395,39 +287,6 @@ Object returned from `Subscription` routes.
 
 ---
 
-### ErrorResponseBody
-
-<a id="schemaerrorresponsebody"></a>
-<a id="schema_ErrorResponseBody"></a>
-<a id="tocSerrorresponsebody"></a>
-<a id="tocserrorresponsebody"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-
-```
-
----
-
 ### CreateSubscription
 
 <a id="schemacreatesubscription"></a>
@@ -437,7 +296,7 @@ Object returned from `Subscription` routes.
 
 Object used to create a `Subscription`.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -469,7 +328,7 @@ Object used to create a `Subscription`.
 
 Object used to update a `Subscription`.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|

@@ -67,5 +67,5 @@ To create an asset type:
 1. Click **Save**. 
 
 ## Related links 
-- [Assets](xref:AssetsProperties) Properties
+
 - [Asset Types API](xref:AssetTypesAPI)

@@ -200,27 +200,12 @@ The presence of context allows data views to align the data fields, without the 
 Each data field represents a particular source of information, such as a data item's `.Id` or the values from one of its properties.
 
 ### Label
-A data field's label is a friendly name that can by specified directly or via rules. Null, empty or whitespace is not allowed for a data field label.
 
-When the data view is resolved and data fields produce field mappings, labels are trimmed of whitespace and used as the field mappings' identifier. For example:
-| Timestamp | Power In Value | Power Out Value |
-|--|--|--|
+[!include[data-view-label](../../../_includes/data-view-label.md)]
 
-In cases where the identifiers are unique, the identifier is suffixed with an ordinal number, its position. For example:
+#### Available data field label tokens
 
-| Timestamp.0 | Value.1 | Value.2 |
-|--|--|--|
-
-There are seven special parameters available for use in field labels:
-- `{IdentifyingValue}` - the value of the identifying field
-- `{Key}` - the value of the first of the `"Keys"` specified on the field
-- `{StreamReferenceName}` - the value of the first of the `"StreamReferenceNames"` specified on the field
-- `{Uom}` - the value of the unit of measure of the field (if UOM is present in the source)
-- `{SummaryType}` - the value of the summary type of the field (if defined)
-- `{SummaryDirection}` - the value of the summary direction of the field (if summary type is defined)
-- `{QueryId}` - the id of the query that produced the field
-
-If a special parameter fails to resolve, it becomes an empty string, `""`.
+[!include[data field label tokens](../../../_includes/data-view-field-label-tokens.md)]
 
 ### Source
 A field's [`.Source`](xref:DataViewsQuickStartDefine#fieldsource-enumeration) indicates where the field's values will come from, if applicable. A field of source type `FieldSource.NotApplicable` cannot be used as a data field.

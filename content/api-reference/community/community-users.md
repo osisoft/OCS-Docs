@@ -111,76 +111,11 @@ DELETE /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users/{userI
 
 <h3>Authorization</h3>
 
-<<<<<<< HEAD
-## `Add User to a Community 2`
-
-<a id="opIdCommunityUsers_Add User to a Community 2"></a>
-
-Adds a user to a community and provides a list of community role identifiers to be assigned to the user
-
-<h3>Request</h3>
-
-```text 
-PUT /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/Users/{userId}
-```
-
-<h4>Parameters</h4>
-
-`string communityId`
-<br/>Community identifier<br/><br/>`string tenantId`
-<br/>Tenant identifier<br/><br/>`string userId`
-<br/>User identifier<br/><br/>
-
-<h4>Request Body</h4>
-
-List of community roles Ids to assign to the user<br/>
-
-```json
-[
-  "string"
-]
-```
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[User](#schemauser)|Ok|
-|201|[User](#schemauser)|Created|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Tenant not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([User](#schemauser))
-
-```json
-{
-  "Id": "string",
-  "GivenName": "string",
-  "Surname": "string",
-  "Name": "string",
-  "Email": "user@example.com",
-  "ContactEmail": "user@example.com",
-  "ContactGivenName": "string",
-  "ContactSurname": "string",
-  "ExternalUserId": "string",
-  "IdentityProviderId": "string",
-  "RoleIds": [
-    "string"
-  ]
-}
-```
-=======
 Allowed for these roles: 
 <ul>
 <li>Community Administrator</li>
 <li>Community Moderator</li>
 </ul>
->>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 
 ---
 
@@ -282,101 +217,10 @@ HEAD /api/v1-preview/Tenants/{tenantId}/Communities/{communityId}/Users
 
 <h3>Authorization</h3>
 
-<<<<<<< HEAD
-## `List Users of a Tenant in a Community 2`
-
-<a id="opIdCommunityUsers_List Users of a Tenant in a Community 2"></a>
-
-Gets users that are associated with a specific tenant and community
-
-<h3>Request</h3>
-
-```text 
-GET /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/Users
-?query={query}&skip={skip}&count={count}
-```
-
-<h4>Parameters</h4>
-
-`string communityId`
-<br/>Community identifier<br/><br/>`string tenantId`
-<br/>Tenant identifier<br/><br/>
-`[optional] string query`
-<br/>(not supported) Search string identifier<br/><br/>`[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first object to retrieve. If unspecified, a default value of 0 is used.<br/><br/>`[optional] integer count`
-<br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used.<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|[User](#schemauser)[]|Set of users (type `User`) associated with the tenant ( `tenantId`) and community ( `communityId`)|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-
-<h4>Example response body</h4>
-
-> 200 Response ([User](#schemauser)[])
-
-```json
-[
-  {
-    "Id": "string",
-    "GivenName": "string",
-    "Surname": "string",
-    "Name": "string",
-    "Email": "user@example.com",
-    "ContactEmail": "user@example.com",
-    "ContactGivenName": "string",
-    "ContactSurname": "string",
-    "ExternalUserId": "string",
-    "IdentityProviderId": "string",
-    "RoleIds": [
-      "string"
-    ]
-  }
-]
-```
-
----
-
-## `Get Count of Users of a Tenant in a Community 2`
-
-<a id="opIdCommunityUsers_Get Count of Users of a Tenant in a Community 2"></a>
-
-Gets the count of users of the tenant in a community. This method is identical to the `GetCommunityUsersByTenantAndCommunity` endpoint except it does not return a body.
-
-<h3>Request</h3>
-
-```text 
-HEAD /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/Users
-```
-
-<h4>Parameters</h4>
-
-`string communityId`
-<br/>Community identifier<br/><br/>`string tenantId`
-<br/>Tenant identifier<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|200|None|Success|
-|400|[ErrorResponse](#schemaerrorresponse)|Bad request|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized|
-|403|[ErrorResponse](#schemaerrorresponse)|Forbidden|
-|404|[ErrorResponse](#schemaerrorresponse)|Community roles not found|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error|
-=======
 Allowed for these roles: 
 <ul>
 <li>Community Member</li>
 </ul>
->>>>>>> parent of 04930ec1 (Updated from identity-services.infrastructure-20220603.1)
 
 ---
 ## Definitions

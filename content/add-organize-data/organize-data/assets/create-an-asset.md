@@ -36,16 +36,16 @@ To create an asset:
 
    - **UOM** - If the type is `Integer` or `Double`, select the unit of measure for the value.
 
-1. Select the **Properties** tab. 
+1. Select the **Properties** tab.
 
 1. Select **Add Stream References**, select the stream in the `Select Streams` window, and then select **Add**.
-   
-     **Tips:** To search for streams based on the stream name, description, or the type, enter the text to search for in the **Enter search query** field. Use the asterisk (*) as a wildcard character. To select multiple streams, hold the Ctrl key and select each stream or hold the Shift key and select the first and last stream in a group.
 
    Selected streams and their properties are listed in the **Properties** tab.
 
+   **Tip:** To search for streams based on the stream name, description, or the type, enter the text to search for in the **Enter search query** field. For more information on using this field, see <xref:search>.
+
 1. If needed, modify the stream names to make them easier to identify.
-   
+
 1. To update the property units of measure for a stream, select **Configure UOMs** for the stream. 
 
     **Note:** Units of measure can be set only on numeric types.
@@ -64,4 +64,4 @@ To create an asset:
 
 1. For each value listed, select the status icon to map the value to a status. To add other values, select **Add Value Mapping**, enter the value, and select the corresponding status.
 
-1. To save the asset type, select **Save**. 
+1. To save the asset type, select **Save**.

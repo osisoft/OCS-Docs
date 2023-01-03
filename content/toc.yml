@@ -1,8 +1,8 @@
 - topicUid: ocs-content-portal-overview
   items:
-   - topicUid: WhatIsOCS
-   - topicUid: WhoUsesOCS
-   - topicUid: WhatOCSdoes
+    - topicUid: WhatIsOCS
+    - topicUid: WhoUsesOCS
+    - topicUid: WhatOCSdoes
 - topicUid: introPortalInterface
   items:
   - topicUid: viewProfile
@@ -12,92 +12,92 @@
   - topicUid: Search
 - topicUid: gsGetStartedOCS
   items:
-  - topicUid: gsNamespaces
-  - topicUid: gsConnections
-    items:
-    - topicUid: gsPItoOCS
-    - topicUid: gsOMF
-  - topicUid: gsTypes
-  - topicUid: gsStreams
-  - topicUid: gsRoles
-  - topicUid: gsUsers
-  - topicUid: gsClients
-    items:
-    - topicUid: gsClientCredentialsClients
-    - topicUid: gsAuthorizationCodeClients
-    - topicUid: gsHybridClients
-  - topicUid: gsAssets
-  - topicUid: gsAssetTypes
-  - topicUid: gsDataViews
-  - topicUid: gsMetadataRules
-  - topicUid: gsStreamviews
-  - topicUid: gsAssetRules
+    - topicUid: gsNamespaces
+    - topicUid: gsConnections
+      items:
+        - topicUid: gsPItoOCS
+        - topicUid: gsOMF
+    - topicUid: gsTypes
+    - topicUid: gsStreams
+    - topicUid: gsRoles
+    - topicUid: gsUsers
+    - topicUid: gsClients
+      items:
+        - topicUid: gsClientCredentialsClients
+        - topicUid: gsAuthorizationCodeClients
+        - topicUid: gsHybridClients
+    - topicUid: gsAssets
+    - topicUid: gsAssetTypes
+    - topicUid: gsDataViews
+    - topicUid: gsMetadataRules
+    - topicUid: gsStreamviews
+    - topicUid: gsAssetRules
 - topicUid: DataManagement
   items:
     - topicUid: ccNamespaces
       items:
-      - topicUid: bpNamespaces
-      - topicUid: gpNamespaces
-      - topicUid: namespaces-manage-permissions
+        - topicUid: bpNamespaces
+        - topicUid: gpNamespaces
+        - topicUid: namespaces-manage-permissions
     - topicUid: lpstoredata
       items:
-      - topicUid: ccStreams
-        items:
-        - topicUid: streams-manage-streams
-        - topicUid: streams-add-tags-or-metadata
-        - topicUid: streams-share-streams
-        - topicUid: streams-view-in-trend
-        - topicUid: streams-manage-stream-permissions
-      - topicUid: ccTypes
-        items:
-        - topicUid: bpTypes
-        - topicUid: gpTypes
-        - topicUid: types-manage-permissions
-      - topicUid: ccStreamviews
+        - topicUid: ccStreams
+          items:
+            - topicUid: streams-manage-streams
+            - topicUid: streams-add-tags-or-metadata
+            - topicUid: streams-share-streams
+            - topicUid: streams-view-in-trend
+            - topicUid: streams-manage-stream-permissions
+        - topicUid: ccTypes
+          items:
+            - topicUid: bpTypes
+            - topicUid: gpTypes
+            - topicUid: types-manage-permissions
+        - topicUid: ccStreamviews
     - topicUid: communities
       items:
-      - topicUid: community-communities-page
-      - topicUid: community-setup
-        items:
-        - topicUid: community-workflow-create
+        - topicUid: community-communities-page
+        - topicUid: community-setup
           items:
-          - topicUid: community-create-community
-          - topicUid: community-invite
-          - topicUid: community-manage-sds-permissions-create 
-        - topicUid: community-workflow-join
-          items: 
-          - topicUid: community-accept-invite
-          - topicUid: community-manage-sds-permissions-join
-      - topicUid: community-community-administration
-        items:
-        - topicUid: community-invite-tenant
-        - topicUid: community-resend-invitation
-        - topicUid: community-remove-tenants
-        - topicUid: community-edit
-        - topicUid: community-delete
-        - topicUid: community-manage-preferred-region
-      - topicUid: community-tenant-administration
-        items:
-        - topicUid: community-view-invitations
-        - topicUid: community-remove-your-tenant
-        - topicUid: community-pause-sharing
-        - topicUid: community-manage-users
-        - topicUid: community-manage-groups
-        - topicUid: community-manage-clients
-        - topicUid: community-contact-email
-        - topicUid: community-manage-administrators
-        - topicUid: communities-manage-default-admins
-      - topicUid: community-data-sharing
-        items: 
-        - topicUid: community-enable-stream-sharing-permissions
-        - topicUid: community-manage-shared-streams
-        - topicUid: community-view-shared-streams
-        - topicUid: community-view-shared-data
-        - topicUid: communities-usage
+            - topicUid: community-workflow-create
+              items:
+                - topicUid: community-create-community
+                - topicUid: community-invite
+                - topicUid: community-manage-sds-permissions-create
+            - topicUid: community-workflow-join
+              items:
+                - topicUid: community-accept-invite
+                - topicUid: community-manage-sds-permissions-join
+        - topicUid: community-community-administration
+          items:
+            - topicUid: community-invite-tenant
+            - topicUid: community-resend-invitation
+            - topicUid: community-remove-tenants
+            - topicUid: community-edit
+            - topicUid: community-delete
+            - topicUid: community-manage-preferred-region
+        - topicUid: community-tenant-administration
+          items:
+            - topicUid: community-view-invitations
+            - topicUid: community-remove-your-tenant
+            - topicUid: community-pause-sharing
+            - topicUid: community-manage-users
+            - topicUid: community-manage-groups
+            - topicUid: community-manage-clients
+            - topicUid: community-contact-email
+            - topicUid: community-manage-administrators
+            - topicUid: communities-manage-default-admins
+        - topicUid: community-data-sharing
+          items:
+            - topicUid: community-enable-stream-sharing-permissions
+            - topicUid: community-manage-shared-streams
+            - topicUid: community-view-shared-streams
+            - topicUid: community-view-shared-data
+            - topicUid: communities-usage
     - topicUid: ccMetadataRules
       items:
-      - topicUid: gpMetadataRules
-      - topicUid: MetadataMaintenance
+        - topicUid: gpMetadataRules
+        - topicUid: MetadataMaintenance
     - topicUid: AssetRulesCC
       items:
         - topicUid: CreateAssetRules
@@ -106,123 +106,145 @@
         - topicUid: manage-asset-rules-permissions
 - topicUid: lpdatacollection
   items:
-  - topicUid: SoftwareMgmt
-    items:
-    - topicUid: ViewEdgeSystem
-    - topicUid: AddBaseConfiguration
-    - topicUid: DeployConfig
-    - topicUid: ManageConfigurations
-  - topicUid: main-lp
-    items:
-    - topicUid: lp-intro
+    - topicUid: SoftwareMgmt
       items:
-      - topicUid: bpPISystemConnection
-      - topicUid: min-sys-reqmnts
-      - topicUid: pi-to-ocs-limitations
-      - topicUid: pi-to-ocs-architecture
-    - topicUid: lp-setup
+        - topicUid: ViewEdgeSystem
+        - topicUid: AddBaseConfiguration
+        - topicUid: DeployConfig
+        - topicUid: ManageConfigurations
+    - topicUid: main-lp
       items:
-      - topicUid: disable-ie-security
-      - topicUid: install-agent
-      - topicUid: pi-to-ocs-utility
-    - topicUid: lp-transfer
+        - topicUid: lp-intro
+          items:
+            - topicUid: bpPISystemConnection
+            - topicUid: min-sys-reqmnts
+            - topicUid: pi-to-ocs-limitations
+            - topicUid: pi-to-ocs-architecture
+        - topicUid: lp-setup
+          items:
+            - topicUid: disable-ie-security
+            - topicUid: install-agent
+            - topicUid: pi-to-ocs-utility
+        - topicUid: lp-transfer
+          items:
+            - topicUid: overview-data-transfers
+            - topicUid: slow-moving-data
+            - topicUid: af-data-transferred
+            - topicUid: transfer-data
+            - topicUid: overview-metrics
+            - topicUid: health-evts-window
+            - topicUid: edit-transfer
+            - topicUid: data-transfer-statuses
+            - topicUid: export-transfer-details
+            - topicUid: export-missing-points
+            - topicUid: pi-point-change
+            - topicUid: confirm-data-retrieval
+        - topicUid: lp-agent-maint
+          items:
+            - topicUid: kpi-tile
+            - topicUid: repair-agent
+            - topicUid: search-agent
+            - topicUid: remove-agent-portal
+            - topicUid: manage-agent-permissions
+        - topicUid: lp-logs
+          items:
+            - topicUid: view-logs
+            - topicUid: config-utility-logs
+            - topicUid: log-messages
+        - topicUid: lp-troubleshoot
+          items:
+            - topicUid: troubleshoot-failed-af-indexing
+            - topicUid: troubleshoot-failed-mapping
+            - topicUid: troubleshoot-missing-pida
+            - topicUid: troubleshoot-pi-pt-errors
+        - topicUid: known-issues
+        - topicUid: pi2ocs-rel-summary
+    - topicUid: lpomfoverview
       items:
-      - topicUid: overview-data-transfers
-      - topicUid: slow-moving-data
-      - topicUid: af-data-transferred
-      - topicUid: transfer-data
-      - topicUid: overview-metrics
-      - topicUid: health-evts-window
-      - topicUid: edit-transfer 
-      - topicUid: data-transfer-statuses
-      - topicUid: export-transfer-details
-      - topicUid: export-missing-points
-      - topicUid: pi-point-change
-      - topicUid: confirm-data-retrieval
-    - topicUid: lp-agent-maint
-      items:
-      - topicUid: kpi-tile
-      - topicUid: repair-agent 
-      - topicUid: search-agent
-      - topicUid: remove-agent-portal
-      - topicUid: manage-agent-permissions
-    - topicUid: lp-logs
-      items:
-      - topicUid: view-logs
-      - topicUid: config-utility-logs
-      - topicUid: log-messages
-    - topicUid: lp-troubleshoot
-      items: 
-      - topicUid: troubleshoot-failed-af-indexing
-      - topicUid: troubleshoot-failed-mapping
-      - topicUid: troubleshoot-missing-pida
-      - topicUid: troubleshoot-pi-pt-errors
-    - topicUid: known-issues
-    - topicUid: pi2ocs-rel-summary
-  - topicUid: lpomfoverview
-    items:
-    - topicUid: bpOMFConnection
-    - topicUid: gpOMFConnection
-    - topicUid: OMFMaintenance
+        - topicUid: bpOMFConnection
+        - topicUid: gpOMFConnection
+        - topicUid: OMFMaintenance
 - topicUid: lpvisualizedata
   items:
-  - topicUid: CreateTrendSession
-  - topicUid: TrendUserInterface
-    items:
-    - topicUid: LegendTableReference
-    - topicUid: URLparameters
-    - topicUid: ContextSwitch
-  - topicUid: AssetExplorer
-    items:
-    - topicUid: ccAssets
-      items: 
-      - topicUid: CreateConfigureAsset
-      - topicUid: CreateAssetFromAssetType
-      - topicUid: manage-asset-permissions
-    - topicUid: AssetTypes
+    - topicUid: CreateTrendSession
+    - topicUid: TrendUserInterface
       items:
-      - topicUid: CreateAssetTypeWithEditor
-      - topicUid: ConvertAssetToAssetType
-      - topicUid: manage-asset-type-permissions
-    - topicUid: lprom
+        - topicUid: LegendTableReference
+        - topicUid: URLparameters
+        - topicUid: ContextSwitch
+    - topicUid: AssetExplorer
       items:
-      - topicUid: GetStartedROM
-      - topicUid: FilterAssets
-      - topicUid: ShareAViewOfYourFleet
+        - topicUid: ccAssets
+          items:
+            - topicUid: CreateConfigureAsset
+            - topicUid: CreateAssetFromAssetType
+            - topicUid: manage-asset-permissions
+        - topicUid: AssetTypes
+          items:
+            - topicUid: CreateAssetTypeWithEditor
+            - topicUid: ConvertAssetToAssetType
+            - topicUid: manage-asset-type-permissions
+        - topicUid: lprom
+          items:
+            - topicUid: GetStartedROM
+            - topicUid: FilterAssets
+            - topicUid: ShareAViewOfYourFleet
 - topicUid: Analytics
   items:
     - topicUid: DataViews
       items:
-      - topicUid: CreateDataView
-      - topicUid: DataViewMaintenance
-      - topicUid: manage-data-views-permissions
-    - topicUid: PowerBI
+        - topicUid: data-views-create-and-configure
+          items:
+            - topicUid: data-views-add-data-view
+            - topicUid: data-views-add-query
+            - topicUid: data-view-select-data-fields
+              items:
+                - topicUid: data-views-field-set-options
+            - topicUid: data-view-choose-data-shape
+            - name: "Step 5: Preview and save"
+              topicUid: data-views-preview-and-save
+        - topicUid: data-views-manage-data-views
+        - topicUid: data-views-manage-queries
+        - topicUid: data-views-edit-data-field-sets
+          items:
+            - topicUid: data-views-manage-data-fields
+            - topicUid: data-view-edit-data-fields
+            - topicUid: data-view-configure-grouping-fields
+            - topicUid: data-views-configure-identifying-fields
+            - topicUid: data-view-configure-field-order
+            - topicUid: data-view-link-fields
+        - topicUid: manage-data-views-permissions
+        - topicUid: data-views-retrieve
+        - topicUid: data-view-troubleshooting
+    - topicUid: data-views-install-power-bi-connector
       items:
-      - topicUid: SetUpPowerBI
-      - topicUid: RetrieveDataViews
-      - topicUid: EditQueryPowerBI
-      - topicUid: PowerBIReleaseNotes
+        - topicUid: SetUpPowerBI
+        - topicUid: RetrieveDataViews
+        - topicUid: EditQueryPowerBI
+        - topicUid: PowerBIReleaseNotes
+        - topicUid: data-views-retrieve-data-view
+        - topicUid: data-view-retrieve-edit-query
 - topicUid: Security
   items:
-  - topicUid: identityProviders
-  - topicUid: Groups
-  - topicUid: ccUsers
-    items:
-    - topicUid: gpUsers
-    - topicUid: UserMaintenance
-  - topicUid: ccRoles
-    items:
-    - topicUid: gpRoles
-    - topicUid: RolesMaintenance
-    - topicUid: roles-manage-permissions
-  - topicUid: ccClients
-    items:
-    - topicUid: gpClientCredentialsClient
-    - topicUid: gpHybridClient
-    - topicUid: gpAuthorizationCodeClient
-    - topicUid: ClientMaintenance
-  - topicUid: permissions-management
-  - topicUid: cross-region-data-sharing
+    - topicUid: identityProviders
+    - topicUid: Groups
+    - topicUid: ccUsers
+      items:
+        - topicUid: gpUsers
+        - topicUid: UserMaintenance
+    - topicUid: ccRoles
+      items:
+        - topicUid: gpRoles
+        - topicUid: RolesMaintenance
+        - topicUid: roles-manage-permissions
+    - topicUid: ccClients
+      items:
+        - topicUid: gpClientCredentialsClient
+        - topicUid: gpHybridClient
+        - topicUid: gpAuthorizationCodeClient
+        - topicUid: ClientMaintenance
+    - topicUid: permissions-management
+    - topicUid: cross-region-data-sharing
 - topicUid: DeveloperTools
   items:
     - topicUid: samples
@@ -234,7 +256,7 @@
     - topicUid: ServiceBlog
 - name: Developer guide
   href: developer-guide/toc.yml
-  topicHref:  developer-guide/dev-guide-introduction.md
+  topicHref: developer-guide/dev-guide-introduction.md
 - name: API reference
   href: api-reference/toc.yml
   topicHref: api-reference/ocs-api-reference.md

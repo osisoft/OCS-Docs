@@ -3,17 +3,16 @@ uid: DefineaDataViewRecommendedWorkflow
 ---
 
 # Recommended workflow: Define a data view
-This is an introduction to the recommended workflow for defining data views. The following sections show these concepts in action.
 
-Designing and tweaking a data view is expected to be an iterative process. You are not expected to "get it right the first time," nor to be an expert at your OCS configuration such as available streams and assets. Data views provide an interactive way to select, identify, and arrange the data you and your applications need.
+This is an introduction to the recommended workflow for creating and defining data views. The following sections show these concepts in action.
+
+[!include[iteration](../../../analytics/data-views/_includes/iteration.md)]
 
 There are three main steps required to define a data view: 
+
 1. Including data items (such as streams and assets)
 2. Including specific data fields
 3. Arranging them within the data view.
-
-This is not a one-way street. You are likely to keep adjusting the data fields included in the view even after you have begun working on how the fields are arranged in the data view.
-
 
 ## Procedure: Define a data view
 
@@ -110,7 +109,7 @@ HTTP 204 No Content
 
 ### View items found by the query
 
-Data views resolve on a per user basis, executing the queries you defined. The results are available in several “resolved” resources.
+Data views resolve on a per user basis, executing the queries you defined. The results are available in several "resolved" resources.
 
 #### Action – Page through the data items found by the query
 ```text
@@ -118,7 +117,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Res
 ```
 
 #### Expected result
-An array of the data items matching the query, whose index type is "DateTime" (matching the Data View’s IndexTypeCode)
+An array of the data items matching the query, whose index type is "DateTime" (matching the Data View's IndexTypeCode)
 
 ```json
 HTTP 200 OK
@@ -340,7 +339,7 @@ At this point, if you query for data, the table only contains the `IndexField` �
 #### Action
 For ease, grab all of the field sets that are available. 
 
-Set the data view’s `DataFieldSets` property as the contents of the `AvailableFieldSets` response.
+Set the data view's `DataFieldSets` property as the contents of the `AvailableFieldSets` response.
 ```json
 PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
@@ -505,14 +504,14 @@ Timestamp.0,Id.1,Name.2,AmbientTemperature.3,CloudCover.4,SolarRadiation.5,Tempe
 ```
 
 ### Group the data view
-One way to disambiguate the data items is to “group” them, which amounts to partitioning them based on a value. For example, metadata:Site as the grouping field might yield groups of Biltmore, Rosecliff, and Winterthur, each containing the data items associated with that Site.
+One way to disambiguate the data items is to "group" them, which amounts to partitioning them based on a value. For example, metadata:Site as the grouping field might yield groups of Biltmore, Rosecliff, and Winterthur, each containing the data items associated with that Site.
 
-You may use multiple grouping fields. This is effectively “group by X then Y then Z”
+You may use multiple grouping fields. This is effectively "group by X then Y then Z"
 
 Grouping fields are a property of the data view, and are an array of `Field` objects. This means the same Field objects contained in the available or included field sets may be reused directly as grouping fields.
 
 #### Action
-To group by metadata, copy the field in the `DataView` object with `{ Source: “Metadata”, Keys: [ "Site" ] }`, and add it to the array of `.GroupingFields`.
+To group by metadata, copy the field in the `DataView` object with `{ Source: "Metadata", Keys: [ "Site" ] }`, and add it to the array of `.GroupingFields`.
 
 ```json
 PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
@@ -664,7 +663,7 @@ HTTP 200 OK
 
 ### Identify data items
 
-A different and complementary way of disambiguating the data items is to “identify” them within the field set.
+A different and complementary way of disambiguating the data items is to "identify" them within the field set.
 
 This is also useful for aligning data items across groups. Imagine if each site had an additional stream from a backup weather station:
 
@@ -678,7 +677,7 @@ The data views engine must be told how the streams align across sites. Here, it 
 
 #### Action
 
-Move the field used as `GroupingField` over to being the “.IdentifyingField” of the weather data items `FieldSet`.
+Move the field used as `GroupingField` over to being the ".IdentifyingField" of the weather data items `FieldSet`.
 ```json
 PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart
 {
@@ -772,7 +771,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/DataViews/quickstart/Dat
 ```
 
 #### Expected result
-We’re back to a wide table, but the field ids are now distinct. The suggested/default values of the Available Fields’ `.Label` property includes {IdentifyingValue}, so if using those defaults, the impact of adding an identifying field is immediately clear.
+We're back to a wide table, but the field ids are now distinct. The suggested/default values of the Available Fields' `.Label` property includes {IdentifyingValue}, so if using those defaults, the impact of adding an identifying field is immediately clear.
 
 ```json
 HTTP 200 OK

@@ -1,0 +1,1 @@
+Data views can be configured to return data in either a standard shape or a narrow shape. Standard shape returns data in a grouped row format. Narrow shape is a pivot of the standard table.

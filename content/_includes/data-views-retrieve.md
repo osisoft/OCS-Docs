@@ -1,0 +1,1 @@
+After you create and configure a data view, you can programmatically retrieve the data set that it resolves to using the OCS REST API. With a data-driven application (like Microsoft Power BI), you can leverage the data view for data science enablement.

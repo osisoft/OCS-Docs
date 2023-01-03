@@ -2,14 +2,14 @@
   topicHref: regional-endpoints.md
 - name: Asset store
   href: assets/toc.yml
-  topicHref: Assets/assets.md
+  topicHref: assets/assets.md
 - name: Client failover
   href: client-failover/toc.yml
   topicHref: client-failover/client-failover-overview.md
 - name: Content
   href: content/toc.yml
   topicHref: content/content-overview.md
-- name: Communities (Preview)
+- name: Communities
   href: community/toc.yml
   topicHref: community/community-overview.md
 - name: Data collection

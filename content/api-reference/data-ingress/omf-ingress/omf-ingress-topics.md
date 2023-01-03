@@ -9,35 +9,26 @@ uid: omf-ingress-topics
 
 <a id="opIdTopics_List Topics"></a>
 
-Gets a list of all `Topic` objects in the given namespace.
+Lists all `Topic` objects in the given namespace.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Topic](#schematopic)[]|A list of `Topic` objects|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Topic](#schematopic)[]|A list of `Topic` objects.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -63,21 +54,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics
 ]
 ```
 
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Create Topic`
@@ -86,21 +62,20 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics
 
 Creates a new `Topic` mapped to the specified `ClientIds`. A given `ClientId` may only be mapped to one `Topic` per namespace.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 POST /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
-The `CreateTopic` object to create<br/>
+The `CreateTopic` object to create.<br/>
 
 ```json
 {
@@ -112,23 +87,13 @@ The `CreateTopic` object to create<br/>
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|201|[Topic](#schematopic)|The created `Topic`|
-|400|[ErrorResponseBody](#schemaerrorresponsebody)|Bad request|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|415|[ErrorResponseBody](#schemaerrorresponsebody)|Unsupported media type|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|201|[Topic](#schematopic)|The created `Topic`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 201 Response
 
 ```json
@@ -143,21 +108,6 @@ The `CreateTopic` object to create<br/>
 }
 ```
 
-> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Get Topic`
@@ -166,34 +116,25 @@ The `CreateTopic` object to create<br/>
 
 Gets the specified `Topic`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string topicId`
-<br/>Topic identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string topicId`
+<br/>Topic identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Topic](#schematopic)|The specified `Topic`|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Topic](#schematopic)|The specified `Topic`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -205,21 +146,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
   "ClientIds": [
     "d6b178a4-0de5-4c30-8ba7-0a84751be854"
   ]
-}
-```
-
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
 }
 ```
 
@@ -231,22 +157,21 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
 
 Updates the `Name`, `Description`, and/or `ClientIds` for the specified `Topic`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 PUT /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string topicId`
-<br/>Topic identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string topicId`
+<br/>Topic identifier<br/><br/><br/>
 
-<h4>Request Body</h4>
+### Request Body
 
-The `UpdateTopic` with the fields to update<br/>
+The `UpdateTopic` with the fields to update.<br/>
 
 ```json
 {
@@ -258,23 +183,13 @@ The `UpdateTopic` with the fields to update<br/>
 }
 ```
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Topic](#schematopic)|The updated `Topic`|
-|400|[ErrorResponseBody](#schemaerrorresponsebody)|Bad request|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|415|[ErrorResponseBody](#schemaerrorresponsebody)|Unsupported media type|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Topic](#schematopic)|The updated `Topic`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -289,21 +204,6 @@ The `UpdateTopic` with the fields to update<br/>
 }
 ```
 
-> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 
 ## `Delete Topic`
@@ -312,48 +212,23 @@ The `UpdateTopic` with the fields to update<br/>
 
 Deletes the specified `Topic`. If the `Topic` has a `Subscription` mapped to it in the same tenant this call will delete the `Subscription` as well. If the `Subscription` is in a different tenant, it will disable the `Subscription`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string topicId`
-<br/>Topic identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string topicId`
+<br/>Topic identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|204|[ErrorResponseBody](#schemaerrorresponsebody)|No content|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
-
-<h4>Example response body</h4>
-
-> 204 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
+|204|None|No content.|
 
 # Topics
 
@@ -363,34 +238,25 @@ DELETE /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}
 
 Gets a list of `Subscription` objects mapped to the specified `Topic`.
 
-<h3>Request</h3>
-
+### Request
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscriptions
 ```
 
-<h4>Parameters</h4>
+#### Parameters
 
 `string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string topicId`
-<br/>Topic identifier.<br/><br/>
+<br/>Tenant identifier<br/><br/><br/>`string namespaceId`
+<br/>Namespace identifier<br/><br/><br/>`string topicId`
+<br/>Topic identifier<br/><br/><br/>
 
-<h3>Response</h3>
+### Response
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[Subscription](#schemasubscription)[]|A list of `Subscription` objects mapped to the `Topic`|
-|401|[ErrorResponseBody](#schemaerrorresponsebody)|Unauthorized|
-|403|[ErrorResponseBody](#schemaerrorresponsebody)|Forbidden|
-|404|[ErrorResponseBody](#schemaerrorresponsebody)|Resource not found|
-|408|[ErrorResponseBody](#schemaerrorresponsebody)|Request timeout|
-|500|[ErrorResponseBody](#schemaerrorresponsebody)|Internal server error|
-|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service unavailable|
-|504|[ErrorResponseBody](#schemaerrorresponsebody)|Gateway timeout|
+|200|[Subscription](#schemasubscription)[]|A list of `Subscription` objects mapped to the `Topic`.|
 
-<h4>Example response body</h4>
-
+#### Example response body
 > 200 Response
 
 ```json
@@ -422,21 +288,6 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscri
 ]
 ```
 
-> 401 Response ([ErrorResponseBody](#schemaerrorresponsebody))
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
-}
-```
-
 ---
 ## Definitions
 
@@ -449,7 +300,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/topics/{topicId}/subscri
 
 Object returned from `Topic` routes.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -457,7 +308,7 @@ Object returned from `Topic` routes.
 |Name|string|false|true|User-specified name. Limit 200 characters.|
 |Description|string|false|true|A description. Limit 1000 characters.|
 |CreatedDate|date-time|false|false|Server-generated creation timestamp (UTC).|
-|ClientIds|string[]|false|true|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`. Limit 10000 `Client` identifiers.|
+|ClientIds|string[]|false|true|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`.|
 
 ```json
 {
@@ -468,39 +319,6 @@ Object returned from `Topic` routes.
   "ClientIds": [
     "d6b178a4-0de5-4c30-8ba7-0a84751be854"
   ]
-}
-
-```
-
----
-
-### ErrorResponseBody
-
-<a id="schemaerrorresponsebody"></a>
-<a id="schema_ErrorResponseBody"></a>
-<a id="tocSerrorresponsebody"></a>
-<a id="tocserrorresponsebody"></a>
-
-<h4>Properties</h4>
-
-|Property Name|Data Type|Required|Nullable|Description|
-|---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
-
-```json
-{
-  "OperationId": "string",
-  "Error": "string",
-  "Reason": "string",
-  "Resolution": "string",
-  "Parameters": {
-    "property1": "string",
-    "property2": "string"
-  }
 }
 
 ```
@@ -516,13 +334,13 @@ Object returned from `Topic` routes.
 
 Object used to create a `Topic`.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Name|string|false|true|User-specified name. Limit 200 characters.|
 |Description|string|false|true|A description. Limit 1000 characters.|
-|ClientIds|string[]|true|false|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`. Limit 10000 `Client` identifiers.|
+|ClientIds|string[]|true|false|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`.|
 
 ```json
 {
@@ -546,13 +364,13 @@ Object used to create a `Topic`.
 
 Object used to update a `Topic`.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Name|string|true|false|User-specified name. Limit 200 characters.|
 |Description|string|false|true|A description. Limit 1000 characters.|
-|ClientIds|string[]|true|false|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`. Limit 10000 `Client` identifiers.|
+|ClientIds|string[]|true|false|List of `Client` identifiers. Data sent by these clients will be sent to this `Topic`.|
 
 ```json
 {
@@ -576,7 +394,7 @@ Object used to update a `Topic`.
 
 Object returned from `Subscription` routes.
 
-<h4>Properties</h4>
+#### Properties
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
@@ -585,8 +403,8 @@ Object returned from `Subscription` routes.
 |TopicId|string|false|true|The `Topic` identifier that this `Subscription` will read data from.|
 |TopicTenantId|string|false|true|The `Topic` tenant identifier.|
 |TopicNamespaceId|string|false|true|The `Topic` namespace identifier.|
-|TenantId|string|false|true|Tenant identifier.|
-|NamespaceId|string|false|true|Namespace identifier.|
+|TenantId|string|false|true|Tenant identifier<br/>|
+|NamespaceId|string|false|true|Namespace identifier<br/>|
 |Description|string|false|true|A description. Limit 1000 characters.|
 |CreatedDate|date-time|false|false|Server-generated creation timestamp (UTC).|
 |Enabled|boolean|false|false|Indicates if the `Subscription` is enabled. If set to `false` data sent to the specified `Topic` of this `Subscription` will not be written to the Sequential Data Store.|

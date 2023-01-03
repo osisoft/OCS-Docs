@@ -44,6 +44,8 @@ The following table shows whether endpoint collections have an endpoint for acce
 - Roles are the only TrusteeType supported for AccessControlList ACEs.
 - At least one role must be given Manage Permission access.
 
+### Trustee
+
 The following table shows TrusteeTypes and the corresponding TypeIds.
 
 | TrusteeType           | TypeId |

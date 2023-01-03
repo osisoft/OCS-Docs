@@ -34,6 +34,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
 |---|---|---|
 |200|[AssetType](#schemaassettype)[]|List of asset types in the given namespace.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -131,7 +134,9 @@ HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Call succeeded.|
-|400|[ErrorTemplate](#schemaerrortemplate)|None|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -192,8 +197,11 @@ Asset type to create.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[AssetType](#schemaassettype)|Asset type created.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed. See response body for additional details.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -268,7 +276,10 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 |---|---|---|
 |200|[AssetType](#schemaassettype)|Asset type with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -370,9 +381,12 @@ Asset type to create.<br/>
 |---|---|---|
 |200|[AssetType](#schemaassettype)|OK.|
 |201|[AssetType](#schemaassettype)|Asset type created.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict. See response body for additional details.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed. See response body for additional details.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -501,8 +515,11 @@ Asset type to create or update.<br/>
 |200|[AssetType](#schemaassettype)|Asset type with specified identifier.|
 |201|[AssetType](#schemaassettype)|Asset type created.|
 |400|[ErrorTemplate](#schemaerrortemplate)|The request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -605,11 +622,13 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetType
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Asset type with specified identifier has been deleted.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not Found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict. See response body for additional details.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed. See response body for additional details.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -635,38 +654,16 @@ POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/AssetTypes
 
 List of asset types you want to create.<br/>
 
-```json
-[
-  {
-    "Id": "SampleAssetType01",
-    "Description": "This is a sample asset type.",
-    "Metadata": [
-      {
-        "Id": "Id-fbd82b97-d29e-4022-968e",
-        "Name": "ModelNumber",
-        "Description": "This is a static attribute on the asset type which represents the model number.",
-        "SdsTypeCode": "Double",
-        "Value": 0.01
-      }
-    ],
-    "TypeReferences": [
-      {
-        "StreamReferenceId": "f1bf9da2-3858-4bcd-bf93-e7c26ab0d28e",
-        "StreamReferenceName": "ReferenceName",
-        "TypeId": "PI-Float32"
-      }
-    ]
-  }
-]
-```
-
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[MultiStatusResultOfAssetTypeAndChildErrorTemplate](#schemamultistatusresultofassettypeandchilderrortemplate)|Asset types as persisted, including values for optional parameters that were omitted in request.|
 |207|[MultiStatusResultOfAssetTypeAndChildErrorTemplate](#schemamultistatusresultofassettypeandchilderrortemplate)|Partial success. Some asset types were created. See response body for additional details.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -739,9 +736,11 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[Trustee](#schematrustee)|OK.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -806,9 +805,11 @@ Updated owner.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Asset type owner updated.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -836,9 +837,11 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|Access control list of the asset type with given identifier.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -927,9 +930,11 @@ Updated ACL.<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Update success.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -957,9 +962,11 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/AssetTypes/{assetTypeId}
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|Inline|Access control list of the asset type with given identifier.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
-|403|None|Forbidden.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 

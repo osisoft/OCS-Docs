@@ -30,8 +30,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/Owner
 |---|---|---|
 |200|[Trustee](#schematrustee)|OK.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -97,8 +98,9 @@ Updated owner.<br/>
 |---|---|---|
 |204|None|Asset owner updated.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
-|404|[ErrorTemplate](#schemaerrortemplate)|Not found|
+|404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -127,8 +129,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessC
 |---|---|---|
 |200|[AccessControlList](#schemaaccesscontrollist)|Access control list of the asset with given identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -218,8 +221,10 @@ Updated ACL.<br/>
 |---|---|---|
 |204|None|Update success.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 ---
 
@@ -248,8 +253,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}/AccessR
 |---|---|---|
 |200|Inline|Access control list of the asset with given identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -304,8 +310,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |200|[Asset](#schemaasset)|Assets with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -337,6 +344,10 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -399,6 +410,10 @@ Asset to create.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -413,7 +428,9 @@ Asset to create.<br/>
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 |403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Asset you attempted to create has a conflict. See the response body for additional details.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -447,6 +464,10 @@ Asset to create.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -473,6 +494,10 @@ Asset to create.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -535,6 +560,10 @@ Asset to create or update.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -546,9 +575,11 @@ Asset to create or update.<br/>
 |200|[Asset](#schemaasset)|OK.|
 |201|[Asset](#schemaasset)|Asset created with specified identifier.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -581,6 +612,10 @@ Asset to create or update.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -607,6 +642,10 @@ Asset to create or update.<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -651,10 +690,12 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
 |---|---|---|
 |204|None|Asset with specified identifier has been deleted.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
-|403|None|Forbidden.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
 |404|[ErrorTemplate](#schemaerrortemplate)|Not Found.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
 |409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
 |412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 # Assets
 
@@ -689,6 +730,9 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 |---|---|---|
 |200|[Asset](#schemaasset)[]|List of assets in the system.|
 |400|[ErrorTemplate](#schemaerrortemplate)|The request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -726,7 +770,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
   },
   {
     "Id": "SecondSampleAsset",
-    "Description": "This is a scond sample asset.",
+    "Description": "This is a second sample asset.",
     "Metadata": [
       {
         "Id": "90ef6205-152b-40ed-8ffa-bac3feff6fa2",
@@ -791,7 +835,10 @@ HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets
 |Status Code|Body Type|Description|
 |---|---|---|
 |204|None|Call succeeded.|
-|400|None|Invalid query syntax.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Invalid query syntax.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -844,6 +891,10 @@ Asset you want to create<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -853,8 +904,10 @@ Asset you want to create<br/>
 |Status Code|Body Type|Description|
 |---|---|---|
 |201|[Asset](#schemaasset)|Asset created|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
 |403|[ErrorTemplate](#schemaerrortemplate)|You are not authorized to create assets.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Response Headers</h4>
 
@@ -886,6 +939,10 @@ Asset you want to create<br/>
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 ```
@@ -927,39 +984,16 @@ POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 
 List of assets you want to create.<br/>
 
-```json
-[
-  {
-    "Id": "SampleAsset",
-    "Description": "This is a sample asset.",
-    "Metadata": [
-      {
-        "Id": "Id-abcde",
-        "Name": "ModelNumber",
-        "Description": "This is a static attribute on the asset which represents the model number.",
-        "SdsTypeCode": "Double",
-        "Value": 0.01
-      }
-    ],
-    "StreamReferences": [
-      {
-        "Id": "5345e98d-dc43-4f9d-a666-158a3baaf244",
-        "Name": "Data",
-        "Description": "This is the description for this stream reference.",
-        "StreamId": "SdsStream_1"
-      }
-    ]
-  }
-]
-```
-
 <h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[MultiStatusResultOfAssetAndChildErrorTemplate](#schemamultistatusresultofassetandchilderrortemplate)|Assets as persisted, including values for optional parameters that were omitted in the request.|
 |207|[MultiStatusResultOfAssetAndChildErrorTemplate](#schemamultistatusresultofassetandchilderrortemplate)|Partial success. Some assets were created. See response body for additional details.|
-|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See response body for additional details.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -990,6 +1024,10 @@ List of assets you want to create.<br/>
           "Description": "This is the description for this stream reference.",
           "StreamId": "SdsStream_1"
         }
+      ],
+      "Tags": [
+        "Tag1",
+        "Tag2"
       ]
     }
   ],
@@ -1028,7 +1066,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>
 `[optional] array id`
-<br/>Comma separated asset identifiers in the form of id={assetId_1},id={assetId_2}<br/><br/>
+<br/>Ampersand separated asset identifiers in the form of id={assetId_1}&amp;id={assetId_2}<br/><br/>
 
 <h3>Response</h3>
 
@@ -1037,6 +1075,8 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Assets
 |204|None|Assets with the specified ids has been deleted.|
 |207|[MultiStatusResultOfStringAndChildErrorTemplate](#schemamultistatusresultofstringandchilderrortemplate)|Partial success. Not all assets were deleted. See response body for additional details.|
 |400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
 
 <h4>Example response body</h4>
 
@@ -1260,6 +1300,10 @@ Represents an asset object.
       "Description": "This is the description for this stream reference.",
       "StreamId": "SdsStream_1"
     }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
   ]
 }
 
@@ -1640,6 +1684,10 @@ A multi status result is returned to indicate a partial success.
           "Description": "This is the description for this stream reference.",
           "StreamId": "SdsStream_1"
         }
+      ],
+      "Tags": [
+        "Tag1",
+        "Tag2"
       ]
     }
   ],

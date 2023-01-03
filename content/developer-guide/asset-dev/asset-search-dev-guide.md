@@ -29,17 +29,26 @@ Searches all assets and returns a list of asset identifiers and their matched fi
 
 Below is a response when query string is "Name:Tracer".
 
-- `TotalCount` represents the number of matched assets in the database which matched the given query.
+- `TotalCount` - Represents the number of matched assets in the database which matched the given query.
 
- A list of results is returned. Each result contains:  
--  `MatchProperties` - a list of matched property objects. Each `MatchProperties` object contains the matched fields and their values.
+    A list of results is returned. Each result contains:  
+
+- `MatchProperties` - A list of matched property objects. Each `MatchProperties` object contains the matched fields and their values.
+
 - `Id` - Identifier of the matched asset.
-- `TypeId` - asset type identifier of the asset. This is null if the asset does not reference an asset type.
-- `Name` - asset name.
+
+- `TypeId` - Asset type identifier of the asset. This is null if the asset does not reference an asset type.
+
+- `Name` - Asset name.
+
 - `Description` - Description of the matched asset. If the description of the matched asset is null, the description from the asset type is returned.
-- `ETag` - version tag.
-- `CreatedDate` - asset creation date.
-- `LastModifiedDate` - last modified date of the asset.
+
+- `ETag` - Version tag.
+
+- `CreatedDate` - Asset creation date.
+
+- `LastModifiedDate` - Last modified date of the asset.
+
 - `LastStatus` - Last status of the matched asset. If a status is not defined for the asset, this field will be null. If a status is defined, this field will correspond to Unknown, Good, Warning, or Bad. The display name of the asset status had no effect on this field.
 
 ```json 

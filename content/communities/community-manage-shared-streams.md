@@ -20,7 +20,7 @@ User with permissions to share a data stream within a community can do so from t
 
 1. Select one or more stream to share with a community.
 
-    **Tip:** Use the **Search for streams** field to search for specific streams. Use the wildcard operator (`*`) to return results that start or end with a particular phrase. For more information, see [Search in SDS](xref:sdsSearching).
+    **Tip:** Use the **Search for streams** field to search for specific streams. For more information on using this field, see <xref:search>.
 
 1. From the right pane, select **Share Streams**.
 
