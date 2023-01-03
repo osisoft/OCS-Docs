@@ -2,7 +2,7 @@
 uid: community-manage-shared-streams
 ---
 
-# Manage shared streams 
+# Manage shared streams
 
 Users assigned share permissions for data streams in `Sequential Data Store`—also known as _data stewards_—can share those streams into communities where they are a member. These same users can unshare data streams from communities as well.
 
@@ -32,27 +32,46 @@ User with permissions to share a data stream within a community can do so from t
 
     - When sharing a large numbers of streams, edit the **Items per page** dropdown to a value that accommodates the number of streams that you want to share.
 
-1. From the `Share Streams` window, confirm the streams you are about to share, and then select the communities that you want to them with, and then select **Share**. 
+1. From the `Share Streams` window, confirm the streams you are about to share, and then select the communities that you want to them with, and then select **Share**.
 
    **Getting `Namespace does not allow data to be processed outside of the region where it resides`?** See [Namespace warning](#namespace-warning).
-    
+
 The chosen streams are shared with the chosen communities. All members of the selected communities are able to read data from the shared streams.
 
 ## Unshare streams
 
-When you want to stop sharing streams with a community, you can unshare them from the `Communities` page.
+When you want to stop sharing streams with a community, you can unshare them either by stream or community.
+
+### [By stream](#tab/tabid-1)
+
+1. In the left pane, select **Data Management** > **Sequential Data Store**.
+
+1. Select the stream that you want to unshare. A pane opens to the right.
+
+1. Select the **Sharing** tab.
+
+1. Select **Unshare Stream**.
+
+1. Select the communities that you want to unshare the stream from, and then select **Unshare**.
+
+The stream is unshared from the selected communities. Other tenants can no longer view them.
+### [By community](#tab/tabid-2)
 
 1. In the left pane, select **Data Management** > **Communities**.
 
-1. Find the community where you are sharing streams and select **Details**.
+1. Select the community where you are sharing streams and select **Community Details**.
 
 1. On the `Community Details` page, select the **Tenants** tab.
 
 1. Select your own tenant. A pane opens on the right.
 
-1. On the **Streams** tab, select the streams you want to stop sharing, then select **Unshare Streams**. Confirm the streams you are unsharing, and then select **Unshare**.
+1. Select the **Streams** tab.
+
+1. Select the streams you want to stop sharing, then select **Unshare Streams**. Confirm the streams you are unsharing, and then select **Unshare**.
 
 The streams are unshared from the community. Other tenants in the community can no longer view them.
+
+***
 
 ## Namespace warning
 
