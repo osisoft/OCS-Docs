@@ -30,10 +30,20 @@ To use the API Console:
 
   The **Full Path** field shows an encrypted version of the selections you have made. Based on your selections, other fields may also be automatically prepended to the path. Together, these fields produce a path to a REST endpoint.
 
+  **Tip:** Namespace- and community-scoped API requests autosuggest resource identifiers. For more information, see [Path autocomplete](#path-autocomplete).
+
 1. Select the blue button in the lower right, which shows the action you selected earlier.
     
   The request to the endpoint is issued based on the path you have constructed. For **POST** and **PUT** requests, the **Body** entry field displays. Type the request body into the **Body** entry field.
 
   **History** records the calls that you make so you can replay them again.
+
+## Path autocomplete
+
+When entering a URI for a namespace- or community-scoped API request, the API console automatically suggests available identifiers for path completion. Additionally, a chip next to the identifier displays the resource name that it resolves to.
+
+![Path autocomplete](images/api-console-autocomplete.png)
+
+## Related
 
 For more information, see [Read data API](xref:sdsReadingDataApi).
