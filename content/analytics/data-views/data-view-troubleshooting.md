@@ -12,23 +12,19 @@ While browsing the list of data views, you may encounter the following warnings.
 
 ### Alert chip
 
-Query sources that include a yellow or red alert chip indicate that you have a permissions issue affecting your view of the data view. There are two context for when an alert chip displays:
+Query sources that include a yellow alert chip indicate that you have a permissions issue affecting your view of the data view. There are two context for when an alert chip displays:
 
 - **Unknown community chip**
 
     ![unknown](_images/unknown-community.png)
 
-    Yellow alert chips that read `Unknown Community` indicate that you have insufficient permissions to access the community or that has been deleted. You must be a member of the community to access its data. Additionally, you cannot edit the query for the community until you are member of the community. Request that a community administrator add you to the community.
+    Alert chips that read `Unknown Community` indicate that you have insufficient permissions to access the community or that has been deleted. You must be a member of the community to access its data. Additionally, you cannot edit the query for the community until you are member of the community. Request that a community administrator add you to the community.
 
 - **Read access chip with community name**
 
     ![read access chip](_images/test-community-chip.png)
 
-    Yellow alert chips that display the community name indicate that you are a [Community Administrator](xref:community-community-roles#community-administrators) or [Community Member](xref:community-community-roles#community-member) with read access, but not a member of the community itself. Community Administrators can use the visible community name to add users to the community. For more information on adding a user to the community, see <xref:community-manage-users>.
-
-- **Cross region processing opt out**
-
-    Red alert chips that display the community name indicate that the data view includes one or more query of a namespace that has opted out of [Cross region data sharing](xref:cross-region-data-sharing), but the data view resides in a different region. Therefore, the query does not resolve. For more information, see [Cross region processing opt out](#cross-region-processing-opt-out).
+    Alert chips that display the community name indicate that you are a [Community Administrator](xref:community-community-roles#community-administrators) or [Community Member](xref:community-community-roles#community-member) with read access, but not a member of the community itself. Community Administrators can use the visible community name to add users to the community. For more information on adding a user to the community, see <xref:community-manage-users>.
 
 ## Data View page
 
@@ -56,7 +52,7 @@ You can correct this error by finding the individual fields that do not map to a
 
 While managing data view queries, you may encounter the following warning.
 
-### Cross region processing opt out
+### Cross region processing disabled
 
 If you encounter a warning of `This namespace does not allow data to be processed outside of the region where it resides`, this message indicates that the namespace has opted out of sharing its data across regions, and the currently selected namespace has a different primary geographical region. Therefore, the data view cannot be processed in the currently selected namespace. For additional information, see <xref:cross-region-data-sharing>.
 
