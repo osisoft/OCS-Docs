@@ -33,7 +33,7 @@ To use the API Console:
   **Tip:** Namespace- and community-scoped API requests autosuggest resource identifiers. For more information, see [Path autocomplete](#path-autocomplete).
 
 1. Select the blue button in the lower right, which shows the action you selected earlier.
-    
+
   The request to the endpoint is issued based on the path you have constructed. For **POST** and **PUT** requests, the **Body** entry field displays. Type the request body into the **Body** entry field.
 
   **History** records the calls that you make so you can replay them again.
