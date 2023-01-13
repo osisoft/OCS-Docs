@@ -40,7 +40,7 @@ To use the API Console:
 
 ## Path autocomplete
 
-When entering a URI for a namespace- or community-scoped API request, the API console automatically suggests available identifiers for path completion. Additionally, a chip next to the identifier displays the resource name that it resolves to.
+When entering a URI for a namespace- or community-scoped API request, the API console automatically suggests available identifiers for path completion. Additionally, a chip next to the identifier displays the resource name that it resolves to. Resources are listed in alphabetical order.
 
 ![Path autocomplete](images/api-console-autocomplete.png)
 
