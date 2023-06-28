@@ -1,0 +1,10 @@
+- name: Access control list
+  href: event-type-store-access-control-list.md
+- name: Authorization tags
+  href: event-type-store-authorization-tags.md
+- name: Enumeration types
+  href: event-type-store-enumeration-types.md
+- name: Event types
+  href: event-type-store-event-types.md
+- name: Reference data types
+  href: event-type-store-reference-data-types.md
