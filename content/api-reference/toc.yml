@@ -33,6 +33,7 @@
   topicHref: sequential-data-store/sds-lp.md
 - name: Streaming updates
   href: streaming-updates/toc.yml
+  topicHref: streaming-updates/streaming-updates-intro.md
 - name: Tenant management
   href: tenant/toc.yml
   topicHref: tenant/management-overview.md

@@ -28,6 +28,8 @@ The information in the sections that follow document the APIs and usage for each
 
 * [Sequential Data Store (SDS)](xref:sds)—Use the information in this section to learn about the OSIsoft Cloud Services Sequential Data Store. The SDS is optimized for sequential data operations.
 
+* [Streaming Updates](<xref:streaming-updates-intro)—Add enterprise-scale egress event streaming capabilities to AVEVA Data Hub. Event streaming can support analytics, visualization/dashboarding, rules processing, evolving search indexes, anomaly detection, and transaction processing.
+
 * [Tenant Management](xref:AccountManagementOverview)—Use the information in this section to create, manage, and administer your account by assigning users, roles, and namespaces to your tenant.
 
 ## Access to OCS
