@@ -86,7 +86,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
     ],
     "Tags": [
       "string"
-    ]
+    ],
+    "IsVisible": true
   }
 ]
 ```
@@ -211,7 +212,8 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
     ],
     "Tags": [
       "string"
-    ]
+    ],
+    "IsVisible": true
   }
 ]
 ```
@@ -324,9 +326,86 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
   ],
   "Tags": [
     "string"
-  ]
+  ],
+  "IsVisible": true
 }
 ```
+
+---
+
+## `Reactivate System (Edge path)`
+
+<a id="opIdEdgeSystem_Reactivate System (Edge path)"></a>
+
+Reactivates a specific System.
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string edgeSystemId`
+<br/>Edge System identifier.<br/><br/>
+
+<h4>Request Body</h4>
+
+object to reactivate.<br/>
+
+```json
+{
+  "Id": "string",
+  "DeviceName": "string",
+  "Name": "string",
+  "Type": "string",
+  "SoftwareVersion": "string",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "LastContactedTime": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ModifiedBy": "string",
+  "ModifiedByType": 1,
+  "Status": 1,
+  "StatusDescription": "string",
+  "SystemDiagnosticsStreamId": "string",
+  "Components": [
+    {
+      "Id": "string",
+      "ComponentType": "string",
+      "DeviceStatusStreamId": "string",
+      "NextHealthMessageExpectedStreamId": "string",
+      "DiagnosticsStreams": [
+        {
+          "Id": "string",
+          "NamespaceId": "string",
+          "TypeId": "string"
+        }
+      ],
+      "Status": 1,
+      "StatusDescription": "string",
+      "Errors": [
+        "string"
+      ]
+    }
+  ],
+  "Tags": [
+    "string"
+  ],
+  "IsVisible": true
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success.|
+|204|None|No content.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ---
 
@@ -429,9 +508,86 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
   ],
   "Tags": [
     "string"
-  ]
+  ],
+  "IsVisible": true
 }
 ```
+
+---
+
+## `Reactivate System 1`
+
+<a id="opIdEdgeSystem_Reactivate System 1"></a>
+
+Reactivates a specific System.
+
+<h3>Request</h3>
+
+```text 
+PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string edgeSystemId`
+<br/>Edge System identifier.<br/><br/>
+
+<h4>Request Body</h4>
+
+object to reactivate.<br/>
+
+```json
+{
+  "Id": "string",
+  "DeviceName": "string",
+  "Name": "string",
+  "Type": "string",
+  "SoftwareVersion": "string",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "LastContactedTime": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ModifiedBy": "string",
+  "ModifiedByType": 1,
+  "Status": 1,
+  "StatusDescription": "string",
+  "SystemDiagnosticsStreamId": "string",
+  "Components": [
+    {
+      "Id": "string",
+      "ComponentType": "string",
+      "DeviceStatusStreamId": "string",
+      "NextHealthMessageExpectedStreamId": "string",
+      "DiagnosticsStreams": [
+        {
+          "Id": "string",
+          "NamespaceId": "string",
+          "TypeId": "string"
+        }
+      ],
+      "Status": 1,
+      "StatusDescription": "string",
+      "Errors": [
+        "string"
+      ]
+    }
+  ],
+  "Tags": [
+    "string"
+  ],
+  "IsVisible": true
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|None|Success.|
+|204|None|No content.|
+|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
+|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ---
 
@@ -673,6 +829,7 @@ Serialized list of tags.<br/>
 |SystemDiagnosticsStreamId|string|false|true|System diagnostics stream identifier for this edge system.|
 |Components|[[Component](#schemacomponent)]|false|true|List of components for this edge system.|
 |Tags|string[]|false|true|List of tags for this edge system.|
+|IsVisible|boolean|false|false|Identifier iindicated if the system should be visible to the user/client.|
 
 ```json
 {
@@ -711,7 +868,8 @@ Serialized list of tags.<br/>
   ],
   "Tags": [
     "string"
-  ]
+  ],
+  "IsVisible": true
 }
 
 ```
