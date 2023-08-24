@@ -14,7 +14,7 @@ Returns a list of Edge Systems.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
@@ -103,7 +103,7 @@ Returns header information for Edge Systems.
 <h3>Request</h3>
 
 ```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems
+HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems
 ?query={query}
 ```
 
@@ -140,7 +140,7 @@ Returns a list of Edge Systems.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
@@ -229,7 +229,7 @@ Returns header information for Edge Systems.
 <h3>Request</h3>
 
 ```text 
-HEAD /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems
+HEAD /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems
 ?query={query}
 ```
 
@@ -266,7 +266,7 @@ Returns a specific Edge System.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
 ```
 
 <h4>Parameters</h4>
@@ -333,16 +333,16 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
 
 ---
 
-## `Reactivate System (Edge path)`
+## `Show Or Hide System (Edge path)`
 
-<a id="opIdEdgeSystem_Reactivate System (Edge path)"></a>
+<a id="opIdEdgeSystem_Show Or Hide System (Edge path)"></a>
 
 Reactivates a specific System.
 
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
 ```
 
 <h4>Parameters</h4>
@@ -404,37 +404,9 @@ object to reactivate.<br/>
 |---|---|---|
 |200|None|Success.|
 |204|None|No content.|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
-
----
-
-## `Remove Edge System (Edge path)`
-
-<a id="opIdEdgeSystem_Remove Edge System (Edge path)"></a>
-
-Deletes a specific Edge System.
-
-<h3>Request</h3>
-
-```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}
-```
-
-<h4>Parameters</h4>
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier.<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|204|None|Deleted.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|Edge System not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ---
@@ -448,7 +420,7 @@ Returns a specific Edge System.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
 ```
 
 <h4>Parameters</h4>
@@ -515,16 +487,16 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManageme
 
 ---
 
-## `Reactivate System 1`
+## `Show Or Hide System 1`
 
-<a id="opIdEdgeSystem_Reactivate System 1"></a>
+<a id="opIdEdgeSystem_Show Or Hide System 1"></a>
 
 Reactivates a specific System.
 
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
 ```
 
 <h4>Parameters</h4>
@@ -586,37 +558,9 @@ object to reactivate.<br/>
 |---|---|---|
 |200|None|Success.|
 |204|None|No content.|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
 |401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
-
----
-
-## `Remove Edge System 1`
-
-<a id="opIdEdgeSystem_Remove Edge System 1"></a>
-
-Deletes a specific Edge System.
-
-<h3>Request</h3>
-
-```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}
-```
-
-<h4>Parameters</h4>
-
-`string tenantId`
-<br/>Tenant identifier.<br/><br/>`string namespaceId`
-<br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier.<br/><br/>
-
-<h3>Response</h3>
-
-|Status Code|Body Type|Description|
-|---|---|---|
-|204|None|Deleted.|
-|401|[ErrorResponse](#schemaerrorresponse)|Unauthorized.|
-|404|[ErrorResponse](#schemaerrorresponse)|Edge System not found.|
+|404|[ErrorResponse](#schemaerrorresponse)|None|
 |500|[ErrorResponse](#schemaerrorresponse)|Internal server error.|
 
 ---
@@ -630,7 +574,7 @@ Returns a list of tags present on Edge Systems.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Tags
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Tags
 ```
 
 <h4>Parameters</h4>
@@ -664,7 +608,7 @@ Returns a list of tags present on Edge Systems.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Tags
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Tags
 ```
 
 <h4>Parameters</h4>
@@ -698,7 +642,7 @@ Creates or updates the tags of a specific Edge System.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Tags
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Tags
 ```
 
 <h4>Parameters</h4>
@@ -737,7 +681,7 @@ Creates or updates the tags of a specific Edge System.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Tags
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Tags
 ```
 
 <h4>Parameters</h4>

@@ -14,7 +14,7 @@ Returns the `AccessControlList` of the softwaremanagement collection.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol/softwaremanagement
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol/softwaremanagement
 ```
 
 <h4>Parameters</h4>
@@ -78,7 +78,7 @@ Replaces the `AccessControlList` of the softwaremanagement collection.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol/softwaremanagement
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accesscontrol/softwaremanagement
 ```
 
 <h4>Parameters</h4>
@@ -164,7 +164,7 @@ Returns a list of the `CommonAccessRights` the requesting `Identity` has on the 
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/accessrights/softwaremanagement
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accessrights/softwaremanagement
 ```
 
 <h4>Parameters</h4>

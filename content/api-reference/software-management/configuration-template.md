@@ -14,7 +14,7 @@ Returns a list of templates.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
@@ -75,7 +75,7 @@ Creates a template.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates
 ```
 
 <h4>Parameters</h4>
@@ -119,7 +119,7 @@ Returns a list of templates.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates
 ?skip={skip}&count={count}&orderBy={orderBy}&query={query}
 ```
 
@@ -180,7 +180,7 @@ Creates a template.
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates
 ```
 
 <h4>Parameters</h4>
@@ -224,7 +224,7 @@ Returns a configuration template.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -255,7 +255,7 @@ Updates a template.
 <h3>Request</h3>
 
 ```text 
-PATCH /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
+PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -298,7 +298,7 @@ Deletes a template.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -329,7 +329,7 @@ Returns a configuration template.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -360,7 +360,7 @@ Updates a template.
 <h3>Request</h3>
 
 ```text 
-PATCH /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
+PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -403,7 +403,7 @@ Deletes a template.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}
 ```
 
 <h4>Parameters</h4>
@@ -434,7 +434,7 @@ Returns a template's configuration.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}/Configuration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -465,7 +465,7 @@ Updates a template configuration.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}/Configuration
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Templates/{templateId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -495,7 +495,7 @@ Returns a template's configuration.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}/Configuration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -526,7 +526,7 @@ Updates a template configuration.
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}/Configuration
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templates/{templateId}/Configuration
 ```
 
 <h4>Parameters</h4>

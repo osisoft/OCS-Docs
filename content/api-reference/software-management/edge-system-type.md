@@ -14,7 +14,7 @@ Returns a list of supported Edge System types.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types
 ```
 
 <h4>Parameters</h4>
@@ -43,7 +43,7 @@ Returns a list of supported Edge System types.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types
 ```
 
 <h4>Parameters</h4>
@@ -72,7 +72,7 @@ Returns a supported Edge System type.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}
 ```
 
 <h4>Parameters</h4>
@@ -102,7 +102,7 @@ Returns a supported Edge System type.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}
 ```
 
 <h4>Parameters</h4>
@@ -132,7 +132,7 @@ Returns a list of an Edge System's supported versions.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions
 ```
 
 <h4>Parameters</h4>
@@ -162,7 +162,7 @@ Returns a list of an Edge System's supported versions.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions
 ```
 
 <h4>Parameters</h4>
@@ -192,7 +192,7 @@ Returns a supported Edge System version.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}
 ```
 
 <h4>Parameters</h4>
@@ -223,7 +223,7 @@ Returns a supported Edge System version.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}
 ```
 
 <h4>Parameters</h4>
@@ -254,7 +254,7 @@ Returns the template properties of a supported version of a supported Edge Syste
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/templateproperties
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/templateproperties
 ```
 
 <h4>Parameters</h4>
@@ -298,7 +298,7 @@ Returns the template properties of a supported version of a supported Edge Syste
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/dynamicproperties
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/dynamicproperties
 ```
 
 <h4>Parameters</h4>
@@ -342,7 +342,7 @@ Returns the template properties of a supported version of a supported Edge Syste
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/templateproperties
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/templateproperties
 ```
 
 <h4>Parameters</h4>
@@ -386,7 +386,7 @@ Returns the template properties of a supported version of a supported Edge Syste
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/dynamicproperties
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/dynamicproperties
 ```
 
 <h4>Parameters</h4>
@@ -430,7 +430,7 @@ Returns the configuration schema of a supported version of a supported Edge Syst
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/configurationschema
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/configurationschema
 ```
 
 <h4>Parameters</h4>
@@ -461,7 +461,7 @@ Returns the configuration schema of a supported version of a supported Edge Syst
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/configurationschema
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/configurationschema
 ```
 
 <h4>Parameters</h4>
@@ -492,7 +492,7 @@ Returns the default configuration of a supported version of a supported Edge Sys
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfig
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfig
 ```
 
 <h4>Parameters</h4>
@@ -523,7 +523,7 @@ Returns the default configuration of a supported version of a supported Edge Sys
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfiguration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfiguration
 ```
 
 <h4>Parameters</h4>
@@ -554,7 +554,7 @@ Returns the default configuration of a supported version of a supported Edge Sys
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfig
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfig
 ```
 
 <h4>Parameters</h4>
@@ -585,7 +585,7 @@ Returns the default configuration of a supported version of a supported Edge Sys
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfiguration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types/{edgeSystemTypeId}/Versions/{edgeSystemTypeVersion}/defaultconfiguration
 ```
 
 <h4>Parameters</h4>

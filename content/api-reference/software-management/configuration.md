@@ -14,7 +14,7 @@ Returns an Edge System Configuration.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -45,7 +45,7 @@ Creates an Edge System Configuration in the storage account. Does not save any s
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -76,7 +76,7 @@ Updates an Edge System Configuration. Does not save any secrets supplied as part
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -106,7 +106,7 @@ Deletes an Edge System Configuration.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Edge/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -137,7 +137,7 @@ Returns an Edge System Configuration.
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -168,7 +168,7 @@ Creates an Edge System Configuration in the storage account. Does not save any s
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -199,7 +199,7 @@ Updates an Edge System Configuration. Does not save any secrets supplied as part
 <h3>Request</h3>
 
 ```text 
-PUT /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
+PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
@@ -229,7 +229,7 @@ Deletes an Edge System Configuration.
 <h3>Request</h3>
 
 ```text 
-DELETE /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
+DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Systems/{edgeSystemId}/Configuration
 ```
 
 <h4>Parameters</h4>
