@@ -72,7 +72,6 @@ GET /api/v1/Tenants/{tenantId}/HybridClients
 
 Allowed for these roles: 
 <ul>
-<li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
@@ -113,7 +112,6 @@ HEAD /api/v1/Tenants/{tenantId}/HybridClients
 
 Allowed for these roles: 
 <ul>
-<li>Self</li>
 <li>Tenant Member</li>
 </ul>
 

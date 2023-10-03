@@ -110,7 +110,7 @@ Allowed for these roles:
 
 <a id="opIdRoles_Replace User's Roles"></a>
 
-Replaces existing user roles.
+Replaces existing user roles with the set of roles passed in through the request body for the given user. This can be done with existing users.
 
 <h3>Request</h3>
 

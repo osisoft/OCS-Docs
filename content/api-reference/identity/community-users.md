@@ -167,7 +167,7 @@ GET /api/v1-preview/Communities/{communityId}/Tenants/{tenantId}/Users
 
 <a id="opIdCommunityUsers_Get Count of Users of a Tenant in a Community"></a>
 
-Gets the count of users of the tenant in a community. This method is identical to the `GetCommunityUsersByTenantAndCommunity` endpoint except it does not return a body.
+Gets the count of users of the tenant in a community.
 
 <h3>Request</h3>
 

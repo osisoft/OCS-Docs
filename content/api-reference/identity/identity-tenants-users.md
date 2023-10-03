@@ -579,7 +579,6 @@ GET /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -617,7 +616,6 @@ HEAD /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---
@@ -656,7 +654,6 @@ PUT /api/v1/Tenants/{tenantId}/Users/{userId}/Preferences
 Allowed for these roles: 
 <ul>
 <li>Self</li>
-<li>Tenant Administrator</li>
 </ul>
 
 ---

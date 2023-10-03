@@ -97,6 +97,7 @@ HEAD /api/v1/Tenants/{tenantId}/ClientCredentialClients
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|None|Client credential client headers found|
+|207|None|Client credential client headers found|
 |401|None|Unauthorized.|
 |403|None|Forbidden.|
 |404|None|Client or tenant not found|

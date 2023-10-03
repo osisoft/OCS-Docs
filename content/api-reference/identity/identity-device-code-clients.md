@@ -65,7 +65,6 @@ GET /api/v1/Tenants/{tenantId}/DeviceCodeClients
 
 Allowed for these roles: 
 <ul>
-<li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
@@ -106,7 +105,6 @@ HEAD /api/v1/Tenants/{tenantId}/DeviceCodeClients
 
 Allowed for these roles: 
 <ul>
-<li>Self</li>
 <li>Tenant Member</li>
 </ul>
 
