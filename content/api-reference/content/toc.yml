@@ -1,2 +1,4 @@
 - name: Service blog
   href: ../tenant/tenant-service-blog.md
+- name: Service blog
+  href: tenant-service-blog.md
