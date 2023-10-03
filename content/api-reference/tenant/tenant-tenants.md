@@ -340,9 +340,9 @@ Allowed for these roles:
 
 ---
 
-## `Get Regions`
+## `List Regions`
 
-<a id="opIdTenant_Get Regions"></a>
+<a id="opIdTenant_List Regions"></a>
 
 Returns the `RegionBase` list for the specified `Tenant`.
 
@@ -361,7 +361,7 @@ GET /api/v1/Tenants/{tenantId}/Regions
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[RegionBase](#schemaregionbase)|The `RegionBase` list associated with the `Tenant`.|
+|200|[RegionBase](#schemaregionbase)[]|The `RegionBase` list associated with the `Tenant`.|
 |403|None|Forbidden.|
 |404|None|Not Found.|
 

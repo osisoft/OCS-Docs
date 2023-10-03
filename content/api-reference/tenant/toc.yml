@@ -6,5 +6,9 @@
   href: tenant-root-access-control.md
 - name: Tenant feature states
   href: tenant-feature-state.md
+- name: Tenant namespace
+  href: tenant-namespace.md
+- name: Tenant service blog
+  href: tenant-service-blog.md
 - name: Tenants
   href: tenant-tenants.md

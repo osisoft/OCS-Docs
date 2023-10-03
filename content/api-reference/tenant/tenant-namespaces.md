@@ -156,9 +156,7 @@ The new Namespace to be created.<br/>
 {
   "Id": "string",
   "Region": "string",
-  "RegionId": "string",
   "Self": "string",
-  "Name": "string",
   "Description": "string",
   "State": 0,
   "Owner": {
@@ -179,7 +177,9 @@ The new Namespace to be created.<br/>
       }
     ]
   },
+  "RegionId": "string",
   "InstanceId": "string",
+  "Name": "string",
   "AllowCrossRegionProcessing": true
 }
 ```
@@ -277,9 +277,7 @@ The new details to store for the Namespace.<br/>
 {
   "Id": "string",
   "Region": "string",
-  "RegionId": "string",
   "Self": "string",
-  "Name": "string",
   "Description": "string",
   "State": 0,
   "Owner": {
@@ -300,7 +298,9 @@ The new details to store for the Namespace.<br/>
       }
     ]
   },
+  "RegionId": "string",
   "InstanceId": "string",
+  "Name": "string",
   "AllowCrossRegionProcessing": true
 }
 ```
@@ -688,23 +688,21 @@ Representation of a server-side database interpretation of a namespace.
 |---|---|---|---|---|
 |Id|string|false|true|Gets or sets identifier for this namespace; unique within a tenant's namespaces.|
 |Region|string|false|true|Gets or sets the region.|
-|RegionId|string|false|true|Gets or sets the region identifier.|
 |Self|string|false|true|Gets or sets a string that represents a link to the object that implements this interface.|
-|Name|string|false|true|Gets or sets the name.|
 |Description|string|false|true|Gets or sets the description.|
 |State|[NamespaceProvisioningState](#schemanamespaceprovisioningstate)|false|false|Gets or sets the state.|
 |Owner|[Trustee](#schematrustee)|false|true|Gets the Trustee that will receive Allowed for all AccessChecks to this ISecurable.|
 |AccessControl|[AccessControlList](#schemaaccesscontrollist)|false|true|Gets the AccessControlList that defines Access Control for this ISecurable.|
+|RegionId|string|false|true|Gets or sets the region identifier.|
 |InstanceId|string|false|true|Gets or sets the instance identifier.|
+|Name|string|false|true|Gets or sets the name.|
 |AllowCrossRegionProcessing|boolean|false|true|Gets or sets the allow cross region processing.|
 
 ```json
 {
   "Id": "string",
   "Region": "string",
-  "RegionId": "string",
   "Self": "string",
-  "Name": "string",
   "Description": "string",
   "State": 0,
   "Owner": {
@@ -725,7 +723,9 @@ Representation of a server-side database interpretation of a namespace.
       }
     ]
   },
+  "RegionId": "string",
   "InstanceId": "string",
+  "Name": "string",
   "AllowCrossRegionProcessing": true
 }
 
