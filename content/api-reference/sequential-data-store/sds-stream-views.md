@@ -382,7 +382,8 @@ Content-Type: application/json
         }
     ]
 }
-```> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
+```
+> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
 
 ```json
 {

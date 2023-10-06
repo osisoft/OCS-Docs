@@ -415,7 +415,7 @@ Returns the resolved stream and type representation that is associated with a gi
 <h3>Request</h3>
 
 ```text 
-GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Resolved
+GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Resolved
 ```
 
 <h4>Parameters</h4>
@@ -439,151 +439,91 @@ GET /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamI
 
 <h4>Example response body</h4>
 
-> 200 Response ([SdsResolvedStream](#schemasdsresolvedstream))
+> 200 Response
 
 ```json
 {
-  "Id": "string",
-  "Name": "string",
-  "Description": "string",
-  "TypeId": "string",
-  "Indexes": [
-    {
-      "SdsTypePropertyId": "string"
-    }
-  ],
-  "InterpolationMode": 0,
-  "ExtrapolationMode": 0,
-  "PropertyOverrides": [
-    {
-      "SdsTypePropertyId": "string",
-      "Uom": "string",
-      "InterpolationMode": 0
-    }
-  ],
-  "CreatedDate": "2019-08-24T14:15:22Z",
-  "ModifiedDate": "2019-08-24T14:15:22Z",
-  "Resolved": true,
-  "Type": {
     "Id": "string",
     "Name": "string",
     "Description": "string",
-    "SdsTypeCode": "Empty",
-    "IsGenericType": true,
-    "IsReferenceType": true,
-    "GenericArguments": [
-      {
-        "Id": "string",
-        "Name": "string",
-        "Description": "string",
-        "SdsTypeCode": 0,
-        "IsGenericType": true,
-        "IsReferenceType": true,
-        "GenericArguments": "[<SdsType>]",
-        "Properties": [
-          {
-            "Id": "string",
-            "Name": "string",
-            "Description": "string",
-            "Order": 0,
-            "IsKey": true,
-            "FixedSize": 0,
-            "SdsType": "<SdsType>",
-            "Value": null,
-            "Uom": "string",
-            "InterpolationMode": 0,
-            "IsQuality": true
-          }
-        ],
-        "BaseType": "<SdsType>",
-        "DerivedTypes": "[<SdsType>]",
-        "InterpolationMode": 0,
-        "ExtrapolationMode": 0,
-        "CreatedDate": "2019-08-24T14:15:22Z",
-        "ModifiedDate": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "Properties": [
-      {
-        "Id": "string",
-        "Name": "string",
-        "Description": "string",
-        "Order": 0,
-        "IsKey": true,
-        "FixedSize": 0,
-        "SdsType": "<SdsResolvedType>",
-        "Value": null,
-        "Uom": "string",
-        "InterpolationMode": "Default",
-        "IsQuality": true
-      }
-    ],
-    "BaseType": {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "SdsTypeCode": 0,
-      "IsGenericType": true,
-      "IsReferenceType": true,
-      "GenericArguments": "[<SdsType>]",
-      "Properties": [
+    "Indexes": [
         {
-          "Id": "string",
-          "Name": "string",
-          "Description": "string",
-          "Order": 0,
-          "IsKey": true,
-          "FixedSize": 0,
-          "SdsType": "<SdsType>",
-          "Value": null,
-          "Uom": "string",
-          "InterpolationMode": 0,
-          "IsQuality": true
+        "SdsTypePropertyId": "string"
         }
-      ],
-      "BaseType": "<SdsType>",
-      "DerivedTypes": "[<SdsType>]",
-      "InterpolationMode": 0,
-      "ExtrapolationMode": 0,
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z"
-    },
-    "DerivedTypes": [
-      {
+    ],
+    "CreatedDate": "2019-08-24T14:15:22Z",
+    "ModifiedDate": "2019-08-24T14:15:22Z",
+    "Resolved": true,
+    "Type": {
         "Id": "string",
         "Name": "string",
         "Description": "string",
-        "SdsTypeCode": 0,
+        "SdsTypeCode": "Empty",
         "IsGenericType": true,
         "IsReferenceType": true,
-        "GenericArguments": "[<SdsType>]",
+        "GenericArguments": [
+        {
+            "Id": "string",
+            "Name": "string",
+            "Description": "string",
+            "SdsTypeCode": 0,
+            "IsGenericType": true,
+            "IsReferenceType": true,
+            "GenericArguments": "[<SdsType>]",
+            "Properties": [
+            {
+                "Id": "string",
+                "Name": "string",
+                "Description": "string",
+                "Order": 0,
+                "IsKey": true,
+                "FixedSize": 0,
+                "SdsType": "<SdsType>",
+                "Value": null,
+                "Uom": "string",
+                "InterpolationMode": 0,
+                "IsQuality": true
+            }
+            ],
+            "InterpolationMode": 0,
+            "ExtrapolationMode": 0,
+            "CreatedDate": "2019-08-24T14:15:22Z",
+            "ModifiedDate": "2019-08-24T14:15:22Z"
+        }
+        ],
         "Properties": [
-          {
+        {
             "Id": "string",
             "Name": "string",
             "Description": "string",
             "Order": 0,
             "IsKey": true,
             "FixedSize": 0,
-            "SdsType": "<SdsType>",
+            "SdsType": "<SdsResolvedType>",
             "Value": null,
             "Uom": "string",
-            "InterpolationMode": 0,
+            "InterpolationMode": "Default",
             "IsQuality": true
-          }
+        }
         ],
-        "BaseType": "<SdsType>",
-        "DerivedTypes": "[<SdsType>]",
-        "InterpolationMode": 0,
-        "ExtrapolationMode": 0,
+        "InterpolationMode": "Default",
+        "ExtrapolationMode": "All",
         "CreatedDate": "2019-08-24T14:15:22Z",
         "ModifiedDate": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "InterpolationMode": "Default",
-    "ExtrapolationMode": "All",
-    "CreatedDate": "2019-08-24T14:15:22Z",
-    "ModifiedDate": "2019-08-24T14:15:22Z"
+    }
+}
+```
+> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
   }
 }
 ```
@@ -599,7 +539,7 @@ Returns bulk resolved stream and type representations that are associated with p
 <h3>Request</h3>
 
 ```text 
-POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Resolved
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Resolved
 ```
 
 <h4>Parameters</h4>
@@ -619,95 +559,56 @@ POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Re
 
 <h4>Example response body</h4>
 
-> 207 Response ([SdsResolvedStreamsResponse](#schemasdsresolvedstreamsresponse))
+> 207 Response
 
 ```json
 {
-  "Data": [
-    {
-      "Id": "string",
-      "Name": "string",
-      "Description": "string",
-      "TypeId": "string",
-      "Indexes": [
-        {
-          "SdsTypePropertyId": "string"
-        }
-      ],
-      "InterpolationMode": 0,
-      "ExtrapolationMode": 0,
-      "PropertyOverrides": [
-        {
-          "SdsTypePropertyId": "string",
-          "Uom": "string",
-          "InterpolationMode": 0
-        }
-      ],
-      "CreatedDate": "2019-08-24T14:15:22Z",
-      "ModifiedDate": "2019-08-24T14:15:22Z",
-      "Resolved": true,
-      "Type": {
+    "Data": [
+      {
         "Id": "string",
         "Name": "string",
         "Description": "string",
-        "SdsTypeCode": "Empty",
-        "IsGenericType": true,
-        "IsReferenceType": true,
-        "GenericArguments": [
-          {
-            "Id": "string",
-            "Name": "string",
-            "Description": "string",
-            "SdsTypeCode": 0,
-            "IsGenericType": true,
-            "IsReferenceType": true,
-            "GenericArguments": "[<SdsType>]",
-            "Properties": [
-              {
-                "Id": "string",
-                "Name": "string",
-                "Description": "string",
-                "Order": 0,
-                "IsKey": true,
-                "FixedSize": 0,
-                "SdsType": "<SdsType>",
-                "Value": null,
-                "Uom": "string",
-                "InterpolationMode": "[",
-                "IsQuality": true
-              }
-            ],
-            "BaseType": "<SdsType>",
-            "DerivedTypes": "[<SdsType>]",
-            "InterpolationMode": 0,
-            "ExtrapolationMode": 0,
-            "CreatedDate": "2019-08-24T14:15:22Z",
-            "ModifiedDate": "2019-08-24T14:15:22Z"
-          }
-        ],
-        "Properties": [
-          {
-            "Id": "string",
-            "Name": "string",
-            "Description": "string",
-            "Order": 0,
-            "IsKey": true,
-            "FixedSize": 0,
-            "SdsType": "<SdsResolvedType>",
-            "Value": null,
-            "Uom": "string",
-            "InterpolationMode": "Default",
-            "IsQuality": true
-          }
-        ],
-        "BaseType": {
+        "Indexes": [{ "SdsTypePropertyId": "string" }],
+        "CreatedDate": "2019-08-24T14:15:22Z",
+        "ModifiedDate": "2019-08-24T14:15:22Z",
+        "Resolved": true,
+        "Type": {
           "Id": "string",
           "Name": "string",
           "Description": "string",
-          "SdsTypeCode": 0,
+          "SdsTypeCode": "Empty",
           "IsGenericType": true,
           "IsReferenceType": true,
-          "GenericArguments": "[<SdsType>]",
+          "GenericArguments": [
+            {
+              "Id": "string",
+              "Name": "string",
+              "Description": "string",
+              "SdsTypeCode": 0,
+              "IsGenericType": true,
+              "IsReferenceType": true,
+              "GenericArguments": "[<SdsType>]",
+              "Properties": [
+                {
+                  "Id": "string",
+                  "Name": "string",
+                  "Description": "string",
+                  "Order": 0,
+                  "IsKey": true,
+                  "FixedSize": 0,
+                  "SdsType": "<SdsType>",
+                  "Value": null,
+                  "Uom": "string",
+                  "InterpolationMode": "[",
+                  "IsQuality": true
+                }
+              ],
+              "InterpolationMode": 0,
+              "ExtrapolationMode": 0,
+              "CreatedDate": "2019-08-24T14:15:22Z",
+              "ModifiedDate": "2019-08-24T14:15:22Z"
+            }
+          ],
           "Properties": [
             {
               "Id": "string",
@@ -716,73 +617,44 @@ POST /api/v1-preview/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Re
               "Order": 0,
               "IsKey": true,
               "FixedSize": 0,
-              "SdsType": null,
+              "SdsType": "<SdsResolvedType>",
               "Value": null,
               "Uom": "string",
-              "InterpolationMode": null,
+              "InterpolationMode": "Default",
               "IsQuality": true
             }
           ],
-          "BaseType": "<SdsType>",
-          "DerivedTypes": "[<SdsType>]",
-          "InterpolationMode": 0,
-          "ExtrapolationMode": 0,
+          "InterpolationMode": "Default",
+          "ExtrapolationMode": "All",
           "CreatedDate": "2019-08-24T14:15:22Z",
           "ModifiedDate": "2019-08-24T14:15:22Z"
-        },
-        "DerivedTypes": [
-          {
-            "Id": "string",
-            "Name": "string",
-            "Description": "string",
-            "SdsTypeCode": 0,
-            "IsGenericType": true,
-            "IsReferenceType": true,
-            "GenericArguments": "[<SdsType>]",
-            "Properties": [
-              {
-                "Id": "string",
-                "Name": "string",
-                "Description": "string",
-                "Order": 0,
-                "IsKey": true,
-                "FixedSize": 0,
-                "SdsType": "<SdsType>",
-                "Value": null,
-                "Uom": "string",
-                "InterpolationMode": "[",
-                "IsQuality": true
-              }
-            ],
-            "BaseType": "<SdsType>",
-            "DerivedTypes": "[<SdsType>]",
-            "InterpolationMode": 0,
-            "ExtrapolationMode": 0,
-            "CreatedDate": "2019-08-24T14:15:22Z",
-            "ModifiedDate": "2019-08-24T14:15:22Z"
-          }
-        ],
-        "InterpolationMode": "Default",
-        "ExtrapolationMode": "All",
-        "CreatedDate": "2019-08-24T14:15:22Z",
-        "ModifiedDate": "2019-08-24T14:15:22Z"
+        }
       }
-    }
-  ],
-  "ChildErrors": [
-    {
-      "OperationId": "string",
-      "Error": "string",
-      "Reason": "string",
-      "Resolution": "string",
-      "Parameters": {
-        "property1": "string",
-        "property2": "string"
-      },
-      "StreamId": "string",
-      "StatusCode": 100
-    }
-  ]
+    ],
+    "ChildErrors": [
+      {
+        "OperationId": "string",
+        "Error": "string",
+        "Reason": "string",
+        "Resolution": "string",
+        "Parameters": { "property1": "string", "property2": "string" },
+        "StreamId": "string",
+        "StatusCode": 100
+      }
+    ]
+  }
+```> 400 Response ([ErrorResponseBody](#schemaerrorresponsebody))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Reason": "string",
+  "Resolution": "string",
+  "Parameters": {
+    "property1": "string",
+    "property2": "string"
+  }
 }
 ```
 
