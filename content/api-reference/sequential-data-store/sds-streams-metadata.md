@@ -356,15 +356,17 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Chang
 <a id="tocSerrorresponsebody"></a>
 <a id="tocserrorresponsebody"></a>
 
+The error response contains standard details on the cause and resolution of the error.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|false|true|None|
-|Error|string|false|true|None|
-|Reason|string|false|true|None|
-|Resolution|string|false|true|None|
-|Parameters|object|false|true|None|
+|OperationId|string|false|true|Operation unique identifier of action that caused the error|
+|Error|string|false|true|Error description|
+|Reason|string|false|true|Reason for the error|
+|Resolution|string|false|true|Resolution to resolve the error|
+|Parameters|object|false|true|IDs or values that are creating or are affected by the error|
 
 ```json
 {
