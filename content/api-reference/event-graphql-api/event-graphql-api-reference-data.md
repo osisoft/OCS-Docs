@@ -95,7 +95,7 @@ Upserts one or many referenceData entities of a specified TypeId to the Graph St
 
 ```text 
 POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
-?typeId={typeId}
+?typeId={typeId}&fields={fields}
 ```
 
 <h4>Parameters</h4>
@@ -104,6 +104,8 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string typeId`
 <br/>The referenceData TypeId being added or updated<br/><br/>
+`[optional] string fields`
+<br/>The names of the fields to be returned separated by spaces. You can specify simple GraphQL syntax for relationships (ex: asset{id}}. If not specified, it defaults to all non-collection properties.<br/><br/>
 
 <h4>Request Body</h4>
 
