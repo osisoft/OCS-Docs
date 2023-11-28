@@ -50,14 +50,14 @@ GET /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/events
 [
   {
     "id": "alarm_0001",
-    "eventStartTime": "2023-04-21T05:00:00Z",
+    "startTime": "2023-04-21T05:00:00Z",
     "asset": {
       "id": "AssetId1"
     }
   },
   {
     "id": "alarm_0002",
-    "eventStartTime": "2023-04-21T05:04:00Z",
+    "startTime": "2023-04-21T05:04:00Z",
     "asset": {
       "id": "AssetId1"
     }
@@ -132,7 +132,7 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/events
 [
   {
     "id": "alarm_0001",
-    "eventStartTime": "2023-04-21T05:00:00Z",
+    "startTime": "2023-04-21T05:00:00Z",
     "severityCat": {
       "id": "critical"
     },
@@ -142,7 +142,7 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/events
   },
   {
     "id": "alarm_0002",
-    "eventStartTime": "2023-04-21T05:04:00Z",
+    "startTime": "2023-04-21T05:04:00Z",
     "severityCat": {
       "id": "notice"
     },
@@ -162,7 +162,7 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/events
   "Data": [
     {
       "id": "alarm_0001",
-      "eventStartTime": "2023-04-21T05:00:00Z",
+      "startTime": "2023-04-21T05:00:00Z",
       "severityCat": {
         "id": "critical"
       },
