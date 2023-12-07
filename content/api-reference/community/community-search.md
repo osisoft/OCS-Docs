@@ -6,9 +6,9 @@ uid: community-search
 # Search
 API that returns information about the streams that are shared with communities
 
-## `Search Streams By Community`
+## `List Streams By Community`
 
-<a id="opIdCommunitySearch_Search Streams By Community"></a>
+<a id="opIdCommunitySearch_List Streams By Community"></a>
 
 Searches for streams within a community by query
 
@@ -36,7 +36,7 @@ GET /api/v1-preview/search/communities/{communityId}/streams
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[StreamSearchResult](#schemastreamsearchresult)|Returns the stream information that matches the search criteria. This is a set of objects of type `StreamSearchResult`.|
+|200|[StreamSearchResult](#schemastreamsearchresult)[]|Returns the stream information that matches the search criteria. This is a set of objects of type `StreamSearchResult`.|
 |207|[PartialFailureResult](#schemapartialfailureresult)|Returns the stream information that matches the search criteria. This is a set of objects of type `StreamSearchResult`.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request. The server could not understand the request due to invalid syntax.|
 |401|None|Unauthorized. The client has not been authenticated.|
@@ -47,27 +47,29 @@ GET /api/v1-preview/search/communities/{communityId}/streams
 
 <h4>Example response body</h4>
 
-> 200 Response ([StreamSearchResult](#schemastreamsearchresult))
+> 200 Response ([StreamSearchResult](#schemastreamsearchresult)[])
 
 ```json
-{
-  "Id": "string",
-  "Name": "string",
-  "TypeId": "string",
-  "Description": "string",
-  "Self": "string",
-  "TenantId": "string",
-  "TenantName": "string",
-  "NamespaceId": "string",
-  "CommunityId": "string",
-  "PropertyOverrides": [
-    {
-      "SdsTypePropertyId": "string",
-      "Uom": "string",
-      "InterpolationMode": 0
-    }
-  ]
-}
+[
+  {
+    "Id": "string",
+    "Name": "string",
+    "TypeId": "string",
+    "Description": "string",
+    "Self": "string",
+    "TenantId": "string",
+    "TenantName": "string",
+    "NamespaceId": "string",
+    "CommunityId": "string",
+    "PropertyOverrides": [
+      {
+        "SdsTypePropertyId": "string",
+        "Uom": "string",
+        "InterpolationMode": 0
+      }
+    ]
+  }
+]
 ```
 
 ---
@@ -290,8 +292,8 @@ The StreamSearchResult object. This is the model representation exposed to calle
 
 |Property|Value|
 |---|---|
-|Default|0|
 |Continuous|0|
+|Default|0|
 |StepwiseContinuousLeading|1|
 |StepwiseContinuousTrailing|2|
 |Discrete|3|
