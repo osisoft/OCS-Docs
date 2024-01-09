@@ -61,10 +61,7 @@ clientId:
   type: text/plain
   value: |
     Client identifier.
-streamId:
-  type: text/plain
-  value: |
-    Stream identifier.
+streamId: "Stream identifier."
 # Identity provider focused identifiers
 identityProviderId:
   type: text/plain

@@ -6,10 +6,7 @@ namespace:
   type: text/plain
   value: |
     Namespace identifier.
-stream:
-  type: text/plain
-  value: |
-    Stream identifier.
+stream: "Stream identifier."
 type:
   type: text/plain
   value: |
