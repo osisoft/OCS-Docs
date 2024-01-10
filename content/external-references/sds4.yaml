@@ -1,2 +1,1 @@
-x-descriptions:
-  ifMatch: The entity tag header from a previous read of the Access Control List (ACL). If provided, the ACL will not be patched unless the current ETag of the ACL, on the server, matches the value passed into the If-Match header.  
+ifMatch: The entity tag header from a previous read of the Access Control List (ACL). If provided, the ACL will not be patched unless the current ETag of the ACL, on the server, matches the value passed into the If-Match header.  
