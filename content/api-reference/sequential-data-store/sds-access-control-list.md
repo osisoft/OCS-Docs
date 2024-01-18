@@ -689,6 +689,72 @@ PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Acc
 
 ---
 
+## `Get Stream Access Control List Bulk`
+
+<a id="opIdStreamAccessControl_Get Stream Access Control List Bulk"></a>
+
+Returns the ACL information associated with provided streams. The list of stream identifiers needing ACL information should be supplied as a list of stream IDs in the request body. HTTP 207 is returned regardless of partial or complete success of stream resolution. Any stream where ACL information cannot be fetched will be included in the Errors property of the `BulkResults<T>`.
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/AccessControl
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|207|[BulkResultsOfObjectAcl](#schemabulkresultsofobjectacl)|`BulkResults<T>` was successfully retrieved|
+|400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
+|500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
+|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
+
+<h4>Example response body</h4>
+
+> 207 Response ([BulkResultsOfObjectAcl](#schemabulkresultsofobjectacl))
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "AccessControlList": {
+        "RoleTrusteeAccessControlEntries": [
+          {
+            "Trustee": {
+              "Type": 1,
+              "ObjectId": "string",
+              "TenantId": "string"
+            },
+            "AccessType": 0,
+            "AccessRights": 0
+          }
+        ]
+      }
+    }
+  ],
+  "Errors": [
+    {
+      "Id": "string",
+      "OperationStatus": 0,
+      "Error": {
+        "property1": null,
+        "property2": null
+      }
+    }
+  ]
+}
+```
+
+---
+
 ## `Get Stream Owner`
 
 <a id="opIdStreamAccessControl_Get Stream Owner"></a>
@@ -765,6 +831,64 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Streams/{streamId}/Owner
 |409|[ErrorResponseBody](#schemaerrorresponsebody)|Conflict|
 |500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
 |503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
+
+---
+
+## `Get Stream Owner Bulk`
+
+<a id="opIdStreamAccessControl_Get Stream Owner Bulk"></a>
+
+Returns the owner information associated with provided streams. The list of stream identifiers needing owner information should be supplied as a list of stream IDs in the request body. HTTP 207 is returned regardless of partial or complete success of stream resolution. Any stream where owner information cannot be fetched will be included in the Errors property of the `BulkResults<T>`.
+
+<h3>Request</h3>
+
+```text 
+POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Bulk/Streams/Owner
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|207|[BulkResultsOfObjectOwner](#schemabulkresultsofobjectowner)|`BulkResults<T>` was successfully retrieved|
+|400|[ErrorResponseBody](#schemaerrorresponsebody)|Missing or invalid inputs|
+|500|[ErrorResponseBody](#schemaerrorresponsebody)|An error occurred while processing the request|
+|503|[ErrorResponseBody](#schemaerrorresponsebody)|Service Unavailable|
+
+<h4>Example response body</h4>
+
+> 207 Response ([BulkResultsOfObjectOwner](#schemabulkresultsofobjectowner))
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      }
+    }
+  ],
+  "Errors": [
+    {
+      "Id": "string",
+      "OperationStatus": 0,
+      "Error": {
+        "property1": null,
+        "property2": null
+      }
+    }
+  ]
+}
+```
 
 ---
 
@@ -1525,6 +1649,191 @@ The error response contains standard details on the cause and resolution of the 
 |ManageAccessControl|8|
 |Share|16|
 |All|31|
+
+---
+
+### BulkResultsOfObjectAcl
+
+<a id="schemabulkresultsofobjectacl"></a>
+<a id="schema_BulkResultsOfObjectAcl"></a>
+<a id="tocSbulkresultsofobjectacl"></a>
+<a id="tocsbulkresultsofobjectacl"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Results|[[ObjectAcl](#schemaobjectacl)]|false|true|None|
+|Errors|[[ObjectError](#schemaobjecterror)]|false|true|None|
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "AccessControlList": {
+        "RoleTrusteeAccessControlEntries": [
+          {
+            "Trustee": {
+              "Type": 1,
+              "ObjectId": "string",
+              "TenantId": "string"
+            },
+            "AccessType": 0,
+            "AccessRights": 0
+          }
+        ]
+      }
+    }
+  ],
+  "Errors": [
+    {
+      "Id": "string",
+      "OperationStatus": 0,
+      "Error": {
+        "property1": null,
+        "property2": null
+      }
+    }
+  ]
+}
+
+```
+
+---
+
+### ObjectAcl
+
+<a id="schemaobjectacl"></a>
+<a id="schema_ObjectAcl"></a>
+<a id="tocSobjectacl"></a>
+<a id="tocsobjectacl"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|AccessControlList|[AccessControlList](#schemaaccesscontrollist)|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "AccessControlList": {
+    "RoleTrusteeAccessControlEntries": [
+      {
+        "Trustee": {
+          "Type": 1,
+          "ObjectId": "string",
+          "TenantId": "string"
+        },
+        "AccessType": 0,
+        "AccessRights": 0
+      }
+    ]
+  }
+}
+
+```
+
+---
+
+### ObjectError
+
+<a id="schemaobjecterror"></a>
+<a id="schema_ObjectError"></a>
+<a id="tocSobjecterror"></a>
+<a id="tocsobjecterror"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|OperationStatus|int32|false|false|None|
+|Error|object|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "OperationStatus": 0,
+  "Error": {
+    "property1": null,
+    "property2": null
+  }
+}
+
+```
+
+---
+
+### BulkResultsOfObjectOwner
+
+<a id="schemabulkresultsofobjectowner"></a>
+<a id="schema_BulkResultsOfObjectOwner"></a>
+<a id="tocSbulkresultsofobjectowner"></a>
+<a id="tocsbulkresultsofobjectowner"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Results|[[ObjectOwner](#schemaobjectowner)]|false|true|None|
+|Errors|[[ObjectError](#schemaobjecterror)]|false|true|None|
+
+```json
+{
+  "Results": [
+    {
+      "Id": "string",
+      "Owner": {
+        "Type": 1,
+        "ObjectId": "string",
+        "TenantId": "string"
+      }
+    }
+  ],
+  "Errors": [
+    {
+      "Id": "string",
+      "OperationStatus": 0,
+      "Error": {
+        "property1": null,
+        "property2": null
+      }
+    }
+  ]
+}
+
+```
+
+---
+
+### ObjectOwner
+
+<a id="schemaobjectowner"></a>
+<a id="schema_ObjectOwner"></a>
+<a id="tocSobjectowner"></a>
+<a id="tocsobjectowner"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|None|
+|Owner|[Trustee](#schematrustee)|false|true|None|
+
+```json
+{
+  "Id": "string",
+  "Owner": {
+    "Type": 1,
+    "ObjectId": "string",
+    "TenantId": "string"
+  }
+}
+
+```
 
 ---
 
