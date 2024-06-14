@@ -36,6 +36,7 @@ GET /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/graphql
 |Status Code|Body Type|Description|
 |---|---|---|
 |200|[IGraphQLResponse](#schemaigraphqlresponse)|Received and processed. GraphQL always returns a 200 response unless the request is unprocessable.  <br>            Errors are returned in the **GraphQLResponse** errors collection.  <br>            If the error collection is not empty, then all or part of the operation failed. See the POST method for possible error codes.|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
 
 <h4>Example response body</h4>
 
@@ -64,6 +65,28 @@ GET /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/graphql
       "data": {
         "id": "alarm_0002"
       }
+    }
+  ]
+}
+```
+
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
+
+```json
+{
+  "reason": "string",
+  "error": "string",
+  "resolution": "string",
+  "data": [
+    null
+  ],
+  "childErrors": [
+    {
+      "StatusCode": 100,
+      "Reason": "string",
+      "Error": "string",
+      "Resolution": "string",
+      "Id": "string"
     }
   ]
 }
@@ -110,7 +133,8 @@ A **GraphQLRequest** that represents a query or mutation.<br/>
 
 |Status Code|Body Type|Description|
 |---|---|---|
-|200|[IGraphQLResponse](#schemaigraphqlresponse)|Received and processed. GraphQL always returns a 200 response unless the request is unprocessable.  <br>            Errors are returned in the **GraphQLResponse** errors collection.  <br>            If the error collection is not empty, then all or part of the operation failed.<br>             <br>            The following lists possible error codes for **ANY** operations...<br>              - SYSTEM_ERROR (same as Http 500)<br>              - GRAPHSTORE_SYSTEM_ERROR (same as Http 500)<br>              - SERVICE_UNAVAILABLE (same as Http 503)<br>              - VALIDATION_ERROR (same as Http 400) - see the error message for more details<br>              - COMPLEXITY (same as Http 400) - see the error message for more details<br>            <br>            The following lists possible error codes for **QUERY** operations...<br>              - SYNTAX_ERROR (same as Http 400) - there may be other GraphQL specific codes for these, but all are syntax errors<br>              - VALIDATION_WARNING (same as Http 200, but all data may not have been returned) - see the error message for more details<br>            <br>            The following lists possible error codes for **UPSERT** operations...        <br>              - OPTIMISTIC_CONCURRENCY_ERROR  (same as Http 412)<br>              - FORBIDDEN_ERROR  (same as Http 403)<br>              - TOPLEVEL_NODE_LIMIT_EXCEEDED (same as Http 400)<br>              - TOTAL_NODE_LIMIT_EXCEEDED (same as Http 207) - some data may not have been written<br>            <br>            The following lists possible error codes for **DELETE** operations...<br>              - NOT_FOUND_ERROR (same as Http 404)<br>              - CONFLICT_ERROR (same as Http 409)<br>              - TOPLEVEL_NODE_LIMIT_EXCEEDED (same as Http 400)|
+|200|[IGraphQLResponse](#schemaigraphqlresponse)|Received and processed. GraphQL always returns a 200 response unless the request is unprocessable.  <br>            Errors are returned in the **GraphQLResponse** errors collection.  <br>            If the error collection is not empty, then all or part of the operation failed.<br>             <br>            The following lists possible error codes for **ANY** operations...<br>              - SYSTEM_ERROR (same as Http 500)<br>              - GRAPHSTORE_SYSTEM_ERROR (same as Http 500)<br>              - OPERATION_CANCELED (same as Http 502)<br>              - SERVICE_UNAVAILABLE_ERROR (same as Http 503)<br>              - VALIDATION_ERROR (same as Http 400) - see the error message for more details<br>              - COMPLEXITY (same as Http 400) - see the error message for more details<br>            <br>            The following lists possible error codes for **QUERY** operations...<br>              - SYNTAX_ERROR (same as Http 400) - there may be other GraphQL specific codes for these, but all are syntax errors<br>              - VALIDATION_WARNING (same as Http 200, but all data may not have been returned) - see the error message for more details<br>            <br>            The following lists possible error codes for **UPSERT** operations...        <br>              - OPTIMISTIC_CONCURRENCY_ERROR  (same as Http 412)<br>              - FORBIDDEN_ERROR  (same as Http 403)<br>              - TOPLEVEL_NODE_LIMIT_EXCEEDED (same as Http 400)<br>              - TOTAL_NODE_LIMIT_EXCEEDED (same as Http 429) - this can often be retried if you reduce the total nodes<br>              - REQUEST_TIME_EXCEEDED (same as Http 429) - this can often be retried if you reduce the total nodes<br>            <br>            The following lists possible error codes for **DELETE** operations...<br>              - NOT_FOUND_ERROR (same as Http 404)<br>              - CONFLICT_ERROR (same as Http 409)<br>              - TOPLEVEL_NODE_LIMIT_EXCEEDED (same as Http 400)|
+|400|[ErrorResponse](#schemaerrorresponse)|None|
 |413|Inline|Payload Too Large. The max request body size is 3276800 bytes.|
 
 <h4>Example response body</h4>
@@ -139,6 +163,28 @@ A **GraphQLRequest** that represents a query or mutation.<br/>
   "extensions": {
     "continuation": "eyJJZCI6IjdhZGNkMzEwYzIxYjQ4MmM4MGRiZjQ4OTE3ZWZiM2FlIiwiVHlwZUlkIjoiQWxhcm1FdmVudFR5cGUifQ%3d%3d"
   }
+}
+```
+
+> 400 Response ([ErrorResponse](#schemaerrorresponse))
+
+```json
+{
+  "reason": "string",
+  "error": "string",
+  "resolution": "string",
+  "data": [
+    null
+  ],
+  "childErrors": [
+    {
+      "StatusCode": 100,
+      "Reason": "string",
+      "Error": "string",
+      "Resolution": "string",
+      "Id": "string"
+    }
+  ]
 }
 ```
 
@@ -299,6 +345,160 @@ A **GraphQLRequest** that represents a query or mutation.<br/>
 {}
 
 ```
+
+---
+
+### ErrorResponse
+
+<a id="schemaerrorresponse"></a>
+<a id="schema_ErrorResponse"></a>
+<a id="tocSerrorresponse"></a>
+<a id="tocserrorresponse"></a>
+
+event response
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|reason|string|false|true|reason|
+|error|string|false|true|error|
+|resolution|string|false|true|resolution|
+|data|[any]|false|true|data|
+|childErrors|[[EventError](#schemaeventerror)]|false|true|Child Errors|
+
+```json
+{
+  "reason": "string",
+  "error": "string",
+  "resolution": "string",
+  "data": [
+    null
+  ],
+  "childErrors": [
+    {
+      "StatusCode": 100,
+      "Reason": "string",
+      "Error": "string",
+      "Resolution": "string",
+      "Id": "string"
+    }
+  ]
+}
+
+```
+
+---
+
+### EventError
+
+<a id="schemaeventerror"></a>
+<a id="schema_EventError"></a>
+<a id="tocSeventerror"></a>
+<a id="tocseventerror"></a>
+
+Event child error
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|StatusCode|[HttpStatusCode](#schemahttpstatuscode)|false|false|status code|
+|Reason|string|false|true|reason|
+|Error|string|false|true|error|
+|Resolution|string|false|true|resolution|
+|Id|string|false|true|top level id|
+
+```json
+{
+  "StatusCode": 100,
+  "Reason": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Id": "string"
+}
+
+```
+
+---
+
+### HttpStatusCode
+
+<a id="schemahttpstatuscode"></a>
+<a id="schema_HttpStatusCode"></a>
+<a id="tocShttpstatuscode"></a>
+<a id="tocshttpstatuscode"></a>
+
+<h4>Enumerated Values</h4>
+
+|Property|Value|
+|---|---|
+|Continue|100|
+|SwitchingProtocols|101|
+|Processing|102|
+|EarlyHints|103|
+|OK|200|
+|Created|201|
+|Accepted|202|
+|NonAuthoritativeInformation|203|
+|NoContent|204|
+|ResetContent|205|
+|PartialContent|206|
+|MultiStatus|207|
+|AlreadyReported|208|
+|IMUsed|226|
+|MultipleChoices|300|
+|Ambiguous|300|
+|MovedPermanently|301|
+|Moved|301|
+|Found|302|
+|Redirect|302|
+|SeeOther|303|
+|RedirectMethod|303|
+|NotModified|304|
+|UseProxy|305|
+|Unused|306|
+|TemporaryRedirect|307|
+|RedirectKeepVerb|307|
+|PermanentRedirect|308|
+|BadRequest|400|
+|Unauthorized|401|
+|PaymentRequired|402|
+|Forbidden|403|
+|NotFound|404|
+|MethodNotAllowed|405|
+|NotAcceptable|406|
+|ProxyAuthenticationRequired|407|
+|RequestTimeout|408|
+|Conflict|409|
+|Gone|410|
+|LengthRequired|411|
+|PreconditionFailed|412|
+|RequestEntityTooLarge|413|
+|RequestUriTooLong|414|
+|UnsupportedMediaType|415|
+|RequestedRangeNotSatisfiable|416|
+|ExpectationFailed|417|
+|MisdirectedRequest|421|
+|UnprocessableEntity|422|
+|Locked|423|
+|FailedDependency|424|
+|UpgradeRequired|426|
+|PreconditionRequired|428|
+|TooManyRequests|429|
+|RequestHeaderFieldsTooLarge|431|
+|UnavailableForLegalReasons|451|
+|InternalServerError|500|
+|NotImplemented|501|
+|BadGateway|502|
+|ServiceUnavailable|503|
+|GatewayTimeout|504|
+|HttpVersionNotSupported|505|
+|VariantAlsoNegotiates|506|
+|InsufficientStorage|507|
+|LoopDetected|508|
+|NotExtended|510|
+|NetworkAuthenticationRequired|511|
 
 ---
 

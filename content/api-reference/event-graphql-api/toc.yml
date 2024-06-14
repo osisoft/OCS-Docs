@@ -1,3 +1,5 @@
+- name: Event graphql
+  href: event-graphql.md
 - name: Events
   href: event-graphql-api-events.md
 - name: Graph ql

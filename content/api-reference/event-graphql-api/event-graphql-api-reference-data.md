@@ -30,7 +30,7 @@ GET /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
 <br/>The names of the fields to be returned separated by spaces. You can specify simple GraphQL syntax for relationships (ex: asset{id}}. If not specified, it defaults to all non-collection properties.<br/><br/>`[optional] string filter`
 <br/>The filter to apply to the query.<br/><br/>`[optional] string orderBy`
 <br/>The order by directive specifies the field name and either ascending (asc) or descending (desc). The default is asc.<br/><br/>`[optional] integer count`
-<br/>The number of entities to return.<br/><br/>`[optional] string continuationToken`
+<br/>The number of entities to return. The default is 100 and the max is 2000.<br/><br/>`[optional] string continuationToken`
 <br/>Specifies you want a page of data with count entities. You must pass an empty token to get the 1st page. The response is different when using paging.<br/><br/>
 
 <h3>Response</h3>
@@ -95,7 +95,7 @@ Upserts one or many referenceData entities of a specified TypeId to the Graph St
 
 ```text 
 POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
-?typeId={typeId}
+?typeId={typeId}&fields={fields}
 ```
 
 <h4>Parameters</h4>
@@ -104,6 +104,8 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string typeId`
 <br/>The referenceData TypeId being added or updated<br/><br/>
+`[optional] string fields`
+<br/>The names of the fields to be returned separated by spaces. You can specify simple GraphQL syntax for relationships (ex: asset{id}}. If not specified, it defaults to all non-collection properties.<br/><br/>
 
 <h4>Request Body</h4>
 
@@ -115,6 +117,7 @@ POST /api/v1.0-preview/tenants/{tenantId}/namespaces/{namespaceId}/referencedata
 |207|[ErrorResponse](#schemaerrorresponse)|MultiStatus Result. Data is returned along with errors. The child errors should have the failed top-level Id and an HttpStatus code.|
 |400|[ErrorResponse](#schemaerrorresponse)|Bad Request. All entities failed to upsert. The child errors should have the failed top-level Id and an HttpStatus code.|
 |413|Inline|Payload Too Large. The max request body size is 3276800 bytes.|
+|429|[ErrorResponse](#schemaerrorresponse)|Too many requests. The request count or request time exceeded a limit. This type of error can often be retried if you reduce the number of nodes.|
 |503|[ErrorResponse](#schemaerrorresponse)|Service Unavailable. The service may be loading a new schema. Wait a few seconds and retry.|
 
 <h4>Example response body</h4>
