@@ -12,13 +12,14 @@ APIs related to querying log data
 
 Returns logs for a tenant. The source parameter can be repeated multiple times. Valid sources are Account Management and Identity Management. Omit the source parameter to retrieve all sources. The severity parameter can be repeated multiple times. Valid severities are: - Critical - Error - Warning - Information - Verbose Omit the severity parameter to retrieve all severities.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/tenants/{tenantId}/logs
 ?start={start}&end={end}&source={source}&severity={severity}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>
@@ -30,17 +31,7 @@ GET /api/v1/tenants/{tenantId}/logs
 <br/>Number of logs to skip<br/><br/>`[optional] integer count`
 <br/>Maximum number of logs to return<br/><br/>
 
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|severity|0|
-|severity|1|
-|severity|2|
-|severity|3|
-|severity|4|
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -56,15 +47,16 @@ GET /api/v1/tenants/{tenantId}/logs
 
 <a id="opIdLog_Get Namespace Logs"></a>
 
-Returns logs for a namespace. The source parameter can be repeated multiple times. Valid sources are: - Data ingress - Data storage - Data views - Metadata - PI to Data Hub Omit the source parameter to retrieve all sources. The severity parameter can be repeated multiple times. Valid severities are: - Critical - Error - Warning - Information - Verbose Omit the severity parameter to retrieve all severities.
+Returns logs for a namespace. The source parameter can be repeated multiple times. Valid sources are: - Data ingress - Data storage - Data views - Metadata - PI to OCS Omit the source parameter to retrieve all sources. The severity parameter can be repeated multiple times. Valid severities are: - Critical - Error - Warning - Information - Verbose Omit the severity parameter to retrieve all severities.
 
-### Request
+<h3>Request</h3>
+
 ```text 
 GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs
 ?start={start}&end={end}&source={source}&severity={severity}&skip={skip}&count={count}
 ```
 
-#### Parameters
+<h4>Parameters</h4>
 
 `string tenantId`
 <br/>Tenant identifier<br/><br/>`string namespaceId`
@@ -77,17 +69,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs
 <br/>Number of logs to skip<br/><br/>`[optional] integer count`
 <br/>Maximum number of logs to return<br/><br/>
 
-#### Enumerated Values
-
-|Parameter|Value|
-|---|---|
-|severity|0|
-|severity|1|
-|severity|2|
-|severity|3|
-|severity|4|
-
-### Response
+<h3>Response</h3>
 
 |Status Code|Body Type|Description|
 |---|---|---|
@@ -109,7 +91,7 @@ GET /api/v1/tenants/{tenantId}/namespaces/{namespaceId}/logs
 
 Object describing the Severity Level of customer logs.
 
-#### Enumerated Values
+<h4>Enumerated Values</h4>
 
 |Property|Value|
 |---|---|
