@@ -4,6 +4,7 @@ uid: softwaremgmt-edge-system
 ---
 
 # Edge System
+APIs for managing edge systems
 
 ## `List Edge Systems`
 
@@ -24,7 +25,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>
 `[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first Edge System to retrieve. If unspecified, a default value of 0 is used. Value must be greater than 0.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the zero-based offset of the first Edge System to retrieve. If unspecified, a default value of 0 is used. Value must be greater than or equal to 0.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used. Value cannot be less than 1 or greater than 1000.<br/><br/>`[optional] string orderBy`
 <br/>Query parameter to specify sort order. Valid sort order properties are EdgeSystemId, DeviceName, Name, Type, Tags, Status, StatusDescription, LastContactedTime, and SoftwareVersion. If unspecified, a default value of 'name asc' is used.<br/><br/>`[optional] string query`
 <br/>Query parameter to specify filter. Valid filter properties are EdgeSystemId, DeviceName, Name, Type, Tags, Status, StatusDescription, LastContactedTime, and SoftwareVersion.<br/><br/>
@@ -67,6 +68,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
     "Components": [
       {
         "Id": "string",
+        "Name": "string",
         "ComponentType": "string",
         "DeviceStatusStreamId": "string",
         "NextHealthMessageExpectedStreamId": "string",
@@ -181,6 +183,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
   "Components": [
     {
       "Id": "string",
+      "Name": "string",
       "ComponentType": "string",
       "DeviceStatusStreamId": "string",
       "NextHealthMessageExpectedStreamId": "string",
@@ -234,7 +237,6 @@ object to reactivate.<br/>
 {
   "Id": "string",
   "DeviceName": "string",
-  "Name": "string",
   "Type": "string",
   "SoftwareVersion": "string",
   "CreatedDate": "2019-08-24T14:15:22Z",
@@ -248,6 +250,7 @@ object to reactivate.<br/>
   "Components": [
     {
       "Id": "string",
+      "Name": "string",
       "ComponentType": "string",
       "DeviceStatusStreamId": "string",
       "NextHealthMessageExpectedStreamId": "string",
@@ -375,7 +378,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier used as blob name in the storage account.<br/><br/>
+<br/>Edge System identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -393,7 +396,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
 
 <a id="opIdEdgeSystem_Create Configuration"></a>
 
-Creates an Edge System Configuration in the storage account. Does not save any secrets supplied as part of the edge system configuration.
+Creates an Edge System Configuration. Does not save any secrets supplied as part of the edge system configuration.
 
 <h3>Request</h3>
 
@@ -406,7 +409,7 @@ POST /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syst
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier used as blob name in the storage account.<br/><br/>
+<br/>Edge System identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -437,7 +440,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Syste
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier used as blob name in the storage account.<br/><br/>
+<br/>Edge System identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -467,7 +470,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string edgeSystemId`
-<br/>Edge System identifier used as blob name in the storage account.<br/><br/>
+<br/>Edge System identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -489,15 +492,17 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
+Object returned whenever there is an error.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|None|
-|Error|string|true|false|None|
-|Reason|string|true|false|None|
-|Resolution|string|true|false|None|
-|DynamicProperties|object|false|true|None|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|DynamicProperties|object|false|true|Gets additional properties.|
 
 ```json
 {
@@ -524,6 +529,8 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 <a id="tocSedgesystem"></a>
 <a id="tocsedgesystem"></a>
 
+Edge system response model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
@@ -543,7 +550,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 |SystemDiagnosticsStreamId|string|false|true|System diagnostics stream identifier for this edge system.|
 |Components|[[Component](#schemacomponent)]|false|true|List of components for this edge system.|
 |Tags|string[]|false|true|List of tags for this edge system.|
-|IsVisible|boolean|false|false|Identifier iindicated if the system should be visible to the user/client.|
+|IsVisible|boolean|false|false|Whether the system should be visible to the user/client.|
 
 ```json
 {
@@ -563,6 +570,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
   "Components": [
     {
       "Id": "string",
+      "Name": "string",
       "ComponentType": "string",
       "DeviceStatusStreamId": "string",
       "NextHealthMessageExpectedStreamId": "string",
@@ -599,11 +607,11 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 
 <h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|User|1|
-|Client|2|
-|Role|3|
+|Property|Value|Description|
+|---|---|---|
+|User|1|undefined|
+|Client|2|undefined|
+|Role|3|undefined|
 
 ---
 
@@ -614,15 +622,17 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 <a id="tocSstatuscategory"></a>
 <a id="tocsstatuscategory"></a>
 
+Status category enumeration
+
 <h4>Enumerated Values</h4>
 
-|Property|Value|
-|---|---|
-|Bad|1|
-|Warning|2|
-|Discovered|3|
-|Good|4|
-|Stopped|5|
+|Property|Value|Description|
+|---|---|---|
+|Bad|1|Status category enumeration|
+|Warning|2|Status category enumeration|
+|Discovered|3|Status category enumeration|
+|Good|4|Status category enumeration|
+|Stopped|5|Status category enumeration|
 
 ---
 
@@ -633,11 +643,14 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 <a id="tocScomponent"></a>
 <a id="tocscomponent"></a>
 
+Component response model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
 |Id|string|false|true|Component unique identifier.|
+|Name|string|false|true|Component unique identifier.|
 |ComponentType|string|false|true|Type name for this component.|
 |DeviceStatusStreamId|string|false|true|Stream identifier used to retrieve the component's status.|
 |NextHealthMessageExpectedStreamId|string|false|true|Stream identifier used to retrieve the next health message expected time.|
@@ -649,6 +662,7 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 ```json
 {
   "Id": "string",
+  "Name": "string",
   "ComponentType": "string",
   "DeviceStatusStreamId": "string",
   "NextHealthMessageExpectedStreamId": "string",
@@ -676,6 +690,158 @@ DELETE /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Sy
 <a id="schema_DiagnosticsStream"></a>
 <a id="tocSdiagnosticsstream"></a>
 <a id="tocsdiagnosticsstream"></a>
+
+Diagnostics stream response model
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|Unique identifier for this diagnostics stream.|
+|NamespaceId|string|false|true|Namespace identifier for this diagnostics stream.|
+|TypeId|string|false|true|Type name for this diagnostics stream.|
+
+```json
+{
+  "Id": "string",
+  "NamespaceId": "string",
+  "TypeId": "string"
+}
+
+```
+
+---
+
+### EdgeSystem2
+
+<a id="schemaedgesystem2"></a>
+<a id="schema_EdgeSystem2"></a>
+<a id="tocSedgesystem2"></a>
+<a id="tocsedgesystem2"></a>
+
+Edge system request model
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|Edge system unique identifier.|
+|DeviceName|string|false|true|Device name for this edge system.|
+|Type|string|false|true|Type name for this edge system.|
+|SoftwareVersion|string|false|true|Version for this edge system.|
+|CreatedDate|date-time|false|false|Time at which the edge system was created.|
+|LastContactedTime|date-time|false|false|Time at which the edge system was last contacted.|
+|ModifiedDate|date-time|false|true|Time at which the edge system was last modified.|
+|ModifiedBy|string|false|true|Identifier for who modified the edge system most recently.|
+|ModifiedByType|[TrusteeType](#schematrusteetype)|false|true|Type identifier for who modified the edge system most recently.|
+|Status|[StatusCategory](#schemastatuscategory)|false|false|Value of the component's status for the component with the highest priority status.|
+|StatusDescription|string|false|true|Value of the component's status description for the component with the highest priority status description.|
+|SystemDiagnosticsStreamId|string|false|true|System diagnostics stream identifier for this edge system.|
+|Components|[[Component2](#schemacomponent2)]|false|true|List of components for this edge system.|
+|Tags|string[]|false|true|List of tags for this edge system.|
+|IsVisible|boolean|false|false|Whether the system should be visible to the user/client.|
+
+```json
+{
+  "Id": "string",
+  "DeviceName": "string",
+  "Type": "string",
+  "SoftwareVersion": "string",
+  "CreatedDate": "2019-08-24T14:15:22Z",
+  "LastContactedTime": "2019-08-24T14:15:22Z",
+  "ModifiedDate": "2019-08-24T14:15:22Z",
+  "ModifiedBy": "string",
+  "ModifiedByType": 1,
+  "Status": 1,
+  "StatusDescription": "string",
+  "SystemDiagnosticsStreamId": "string",
+  "Components": [
+    {
+      "Id": "string",
+      "Name": "string",
+      "ComponentType": "string",
+      "DeviceStatusStreamId": "string",
+      "NextHealthMessageExpectedStreamId": "string",
+      "DiagnosticsStreams": [
+        {
+          "Id": "string",
+          "NamespaceId": "string",
+          "TypeId": "string"
+        }
+      ],
+      "Status": 1,
+      "StatusDescription": "string",
+      "Errors": [
+        "string"
+      ]
+    }
+  ],
+  "Tags": [
+    "string"
+  ],
+  "IsVisible": true
+}
+
+```
+
+---
+
+### Component2
+
+<a id="schemacomponent2"></a>
+<a id="schema_Component2"></a>
+<a id="tocScomponent2"></a>
+<a id="tocscomponent2"></a>
+
+Edge system component request model
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Id|string|false|true|Component unique identifier.|
+|Name|string|false|true|Component data source or the type itself|
+|ComponentType|string|false|true|Type name for this component.|
+|DeviceStatusStreamId|string|false|true|Stream identifier used to retrieve the component's status.|
+|NextHealthMessageExpectedStreamId|string|false|true|Stream identifier used to retrieve the next health message expected time.|
+|DiagnosticsStreams|[[DiagnosticsStream2](#schemadiagnosticsstream2)]|false|true|List of diagnostics streams.|
+|Status|[StatusCategory](#schemastatuscategory)|false|false|Last known status for this component.|
+|StatusDescription|string|false|true|Last known status description for this component.|
+|Errors|string[]|false|true|List of errors for this component.|
+
+```json
+{
+  "Id": "string",
+  "Name": "string",
+  "ComponentType": "string",
+  "DeviceStatusStreamId": "string",
+  "NextHealthMessageExpectedStreamId": "string",
+  "DiagnosticsStreams": [
+    {
+      "Id": "string",
+      "NamespaceId": "string",
+      "TypeId": "string"
+    }
+  ],
+  "Status": 1,
+  "StatusDescription": "string",
+  "Errors": [
+    "string"
+  ]
+}
+
+```
+
+---
+
+### DiagnosticsStream2
+
+<a id="schemadiagnosticsstream2"></a>
+<a id="schema_DiagnosticsStream2"></a>
+<a id="tocSdiagnosticsstream2"></a>
+<a id="tocsdiagnosticsstream2"></a>
+
+Diagnostics stream request model
 
 <h4>Properties</h4>
 

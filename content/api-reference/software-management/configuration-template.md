@@ -4,6 +4,7 @@ uid: ""
 ---
 
 # Configuration Template
+APIs for configuration template management
 
 ## `List Templates`
 
@@ -24,7 +25,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>
 `[optional] integer skip`
-<br/>Parameter representing the zero-based offset of the first template to retrieve. If unspecified, a default value of 0 is used. Value must be greater than 0.<br/><br/>`[optional] integer count`
+<br/>Parameter representing the zero-based offset of the first template to retrieve. If unspecified, a default value of 0 is used. Value must be greater than or equal to 0.<br/><br/>`[optional] integer count`
 <br/>Parameter representing the maximum number of objects to retrieve. If unspecified, a default value of 100 is used. Value cannot be less than 1 or greater than 1000.<br/><br/>`[optional] string orderBy`
 <br/>Query parameter to specify sort order. Valid sort order properties are Name, Type, Version, Description. If unspecified, a default value of 'name asc' is used.<br/><br/>`[optional] string query`
 <br/>Query parameter to specify filter. Valid filter properties are Name, Type, Version, Description.<br/><br/>
@@ -127,7 +128,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string templateId`
-<br/>Configuration template identifier used as blob name in the storage account.<br/><br/>
+<br/>Configuration template identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -232,7 +233,7 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string templateId`
-<br/>Configuration template identifier used as blob name in the storage account.<br/><br/>
+<br/>Configuration template identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -263,7 +264,7 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 `string tenantId`
 <br/>Tenant identifier.<br/><br/>`string namespaceId`
 <br/>Namespace identifier.<br/><br/>`string templateId`
-<br/>Template identifier used as blob name in the storage account.<br/><br/>
+<br/>Template identifier.<br/><br/>
 
 <h3>Response</h3>
 
@@ -284,19 +285,21 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 <a id="tocSconfigurationtemplate"></a>
 <a id="tocsconfigurationtemplate"></a>
 
+Configuration template response model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Id|string|false|true|None|
-|Name|string|false|true|None|
-|Type|string|false|true|None|
-|Version|string|false|true|None|
-|Description|string|false|true|None|
-|CreatedDate|date-time|false|false|None|
-|CreatedBy|string|false|true|None|
-|ModifiedDate|date-time|false|true|None|
-|ModifiedBy|string|false|true|None|
+|Id|string|false|true|Gets or sets ID|
+|Name|string|false|true|Gets or sets name|
+|Type|string|false|true|Gets or sets type|
+|Version|string|false|true|Gets or sets version|
+|Description|string|false|true|Gets or sets description|
+|CreatedDate|date-time|false|false|Gets or sets created date|
+|CreatedBy|string|false|true|Gets or sets created by|
+|ModifiedDate|date-time|false|true|Gets or sets modified date|
+|ModifiedBy|string|false|true|Gets or sets modified by|
 
 ```json
 {
@@ -322,15 +325,17 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
+Object returned whenever there is an error.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|None|
-|Error|string|true|false|None|
-|Reason|string|true|false|None|
-|Resolution|string|true|false|None|
-|DynamicProperties|object|false|true|None|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|DynamicProperties|object|false|true|Gets additional properties.|
 
 ```json
 {
@@ -357,15 +362,17 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 <a id="tocScreatetemplate"></a>
 <a id="tocscreatetemplate"></a>
 
+Create template request model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|true|false|None|
-|Type|string|true|false|None|
-|Version|string|true|false|None|
-|Description|string|false|true|None|
-|Configuration|string|false|true|None|
+|Name|string|true|false|Gets or sets template name|
+|Type|string|true|false|Gets or sets template type|
+|Version|string|true|false|Gets or sets template version|
+|Description|string|false|true|Gets or sets template description|
+|Configuration|string|false|true|Gets or sets template configuration|
 
 ```json
 {
@@ -387,14 +394,16 @@ PUT /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Templ
 <a id="tocSupdatetemplate"></a>
 <a id="tocsupdatetemplate"></a>
 
+Update template request model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|None|
-|Type|string|false|true|None|
-|Version|string|false|true|None|
-|Description|string|false|true|None|
+|Name|string|false|true|Gets or sets the name|
+|Type|string|false|true|Gets or sets the type|
+|Version|string|false|true|Gets or sets the version|
+|Description|string|false|true|Gets or sets the description|
 
 ```json
 {

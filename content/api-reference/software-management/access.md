@@ -4,6 +4,7 @@ uid: ""
 ---
 
 # Access
+APIs for ACL management functionality
 
 ## `Get Collection Acl`
 
@@ -159,7 +160,7 @@ The ACL object.<br/>
 
 <a id="opIdAccess_List Access Rights"></a>
 
-Returns a list of the `CommonAccessRights` the requesting `Identity` has on the assetrules collection.
+Returns a list of the `CommonAccessRights` the requesting `Identity` has on the softwaremanagement collection.
 
 <h3>Request</h3>
 
@@ -343,15 +344,17 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/accessrights/softwareman
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
+Object returned whenever there is an error.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|None|
-|Error|string|true|false|None|
-|Reason|string|true|false|None|
-|Resolution|string|true|false|None|
-|DynamicProperties|object|false|true|None|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|DynamicProperties|object|false|true|Gets additional properties.|
 
 ```json
 {

@@ -4,6 +4,7 @@ uid: ""
 ---
 
 # Edge System Type
+APIs for managing edge system types and versions
 
 ## `List Types`
 
@@ -270,15 +271,17 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types
 <a id="tocSerrorresponse"></a>
 <a id="tocserrorresponse"></a>
 
+Object returned whenever there is an error.
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|OperationId|string|true|false|None|
-|Error|string|true|false|None|
-|Reason|string|true|false|None|
-|Resolution|string|true|false|None|
-|DynamicProperties|object|false|true|None|
+|OperationId|string|true|false|Gets or sets operationId of action that caused the Error.|
+|Error|string|true|false|Gets or sets error description.|
+|Reason|string|true|false|Gets or sets reason for the Error.|
+|Resolution|string|true|false|Gets or sets what can be done to resolve the Error.|
+|DynamicProperties|object|false|true|Gets additional properties.|
 
 ```json
 {
@@ -305,12 +308,14 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types
 <a id="tocSdynamicproperty"></a>
 <a id="tocsdynamicproperty"></a>
 
+Dynamic property response model
+
 <h4>Properties</h4>
 
 |Property Name|Data Type|Required|Nullable|Description|
 |---|---|---|---|---|
-|Name|string|false|true|None|
-|Type|[DynamicPropertyType](#schemadynamicpropertytype)|false|false|None|
+|Name|string|false|true|Gets or sets name|
+|Type|[DynamicPropertyType](#schemadynamicpropertytype)|false|false|Gets or sets DynamicPropertyType type|
 
 ```json
 {
@@ -328,6 +333,8 @@ GET /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/SoftwareManagement/Types
 <a id="schema_DynamicPropertyType"></a>
 <a id="tocSdynamicpropertytype"></a>
 <a id="tocsdynamicpropertytype"></a>
+
+Dynamic property type enum
 
 <h4>Enumerated Values</h4>
 
