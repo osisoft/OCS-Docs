@@ -665,6 +665,107 @@ Asset to create or update.<br/>
 
 ---
 
+## `Patch Asset`
+
+<a id="opIdAssets_Patch Asset"></a>
+
+Performs a JSON Patch operation on the asset with the specified identifier.
+
+<h3>Request</h3>
+
+```text 
+PATCH /api/v1/Tenants/{tenantId}/Namespaces/{namespaceId}/Assets/{assetId}
+```
+
+<h4>Parameters</h4>
+
+`string tenantId`
+<br/>Tenant identifier.<br/><br/>`string namespaceId`
+<br/>Namespace identifier.<br/><br/>`string assetId`
+<br/>Asset identifier.<br/><br/>
+
+<h4>Request Body</h4>
+
+Asset patch document.<br/>
+
+```json
+{
+  "Operations": [
+    {
+      "value": null,
+      "path": "string",
+      "op": "string",
+      "from": "string"
+    }
+  ]
+}
+```
+
+<h3>Response</h3>
+
+|Status Code|Body Type|Description|
+|---|---|---|
+|200|[Asset](#schemaasset)|OK.|
+|400|[ErrorTemplate](#schemaerrortemplate)|Request is not valid. See the response body for additional details.|
+|403|[ErrorTemplate](#schemaerrortemplate)|Forbidden.|
+|408|[ErrorTemplate](#schemaerrortemplate)|Request Timeout.|
+|409|[ErrorTemplate](#schemaerrortemplate)|Conflict.|
+|412|[ErrorTemplate](#schemaerrortemplate)|Pre-Condition Failed.|
+|503|[ErrorTemplate](#schemaerrortemplate)|Service unavailable.|
+
+<h4>Response Headers</h4>
+
+|Status|Header|Type|Description|
+|---|---|---|---|
+|200|ETag|string|Version.|
+
+<h4>Example response body</h4>
+
+> 200 Response
+
+```json
+{
+  "Id": "SampleAsset",
+  "Description": "This is a sample asset.",
+  "Metadata": [
+    {
+      "Id": "Id-abcde",
+      "Name": "ModelNumber",
+      "Description": "This is a static attribute on the asset which represents the model number.",
+      "SdsTypeCode": "Double",
+      "Value": 0.01
+    }
+  ],
+  "StreamReferences": [
+    {
+      "Id": "5345e98d-dc43-4f9d-a666-158a3baaf244",
+      "Name": "Data",
+      "Description": "This is the description for this stream reference.",
+      "StreamId": "SdsStream_1"
+    }
+  ],
+  "Tags": [
+    "Tag1",
+    "Tag2"
+  ]
+}
+```
+
+> 400 Response ([ErrorTemplate](#schemaerrortemplate))
+
+```json
+{
+  "OperationId": "string",
+  "Error": "string",
+  "Resolution": "string",
+  "Reason": "string",
+  "property1": null,
+  "property2": null
+}
+```
+
+---
+
 ## `Delete Asset`
 
 <a id="opIdAssets_Delete Asset"></a>
@@ -1639,6 +1740,63 @@ Status definition type. Currently, only StreamPropertyMapping is supported.
 |---|---|
 |Unspecified|0|
 |StreamPropertyMapping|1|
+
+---
+
+### JsonPatchDocumentOfPatchAsset
+
+<a id="schemajsonpatchdocumentofpatchasset"></a>
+<a id="schema_JsonPatchDocumentOfPatchAsset"></a>
+<a id="tocSjsonpatchdocumentofpatchasset"></a>
+<a id="tocsjsonpatchdocumentofpatchasset"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|Operations|[[OperationOfPatchAsset](#schemaoperationofpatchasset)]|false|true|None|
+
+```json
+{
+  "Operations": [
+    {
+      "value": null,
+      "path": "string",
+      "op": "string",
+      "from": "string"
+    }
+  ]
+}
+
+```
+
+---
+
+### OperationOfPatchAsset
+
+<a id="schemaoperationofpatchasset"></a>
+<a id="schema_OperationOfPatchAsset"></a>
+<a id="tocSoperationofpatchasset"></a>
+<a id="tocsoperationofpatchasset"></a>
+
+<h4>Properties</h4>
+
+|Property Name|Data Type|Required|Nullable|Description|
+|---|---|---|---|---|
+|value|any|false|true|None|
+|path|string|false|true|None|
+|op|string|false|true|None|
+|from|string|false|true|None|
+
+```json
+{
+  "value": null,
+  "path": "string",
+  "op": "string",
+  "from": "string"
+}
+
+```
 
 ---
 

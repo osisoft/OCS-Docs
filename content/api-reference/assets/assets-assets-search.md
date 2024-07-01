@@ -1,5 +1,6 @@
 ---
 uid: assets-assets-search
+
 ---
 
 # Assets Search
